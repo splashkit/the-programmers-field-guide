@@ -2,37 +2,39 @@
 sidebar_position: 1
 ---
 
-# Introduction
+# Welcome to the Programmer's Field Guide
 
-Welcome to the Programmerc’s Field Guide. In this book we aim to equip you with the skills needed to understand and build software, and engage with the growing capability that computing offers. We want you to come out of this with a good understanding of how programs work, with tools to help you create your own programs, and the skills necessary to keep learning the programming languages, libraries, and new tools as you grow in your capabilities.
+This book will equip you with the skills you need to understand and build software, and engage with the growing capabilities that computing offers. We want you to come out of this with a good understanding of how programs work, with tools to help you create your own programs, and the skills necessary to keep learning programming languages, libraries, and tools as you grow in the field.
 
+This first chapter will explain how we will be approaching the task of introducing you to these concepts and tools. It will give you an overview of computer systems and a big picture of how to computing works. The chapter will outline how the parts in the book are organised, and how the knowledge and skills you develop will build over these.
 
-This first chapter will explain how we will be approaching the task of introducing you to these concepts and tools. It will give you an overview of the rest of the book, 
+By the end of this chapter you will be able to:
+
+- Describe 
 
 ## Why are computer systems everywhere?
 
-Computers are everywhere, helping enhance many aspect of our lives. There are computers embedded within many every day items.
+Computers are everywhere, helping enhance many aspect of our lives. There are computers embedded within many every day items, most people carry around a computer in their pocket and possibly another on their wrist, and we interact with software for so many things each day. 
 
-So why are computers everywhere?
+*Why are computers everywhere?*
 
-Steve Jobs, the co-founder of Apple, likened computers to a “Bicycle for the Mind”. 
+In the video below, Steve Jobs, the co-founder of Apple, describes the computer as a tool that acts like a **bicycle for the mind**. From our perspective, this is trying to capture the role of the computer as a tool to *accelerate our thoughts and imaginations*. This sits at the root of the answer to why computers are so useful, and so connected to our daily lives. If we can imagine something, with some constraints, we can create this reality within code and have it accelerated by computing - which can quickly and reliably undertake the actions we wanted performed.
 
-[https://youtu.be/ob_GX50Za6c](Bicycle for the Mind video)
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ob_GX50Za6c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-In this video, Steve Jobs describes the computer as a tool that acts like a bicycle for the mind. From our perspective, this is trying to capture the role of the computer as a tool to accelerate our thoughts and imaginations. 
+If we follow this perspective, programs allow you to instruct the computer to build a reality that operates as if at a conceptual level. In a way this is a conceptual machine (a bicycle for the mind) with imaginary parts that can perform actions and interact with the real world.
 
-Programs allow you to instruct the computer to build a machine that can operate as if at a conceptual level. You can build *things* within the computer, *things* build upon information and instructions to modify that information based on external stimulus. Program can receive inputs from the real world, with buttons, mice and sensors turning real world actions and values into digital values that can be used. Motors, displays, speakers, and other devices enabling programs to change things within the real world.
+Within these programs, you build the *things* you need to make the reality you are aiming for, *things* built upon information and instructions to modify that information based on external stimulus. Program can receive **inputs** from the real world, with buttons, mice and sensors turning real world actions and values into digital values that can be used. Motors, displays, speakers, and other devices enabling programs to change things within the real world - which we can think of as the **outputs** of the program.
 
-We can think of each program as creating its own **digital reality**. One that contains the things the developers created through the program’s code, operating in the way the developers described within the code. These realities can respond to inputs, and generate outputs.
+In this way, we can think of each program as creating its own **digital reality**. One that contains the things the developers created through their program’s code, operating in the way the developers described in that code. These realities can respond to inputs, and generate outputs.
 
-This capability makes computers very useful. If we can imagine a useful digital reality, and create this using programming tools, then this reality will exist within the computers running your program.
+This capability makes computers very useful. If we can imagine a useful digital reality, and create this using programming tools, then this reality will exist within the computers running your program. You will be able to get the computer to respond in a meaningful way to inputs, and generate meaningful changes in the real world.
 
 Learning to program will give you the skills and tools needed to create your own digital realities.
 
-
 ## Digital Reality
 
-What do we mean by a digital reality?
+*What do we mean by a digital reality?*
 
 Let’s think about some computer programs you will have interacted with. Take a word processor, for example. Within this you can create documents, that contain paragraphs, sentences, words, images, and other resources.  None of these things really exist within the computer, but we accept this reality. We can input values from the keyboard and use a mouse, touchscreen, or trackpad to interact with parts of the documents. We can see the documents on a screen, and print them paper to see them in the real world.
 
