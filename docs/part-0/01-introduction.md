@@ -52,7 +52,11 @@ Hopefully, you can see how powerful this makes computing, and how valuable it ca
 
 Generally, you will find that programming texts will describe programming in terms of **abstraction**. This comes from thinking about how a computer works and the process of this enables us to create digital realities. To see this, we need to think about what a computer is.
 
-A computer is an electronic device. It operates by controlling voltage through its circuits, with transistors enabling us to detect the presence or absence of voltage at certain places within the computer. So, at this level, a computer is just an electrical current flowing through a circuit.
+A computer is a electronic device. It operates by controlling voltage through its circuits, with transistors enabling us to create gates that are used to control where the current flows. We can then combine this with the ability to detect current at certain locations (memory), with these currents then able to affect how 
+
+Other parts of the computer then use electronics to create gates that allow different behaviour in response to binary values that exist within other places in the computer.
+
+detect the presence or absence of voltage at certain places within the computer. So, at this level, a computer is electrical current flowing through a circuit. So how does this become a digital reality? Through *abstraction*.
 
 *So how does this become a digital reality?*
 
