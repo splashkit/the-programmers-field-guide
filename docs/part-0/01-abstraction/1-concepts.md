@@ -1,20 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# 1. Introduction
-
-## Welcome to the Programmer's Field Guide
-
-This book will equip you with the skills you need to understand and build software and engage with the growing capabilities that computing offers. We want you to come out of this with a good understanding of how programs work, with tools to help you create your programs, and the skills necessary to keep learning programming languages, libraries, and tools as you grow in the field.
-
-This first chapter will explain how we will be approaching the task of introducing you to these concepts and tools. It will give you an overview of computer systems and a big picture of how to computing works. The chapter will outline how the parts in the book are organised and how the knowledge and skills you develop will build over these.
-
-By the end of this chapter you will be able to:
-
-- Describe how programs are like digital realities, and reflect on the opportunities this creates.
-- Describe the main parts of the field guide and the emphasis of each part.
-- Describe how the process of abstraction enables the creation of digital realities within computing devices.
+# Concepts
 
 ## Programs, what are they?
 
@@ -185,42 +173,3 @@ Actions can also be abstracted, building from simple mathematical operations to 
 By using **abstraction**, we can work at this higher level. Ignoring the details of how this works at the lower levels, at least most of the time. In this way, we spend our time picturing the reality we want to create and crafting the code needed to produce this.
 
 _**This** is what software development is all about._
-
-## How do we get there?
-
-This book focuses on helping you develop a strong mental model of programming. It does not go down to exploring gates and electronics in much detail but focuses on the programming abstractions we can build within the computer. It takes a bottom-up approach to introducing tools and capabilities, ensuring you can understand how these build upon each other as you go. Initially, you will explore how instructions in the computer work at the lower levels, to help you understand what is happening as your programs run. This will ensure you can see how the different parts all start to work together, meaning you can explain how your programs work which in turn will help you know how to get new things working in the future. If you want to explore lower levels, have a look at books on computer systems. These often explore the lower-level aspects of how computers work, the gates and how these can be combined to build a computer. The [From Nand to Tetris](https://www.nand2tetris.org) book is a great example of this.
-
-We are currently in **Part 0**, which sets the background for the book. In this part, the introduction outlines the approach of the book, with the following chapters on computer use and building programs helping you start to work with the computer through command line instructions and low-level tools.
-
-**Part 1** of the book will focus on *programs as instructions*. This part will help you understand how the most basic of the elements work within these digital realities. You will see how each of these works looking at them in detail to see how they work at the lower levels of abstraction. Understanding how these work will help you see how these core parts work within the programs we create. Programs in this section will be relatively small, enabling you to focus on the mechanics and effect of each instruction. Your learning from this will give you a solid foundation upon which to start building larger programs.
-
-**Part 2** moves up to consider how we can start building larger *things* within our digital realities - taking it to another level of abstraction. This will introduce you to tools to combine things, helping package instructions and data into the kinds of entities that exist within even the most sophisticated digital realities. Programs in this section will start to get a little larger, as you build more meaningful entities. However, we will focus mostly on how the *programs are* a way of *organising* code. What you learn from this will help set you up to start thinking about how these come together.
-
-In **Part 3**, we will move away from code to think more about software design. You will see how you can use the different kinds of packages (from part 2) to build complex realities, with *programs as conceptual models*. Building upon your understanding of how to organise code, and your understanding of how programs work as instructions. With this understanding, you will have the knowledge and skills needed to design and create sophisticated digital realities.
-
-We conclude the book in **Part 4** where we look at how to use the things you have learnt to build a range of real-world software systems. This will give you an initial look at how to use the things you have learnt, with professional tools, to create any kind of software system.
-
-## But what language will I learn?
-
-There is often a fixation on which language you will use when learning to program. Should we pick this language or another, what should inform the choice of language?
-
-This book will focus on building your mental model. The focus is not on a particular language, but on things common across most languages. It will use language features common to many programming languages, helping you build a strong mental model that will be capable of quickly picking up and using many different programming languages. Each chapter will also contain a section that reaches out to other languages, showing you how the concepts covered exist or ar different in other languages. This will help you see that what you are learning is *more* than just *a programming language*.
-
-*So which langauge will you use?*
-
-The book start with C#, transition to C/C++, then come back to C#. This will allow you to focus on a common style of programming syntax, the C-style syntax, while giving you a modern language to work with. More importantly, these languages provide mechanisms to demonstrate the breadth of capabilities you need to explore. However, we are not going to focus on language parcularities, and we will ignore things that are not common elsewhere. This means that you will need to further study these languages after finishing this book to really say you have *leanrt* that language. But the great this is, you will have all of the skills and understanding you need to learn this with the resources available online and through things like generative artificial intelligence.
-
-Most modern systems are built using multiple programming languages - as different languages are better at different things. There is no one best language, so our approach aims to show you the common features across languages and give you set you up to quickly pick up the language that best fits your needs. This is something we draw upon in Part 4, where we will use different programming languages as we build out these different real-world programs.
-
-## Activities
-
-For now, you want to start thinking more deeply about how the programs you have used are likely to be working and start to think about the kinds of things you may be interested in building in the future.
-
-- Pick a program that you are familiar with, and describe the digital reality that is presented within that software. What *things* do you imagine exist within that software?
-- What would you like to build? Describe a program you would like to create, and then think about the things that you picture as existing within it.
-
-## Wrap Up
-
-This book is about learning to program - learning to create digital realities that can exist and operate within a computer. We will use C-style syntax, while also pointing out other languages you can explore at a later stage.
-
-Before we get into this, we need to explore how to use your computer like a computing professional.
