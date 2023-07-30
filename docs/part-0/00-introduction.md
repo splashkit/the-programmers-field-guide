@@ -32,11 +32,11 @@ In **Part 3**, we will move away from code to think more about software design. 
 
 We conclude the book in **Part 4** where we look at how to use the things you have learnt to build a range of real-world software systems. This will give you an initial look at how to use the things you have learnt, with professional tools, to create any kind of software system.
 
-## What tools do I need?
+## What do I need?
 
 Programming is a practical skill that will require time and effort to master. In order to practice, you will need access to a computer and a set of programming tools. The tasks and activities in the Programmer’s Field Guide are designed to work on a range of computers, and will use free and open source tools.
 
-While you could use any computer, the field guide targets the [Raspberry Pi](https://www.raspberrypi.org) single-board computer. If you can get yourself a Raspberry Pi, then you will be set for the journey. For the adventurous, we recommend the **Programmers Multi-Tool** - a custom designed hardware setup. This can be your physical companion on your quest to acquire mastery of the field.
+While you could use any computer, the field guide targets the [Raspberry Pi](https://www.raspberrypi.org) single-board computer. If you can get yourself a Raspberry Pi, then you will be set for the journey. For the adventurous, we recommend the **Programmers Multi-Tool** - a custom designed hardware setup. This can be your physical companion on your quest to acquire mastery of the field. [Chapter 2](computer-use) has the instructions on getting your Raspberry Pi or computer setup, and will get you started using command line tools.
 
 :::note
 
@@ -44,7 +44,11 @@ The **Programmers Multi-Tool** is a Raspberry Pi based project, with everything 
 
 :::
 
-[Chapter 2](computer-use) has the instructions on getting your Raspberry Pi or computer setup, and will get you started using command line tools.
+Another good thing to have is some company. While you can travel this journey solo, it is usually better with good company. An ideal travel group would include an experienced guide, and some companions who are taking the trip for the first time. If you are at school of university, this will be your tutor and friend and fellow students. Your tutor can help you engage with these ideas, and provide you with feedback on your activities as you go. You can also learn a lot from interacting with others who are also on the same path as you. Discussing these ideas together will help you learn more, and you can share the successes and challenges you encounter on your journey.
+
+If you are not already doing this with others, you should consider finding a study group to join. Learning to program can be challenging, so having others to help guide and support you can make a big difference.
+
+Each chapter will provide you with activities, which will include individual and group activities. Engage in these activities with your travel companions, and discuss your understanding of the different tools and sights as we go.
 
 ## What language will I learn?
 

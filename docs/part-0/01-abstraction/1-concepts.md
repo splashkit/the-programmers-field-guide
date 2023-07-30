@@ -34,15 +34,13 @@ Every computer game you have played is also a digital reality. The characters of
 
 Hopefully, you can see how powerful this makes computing, and how valuable it can be to understand how these realities can be created. This understanding underpins any study you do in computing, and computing underpins so many things within our lives. Understanding how programs work within the computer, and the things are constructed from, will help you see how to make the most of these tools in whichever field you work.
 
-### Digital Realities and Abstraction
+## Digital Realities and Abstraction
 
 *Before we move on, we need to think a little about how these digital realities come into existence.*
 
 Generally, you will find that programming textbooks will describe programming in terms of **abstraction**. This comes from thinking about how a computer works and the process we use to create digital realities. To see this, we need to think about what a computer is.
 
-A computer is an electronic device. It operates by controlling voltage through its circuits. Transistors enable us to create gates that control where the current. 
-
-The processing units of the computer combine together lots of gates that control the flow of current to achieve desired computations. Gates are also used to control the flow of current through memory chips, controlling which parts of the chips retain, gain, or lose current. So, at this level, a computer is electrical current flowing through a circuit.
+A computer is an electronic device. It operates by controlling voltage through its circuits. Transistors enable us to create gates that control where the current. The processing units of the computer combine together lots of gates that control the flow of current to achieve desired computations. Gates are also used to control the flow of current through memory chips, controlling which parts of the chips retain, gain, or lose current. So, at this level, a computer is electrical current flowing through a circuit.
 
 *So how does this become a digital reality?*
 
@@ -50,13 +48,19 @@ The answer is - through **abstraction**. This is our ability to move above event
 
 Using abstraction, we can *imagine* that the presence of current at a certain location in the computer as a **1**, whereas absence is **0** - giving us a binary value. Individual binary values can be grouped to create larger numeric values - with most modern computers being designed with groups of 64 binary values being their natural unit of data (64-bit computers).
 
-Taking abstraction to the next level, we can use these binary values both to represent data within the computer and control the computations occurring within the processors.
+Taking abstraction to the next level, we can use these binary values both to represent data within the computer and control the computations occurring within the processors. Grouping binary values gives us a number - for example 8 bits (a **byte**) gives us 256 unique values. An integer with a range of 0 to 255 or -128 to 127 if signed. Each additional bit doubles this range. We can abstract these further to represent real numbers, with a fixed degree of accuracy, and map numbers to characters for text, colours for images, or signals for audio for example.
 
-Grouping binary values gives us a number - for example 8 bits (a **byte**) gives us 256 unique values. An integer with a range of 0 to 255 or -128 to 127 if signed. Each additional bit doubles this range. We can abstract these further to represent real numbers, with a fixed degree of accuracy, and map numbers to characters for text, colours for images, or signals for audio for example.
+Abstracting further, we can combine these individual values into entities like bank accounts, characters and levels in games, documents in a word processor, or any other *thing* we want to represent within the digital realities we are creating.
+
+By using **abstraction**, we can work at this higher level. Ignoring the details of how this works at the lower levels, at least most of the time. In this way, we spend our time picturing the reality we want to create and crafting the code needed to produce this.
+
+_**This** is what software development is all about._
 
 ### Machine Code
 
-The design of the processor allows it to controls the flow of current in response to the current within a certain part of the processor - effectively giving us a value to represent each instruction the computer can perform. We can abstract this to a unique binary value for each instruction - the **machine code** of the computer. These instructions can now be seen as performing computations - adding, subtracting, multiplying, dividing, comparing, or moving values within the computer. These very simple actions are performed very quickly, and can be use to create everything you have ever seen a computer do.
+Gates within the computer are also used to control its actions. The processing components of the computer are controlled by current flowing through these gates. As with the data above, we can abstract this to a combination of binary values used to control the machine. The set of instructions is known as the machine code. These instructions can be seen as performing computations - adding, subtracting, multiplying, dividing, comparing, or moving values within the computer. These very simple actions are performed very quickly, and can be use to create everything you have ever seen a computer do - but we need to use abstract here to see how we can make more meaningful things.
+
+At this point in our journey, let’s explore the application of abstraction to the instructions we give computers. This will set the foundation for the programming you will start to explore.
 
 #### Programming in Machine Code
 
@@ -118,13 +122,15 @@ _main:
 
 From a programmer's perspective, assembler code is much easier to work with than machine code, though there are still issues with the use of assembler code. Firstly Assembly is bound to the instruction set of the CPU that you are targeting, meaning that if you want to support other kinds of CPU you will need to rewrite the program. The other main issue with assembler code is that while it is more understandable, you are still working with the primitive instructions of the CPU. Working at this level takes considerable effort to write even simple programs.
 
-Assembly languages were first developed in the 1950s, and were known as a **Second Generation** programming languages. This step forward did make programming easier, but the tools have advanced since then and now we can work at an even higher level of abstraction.
+Assembly languages were first developed in the 1950s, and were known as a **Second Generation** programming languages. This step forward does make programming easier, but we can use abstraction again, and move to a higher level of abstraction to achieve more with less effort.
 
 ### Source Code and the Compiler
 
-The next step in programming language evolution moved from machine level instructions to something more human readable. These languages, known as **Third Generation Languages**, use move advanced programs than assemblers to convert their instructions into machine code. Programs written in these languages have their code converted to machine code by a **compiler**.
+The next step in programming language evolution moved from machine level instructions to something more human readable. These languages, known as **Third Generation Languages**, use move advanced programs than assemblers to convert their instructions into machine code. Programs written in these languages have their code converted to machine code by a **compiler** or **interpreters**.
 
-A **Compiler** is a program that converts **Source Code** into machine code that is saved into an executable file called a *Program*. The program can then be executed independent of the compiler and the source code.
+A **Compiler** is a program that converts **Source Code** into machine code that is saved into an executable file called a *Program*. The program can then be executed independent of the compiler and the source code. An **interpreter** skips the intermediate steps of saving the machine code, and just executes the code as the program is read. This is slower, and means you need to have the interpreter to run the program, but this gives you additional flexibility that can be hard to achieve otherwise.
+
+We will focus on compiled languages.
 
 Internally, a compiler will perform a number of steps:
 
@@ -142,6 +148,8 @@ Internally, a compiler will perform a number of steps:
     join together the machine code from your program, with other machine
     code you have used from the programming libraries. This then outputs
     an executable program.
+    
+At the end of this process you have an executable that you can run on the computer.
 
 #### Programming with a Third Generation Language
 
@@ -165,11 +173,10 @@ Programs written in a third generation programming language are much easier to u
 
 The code that a programmer writes in these languages is called **Source Code**. Typically source code is saved into a text file with a file extension that helps identify the language it is written in. For example, programs written in the C++ language are saved into files with a `.cpp` file extension whereas C# programs are saved into files with a `.cs` extension, Python in `.py` and so on.
 
+## Abstracting further
 
-Abstracting further, we can combine these individual values into entities like bank accounts, characters and levels in games, documents in a word processor, or any other *thing* we want to represent within the digital realities we are creating.
+*Can we abstract things further?*
 
-Actions can also be abstracted, building from simple mathematical operations to become actions meaningful to the entities within our reality. We can transfer funds between bank accounts, move players within a game, add pages to documents, and any other action we want or need to perform within the reality we are creating.
+Programming langauges haven’t evolved to higher levels of abstraction. Instead, we create our own abstractions within these languages. We can then use visual representations of these abstractions with things like flow charts, sequence diagrams, class diagrams, and other visual notations. These abstractions allow us to communicate our ideas and thoughts about the digital realities that we are creating.
 
-By using **abstraction**, we can work at this higher level. Ignoring the details of how this works at the lower levels, at least most of the time. In this way, we spend our time picturing the reality we want to create and crafting the code needed to produce this.
-
-_**This** is what software development is all about._
+So, now it comes to us. As we build software, we create the next levels of abstraction. Making it possible to create the things we need within the computer to achieve our desired outcomes.
