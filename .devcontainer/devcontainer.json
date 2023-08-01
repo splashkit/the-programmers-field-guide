@@ -9,7 +9,8 @@
 			"extensions": [
 				"dbaeumer.vscode-eslint",
 				"yzhang.markdown-all-in-one",
-				"DavidAnson.vscode-markdownlint"
+				"DavidAnson.vscode-markdownlint",
+				"znck.grammarly"
 			]
 		}
 	}
