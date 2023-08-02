@@ -13,7 +13,7 @@ that you can read them back later. The variable's themselves are either a [Globa
 
 ![Figure 5.2 Variables store a value that can be read and changed](./images/variable-container.png "variable-container")
 
-:::tip Notes
+:::info Note
 
 - A Variable is an **artefact**, you can create variables to store values in your programs.
 - You can think of a Variable like a "box with an item in it". The Variable is the box, its value is the item within it.
