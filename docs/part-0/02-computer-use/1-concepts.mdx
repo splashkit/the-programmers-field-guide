@@ -106,7 +106,149 @@ For these commands to work, make sure you are using double qutoes (“) around t
 
 This should get your pi to speak to you.
 
-**TODO ADD curl example**
+**TODO ADD curl example - check BoM data? **
+
+## Files and File Systems
+
+To start our exploration of the command line, we need to understand a little about files and file systems. When you interact with the terminal, the shell will position you within the file system to enable you to easily access and manipulate files.
+
+Let’s return to our low-level thinking on how the computer actually works. You should recall that the computer is an electronic device. Current flows through the transistors within the computer, enabling different values and actions to be achieved. However, this all disappears when the power is turned off. In order to retain data, some other technologies are required.
+
+Storage devices have the capability to retain data in a way that does not require power. In order to use this data, you need to read it from the storage device. This converts the stored data back into electronic current that can be used within the processors. New and changed data can then be written back to the storage device to be used again later.
+
+Operating systems provide ways of organising this data, to help efficiently organise the information on the storage devices and make allow users to find the information they are after. To achieve this, operating systems opted for a metaphore based on paper based ways of organising information in **files** and **folders**.
+
+A **file** stores data associated with a single thing - a document, image, sound track, program, etc. Through the operating system, programs can open files and read that data within them, change data stored, or write new data to the end of the file. You could picture this as a book, or sheets of paper, where you can change read, change, or add information.
+
+**Folders** were then created to organise files. Files exist within folders, listed in a **directory** that records the details of each file such as its name, size, the owner, and permissions on who can accessess it. This allows files to be organised in groups, where users can list the files in the folder to see the one they want to interact with.
+
+*How are folders organised?*
+
+In addition to containing files, folders can also contain other folders. This gives you directories of files, that can contain sub-directories. This simple concept allows you to create large file systems, with folders and files organised in complex ways. For example, in your home folder you can have folders for documents, downloads, pictures, music, etc. In your documents folder you can have more folders to divide your documents between different projects, or create folders to organise them in any way that makes sense to you.
+
+**TODO Add image to show folders**
+
+This organisation results in files and folders organised in a tree, much like a family tree. This similarity resulted in the file system using metaphors based on genealogy and family relationship terms. The files and folders within a folder are called its children, making the parent the folder that contains a given folder.
+
+You can picture this as a hierarchy. The file system starts with a folder we call the **root** of the file system. It is the one folder that does not have a **parent** folder. The name root comes from the tree analogy, as the basis for the tree on top of which the other folders grow. All other folders are within the root folder.
+
+**TODO Add image showing labeling root, parent and child**
+
+As a user, you need a way of saying which file you want to use. This means that each file must be uniquely identifiable. To achieve this, files and folders must have a unique name within their parent folder. If you move a file with the same name into a folder, it will replace the existing file. Losing the data associated with it. This ensures that you can uniquely identify files within each folder.
+
+To identify a file within the file system, you can list the **path** to follow from the root to the file you are wanting to identify. The path is a list of folder, separated by `/`. For example, `/home/multitool/Documents/code/program1.cs` is the path you take starting at the *root* of the file systems. First you go into the *home* folder, then into the *multitool* within *home*, followed by Documents, and code. The last element on the path is the *program.cs* file. Here we can see that *Documents* is the parent of the *code* folder, and *multitool* is the parent of the *Documents* folder.
+
+:::info
+
+The root of the file system is the `/` folder - as this lists no folders in this path. 
+
+:::
+
+:::warn
+
+To be different, Windows uses `\` to separate folders. This can be more challenging to program with as `\` also has special meaning in many programming languages.
+
+:::
+
+### Files and the Shell
+
+Files store the data you want to work with, so the shell needs to provide you with convenient ways of accessing and interacting with your files and the folders that organise them. To achieve this, the shell has a **working directory** - i.e. the folder you are currently working within. You can then issue commands to list the files within the current folder (directory) move to new directories, and perform other commands on your files. 
+
+You can directly access files within the current working directory, which we often shorten to just **current directory**. Now lets take a look at the main commands you need to get stared exploring files and manipulating the working directory in your Terminal:
+
+:::info
+  **Action**                **Command**   **Description**
+  ------------------------- ------------- -----------------------------------------------------------------------------------
+  Print Working Directory   `pwd`         Outputs the current working directory.
+  Change Directory          `cd`          Moves the shell to a different working directory (folder).
+  List Files                `ls`          Outputs a list of files.
+  Copy File(s)              `cp`          Copies files from one folder location to another.
+  Move File(s)              `mv`          Moves files from one folder location to another.
+  Delete File(s)            `rm`          Removes files from the computer. There is no recycle bin with this, so take care!
+  Create a Directory        `mkdir`       Makes a new directory (folder).
+
+:::
+
+#### pwd
+
+The `pwd` command will let you know the path to the current working directory. Give it a go in your Terminal. Type `pwd` at the shell’s prompt, and see the path to where you currently are.
+
+#### cd
+
+Changing directory will require you to tell the shell where you want to go to. We call this **passing** information to a command, and there are some conventions on how you do this which we will look at as we go through these commands.
+
+The first way to pass data is as **arguments** - derived from the notion of [mathematical arguments](https://softwareengineering.stackexchange.com/questions/186293/why-are-actual-parameters-called-arguments#:~:text=%22Formal%22%20parameters%20(also%20known,above%20to%20prevent%20any%20confusion.) passed to functions. This simple means listing the data you want to give to the command after the command itself, with spaces between each value. For example, `cd /home` passes the argument `/home` to the `cd` command.
+
+The `cd` command takes one argument - the path to the directory you want to make the current working directory.
+
+Give it a try. Move to the root of the file system using `cd /`.
+
+To get back to your **home** directory, the one where your files are generally stored, you can either use the path you see printed above in the output from the `pwd` command or you can use the shortcut `~`. The shell knows that you will often want to go to your home folder, so it added `~` as a shortcut.
+
+Give it a try. Move back home using `cd ~`. Use `pwd` to check where you are.
+
+How about moving to the parent folder of your home. Once again you could use the full path, e.g. `cd /home` on the Pi, or you can use the convenient shortcut `..`. In the shell, `.` is a shortcut for the current directory and `..` is the shortcut for its parent.
+
+:::info
+
+There are three really useful shortcuts:
+
+* `~` is the path to your home directory
+* `.` is the path to the current working directory
+* `..` is the path to the parent folder
+
+:::
+
+Using these shortcuts, you can create **relative** paths. This is the path from your current location, to another location within the file system. For example, if you run `cd ../presentations` in `/home/multitool/Documents/code` then this is move to the parent of `code` (the Documents folder) and then down into the `presentations` folder. This would move you to `/hone/multitool/Documents/presentations`.
+
+You can combine these together. So in `/home/multitool/Documentations/presentations` you could run `cd ../../Downloads` and end up in `/home/multitool/Downloads`. You could get to your Documents folder from anywhere using `cd ~/Documents`.
+
+:::tip Read the friendly manual
+
+The `man` command in Unix opens the manual for a given command. To do this you pass `man` the name of the command you want help with. So `man pwd` will give you the instructions on how to use the `pwd` command. This can be useful if you are stuck, though searching the internet or accessing Bard or other generative AIs can help too. Online versions of these manuals are also available. For example, you can use this [cp command](https://man.cx/Cp).
+
+:::
+
+#### ls
+
+To list the files in a folder you can use the [ls command](https://man.cx/Ls). By default, this lists the files in the current folder. Alternatively, you can pass `ls` the path to the folder you want to list.
+
+In addition to arguments, you can pass options to commands. These are arguments that start with a `-`, and there are some useful options to help format the output of the list (ls) command. Generally, I use `ls -lha`, where the `l` option asks for a long format list (one file per line), `h` asks for file sizes in human readable numbers, and `a` asks for all files (including hidden files).
+
+Give this a try. Move to your home directory, and then use `ls`, `ls -l` and `ls -lha` a go. 
+
+You can also use arguments with wildcards to indicate the kind of file you want to list. Try `ls -lha D*` The `*` is a wildcard, meaning it can be replaced by anything. So `D*` will be any file or folder starting with the letter `D`.
+
+Try moving around and explore your file system. Go to the root and list the files and folders there. Then move into some of these folders and list what they contain. Look at a file in your graphical file explorer, and see if you can find it in the Terminal.
+
+:::tip
+
+With many terminal programs, you can drag and drop files onto the Terminal program to inject their path at the cursor in the prompt.
+
+:::
+
+:::tip Auto-complete
+
+If you start typing the parts of a path, you can auto-complete it using the tab key. For example, `cd ~/Doc<tab>` should complete to become `cd ~/Documents`, assuming you have a Documents folder within your home directory.
+
+**Make sure you use auto-complete!**
+
+The tab key is your friend.
+
+:::
+
+
+ls
+cd
+mkdir
+cat
+cp
+rm
+mv
+find
+
+permissions - chmod, chown
+
 
  
 ## The Execution Environment
@@ -120,31 +262,6 @@ Standard input, output and error
 Environment variables
 
 PATH
-
-## Files and File Systems
-
-Current through circuits disappears when the power is turned off.
-Storage
-Organise things
-
-Files, folders
-
-~
-.
-..
-
-pwd
-ls
-cd
-mkdir
-cat
-cp
-rm
-mv
-find
-
-permissions - chmod, chown
-
 
 
 
