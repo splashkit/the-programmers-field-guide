@@ -22,7 +22,7 @@ By the end of this chapter you will be able to:
 
 This book focuses on helping you develop a strong mental model of programming. It takes a bottom-up approach to introducing tools and capabilities so that you can understand how different things build upon each other. Initially, you will explore how instructions in the computer work at the lower levels. This will help you understand what is happening as your programs run and how the different parts all work together. When you understand this, you'll be able to explain how your programs work and know how to get new things working in the future. If the lower levels are particularly interesting to you, have a look at books on computer systems. These often explore the lower-level aspects of how computers work, all the way down to logic gates and how these can be combined to build a computer. The book [From Nand to Tetris](https://www.nand2tetris.org) is a great example of this.
 
-We are currently in **Part 0**, which sets the background for the book. In this part, the introduction outlines the approach of the book, and the remaining chapters on [Digital Realities](abstraction), [Computer Use](computer-use), and [Building Programs](building-programs) help you start to work with the computer through command line instructions and low-level tools.
+<!-- We are currently in **Part 0**, which sets the background for the book. In this part, the introduction outlines the approach of the book, and the remaining chapters on [Digital Realities](abstraction), [Computer Use](computer-use), and [Building Programs](building-programs) help you start to work with the computer through command line instructions and low-level tools. -->
 
 **Part 1** of the book will focus on *programs as instructions*. This part will help you understand how the most basic elements or abstractions work within a digital reality. Understanding how these elements work individually will help you see how they are combined to create programs. The programs you make in this section will be relatively small, enabling you to focus on the mechanics and effect of each individual instruction. Your learning from this part will give you a solid foundation upon which to start building larger programs.
 
@@ -36,7 +36,7 @@ The toolkit you develop over parts 1 to 3 enable you to create any kind of digit
 
 Programming is a practical skill that will require time and effort to master. In order to practice, you will need access to a computer and a set of programming tools. The tasks and activities in the Programmer’s Field Guide are designed to work on a range of computers, using free and open source tools.
 
-While you could use any computer, the field guide targets the [Raspberry Pi](https://www.raspberrypi.org) single-board computer. If you can get yourself a Raspberry Pi, then you will be set for the journey. For the adventurous, we recommend the **Programmer's Multi-Tool** - a custom designed hardware setup. This can be your physical companion on your quest to acquire mastery of the field. [Chapter 2](computer-use) has  instructions on getting your Raspberry Pi or computer set up.
+<!-- While you could use any computer, the field guide targets the [Raspberry Pi](https://www.raspberrypi.org) single-board computer. If you can get yourself a Raspberry Pi, then you will be set for the journey. For the adventurous, we recommend the **Programmer's Multi-Tool** - a custom designed hardware setup. This can be your physical companion on your quest to acquire mastery of the field. [Chapter 2](computer-use) has  instructions on getting your Raspberry Pi or computer set up. -->
 
 :::note
 
@@ -68,6 +68,6 @@ Most modern systems are built using multiple programming languages, because diff
 
 ## Overview of Part 0
 
-Part 0 consists of three chapters: [Chapter 1](abstraction) will begin your journey by looking at what programs are and how to start thinking about them. [Chapter 2](computer-use) will help you acquire the first tools for your toolbelt as you set up your Raspberry Pi or computer and learn how to interact with the command line. [Chapter 3](building-programs) will wrap up Part 0 by getting you started building your first program.
+<!-- Part 0 consists of three chapters: [Chapter 1](abstraction) will begin your journey by looking at what programs are and how to start thinking about them. [Chapter 2](computer-use) will help you acquire the first tools for your toolbelt as you set up your Raspberry Pi or computer and learn how to interact with the command line. [Chapter 3](building-programs) will wrap up Part 0 by getting you started building your first program. -->
 
 Now that we have this part of the journey mapped out, let's get going.
