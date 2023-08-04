@@ -6,6 +6,10 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'The Programmer\'s Field Guide',
+			customCss: [
+				// Relative path to your custom CSS file
+				'./src/styles/custom.css',
+			],
 			social: {
 				github: 'https://github.com/withastro/starlight',
 			},
