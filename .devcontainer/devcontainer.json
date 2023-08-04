@@ -10,7 +10,8 @@
 				"dbaeumer.vscode-eslint",
 				"yzhang.markdown-all-in-one",
 				"DavidAnson.vscode-markdownlint",
-				"znck.grammarly"
+				"znck.grammarly",
+				"astro-build.astro-vscode"
 			]
 		}
 	}
