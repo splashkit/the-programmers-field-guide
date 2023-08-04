@@ -1,0 +1,8 @@
+{
+  "label": "2. Computer Use",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Before we start programming, we need to learn to use command line tools."
+  }
+}

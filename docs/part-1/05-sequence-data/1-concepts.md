@@ -1,5 +1,6 @@
 ---
-sidebar_position: 2
+title: replace_me
+description: replace_me
 ---
 
 import {Highlight,Caption,FigureText} from '@site/src/components/react-css-styles.js';
@@ -17,7 +18,7 @@ When you create a program in your code you should be thinking about the tasks yo
 
 <a id="FigureProgram" class="linkPoint"></a>
 
-![Figure 5.1 A program contains instructions that command the computer to perform actions](images/program-creation/BasicProgramConcept.png "A program contains instructions that command the computer to perform ")
+![Figure 5.1 A program contains instructions that command the computer to perform actions](./images/program-creation/BasicProgramConcept.png "A program contains instructions that command the computer to perform ")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.1: </span> A program contains instructions that command the computer to perform </div><br/>
 
 :::info Note
@@ -50,7 +51,7 @@ actions it is to perform.
 
 <a id="FigureStatement"></a>
 
-![Figure 5.2 A statement is a command for the computer to perform an action](images/program-creation/Statement.png "A statement is a command for the computer to perform an action ")
+![Figure 5.2 A statement is a command for the computer to perform an action](./images/program-creation/Statement.png "A statement is a command for the computer to perform an action ")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.2: </span> A statement is a command for the computer to perform an action</div><br/>
 
 :::info Note
@@ -70,7 +71,7 @@ A procedure call is a kind of [Statement](#Statement) that instructs the compute
 
 <a id="FigureProcedureCall"></a>
 
-![Figure 5.3 A procedure calls runs a procedure, passing in values for the procedure to use](images/program-creation/ProcedureCall.png "A procedure calls runs a procedure, passing in values for the procedure to use")
+![Figure 5.3 A procedure calls runs a procedure, passing in values for the procedure to use](./images/program-creation/ProcedureCall.png "A procedure calls runs a procedure, passing in values for the procedure to use")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.3: </span>A procedure calls runs a procedure, passing in values for the procedure to use</div><br/>
 
 :::info Note
@@ -102,7 +103,7 @@ the code that called the procedure.
 
 <a id="FigureProcedure"></a>
 
-![Figure 5.4 A procedure contains instructions to perform a task, and may need to be passed data in order to do this](images/program-creation/Procedure.png "A procedure calls runs a procedure, passing in values for the procedure to use")
+![Figure 5.4 A procedure contains instructions to perform a task, and may need to be passed data in order to do this](./images/program-creation/Procedure.png "A procedure calls runs a procedure, passing in values for the procedure to use")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.4: </span> A procedure contains instructions to perform a task, and may need to be passed data in order to do this</div><br/>
 
 :::info Note
@@ -129,7 +130,7 @@ the statement.
 
 <a id="FigureExpression"></a>
 
-![Figure 5.5 An expression provides a **value** to be used in a Statement.](images/program-creation/Expression.png "An expression provides a **value** to be used in a Statement.")
+![Figure 5.5 An expression provides a **value** to be used in a Statement.](./images/program-creation/Expression.png "An expression provides a **value** to be used in a Statement.")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.5: </span> An expression provides a **value** to be used in a Statement.</div><br/>
 
 :::info Note
@@ -153,7 +154,7 @@ A Literal is a whole, or part of, an [Expression](#Expression) where the value i
 
 <a id="FigureLiteral"></a>
 
-![Figure 5.6 Concepts related to Literals.](images/program-creation/Literal.png "Concepts related to Literals.")
+![Figure 5.6 Concepts related to Literals.](./images/program-creation/Literal.png "Concepts related to Literals.")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.6: </span>Concepts related to Literals.</div><br/>
 
 :::info Note
@@ -181,7 +182,7 @@ shown in [Figure 5.7](#FigureType).
 
 <a id="FigureType"></a>
 
-![Figure 5.7 A types define how values are interpreted and the operations that can be performed on the data.](images/program-creation/Type.png "A types define how values are interpreted and the operations that can be performed on the data.")
+![Figure 5.7 A types define how values are interpreted and the operations that can be performed on the data.](./images/program-creation/Type.png "A types define how values are interpreted and the operations that can be performed on the data.")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.7: </span>A types define how values are interpreted and the operations that can be performed on the data.</div><br/>
 
 :::info Note
@@ -210,7 +211,7 @@ artefact you create, and to select the artefact you want to use.
 
 <a id="FigureIdentifier"></a>
 
-![Figure 5.8 An Identifier is the name of a programming artefact such as a Program, Library, or Procedure.](images/program-creation/Identifier.png "An Identifier is the name of a programming artefact such as a Program, Library, or Procedure.")
+![Figure 5.8 An Identifier is the name of a programming artefact such as a Program, Library, or Procedure.](./images/program-creation/Identifier.png "An Identifier is the name of a programming artefact such as a Program, Library, or Procedure.")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.8: </span>An Identifier is the name of a programming artefact such as a Program, Library, or Procedure.</div><br/>
 
 :::info Note
@@ -236,7 +237,7 @@ available in this library.
 
 <a id="FigureLibrary"></a>
 
-![Figure 5.9 A library contains code that can be used by your Program](images/program-creation/Library.png "A library contains code that can be used by your Program")
+![Figure 5.9 A library contains code that can be used by your Program](./images/program-creation/Library.png "A library contains code that can be used by your Program")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.9: </span>A library contains code that can be used by your Program</div><br/>
 
 :::info Note
@@ -284,7 +285,7 @@ Procedures.
 
 <a id="FigureProcedureDeclaration"></a>
 
-![Figure 5.10 Procedure Declaration](images/program-creation/ProcedureDeclaration.png "Procedure Declaration")
+![Figure 5.10 Procedure Declaration](./images/program-creation/ProcedureDeclaration.png "Procedure Declaration")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.10: </span>Procedure Declaration</div><br/>
 
 :::info Note
@@ -315,7 +316,7 @@ these concepts is shown in [Figure 11](#FigureSummary). The next section will lo
 
 <a id="FigureSummary"></a>
 
-![Figure 5.11 Key Concepts introduced in this Chapter](images/program-creation/Summary.png "Key Concepts introduced in this Chapter")
+![Figure 5.11 Key Concepts introduced in this Chapter](./images/program-creation/Summary.png "Key Concepts introduced in this Chapter")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.11: </span>Key Concepts introduced in this Chapter</div><br/>
 
 :::info Note
@@ -335,7 +336,7 @@ A Variable is a **container** into which you can store a value, which can then b
 
 <a id="FigureVariable"></a>
 
-![Figure 5.12 Variables store a value that can be read and changed](images/storing-and-using-data/variable-container.png "Variables store a value that can be read and changed")
+![Figure 5.12 Variables store a value that can be read and changed](./images/storing-and-using-data/variable-container.png "Variables store a value that can be read and changed")
 
 <Caption><FigureText>Figure 5.12: </FigureText>Variables store a value that can be read and changed</Caption><br/>
 
@@ -363,7 +364,7 @@ changed. This is useful for data where you do not want the value changing during
 
 <a id="FigureConstant"></a>
 
-![Figure 5.13 Constants have a value that cannot be changed](images/storing-and-using-data/constant.png "Constants have a value that cannot be changed")
+![Figure 5.13 Constants have a value that cannot be changed](./images/storing-and-using-data/constant.png "Constants have a value that cannot be changed")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.13: </span> Constants have a value that cannot be changed</div><br/>
 
 :::info Note
@@ -387,7 +388,7 @@ Variables can be declared at a number of different places in your code. Variable
 
 <a id="FigureLocalVariable"></a>
 
-![Figure 5.14 Variables declared within a Procedure are Local Variables](images/storing-and-using-data/variable-local.png "Variables declared within a Procedure are Local Variables")
+![Figure 5.14 Variables declared within a Procedure are Local Variables](./images/storing-and-using-data/variable-local.png "Variables declared within a Procedure are Local Variables")
 
 <div class="caption"><span class="caption-figure-nbr">Figure 5.14: </span> Variables declared within a Procedure are Local Variables</div><br/>
 
@@ -411,7 +412,7 @@ While Global Variables should be avoided, Constants should be declared globally.
 
 <a id="FigureGlobalVariable"></a>
 
-![Figure 5.15 Variables declared within a Program are Global Variables](images/storing-and-using-data/variable-global.png "Variables declared within a Program are Global Variables")
+![Figure 5.15 Variables declared within a Program are Global Variables](./images/storing-and-using-data/variable-global.png "Variables declared within a Program are Global Variables")
 
 <div class="caption"><span class="caption-figure-nbr">Figure 5.15: </span> Variables declared within a Program are Global Variables</div><br/>
 
@@ -432,7 +433,7 @@ The instructions within a Procedure define the actions that occur when that proc
 
 <a id="FigureParameter"></a>
 
-![Figure 5.16 Parameters allow data to be passed to Procedures](images/storing-and-using-data/parameter.png "Parameters allow data to be passed to Procedures")
+![Figure 5.16 Parameters allow data to be passed to Procedures](./images/storing-and-using-data/parameter.png "Parameters allow data to be passed to Procedures")
 
 <div class="caption"><span class="caption-figure-nbr">Figure 5.16: </span> Parameters allow data to be passed to Procedures</div> <br/>
 
@@ -453,7 +454,7 @@ There are actually two ways that values can be passed to Parameters. This relate
 
 <a id="FigurePassByValueAndPassByReference"></a>
 
-![Figure 5.17 Parameters can accept data by reference or by value](images/storing-and-using-data/parameter-pass-by-reference-and-value.png "Parameters can accept data by reference or by value")
+![Figure 5.17 Parameters can accept data by reference or by value](./images/storing-and-using-data/parameter-pass-by-reference-and-value.png "Parameters can accept data by reference or by value")
 
 <div class="caption"><span class="caption-figure-nbr">Figure 5.17: </span> Parameters can accept data by reference or by value</div> <br/>
 
@@ -474,7 +475,7 @@ Statements are the actions that we can get the computer to perform. At this stag
 
 <a id="FigureStatmentWithAssignment"></a>
 
-![Figure 5.18 A Statement may be an Assignment statement](images/storing-and-using-data/statement.png "A Statement may be an Assignment statement")
+![Figure 5.18 A Statement may be an Assignment statement](./images/storing-and-using-data/statement.png "A Statement may be an Assignment statement")
 
 <div class="caption"><span class="caption-figure-nbr">Figure 5.18: </span> A Statement may be an Assignment statement</div> <br/>
 
@@ -494,7 +495,7 @@ The Assignment Statement calculates a value, and stores it in a Variable. You us
 
 <a id="FigureAssignmentStatement"></a>
 
-![Figure 5.19 Assignment Statements assign values to Variable](images/storing-and-using-data/statement-assignment.png "Assignment Statements assign values to Variable")
+![Figure 5.19 Assignment Statements assign values to Variable](./images/storing-and-using-data/statement-assignment.png "Assignment Statements assign values to Variable")
 
 <div class="caption"><span class="caption-figure-nbr">Figure 5.19: </span> A Assignment Statements assign values to Variable</div> <br/>
 
@@ -515,7 +516,7 @@ Functions are used to calculate values. In many ways a Function is just like a P
 
 <a id="FigureFunction"></a>
 
-![Figure 5.20 A Function is just like a Procedure, except it calculates and returns a value](images/storing-and-using-data/function.png "A Function is just like a Procedure, except it calculates and returns a value")
+![Figure 5.20 A Function is just like a Procedure, except it calculates and returns a value](./images/storing-and-using-data/function.png "A Function is just like a Procedure, except it calculates and returns a value")
 
 <div class="caption"><span class="caption-figure-nbr">Figure 5.20: </span>A Function is just like a Procedure, except it calculates and returns a value</div> <br/>
 
@@ -540,7 +541,7 @@ A Function Call is used to execute a , and to read the value that is returned. T
 
 <a id="FigureFunctionCall"></a>
 
-![Figure 5.21 A Function Call is part of an Expression where the value is calculated](images/storing-and-using-data/function-call.png "A Function Call is part of an Expression where the value is calculated")
+![Figure 5.21 A Function Call is part of an Expression where the value is calculated](./images/storing-and-using-data/function-call.png "A Function Call is part of an Expression where the value is calculated")
 
 <div class="caption"><span class="caption-figure-nbr">Figure 5.21: </span>A Function Call is part of an Expression where the value is calculated</div> <br/>
 
@@ -558,7 +559,7 @@ You can **read** the values from Variables and Constants within Expressions. The
 
 <a id="FigureExpressions"></a>
 
-![Figure 5.22 Expressions can read values from Function Calls, Variables, and Constants](images/storing-and-using-data/expression.png "Expressions can read values from Function Calls, Variables, and Constants")
+![Figure 5.22 Expressions can read values from Function Calls, Variables, and Constants](./images/storing-and-using-data/expression.png "Expressions can read values from Function Calls, Variables, and Constants")
 
 <div class="caption"><span class="caption-figure-nbr">Figure 5.22: </span>Expressions can read values from Function Calls, Variables, and Constants</div> <br/>
 
@@ -584,7 +585,7 @@ You can declare your own Functions within the program's code.
 
 <a id="FigureProgramWithFunctions"></a>
 
-![Figure 5.23 You can declare your own Functions in your program's code](images/storing-and-using-data/program-with-functions.png "You can declare your own Functions in your program's code")
+![Figure 5.23 You can declare your own Functions in your program's code](./images/storing-and-using-data/program-with-functions.png "You can declare your own Functions in your program's code")
 
 <div class="caption"><span class="caption-figure-nbr">Figure 5.23: </span>You can declare your own Functions in your program's code</div>
 
@@ -602,7 +603,7 @@ This section has introduced a number of programming artefacts, some programming 
 
 <a id="FigureDataConceptsSummary"></a>
 
-![Figure 5.24 Key Concepts introduced in this Chapter](images/storing-and-using-data/summary.png "Key Concepts introduced in this Chapter")
+![Figure 5.24 Key Concepts introduced in this Chapter](./images/storing-and-using-data/summary.png "Key Concepts introduced in this Chapter")
 
 <div class="caption"><span class="caption-figure-nbr">Figure 5.24: </span>Key Concepts introduced in this Chapter</div>
 
