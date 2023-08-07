@@ -16,7 +16,10 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: 'The Programmers Field Guide',
-					autogenerate: { directory: 'guides' },
+					autogenerate: {
+						directory: 'book',
+						collapsed: true,
+					},
 				},
 			],
 		}),
