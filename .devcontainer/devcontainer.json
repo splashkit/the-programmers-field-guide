@@ -11,7 +11,9 @@
 				"yzhang.markdown-all-in-one",
 				"DavidAnson.vscode-markdownlint",
 				"znck.grammarly",
-				"astro-build.astro-vscode"
+				"astro-build.astro-vscode",
+				"ms-vsliveshare.vsliveshare",
+				"tomoki1207.pdf"
 			]
 		}
 	}
