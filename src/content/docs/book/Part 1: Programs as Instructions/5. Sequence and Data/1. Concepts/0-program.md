@@ -12,7 +12,7 @@ In most software projects the top level *artefact* you are aiming to create is a
 
 myprogram.cs (your source code) -> compiler -> myprogram.exe (executable code).
 
-Your program consists of a **list of instructions** the computer will perform when that program is run on the computer. When you create a program, you should be thinking about the tasks you want the program to achieve, and the steps you must get the computer to perform when the program is run. These then become the instructions within the source code of program, with each instruction being a [Statement](#statement) of what you want performed.
+Your program consists of a **list of instructions** the computer will perform when that program is run on the computer. When you create a program, you should be thinking about the tasks you want the program to achieve, and the steps you must get the computer to perform when the program is run. These then become the instruction within the source code of program, with each instruction being a [Statement](#statement) of what you want performed.
 
 [Figure 5.1](#FigureProgram) below shows a **software program** consisting of instructions (the **source code**) that gets compiled into an **executable program** that is run.
 
