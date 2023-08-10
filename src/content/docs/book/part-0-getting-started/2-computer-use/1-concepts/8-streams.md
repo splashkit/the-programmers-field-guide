@@ -55,3 +55,17 @@ Programs can write text output to its **standard error** stream. By default, the
 When you run a program normally, there is no difference between standard output and standard error, but there are ways of redirecting these streams at which time the two separate streams are useful to have.
 
 :::
+
+### Redirection
+```
+>>
+>
+<<
+< 
+
+2>>
+```
+### Pipes
+
+|
+
