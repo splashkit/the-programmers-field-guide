@@ -4,40 +4,49 @@ title: Manipulating files
 
 The terminal is also great at manipulating files. For this journey, we only need a few basics but with a little further exploration you will be able to automate a range of action. Once you know the commands, you will be able to quickly and easily copy, move, delete, and update files.
 
-:::info
-  **Action**                **Command**   **Description**
-  ------------------------- ------------- -----------------------------------------------------------------------------------
-  Make a folder (directory) `mkdir`       Creates a new folder at the indicated path.
-  Update timestamps         `touch`       Update the details on when a file was accessed. Creates the file if it does not exist.
-  Copy File(s)              `cp`          Copies files from one folder location to another.
-  Move File(s)              `mv`          Moves files from one folder location to another.
-  Delete File(s)            `rm`          Removes files from the computer. There is no recycle bin with this, so take care!
-  Open a file to edit.      `code`        Launch Visual Studio Code to edit a file or folder.
-  
-:::
+|**Action**               |**Command**  |**Description**|
+|-------------------------|-------------|-----------------------------------------------------------------------------------|
+|Make a folder (directory)|`mkdir`      |Creates a new folder at the indicated path.|
+|Update timestamps        |`touch`      |Update the details on when a file was accessed. Creates the file if it does not exist.|
+|Copy File(s)             |`cp`         |Copies files from one folder location to another.|
+|Move File(s)             |`mv`         |Moves files from one folder location to another.|
+|Delete File(s)           |`rm`         |Removes files from the computer. There is no recycle bin with this, so take care!|
+|Open a file to edit.     |`code`       |Launch Visual Studio Code to edit a file or folder.|
 
-#### mkdir
+## Creating folders and files
 
-With [mkdir](https://man.cx/Mkdir), you will be able to quickly create folders on your computer using the command line. When you call `mkdir`, you pass it the names of the folders you want to create. For example, the following will create a new `Code` folder in the `Documents` director of you home folder.
+To get started, lets see how to create and edit files and folders.
+
+### Making a directory / folder (mkdir)
+
+With [mkdir](https://man.cx/Mkdir), you will be able to quickly create folders on your computer using the command line. When you call `mkdir`, you pass it the names of the folders you want to create. For example, the following will create a new *Code* folder in the *Documents* director of you home folder, and then create a *HelloWorld* folder within the *Code* folder.
 
 ```sh
 mkdir ~/Documents/Code
+
+cd ~/Documents/Code
+mkdir HelloWorld
+cd ./HelloWorld
 ```
 
 You can pass `mkdir` a number of folders to create, and there is a `-p` option to automate the creation of parent forders.
 
-#### touch and cat
+:::note
+**Call** is the term we use to describe running a command. So we can describe `mkdir HelloWorld` as **calling mkdir**. When you *call* something, you pass along th
+:::
+
+### Making a file (touch and cat)
 
 When you want to quickly create an empty file, the [touch](https://man.cx/Touch) command can be useful. This can be used to create empty files, or to update the timestamps of an existing time (saying that it was just updated). Let’s have a look at using this to create an empty file.
 
 ```sh
-cd ~/Documents/Code
-mkdir HelloWorld
-cd HelloWorld
+cd ~/Documents/Code/HelloWorld
 touch Program.cs
+ls -lha
+# You should now see the new Program.cs file in the list!
 ```
 
-The `cd` command moves you into the Code folder you created above. You then created a new `HelloWorld` folder within the current working directory (the Code folder in your Documents) and moved into that new folder using `cd`. Then we used touch to create a file called **Program.cs**.
+You only need the `cd` command if you are not already in the *HelloWorld* folder. The call to touch creates a file called **Program.cs**.
 
 The [cat](https://man.cx/Cat) command reads the contents of a number of files and prints it to the terminal. The name `cat` comes from concatenate, as you can use this to concatenate (combine) multiple files. Calling `cat Program.cs` will output the contents of this file to the terminal - which in this case wont show anything as the file is empty.
 
