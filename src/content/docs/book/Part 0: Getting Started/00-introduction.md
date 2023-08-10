@@ -1,5 +1,5 @@
 ---
-title: 0. Introduction
+title: Introduction
 ---
 
 ## Welcome to the Programmer's Field Guide
