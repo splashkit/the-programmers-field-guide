@@ -13,14 +13,21 @@ img {
   margin-right: auto;
 }
 
+/* ------------------------------------------- */
+/* START: OVERRIDE DEFAULT STYLES              */
+/* - Delete this section to restore defaults   */
+/* ------------------------------------------- */
+
+
+/* --- START: Main pane header styles ------*/
 html[data-theme="light"] .main-pane h2 {
   /* color: var(--sl-color-accent);*/
   /*font-family: antique-olive;*/
-  color: white;
-  border: 0px solid royalblue;
+  color: var(--sl-color-text-invert);
+  border: 0px solid var(--sl-color-text-accent);
   border-radius: 8px;
   --webkit-border-radius: 8px;
-  background-color: royalblue;
+  background-color: var(--sl-color-text-accent);
   font-size: 1.5em;
   font-weight: 800;
   display: table;
@@ -31,8 +38,19 @@ html[data-theme="light"] .main-pane h2 {
   line-height: 1em;
 }
 html[data-theme="dark"] .main-pane h2 {
-  /* color: var(--sl-color-accent); */
-  color: #375ac1;
+  color: var(--sl-color-text-invert);
+  border: 0px solid var(--sl-color-text-accent);
+  border-radius: 8px;
+  --webkit-border-radius: 8px;
+  background-color: var(--sl-color-text-accent);
+  font-size: 1.5em;
+  font-weight: 800;
+  display: table;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 1em;
 }
 
 html[data-theme="light"] h3 {
@@ -48,22 +66,95 @@ html[data-theme="light"] h4 {
 html[data-theme="dark"] h4 {
   color: #0d8397;
 }
+/* --- END:   Main pane header styles ------*/
+
+/* --- START: Main pane table style ------*/
+
+.main-pane table {
+  margin-left: auto;
+  margin-right: auto;
+  display:table;
+  line-height: 1.2rem;
+}
+
+.main-pane table th {
+  font-weight: 800;
+  background-color: var(--sl-color-accent-high);
+  color: var(--sl-color-text-invert);
+}
+
+.main-pane table th, .main-pane table td {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.main-pane details summary[role='button'] {
+  background-color: var(--sl-color-accent-high);
+  border: 2px solid var(--sl-color-accent-high);
+  padding: 4px;
+  border-radius: 8px;
+  --webkit-border-radius: 8px;
+  color: var(--sl-color-text-invert);
+  font-weight: 800;
+
+}
+
+.main-pane details summary[role='button']:hover {
+  cursor: pointer;
+}
+
+/* --- END:   Main pane table style ------*/
+/* ------------------------------------------- */
+/* END:   OVERRIDE DEFAULT STYLES              */
+/* ------------------------------------------- */
+
+
+
+
+
+/* ------------------------------------------- */
+/* START: CUSTOM STYLES                        */
+/* - Don't delete this section                 */
+/* ------------------------------------------- */
+/* --- START: Footnotes ------*/
+.main-pane hr.footnote {
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.main-pane div.footnote {
+  font-size: 0.8em;
+  margin-top: 4px;
+}
+/* --- END: Footnotes ------*/
+
+
+/* --- START: Figure, Table and Listing captions ------*/
+.main-pane div.caption {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.main-pane div.caption span.caption-figure-nbr {
+  font-weight: 800;
+}
+/* --- END:   Figure, Table and Listing captions ------*/
+
+
+/* --- START: Review changes: Delete style contents once done reviewing ------*/
+.review {
+  color: firebrick;
+}
+/* --- END:   Review changes: Delete style contents once done reviewing ------*/
 
 .main-pane .codeText {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 600;
-}
-
-div.caption {
-  text-align: center;
-}
-
-div.caption span.caption-figure-nbr {
-  font-weight: 800;
-}
-
-.footnote {
-  font-size: 0.8em;
 }
 
 .linkPoint {
@@ -71,3 +162,7 @@ div.caption span.caption-figure-nbr {
   clear: both;
 }
 
+/* ------------------------------------------- */
+/* END:   CUSTOM STYLES                        */
+/* - Don't delete this section                 */
+/* ------------------------------------------- */
