@@ -13,7 +13,7 @@ img {
   margin-right: auto;
 }
 
-html[data-theme="light"] .main-frame h2 {
+html[data-theme="light"] .main-pane h2 {
   /* color: var(--sl-color-accent);*/
   /*font-family: antique-olive;*/
   color: white;
@@ -21,6 +21,7 @@ html[data-theme="light"] .main-frame h2 {
   border-radius: 8px;
   --webkit-border-radius: 8px;
   background-color: royalblue;
+  font-size: 1.5em;
   font-weight: 800;
   display: table;
   padding-top: 5px;
@@ -29,7 +30,7 @@ html[data-theme="light"] .main-frame h2 {
   padding-right: 10px;
   line-height: 1em;
 }
-html[data-theme="dark"] .main-frame h2 {
+html[data-theme="dark"] .main-pane h2 {
   /* color: var(--sl-color-accent); */
   color: #375ac1;
 }
@@ -46,6 +47,11 @@ html[data-theme="light"] h4 {
 }
 html[data-theme="dark"] h4 {
   color: #0d8397;
+}
+
+.main-pane .codeText {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
 }
 
 div.caption {

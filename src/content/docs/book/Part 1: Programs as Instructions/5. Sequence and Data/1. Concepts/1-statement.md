@@ -12,7 +12,7 @@ description: "..."
 
 When you are creating a program you define the actions the computer will perform when the program is run. Each of these *actions* is coded as a **statement** within the program. This style of programming is known as **imperative** programming. Imperative means to give authoritative commands, and that is what we do in our programs. Our programs are lists of *authoritative commands*, statements, that *tell* the computer the actions it is to perform.
 
-[Figure 5.2](#FigureStatement) shows the concepts related to statements. A statement is a **term** used to describe the instructions in your code, and as such represent a **command** to perform an action. As we have seen, a [Program](#program) has a list of statements that are followed when it is executed. A [Procedure Call](#procedure-call) is a kind of statement that tells the computer to run the code in a [Procedure](#procedure).
+[Figure 5.2](#FigureStatement) shows the concepts related to statements. A statement is a **term** used to describe the instructions in your code, and as such represent a **command** to perform an action. As we have seen, a [Program](../0-program) has a list of statements that are followed when it is executed. A [Procedure Call](../2-procedure-call) is a kind of statement that tells the computer to run the code in a [Procedure](../3-procedure).
 
 <a id="FigureStatement"></a>
 
@@ -37,6 +37,7 @@ Examples of these include:
 ```csharp
   int radius, diameter, circumference;
 ```
+<div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>Single-line statement</div>
 
 #### Block statement
 
@@ -49,6 +50,8 @@ if(x > 10) {
     calculateCircumference();
 }
 ```
+<div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>Block statement</div>
+
 ## Activities
 
 Identify the statements in the C# code below. The line numbers are for reference only.
@@ -63,6 +66,7 @@ Identify the statements in the C# code below. The line numbers are for reference
 7.    y = x + 1;
 8.  }
 ```
+<div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>C# code with statements</div>
 <details>
   <summary role="button">Answer</summary>
   <div>There are 5 statements:</div>
