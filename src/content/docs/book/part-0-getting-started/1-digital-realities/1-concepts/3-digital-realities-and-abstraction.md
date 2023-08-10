@@ -1,6 +1,7 @@
 ---
-title: Abstraction
-label: Digital Realities & Abstraction
+title: Digital Realities & Abstraction
+sidebar:
+  label: Abstraction
 ---
 
 Before we move on, we need to think a little about how these digital realities come into existence.

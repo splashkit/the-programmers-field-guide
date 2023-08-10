@@ -46,28 +46,43 @@ ls -lha
 # You should now see the new Program.cs file in the list!
 ```
 
-You only need the `cd` command if you are not already in the *HelloWorld* folder. The call to touch creates a file called **Program.cs**.
+You only need the `cd` command if you are not already in the *HelloWorld* folder. In this case, the call to touch creates a file called **Program.cs**. You can then see this when you list the files in the current folder.
 
-The [cat](https://man.cx/Cat) command reads the contents of a number of files and prints it to the terminal. The name `cat` comes from concatenate, as you can use this to concatenate (combine) multiple files. Calling `cat Program.cs` will output the contents of this file to the terminal - which in this case wont show anything as the file is empty.
+The [cat](https://man.cx/Cat) command reads the contents of a number of files and prints them to the terminal. The name `cat` comes from con**cat**enate, as you can use this to concatenate (combine) multiple files. Calling `cat Program.cs` will output the contents of this file to the terminal - which in this case wont show anything as the file is empty.
 
-`How can we add contents to the file?`
+### Editing a file (code)
 
-#### code
+*How can we add contents to the file?*
 
 While you can use command line editors like [vi](https://man.cx/Vi), [vim](https://man.cx/Vim), [cat](https://man.cx/Nano), or [emacs](https://man.cx/Emacs), lets fire up the graphical code editor called [Visual Studio Code](https://code.visualstudio.com). This is a free, flexible, cross platform editor that is designed to elagantly write and edit program code.
 
 You can launch Visual Studio Code using the `code` command in the Terminal. The [Visual Studio Code documentation](https://code.visualstudio.com/docs/editor/command-line) describes how to use this in detail, including how to install this shortcut if you have built your own setup.
 
-To open Visual Studio Code (vscode) you run the `code` command and pass it one argument to indicate the file or folder you want to open. For example, `code .` will open the folder from the current working directory. Use `code Program.cs` to open just the `Program.cs` file.
+To open Visual Studio Code (vscode) you run the `code` command and you can pass it one argument to indicate the file or folder you want to open. For example, `code .` will open vscode and have it open the folder from the current working directory. Use `code Program.cs` to open vscode with the *Program.cs* file.
 
-Open the current folder, and edit the file to appear as shown in the following image. Save it using Ctrl-S (Cmd-S on macOS) or clicking File - Save.
+```sh
+cd ~/Documents/Code/HelloWorld
+touch Program.cs
+code .
+# launch vscode with the HelloWorld folder open
+```
 
-**TODO: add image of vscode with terminal open showing command**
+Open the current folder, and edit the file to appear as shown below. Save it using Ctrl-S (Cmd-S on macOS) or clicking File - Save.
+
+```cs
+using static SplashKitSDK.SplashKit;
+
+WriteLine("Hello World!");
+
+```
 
 Check the contents of the file at the terminal using `cat Program.cs`.
 
+## Copying, Moving, and Deleting Files
 
-#### cp and mv
+In addition to making and editing files, you can also use the terminal to copy, move, and delete files.
+
+### Copy and Move (cp and mv)
 
 You can also copy and move files using the [cp](https://man.cx/Cp) and [mv](https://man.cx/Mv) commands. You can pass these commands two arguments - the **source** file or folder to copy, and the **destination** path. For example, you can use `cp Program.cs Test.cs` to copy `Program.cs` to a new file named `Test.cs`. If the destination is a folder, the file will be copied into that directory. For example, `cp Program.cs ~/Documents/` will copy **Program.cs** to the **Documents** folder in your home directory.
 
@@ -77,7 +92,7 @@ When you copy a folder, you need to pass the `cp` command the `-r` option to rec
 
 The `-f` can be used to **force** the copy or move to proceed even if there is another file already in the destination. This will then override the destination if it already exists.
 
-:::notes
+:::note
 
 When something is recursive, it means that the action is applied again for each element within the parent context. So recursively removing a folder means recursively removing all folders within that folder as well. This in turn means recursively removing all folders within those folders too, and so on.
 
@@ -85,15 +100,15 @@ The file system is a recursive structure. Folders can contain folders.
 
 :::
 
-#### rm
+### Deletign a file (rm)
 
 The [rm](https://man.cx/Rm) command is used to remove, delete, files and folders. This tasks an argumeant for the path, or paths, that you want removed. For folders you need to pass in the `-r` command to remove the folder and its contents. You can pass in the `-f` option to skip any prompts and force it to just remove the files you indicated.
 
 You can use `rm Test.cs` to delete the **Test.cs** file we created earlier.
 
-:::warn
+:::danger[Take care with rm]
 
-Take care with `rm` - you are working directly with the operating system here, so when it is gone, it is gone. There is no recycle bin from which to restore deleted files.
+Remember that you are working **directly** with the operating system here. When you remove a file, it is gone. There is no recycle bin from which to restore these deleted files.
 
 :::
 

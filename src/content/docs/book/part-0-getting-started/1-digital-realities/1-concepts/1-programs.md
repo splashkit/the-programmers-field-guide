@@ -1,8 +1,8 @@
 ---
 title: Programs - what are they?
+sidebar:
+  label: Programs?
 ---
-
-## Programs, what are they?
 
 Computers are everywhere, helping enhance many aspects of our lives. There are computers embedded within many everyday items, most people carry around a computer in their pocket and possibly another on their wrist, and we interact with many differents pieces of software every day.
 
