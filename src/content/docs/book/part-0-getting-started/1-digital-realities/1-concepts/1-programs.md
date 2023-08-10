@@ -1,0 +1,21 @@
+---
+title: Programs - what are they?
+---
+
+## Programs, what are they?
+
+Computers are everywhere, helping enhance many aspects of our lives. There are computers embedded within many everyday items, most people carry around a computer in their pocket and possibly another on their wrist, and we interact with many differents pieces of software every day.
+
+*Why are computers everywhere?*
+
+In the video below, Steve Jobs, the co-founder of Apple, describes the computer as a tool that acts like a **bicycle for the mind**. From our perspective, this is trying to capture the role of the computer as a tool to *accelerate our thoughts and imaginations*. This sits at the root of the answer to why computers are so useful and so connected to our daily lives. If we can imagine a digital reality, with some constraints, we can create this reality within code.
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ob_GX50Za6c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+Programs allow you to instruct the computer to build a reality - a conceptual model that contains the things you need to make the program do what you want. In a way, a program is a conceptual machine (a bicycle for the mind) with imaginary parts that can perform actions and interact with the real world. This conceptual machine accelerates the capability of your mind to a new level, just like a bicycle does for human movement.
+
+Within programs, you build the *things* you need to achieve your objectives. These *things* are built upon information and instructions which can modify that information based on external stimuli. Programs can receive **inputs** from the real world with devices like buttons, mice, and sensors turning real-world information into digital values that can be used. Motors, displays, speakers, and other devices enable programs to then change things within the real world - we can think of these changes as the **outputs** of the program.
+
+This capability makes computers very useful. If we can imagine a useful digital reality, and create this using programming tools, then this reality will exist within the computers running your program. Your code will get the computer to respond in meaningful ways to inputs, and generate meaningful changes in the real world (outputs).
+
+*Learning to program will give you the skills and tools needed to create digital realities, giving you the tools to shape and harness the bicycle for the mind!*
