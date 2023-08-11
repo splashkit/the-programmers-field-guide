@@ -18,7 +18,7 @@ export default defineConfig({
   },
   integrations: [
     starlight({
-      title: "field.guide",
+      title: "Field Guide",
       customCss: [
         // Relative path to your custom CSS file
         "./src/styles/custom.css",
@@ -29,7 +29,7 @@ export default defineConfig({
       sidebar: [
         { label: "Home", link: "/" },
         {
-          label: "Part 0: Getting Started",
+          label: "Start here",
           autogenerate: {
             directory: "book/part-0-getting-started",
             collapsed: true,
