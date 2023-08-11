@@ -100,7 +100,7 @@ The file system is a recursive structure. Folders can contain folders.
 
 :::
 
-### Deletign a file (rm)
+### Deleting a file (rm)
 
 The [rm](https://man.cx/Rm) command is used to remove, delete, files and folders. This tasks an argumeant for the path, or paths, that you want removed. For folders you need to pass in the `-r` command to remove the folder and its contents. You can pass in the `-f` option to skip any prompts and force it to just remove the files you indicated.
 
