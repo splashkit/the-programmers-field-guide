@@ -1,5 +1,7 @@
 ---
 title: Digital Realities Overview
+sidebar:
+  label: Overview
 ---
 
 

@@ -1,5 +1,7 @@
 ---
 title: Putting Together Digital Realities
+sidebar:
+  label: Putting Together
 ---
 
 This chapter is a little different from those that follow. For now, we are looking at the landscape around us so you can get a feel for the journey ahead and what will be important.
