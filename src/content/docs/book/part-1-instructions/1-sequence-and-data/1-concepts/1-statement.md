@@ -16,7 +16,7 @@ When you are creating a program you define the actions the computer will perform
 
 <a id="FigureStatement"></a>
 
-![Figure 5.2 A statement is a command for the computer to perform an action](../images/program-creation/Statement.png "A statement is a command for the computer to perform an action ")
+![Figure 5.2 A statement is a command for the computer to perform an action](./images/program-creation/Statement.png "A statement is a command for the computer to perform an action ")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.2: </span> A statement is a command for the computer to perform an action</div><br/>
 
 ## In C#
@@ -37,7 +37,7 @@ Examples of these include:
 ```csharp
   int radius, diameter, circumference;
 ```
-<div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>Single-line statement</div>
+<div class="caption"><span class="caption-figure-nbr">Listing 5.3: </span>Single-line statement</div>
 
 #### Block statement
 
@@ -50,7 +50,7 @@ if(x > 10) {
     calculateCircumference();
 }
 ```
-<div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>Block statement</div>
+<div class="caption"><span class="caption-figure-nbr">Listing 5.4: </span>Block statement</div>
 
 ## Activities
 
@@ -66,7 +66,7 @@ Identify the statements in the C# code below. The line numbers are for reference
 7.    y = x + 1;
 8.  }
 ```
-<div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>C# code with statements</div>
+<div class="caption"><span class="caption-figure-nbr">Listing 5.5: </span>C# code with statements</div>
 <details>
   <summary role="button">Answer</summary>
   <div>There are 5 statements:</div>

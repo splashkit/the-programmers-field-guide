@@ -7,16 +7,16 @@ description: "..."
 ---
 
 
-## Expression
+## Concept
 
 Some statements need data, this data can be calculated or provided as a literal value in the code. The term **expression** is used in programming to describe the places in a statement where data must be supplied. At run time each expression becomes a value that is used by the statement.
 
-The concepts related to expressions are shown in [Figure 5.5](#FigureExpression).
+The concepts related to expressions are shown in [Figure 5.6](#FigureExpression).
 
 <a id="FigureExpression"></a>
 
-![Figure 5.5 An expression provides a value to be used in a Statement.](../images/program-creation/Expression.png "An expression provides a value to be used in a Statement.")
-<div class="caption"><span class="caption-figure-nbr">Figure 5.5: </span> An expression provides a <strong>value</strong> to be used in a Statement.</div><br/>
+![Figure 5.6 An expression provides a value to be used in a Statement.](./images/program-creation/Expression.png "An expression provides a value to be used in a Statement.")
+<div class="caption"><span class="caption-figure-nbr">Figure 5.6: </span> An expression provides a <strong>value</strong> to be used in a Statement.</div><br/>
 
 
 ## In C##
@@ -27,7 +27,7 @@ An [Expression](expression) in C# is a mathematical calculation or [C# Literal](
 precedence<sup>[1](#FootnotePrecedence)</sup>. The operators you can use depend on the kind of data that you are using within the expression.
 
 <a id="TableOperators"></a>
-  |  **Operator** | **Description**                          | **Example** 
+  |  Operator | Description                          | Example
   ----------------|------------------------------------------|----------------
   |      ( )      | Parenthesis                              |  (1 + 1) * 2
   |     % * /     | Modulo<sup>[a](#FootnoteOperators)</sup>, Multiplication and Division |  1 / 2 * 5 % 3 
@@ -38,11 +38,12 @@ precedence<sup>[1](#FootnotePrecedence)</sup>. The operators you can use depend 
 </div>
 <div class="caption"><span class="caption-figure-nbr">Table 5.1: </span> C# Operators and Example Expressions</div><br/>
 
+## Examples
 
 [Table 5.2](#TableExpressions) shows some example expressions, their values, and types. Expressions can be literal values, entered in the code. An Expression can also contain mathematical calculations using standard addition, subtraction, multiplication, division, and groupings.
 
 <a id="TableExpressions"></a>
-  |    **Example Expression**   |      **Value**       |   **Type**
+  |    Example Expression   |      Value       |   Type
   ------------------------------|--------------------- |---------------
   |             73              |         73           |  int
   |            2.1              |         2.1          |  float
@@ -77,7 +78,7 @@ precedence<sup>[1](#FootnotePrecedence)</sup>. The operators you can use depend 
 3. x + "Hello World";
 4. int y;
 ```
-<div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>Identify the expressions</div>
+<div class="caption"><span class="caption-figure-nbr">Listing 5.7: </span>Identify the expressions</div>
 <details class="review">
   <summary role="button">Answer</summary>
   <ul>

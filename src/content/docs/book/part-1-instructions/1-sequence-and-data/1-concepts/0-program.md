@@ -18,7 +18,7 @@ Your program consists of a **list of instructions** the computer will perform wh
 
 <a id="FigureProgram" class="linkPoint"></a>
 
-![Figure 5.1 A program contains instructions that command the computer to perform actions](../images/program-creation/BasicProgramConcept.png "A program contains instructions that command the computer to perform ")
+![Figure 5.1 A program contains instructions that command the computer to perform actions](./images/program-creation/BasicProgramConcept.png "A program contains instructions that command the computer to perform ")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.1: </span> A program contains instructions that command the computer to perform </div><br/>
 
 

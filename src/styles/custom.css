@@ -78,7 +78,7 @@ html[data-theme="dark"] h4 {
 }
 
 .main-pane table th {
-  font-weight: 800;
+  font-weight: 600;
   background-color: var(--sl-color-accent-high);
   color: var(--sl-color-text-invert);
 }
@@ -104,6 +104,11 @@ html[data-theme="dark"] h4 {
 
 .main-pane details summary[role='button']:hover {
   cursor: pointer;
+}
+
+.main-pane code {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
 }
 
 /* --- END:   Main pane table style ------*/
@@ -152,15 +157,89 @@ html[data-theme="dark"] h4 {
 }
 /* --- END:   Review changes: Delete style contents once done reviewing ------*/
 
-.main-pane .codeText {
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 600;
+
+/* --- START: Syntax Box ------*/
+.main-pane .syntaxBox {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0 15px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow: auto;
 }
+
+html[data-theme="light"] .main-pane .syntaxBox {
+  background-color: #dfeaef;
+  border-left: 0.4em solid #2177c3;
+  border-right: 2px solid #2177c3;
+  border-top: 2px solid #2177c3;
+  border-bottom: 2px solid #2177c3;
+  color: var(--sl-color-text);
+}
+
+html[data-theme="dark"] .main-pane .syntaxBox {
+  background-color: inherit;
+  border-left: 0.4em solid #926d9e;
+  border-right: 2px solid #926d9e;
+  border-top: 2px solid #926d9e;
+  border-bottom: 2px solid #926d9e;
+  color: var(--sl-color-text);
+}
+
+.main-pane .syntaxBox:before {
+  content: "Syntax";
+  display: block;
+  font-weight: 800;
+  font-size: 1.5em;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+html[data-theme="light"] .main-pane .syntaxBox:before {
+  color:#2177c3;
+}
+
+html[data-theme="dark"] .main-pane .syntaxBox:before {
+  color:#2177c3;
+}
+
+.main-pane .syntaxHowToRead {
+  border-radius: 8px;
+  padding: 4px;
+}
+html[data-theme="light"] .main-pane .syntaxHowToRead {
+  background-color:aliceblue;
+}
+html[data-theme="dark"] .main-pane .syntaxHowToRead {
+  background-color: #242424;
+}
+
+.main-pane .syntaxHowToRead:before {
+  content: "How to read the diagram";
+  display: block;
+  font-weight: 800;
+  font-size: 1.2em;
+  padding-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+html[data-theme="light"] .main-pane .syntaxHowToRead:before {
+  color:#0d8397;
+}
+
+html[data-theme="dark"] .main-pane .syntaxHowToRead:before {
+  color:#0d8397;
+}
+
+/* --- END:   Syntax Box ------*/
+
 
 .linkPoint {
   display: block;
   clear: both;
 }
+
 
 /* ------------------------------------------- */
 /* END:   CUSTOM STYLES                        */
