@@ -1,5 +1,7 @@
 ---
 title: Introduction
+sidebar:
+  order: 0
 ---
 
 ## Welcome to the Programmer's Field Guide

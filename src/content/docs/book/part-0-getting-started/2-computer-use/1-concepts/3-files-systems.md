@@ -1,5 +1,7 @@
 ---
 title: Files and File Systems
+sidebar:
+  order: 3
 ---
 
 To start our exploration of the command line, we need to understand a little about files and file systems. When you interact with the terminal, the shell will position you within the file system to enable you to easily access and manipulate files.

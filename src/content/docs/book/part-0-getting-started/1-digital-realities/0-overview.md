@@ -4,7 +4,6 @@ sidebar:
   label: Overview
 ---
 
-
 We'll start our journey by thinking about what programs are and how computers work. This will help set the scene, providing you with a broad context and perspective on computing. Much of what is in this part will be the backdrop for our future explorations as we delve into the details of how programs work.
 
 In this chapter we will explore the [concepts](../1-concepts) that underpin computing. Sights on our tour include:

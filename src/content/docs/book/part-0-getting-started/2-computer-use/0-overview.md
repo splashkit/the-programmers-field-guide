@@ -2,6 +2,7 @@
 title: Computer Use Overview
 sidebar:
   label: Overview
+  order: 0
 ---
 
 The first leg of our journey will introduce you to a new way of interacting with your computer. This will give you a whole range of new tools to play with, helping equip your toolbelt within new capabilities, and positioning you to be a powerful and productive computer user.

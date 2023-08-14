@@ -1,5 +1,7 @@
 ---
 title: Manipulating files
+sidebar:
+  order: 5
 ---
 
 The terminal is also great at manipulating files. For this journey, we only need a few basics but with a little further exploration you will be able to automate a range of action. Once you know the commands, you will be able to quickly and easily copy, move, delete, and update files.
@@ -12,6 +14,12 @@ The terminal is also great at manipulating files. For this journey, we only need
 |Move File(s)             |`mv`         |Moves files from one folder location to another.|
 |Delete File(s)           |`rm`         |Removes files from the computer. There is no recycle bin with this, so take care!|
 |Open a file to edit.     |`code`       |Launch Visual Studio Code to edit a file or folder.|
+
+:::tip
+
+Feel free to skim this section if you need to. Knowing these tools will be really handy, and help make the terminal so much more useful, but if you just want to focus on the basics then you can live without these for now.
+
+:::
 
 ## Creating folders and files
 
