@@ -72,13 +72,20 @@ There are many different shell programs you can use. The `SHELL` variable is one
 
 #### Change your shell (chsh)
 
-You can change your shell program using `chsh`. You pass this the path to the new shell program you want to use. This must be one of the programs listed in the **/etc/shells** file.
+You can change your shell program using `chsh`. You pass this the `-s` option with the path to the new shell program you want to use. This must be one of the programs listed in the **/etc/shells** file. You will be prompted for your password as part of this, as the operating system wants to ensure it is you changing something as important as the shell.
 
 ```sh
+echo $SHELL
+# this will show your default shell
+
 cat /etc/shells
 # you will see the list of shells you can use
-chsh /bin/zsh
+
+chsh -s /bin/zsh
 # this will switch you to the /bin/zsh shell
+
+echo $SHELL
+# this will now be /bin/zsh
 ```
 
 ## Environment variable commands

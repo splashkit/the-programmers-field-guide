@@ -19,7 +19,7 @@ The following snippet shows a chunk of the machine code for a small program. You
 
 No one wants to have to work at this level of detail, and fortunately you don't need to. Software developers have created tools to help us to work at higher levels of abstraction and create programs without having to think about low level details. These tools work by taking the code you write and doing the tedious work of converting that code to the machine code of the computer you want to run it on.
 
-:::info
+:::note
 
 A **HexEditor** is a program that allows you to view the binary values of any file on your computer. You could use this to explore the machine code of any program you have. The following table maps the hexadecimal values to their 4-bit representations. For example, `A` in hexadecimal is the same as `1010` in binary, or the decimal value 10.
 
