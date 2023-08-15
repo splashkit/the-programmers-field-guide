@@ -30,10 +30,92 @@ export default defineConfig({
         { label: "Home", link: "/" },
         {
           label: "Start here",
-          autogenerate: {
-            directory: "book/part-0-getting-started",
-            collapsed: true,
-          },
+          items: [
+            {
+              label: "Introduction",
+              link: "book/part-0-getting-started/00-introduction",
+            },
+            {
+              label: "Digital Realities",
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-0-getting-started/1-digital-realities/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  autogenerate: {
+                    directory:
+                      "book/part-0-getting-started/1-digital-realities/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-0-getting-started/1-digital-realities/2-putting-together",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-0-getting-started/1-digital-realities/3-Activities",
+                },
+              ],
+            },
+            {
+              label: "Computer Use",
+              items: [
+                {
+                  label: "Computer Use Overview",
+                  link: "book/part-0-getting-started/2-computer-use/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  autogenerate: {
+                    directory:
+                      "book/part-0-getting-started/2-computer-use/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-0-getting-started/2-computer-use/2-put-together",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-0-getting-started/2-computer-use/4-activities",
+                },
+              ],
+            },
+            {
+              label: "Building Programs",
+              items: [
+                {
+                  label: "Building Programs Overview",
+                  link: "book/part-0-getting-started/3-building-programs/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  autogenerate: {
+                    directory:
+                      "book/part-0-getting-started/3-building-programs/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-0-getting-started/3-building-programs/2-put-together",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-0-getting-started/3-building-programs/3-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-0-getting-started/3-building-programs/4-activities",
+                },
+
+              ],
+            },
+          ],
         },
         {
           label: "Part 1: Instructions",
