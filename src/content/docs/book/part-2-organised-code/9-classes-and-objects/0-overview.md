@@ -2,8 +2,8 @@
 title: Overview
 ---
 
-In [Chapter 11](<../../11-organising-code/0-overview/>) we learned how to organise the instructions in our code into named groups called **functions** and **procedures**.
-Then, in [Chapter 12](<../../12-structuring-data/0-overview/>) we learned how we can use **custom data types** to organise the data in our programs.
+In [Part 2, Chapter 2](<../../2-organising-code/0-overview/>) we learned how to organise the instructions in our code into named groups called **functions** and **procedures**.
+Then, in [Part 2, Chapter 3](<../../3-structuring-data/0-overview/>) we learned how we can use **custom data types** to organise the data in our programs.
 
 In this chapter we will explore the power of **classes**, which are another tool we use to organise our code.
 Using classes we can combine functions, procedures, and data into a single entity.
