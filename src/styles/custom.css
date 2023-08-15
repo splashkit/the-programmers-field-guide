@@ -13,24 +13,44 @@ img {
   margin-right: auto;
 }
 
-html[data-theme="light"] .main-frame h2 {
+/* ------------------------------------------- */
+/* START: OVERRIDE DEFAULT STYLES              */
+/* - Delete this section to restore defaults   */
+/* ------------------------------------------- */
+
+
+/* --- START: Main pane header styles ------*/
+html[data-theme="light"] .main-pane h2 {
   /* color: var(--sl-color-accent);*/
   /*font-family: antique-olive;*/
-  color: royalblue;
-  border: 3px solid royalblue;
+  color: var(--sl-color-text-invert);
+  border: 0px solid var(--sl-color-text-accent);
   border-radius: 8px;
   --webkit-border-radius: 8px;
-  background-color: white;
+  background-color: var(--sl-color-text-accent);
+  font-size: 1.5em;
   font-weight: 800;
   display: table;
-  padding-top: 0px;
-  padding-bottom: 2px;
-  padding-left: 6px;
-  padding-right: 6px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 1em;
 }
-html[data-theme="dark"] .main-frame h2 {
-  /* color: var(--sl-color-accent); */
-  color: #375ac1;
+html[data-theme="dark"] .main-pane h2 {
+  color: var(--sl-color-text-invert);
+  border: 0px solid var(--sl-color-text-accent);
+  border-radius: 8px;
+  --webkit-border-radius: 8px;
+  background-color: var(--sl-color-text-accent);
+  font-size: 1.5em;
+  font-weight: 800;
+  display: table;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 1em;
 }
 
 html[data-theme="light"] h3 {
@@ -40,19 +60,188 @@ html[data-theme="dark"] h3 {
   color: #2177c3;
 }
 
-div.caption {
-  text-align: center;
+html[data-theme="light"] h4 {
+  color: #0d8397;
+}
+html[data-theme="dark"] h4 {
+  color: #0d8397;
+}
+/* --- END:   Main pane header styles ------*/
+
+/* --- START: Main pane table style ------*/
+
+.main-pane table {
+  margin-left: auto;
+  margin-right: auto;
+  display:table;
+  line-height: 1.2rem;
 }
 
-div.caption span.caption-figure-nbr {
+.main-pane table th {
+  font-weight: 600;
+  background-color: var(--sl-color-accent-high);
+  color: var(--sl-color-text-invert);
+}
+
+.main-pane table th, .main-pane table td {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.main-pane details summary[role='button'] {
+  background-color: var(--sl-color-accent-high);
+  border: 2px solid var(--sl-color-accent-high);
+  padding: 4px;
+  border-radius: 8px;
+  --webkit-border-radius: 8px;
+  color: var(--sl-color-text-invert);
+  font-weight: 800;
+
+}
+
+.main-pane details summary[role='button']:hover {
+  cursor: pointer;
+}
+
+.main-pane code {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+}
+
+/* --- END:   Main pane table style ------*/
+/* ------------------------------------------- */
+/* END:   OVERRIDE DEFAULT STYLES              */
+/* ------------------------------------------- */
+
+
+
+
+
+/* ------------------------------------------- */
+/* START: CUSTOM STYLES                        */
+/* - Don't delete this section                 */
+/* ------------------------------------------- */
+/* --- START: Footnotes ------*/
+.main-pane hr.footnote {
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.main-pane div.footnote {
+  font-size: 0.8em;
+  margin-top: 4px;
+}
+/* --- END: Footnotes ------*/
+
+
+/* --- START: Figure, Table and Listing captions ------*/
+.main-pane div.caption {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.main-pane div.caption span.caption-figure-nbr {
   font-weight: 800;
 }
+/* --- END:   Figure, Table and Listing captions ------*/
 
-.footnote {
-  font-size: 0.8em;
+
+/* --- START: Review changes: Delete style contents once done reviewing ------*/
+.review {
+  color: firebrick;
 }
+/* --- END:   Review changes: Delete style contents once done reviewing ------*/
+
+
+/* --- START: Syntax Box ------*/
+.main-pane .syntaxBox {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0 15px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow: auto;
+}
+
+html[data-theme="light"] .main-pane .syntaxBox {
+  background-color: #dfeaef;
+  border-left: 0.4em solid #2177c3;
+  border-right: 2px solid #2177c3;
+  border-top: 2px solid #2177c3;
+  border-bottom: 2px solid #2177c3;
+  color: var(--sl-color-text);
+}
+
+html[data-theme="dark"] .main-pane .syntaxBox {
+  background-color: inherit;
+  border-left: 0.4em solid #926d9e;
+  border-right: 2px solid #926d9e;
+  border-top: 2px solid #926d9e;
+  border-bottom: 2px solid #926d9e;
+  color: var(--sl-color-text);
+}
+
+.main-pane .syntaxBox:before {
+  content: "Syntax";
+  display: block;
+  font-weight: 800;
+  font-size: 1.5em;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+html[data-theme="light"] .main-pane .syntaxBox:before {
+  color:#2177c3;
+}
+
+html[data-theme="dark"] .main-pane .syntaxBox:before {
+  color:#2177c3;
+}
+
+.main-pane .syntaxHowToRead {
+  border-radius: 8px;
+  padding: 4px;
+}
+html[data-theme="light"] .main-pane .syntaxHowToRead {
+  background-color:aliceblue;
+}
+html[data-theme="dark"] .main-pane .syntaxHowToRead {
+  background-color: #242424;
+}
+
+.main-pane .syntaxHowToRead:before {
+  content: "How to read the diagram";
+  display: block;
+  font-weight: 800;
+  font-size: 1.2em;
+  padding-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+html[data-theme="light"] .main-pane .syntaxHowToRead:before {
+  color:#0d8397;
+}
+
+html[data-theme="dark"] .main-pane .syntaxHowToRead:before {
+  color:#0d8397;
+}
+
+/* --- END:   Syntax Box ------*/
+
 
 .linkPoint {
   display: block;
   clear: both;
 }
+
+
+/* ------------------------------------------- */
+/* END:   CUSTOM STYLES                        */
+/* - Don't delete this section                 */
+/* ------------------------------------------- */

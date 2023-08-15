@@ -1,0 +1,92 @@
+---
+title: The Shell
+sidebar:
+  order: 2
+---
+
+*What commands can I enter at the terminal?*
+
+The **Terminal** program provides a text environment, allowing text input and output much like the old physical terminals once did. We need something within the computer that receives the text you type and can respond to it. We call this program a **shell**.
+
+### Shell?
+
+*Why is this called a shell?*
+
+This is a *nut* analogy. The shell is a thin wrapper around the kernel or core of the nut. In the computer, the shell is the command interpreter that gives you access to the core of the operating system. The core of the operating system maintains the same nut (or seed) analogy, with the core being known as the **kernel**. The kernel provides tools to abstract away many of the lower-level details related to interacting with the computer hardware. In this way, all other programs *grow* out of the kernel - as plants grow out of the kernel of a nut or seed.
+
+`**ADD IMAGE - application <--> kernel <--> CPU, Memory, etc... see wikipedia**`
+
+### Terminal and Shell
+
+A **shell** program runs within each terminal to interpret your commands and instruct the kernel to perform the actions you request. This is an interactive program that will display prompts to you, at which you enter your commands by typing text. There are several different shell programs you can choose from, each of which has its advantages and disadvantages. The shell we are going to use for this journey will be **Z shell**. This is a shell built into most modern Unix operating systems.
+
+A shell program is very simple. It provides a text prompt at which you can enter commands. The shell reads the text you entered, and performs an action based on this text. You can use the shell to perform operations like copying and deleting files, starting programs, and more.
+
+### Accessing the Shell
+
+Ok, enough talk. We need to get our hands dirty and start playing with the Terminal.
+
+**TODO make sure this works**
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+  <TabItem label="Raspberry Pi">
+    * If you dont have a multitool SD card, then you will need to setup an SD card first. Download the Multitool image, and use the [Pi Imager](https://www.raspberrypi.com/software/) software to install this on an SD card.
+    * Get your miltitool SD card and plug that into your pi.
+    * Connect your display to the hdmi port of your pi
+    * Connect a keyboard
+    * Plug your pi and display into power
+    * Watch it start… this will start at the terminal!
+  </TabItem>
+  <TabItem label="Linux">
+    Linux variants are all based on Unit, so you have a Terminal and shells built in. Follow the instructions in the [SplashKit installer](https://splashkit.io/articles/installation/ubuntu/) to install the tools you need.
+    
+    If you are using a Linux machine already, you probably already know how to access the Terminal. If not, you should be able to find it within your application launcher.
+  </TabItem>
+  <TabItem label="macOS">
+    The macOS operating system is based on Unix, so you have a Terminal and shells built in. Follow the instructions in the [SplashKit installer](https://splashkit.io/articles/installation/mac/) to install the tools you need.
+    
+    To access the Terminal, use Spotlight to search for “Terminal” and run the utility that it finds for you.
+  </TabItem>
+  <TabItem label="Windows">
+    Unix is the most prevalent operating system in the world, and offers an elegant and effective terminal and shell experience. If you are using a Windows machine, then we need to install the Unix tools somehow.
+    
+    There are two ways you can do this: use a virtual machine, use MSys2.
+    
+    The easy way is to download the Multitool virtual machine image. You can then launch this within VirtualBox and run this to get access to a virtual version of the multitool environment.
+    
+    *MSys2* is the alternative, and emulates the Unix environment on top of your Windows operating system. Follow the steps in the [SplashKit installer](https://splashkit.io/articles/installation/windows/). The *Msys2 Shell* is then the equivalent of Terminal on the other operating systems. You will find this in **Program Files**, **MSys2** folder.
+  </TabItem>
+</Tabs>
+
+
+**ADD IMAGE(s) maybe above**
+
+### Give it a try!
+
+At this point, you should see a “prompt” within the terminal. This is the **shell** asking you to give it an instruction. You type commands, and press Enter or Return to ask the shell to do what you has asked.
+
+Try the following:
+
+```sh
+echo “Hello `whoami`“
+```
+
+This command should output a message that says “Hello” followed by your username.
+
+If you are using the multitool setup, then plug in a speaker to the multitool and give this a try: 
+
+```sh
+espeak “Hello `whoami`, welcome to the command line!”
+```
+
+:::caution[Make sure to use backticks]
+
+For these commands to work, make sure you are using double qutoes (“) around the text and backticks (\`) not single quotes (‘) around the `whoami`. We will look at why soon.
+
+:::
+
+This should get your pi to speak to you.
+
+**TODO ADD curl example - check BoM data?**
