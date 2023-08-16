@@ -30,16 +30,10 @@ A literal is either a **number value** or **text value** written directly in the
   - `\%` creates a `%` character
   - `\\` creates a `\` character
 
-
-<div class="syntaxBox">
-
-<div class="syntaxHowToRead"><span class="review">
-<ul>
-<li>A literal can be a whole number, real number, single escaped character, normal character or a string. E.g.:</li>
-<li>A whole number consists of an optional sign, followed by one or more digits.</li>
-<li>A string consists of an opening double quote, followed by any number of optional characters, followed by a closing double quote</li>
-</ul></span>
-</div>
+:::tip[Syntax]
+- A literal can be a whole number, real number, single escaped character, normal character or a string. E.g.:
+- A whole number consists of an optional sign, followed by one or more digits.
+- A string consists of an opening double quote, followed by any number of optional characters, followed by a closing double quote
 
 
 <a id="FigureLiteralSyntax"></a>
@@ -47,8 +41,8 @@ A literal is either a **number value** or **text value** written directly in the
 ![Figure 5.8 The syntax of a lteral.](./images/program-creation/LiteralSyntax.png "The syntax of a literal")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.8: </span>The syntax of a literal</div><br/>
 
+:::
 
-</div>
 
 ## Activities
 
@@ -78,9 +72,7 @@ A literal is either a **number value** or **text value** written directly in the
 </details>
 
 
-## Summary
-
-:::note
+:::note[Summary]
 
 - A Literal is a <span class="review">number or text</span> value entered directly into the program’s source code.
 - A Literal can be part or all of an [Expression](#expression).

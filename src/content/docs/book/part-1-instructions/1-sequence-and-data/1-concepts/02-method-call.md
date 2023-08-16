@@ -23,25 +23,21 @@ A method call is a kind of [Statement](../1-statement) that instructs the comput
 
 A method call allows you to run the code in a [Method](../3-method), getting its instructions to run before control returns back to the point where the method was called.
 
-[Figure 5.4](#FigureMethodCallControlFlow) shows the syntax of a method call.
 
-<div class="syntaxBox">
-<div class="syntaxHowToRead">
- <span class="review">
- <ul>
- <li>A method call consists of a method name followed by an opening brace, followed by zero or more arguments (delimited by a comma character if present), followed by a closing brace.</li>
- <li>An argument contains an expresion.</li>
- <li>A procedure name consists of an identifier.</li>
- </ul>
-</span>
-</div>
+:::tip[Syntax]
+[Figure 5.4](#FigureMethodCallSyntax) shows the syntax of a method call.
+
+
+- A method call consists of a method name followed by an opening brace, followed by zero or more arguments (delimited by a comma character if present), followed by a closing brace.
+- An argument contains an expresion.
+- A procedure name consists of an identifier.
 
 <a id="FigureMethodCallSyntax"></a>
 
 ![Figure 5.4 The syntax of a method call](./images/program-creation/MethodCallSyntax.png "The syntax of a method call")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.4: </span>The syntax of a method call</div><br/>
+:::
 
-</div class="syntaxBox">
 
 ## Examples 
 
@@ -64,9 +60,7 @@ int main() {
 ```
 <div class="caption"><span class="caption-figure-nbr">Listing 5.6: </span>Method calls within a C# program</div>
 
-## Summary
-
-:::note
+:::note[Summary]
 
 - A method call is an **action** in the form of a statement, which commands the computer to run the code in a method: You can code a method anywhere you can code a statement.
 - The [Identifier](../identifier) indicates the [Method](../3-method) to run.

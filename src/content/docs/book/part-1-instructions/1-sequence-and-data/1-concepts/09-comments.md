@@ -15,9 +15,9 @@ Programming languages support the ability for programmers to embed *comments* in
 ## In C#
 As stated, comments allow you to embed documentation and explanatory text within your program’s code. The comments are skipped by the compiler, so they have no affect on the program’s machine code. You write comments to help yourself and other people understand what you intend the program to do, and any thoughts you want to record along with the code.
 
-<div class="syntaxBox">
 
-<p>
+:::tip[Syntax]
+
 <a href="#FigureCommentsSyntax">Figure 5.13</a> shows the syntax for comments in C#. <span class="review">As you can see there are two types of comments in C#: single line comments that span a single line, and block comments that span multiple lines</span>
 
 - In standard C# the first style of comments must be used, `/* Comment */`
@@ -25,14 +25,9 @@ As stated, comments allow you to embed documentation and explanatory text within
 - Standard C# comments can span multiple lines, these are also known as ‘block comments’.
 - A compiler ignores comments when compiling your code.
 - You can type almost anything in the comment, represented by the in the diagram.
-</p>
-<div class="syntaxHowToRead"><span class="review">
-<ul>
-<li><strong>Block comments: </strong> Must begin with <code>/*</code> and end with <code>*/</code> and contain any text in between </li>
-<li><strong>Single line comment: </strong> Must begin with <code>//</code> and end with an newline and contain any text in between </li>
-</ul></span>
-</div>
 
+- *Block comments:* Must begin with `/*` and end with `*/` and contain any text in between
+- *Single line comment:* Must begin with `//` and end with an newline and contain any text in between
 
 
 <a id="FigureCommentsSyntax"></a>
@@ -40,7 +35,7 @@ As stated, comments allow you to embed documentation and explanatory text within
 ![Figure 5.13 The syntax of comments.](./images/program-creation/CommentsSyntax.png "The syntax of comments")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.13: </span>The syntax of comments</div><br/>
 
-</div>
+:::
 
 ## Examples
 <div class="review">Example comments are shown within a code block in  <a href="#ListingExampleComments">Listing 5.11</a> below</div>
@@ -84,9 +79,7 @@ float calculateCircleArea(float radius) {
 
 <div class="caption"><span class="caption-figure-nbr">Listing 5.12: </span>Sample code</div>
 
-## Summary
-
-:::note
+:::note[Summary]
 
 - It is good practice to place a comment at the top of your code explaining what the program does.
 - Comments should be included to help other people read your code. You will also find these comments useful when you return to your code after a long break.

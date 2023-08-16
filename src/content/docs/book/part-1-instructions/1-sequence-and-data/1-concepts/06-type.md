@@ -79,14 +79,9 @@ Types are used to define how data is interpreted and the operations that can be 
 </div>
 <div class="caption"><span class="caption-figure-nbr">Table 5.4: </span> C# Permitted Operators by Type</div><br/>
 
-<div class="syntaxBox">
-
-<div class="syntaxHowToRead"><span class="review">
-<ul>
-<li>A type can be any of an integer, in64-t, float, double, char, c-string or string literal. E.g.:</li>
-<li>A char literal begins with a single quote, contains a single character and ends with a single quote</li>
-</ul></span>
-</div>
+:::tip[Syntax]
+- A type can be any of an integer, in64-t, float, double, char, c-string or string literal. 
+  - E.g.A char literal begins with a single quote, contains a single character and ends with a single quote
 
 
 <a id="FigureTypeSyntax"></a>
@@ -94,8 +89,8 @@ Types are used to define how data is interpreted and the operations that can be 
 ![Figure 5.10 The syntax of a Type.](./images/program-creation/TypeSyntax.png "The syntax of a Type")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.10: </span>The syntax of a Type</div><br/>
 
+:::
 
-</div>
 
 
 ## Activities
@@ -125,9 +120,7 @@ Types are used to define how data is interpreted and the operations that can be 
   </ul>
 </details>
 
-## Summary
-
-:::note
+:::note[Summary]
 
 - A type is an **artefact**, there will be a number of existing types that you can use, and later you will see how to create your own types.
 - A type is a programming artefact that indicates a kind of data.

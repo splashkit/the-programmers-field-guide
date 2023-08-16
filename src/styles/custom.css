@@ -159,80 +159,77 @@ html[data-theme="dark"] h4 {
 
 
 /* --- START: Syntax Box ------*/
-.main-pane .syntaxBox {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 0 15px;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  overflow: auto;
-}
-
-html[data-theme="light"] .main-pane .syntaxBox {
-  background-color: #dfeaef;
-  border-left: 0.4em solid #2177c3;
-  border-right: 2px solid #2177c3;
-  border-top: 2px solid #2177c3;
-  border-bottom: 2px solid #2177c3;
-  color: var(--sl-color-text);
-}
-
-html[data-theme="dark"] .main-pane .syntaxBox {
-  background-color: inherit;
-  border-left: 0.4em solid #926d9e;
-  border-right: 2px solid #926d9e;
-  border-top: 2px solid #926d9e;
-  border-bottom: 2px solid #926d9e;
-  color: var(--sl-color-text);
-}
-
-.main-pane .syntaxBox:before {
-  content: "Syntax";
-  display: block;
-  font-weight: 800;
-  font-size: 1.5em;
-  margin-top: 10px;
-  margin-bottom: 10px
-}
-
-html[data-theme="light"] .main-pane .syntaxBox:before {
-  color:#2177c3;
-}
-
-html[data-theme="dark"] .main-pane .syntaxBox:before {
-  color:#2177c3;
-}
-
-.main-pane .syntaxHowToRead {
+aside[aria-label="Syntax"] {
+  border-inline-start: inherit;
   border-radius: 8px;
-  padding: 4px;
-}
-html[data-theme="light"] .main-pane .syntaxHowToRead {
-  background-color:aliceblue;
-}
-html[data-theme="dark"] .main-pane .syntaxHowToRead {
-  background-color: #242424;
+  border: 2px solid #2177c3;
 }
 
-.main-pane .syntaxHowToRead:before {
-  content: "How to read the diagram";
-  display: block;
+html[data-theme="light"] aside[aria-label="Syntax"] {
+  background-color: #dfeaef;
+}
+
+html[data-theme="dark"] aside[aria-label="Syntax"] {
+  background-color: #3d414d;
+}
+
+aside[aria-label="Syntax"] img {
+  background-color: white;
+  border-radius: 8px;
+}
+
+/* required specificity to override */
+html[data-theme="light"] aside[aria-label="Syntax"] ul li p, html[data-theme="dark"] aside[aria-label="Syntax"] ul li p {
+  margin-bottom: 0px;
+}
+
+html[data-theme="light"]  aside[aria-label="Syntax"] .starlight-aside__title {
+  color: royalblue;
   font-weight: 800;
-  font-size: 1.2em;
-  padding-left: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
-html[data-theme="light"] .main-pane .syntaxHowToRead:before {
-  color:#0d8397;
+html[data-theme="dark"]  aside[aria-label="Syntax"] .starlight-aside__title {
+  color: #a7c1ef;
+  font-weight: 800;
 }
-
-html[data-theme="dark"] .main-pane .syntaxHowToRead:before {
-  color:#0d8397;
-}
-
 /* --- END:   Syntax Box ------*/
+
+
+/* --- START: Summary Box ------*/
+aside[aria-label="Summary"] {
+  border-inline-start: inherit;
+  border-radius: 8px;
+  border: 2px solid #21c0c3;
+}
+
+html[data-theme="light"] aside[aria-label="Summary"] {
+  background-color: #dfeaef;
+}
+
+html[data-theme="dark"] aside[aria-label="Summary"] {
+  background-color: #3d414d;
+}
+
+aside[aria-label="Summary"] img {
+  background-color: white;
+  border-radius: 8px;
+}
+
+/* required specificity to override */
+html[data-theme="light"] aside[aria-label="Summary"] ul li p, html[data-theme="dark"] aside[aria-label="Summary"] ul li p {
+  margin-bottom: 0px;
+}
+
+html[data-theme="light"] aside[aria-label="Summary"] .starlight-aside__title {
+  color: teal;
+  font-weight: 800;
+}
+
+html[data-theme="dark"] aside[aria-label="Summary"] .starlight-aside__title {
+  color: #b2ebe5;
+  font-weight: 800;
+}
+/* --- END:   Summary Box ------*/
 
 
 .linkPoint {

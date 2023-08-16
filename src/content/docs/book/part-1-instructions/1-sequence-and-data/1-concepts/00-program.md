@@ -60,9 +60,7 @@ localhost:HelloWorld vsc-user$
 ```
 <div class="caption"><span class="caption-figure-nbr">Listing 5.2: </span>Output from the "HellowWorldProgram" C# program</div>
 
-## Summary
-
-:::note
+:::note[Summary]
 
 - You use a compiler to convert the program’s **source code** into an **executable** file that the user can run (execute).
 - The program has an **entry point** that indicates where the program’s instructions start (the Main() method in C#).

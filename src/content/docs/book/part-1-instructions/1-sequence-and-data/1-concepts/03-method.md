@@ -26,9 +26,7 @@ A method is a list of instructions that gets the computer to perform a specific 
 ## Activities
 [TODO]
 
-## Summary
-
-:::note
+:::note[Summary]
 
 - A method is an **artefact**, something that can be created in code.
 - A method is a programming artefact that can be called to perform a certain task.

@@ -27,21 +27,15 @@ In C#, as in most programming languages, <span class="review">a user-created</sp
 In the syntax definition below, an identifier <span class="review">created by you</span> cannot contain spaces, or special characters other than underscores `_`.
 
 
-
-<div class="syntaxBox">
-<div class="syntaxHowToRead"><span class="review">
-<ul>
-<li>An identifier must start with either a single letter A-Z or a-z or an underscore <code>_</code>, then can be followed by one or more letters, underscores or digits.</li>
-</ul>
-</span>
-</div>
+:::tip[Syntax]
+- An identifier must start with either a single letter A-Z or a-z or an underscore <code>_</code>, then can be followed by one or more letters, underscores or digits.
 
 <a id="FigureIdentifierSyntax"></a>
 
 ![Figure 5.12 The syntax of an Identifier.](./images/program-creation/IdentifierSyntax.png "The syntax of an Identifier")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.12: </span>The syntax of an Identifier</div><br/>
 
-</div>
+:::
 
 
 ### Inbuilt keyword identifiers
@@ -98,10 +92,9 @@ x_33
   </ul>
 </details>
 </span>
+<br>
 
-## Summary
-
-:::note
+:::note[Summary]
 
 - The **name** used to identify a programming artefact (such as a [Program](#program), [Library](#library) or [Method](../3-method) is an identifier.
 - You use identifiers to indicate which libraries you want to access in your program.

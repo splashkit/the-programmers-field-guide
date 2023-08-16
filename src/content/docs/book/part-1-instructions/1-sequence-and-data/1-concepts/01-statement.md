@@ -77,12 +77,7 @@ Identify the statements in the C# code below. The line numbers are for reference
   </ul>
 </details>
 
-
-
-
-## Summary
-
-:::note
+:::note[Summary]
 - A statement is a **term** used to describe the instructions (**commands**) in your code used to perform an action or actions.
 - In C#, statements can be **single-lines of code ending in a semi-colon**, or **block statements** which are a group of single-lines of code encapsulated by curly braces {}
 - Statements are the basic units of programs

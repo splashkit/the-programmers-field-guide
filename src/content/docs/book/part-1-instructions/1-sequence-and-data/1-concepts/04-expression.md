@@ -90,9 +90,7 @@ precedence<sup>[1](#FootnotePrecedence)</sup>. The operators you can use depend 
 </details>
 
 
-## Summary
-
-:::note
+:::note[Summary]
 
 - An expression is a **term** given to code that calculates a value.
 - An expression provides a **value** that is used in a Statement.

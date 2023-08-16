@@ -26,8 +26,8 @@ A library is a collection of reusable code artefacts. Each programming language 
 
 [TO DO]
 
-## Summary
-:::note
+
+:::note[Summary]
 
 - A library is an **artefact**, it contains reusable artefacts.
 - A library is a collection of reusable code artefacts that you can use to perform certain tasks.
