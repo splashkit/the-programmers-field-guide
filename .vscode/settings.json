@@ -1,0 +1,5 @@
+{
+  "grammarly.files.include": [
+    "**/*.md"
+  ]
+}

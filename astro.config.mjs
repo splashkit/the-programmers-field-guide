@@ -89,7 +89,7 @@ export default defineConfig({
               label: "Building Programs",
               items: [
                 {
-                  label: "Building Programs Overview",
+                  label: "Overview",
                   link: "book/part-0-getting-started/3-building-programs/0-overview",
                 },
                 {
