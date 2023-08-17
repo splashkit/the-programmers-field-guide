@@ -29,7 +29,7 @@ export default defineConfig({
       sidebar: [
         { label: "Home", link: "/" },
         {
-          label: "Start here",
+          label: "Part 0: First Steps",
           items: [
             {
               label: "Introduction",
@@ -52,7 +52,7 @@ export default defineConfig({
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-0-getting-started/1-digital-realities/2-putting-together",
+                  link: "book/part-0-getting-started/1-digital-realities/2-put-together",
                 },
                 {
                   label: "Activities",
