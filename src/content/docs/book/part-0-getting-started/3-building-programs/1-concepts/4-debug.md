@@ -31,15 +31,17 @@ The control panel at the top now gives you the power to step through the program
 
 * The first play button will **continue** the execution, only stopping again at the next breakpoint encountered.
 * The second button will **step-over** the current line - moving to the next line shown.
-* Next are **step-into** and **step-out**, both of which we will explore in [Part 2](../../../part-2-organised-code/2-organising-code/0-overview.md).
-* You can use the next button to **restart** the program.
+* The next two buttons are **step-into** and **step-out**, both of which we will explore in [Part 2](../../../part-2-organised-code/2-organising-code/0-overview.md).
+* The fifth button is used to **restart** the program.
 * Finally, the last button will **stop** the program.
 
-Give it a try. In this program, we can hit the **step-over** button to go to line 4. Switch the tab at the bottom to the Terminal to see the "Hello World!" message written. Press **step-over** again, and line 4 will run, the next message will appear, and the program will stop as this was the last instruction.
+Give it a try!
+
+Hit the **step-over** button to run line 3 and go to line 4. Switch the tab at the bottom to the Terminal to see the "Hello World!" message written. Press **step-over** again, and line 4 will run, the next message will appear, and the program will stop as this was the last instruction.
 
 :::tip
 
-As you progress, you will be able to use this tool to help you explore the code you write. Debuggers are great for locating complicated issues, and are good to help you see how the program is running.
+As you progress, you will be able to use this tool to help you explore the code you write. Debuggers are great for locating complicated issues and are good to help you see how the program is running.
 
 :::
 

@@ -1,5 +1,0 @@
----
-title: Activities
----
-
-To come...
