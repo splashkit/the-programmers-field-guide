@@ -17,3 +17,14 @@ Languages like C and C++ are compiled, allowing you to build programs that can b
 [Java](https://java.sun.com) and [C# (.NET)](https://dotnet.microsoft.com) provide an option between scripting languages and these compiled languages. Both Java and C# have both a compiler and a runtime environment. To build programs using these tools you install an SDK and compile your program into an intermediate language, something closer to machine code designed to work efficiently with the runtime tools. Users install the runtime tools to execute your program, which then run the intermediate code. The advantage of this approach is that your program's intermediate code can run on different operating systems, as it can run anywhere the runtime tools are available.
 
 In all cases, you need to setup somewhere to store your code and need to manage the settings to help the command line tools know how to build and run your program.
+
+:::tip
+
+There is an [experimental .NET REPL](https://github.com/jonsequitur/dotnet-repl) you can play around with. You can install and run this as shown here.
+
+```sh
+dotnet tool install -g dotnet-repl
+dotnet repl
+```
+
+:::
