@@ -190,9 +190,9 @@ ls -lha
 echo $SHELL
 # Check which shell you are using by default
 
-# You can edit the file using vscode
-code .zshrc
-code .bashrc
+# You can edit the file using nano
+nano .zshrc
+nano .bashrc
 ```
 
 :::tip

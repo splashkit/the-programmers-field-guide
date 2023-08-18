@@ -8,14 +8,14 @@ Manually enterring commands is great, but sometimes you want to do the same thin
 
 ### Creating a shell script
 
-A shell script is just a text file that contains your commands. You can create this in the terminal and edit it with vscode.
+A shell script is just a text file that contains your commands. You can create this in the terminal and edit it with nano.
 
 ```sh
 touch test.sh
-code test.sh
+nano test.sh
 ```
 
-Enter the following code in the script file, and save this in the terminal.
+Enter the following code in the script file, and save it before exiting.
 
 ```sh
 #!/bin/zsh
@@ -24,9 +24,9 @@ sleep 10
 echo "Done..."
 ```
 
-The **shebang** (`#!`) must be the first line of the shell script. Your current shell will read this, and use the indicated path as the shell to run this script. This allows you to specify the shell you are targetting when you write the script.
+The **shebang** (`#!`) must be the first line of the shell script. Your current shell will read this, and use the indicated path as the shell to run this script. This allows you to specify the shell you are targeting when you write the script.
 
-The remainder of the file contains the commands you want run, in the order you want them run.
+The remainder of the file contains the commands you want to run, in the order you want them to run.
 
 Save the file.
 
