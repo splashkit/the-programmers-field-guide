@@ -9,7 +9,7 @@ description: "..."
 
 ## Concept
 
-A literal is either a **number value** or **text value** written directly in the code. In other words, it is not calculated when the program runs - the **value** entered is literally the value to be used.  A Literal is a whole, or part of, an [Expression](../4-expression).
+A literal is either a **number value** or **text value** written directly in the code. In other words, it is not calculated when the program runs - the **value** entered is literally the value to be used.  A Literal is a whole, or part of, an [Expression](../04-expression).
 
 [Figure 5.7](#FigureLiteral) shows the concepts relate to Literals.
 
@@ -75,7 +75,7 @@ A literal is either a **number value** or **text value** written directly in the
 :::note[Summary]
 
 - A Literal is a <span class="review">number or text</span> value entered directly into the program’s source code.
-- A Literal can be part or all of an [Expression](#expression).
+- A Literal can be part or all of an [Expression](../04-expression).
 - These values are *hard coded* into the program.
 - <span class='review'>The backslash character \ in C# is used to indicate that the character that directly follows it has a special meaning</span>
 

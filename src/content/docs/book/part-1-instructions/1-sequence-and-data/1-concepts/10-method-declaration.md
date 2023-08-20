@@ -106,8 +106,8 @@ performed you call the Method.
 - Methods should have a **side effect**<sup>a</sup>, meaning that it changes something when it
 is executed.
 - The Method’s declaration defines its **name**, and the **steps** it performs.
-- Each instructions in the [Method](#method) is a [Statement](#statement).
-- The Method’s [Identifier](#identifier):
+- Each instructions in the [Method](../03-method) is a [Statement](../01-statement).
+- The Method’s [Identifier](../07-identifier):
   - Is the name used to call the Method.
   - Should be a **verb** that **reflects the task** the Method performs.
 - When the Method is called its instructions are executed.

@@ -21,7 +21,7 @@ A method is a list of instructions that gets the computer to perform a specific 
 
 ## In C##
 
-[TODO]
+<div class="review">You'll get to see how to define a method in [Method Declaraion](../10-method-declaration)</div>d
 
 ## Activities
 [TODO]
@@ -30,8 +30,8 @@ A method is a list of instructions that gets the computer to perform a specific 
 
 - A method is an **artefact**, something that can be created in code.
 - A method is a programming artefact that can be called to perform a certain task.
-- The name of a method is an [Identifier](../identifier).
-- Each [Library](../library) will contain a number of methods to perform common tasks.
+- The name of a method is an [Identifier](../07-identifier).
+- Each [Library](../08-library) will contain a number of methods to perform common tasks.
 - The standard library will include methods to write values to the Terminal.
 - The SwinGame libraries contain methods that can draw images on the screen,
 play sounds, and perform other tasks needed to create small games.

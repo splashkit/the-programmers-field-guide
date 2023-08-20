@@ -30,6 +30,13 @@ In the syntax definition below, an identifier <span class="review">created by yo
 :::tip[Syntax]
 - An identifier must start with either a single letter A-Z or a-z or an underscore <code>_</code>, then can be followed by one or more letters, underscores or digits.
 
+- In the syntax definition an identifier cannot contain spaces, or special characters other than underscores (`_`).
+- A letter is any alphabetic character (a to z and A to Z ).
+- A digit is a single number (0 to 9).
+- Each item in Table 1.2 is a valid identifier.
+- The keywords are identifier that has special meaning to the language.
+- The example identifiers give you examples of the kinds of names that could be given to artefacts we create.
+
 <a id="FigureIdentifierSyntax"></a>
 
 ![Figure 5.12 The syntax of an Identifier.](./images/program-creation/IdentifierSyntax.png "The syntax of an Identifier")

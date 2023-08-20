@@ -8,7 +8,7 @@ description: "..."
 
 ## Concept
 
-A Variable is a **container** into which you can store a value, which can then be retrieved later. The Variable allows you to store values you want to work with in your program, you store values in the variable so that you can read them back later. The variable's themselves are either a [Global Variable](#global-variable), [Local Variable](#local-variable), or [Parameter](#parameter).
+A Variable is a **container** into which you can store a value, which can then be retrieved later. The Variable allows you to store values you want to work with in your program, you store values in the variable so that you can read them back later. The variable's themselves are either a [Global Variable](../15-global-variable), [Local Variable](../14-local-variable), or [Parameter](../16-parameter).
 
 <a id="FigureVariable"></a>
 
@@ -47,7 +47,7 @@ A Variable Declaration allows you to create a Variable in your Code. In C# you c
 
 ## Examples
 
-<a id="VariableDeclaration"></a>
+<a id="ListingVariableDeclaration"></a>
 ```csharp
 /* Program: variable_test.c
  * This program demonstrates some variable declarations
@@ -95,7 +95,7 @@ int main() {
   - **Name** that can be used to refer to it.
   - **Value** that it is storing.
   - **Type** that determines the size of the Variable and how its value is interpreted.
-- You use an [Assignment Statement](#assignment-statement) to store a value into the Variable.
+- You use an [Assignment Statement](../19-assignment-statement) to store a value into the Variable.
 - You can **read** the value from Variable in Expressions.
 - The Variable is **different** to its value:
   - The Variable is a container into which a value can be stored.

@@ -8,7 +8,7 @@ description: "..."
 
 ## Concept
 
-Statements are the actions that we can get the computer to perform. At this stage we have covered the statements that run procedures, the [Procedure Call](#procedure-call), and the statement to assign values to variables, the [Assignment Statement](#assignment-statement).
+Statements are the actions that we can get the computer to perform. At this stage we have covered the statements that run [methods](../03-method), the [Method Call](../02-method-call), and the statement to assign values to variables, the [Assignment Statement](../19-assignment-statement).
 
 <a id="FigureStatmentWithAssignment"></a>
 
@@ -32,8 +32,8 @@ Statements are the actions that we can get the computer to perform. At this stag
 
 - Statement is the **term** given to the instructions in our code.
 - Statements can be either:
-  - [Procedure Call](#procedure-call) used to run the code in a Procedure, as covered in Chapter
-  - [Assignment Statement](#assignment-statement) used to calculate a value and store it in a Variable.
-- All instructions in your code are Statements, these include the instructions in your Program as well as the instructions in your Procedures and Functions.
+  - [Method Call](../02-method-call) used to run the code in a Method, as covered in Chapter
+  - [Assignment Statement](../19-assignment-statement) used to calculate a value and store it in a [Variable](../12-variable).
+- All instructions in your code are Statements, these include the instructions in your Program as well as the instructions in your [Methods](../03-method) and [Functions](../20-function).
 
 :::

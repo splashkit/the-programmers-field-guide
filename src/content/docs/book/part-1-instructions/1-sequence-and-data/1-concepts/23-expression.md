@@ -9,7 +9,7 @@ description: "..."
 
 ## Concept
 
-You can **read** the values from Variables and Constants within Expressions. The value of the expression is calculated by **reading** the values from the Variables and Constants when the expression is calculated[^22].
+You can **read** the values from [Variables](../12-variable) and [Constants](../13-constant) within Expressions. The value of the expression is calculated by **reading** the values from the Variables and [Constants](../13-constant) when the expression is calculated<sup>[1](#FootnoteExpressionCalculation)</sup>.
 
 <a id="FigureExpressions"></a>
 
@@ -31,8 +31,8 @@ You can **read** the values from Variables and Constants within Expressions. The
 
 :::note[Summary]
 
-- Expression is the term given to the code that calculates values within your Statements.
-- You can read values from Function Calls, Variables, and Constants.
+- Expression is the term given to the code that calculates values within your [Statements](../01-statement).
+- You can read values from [Function Calls](../21-function-call), [Variables](../12-variable), and [Constants](../13-constant).
 - You use the Variable or Constant’s name to access its value within an Expression.
 - The Function Call runs the code in the Function, and then reads the result returned.
 - There are actually **two expressions** in [Figure 5.22](#FigureExpressions):
@@ -40,7 +40,12 @@ You can **read** the values from Variables and Constants within Expressions. The
   - The second Expression is the result returned from the call to the _sin_ function. This will calculate the sine of the value calculated in the first expression.
 - The Expression reads the value of the Variable **at the time** it is executed
 - Expressions are used to calculate values that are...
-  - Passed to Parameters within [Procedure Calls](#procedure-call).
-  - Assigned to Variables within [Assignment Statements](#assignment-statement). 
+  - Passed to [Parameters](../16-parameter) within [Method Calls](../02-method-call).
+  - Assigned to Variables within [Assignment Statements](../19-assignment-statement). 
 
 :::
+
+<hr class="footnote">
+<div id="FootnoteExpressionCalculation" class="footnote">
+<sup>1 </sup>This means that the value will be affected by the statements that occurred before the expression was calculated.
+</div><br/>

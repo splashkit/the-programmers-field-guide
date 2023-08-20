@@ -31,7 +31,7 @@ A library is a collection of reusable code artefacts. Each programming language 
 
 - A library is an **artefact**, it contains reusable artefacts.
 - A library is a collection of reusable code artefacts that you can use to perform certain tasks.
-- The library will contain [Methods](../3-method) that perform a number of tasks.
+- The library will contain [Methods](../03-method) that perform a number of tasks.
 - Each language has a standard library with code to perform many commonly performed tasks.
 - Other libraries extend the capability of the languages further.
 - SwinGame is a external library containing code to help you build games

@@ -21,7 +21,7 @@ The concepts related to expressions are shown in [Figure 5.6](#FigureExpression)
 
 ## In C##
 
-An [Expression](expression) in C# is a mathematical calculation or [C# Literal](../literal) value. Each expression will have a [Type](../type), and can contain a number of mathematic operators.
+An [Expression](../04-expression) in C# is a mathematical calculation or [C# Literal](../05-literal) value. Each expression will have a [Type](../06-type), and can contain a number of mathematic operators.
 
 [Table 5.1](#TableOperators) lists the operators that you can include in your expressions, listed in order of
 precedence<sup>[1](#FootnotePrecedence)</sup>. The operators you can use depend on the kind of data that you are using within the expression.

@@ -12,7 +12,7 @@ In most software projects the top level *artefact* you are aiming to create is a
 
 myprogram.cs (your source code) -> compiler -> myprogram.exe (executable code).
 
-Your program consists of a **list of instructions** the computer will perform when that program is run on the computer. When you create a program, you should be thinking about the tasks you want the program to achieve, and the steps you must get the computer to perform when the program is run. These then become the instruction within the source code of program, with each instruction being a [Statement](../1-statement) of what you want performed.
+Your program consists of a **list of instructions** the computer will perform when that program is run on the computer. When you create a program, you should be thinking about the tasks you want the program to achieve, and the steps you must get the computer to perform when the program is run. These then become the instruction within the source code of program, with each instruction being a [Statement](../01-statement) of what you want performed.
 
 [Figure 5.1](#FigureProgram) below shows a **software program** consisting of instructions (the **source code**) that gets compiled into an **executable program** that is run.
 
@@ -21,31 +21,43 @@ Your program consists of a **list of instructions** the computer will perform wh
 ![Figure 5.1 A program contains instructions that command the computer to perform actions](./images/program-creation/BasicProgramConcept.png "A program contains instructions that command the computer to perform ")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.1: </span> A program contains instructions that command the computer to perform </div><br/>
 
-
 ## In C#
 
-Let's recreate the classic "Hello World" program in C\#, which simply outputs the string "Hello, world!" to the screen. Don't worry too much about the details at present, we'll look more closely at the structure of a program later.
 
-But as you can see in [Listing 5.1](#ListingProgram "The sample 'HellowWorldProgram' C# program"), to create a program in C#, at minimum you need namespace, and a class that contains a Main method (which defines the start-point of your program). The command "Console.WriteLine("Hello, world!") uses the System library to output the string "Hello, world!" to the screen.
+:::tip[Syntax]
+C++ does not have an explicit Program artefact. Rather, you create a program by having a function called `main` in your code. [Figure 5.x](#FigureProgramSyntax) shows the structure of the syntax used to create a program using the C++ language.
 
-<a id="ListingProgram" class="linkPoint"></a>
+<a id="FigureProgramSyntax"></a>
+
+![Figure 5.2 The syntax for a C# program.](./images/program-creation/ProgramSyntax.png "The syntax for a C# program")
+<div class="caption"><span class="caption-figure-nbr">Figure 5.2: </span>The syntax for a C# program</div><br/>
+
+:::
+
+
+## Example
+
+
+[Listing 5.x](#ListingProgramWithMethods) shows a small C++ Program. You should be able to match this up with the syntax defined in [Figure 5.x](#FigureProgramSyntax). This program does not include any custom procedures, but does use a header include to include the splashkit.h header file. Following this is the `main` function that includes the instructions that are run when the program is executed.
+
+<a id="ListingProgramWithMethods"></a>
 
 ```csharp
-using System;
+include "splashkit.h"
 
-namespace HelloWorld {
-    class HellowWorldProgram {
-        static void Main(string[] args) {
-            Console.WriteLine("Hello, world!");
-        }
-    }
+int main() {
+  write_line("Hello World!");
+  return 0;
 }
 ```
-<div class="caption"><span class="caption-figure-nbr">Listing 5.1: </span> The sample "HellowWorldProgram" C# program </div>
+<div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>C# Hello World Program</div>
+
+
 
 ## Activities
 ### Compiling and running your Hello World program in C#
 
+<div class="review">
 These instructions can be coded into a C# source code file, compiled and run in "Visual Studio Code" (VSC). To do this follow the instructions here:
 
 - [Tutorial: Create a .NET console application using Visual Studio Code](https://learn.microsoft.com/en-us/dotnet/core/tutorials/with-visual-studio-code?pivots=dotnet-7-0)
@@ -68,3 +80,5 @@ localhost:HelloWorld vsc-user$
 - In programming terminology, an instruction is called a [Statement](#statement).
 
 :::
+
+</div>
