@@ -237,6 +237,15 @@ html[data-theme="dark"] aside[aria-label="Summary"] .starlight-aside__title {
   clear: both;
 }
 
+.equationBox {
+  border: 2px solid black;
+  border-radius: 8px;
+  --webkit-border-radius: 8px;
+  padding: 8px;
+  display: inline;
+  margin-right: 5px;
+}
+
 
 /* ------------------------------------------- */
 /* END:   CUSTOM STYLES                        */
