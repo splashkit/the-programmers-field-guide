@@ -125,4 +125,3 @@ You can have more than one desktop running at the same time as well. Each must h
 startx -- :1
 ```
 :::
-

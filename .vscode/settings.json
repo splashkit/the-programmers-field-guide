@@ -1,4 +1,6 @@
 {
+  "grammarly.config.documentDomain": "academic",
+  "grammarly.config.documentDialect": "australian",
   "grammarly.files.include": [
     "**/*.md"
   ]
