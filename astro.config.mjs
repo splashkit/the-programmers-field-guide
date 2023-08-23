@@ -30,6 +30,7 @@ export default defineConfig({
         { label: "Home", link: "/" },
         {
           label: "Part 0: First Steps",
+          collapsed: true,
           items: [
             {
               label: "Introduction",
@@ -37,6 +38,7 @@ export default defineConfig({
             },
             {
               label: "Digital Realities",
+              collapsed: true,
               items: [
                 {
                   label: "Overview",
@@ -44,6 +46,7 @@ export default defineConfig({
                 },
                 {
                   label: "Concepts",
+                  collapsed: true,
                   autogenerate: {
                     directory:
                       "book/part-0-getting-started/1-digital-realities/1-concepts",
@@ -62,6 +65,7 @@ export default defineConfig({
             },
             {
               label: "Computer Use",
+              collapsed: true,
               items: [
                 {
                   label: "Computer Use Overview",
@@ -69,10 +73,11 @@ export default defineConfig({
                 },
                 {
                   label: "Concepts",
+                  collapsed: true,
                   autogenerate: {
                     directory:
                       "book/part-0-getting-started/2-computer-use/1-concepts",
-                    collapsed: true,
+                      collapsed: true,
                   },
                 },
                 {
@@ -87,6 +92,7 @@ export default defineConfig({
             },
             {
               label: "Building Programs",
+              collapsed: true,
               items: [
                 {
                   label: "Overview",
@@ -94,6 +100,7 @@ export default defineConfig({
                 },
                 {
                   label: "Concepts",
+                  collapsed: true,
                   autogenerate: {
                     directory:
                       "book/part-0-getting-started/3-building-programs/1-concepts",
@@ -119,6 +126,7 @@ export default defineConfig({
         },
         {
           label: "Part 1: Instructions",
+          collapsed: true,
           autogenerate: {
             directory: "book/part-1-instructions",
             collapsed: true,
@@ -126,6 +134,7 @@ export default defineConfig({
         },
         {
           label: "Part 2: Organised Code",
+          collapsed: true,
           autogenerate: {
             directory: "book/part-2-organised-code",
             collapsed: true,
@@ -133,6 +142,7 @@ export default defineConfig({
         },
         {
           label: "Part 3: Programs as Concepts",
+          collapsed: true,
           autogenerate: {
             directory: "book/part-3-programs-as-concepts",
             collapsed: true,
@@ -140,6 +150,7 @@ export default defineConfig({
         },
         {
           label: "Part 4: What next?",
+          collapsed: true,
           autogenerate: {
             directory: "book/part-4-what-next",
             collapsed: true,
