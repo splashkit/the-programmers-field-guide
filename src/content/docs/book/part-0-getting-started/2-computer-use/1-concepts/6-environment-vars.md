@@ -27,7 +27,7 @@ echo $PATH
 # /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ```
 
-:::note
+:::tip[Bin?]
 
 In Unix the **bin** folders have nothing to do with rubbish. They are used to store **binary** programs - files with machine code to get the computer to do things.
 
@@ -56,9 +56,9 @@ which zsh
 The `which` command can be very useful to check if your path is setup correctly. If the shell cant find a program, then you must pass in the full path to the command. For example, you can always run `cp` using `/bin/cp`, but it is shorter if it is on the path.
 :::
 
-:::note
+:::tip[Programs]
 
-Some of the commands we have been looking at are actually programs that exist on your path. For example, try `which cp`. You will see that `cp` is a program that comes with the operating system. If you remove its folder from the PATH then you cannot copy files any more. 
+Some of the commands we have been looking at are programs that exist on your path. For example, try `which cp`. You will see that `cp` is a program that comes with the operating system. If you remove its folder from the PATH then you cannot copy files any more. 
 
 A small number of commands, like `cd`, exist within the shell itself. `which cd` will return nothing - it is not a program.
 
@@ -144,9 +144,9 @@ env
 # you will see a long list - all of the environment variables
 ```
 
-:::note
+:::tip
 
-Programs are able to read environment variables and use their values to alter their behaviour. For example, in a server the back end of the web application may read environment variables to find the path to a database.
+Programs can read environment variables and use their values to alter their behaviour. For example, in a server the back end of the web application may read environment variables to find the path to a database.
 
 :::
 

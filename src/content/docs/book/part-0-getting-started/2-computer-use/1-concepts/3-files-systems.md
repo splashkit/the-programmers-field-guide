@@ -38,7 +38,7 @@ As a user, you need a way of saying which file you want to use. This means that 
 
 To identify a file within the file system, you can list the **path** to follow from the root to the file you are wanting to identify. The path is a list of folder, separated by `/`. For example, `/home/multitool/Documents/code/program1.cs` is the path you take starting at the *root* of the file systems. First you go into the *home* folder, then into the *multitool* within *home*, followed by Documents, and code. The last element on the path is the *program.cs* file. Here we can see that *Documents* is the parent of the *code* folder, and *multitool* is the parent of the *Documents* folder.
 
-:::note
+:::tip[Where does it start?]
 
 The root of the file system is the `/` folder - as this lists no folders in this path. 
 

@@ -30,7 +30,7 @@ Changing directory will require you to tell the shell where you want to go to. W
 
 The main way to pass data to a command is through an **argument**. In the shell, arguments are provided after the command name. You can pass 0, 1, or more arguments to a command, with each argument separated by a space.
 
-:::note
+:::tip[Argument?]
 An **argument** is the term we use to provide data for a command to use. This is derived from the notion of [mathematical arguments](https://softwareengineering.stackexchange.com/questions/186293/why-are-actual-parameters-called-arguments#:~:text=%22Formal%22%20parameters%20(also%20known,above%20to%20prevent%20any%20confusion.)).
 :::
 
@@ -70,7 +70,7 @@ ls
 # You should see a list of the files and folders in the current directory (folder)
 ```
 
-:::note[Options]
+:::tip[Options]
 In addition to arguments, many commands can also take **options**. These are arguments that start with a `-`, and there are some useful options for a command.
 :::
 
@@ -111,7 +111,7 @@ pwd
 # This will output > /home/multitool (if you are using the username multitool)
 ```
 
-:::note
+:::tip[Comments]
 Adding a `#` at the start of a line makes a comment which is then ignored by the shell. We can use this here to show you the output from the commands.
 :::
 
@@ -121,7 +121,7 @@ Adding a `#` at the start of a line makes a comment which is then ignored by the
 
 Once again you could use the full path, e.g. `cd /home` on the Pi, or you can use the convenient shortcut `..`. In the shell, `.` is a shortcut for the current directory and `..` is the shortcut for its parent.
 
-:::note
+:::tip[Shortcuts]
 
 There are three really useful shortcuts:
 

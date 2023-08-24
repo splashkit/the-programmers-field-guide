@@ -37,7 +37,7 @@ Programming is a practical skill that will require time and effort to master. In
 
 While you could use any computer, the field guide targets the [Raspberry Pi](https://www.raspberrypi.org) single-board computer. If you can get yourself a Raspberry Pi, then you will be set for the journey. For the adventurous, we recommend the **Programmer's Multi-Tool** - a custom designed hardware setup. This can be your physical companion on your quest to acquire mastery of the field. [Chapter 2](../2-computer-use/0-overview) has  instructions on getting your Raspberry Pi or computer set up.
 
-:::note
+:::tip[Multi-Tool]
 
 The **Programmer's Multi-Tool** is a Raspberry Pi based project, with everything you need to build your own small computer. If you have access to a Makerspace, you can purchase the parts and put this together in no time.
 

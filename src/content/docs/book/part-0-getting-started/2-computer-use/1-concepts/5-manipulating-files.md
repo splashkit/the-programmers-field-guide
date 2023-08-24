@@ -39,7 +39,7 @@ cd ./HelloWorld
 
 You can pass `mkdir` a number of folders to create, and there is a `-p` option to automate the creation of parent folders.
 
-:::note
+:::tip[Call?]
 **Call** is the term we use to describe running a command. So we can describe `mkdir HelloWorld` as **calling mkdir**. When you *call* something, you pass along th
 :::
 
@@ -97,7 +97,7 @@ When you copy a folder, you need to pass the `cp` command the `-r` option to rec
 
 The `-f` can be used to **force** the copy or move to proceed even if there is another file already in the destination. This will then override the destination if it already exists.
 
-:::note
+:::tip[Recursive?]
 
 When something is recursive, it means that the action is applied again for each element within the parent context. So recursively removing a folder means recursively removing all folders within that folder as well. This in turn means recursively removing all folders within those folders too, and so on.
 
