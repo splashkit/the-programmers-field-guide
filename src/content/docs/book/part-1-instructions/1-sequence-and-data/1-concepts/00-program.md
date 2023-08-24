@@ -10,7 +10,7 @@ Each program consists of the **list of instructions** the computer will perform 
 
 <a id="FigureProgram" class="linkPoint"></a>
 
-![Figure 5.1 A program contains instructions that command the computer to perform actions](./images/program-creation/BasicProgramConcept.png "A program contains instructions that command the computer to perform ")
+![Figure 5.1 A program contains instructions that command the computer to perform actions](./images/program-concept.png "A program contains instructions that command the computer to perform ")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.1: </span> A program contains instructions that command the computer to perform </div><br/>
 
 ## Program - why, when, and how
@@ -84,7 +84,7 @@ Delay(5000);
 
 :::note[Summary]
 
-- You use a compiler to convert the program’s **source code** into an **executable** file that the user can run (execute).
+- You can create something the user can run from the program's **source code**.
 - The program has an **entry point** that indicates where the program’s instructions start (the Main() method in C#).
-- Your program can use code from [libraries](./08-library.md).
+- Your program can use code from [libraries](../08-library).
 :::
