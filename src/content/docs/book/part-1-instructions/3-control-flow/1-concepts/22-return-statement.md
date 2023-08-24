@@ -22,7 +22,7 @@ description: "..."
 
 <a id="FigureReturnStatementSyntax"></a>
 
-![Figure 5.x C# Syntax for a return statement](./images/storing-and-using-data/ReturnStatementSyntax.png "C# Syntax for a return statement")
+![Figure 5.x C# Syntax for a return statement](./images/ReturnStatementSyntax.png "C# Syntax for a return statement")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.x: </span>C# Syntax for a return statement</div><br/>
 
 :::
