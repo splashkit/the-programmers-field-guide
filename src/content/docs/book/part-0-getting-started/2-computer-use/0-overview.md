@@ -7,7 +7,7 @@ sidebar:
 
 The first leg of our journey will introduce you to a new way of interacting with your computer. This will give you a whole range of new tools to play with, helping equip your toolbelt within new capabilities, and positioning you to be a powerful and productive computer user.
 
-You will be familiar with the standard user experience of using a computer. Using a computer involves touching and swiping icons on a smart phone or tablet, or using a mouse and keyboard to interact with buttons and controls on windows drawn to a monitors. These elegant digital realities provide a convenient way to enable us to launch and use programs on our computers.
+You will be familiar with the standard user experience of using a computer. Using a computer involves touching and swiping icons on a smartphone or tablet, or using a mouse and keyboard to interact with buttons and controls on windows drawn to a monitors. These elegant digital realities provide a convenient way to enable us to launch and use programs on our computers.
 
 But wait! There is another world out there. One that underlies all of these elegant interfaces that you see. One that we will need to start exploring in order to gain access to the full set of capabilities for our programs.
 
@@ -16,6 +16,8 @@ Developing graphical programs require significant effort to build the interfaces
 The fact these programs have simple text driven interfaces can be a challengage at the start, but this makes these programs much easier to automate and you can combine them in interesting ways to quickly and easily achieve a range of useful tasks.
 
 In this chapter, you will learn to use the command line and learn about the environment within which all programs run. Understanding this will help you debug issues and error messages from running programs. It will help you get a picture on how these programs are connected with the operating system, and it will start you programming the computer at the command line level.
+
+## Learning Goals
 
 By the end of this chapter you will be able to:
 
