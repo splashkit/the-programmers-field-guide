@@ -1,84 +1,90 @@
 ---
 title: "Program"
-type: "content"
-date: 2023-08-07 16:45:00
-draft: false
-description: "..."
 ---
 
-## Concept
+In most software projects the top-level **building block** you are aiming to create is a **program**. A program is something the user can **run**.
 
-In most software projects the top level *artefact* you are aiming to create is a **program**. A program is something you can create by writing **source code** in a language like c#, and getting another piece of software, called the **compiler**, to convert your source code into **executable code** (1s and 0s). Executable code is the code that can be run by your computer. The name of the program determines the name of the executable code. For e.g.:
+Each program consists of the **list of instructions** the computer will perform when that program is run. When you create a program, think about the goal of that program and the steps you need the computer to perform to achieve that goal.
 
-myprogram.cs (your source code) -> compiler -> myprogram.exe (executable code).
-
-Your program consists of a **list of instructions** the computer will perform when that program is run on the computer. When you create a program, you should be thinking about the tasks you want the program to achieve, and the steps you must get the computer to perform when the program is run. These then become the instruction within the source code of program, with each instruction being a [Statement](../01-statement) of what you want performed.
-
-[Figure 5.1](#FigureProgram) below shows a **software program** consisting of instructions (the **source code**) that gets compiled into an **executable program** that is run.
+[Figure 5.1](#FigureProgram) shows a sketch of the **program** concept. It shows the program consisting of instructions (written in the **source code**). Key aspects of the program are the starting instruction and the libraries that the program uses.
 
 <a id="FigureProgram" class="linkPoint"></a>
 
 ![Figure 5.1 A program contains instructions that command the computer to perform actions](./images/program-creation/BasicProgramConcept.png "A program contains instructions that command the computer to perform ")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.1: </span> A program contains instructions that command the computer to perform </div><br/>
 
+## Program - why, when, and how
+
+You will need to create a program to be able to run and share each digital reality/piece of software you create. One larger software system may have several programs, but each program will create its own digital reality when it is executed.
+
+Programs are created at the top level - so there it is really just having a file to put the source code in and the project files that `dotnet` creates around these.
+
+When you think about the program, you are thinking **big picture**. What do I want this program to do and, at this stage, what are the steps to achieve this?
+
+The program will **contain** other building blocks like [variables](./12-variable.md) you need to store values. See it as the setting that contains your instructions and data.
+
+Going forward, as you pick up more tools these will expand what you create within your program. For now, it is simply a list of instructions that are followed when the program runs.
+
 ## In C#
 
-
 :::tip[Syntax]
-C++ does not have an explicit Program artefact. Rather, you create a program by having a function called `main` in your code. [Figure 5.x](#FigureProgramSyntax) shows the structure of the syntax used to create a program using the C++ language.
+In a C# project, you have one source code file that will contain the program's main code. The following illustration shows the structure of the syntax for this program.
 
 <a id="FigureProgramSyntax"></a>
 
-![Figure 5.2 The syntax for a C# program.](./images/program-creation/ProgramSyntax.png "The syntax for a C# program")
+![Figure 5.2 The syntax for a C# program.](./images/program.png "The syntax for a C# program")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.2: </span>The syntax for a C# program</div><br/>
 
 :::
 
+Each program starts with an optional list of **using directives**. These allow you to tell the compiler where you want it to look for [methods](./03-method.md) you are calling. Following this list, you provide a list of instructions that each end with a semicolon (`;`).
 
-## Example
+:::tip[Directive?]
 
+A directive is an instruction for the **compiler**, rather than an instruction that gets added to the program created by the compiler. You use these to let the compiler know something about the code you are writing.
 
-[Listing 5.x](#ListingProgramWithMethods) shows a small C++ Program. You should be able to match this up with the syntax defined in [Figure 5.x](#FigureProgramSyntax). This program does not include any custom procedures, but does use a header include to include the splashkit.h header file. Following this is the `main` function that includes the instructions that are run when the program is executed.
+For example, the **using directive** lets you tell the compiler of parts of the library you want to access in your code. This allows you to access the [methods](./03-method.md) from this part of the library in your code.
 
-<a id="ListingProgramWithMethods"></a>
+:::
+
+## Examples
+
+[Listing 5.x](#ListingHelloWorld) shows a basic Hello World C# Program. You should be able to match this up with the syntax defined in [Figure 5.x](#FigureProgramSyntax). This program uses the `System.Console` code to access the `WriteLine` method, which can be called to output a message to stdout.
+
+<a id="ListingHelloWorld"></a>
 
 ```csharp
-include "splashkit.h"
+using System.Console;
 
-int main() {
-  write_line("Hello World!");
-  return 0;
-}
+WriteLine("Hello World!");
 ```
+
 <div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>C# Hello World Program</div>
 
+The following program uses SplashKit to open a window and draw some shapes to it.
 
+<a id="ListingDrawShapes"></a>
 
-## Activities
-### Compiling and running your Hello World program in C#
+```csharp
+using static SplashKitSDK.SplashKit;
 
-<div class="review">
-These instructions can be coded into a C# source code file, compiled and run in "Visual Studio Code" (VSC). To do this follow the instructions here:
+OpenWindow("A House", 800, 600);
+ClearScreen(ColorWhite());
 
-- [Tutorial: Create a .NET console application using Visual Studio Code](https://learn.microsoft.com/en-us/dotnet/core/tutorials/with-visual-studio-code?pivots=dotnet-7-0)
-  - The tutorial also contains an extension exercise which you can try, to modify the program to ask the user to input their name and then output their name along with the date and time
+// Draw a house shape
+FillEllipse(ColorBrightGreen(), 0, 400, 800, 400);
+FillRectangle(ColorGray(), 300, 300, 200, 200);
+FillTriangle(ColorRed(), 250, 300, 400, 150, 550, 300);
 
-Your "HelloWorld" output should look something like this:
-
-```bash
-localhost:HelloWorld vsc-user$ dotnet run
-Hello, World!
-localhost:HelloWorld vsc-user$
+RefreshScreen();
+Delay(5000);
 ```
-<div class="caption"><span class="caption-figure-nbr">Listing 5.2: </span>Output from the "HellowWorldProgram" C# program</div>
+
+<div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>SplashKit House Drawing Code</div>
 
 :::note[Summary]
 
 - You use a compiler to convert the program’s **source code** into an **executable** file that the user can run (execute).
 - The program has an **entry point** that indicates where the program’s instructions start (the Main() method in C#).
-- Your program can use code from a [Library](#library) or number of libraries.
-- In programming terminology, an instruction is called a [Statement](#statement).
-
+- Your program can use code from [libraries](./08-library.md).
 :::
-
-</div>
