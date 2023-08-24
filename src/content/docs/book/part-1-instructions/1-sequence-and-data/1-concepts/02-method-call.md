@@ -70,9 +70,9 @@ WriteLine(0);
 
 The following code uses three different methods from the [SplashKit](https://splashkit.io) library.
 
-* [DownloadSoundEffect](https://splashkit.io/api/networking/#download-sound-effect) will access a sound effect from the internet and load it into your program to use. It requires three parameters, the name to refer to the sound effect when you play it, the URL to download from, and the port for the network communication (443 for https or 80 for http).
-* [PlaySoundEffect](https://splashkit.io/api/audio/#play-sound-effect-named) will play a loaded sound effect. You pass it the name of the sound effect you loaded.
-* [Dealy](https://splashkit.io/api/utilities/#delay) causes the program to wait. You pass this the number of milliseconds to wait - 5000 being 5 seconds in this example.
+- [DownloadSoundEffect](https://splashkit.io/api/networking/#download-sound-effect) will access a sound effect from the internet and load it into your program to use. It requires three parameters, the name to refer to the sound effect when you play it, the URL to download from, and the port for the network communication (443 for https or 80 for http).
+- [PlaySoundEffect](https://splashkit.io/api/audio/#play-sound-effect-named) will play a loaded sound effect. You pass it the name of the sound effect you loaded.
+- [Delay](https://splashkit.io/api/utilities/#delay) causes the program to wait. You pass this the number of milliseconds to wait - 5000 being 5 seconds in this example.
 
 <a id="ListingDrawShapes"></a>
 
