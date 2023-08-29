@@ -49,7 +49,7 @@ For example, the **using directive** lets you tell the compiler of parts of the 
 
 ## Examples
 
-[Listing 5.x](#ListingHelloWorld) shows a basic Hello World C# Program. You should be able to match this up with the syntax defined in [Figure 5.x](#FigureProgramSyntax). This program uses the `System.Console` code to access the `WriteLine` method, which can be called to output a message to stdout.
+[Listing 5.x](#ListingHelloWorld) shows a basic Hello World C# Program. You should be able to match this up with the syntax defined in [Figure 5.x](#FigureProgramSyntax). This program uses the `System.Console` code to access the `WriteLine` method, which can be called to output a message to stdout. The important thing to see here is that **all** of this code is the program - each of the lines is a part of the program.
 
 <a id="ListingHelloWorld"></a>
 
@@ -61,7 +61,7 @@ WriteLine("Hello World!");
 
 <div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>C# Hello World Program</div>
 
-The following program uses SplashKit to open a window and draw some shapes to it.
+The following program uses SplashKit to open a window and draw some shapes to it. Once again, the important thing is that the program is **all** of these instructions. They all come together to create the program and make it what it is.
 
 <a id="ListingDrawShapes"></a>
 
@@ -82,9 +82,15 @@ Delay(5000);
 
 <div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>SplashKit House Drawing Code</div>
 
+Data is also key within every program. Can you spot data in the examples above?
+
+We use data to capture the information we need the program to work with. The data in the above examples are all **fixed** or [literal](../06-literal) values. That means these values can not change when the program runs. They are fixed, being literally the value that appears in the code.
+
 :::note[Summary]
 
 - You can create something the user can run from the program's **source code**.
-- The program has an **entry point** that indicates where the program’s instructions start (the Main() method in C#).
-- Your program can use code from [libraries](../08-library).
+- Most importantly, you cant really *see* the program in the code. The program is **all** of this code together. It is the container that holds the instructions that will run when it is executed.
+- The program has an **entry point** that indicates where the program’s instructions start - in this case the first instruction.
+- Your program can use code from [libraries](../08-library) giving it access to building blocks others have created.
+- Data is also central to the program.
 :::

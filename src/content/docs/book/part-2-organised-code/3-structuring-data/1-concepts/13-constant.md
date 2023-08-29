@@ -8,7 +8,7 @@ description: "..."
 
 ## Concept
 
-A Constant is just like a [Variable](../12-variable), but its value cannot be changed. Constants are declared within the Program, and given a value when they are created. Once they are created the value within the Constant cannot be
+<!-- A Constant is just like a [Variable](../12-variable), but its value cannot be changed. Constants are declared within the Program, and given a value when they are created. Once they are created the value within the Constant cannot be
 changed. This is useful for data where you do not want the value changing during the program's execution.
 
 <a id="FigureConstant"></a>
@@ -115,4 +115,4 @@ A Constant is an **artefact**. You can create Constants in your Program to store
 - The name of the Constant is an [Identifier](../07-identifier).
 - The Constant’s name should reflect the value it is storing.
 
-:::
+::: -->
