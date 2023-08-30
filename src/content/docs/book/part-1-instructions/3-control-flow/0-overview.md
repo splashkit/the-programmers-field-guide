@@ -7,15 +7,15 @@ description: "..."
 ---
 ## Overview
 
-The focus so far has been on learning the programming artefacts that you can create within your code. You have seen how to create [Programs](../../1-sequence-and-data/1-concepts/00-program), [Methods](../../1-sequence-and-data/1-concepts/03-method), [Functions](../../1-sequence-and-data/1-concepts/20-function), and [Variables](../../1-sequence-and-data/1-concepts/21-function-call). The actual instructions that you can issue to the computer have been limited to [Method Calls](../../1-sequence-and-data/1-concepts/02-method-call), [Function Calls](../../1-sequence-and-data/1-concepts/21-function-call), and [Assignment Statements](../../1-sequence-and-data/1-concepts/19-assignment-statement). This Chapter will introduce you to the other actions that you can command the computer to perform. It will show you how to control the flow of the instructions, unlocking great power, and making it possible to do things that until now seemed impossible.
+The focus so far has been on learning the programming artefacts that you can create within your code. You have seen how to create [Programs](../../1-sequence-and-data/1-concepts/00-program), [Methods](../../1-sequence-and-data/1-concepts/02-method), [Functions](#), and [Variables](#). The actual instructions that you can issue to the computer have been limited to [Method Calls](../../1-sequence-and-data/1-concepts/03-method-call), [Function Calls](#), and [Assignment Statements](../../1-sequence-and-data/1-concepts/19-assignment-statement). This Chapter will introduce you to the other actions that you can command the computer to perform. It will show you how to control the flow of the instructions, unlocking great power, and making it possible to do things that until now seemed impossible.
 
 When you have understood the material in this chapter you will be able to write code that commands the computer to perform a wider range of actions by controlling the sequence in which the basic commands are performed.
 
 ## Overview of Control Flow Concepts
 
-Programming is about designing code that commands the computer to perform actions. Earlier chapters have introduced the [Program](../../1-sequence-and-data/1-concepts/00-program), [Method](../../1-sequence-and-data/1-concepts/03-method) and [Function](../../1-sequence-and-data/1-concepts/20-function) artefacts into which you can enter these instructions, but have not elaborated on the actions that you can perform.
+Programming is about designing code that commands the computer to perform actions. Earlier chapters have introduced the [Program](../../1-sequence-and-data/1-concepts/00-program), [Method](../../1-sequence-and-data/1-concepts/02-method) and [Function](#) artefacts into which you can enter these instructions, but have not elaborated on the actions that you can perform.
 
-Most of a program’s actual work will be carried out in [Assignment Statements](../../1-sequence-and-data/1-concepts/19-assignment-statement), and through [Method Calls](../../1-sequence-and-data/1-concepts/02-method-call) and [Function Calls](../../1-sequence-and-data/1-concepts/21-function-call). These are the main commands, allowing you to alter values stored in memory and to execute stored instructions. The remaining commands relate to controlling the order in which the computer performs the instructions; called **control flow statements**.
+Most of a program’s actual work will be carried out in [Assignment Statements](../../1-sequence-and-data/1-concepts/19-assignment-statement), and through [Method Calls](../../1-sequence-and-data/1-concepts/03-method-call) and [Function Calls](#). These are the main commands, allowing you to alter values stored in memory and to execute stored instructions. The remaining commands relate to controlling the order in which the computer performs the instructions; called **control flow statements**.
 
 This chapter introduces the following kinds of instructions. You can use these to get the computer to perform certain **actions** within your program.
 
@@ -27,18 +27,18 @@ This chapter introduces the following kinds of instructions. You can use these t
 
 In addition to these actions, you will need have a look at an existing artefact:
 
-- [Boolean Data](../1-concepts/01-boolean-data): An existing [Type](../../1-sequence-and-data/1-concepts/06-type) that has either a *true* or *false* value.
+- [Boolean Data](../1-concepts/01-boolean-data): An existing [Type](../../1-sequence-and-data/1-concepts/07-type) that has either a *true* or *false* value.
 
 You may need to revise the following programming **artefacts**:
 
 - [Program](../../1-sequence-and-data/1-concepts/00-program): The idea of building your own programs.
-- [Method](../../1-sequence-and-data/1-concepts/03-method): Creating your own Method, as well as calling Methods from libraries.
-- [Function](../../1-sequence-and-data/1-concepts/20-function): Creating your own Functions, as well as calling Functions from libraries.
+- [Method](../../1-sequence-and-data/1-concepts/02-method): Creating your own Method, as well as calling Methods from libraries.
+- [Function](#): Creating your own Functions, as well as calling Functions from libraries.
 
 The following programming terminology will also be used in this Chapter:
 
-- [Statement](../../1-sequence-and-data/1-concepts/01-statement): An instruction performed in your code.
-- [Type](../../1-sequence-and-data/1-concepts/06-type): A kind of data used in your code.
+- [Statement](#): An instruction performed in your code.
+- [Type](../../1-sequence-and-data/1-concepts/07-type): A kind of data used in your code.
 
 The example for this chapter is a guessing game, where the user is guessing a number between 1 and 100. An example of this program executing is shown in [Listing x.y](#ListingGuessingGame)
 

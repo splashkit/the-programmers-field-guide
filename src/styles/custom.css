@@ -231,6 +231,42 @@ html[data-theme="dark"] aside[aria-label="Summary"] .starlight-aside__title {
 }
 /* --- END:   Summary Box ------*/
 
+/* --- START: C# Box ------*/
+aside[aria-label="C#"] {
+  border-inline-start: inherit;
+  border-radius: 8px;
+  border: 2px solid #a56386;
+}
+
+html[data-theme="light"] aside[aria-label="C#"] {
+  background-color: #ebdfef;
+}
+
+html[data-theme="dark"] aside[aria-label="C#"] {
+  background-color: #3d414d;
+}
+
+aside[aria-label="C#"] img {
+  background-color: white;
+  border-radius: 8px;
+}
+
+/* required specificity to override */
+html[data-theme="light"] aside[aria-label="C#"] ul li p, html[data-theme="dark"] aside[aria-label="C#"] ul li p {
+  margin-bottom: 0px;
+}
+
+html[data-theme="light"] aside[aria-label="C#"] .starlight-aside__title {
+  color: #c32177;
+  font-weight: 800;
+}
+
+html[data-theme="dark"] aside[aria-label="C#"] .starlight-aside__title {
+  color: #debbc7;
+  font-weight: 800;
+}
+/* --- END:   C# Box ------*/
+
 
 .linkPoint {
   display: block;
