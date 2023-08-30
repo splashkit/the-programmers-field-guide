@@ -1,14 +1,10 @@
 ---
 title: "Variable"
-type: "content"
-date: 2023-08-07 16:45:00
-draft: false
-description: "..."
 ---
 
-## Concept
+While fixed values are useful, to make programs dynamic you need to be able to work with values that change.
 
-A Variable is a **container** into which you can store a value, which can then be retrieved later. The Variable allows you to store values you want to work with in your program, you store values in the variable so that you can read them back later. The variable's themselves are either a [Global Variable](../15-global-variable), [Local Variable](../14-local-variable), or [Parameter](../16-parameter).
+A **variable** is a **building block** you can use to store a value that you can change and read as the program runs.  You can picture a variable as a **container** into which you store a value and retrieve it later.
 
 <a id="FigureVariable"></a>
 
@@ -16,71 +12,92 @@ A Variable is a **container** into which you can store a value, which can then b
 
 <Caption><FigureText>Figure 5.17: </FigureText>Variables store a value that can be read and changed</Caption><br/>
 
+## Variables - why, when, and how
+
+A variable allows you to store a value that represents something in your code. You can change the value as that *thing* changes, and read the value when it is needed. When you have something you want to be able to change, you create a variable to store this. The type of the variable needs to match the kind of data you want to store.
+
+You need to initialise the variable with a starting value, and you can then read and store new values within the variable as the program runs and the *thing* the variable represents changes.
+
+This is where you start to build your digital reality. Within this reality, you can capture simple values and change these within your code.
+
 ## In C#
 
-A Variable Declaration allows you to create a Variable in your Code. In C# you can declare variables in the program’s code, and in Functions and Procedures. [Figure 5.18](#FigureVariableSyntax) shows the syntax for variable declarations in C#.
-
+A variable declaration creates a variable in your code. [Figure 5.18](#FigureVariableSyntax) shows the syntax for variable declarations in C#.
 
 :::tip[Syntax]
 
-- This is the C Syntax for creating your own Variable.
-- This syntax can be used to declare ...
-  - Local Variables within Functions and Procedures.
-  - Global Variables within the program.
-- In C the Variable Declaration starts with the [Type](../06-type) name indicating the kind of data that will be stored.
-- Following the Type is a list of the identifiers for the Variables that are being created.
-- You can create one or more variables in a single Variable Declaration, but all of these Variables will have the same type.
+- This is the C# Syntax for creating a variable.
+- In C#, the variable declaration starts with the [Type](../06-type) name indicating the kind of data that will be stored.
+- Following the type is a list of the identifiers for the variables you are creating.
+- You can create one or more variables in a single variable declaration, but all of these variables will have the same type.
 - Each variable can be assigned a value when it is declared.
-- The **const** modifier can be added to the start of a Variable declaration to create a Constant.
-- See C Procedure Declaration (with Local Variables) for details on declaring Local Variables within Functions and Procedures.
-- See C Program (with Global Variables and Constants) for details on declaring Global Variables within the program itself.
-- The syntax for declaring Parameters is very similar, see C Procedure Declaration (with Parameters).
+- The **const** modifier can be added to the start of a variable declaration to create a constant.
 
 <a id="FigureVariableSyntax"></a>
 
-![Figure 5.18 The syntax for C# variable declarations.](./images/storing-and-using-data/VariableSyntax.png "The syntax for C# variable declarations")
+![Figure 5.18 The syntax for C# variable declarations.](./images/variable-declaration.png "The syntax for C# variable declarations")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.18: </span>The syntax for C# variable declarations</div><br/>
 
 :::
 
-
-
 ## Examples
 
-<a id="ListingVariableDeclaration"></a>
+### Basic Example
+
+In this program, we want to capture the user's name and greet them using it.
+
 ```csharp
-/* Program: variable_test.c
- * This program demonstrates some variable declarations
- */
+using static System.Console;
 
-#include <stdio.h>
+string name;
 
-const float PI = 3.1415;
-float global_float = 12.3;
-int global_int = 73;
+WriteLine("Welcome to The Greeting");
+WriteLine();
+WriteLine("What is your name?")
+Write("name: ");
+name = Console.ReadLine();
 
-void test(int param_int, float param_float) {
-    int my_local = 37, another_local = 42;
-    printf("my local int = %d, another_local = %d\n", my_local, another_local);
-    printf("param int = %d, param float = %f\n", param_int, param_float);
-    printf("globals are %f and %d\n", global_float, global_int);
-}
-
-int main() {
-    int local_int;
-    local_int = 21;
-
-    test(local_int, PIT * local_int * local_int);
-
-    printf("local int = %d\n", local_int);
-    printf("globals are %f and %d\n", global_float, global_int);
-    printf("PI is a constant with value %f\n", PI);
-    return 0;
-}
-
+WriteLine();
+WriteLine("Hello " + name);
 ```
 
-<div class="caption"><span class="caption-figure-nbr">Listing 5.14: </span>Example program containing variable declarations</div>
+<div class="caption"><span class="caption-figure-nbr">Listing 5.14: </span>Example program with varible declaration</div>
+
+### SplashKit Example
+
+The following program captures a radius for a circle and uses that to draw to the screen. To achieve this we need two variables, `line` and `radius`. We use `ReadLine` to read a `string` from the user, and `ConvertToDouble` to convert the text read into a `double` value. This value is stored in the `radius` variable, which can then be used in the call to `FillRadius`.
+
+```csharp
+using static SplashKitSDK.SplashKit;
+
+string line;
+double radius;
+
+WriteLine("Welcome to Circle Drawer!");
+WriteLine();
+WriteLine("Enter the radius of the circle to draw.");
+WriteLine();
+Write("Circle radius: ");
+line = ReadLine();
+
+// Convert the text entered to a double
+radius = ConvertToDouble(line);
+
+OpenWindow("A House", 800, 600);
+ClearScreen(ColorWhite());
+FillCircle(ColorBlue(), 400, 300, radius);
+RefreshScreen();
+Delay(1000);
+
+radius = radius * 2;
+
+ClearScreen(ColorWhite());
+FillCircle(ColorBlue(), 400, 300, radius);
+RefreshScreen();
+Delay(1000);
+```
+
+
 
 ## Activities
 
