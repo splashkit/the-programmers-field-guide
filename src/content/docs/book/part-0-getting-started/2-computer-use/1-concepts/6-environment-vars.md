@@ -6,7 +6,7 @@ sidebar:
 
 There are some things that you will want to be able to configure for a program. There are many options to cater for this. **Environment variables** is one way the operating system provides to allow programmers to gain access to configuration data within their program. The values of these variables can be set and changed, and thereby change the way things work within the programs that read these values.
 
-This is particularly important when we consider the variables that impact on the shell program itself.
+This is particularly important when we consider the variables that impact the shell program itself.
 
 ## Important variables for the shell
 

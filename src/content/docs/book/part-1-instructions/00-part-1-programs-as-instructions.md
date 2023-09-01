@@ -2,6 +2,7 @@
 title: Overview of Programs as Instructions
 sidebar:
   label: Introducing Instructions
+  order: 0
 ---
 
 Part 0 has helped us set the stage for the first leg of our journey in which we explore **programs as instructions**. As we saw in the chapter on [Digital Realities](../part-0-getting-started/1-digital-realities/0-overview.md), programming is about building abstractions. As this is done using tools we create, there can be different ways of thinking about these programs - different **paradigms**.

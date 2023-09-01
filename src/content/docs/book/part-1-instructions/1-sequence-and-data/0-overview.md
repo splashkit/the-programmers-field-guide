@@ -1,5 +1,7 @@
 ---
 title: Overview of Sequence and Data
+sidebar:
+  order: 0
 ---
 
 At a basic level, programs consist of sequences of instructions that work on data. With a basic terminal program, data can flow into the application from *stdin* and it can flow out via *stdout*.
@@ -37,9 +39,9 @@ This is the core of **computational thinking** - the ability to take an idea and
 
 :::
 
-To demonstrate these concepts in action, we will [put them together](./3-put-together.md) to create two different programs: one that calculates change and another that creates a drawing using [splashkit](https://splashkit.io).
+To demonstrate these concepts in action, we will [put them together](./3-put-together.md) to create two different programs: one that calculates change and another that creates a drawing using [SplashKit](https://splashkit.io).
 
-The change calculator will demonstrate the process of calculating change for a vending machine. This program will read the cost and amount paid from the user, and will then output the number of coins that need to be returned. The output of several runs of this program are shown below.
+The change calculator will demonstrate the process of calculating change for a vending machine. This program will read the cost and amount paid from the user, and will then output the number of coins that need to be returned. The output of several runs of this program is shown below.
 
 ```sh
 $ dotnet run

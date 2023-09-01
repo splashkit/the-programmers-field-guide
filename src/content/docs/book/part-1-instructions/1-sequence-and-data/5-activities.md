@@ -2,6 +2,13 @@
 title: Activities
 ---
 
+Having explored this leg of the journey you are now approaching a rest stop and a chance to practice and reflect.
+
+## Rest Stop - Group Activity
+
+
+## Personal Projects
+
 To come...
 
 
