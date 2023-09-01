@@ -39,25 +39,22 @@ This is the core of **computational thinking** - the ability to take an idea and
 
 :::
 
-To demonstrate these concepts in action, we will [put them together](./3-put-together.md) to create two different programs: one that calculates change and another that creates a drawing using [SplashKit](https://splashkit.io).
-
-The change calculator will demonstrate the process of calculating change for a vending machine. This program will read the cost and amount paid from the user, and will then output the number of coins that need to be returned. The output of several runs of this program is shown below.
+To demonstrate these concepts in action, we will [put them together](./3-put-together.md) to create two different programs: one that calculates airspeed and another that creates a drawing using [SplashKit](https://splashkit.io). The airspeed calculator lets you calculate the airspeed velocity of unladen birds, as shown below.
 
 ```sh
 $ dotnet run
-Cost of item (in cents): 15
-Amount paid (in cents): 500
-Change: 2 x $2, 0 x $1, 1 x 50c, 1 x 20c, 1 x 10c, 1 x 5c
+Welcome to the Airspeed Calculator
 
-$ dotnet run
-Cost of item (in cents): 150
-Amount paid (in cents): 250
-Change: 0 x $2, 1 x $1, 0 x 50c, 0 x 20c, 0 x 10c, 0 x 5c
+What is the name of the bird?
+Name: Africal Swallow
+What is the frequency of its wing stroke? (beats per second)
+Frequency: 15
+What is the amplitude of its wings? (centimeters)
+Amplitude: 21
 
-$ dotnet run
-Cost of item (in cents): 175
-Amount paid (in cents): 200
-Change: 0 x $2, 0 x $1, 0 x 50c, 1 x 20c, 0 x 10c, 1 x 5c
+Africal Swallow
+ - f: 15 A: 0.21 Speed: 15.75 m/s
+ - f: 15 A: 0.21 Speed: 7.88 m/s
 ```
 
 In the graphical program, you will create a scene using primitive shapes and will be given the tools to see how you can use this to draw images and play sound effects. With just these tools, you can build a small animation to tell a story.
