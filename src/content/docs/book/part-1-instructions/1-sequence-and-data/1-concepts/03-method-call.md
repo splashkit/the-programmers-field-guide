@@ -101,22 +101,22 @@ All of the arguments in this code are using literal values.
 
 ### Example using result
 
-Some methods return data, which you can use within any calculated value ([expression](../07-expression)) within your code. The following code demonstrates the use of the values returned by the `ColorWhite` and `Rnd` methods.
+Some methods return data, which you can use within any calculated value ([expression](../07-expression)) within your code. The following code demonstrates the use of the values returned by the `RandomColor` and `Rnd` methods.
 
 <a id="ListingReturn"></a>
 
 ```csharp
 using static SplashKitSDK.SplashKit;
 
-OpenWindow("A House", 800, 600);
-ClearScreen(ColorWhite());
+OpenWindow("Random Color", 800, 600);
+ClearScreen(RandomColor());
 RefreshScreen();
 Delay(1000 * Rnd(10));
 ```
 
 <div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>Code demonstrating use of return values.</div>
 
-Line 4 demonstrates the use of the result from calling `ColorWhite` within the call to `ClearScreen`. In this case, the value returned from the `ColorWhite` becomes the value for the argument passed to `ClearScreen`. As you would expect, this will clear the screen to the white color.
+Line 4 demonstrates the use of the result from calling `RandomColor` within the call to `ClearScreen`. In this case, the value returned from the `RandomColor` becomes the value for the argument passed to `ClearScreen`. As you would expect, this will clear the screen to a random color.
 
 Line 6 demonstrates this again, the result of `1000 * Rnd(10)` is passed to `Delay`. The easiest way to approach this is to consider each value independently. `Rnd(10)` will return a random value between 0 and 10 - let us imagine this returns `6` so that we can see what that does. In this case, `1000 * Rnd(10)` becomes `1000 * 6`, as the value **returned** by `Rnd(10)` was `6`. This is then evaluated, and `Delay` will be passed the argument `6000`, causing it to delay for 6 seconds.
 
