@@ -1,6 +1,8 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
+import react from '@astrojs/react';
+
 // https://astro.build/config
 export default defineConfig({
   markdown: {
@@ -27,7 +29,10 @@ export default defineConfig({
         github: "https://github.com/withastro/starlight",
       },
       sidebar: [
-        { label: "Home", link: "/" },
+        {
+          label: "Home",
+          link: "/",
+        },
         {
           label: "Part 0: First Steps",
           collapsed: true,
@@ -77,7 +82,7 @@ export default defineConfig({
                   autogenerate: {
                     directory:
                       "book/part-0-getting-started/2-computer-use/1-concepts",
-                      collapsed: true,
+                    collapsed: true,
                   },
                 },
                 {
@@ -119,7 +124,6 @@ export default defineConfig({
                   label: "Activities",
                   link: "book/part-0-getting-started/3-building-programs/4-activities",
                 },
-
               ],
             },
           ],
@@ -158,9 +162,15 @@ export default defineConfig({
         },
       ],
     }),
+    react(),
   ],
-
   // Process images with sharp: https://docs.astro.build/en/guides/assets/#using-sharp
-  image: { service: { entrypoint: "astro/assets/services/sharp" } },
-  server: { port: 3001 },
+  image: {
+    service: {
+      entrypoint: "astro/assets/services/sharp",
+    },
+  },
+  server: {
+    port: 3001,
+  },
 });

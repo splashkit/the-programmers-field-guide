@@ -6,9 +6,7 @@ sidebar:
 
 Operating systems, like all programs, need to create *digital realities* for us to work with. We have seen how this applied to saved data, with files and folders. When we look at the execution environments, there is another concept we need to connect with - that of the **data stream**.
 
-Data streams, often just referred to as streams, come from a river or water-flow metaphore. A stream is a flow of data either into or out of a program. You can picture this as the data *flowing* through the stream from a data source to a consumer. For example, data flowing from the keyboard into the program for it to respond to. Similarly, data can flow out of the program and onto terminal's display for the user to see.
-
-**TODO image of data flowing from keyboard through a pipe to a program**
+Data streams, often just referred to as streams, come from a river or water-flow metaphor. A stream is a flow of data either into or out of a program. You can picture this as the data *flowing* through the stream from a data source to a consumer. For example, data flows from the keyboard into the program for it to respond to. Similarly, data can flow out of the program and onto the terminal's display for the user to see.
 
 :::note
 
@@ -16,11 +14,11 @@ Data flows through a stream in order, so that the first piece of data added to t
 
 :::
 
-In Unix, streams are use as the metaphore for all data flows.
+In Unix, streams are used as the metaphor for all data flows.
 
 - **File streams** allow data to flow into or out of a file.
 - **Network streams** allow data to flow between computers across a network.
-- **Text streams** allow text to flow from things like the keyboard and to things like the shell's output.
+- **Text streams** allow text to flow from things like the keyboard, and to things like the shell's output.
 
 :::tip
 
@@ -34,7 +32,15 @@ When you run a program, the operating system gives it **three** different data *
 
 - **Standard input** is a text input stream for text your program can read.
 - **Standard Output** is a text output stream for text that is coming out of your program.
-- **Standard Error** is the secong text output steam that is used to output error messages.
+- **Standard Error** is the second text output steam that is used to output error messages.
+
+![The execution environment of a program, with environment variables, stdin, stdout, and stderr shown as pipes.](./images/execution-env.png)
+
+:::tip
+
+When picturing the stream, remember the first thing put on the stream will be the first thing read at the other end.
+
+:::
 
 #### Standard Input (stdin)
 
@@ -72,7 +78,7 @@ One of the great features of streams is the ability the operating system provide
 
 :::note
 
-Each stream has an unique number - 0 for stdin, 1 for stdout, and 2 for stderr. This is the `2` in `2>>`. You can redirect one stream to another using these identifiers. For example, `2>&1` will redirect stderr to stdout.
+Each stream has a unique number - 0 for stdin, 1 for stdout, and 2 for stderr. This is the `2` in `2>>`. You can redirect one stream to another using these identifiers. For example, `2>&1` will redirect stderr to stdout.
 
 :::
 
@@ -101,7 +107,7 @@ wc -l < lines.txt
 
 Pipes offer another option for redirecting streams. In this case you can connect the output from one program to the input of another. This is a super powerful feature, allowing you to combine together multiple programs.
 
-To explore this lets look at one more tool: [grep](https://man.cx/Grep). Grep is one of the most useful tools with pipes. With grep you can filter standard input to only return lines that match the patterns you provided to grep. For now the patterns can just be exact text matches, but grep provides much more powerful pattern matching capabilities, which you can explore later.
+To explore this let's look at one more tool: [grep](https://man.cx/Grep). Grep is one of the most useful tools with pipes. With grep you can filter standard input to only return lines that match the patterns you provided to grep. For now, the patterns can just be exact text matches, but grep provides much more powerful pattern-matching capabilities, which you can explore later.
 
 |**Action**               |**Command**  |**Description**|
 |-------------------------|-------------|-----------------------------------------------------------------------------------|

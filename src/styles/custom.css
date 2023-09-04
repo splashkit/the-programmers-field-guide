@@ -1,4 +1,5 @@
 @import url("https://use.typekit.net/vzr3ole.css");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
 #_top,.site-title {
   font-family: "antique-olive", sans-serif;
@@ -112,6 +113,41 @@ html[data-theme="dark"] h4 {
 }
 
 /* --- END:   Main pane table style ------*/
+
+/* --- START: Main pane blockquote style ------*/
+.main-pane blockquote {
+  border-inline-start: none;
+  padding-inline-start: 1rem;
+  padding-inline-end: 1rem;
+  font-style: italic;
+  font-family: "FontAwesome";
+  line-height: 1.5rem;
+  text-align: center;
+  /*
+  background-color: whitesmoke;
+  display: inline;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  */
+}
+.main-pane blockquote:before {
+  color: royalblue;
+  content: "\f10d";
+  margin-right: 10px;
+}
+
+.main-pane blockquote:after {
+  color: royalblue;
+  content: "\f10e";
+  margin-left: 10px;
+}
+
+.main-pane blockquote > p {
+  display:inline;
+}
+/* --- END:   Main pane blockquote style ------*/
 /* ------------------------------------------- */
 /* END:   OVERRIDE DEFAULT STYLES              */
 /* ------------------------------------------- */
