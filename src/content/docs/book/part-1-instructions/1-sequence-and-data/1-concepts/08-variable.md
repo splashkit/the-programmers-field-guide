@@ -185,6 +185,11 @@ Delay(5000);
 
 ```
 
+## Activities
+
+[TODO]
+
+
 :::note[Summary]
 
 - Variables and constants are **building blocks**, you can create them to store values in your programs.

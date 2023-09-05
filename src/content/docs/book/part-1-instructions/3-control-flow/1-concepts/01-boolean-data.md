@@ -1,14 +1,8 @@
 ---
 title: "Boolean Data"
-type: "content"
-date: 2023-08-07 16:45:00
-draft: false
-description: "..."
 ---
 
-## Concept
-
-The Boolean<sup>[1](#FootnoteGeorgeBool)</sup> Data Type is a [Type](../../../1-sequence-and-data/1-concepts/07-type) used to represent **truth**. A Boolean value will either be **true** or **false**. These values are used extensively in the control flow statements to determine the action to perform.
+The Boolean<sup>[1](#FootnoteGeorgeBool)</sup> [Type](../../../1-sequence-and-data/1-concepts/07-type) is used to represent **truth**. A Boolean value will either be **true** or **false**. These values are used extensively in the control flow statements to determine which instruction to perform next.
 
 <a id="FigureBooleanData"></a>
 
@@ -16,10 +10,11 @@ The Boolean<sup>[1](#FootnoteGeorgeBool)</sup> Data Type is a [Type](../../../1-
 <div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Boolean data represents truth</div><br/>
 
 :::note
-- Boolean is an existing **artefact**, it is a [Type](../../../1-sequence-and-data/1-concepts/07-type) that has been defined to represent truth values.
-- A Boolean value is either **true** or **false**. You can also think of these as yes and no.
+- Boolean is an existing [Type](../../../1-sequence-and-data/1-concepts/07-type) that has been defined to represent truth values.
+- A boolean value is either **true** or **false**. You can also think of these as yes or no.
 - Boolean values are used in most of the control flow statements.
-- The Boolean type can be used in the same way as other types.
+- The boolean type can be used in the same way as other types to declare variables.
+- You can use `true` and `false` as Boolean literals.
 :::
 
 <hr class="footnote">
@@ -28,11 +23,11 @@ The Boolean<sup>[1](#FootnoteGeorgeBool)</sup> Data Type is a [Type](../../../1-
 
 ## Comparisons
 
-Comparisons are a common way of getting Boolean values in your code. These [Expressions](#) allow you to compare two values to check for a given condition. For example, the Expression shown in [Figure x.y](#FigureBooleanData) is asking if the value in the `value` variable is larger than `23.5` . The result of this expression will be either `true` or `false` depending on the current value stored in `area`. [Table x.y](#TableExpressionValues) lists some example values for this expression, given different values stored in the `area` variable.
+Comparisons are a common way of generating a boolean values in your code. These [Expressions](#) allow you to compare two values, and determine the truth of a given condition. For example, the Expression shown in [Figure x.y](#FigureBooleanData) is asking if the value in the `area` variable is larger than `23.5` . The result of this expression will be either `true` or `false`, depending on the current value stored in `area`. [Table x.y](#TableExpressionValues) lists some example values for this expression, given different values stored in the `area` variable.
 
 <a id="TableExpressionValues"></a>
 
-| Value in area | area > 23.5 |
+| Value in area | `area > 23.5` |
 |---|---|
 | 73.2 | true |
 | -2.5 | false |
@@ -40,22 +35,28 @@ Comparisons are a common way of getting Boolean values in your code. These [Expr
 
 <div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Example values for the expression 'area > 23.5'</div><br/>
 
-Programming languages offer a range of different comparison operators. These typically include comparisons to check if values are the same or different, and to check if one value is larger or small than another. The different operators for C and Pascal are listed in [Table x.y](#TableOperators).
+Programming languages offer a range of different comparison operators. These typically include comparisons to check if values are the same or different, and to check if one value is larger or small than another. The different operators for C# are listed in [Table x.y](#TableOperators).
 
 <a id="TableOperators"></a>
 
-|  | Description | C | Pascal |
+|  | Description | Operator |
 |---|---|---|---|
-| **Equal** | Are the values the same? | `a == b`<sup>[2](#FootnoteEqualComparisonOperator)</sup> | `a = b` |
-| **Not Equal** | Are the values different? | `a != b` | `a <> b` |
-| **Larger Than** | Is the left value larger than the right? | `a > b` | `a > b` |
-| **Less Than** | Is the left value smaller than the right? | `a < b` | `a < b` |
-| **Larger Or Equal** | Is the left value equal or larger than the right? | `a >= b` | `a >= b` |
-| **Less Or Equal** | Is the left value smaller or equal to the right? | `a <= b` | `a <= b` |
+| **Equal** | Are the values the same? | `a == b`<sup>[2](#FootnoteEqualComparisonOperator)</sup> |
+| **Not Equal** | Are the values different? | `a != b` |
+| **Larger Than** | Is the left value larger than the right? | `a > b` |
+| **Less Than** | Is the left value smaller than the right? | `a < b` |
+| **Larger Or Equal** | Is the left value equal or larger than the right? | `a >= b` |
+| **Less Or Equal** | Is the left value smaller or equal to the right? | `a <= b` |
 
 <div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Comparison Operators</div><br/>
 <hr class="footnote">
 <div id="FootnoteEqualComparisonOperator" class="footnote"><sup>2</sup>C uses a double equal <code>==</code> for comparison as the single equals (<code>=</code>) is used for assignment</div>
+
+:::tip
+
+The symbols for less than, and larger than, can be seen visually. With less than, notice how `<` character starts as a small point on the left and gets wider to the right. The left side is *smaller* than the right. Similarly, `>` starts wide and narrows to the point on the right. The left side is *larger* than the right.
+
+:::
 
 :::note
 
@@ -64,13 +65,11 @@ Programming languages offer a range of different comparison operators. These typ
 
 :::
 
-
-
-
-
 ## Logical Operators
 
-The comparison operators allow you to compare *two* values. This is very useful, but in itself is incomplete. What, for example, do you do when you want to compare three or more values? While you are limited to two values with the comparison operators, there are other operators that allow you to **combine** Boolean expressions. This will enable you to combine together multiple Boolean values into a single Expression.
+The comparison operators allow you to compare *two* values. This is very useful, but in itself is incomplete. What, for example, do you do when you want to compare three or more values? 
+
+While you are limited to two values with the comparison operators, there are other operators that allow you to **combine** Boolean expressions. This will enable you to combine together multiple Boolean values into a single Expression.
 
 There are four main *logical operators*: **and**, **or**, **xor**, and **not**. Each of these operators works on two Boolean values, combining them to give a new Boolean value. For example, the and operator allows you to check if both of the expressions are true. The expression `area > 0` and `area < 10` will be true only when area is both larger than zero and less then ten.
 
