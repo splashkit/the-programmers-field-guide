@@ -4,7 +4,7 @@ sidebar:
     label: Source Code
 ---
 
-The next step in programming language was to make languages even more human readable. These languages, known as **third generation languages**, use move advanced programs than assemblers to convert their instructions into machine code. Programs written in these languages have their code converted to machine code by a **compiler** or **interpreter**.
+The next step in programming language was to make languages even more human readable. These languages, known as **third generation languages**, use more advanced programs than assemblers to convert their instructions into machine code. The code that a programmer writes in these languages is called **source code**. Programs written in these languages are converted to machine code by a **compiler** or **interpreter**.
 
 ### Compilers and Interpreters
 
@@ -38,6 +38,6 @@ int main()
 
 When compiled, this C++ program generates the assembler code and machine code shown in the previous code snippets. This code must be converted by the C++ compiler into machine code before it can be run. It is interesting to note the size of the C++ file: it is only 50 bytes! The compiler converts this 50 bytes into the 13,344 bytes of machine code.
 
-Programs written in a third generation programming language are much easier to understand than their assembler or machine code equivalents. It is a more portable form of code, as it can be compiled to run on different types of CPU. Most modern programming languages are third generation languages.
+Most modern programming languages are third generation languages. Programs written in a third generation programming language are much easier for us to understand than their assembler or machine code equivalents. Source code is also a more portable form of code, as it can be compiled to run on different types of CPU. 
 
-The code that a programmer writes in these languages is called **source code**. Typically, source code is saved into a text file with a file extension that helps identify the language it is written in. For example, programs written in the C++ language are saved into files with a `.cpp` file extension. C# programs are saved into files with a `.cs` extension, Python in `.py` and so on.
+Typically, source code is saved into a text file with a file extension that helps identify the language it is written in. For example, programs written in the C++ language are saved into files with a `.cpp` file extension. C# programs are saved into files with a `.cs` extension, Python in `.py` and so on.

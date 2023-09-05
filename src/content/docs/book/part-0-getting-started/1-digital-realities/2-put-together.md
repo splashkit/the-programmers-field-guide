@@ -4,7 +4,7 @@ sidebar:
   label: Putting Together
 ---
 
-This chapter is a little different from those that follow. For now, we are looking at the landscape around us so you can get a feel for the journey ahead and what will be important.
+This chapter was a little different from those that follow. We looked at the landscape around us so you could get a feel for the journey ahead and what will be important.
 
 ## Computers are Unintelligent
 
@@ -27,6 +27,6 @@ Computers are hugely complicated if you try to think about everything that is go
 
 So, at this stage, you don’t need to worry too much about how transistors work to create gates within the computer. Nor do you have to worry about how they are designed to make computations function. You can live above these details - because of abstraction.
 
-At the start of this journey, in Part 1, you will start to explore *programs as instructions*. Our first step will be to look at the different elements you can put within your source code to control the computer. We will explore how each element works, and what the computer will do when you use it. This will ensure that you can use each element effectively, and understand how to relate to each other.
+At the start of this journey, in Part 1, you will start to explore *programs as instructions*. Our first step will be to look at the different elements you can put within your source code to control the computer. We will explore how each element works, and what the computer will do when you use it. This will ensure that you can use each element effectively, and understand how they relate to each other.
 
 Your ability to work and engage with abstractions is important now. Programs are abstract - they are our ideas and thoughts manifested in code. You need to be able to hold these imaginary entities within your mind so that you can engage with constructing the code that will make them come to life.

@@ -2,7 +2,7 @@
 title: Activities
 ---
 
-For now, you want to start thinking more deeply about how the programs you have used are likely to be working and start to think about the kinds of things you may be interested in building in the future.
+For now, you can start thinking more deeply about how the programs you have used are likely to be working, and about the kinds of things you may be interested in building in the future.
 
 - Pick a program that you are familiar with, and describe the digital reality that is presented within that software. What *things* do you imagine exist within that software?
 - What would you like to build? Describe a program that you would like to create, and then think about the things you imagine might exist within it.
