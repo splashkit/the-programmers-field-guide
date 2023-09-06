@@ -15,7 +15,9 @@ The concepts related to expressions are shown in [Figure 5.6](#FigureExpression)
 
 Instructions need data, and anywhere that occurs the language will use an expression. This lets you put whatever data you want in that instruction. This data can be hard-coded as a [literal](../06-literal), use [variables](../12-variable), and contain mathematical operators to calculate the value to use.
 
-When you code an expression, you need to think about the value you need and how you can get it. You could provide a fixed value using a literal, read a value stored in a variable, or combine values with standard mathematical operators.
+When you code an expression, you need to think about the value you need and how you can get it. You could provide a fixed value using a literal, read a value stored in a variable, or combine values with standard mathematical operators. If you are unsure, draw out the details you have on paper and think through how you can calculate the value you need.
+
+If you do not have the details you need, you may need to think about adding extra variables to capture these values when they are available. You can then use them to get the value you need.
 
 ## In C#
 

@@ -8,12 +8,16 @@ The most direct way of achieving this is to type the value you want within the c
 
 A literal is either a **number value** or **text value** written directly in the code. A Literal is a whole, or part of, an [Expression](../04-expression) - the technical term for the values we place within the code.
 
-[Figure 5.7](#FigureLiteral) shows the concepts relate to Literals.
+[Figure 5.7](#FigureLiteral) shows the concepts related to Literals.
 
 <a id="FigureLiteral"></a>
 
 ![Figure 5.7 Concepts related to Literals.](./images/program-creation/Literal.png "Concepts related to Literals.")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.7: </span>Concepts related to Literals.</div><br/>
+
+## Literals - why, when, and how
+
+Your instructions need data, and one place you can get this from within the code itself. These values are literals, where you provide the value in the code. You can combine literals with values from variables within expressions to help you calculate new values, or directly use literals as the value where it will not change (though you may also want to look at using constants to make this clearer).
 
 ## In C#
 

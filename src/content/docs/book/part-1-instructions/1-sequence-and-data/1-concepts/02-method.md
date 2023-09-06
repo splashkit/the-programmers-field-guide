@@ -39,7 +39,6 @@ The following are some example methods from the SplashKit library. All of these 
 |`PlaySoundEffect` | the name of the sound effect to play | [PlaySoundEffect](https://splashkit.io/api/audio/#play-sound-effect-named) will play a loaded sound effect. You pass it the name of the sound effect you loaded.|
 |`Rnd` | a whole number | [Rnd](https://splashkit.io/api/utilities/#rnd-integer) will return a random number between 0 and that value you provided. |
 
-
 Notice how each of these methods has an identifiable purpose that the library's developers have tried to caapture in its name. There are very few constraints on the way you can name a method, but the names are very important. A `PlaySoundEffect` method should probably play a sound effect. The computer would not care if it draws a circle to the screen, but that would not help us when we want to think through how our programs work. As a rule, the name of a method should tell you what that method does.
 
 ## Arguments

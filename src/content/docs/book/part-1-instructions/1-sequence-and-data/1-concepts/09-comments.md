@@ -6,9 +6,15 @@ A program's source code contains instructions for the computer to perform. Howev
 
 Programming languages support the ability to embed *comments* into the source code that are then ignored by the compiler.
 
-## In C#
-As stated, comments allow you to embed documentation and explanatory text within your program’s code. The comments are skipped by the compiler, so they have no affect on the program’s machine code. You write comments to help yourself and other people understand what you intend the program to do, and any thoughts you want to record along with the code.
+## Comments - why, when, and how
 
+Comments do not change how your program runs, so why bother? Getting things working is great, but you want to capture your thought process as you step through your code. Adding comments lets you put these notes in the code as you go.
+
+Some good practices include adding comments outlining the steps within your code. This becomes more important as your programs get bigger and more complex.
+
+## In C#
+
+As stated, comments allow you to embed documentation and explanatory text within your program’s code. The comments are skipped by the compiler, so they do not affect the program’s machine code. You write comments to help yourself and other people understand what you intend the program to do, and any thoughts you want to record along with the code.
 
 :::tip[Syntax]
 
@@ -16,7 +22,6 @@ As stated, comments allow you to embed documentation and explanatory text within
 
 - **Block comments** begin with `/*` and end with `*/` and contain any text in between these, including new lines.
 - **Single line comment** begin with `//` and end with a new line.
-
 
 <a id="FigureCommentsSyntax"></a>
 

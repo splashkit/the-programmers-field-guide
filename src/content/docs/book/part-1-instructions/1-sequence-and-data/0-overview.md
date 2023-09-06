@@ -4,7 +4,7 @@ sidebar:
   order: 0
 ---
 
-At a basic level, programs consist of sequences of instructions that work on data. With a basic terminal program, data can flow into the application from *stdin* and it can flow out via *stdout*.
+At a basic level, programs consist of sequences of instructions that work on data. With a basic terminal program, data can flow into the application from [standard input](../../../part-0-getting-started/2-computer-use/1-concepts/7-streams) and it can flow out via [standard output](../../../part-0-getting-started/2-computer-use/1-concepts/7-streams). Using SplashKit, you can use a sequence of instructions to create a visualisation or animation or play sound effects. The knowledge and skills you pick up in this trek will enable you to build small programs and give you a solid start upon which future journeys will build.
 
 This chapter examines the following **building blocks** that you can create within your code:
 
