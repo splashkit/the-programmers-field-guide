@@ -4,7 +4,7 @@ sidebar:
   order: 7
 ---
 
-Operating systems, like all programs, need to create *digital realities* for us to work with. We have seen how this applied to saved data, with files and folders. When we look at the execution environments, there is another concept we need to connect with - that of the **data stream**.
+Operating systems, like all programs, need to create *digital realities* for us to work with. We have seen how this is applied to saved data, with files and folders. When we look at the execution environments, there is another concept we need to connect with - that of the **data stream**.
 
 Data streams, often just referred to as streams, come from a river or water-flow metaphor. A stream is a flow of data either into or out of a program. You can picture this as the data *flowing* through the stream from a data source to a consumer. For example, data flows from the keyboard into the program for it to respond to. Similarly, data can flow out of the program and onto the terminal's display for the user to see.
 

@@ -34,16 +34,16 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 <Tabs>
   <TabItem label="Raspberry Pi">
-    To open the Terminal, click the applications…
+    To open the terminal, click the applications…
   </TabItem>
   <TabItem label="Linux">
     This will depend on your window manager. Generally you should be able to find a link to the terminal application within the programs menu. Search in utilities, or similarly named menus.
   </TabItem>
   <TabItem label="macOS">
-    The easiest way to find the Terminal is to search for it in Spotlight. It should be in the Utilities folder within Applications.
+    The easiest way to find the terminal is to search for it in Spotlight. It should be in the Utilities folder within Applications.
   </TabItem>
   <TabItem label="Windows">
-    To open the Terminal, 
+    To open the terminal, 
   </TabItem>
   
 </Tabs>
@@ -59,7 +59,7 @@ From the terminal you can use all of the commands we have already seen as well a
 |Open a file to edit.     | `code`       |Launch Visual Studio Code to edit a file or folder.|
 
 
-Visual Studio Code (vscode) is a graphical text editor designed to write source code. You can launch Visual Studio Code using the `code` command in the Terminal. The [Visual Studio Code documentation](https://code.visualstudio.com/docs/editor/command-line) describes how to use this in detail, including how to install this shortcut if you have built your own setup.
+Visual Studio Code (vscode) is a graphical text editor designed to write source code. You can launch Visual Studio Code using the `code` command in the terminal. The [Visual Studio Code documentation](https://code.visualstudio.com/docs/editor/command-line) describes how to use this in detail, including how to install this shortcut if you have built your own setup.
 
 The `code` command can be passed an argument to indicate the file or folder you want to open. For example, `code .` will launch vscode and have it open the folder from the current working directory. Use `code Program.cs` to open vscode with the *Program.cs* file.
 
@@ -75,12 +75,12 @@ The Raspberry Pi can be configured to boot into either a terminal or graphical m
 
 |**Action**               |**Command**  |**Description**|
 |-------------------------|-------------|-----------------------------------------------------------------------------------|
-|Run as super user.     | `sudo`       |Run a program with as the super user - used for admin tasks.|
+|Run as super user.     | `sudo`       |Run a program as the super user - used for admin tasks.|
 |Change Pi config options.     | `raspi-config`       |Change Raspberry Pi configuration options.|
 
 ### Run as admin (sudo)
 
-Operating systems restrict some actions to admin users, particularly when the actions will change the behaviour of the system. In Unix, you can use the `sudo` command from the Terminal to get the **super user** to **do** something. You follow the `sudo` command with the details of the command you want to do.
+Operating systems restrict some actions to admin users, particularly when the actions will change the behaviour of the system. In Unix, you can use the `sudo` command from the terminal to get the **super user** to **do** something. You follow the `sudo` command with the details of the command you want to do.
 
 :::tip
 
@@ -114,7 +114,7 @@ When you select the required option it will take you back to the main menu. Choo
 |Switch terminal.     | **Ctrl-Alt** & **F1** to **F6**    |Switch to virtual terminal 1|
 |See who is logged in.     | `w`    |List the active terminals|
 
-Unix was designed to handle multiple users connected to the system at the same from separate terminals. Modern Unix operating systems simulate this with multiple virtual terminals available. If you want to switch from the graphical Desktop to a terminal (not a terminal window) you can do this using the shortcut keys **Ctrl-Alt** followed by one of the first six function keys: **F1** to **F6**. This will switch to the associated virtual terminal.
+Unix was designed to handle multiple users connected to the system from separate terminals at the same time. Modern Unix operating systems simulate this with multiple virtual terminals available. If you want to switch from the graphical Desktop to a terminal (not a terminal window) you can do this using the shortcut keys **Ctrl-Alt** followed by one of the first six function keys: **F1** to **F6**. This will switch to the associated virtual terminal.
 
 To return to your graphical desktop you use **Alt-** and the function key corresponding to the displays terminal. The exact terminal differs between different Linux version. You can check which virtual terminals are in use, and identify which has your graphical desktop, using the `w` command. This will print a table of the users connected and their terminals (the TTY column). You want to locate the terminal that has *from* as **:0**. For example **tty7 :0** would mean that your desktop is on terminal 7, so **ALT-F7** would switch to it.
 
