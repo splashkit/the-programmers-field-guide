@@ -4,7 +4,7 @@ title: Sequence
 
 Within a program, one of the main things you need to see is that everything runs in **sequence**.
 
-At a low level, the computer executes each of its machine code instructions one at a time. This is central to the way the computer works and is therefore central to the way we need to think about its operation (**computational thinking**). 
+At a low level, the computer executes each of its machine code instructions one at a time. This is central to the way the computer works and is therefore central to the way we need to think about its operation (**computational thinking**).
 
 The computer's processor maintains a **program counter** that is used to record the instruction the computer is currently performing. Once it finishes the current instruction, the computer adds one to the program counter, moving it to the **next instruction** in the program. Some instructions will let you control which instruction is next, but this just lets you adjust the sequence, at its core, it is performing one step and then the next. We will see one such instruction in this chapter, and the next chapter will focus on the different instructions you can use to control this sequence.
 
