@@ -4,7 +4,7 @@ title: Create a Project
 
 To create a program using source code, we need somewhere to put that code. While this process may differ slightly between languages, the idea is always the same: gather the code in one place and provide any settings needed.
 
-At this stage, you will be using the C# language, which is part of the open-source [.NET (](https://dotnet.microsoft.com/en-us/)dotnet) framework](https://dotnet.microsoft.com/en-us/) produced by Microsoft. These tools are free, work cross-platform, and provide us with a great language that we can use to explore programming.
+At this stage, you will be using the C# language, which is part of the open-source [.NET]((https://dotnet.microsoft.com/en-us/)dotnet) framework(https://dotnet.microsoft.com/en-us/) produced by Microsoft. These tools are free, work cross-platform, and provide us with a great language that we can use to explore programming.
 
 Let's see how to use the `dotnet` command line tool, and how we can use this to create a project.
 

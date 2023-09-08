@@ -4,7 +4,7 @@ sidebar:
   order: 4
 ---
 
-Files store the data you want to work with, so the shell needs to provide you with convenient ways of accessing and interacting with your files and the folders that organise them. To achieve this, the shell has a **working directory** - i.e. the folder you are currently working within. You can then issue commands to list the files within the current folder (directory) move to new directories, and perform other commands on your files. 
+Files store the data you need to work with, so the shell needs to provide you with convenient ways of accessing and interacting with your files and the folders that organise them. To achieve this, the shell has a **working directory** - i.e. the folder you are working with. You can issue commands to list the files within the current folder (working directory), move to new directories, and perform other commands on your files. 
 
 ## File Access Commands
 
@@ -34,7 +34,7 @@ The main way to pass data to a command is through an **argument**. In the shell,
 An **argument** is the term we use to provide data for a command to use. This is derived from the notion of [mathematical arguments](https://softwareengineering.stackexchange.com/questions/186293/why-are-actual-parameters-called-arguments#:~:text=%22Formal%22%20parameters%20(also%20known,above%20to%20prevent%20any%20confusion.)).
 :::
 
-Here is an example use of the change directory command. It will change into the folder at the `/home` path.
+Here is an example on how the change directory command is used. This will change the current working directory into the folder at the `/home` path.
 
 ```sh
 cd /home
@@ -63,7 +63,7 @@ Moving folders is great, but we also need to be able to see what is in these fol
 
 ### Listing folder contents (ls)
 
-Use [ls command](https://man.cx/Ls) to list the files in a folder. By default, this lists the files in the current folder. Alternatively, you can pass `ls` an arument for the path to the folder you want the details from.
+Use [ls command](https://man.cx/Ls) to list the files in a folder. By default, this lists the files in the current folder. Alternatively, you can pass `ls` an argument for the path to the folder you want the details from.
 
 ```sh
 ls
@@ -88,7 +88,7 @@ ls -lha
 
 You can also use arguments with wildcards to indicate the kind of file you want to list. Try `ls -lha D*` The `*` is a wildcard, meaning it can be replaced by anything. So `D*` will be any file or folder starting with the letter `D`.
 
-Try moving around and explore your file system. Go to the root and list the files and folders there. Then move into some of these folders and list what they contain. Look at a file in your graphical file explorer, and see if you can find it in the Terminal.
+Try moving around and exploring your file system. Go to the root and list the files and folders there. Then move into some of these folders and list what they contain. Look at a file in your graphical file explorer, and see if you can find it in the terminal.
 
 ## Folder shortcuts
 
@@ -112,7 +112,7 @@ pwd
 ```
 
 :::tip[Comments]
-Adding a `#` at the start of a line makes a comment which is then ignored by the shell. We can use this here to show you the output from the commands.
+Adding a `#` at the start of a line makes a comment which is then ignored by the shell. We use comments here to indicate the output from the commands.
 :::
 
 ### Parent Folders (..)
@@ -194,7 +194,7 @@ pwd
 
 :::tip
 
-With many terminal programs, you can drag and drop files onto the Terminal program to inject their path at the cursor in the prompt.
+With many terminal programs, you can drag and drop files onto the terminal program to inject their path at the cursor in the prompt.
 
 :::
 

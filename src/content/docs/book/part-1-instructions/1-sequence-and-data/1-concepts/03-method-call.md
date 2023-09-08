@@ -92,7 +92,7 @@ The following code uses three different methods from the [SplashKit](https://spl
 ```csharp
 using static SplashKitSDK.SplashKit;
 
-DownloadSoundEffect("hello", "https://programmers.guide/hello.wav", 443);
+DownloadSoundEffect("hello", "https://programmers.guide/hello.ogg", 443);
 PlaySoundEffect("hello");
 Delay(5000);
 ```

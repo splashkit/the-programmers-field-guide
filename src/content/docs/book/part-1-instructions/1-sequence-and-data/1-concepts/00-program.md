@@ -54,7 +54,7 @@ For example, the **using directive** lets you tell the compiler of parts of the 
 <a id="ListingHelloWorld"></a>
 
 ```csharp
-using System.Console;
+using static System.Console;
 
 WriteLine("Hello World!");
 ```

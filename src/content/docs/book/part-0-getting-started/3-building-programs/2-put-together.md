@@ -4,10 +4,10 @@ title: Put Together
 
 To build your own program you need do:
 
-1. Create a nee folder for the project
+1. Create a new folder for the project
 2. Use `dotnet new console` to initialise the project
 3. Add used packages using `dotnet add package`
-4. Write the code in **Program.cs**.
+4. Write the code in **Program.cs**
 5. Build and run using `dotnet run`
 
 You can also run this in the debugger, which will let you step through the program, seeing each instruction in action.
