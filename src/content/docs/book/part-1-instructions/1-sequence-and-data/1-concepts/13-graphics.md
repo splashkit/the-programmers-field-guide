@@ -286,3 +286,8 @@ StopMusic();
 Delay(2500);
 ```
 
+## Animation
+
+With the methods and programming tools you have now, you can create short animations. An animation would involve playing music, drawing a scene to the screen, delaying, then drawing an updated scene, delaying, then drawing the next scene, and so on.
+
+**TODO: Add details on how to share a recording of their scene - something we can link here to see what others have done.**

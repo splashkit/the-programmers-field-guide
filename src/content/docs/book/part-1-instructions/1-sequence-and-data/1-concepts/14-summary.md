@@ -1,9 +1,5 @@
 ---
 title: "Summary"
-type: "content"
-date: 2023-08-07 16:45:00
-draft: false
-description: "..."
 ---
 
 ## Summary
@@ -12,8 +8,8 @@ This section has introduced a number of programming artefacts, some programming 
 
 <a id="FigureSummary"></a>
 
-![Figure 5.15 Key Program Creation Concepts](./images/program-creation/Summary.png "Key Program Creation Concepts")
-<div class="caption"><span class="caption-figure-nbr">Figure 5.16: </span>Key Program Creation Concepts</div><br/>
+![Figure 5.15 Key concepts from the sequence and data chapter](./images/sequence-data-summary.png "Summary of Sequence and Data")
+<div class="caption"><span class="caption-figure-nbr">Figure 5.15: </span>Key Sequence and Data Concepts</div><br/>
 
 :::note
 
