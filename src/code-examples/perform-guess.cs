@@ -52,10 +52,10 @@ do
   
   if (!gotIt)
   {
-    WriteLine($"You ran out of guesses... the number was {target}\n");
+    WriteLine($"You ran out of guesses... the number was {target}");
   }
   
   WriteLine("");
-  WriteLine("Do you want to play again [y/N]? ");
+  Write("Do you want to play again [y/N]? ");
   line = ReadLine();
 } while (line == "y" || line == "Y");
