@@ -6,11 +6,11 @@ sidebar:
 
 *What commands can I enter at the terminal?*
 
-The **Terminal** program provides a text environment, allowing text input and output much like the old physical terminals once did. We need something within the computer that receives the text you type and can respond to it. We call this program a **shell**.
+The **Terminal** program provides a text environment, allowing text input and output much like the old physical terminals once did. Something within  the computer needs to receive the text you type in the Terminal and respond to it. We call this program a **shell**.
 
 ### Shell?
 
-*Why is this called a shell?*
+*Why is this program called a shell?*
 
 This is a *nut* analogy. The shell is a thin wrapper around the kernel or core of the nut. In the computer, the shell is the command interpreter that gives you access to the core of the operating system. The core of the operating system maintains the same nut (or seed) analogy, with the core being known as the **kernel**. The kernel provides tools to abstract away many of the lower-level details related to interacting with the computer hardware. In this way, all other programs *grow* out of the kernel - as plants grow out of the kernel of a nut or seed.
 
@@ -18,7 +18,7 @@ This is a *nut* analogy. The shell is a thin wrapper around the kernel or core o
 
 ### Terminal and Shell
 
-A **shell** program runs within each terminal to interpret your commands and instruct the kernel to perform the actions you request. This is an interactive program that will display prompts to you, at which you enter your commands by typing text. There are several different shell programs you can choose from, each of which has its advantages and disadvantages. The shell we are going to use for this journey will be **Z shell**. This is a shell built into most modern Unix operating systems.
+A **shell** program runs within a terminal program to interpret your commands and instruct the kernel to perform the actions you request. The shell is an interactive program that will send prompts to you, displayed  through the terminal, at which you enter your commands by typing text. There are several different shell programs you can choose from, each of which has its advantages and disadvantages. The shell we are going to use for this journey will be **Z shell**. This is a shell built into most modern Unix operating systems.
 
 A shell program is very simple. It provides a text prompt at which you can enter commands. The shell reads the text you entered, and performs an action based on this text. You can use the shell to perform operations like copying and deleting files, starting programs, and more.
 
@@ -65,7 +65,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 ### Give it a try!
 
-At this point, you should see a “prompt” within the terminal. This is the **shell** asking you to give it an instruction. You type commands, and press Enter or Return to ask the shell to do what you has asked.
+At this point, you should see a “prompt” within the terminal. This is the **shell** asking you to give it an instruction. You type commands, and press Enter or Return to get the shell to do what you have asked.
 
 Try the following:
 
@@ -80,13 +80,14 @@ If you are using the multitool setup, then plug in a speaker to the multitool an
 ```sh
 espeak “Hello `whoami`, welcome to the command line!”
 ```
+This should get your pi to speak to you.
 
 :::caution[Make sure to use backticks]
 
-For these commands to work, make sure you are using double qutoes (“) around the text and backticks (\`) not single quotes (‘) around the `whoami`. We will look at why soon.
+For these commands to work, make sure you are using double quotes (“) around the text and backticks (\`) not single quotes (‘) around the `whoami`. We will look at why soon.
 
 :::
 
-This should get your pi to speak to you.
+
 
 **TODO ADD curl example - check BoM data?**
