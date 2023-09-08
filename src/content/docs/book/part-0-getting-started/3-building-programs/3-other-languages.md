@@ -8,9 +8,9 @@ At their core, all of these tools work in more or less the same way. They will h
 
 Languages like [Python](https://www.python.org) and [Ruby](https://www.ruby-lang.org/en/) are both examples of scripting languages. These use an [interpreter](../1-digital-realities/1-concepts/6-source-code.md#compilers-and-interpreters) to read and execute your code. To work with these languages, you need to install their SDK which includes the interpreter and the languages core libraries. 
 
-These languages provide convenient **REPL** tools. A REPL is a program that provides a **Read, Execute, Print, Loop**. This will *read* your instruction from the terminal, *execute* it, *print* the result from the instrucion, and then *loop* back to read so that you can enter a new instruction. This is much like the terminal, execept you are writing instruction using the programming laanguage.
+These languages provide convenient **REPL** tools. A REPL is a program that provides a **Read, Execute, Print, Loop**. This will *read* your instruction from the terminal, *execute* it, *print* the result from the instrucion, and then *loop* back to read so that you can enter a new instruction. This is much like the terminal, except you are writing instructions using the programming language.
 
-Scripting languages provide very convenient ways of quickly and easily working with data. It is harder to share these programs, as they require the language and its developer tools to run programs.
+Scripting languages provide very convenient ways of quickly and easily working with data. However, it is harder to share these programs, as they require the language and its developer tools to run programs.
 
 Languages like C and C++ are compiled, allowing you to build programs that can be run directly within the operating system. They have their own SDKs with the compiler and language libraries. With these you can compile your source code and have it link in any code from libraries you use. You can usually control how this linking works, so that you can have shared libraries or just embed the code you need in your program's executable file. You can then distribute the program, with any shared libraries, to users without them needing to have the SDK installed themselves.
 
