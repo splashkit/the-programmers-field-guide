@@ -49,11 +49,14 @@ import MySwiper from '../../../../../components/react/myswiper.jsx'
 
 // pass in an array of image paths
 <MySwiper client:only images={[
-  "/public/test.jpeg",
-  "/public/test.jpeg",
-  "/public/test.jpeg",
+  "/test.jpeg",
+  "/test.jpeg",
+  "/test.jpeg",
 ]}></MySwiper>
 ```
+
+Note: files in the public directory are served at the root path.
+Instead of /public/test.jpeg, use /test.jpeg.
 
 ## 👀 Want to learn more?
 
