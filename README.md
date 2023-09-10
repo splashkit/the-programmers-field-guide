@@ -1,17 +1,8 @@
-# Starlight Starter Kit: Basics
-
-```
-npm create astro@latest -- --template starlight
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/basics)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+# The Programmer's Field Guide: Basics
 
 ## 🚀 Project Structure
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+Inside the project, powered by Starlight, you'll see the following folders and files:
 
 ```
 .
@@ -45,6 +36,24 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+
+## Custom Components
+
+### Image Swiper
+To use the image swiper, import the component and pass in an array of image paths. The component will automatically generate a swiper with the images.
+
+```jsx
+// import the component (may need to adjust the level of the import)
+import MySwiper from '../../../../../components/react/myswiper.jsx'
+
+// pass in an array of image paths
+<MySwiper client:only images={[
+  "/public/test.jpeg",
+  "/public/test.jpeg",
+  "/public/test.jpeg",
+]}></MySwiper>
+```
 
 ## 👀 Want to learn more?
 
