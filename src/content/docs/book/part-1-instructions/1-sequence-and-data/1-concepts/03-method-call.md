@@ -35,6 +35,10 @@ When you call a Method, you need to pass a value for each argument. This value c
 
 In languages like C# support something called **overloading**. This lets you create different methods with the same name, but requiring different arguments. If you are looking at the [SplashKit documentation](https://splashkit.io), you will see some methods require different arguments. So make sure to pay attention to which version of the method you want to call, and the arguments you will need to pass for that version.
 
+### Method Calls and Sequence
+
+Method calls are one instruction that gives you control of the **program counter**. A method call will save the current state of your program, and then set the program counter to the first instruction within the method. The sequence will then progress through the method, and when it ends, the location of the next instruction after the method call will be put into the program counter. In this way, the method is called and then **returns** to where it was called from. This allows us to maintain our focus on **sequence**. The method call lets you *direct* the sequence into the method and then back to your next instruction. As you read, design, or work with code for your program, you can focus on the program's **sequence** and not worry about what happens within the methods you call.
+
 ## In C#
 
 A method call allows you to run the code in a [Method](../03-method), getting its instructions to run before control returns to the point where the method was called.
@@ -88,7 +92,7 @@ The following code uses three different methods from the [SplashKit](https://spl
 ```csharp
 using static SplashKitSDK.SplashKit;
 
-DownloadSoundEffect("hello", "https://programmers.guide/hello.wav", 443);
+DownloadSoundEffect("hello", "https://programmers.guide/hello.ogg", 443);
 PlaySoundEffect("hello");
 Delay(5000);
 ```
@@ -101,22 +105,22 @@ All of the arguments in this code are using literal values.
 
 ### Example using result
 
-Some methods return data, which you can use within any calculated value ([expression](../07-expression)) within your code. The following code demonstrates the use of the values returned by the `ColorWhite` and `Rnd` methods.
+Some methods return data, which you can use within any calculated value ([expression](../07-expression)) within your code. The following code demonstrates the use of the values returned by the `RandomColor` and `Rnd` methods.
 
 <a id="ListingReturn"></a>
 
 ```csharp
 using static SplashKitSDK.SplashKit;
 
-OpenWindow("A House", 800, 600);
-ClearScreen(ColorWhite());
+OpenWindow("Random Color", 800, 600);
+ClearScreen(RandomColor());
 RefreshScreen();
 Delay(1000 * Rnd(10));
 ```
 
 <div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>Code demonstrating use of return values.</div>
 
-Line 4 demonstrates the use of the result from calling `ColorWhite` within the call to `ClearScreen`. In this case, the value returned from the `ColorWhite` becomes the value for the argument passed to `ClearScreen`. As you would expect, this will clear the screen to the white color.
+Line 4 demonstrates the use of the result from calling `RandomColor` within the call to `ClearScreen`. In this case, the value returned from the `RandomColor` becomes the value for the argument passed to `ClearScreen`. As you would expect, this will clear the screen to a random color.
 
 Line 6 demonstrates this again, the result of `1000 * Rnd(10)` is passed to `Delay`. The easiest way to approach this is to consider each value independently. `Rnd(10)` will return a random value between 0 and 10 - let us imagine this returns `6` so that we can see what that does. In this case, `1000 * Rnd(10)` becomes `1000 * 6`, as the value **returned** by `Rnd(10)` was `6`. This is then evaluated, and `Delay` will be passed the argument `6000`, causing it to delay for 6 seconds.
 

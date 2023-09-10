@@ -13,7 +13,8 @@
 				"znck.grammarly",
 				"astro-build.astro-vscode",
 				"ms-vsliveshare.vsliveshare",
-				"tomoki1207.pdf"
+				"tomoki1207.pdf",
+				"eamodio.gitlens"
 			]
 		}
 	}

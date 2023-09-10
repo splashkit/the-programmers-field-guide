@@ -45,7 +45,7 @@ You can pass `mkdir` a number of folders to create, and there is a `-p` option t
 
 ### Making a file (touch and cat)
 
-When you want to quickly create an empty file, the [touch](https://man.cx/Touch) command can be useful. This can be used to create empty files, or to update the timestamps of an existing time (saying that it was just updated). Let’s have a look at using this to create an empty file.
+When you want to quickly create an empty file, the [touch](https://man.cx/Touch) command can be useful. This can be used to create empty files, or to update the timestamps of an existing file (saying that it was just updated). Let’s have a look at using this to create an empty file.
 
 ```sh
 cd ~/Documents/Code/HelloWorld

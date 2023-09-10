@@ -6,7 +6,7 @@ As we saw in the [Digital Realities](../../1-digital-realities/0-overview.md) ch
 
 [SplashKit](https://splashkit.io) is a library designed to aid in learning programming by providing tools you can use to show windows, draw shapes and images, play sound effects and music, and receive inputs from users.
 
-Creating graphical programs really aids the learning process. With these you will be able to **see** things working, and **see** when things are not working. You will also be able to create programs that are much more engaging and fun to interact with, while the knowledge and skills you develop will be transferred to any domain.
+Creating graphical programs really aids the learning process. With these graphical programs you will be able to **see** things working, and **see** when things are not working. You will also be able to create programs that are much more engaging and fun to interact with, while the knowledge and skills you develop can be transferred to any domain.
 
 ### Add SplashKit to your project
 
@@ -37,6 +37,6 @@ RefreshScreen();
 Delay(5000);
 ```
 
-Save your changes and you can then build and run the program using `dotnet run`.  When you do run it, it will open a small windoe, with a white background, with a filled red circle in the middle.
+Save your changes and you can then build and run the program using `dotnet run`.  When you do run it, it will open a small window, with a white background, and a filled red circle in the middle.
 
 Try setting a breakpoint on line 3, and running this in the debugger. You will be able to see each instruction in action.

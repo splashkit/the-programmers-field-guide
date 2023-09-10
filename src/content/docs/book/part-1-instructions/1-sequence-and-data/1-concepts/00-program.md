@@ -54,7 +54,7 @@ For example, the **using directive** lets you tell the compiler of parts of the 
 <a id="ListingHelloWorld"></a>
 
 ```csharp
-using System.Console;
+using static System.Console;
 
 WriteLine("Hello World!");
 ```
@@ -89,7 +89,7 @@ We use data to capture the information we need the program to work with. The dat
 :::note[Summary]
 
 - You can create something the user can run from the program's **source code**.
-- Most importantly, you cant really *see* the program in the code. The program is **all** of this code together. It is the container that holds the instructions that will run when it is executed.
+- Most importantly, you can't really *see* the program in the code. The program is **all** of this code together. It is the container that holds the instructions that will run when it is executed.
 - The program has an **entry point** that indicates where the program’s instructions start - in this case the first instruction.
 - Your program can use code from [libraries](../08-library) giving it access to building blocks others have created.
 - Data is also central to the program.

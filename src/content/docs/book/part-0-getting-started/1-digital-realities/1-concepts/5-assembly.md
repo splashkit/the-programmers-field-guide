@@ -32,6 +32,6 @@ _main:
   ret
 ```
 
-From a programmer's perspective, assembler code is much easier to work with than machine code. There are still some issues though. Firstly, assembly is bound to the instruction set of the CPU that you are targeting, meaning that if you want to support other kinds of CPU you will need to rewrite the program. The other main issue with assembler code is that while it is more understandable, you are still working with the primitive instructions of the CPU. Working at this level takes considerable effort to write even simple programs.
+Although, from a programmer's perspective, assembler code is much easier to work with than machine code, there are still some challenges. Firstly, assembly is bound to the instruction set of the CPU that you are targeting, meaning that if you want to support other kinds of CPU you will need to rewrite the program. Secondly, while assembler code is more understandable, you are still working with the primitive instructions of the CPU, and at this level writing even simple programs takes considerable effort.
 
-Assembly languages were first developed in the 1950s and were known as **second generation** programming languages. This step forward does make programming easier, but we can use abstraction again and move to a higher level of thinking to achieve more with less effort.
+The assembly languages were first developed in the 1950s and are known as **second generation** programming languages. This step forward made programming easier, but we can use abstraction again and move to a higher level of thinking to achieve more with less effort.
