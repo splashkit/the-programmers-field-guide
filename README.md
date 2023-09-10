@@ -41,6 +41,7 @@ All commands are run from the root of the project, from a terminal:
 ## Custom Components
 
 ### Image Swiper
+
 To use the image swiper, import the component and pass in an array of image paths. The component will automatically generate a swiper with the images.
 
 ```jsx
