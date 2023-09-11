@@ -11,7 +11,7 @@ A method is a list of instructions that gets the computer to perform a specific 
 
 <a id="FigureMethod"></a>
 
-![Figure 5.5 A method contains instructions to perform a task, and may need to be passed data in order to do this](./images/program-creation/Method.png "A method calls runs a method, passing in values for the method to use")
+![Figure 5.5 A method contains instructions to perform a task, and may need to be passed data in order to do this](./images/method-concept.png "A method calls runs a method, passing in values for the method to use")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.5: </span>A method contains instructions to perform a task, and may need to be passed data in order to do this</div><br/>
 
 For the moment we will make use of methods others have provided.

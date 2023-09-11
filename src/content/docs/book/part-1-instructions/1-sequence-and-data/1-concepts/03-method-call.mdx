@@ -1,6 +1,101 @@
 ---
 title: "Method Call"
 ---
+import MySwiper from '../../../../../../components/react/myswiper.jsx';
+import Slide1 from './images/method-call-in-depth/Slide1.png';
+import Slide2 from './images/method-call-in-depth/Slide2.png';
+import Slide3 from './images/method-call-in-depth/Slide3.png';
+import Slide4 from './images/method-call-in-depth/Slide4.png';
+import Slide5 from './images/method-call-in-depth/Slide5.png';
+import Slide6 from './images/method-call-in-depth/Slide6.png';
+import Slide7 from './images/method-call-in-depth/Slide7.png';
+import Slide8 from './images/method-call-in-depth/Slide8.png';
+import Slide9 from './images/method-call-in-depth/Slide9.png';
+
+export const sliderImages = [
+  {
+    src: Slide1.src,
+    altText: "Program is loaded into memory, and ready to run",
+    tipStart: 1,
+    tips: [
+      "The program has been loaded by the operating system, and its first instruction is now ready to go.",
+    ]
+  },
+  {
+    src: Slide2.src,
+    altText: "Instruction 1 shows a method call with three arguments",
+    tipStart: 2,
+    tips: [
+      "Instruction 1 is a method call with three arguments. Each method call has two steps: evaluate and load the arguments, then call the method.",
+      "For this call we need to evaluate all three arguments, and load the results into registers 0 to 2. These are individual steps for the computer, so we can update the visualisation for these as 1a to 1c.",
+      "Once the arguments are evaluated and loaded, we can start the method. This will be 1d."
+    ]
+  },
+  {
+    src: Slide3.src,
+    altText: "Instruction 1 shows a method call with three arguments",
+    tipStart: 5,
+    tips: [
+      "All arguments are literal values in this call. They need to be loaded into registers 0, 1, and 2 so they are in the CPU when the method starts. The first argument is the string literal \"Random Color\". It is loaded into the first register",
+      "As with sequence before, the instruction counter is incremented as we step through each instruction. So 1a becomes 1b for our visualisation."
+    ]
+  },
+  {
+    src: Slide4.src,
+    altText: "Evaluate and load arguments 2 and 3",
+    tipStart: 7,
+    tips: [
+      "The second argument is loaded into register 1. Then the program counter is incremented to 1c.",
+      "At 1c, we load the third argument into register 2. Then the program counter is incremented to 1d."
+    ]
+  },
+  {
+    src: Slide5.src,
+    altText: "Save the old program counter so we can resume here when the call is done",
+    tipStart: 9,
+    tips: [
+      "Instruction 1d will now start the method call. There are a few steps that the compiler takes care of, but it is good to see how this works.",
+      "First we need to save the old program counter. When the method return this will be used to resume the code here."
+    ]
+  },
+  {
+    src: Slide6.src,
+    altText: "Shows the CPU switching into the instructions of the called method",
+    tipStart: 11,
+    tips: [
+      "The code for this method has also been loaded when the program started. So at this point, we can set the program counter to the address of the first instruction in the Open Window method.",
+      "As the program counter is now in Open Windows instructions, those will run",
+      "By convention, the arguments are loaded into the registers in order. So Open Window knows that it can access the title of the window in register 0, its width in register 1, and its height in register 2."
+    ]
+  },
+  {
+    src: Slide7.src,
+    altText: "Shows the CPU at the end of Open Window's instructions",
+    tipStart: 14,
+    tips: [
+      "When Open Window finishes, it will return to our method so that it can resume.",
+      "At this point, the method has done its work. In this case, a window should have appeared for the user."
+    ]
+  },
+  {
+    src: Slide8.src,
+    altText: "Shows the CPU restoring the old program counter from memory",
+    tipStart: 16,
+    tips: [
+      "To get back to the previous instructions, the compiler adds in instructions to restore the old program counter. This will now move the computer back into the code where we called Open Window."
+    ]
+  },
+  {
+    src: Slide9.src,
+    altText: "Shows the CPU continuing within the code we wrote",
+    tipStart: 17,
+    tips: [
+      "Back in our code, the method call has ended",
+      "The program counter increments",
+      "We are now onto the next method call. This will evaluate arguments, the call the method. It will save the current state so that it can return here when the ClearScreen method finishes."
+    ]
+  },
+]
 
 A method call is an **instruction** that gets the computer to run the code in a [method](../03-method). You use the name of the method to identify which you want to run. Some methods require data, which you must **pass** as **arguments** to the method as part of the method call.
 
@@ -123,6 +218,12 @@ Delay(1000 * Rnd(10));
 Line 4 demonstrates the use of the result from calling `RandomColor` within the call to `ClearScreen`. In this case, the value returned from the `RandomColor` becomes the value for the argument passed to `ClearScreen`. As you would expect, this will clear the screen to a random color.
 
 Line 6 demonstrates this again, the result of `1000 * Rnd(10)` is passed to `Delay`. The easiest way to approach this is to consider each value independently. `Rnd(10)` will return a random value between 0 and 10 - let us imagine this returns `6` so that we can see what that does. In this case, `1000 * Rnd(10)` becomes `1000 * 6`, as the value **returned** by `Rnd(10)` was `6`. This is then evaluated, and `Delay` will be passed the argument `6000`, causing it to delay for 6 seconds.
+
+## Method Calls Up Close
+
+Review the following images to explore how method calls work within the computer.
+
+<MySwiper client:only height="" images={sliderImages}></MySwiper>
 
 :::note[Summary]
 
