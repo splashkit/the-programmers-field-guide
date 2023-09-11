@@ -1,6 +1,82 @@
 ---
 title: Sequence
 ---
+import MySwiper from '../../../../../../components/react/myswiper.jsx';
+import Slide1 from './images/sequence-in-depth/Slide1.png';
+import Slide2 from './images/sequence-in-depth/Slide2.png';
+import Slide3 from './images/sequence-in-depth/Slide3.png';
+import Slide4 from './images/sequence-in-depth/Slide4.png';
+import Slide5 from './images/sequence-in-depth/Slide5.png';
+import Slide6 from './images/sequence-in-depth/Slide6.png';
+import Slide7 from './images/sequence-in-depth/Slide7.png';
+
+export const sliderImages = [
+  {
+    src: Slide1.src,
+    altText: "Execution starts and the program is loaded into memory.",
+    tipStart: 1,
+    tips: [
+      "This all starts when the user runs the program.",
+      "In this example, we are showing a compiled executable running. Its instructions are in the file on the disk."
+    ]
+  },
+  {
+    src: Slide2.src,
+    altText: "The machine code is loaded into memory, each instruction at an identifiable address.",
+    tipStart: 3,
+    tips: [
+      "The instructions can be loaded from disk into memory. This gives the CPU easier access to the instructions as memory is much faster to access than the disk.",
+      "Every value (based on the CPU architecture) in memory is uniquely addressable. For example, in a 64-bit machine, each address refers to a 64-bit value. So address 0 is the first 64 bits, address 1 is the second 64 bits, and so on. Each instruction in a 64-bit machine will be 64 bits."
+    ]
+  },
+  {
+    src: Slide3.src,
+    altText: "The program counter has the address of the first instruction.",
+    tipStart: 5,
+    tips: [
+      "In the CPU, the <strong>program counter</strong> is used to track the address of the current instruction.",
+      "Now that we know where the first instruction is, and the CPU has this in the program counter, the next thing it will do is run that instruction. Thereby starting the program."
+    ]
+  },
+  {
+    src: Slide4.src,
+    altText: "Instruction 1 is loaded into the computer, and run.",
+    tipStart: 7,
+    tips: [
+      "To run the instruction, the computer reads the memory into the CPU.",
+      "The instruction is then executed within the CPU."
+    ]
+  },
+  {
+    src: Slide5.src,
+    altText: "One is added to the program counter, is now 2 is the instruction.",
+    tipStart: 9,
+    tips: [
+      "The last part of running the instruction will be to add one to the program counter.",
+      "As the instructions are the same size as a single memory address, this means that the CPU is now at the next instruction."
+    ]
+  },
+  {
+    src: Slide6.src,
+    altText: "Instruction 2 is loaded into the computer, and run.",
+    tipStart: 11,
+    tips: [
+      "The process to run the instruction remains the same - load it into the CPU.",
+      "Run the instruction."
+    ]
+  },
+  {
+    src: Slide7.src,
+    altText: "Instruction 2 is loaded into the computer, and run.",
+    tipStart: 13,
+    tips: [
+      "Add one to the program counter.",
+      "The next instruction will be the instruction at address 3.",
+      "This same process runs on and on, with millions of these instructions running each second."
+    ]
+  }
+];
+
 Within a program, one of the main things you need to see is that everything runs in **sequence**.
 
 At a low level, the computer executes each of its machine code instructions one at a time. This is central to the way the computer works and is therefore central to the way we need to think about its operation (**computational thinking**).
@@ -34,39 +110,9 @@ By putting these together you will be able to build some small programs that sho
 
 ## Sequence Up Close
 
-![Execution starts and the program is loaded into memory.](./images/sequence-in-depth/Slide1.png)
+Review the following images to see how sequence executed within the computer.
 
-![The machine code is loaded into memory, each instruction at an identifiable address.](./images/sequence-in-depth/Slide2.png)
-
-![The program counter has the address of the first instruction.](./images/sequence-in-depth/Slide3.png)
-
-![Instruction 1 is loaded into the computer, and run.](./images/sequence-in-depth/Slide4.png)
-
-![One is added to the program counter, is now 2 is the instruction.](./images/sequence-in-depth/Slide5.png)
-
-![Instruction 2 is loaded into the computer, and run.](./images/sequence-in-depth/Slide6.png)
-
-![One is added to the program counter, and now 3 is the next instruction. It will run, and this same process will continue.](./images/sequence-in-depth/Slide7.png)
-
-:::tip[How does this work?]
-
-1. This all starts when the user runs the program.
-2. In this example, we are showing a compiled executable running. Its instructions are in the file on the disk.
-3. The instructions can be loaded from disk into memory. This gives the CPU easier access to the instructions as memory is much faster to access than the disk.
-4. Every value (based on the CPU architecture) in memory is uniquely addressable. For example, in a 64-bit machine, each address refers to a 64-bit value. So address 0 is the first 64 bits, address 1 is the second 64 bits, and so on. Each instruction in a 64-bit machine will be 64 bits.
-5. In the CPU, the **program counter** is used to track the address of the current instruction.
-6. Now that we know where the first instruction is, and the CPU has this in the program counter, the next thing it will do is run that instruction. Thereby starting the program.
-7. To run the instruction, the computer reads the memory into the CPU.
-8. The instruction is then executed within the CPU.
-9. The last part of running the instruction will be to add one to the program counter.
-10. As the instructions are the same size as a single memory address, this means that the CPU is now at the next instruction.
-11. The process to run the instruction remains the same - load it into the CPU.
-12. Run the instruction.
-13. Add one to the program counter.
-14. The next instruction will be the instruction at address 3.
-15. This same process runs on and on, with millions of these instructions running each second.
-
-:::
+<MySwiper client:only height="" images={sliderImages}></MySwiper>
 
 There is no magic or intelligence here. **Sequence** is simply the computer adding one to a list that is tracking where the instructions are.
 
