@@ -54,7 +54,7 @@ export default ({ images }) => {
             <section className="starlight-aside__content">
               <ol start={tipStart}>
                 {image.tips.map((t) => (
-                  <li key={t}>{t}</li>
+                  <li key={t} dangerouslySetInnerHTML={{ __html: t }}></li>
                 ))}
               </ol>
             </section>
