@@ -1,6 +1,8 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
+import react from '@astrojs/react';
+
 // https://astro.build/config
 export default defineConfig({
   markdown: {
@@ -27,16 +29,108 @@ export default defineConfig({
         github: "https://github.com/withastro/starlight",
       },
       sidebar: [
-        { label: "Home", link: "/" },
         {
-          label: "Start here",
-          autogenerate: {
-            directory: "book/part-0-getting-started",
-            collapsed: true,
-          },
+          label: "Home",
+          link: "/",
+        },
+        {
+          label: "Part 0: First Steps",
+          collapsed: true,
+          items: [
+            {
+              label: "Introduction",
+              link: "book/part-0-getting-started/00-introduction",
+            },
+            {
+              label: "Digital Realities",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-0-getting-started/1-digital-realities/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-0-getting-started/1-digital-realities/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-0-getting-started/1-digital-realities/2-put-together",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-0-getting-started/1-digital-realities/3-Activities",
+                },
+              ],
+            },
+            {
+              label: "Computer Use",
+              collapsed: true,
+              items: [
+                {
+                  label: "Computer Use Overview",
+                  link: "book/part-0-getting-started/2-computer-use/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-0-getting-started/2-computer-use/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-0-getting-started/2-computer-use/2-put-together",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-0-getting-started/2-computer-use/4-activities",
+                },
+              ],
+            },
+            {
+              label: "Building Programs",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-0-getting-started/3-building-programs/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-0-getting-started/3-building-programs/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-0-getting-started/3-building-programs/2-put-together",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-0-getting-started/3-building-programs/3-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-0-getting-started/3-building-programs/4-activities",
+                },
+              ],
+            },
+          ],
         },
         {
           label: "Part 1: Instructions",
+          collapsed: true,
           autogenerate: {
             directory: "book/part-1-instructions",
             collapsed: true,
@@ -44,6 +138,7 @@ export default defineConfig({
         },
         {
           label: "Part 2: Organised Code",
+          collapsed: true,
           autogenerate: {
             directory: "book/part-2-organised-code",
             collapsed: true,
@@ -51,6 +146,7 @@ export default defineConfig({
         },
         {
           label: "Part 3: Programs as Concepts",
+          collapsed: true,
           autogenerate: {
             directory: "book/part-3-programs-as-concepts",
             collapsed: true,
@@ -58,6 +154,7 @@ export default defineConfig({
         },
         {
           label: "Part 4: What next?",
+          collapsed: true,
           autogenerate: {
             directory: "book/part-4-what-next",
             collapsed: true,
@@ -65,9 +162,15 @@ export default defineConfig({
         },
       ],
     }),
+    react(),
   ],
-
   // Process images with sharp: https://docs.astro.build/en/guides/assets/#using-sharp
-  image: { service: { entrypoint: "astro/assets/services/sharp" } },
-  server: { port: 3001 },
+  image: {
+    service: {
+      entrypoint: "astro/assets/services/sharp",
+    },
+  },
+  server: {
+    port: 3001,
+  },
 });

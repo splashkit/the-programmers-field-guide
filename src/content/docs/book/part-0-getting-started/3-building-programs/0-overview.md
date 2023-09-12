@@ -1,30 +1,26 @@
 ---
 title: Building Programs Overview
+sidebar:
+  label: Overview
+  order: 10
 ---
 
-Before we build our first program, let's quickly explore why a build process is even necessary. As we explored previously, computers are machines which understand a very limited, precice instructions.
+The first two legs of our journey have taken us to two quite different sites: the first looking at digital realities, and the second using the terminal and shell. In this next step, we will start bringing these together and see how we can use programming tools (through the terminal and shell) to build and run our own digital realities.
 
-Technically, humans *can* write this precice language, however it is very difficult to do so. For example, here is a program written in machine code:
+This final chapter of Part 0 will show you how to create a project, build and run a small program, and then watch the program running using a tool called the *debugger*. Once you can use these tools, you will be set to go ahead and start learning about the things you can create within these digital realities.
 
-```
-0100100100100000011011000110111101110110011001010010000001110100
-0110100001100101001000000111010001101000001001001000000110110001
-0110100001100101001000000111010001101000011001010010000001100011
-0110111101110100011100110110100001100101001000000111010001101000
-1100110010100100010000110010100100100000011101000110000011101000
-```
+## Learning Goals
 
-Do you know what that program does?
+By the end of this chapter you will be able to:
 
-Neither do we. So, instead of writing programs in machine code, we write them in a language that is easier for humans to understand, but precise enough that a computer can understand it. **A shared language.**
+- Create a project using the dotnet tools, and describe what the project contains.
+- Write and save the provided source code using Visual Studio Code.
+- Build and run your program using the dotnet command line tools.
+- Run your program in the debugger, and step through its actions.
+- Add SplashKit to create graphical programs.
 
-### A shared language
-There are many of these shared languages, one of which is called C#. Here's a simple C# program:
+:::tip
 
-```csharp
-using System;
+You will need to use the tools in this chapter for all the other programs you build as you explore programming. Make sure you are confident with each of them as you move forward.
 
-WriteLine("Hello, World!");
-```
-
-That looks a lot more like something we can understand, right? But, how does a computer understand it? Well, it doesn't. At least, not yet. We need to translate this program into machine code. This is where the build process comes in...
+:::

@@ -8,7 +8,7 @@ Let’s explore the application of abstraction to the instructions we give compu
 
 ### Programming in Machine Code
 
-The following snippet shows a chunk of the machine code for a small program. You can see that 1s and 0s are group together. These groups form the instructions followed by the computer when this program is executed. Programs can be written directly in machine code like this, but it is a time consuming task. The task is further complicated by the fact that machine code is unique to each kind of CPU. For example, x86 instructions differ from ARM instructions. This means that programming at this level is entirely dependent on the kind of processor that you are targeting.
+The following snippet shows a chunk of the machine code for a small program. You can see that 1s and 0s are grouped together. These groups form the instructions that are followed by the computer when this program is executed. Programs can be written directly in machine code like this, but it is a time consuming task. The task is further complicated by the fact that machine code is unique to each kind of CPU. For example, x86 instructions differ from ARM instructions. This means that programming at this level is entirely dependent on the kind of processor that you are targeting.
 
 ```
 ...
@@ -17,9 +17,9 @@ The following snippet shows a chunk of the machine code for a small program. You
 ...
 ```
 
-No one wants to have to work at this level of detail, and fortunately you don't need to. Software developers have created tools to help us to work at higher levels of abstraction and create programs without having to think about low level details. These tools work by taking the code you write and doing the tedious work of converting that code to the machine code of the computer you want to run it on.
+It is extremely difficult to work at this level of detail, and fortunately you don't need to. Software developers have created tools to help us to work at higher levels of abstraction and create programs without having to think about low level details. These tools work by taking the code you write and doing the tedious work of converting that code into the machine code of the computer you want to run it on.
 
-:::note
+:::tip[Hex Editor]
 
 A **HexEditor** is a program that allows you to view the binary values of any file on your computer. You could use this to explore the machine code of any program you have. The following table maps the hexadecimal values to their 4-bit representations. For example, `A` in hexadecimal is the same as `1010` in binary, or the decimal value 10.
 

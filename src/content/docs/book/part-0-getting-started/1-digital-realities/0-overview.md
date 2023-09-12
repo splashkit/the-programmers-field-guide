@@ -13,6 +13,8 @@ In this chapter we will explore the [concepts](../1-concepts) that underpin comp
 - **Abstraction** - we will examine the way we use abstraction within computing to help us make sense of what is going on.
 - **Code** - we will learn about the different kinds of instructions we use to get our computers to do things.
 
+## Learning Goals
+
 By the end of this chapter you will be able to:
 
 - Describe how programs are like digital realities, and reflect on the opportunities this creates.
