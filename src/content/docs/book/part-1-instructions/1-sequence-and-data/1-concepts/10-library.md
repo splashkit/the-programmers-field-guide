@@ -11,6 +11,12 @@ A library is a collection of reusable code building blocks. Each programming lan
 ![Figure 5.9 A library contains code that can be used by your Program](./images/program-creation/Library.png "A library contains code that can be used by your Program")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.9: </span>A library contains code that can be used by your Program</div><br/>
 
+## Libraries - why, when, and how
+
+Building programs require many, many, instructions. You can build all of these yourself, but this will reinvent much of what already exists elsewhere. Libraries provide a way of packaging up code to be shared and used by others.
+
+As your programming capabilities grow, you will want to start exploring available libraries and how to use them. For now, we will explore a small part of the standard libraries and features of the SplashKit library. These will give you a taste of using other libraries, and the skills you learn here will help learn how to use code that others have provided - skills you will need to use any library.
+
 ## In C#
 
 :::tip[Syntax]

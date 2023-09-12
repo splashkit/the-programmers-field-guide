@@ -8,7 +8,7 @@ A **variable** is a **building block** you can use to store a value that you can
 
 <a id="FigureVariable"></a>
 
-![Figure 5.17 Variables store a value that can be read and changed](./images/storing-and-using-data/variable-container.png "Variables store a value that can be read and changed")
+![Figure 5.17 Variables store a value that can be read and changed](./images/variable-concept.png "Variables store a value that can be read and changed")
 
 <Caption><FigureText>Figure 5.17: </FigureText>Variables store a value that can be read and changed</Caption><br/>
 
