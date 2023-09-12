@@ -64,7 +64,7 @@ export default defineConfig({
                 },
                 {
                   label: "Activities",
-                  link: "book/part-0-getting-started/1-digital-realities/3-Activities",
+                  link: "book/part-0-getting-started/1-digital-realities/3-activities",
                 },
               ],
             },
@@ -245,10 +245,37 @@ export default defineConfig({
             {
               label: "Classes and Objects",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-2-organised-code/9-classes-and-objects",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-2-organised-code/9-classes-and-objects/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/9-classes-and-objects/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-2-organised-code/9-classes-and-objects/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-2-organised-code/9-classes-and-objects/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-2-organised-code/9-classes-and-objects/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-2-organised-code/9-classes-and-objects/5-activities",
+                },
+              ],
             },
             {
               label: "Collections",
