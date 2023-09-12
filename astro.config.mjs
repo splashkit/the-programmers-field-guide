@@ -190,7 +190,7 @@ export default defineConfig({
               label: "Organising Code",
               collapsed: true,
               autogenerate: {
-                directory: "book/part-2-organised-code/2-organised-code",
+                directory: "book/part-2-organised-code/2-organising-code",
                 collapsed: true,
               },
             },
