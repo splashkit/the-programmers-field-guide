@@ -38,7 +38,7 @@ The first thing a class needs to know about is its name or **identifier**.
 As with the other kinds of identifiers we've encountered, a class's name needs to be unique, meaningful, and concise.
 
 We use a class's name in a few ways.
-The first use is when organising our code files on our computer.
+The first use is when organising the code files on our computer.
 Typically, the syntax for a class is in its own file, and that file is named with the class's identifier.
 This makes it easy to find the code for our class definitions when we need it.
 
@@ -65,13 +65,27 @@ This is one of the concepts that makes classes powerful, as it allows us to shar
 
 ### Doing responsibilities
 
-#### Every class can be created
+#### Every class can be constructed
 
-* constructor
+Just like a method doesn't do anything until it is called, a class doesn't do anything until it is used to create an entity.
+To do this, we call the class's **constructor**.
+A constructor is a special method with the same identifier as the class it relates to, which creates and returns an **instance** of the class.
+
+The constructor's job is to make sure all of the data in the class is initialised.
+It can do this on its own, by using values passed in as arguments, or a combination of both.
+A class can have multiple constructors using method [overloading](<../../../../part-1-instructions/1-sequence-and-data/1-concepts/03-method-call/#overloading>), which means programmers can write several different ways of initialising a class's data.
+
+Once we have an instance of the class, called an object, we can write code asking it to do things or asking it about the things that it knows.
+This is something we will learn more about when we explore the concept of an [object](<../1-objects.md>).
 
 #### Classes can do things
 
-* methods
+As well as its constructor, a class can have any number of methods.
+Just like how fields in a class are very similar to regular variables, methods inside a class are very similar to regular methods.
+A method within a class still has an identifier, can have parameters, and can return a value.
+A class blueprint can also [overload](<../../../../part-1-instructions/1-sequence-and-data/1-concepts/03-method-call/#overloading>) methods, and have multiple methods with the same identifier but different parameters.
+The major difference is that all methods within a class can automatically "see" each other.
+This means that all methods within the same class can call each other.
 
 ### Hiding and showing responsibilities
 
@@ -133,6 +147,7 @@ class Greeting
   * Now here’s where classes give us even more power, we can hide stuff…
 * classes don't run in sequence (just like procedural code with methods don't run in sequence) -- call forward to the "looking inside" section?
 * `this`??
+* no need for a return statement in the constructor -- it's done automatically
 
 :::note[Summary]
 summary
