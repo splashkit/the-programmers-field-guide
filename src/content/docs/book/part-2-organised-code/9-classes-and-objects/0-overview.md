@@ -9,7 +9,9 @@ In this chapter we will explore the power of **classes**, which are another tool
 Using classes we can combine functions, procedures, and data into a single entity.
 They are a powerful tool, and open up new and exciting capabilities for building digital realities.
 
-By the end of this chapter you will be able to:
+## Learning goals
+
+By the end of this chapter you should be able to:
 
 * Describe what a class is, and how classes relate to objects.
 * Read UML class diagrams and implement the class structures they describe.
