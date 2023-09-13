@@ -105,7 +105,18 @@ There are principles and best practices to help make these decisions, which we w
 ### Class structure
 
 :::tip[Syntax]
+The syntax for a C# class declaration is shown in Figure X.
+
+![Figure X](./images/class-syntax-diagram.png)
+<div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for class declarations</div><br/>
+
+* Method decl. is the same as in Part 2, Chapter X
+
 :::
+
+* A class declaration stars with the word `class`. This tells the compiler that the following code defines a class.
+* The **class name** is an identifier. This can be any C# identifier that has not be used for any other classes in the same scope.
+* The block contains all of the fields and methods for the class.
 
 ### Fields
 
