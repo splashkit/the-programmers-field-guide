@@ -100,16 +100,7 @@ There are several access modifiers we can use, but for now let's focus on the tw
 Deciding what access modifier a field or method in a class should have is one of the things that makes coding with classes challenging.
 There are principles and best practices to help make these decisions, which we will explore in Part 3.
 
-## The scope of responsibilities
-
-* usually everything is associated with a specific instances of a class
-* static is different tho
-* conceptually, all the responsibilities of a class should be strongly related -- more on this in part 3
-
 ## In C#
-
-* one class per file
-* name the file the same name as the class it contains
 
 ### Class structure
 
@@ -133,12 +124,12 @@ class Greeting
 {
     private string _text;
 
-    public Message(string text)
+    public Greeting(string text)
     {
         _text = text;
     }
 
-    public void PrintMessage()
+    public void PrintGreeting()
     {
         Console.WriteLine(_text);
     }
