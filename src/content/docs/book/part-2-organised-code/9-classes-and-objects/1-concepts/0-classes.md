@@ -81,16 +81,24 @@ This is something we will learn more about when we explore the concept of an [ob
 #### Classes can do things
 
 As well as its constructor, a class can have any number of methods.
-Just like how fields in a class are very similar to regular variables, methods inside a class are very similar to regular methods.
-A method within a class still has an identifier, can have parameters, and can return a value.
-A class blueprint can also [overload](<../../../../part-1-instructions/1-sequence-and-data/1-concepts/03-method-call/#overloading>) methods, and have multiple methods with the same identifier but different parameters.
-The major difference is that all methods within a class can automatically "see" each other.
+Methods inside a class are very similar to regular methods: they still have an identifier, can have parameters, and can return a value.
+Within a class we can also [overload](<../../../../part-1-instructions/1-sequence-and-data/1-concepts/03-method-call/#overloading>) methods, just like we can with regular methods.
+The only real difference between regular methods and methods that are inside a class, is that all methods within a class can automatically "see" each other.
 This means that all methods within the same class can call each other.
 
-### Hiding and showing responsibilities
+### Showing and hiding responsibilities
 
-* public/private
-* doesn't affect using the field in a class, but it does affect using a field outside of a class
+Once we have used a class to create an entity, we can write code to access the data within the entity, and execute its functionality.
+However, we often don't want our entities to allow just any code to do this.
+This is where the concept of **access modifiers** helps us.
+An access modifier is a piece of information attached to every field and method within a class, telling the compiler what code can access the field or call the method.
+There are several access modifiers we can use, but for now let's focus on the two most basic ones: **public** and **private**.
+
+* **Public** methods and fields in a class can be accessed by any code that has an instance of the class, including within the class itself.
+* **Private** methods and fields in a class can only be accessed by other code in the same class.
+
+Deciding what access modifier a field or method in a class should have is one of the things that makes coding with classes challenging.
+There are principles and best practices to help make these decisions, which we will explore in Part 3.
 
 ## The scope of responsibilities
 
