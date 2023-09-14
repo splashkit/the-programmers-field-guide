@@ -1,5 +1,5 @@
 ---
-title: 22. Overview of Part 3
+title: Thinking with Objects
 ---
 
 To come...
