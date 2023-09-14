@@ -17,7 +17,6 @@ export default ({ images }) => {
     var imagePath,
       altText,
       tipAside = "";
-
     // Convert Astro Image to string - read source
     if (typeof image === "string") {
       imagePath = image;
@@ -26,6 +25,7 @@ export default ({ images }) => {
       imagePath = image.src;
       altText = image.altText;
       const tipStart = image.tipStart || "1";
+      const counterStartClassName = "counterStart" + image.tipStart || "1";
       const tipHeader = image.tipHeader || "How does this work?";
 
       if (image.tips.length > 0) {
@@ -52,7 +52,7 @@ export default ({ images }) => {
               {tipHeader}
             </p>
             <section className="starlight-aside__content">
-              <ol start={tipStart}>
+              <ol start={tipStart} class={counterStartClassName}>
                 {image.tips.map((t) => (
                   <li key={t} dangerouslySetInnerHTML={{ __html: t }}></li>
                 ))}

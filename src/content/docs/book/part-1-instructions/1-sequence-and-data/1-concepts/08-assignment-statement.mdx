@@ -2,6 +2,68 @@
 title: "Assignment Statement"
 ---
 
+import MySwiper from '../../../../../../components/react/myswiper.jsx'
+
+import Slide1int from './images/assignment-statements-in-depth/assignment-statement-int-division-01.png';
+import Slide2int from './images/assignment-statements-in-depth/assignment-statement-int-division-02.png';
+
+
+import Slide1double from './images/assignment-statements-in-depth/assignment-statement-double-division-01.png';
+import Slide2double from './images/assignment-statements-in-depth/assignment-statement-double-division-02.png';
+import Slide3double from './images/assignment-statements-in-depth/assignment-statement-double-division-03.png';
+
+
+export const sliderImagesAssignInt = [
+  {
+    src: Slide1int.src,
+    altText: "Assignment for integer division",
+    tipStart: 1,
+    tips: [
+      "The program is loaded into memory and the program counter is set to instruction 1"
+    ]
+  },
+  {
+    src: Slide2int.src,
+    altText: "The variable quotient is allocated memory on the stack",
+    tipStart: 2,
+    tips: [
+      "Instruction 1 runs and the variable 'quotient' is allocated memory on the stack"
+    ]
+  }
+];
+
+
+
+export const sliderImagesAssignDouble = [
+  {
+    src: Slide1double.src,
+    altText: "Assignment for a division stored in a double.",
+    tipStart: 1,
+    tips: [
+      "How does the assignment operator work when the result is to be stored in a double instead of an int? <br>&nbsp; <span class='fa fa-arrow-right'></span> &nbsp; Let's change the type of the variable that stores the result of the division ('quotient') from an int to a double.",
+      "Remember, the assignment operator ('=') implies two actions: <ul><li><span class='boldunderline'>evaluate</span> the right hand side expression (5a,5b,5c) and</li> <li><span class='boldunderline'>save</span> the result of the evaluation into the variable on the left hand side. (5d)</li>."
+    ]
+  },
+  {
+    src: Slide2double.src,
+    altText: "The right hand.",
+    tipStart: 3,
+    tips: [
+      "To <span class='boldunderline'>evalulate</span> the right hand side expression, the CPU needs to first <span class='boldunderline'>load</span> the dividend and divisor from the stack into the registers (5a, 5b)...",
+      "...then it can perform the <span class='boldunderline'>division</span> (5c):<ul><li>The cpu calculates register 1 / register 2</li><li>Although the divisor and dividend are both integers, the result is to be stored in a double, and so the CPU stores the result as a double in a register (register 3)</li><li>The double value 5.25 represents the final evaluation of the right hand side expression.</li></ul>"
+    ]
+  },
+  {
+    src: Slide3double.src,
+    altText: "The result of the evaluation of the right hand side, is saved into the variable on the left hand side of the assignment operator.",
+    tipStart: 5,
+    tips: [
+      "The final part of the assignment statement is to save the result of the evaluation of the right hand side expression, into the variable on the stack ('quotient') (5d)",
+      "Once the assignment is done, the CPU increments the program counter ready for the next instruction."
+    ]
+  }
+];
+
 The Assignment Statement is an **instruction** that stores a value in a [Variable](../12-variable). You use this instruction any time you want to update the value of a variable.
 
 <a id="FigureAssignmentStatement"></a>
@@ -11,6 +73,16 @@ The Assignment Statement is an **instruction** that stores a value in a [Variabl
 <div class="caption"><span class="caption-figure-nbr">Figure 5.19: </span> A Assignment Statements assign values to Variable</div> <br/>
 
 The assignment statement performs two actions. First, it calculates the value of the expression (calculation) on the right-hand side of the assignment operator (the `=`). Once it has the value, it stores the value (assigns it) to the variable on the left-hand side of the assignment operator.
+
+## Assignment statement up close
+
+### Assigning an int division result to an int variable
+
+<MySwiper client:only height="" images={sliderImagesAssignInt}></MySwiper>
+
+### Assigning an int division result to a double variable
+
+<MySwiper client:only height="" images={sliderImagesAssignDouble}></MySwiper>
 
 ## Assignment Statement - why, when, and how
 
