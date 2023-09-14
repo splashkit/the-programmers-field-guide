@@ -314,6 +314,16 @@ html[data-theme="dark"] aside[aria-label="C#"] .starlight-aside__title {
 
 
 /* --- START: How does this work? Box ------*/
+ 
+/* 
+ * Sketched style borders:
+ * https://stackoverflow.com/questions/43694588/can-i-use-css-to-distort-borders-so-they-look-like-sketched
+
+ * Styling li numbers
+ * https://stackoverflow.com/questions/23610151/can-you-style-ordered-list-numbers
+ * https://codepen.io/sawmac/pen/qBKzmM 
+ * https://www.lilengine.co/articles/styling-ordered-list-numbers
+ */
 
 aside[aria-label="How does this work?"] p.starlight-aside__title {
   font-size:1.3rem;
@@ -510,6 +520,10 @@ aside[aria-label="How does this work?"] ol > li::before {
   border-bottom-left-radius:15px 255px;
 
 }
+html[data-theme="dark"] aside[aria-label="How does this work?"] {
+
+}
+
 
 aside[aria-label="How does this work?"] {
   border-inline-start: inherit;
@@ -532,8 +546,9 @@ html[data-theme="light"] aside[aria-label="How does this work?"] {
   background-color: whitesmoke;
 }
 
-html[data-theme="dark"] aside[aria-label="SynHow does this work?tax"] {
-  background-color: #3d414d;
+html[data-theme="dark"] aside[aria-label="How does this work?"] {
+  background-color: whitesmoke;
+  color: var(--sl-color-text-invert);
 }
 
 aside[aria-label="How does this work?"] img {
