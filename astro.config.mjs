@@ -38,11 +38,11 @@ export default defineConfig({
           collapsed: true,
           items: [
             {
-              label: "Introduction",
+              label: "0. Introduction",
               link: "book/part-0-getting-started/00-introduction",
             },
             {
-              label: "Digital Realities",
+              label: "1. Digital Realities",
               collapsed: true,
               items: [
                 {
@@ -69,7 +69,7 @@ export default defineConfig({
               ],
             },
             {
-              label: "Computer Use",
+              label: "2. Computer Use",
               collapsed: true,
               items: [
                 {
@@ -96,7 +96,7 @@ export default defineConfig({
               ],
             },
             {
-              label: "Building Programs",
+              label: "3. Building Programs",
               collapsed: true,
               items: [
                 {
@@ -133,40 +133,148 @@ export default defineConfig({
           collapsed: true,
           items: [
             {
-              label: "Introducing Instructions",
+              label: "0. Introducing Instructions",
               link: "book/part-1-instructions/00-part-1-programs-as-instructions",
             },
             {
-              label: "Sequence and Data",
+              label: "1. Sequence and Data",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-1-instructions/1-sequence-and-data",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-1-instructions/1-sequence-and-data/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-1-instructions/1-sequence-and-data/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-1-instructions/1-sequence-and-data/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-1-instructions/1-sequence-and-data/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-1-instructions/1-sequence-and-data/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-1-instructions/1-sequence-and-data/5-activities",
+                },
+              ],
             },
             {
-              label: "Communicating Syntax",
+              label: "2. Communicating Syntax",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-1-instructions/2-communicating-syntax",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-1-instructions/2-communicating-syntax/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-1-instructions/2-communicating-syntax/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-1-instructions/2-communicating-syntax/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-1-instructions/2-communicating-syntax/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-1-instructions/2-communicating-syntax/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-1-instructions/2-communicating-syntax/5-activities",
+                },
+              ],
             },
             {
-              label: "Control Flow",
+              label: "3. Control Flow",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-1-instructions/3-control-flow",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-1-instructions/3-control-flow/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-1-instructions/3-control-flow/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-1-instructions/3-control-flow/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-1-instructions/3-control-flow/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-1-instructions/3-control-flow/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-1-instructions/3-control-flow/5-activities",
+                },
+              ],
             },
             {
-              label: "Structured Programming",
+              label: "4. Structured Programming",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-1-instructions/4-structured-programming",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-1-instructions/4-structured-programming/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-1-instructions/4-structured-programming/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-1-instructions/4-structured-programming/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-1-instructions/4-structured-programming/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-1-instructions/4-structured-programming/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-1-instructions/4-structured-programming/5-activities",
+                },
+              ],
             },
           ],
         },
@@ -175,75 +283,291 @@ export default defineConfig({
           collapsed: true,
           items: [
             {
-              label: "Introducing Code Organisation",
+              label: "0. Introducing Code Organisation",
               link: "book/part-2-organised-code/00-part-2-programs-as-organised-code",
             },
             {
-              label: "Starting C++",
+              label: "1. Starting C++",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-2-organised-code/1-starting-cpp",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-2-organised-code/1-starting-cpp/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/1-starting-cpp/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-2-organised-code/1-starting-cpp/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-2-organised-code/1-starting-cpp/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-2-organised-code/1-starting-cpp/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-2-organised-code/1-starting-cpp/5-activities",
+                },
+              ],
             },
             {
-              label: "Organising Code",
+              label: "2. Organising Code",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-2-organised-code/2-organising-code",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-2-organised-code/2-organising-code/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/2-organising-code/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-2-organised-code/2-organising-code/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-2-organised-code/2-organising-code/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-2-organised-code/2-organising-code/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-2-organised-code/2-organising-code/5-activities",
+                },
+              ],
             },
             {
-              label: "Structuring Data",
+              label: "3. Structuring Data",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-2-organised-code/3-structuring-data",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-2-organised-code/3-structuring-data/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/3-structuring-data/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-2-organised-code/3-structuring-data/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-2-organised-code/3-structuring-data/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-2-organised-code/3-structuring-data/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-2-organised-code/3-structuring-data/5-activities",
+                },
+              ],
             },
             {
-              label: "Indirectly Accessing Data",
+              label: "4. Indirectly Accessing Data",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-2-organised-code/4-indirect-access",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-2-organised-code/4-indirect-access/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/4-indirect-access/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-2-organised-code/4-indirect-access/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-2-organised-code/4-indirect-access/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-2-organised-code/4-indirect-access/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-2-organised-code/4-indirect-access/5-activities",
+                },
+              ],
             },
             {
-              label: "Working with Multiples",
+              label: "5. Working with Multiples",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-2-organised-code/5-working-with-multiples",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-2-organised-code/5-working-with-multiples/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/5-working-with-multiples/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-2-organised-code/5-working-with-multiples/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-2-organised-code/5-working-with-multiples/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-2-organised-code/5-working-with-multiples/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-2-organised-code/5-working-with-multiples/5-activities",
+                },
+              ],
             },
             {
-              label: "Deep Dive on Memory",
+              label: "6. Deep Dive on Memory",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-2-organised-code/6-deep-dive-memory",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-2-organised-code/6-deep-dive-memory/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/6-deep-dive-memory/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-2-organised-code/6-deep-dive-memory/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-2-organised-code/6-deep-dive-memory/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-2-organised-code/6-deep-dive-memory/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-2-organised-code/6-deep-dive-memory/5-activities",
+                },
+              ],
             },
             {
-              label: "Low Level Programming",
+              label: "7. Low Level Programming",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-2-organised-code/7-low-level-programming",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-2-organised-code/7-low-level-programming/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/7-low-level-programming/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-2-organised-code/7-low-level-programming/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-2-organised-code/7-low-level-programming/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-2-organised-code/7-low-level-programming/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-2-organised-code/7-low-level-programming/5-activities",
+                },
+              ],
             },
             {
-              label: "Welcome Back to C#",
+              label: "8. Welcome Back to C#",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-2-organised-code/8-back-to-c-sharp",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-2-organised-code/8-back-to-c-sharp/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/8-back-to-c-sharp/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-2-organised-code/8-back-to-c-sharp/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-2-organised-code/8-back-to-c-sharp/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-2-organised-code/8-back-to-c-sharp/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-2-organised-code/8-back-to-c-sharp/5-activities",
+                },
+              ],
             },
             {
-              label: "Classes and Objects",
+              label: "9. Classes and Objects",
               collapsed: true,
               items: [
                 {
@@ -278,28 +602,109 @@ export default defineConfig({
               ],
             },
             {
-              label: "Collections",
+              label: "10. Collections",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-2-organised-code/10-collections",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-2-organised-code/10-collections/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/10-collections/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-2-organised-code/10-collections/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-2-organised-code/10-collections/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-2-organised-code/10-collections/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-2-organised-code/10-collections/5-activities",
+                },
+              ],
             },
             {
-              label: "Structured Error Handling",
+              label: "11. Structured Error Handling",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-2-organised-code/11-structured-error-handling",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-2-organised-code/11-structured-error-handling/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/11-structured-error-handling/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-2-organised-code/11-structured-error-handling/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-2-organised-code/11-structured-error-handling/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-2-organised-code/11-structured-error-handling/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-2-organised-code/11-structured-error-handling/5-activities",
+                },
+              ],
             },
             {
-              label: "Function Abstractions",
+              label: "12. Function Abstractions",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-2-organised-code/12-function-abstractions",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-2-organised-code/12-function-abstractions/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/12-function-abstractions/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-2-organised-code/12-function-abstractions/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-2-organised-code/12-function-abstractions/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-2-organised-code/12-function-abstractions/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-2-organised-code/12-function-abstractions/5-activities",
+                },
+              ],
             },
           ],
         },
@@ -308,56 +713,218 @@ export default defineConfig({
           collapsed: true,
           items: [
             {
-              label: "Introducing Conceptual Thinking",
+              label: "0. Introducing Conceptual Thinking",
               link: "book/part-3-programs-as-concepts/00-part-3-programs-as-concepts",
             },
             {
-              label: "Abstraction",
+              label: "1. Abstraction",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-3-programs-as-concepts/1-abstraction",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-3-programs-as-concepts/1-abstraction/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/1-abstraction/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-3-programs-as-concepts/1-abstraction/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-3-programs-as-concepts/1-abstraction/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-3-programs-as-concepts/1-abstraction/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-3-programs-as-concepts/1-abstraction/5-activities",
+                },
+              ],
             },
             {
-              label: "Unit Testing",
+              label: "2. Unit Testing",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-3-programs-as-concepts/2-unit-testing",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-3-programs-as-concepts/2-unit-testing/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/2-unit-testing/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-3-programs-as-concepts/2-unit-testing/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-3-programs-as-concepts/2-unit-testing/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-3-programs-as-concepts/2-unit-testing/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-3-programs-as-concepts/2-unit-testing/5-activities",
+                },
+              ],
             },
             {
-              label: "Collaboration and Encapsulation",
+              label: "3. Collaboration and Encapsulation",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-3-programs-as-concepts/3-collaboration-encapsulation",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-3-programs-as-concepts/3-collaboration-encapsulation/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/3-collaboration-encapsulation/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-3-programs-as-concepts/3-collaboration-encapsulation/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-3-programs-as-concepts/3-collaboration-encapsulation/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-3-programs-as-concepts/3-collaboration-encapsulation/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-3-programs-as-concepts/3-collaboration-encapsulation/5-activities",
+                },
+              ],
             },
             {
-              label: "Inheritance and Polymorphism",
+              label: "4. Inheritance and Polymorphism",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-3-programs-as-concepts/4-inheritance-polymorphism",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-3-programs-as-concepts/4-inheritance-polymorphism/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/4-inheritance-polymorphism/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-3-programs-as-concepts/4-inheritance-polymorphism/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-3-programs-as-concepts/4-inheritance-polymorphism/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-3-programs-as-concepts/4-inheritance-polymorphism/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-3-programs-as-concepts/4-inheritance-polymorphism/5-activities",
+                },
+              ],
             },
             {
-              label: "Interfaces and Abstract Classes",
+              label: "5. Interfaces and Abstract Classes",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-3-programs-as-concepts/5-interfaces-abstract-classes",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-3-programs-as-concepts/5-interfaces-abstract-classes/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/5-interfaces-abstract-classes/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-3-programs-as-concepts/5-interfaces-abstract-classes/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-3-programs-as-concepts/5-interfaces-abstract-classes/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-3-programs-as-concepts/5-interfaces-abstract-classes/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-3-programs-as-concepts/5-interfaces-abstract-classes/5-activities",
+                },
+              ],
             },
             {
-              label: "Design Principles and Patterns",
+              label: "6. Design Principles and Patterns",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-3-programs-as-concepts/6-design-principles-patterns",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-3-programs-as-concepts/6-design-principles-patterns/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/6-design-principles-patterns/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-3-programs-as-concepts/6-design-principles-patterns/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-3-programs-as-concepts/6-design-principles-patterns/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-3-programs-as-concepts/6-design-principles-patterns/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-3-programs-as-concepts/6-design-principles-patterns/5-activities",
+                },
+              ],
             },
           ],
         },
@@ -366,48 +933,183 @@ export default defineConfig({
           collapsed: true,
           items: [
             {
-              label: "The Real World",
+              label: "0. The Real World",
               link: "book/part-4-what-next/00-part-4-real-world",
             },
             {
-              label: "Things We Left Out",
+              label: "1. Things We Left Out",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-4-what-next/1-things-we-left-out",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-4-what-next/1-things-we-left-out/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-4-what-next/1-things-we-left-out/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-4-what-next/1-things-we-left-out/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-4-what-next/1-things-we-left-out/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-4-what-next/1-things-we-left-out/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-4-what-next/1-things-we-left-out/5-activities",
+                },
+              ],
             },
             {
-              label: "Libraries and Packages",
+              label: "2. Libraries and Packages",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-4-what-next/2-libraries-packages",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-4-what-next/2-libraries-packages/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-4-what-next/2-libraries-packages/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-4-what-next/2-libraries-packages/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-4-what-next/2-libraries-packages/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-4-what-next/2-libraries-packages/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-4-what-next/2-libraries-packages/5-activities",
+                },
+              ],
             },
             {
-              label: "Build a Game",
+              label: "3. Build a Game",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-4-what-next/3-build-game",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-4-what-next/3-build-game/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-4-what-next/3-build-game/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-4-what-next/3-build-game/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-4-what-next/3-build-game/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-4-what-next/3-build-game/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-4-what-next/3-build-game/5-activities",
+                },
+              ],
             },
             {
-              label: "Build a Web App",
+              label: "4. Build a Web App",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-4-what-next/4-build-web-app",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-4-what-next/4-build-web-app/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-4-what-next/4-build-web-app/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-4-what-next/4-build-web-app/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-4-what-next/4-build-web-app/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-4-what-next/4-build-web-app/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-4-what-next/4-build-web-app/5-activities",
+                },
+              ],
             },
             {
-              label: "Work with AI",
+              label: "5. Work with AI",
               collapsed: true,
-              autogenerate: {
-                directory: "book/part-4-what-next/5-integrate-ai",
-                collapsed: true,
-              },
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-4-what-next/5-integrate-ai/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-4-what-next/5-integrate-ai/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-4-what-next/5-integrate-ai/2-put-together",
+                },
+                {
+                  label: "Looking Inside",
+                  link: "book/part-4-what-next/5-integrate-ai/3-looking-inside",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-4-what-next/5-integrate-ai/4-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-4-what-next/5-integrate-ai/5-activities",
+                },
+              ],
             },
           ],
         },
