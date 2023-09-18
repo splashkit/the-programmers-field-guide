@@ -561,6 +561,62 @@ aside[aria-label="How does this work?"] img {
 
 
 
+aside[aria-label="How does this work?"] ul {
+  list-style-type: none;
+  padding-left: 10px;
+  padding-right: 5px; 
+  font-size:1.3rem;
+  font-family: "Gaegu";
+  line-height: 1.3rem;
+}
+
+aside[aria-label="How does this work?"] ul > li::before {   
+  content: '';   
+  display: inline-block;   
+  height: 14px;   
+  width: 14px;    
+  background-size: 14px;   
+  background-image: url('/src/content/docs/book/images-common/ol-bullet-2-open-yellow-light.png');   
+  background-repeat: no-repeat;   
+  margin-right: 6px;
+  background-position: center center;
+  vertical-align: middle;
+}
+
+aside[aria-label="How does this work?"] ul > li ul {
+  list-style-type: none;
+}
+
+aside[aria-label="How does this work?"] ul > li ul li::before {   
+  content: '';   
+  display: inline-block;   
+  height: 12px;   
+  width: 12px;    
+  background-size: 12px;   
+  background-image: url('/src/content/docs/book/images-common/ol-bullet-2-open-yellow-light-2.png');   
+  background-repeat: no-repeat;   
+  margin-right: 6px;
+  background-position: center center;
+  vertical-align: middle;
+}
+
+aside[aria-label="How does this work?"] ul > li ul li ul {
+  list-style-type: none;
+}
+
+aside[aria-label="How does this work?"] ul > li ul li ul li::before {   
+  content: '';   
+  display: inline-block;   
+  height: 10px;   
+  width: 10px;    
+  background-size: 10px;   
+  background-image: url('/src/content/docs/book/images-common/ol-bullet-2-open-yellow-light-2.png');   
+  background-repeat: no-repeat;   
+  margin-right: 6px;
+  background-position: center center;
+  vertical-align: middle;
+}
+
 
 /* --- END:   How does this work? Box ------*/
 
