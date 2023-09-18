@@ -97,8 +97,8 @@ There are several access modifiers we can use, but for now let's focus on the tw
 * **Public** methods and fields in a class can be accessed by any code that has an instance of the class, including within the class itself.
 * **Private** methods and fields in a class can only be accessed by other code in the same class.
 
-Deciding what access modifier a field or method in a class should have is one of the things that makes coding with classes challenging.
-There are principles and best practices to help make these decisions, which we will explore in Part 3.
+Deciding what access modifier a field or method should have is one of the things that makes coding with classes challenging.
+There are principles and best practices to help make these decisions, which we will explore in [Part 3](<../../../../part-3-programs-as-concepts/00-part-3-programs-as-concepts>).
 
 ## In C#
 
@@ -107,10 +107,10 @@ There are principles and best practices to help make these decisions, which we w
 :::tip[Syntax]
 The syntax for a C# class declaration is shown in Figure X.
 
+* Access modifiers can be public or private for now. We'll cover more of these in part 3.
+
 ![Figure X](./images/class-syntax-diagram.png)
 <div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for class declarations</div><br/>
-
-* Method decl. is the same as in Part 2, Chapter X
 
 :::
 
@@ -118,12 +118,29 @@ The syntax for a C# class declaration is shown in Figure X.
 * The **class name** is an identifier. This can be any C# identifier that has not be used for any other classes in the same scope.
 * The block contains all of the fields and methods for the class.
 
-### Fields
+### Field Declarations
 
-### Methods
+:::tip[Syntax]
+![Figure X](./images/field-syntax-diagram.png)
+<div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for field declarations</div><br/>
+:::
 
-### Properties
+* Field decl. is basically the same as a variable declaration, we just call it a field now
+* Initialise the field in the class constructor
 
+### Method Declarations
+
+* Method decl. is the same as in Part 2, Chapter X
+* Constructor is a bit different
+
+### Property Declarations
+
+:::tip[Syntax]
+![Figure X](./images/property-syntax-diagram.png)
+<div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for property declarations</div><br/>
+:::
+
+* For a property, the get and set are both optional
 * a special kind of method unique to C#, that lets us group instructions together but call the group of instructions as if they were a field
 * purely for getting and setting
 * usually associated with a field, but can also construct data within the get
