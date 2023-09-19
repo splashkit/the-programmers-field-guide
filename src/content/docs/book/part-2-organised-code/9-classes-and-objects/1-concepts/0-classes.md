@@ -164,7 +164,7 @@ class Greeting
 } 
 ```
 
-* it's just another way of organising our code and creating our own custom data types
+<!-- * it's just another way of organising our code and creating our own custom data types
 * we use classes as blueprints to make objects (link to next concept)
 * we don't really differentiate between functions and procedures -- everything is just a "method" now
 * we now have the concept of a class variable
@@ -174,7 +174,7 @@ class Greeting
   * Now here’s where classes give us even more power, we can hide stuff…
 * classes don't run in sequence (just like procedural code with methods don't run in sequence) -- call forward to the "looking inside" section?
 * `this`??
-* no need for a return statement in the constructor -- it's done automatically
+* no need for a return statement in the constructor -- it's done automatically -->
 
 :::note[Summary]
 summary
