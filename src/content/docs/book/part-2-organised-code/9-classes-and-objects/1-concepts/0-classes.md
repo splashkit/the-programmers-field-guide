@@ -127,11 +127,18 @@ The syntax for a C# class declaration is shown in Figure X.
 
 * Field decl. is basically the same as a variable declaration, we just call it a field now
 * Initialise the field in the class constructor
+* Remember that every field starts with an access modifier, that's shown in the class declaration diagram
 
 ### Method Declarations
 
 * Method decl. is the same as in Part 2, Chapter X
 * Constructor is a bit different
+* Remember that every method starts with an access modifier, that's shown in the class declaration diagram
+
+:::tip[Syntax]
+![Figure X](./images/constructor-syntax-diagram.png)
+<div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for constructor declarations</div><br/>
+:::
 
 ### Property Declarations
 
@@ -144,6 +151,7 @@ The syntax for a C# class declaration is shown in Figure X.
 * a special kind of method unique to C#, that lets us group instructions together but call the group of instructions as if they were a field
 * purely for getting and setting
 * usually associated with a field, but can also construct data within the get
+* Remember that every property starts with an access modifier, that's shown in the class declaration diagram
 
 ## Example
 
