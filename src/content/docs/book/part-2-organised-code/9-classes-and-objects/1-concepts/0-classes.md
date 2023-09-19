@@ -131,13 +131,17 @@ The syntax for a C# class declaration is shown in Figure X.
 
 ### Method Declarations
 
-* Method decl. is the same as in Part 2, Chapter X
-* Constructor is a bit different
+* Both very similar, constructor just doesn't have a return type, plus methods can return and actual value (which can be a fundamental data type or a class) or can return "void"
 * Remember that every method starts with an access modifier, that's shown in the class declaration diagram
 
 :::tip[Syntax]
 ![Figure X](./images/constructor-syntax-diagram.png)
 <div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for constructor declarations</div><br/>
+:::
+
+:::tip[Syntax]
+![Figure X](./images/method-syntax-diagram.png)
+<div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for method declarations</div><br/>
 :::
 
 ### Property Declarations
