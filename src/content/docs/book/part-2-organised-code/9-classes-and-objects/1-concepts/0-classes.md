@@ -285,7 +285,28 @@ So, let's explore the concept of **objects** next.
 
 ## Activities
 
+* List some knowing and doing examples you have in your daily life.
+* What other responsibilities could the Greeting class have?
+* Think about a class for representing a book. What responsibilities might it have? Would they be public or private?
 
 :::note[Summary]
-summary
+
+* Classes are a tool for organising code into entities that contain data and methods.
+* Each class definition is a blueprint that describes an entity in terms of what it **knows** (data) and what it can **do** (methods).
+* A class defines a **custom data type** we can use in our programs when building digital realities.
+* Classes have a **name**, and contain zero or more **members**.
+* A class member can be a:
+  * field
+  * constructor
+  * method
+  * property
+* Each class member can be **public** or **private**:
+  * **public** members can be accessed by any code that has an instance of the class.
+  * **private** members can only be accessed by other code in the same class.
+* **Fields** are just like variables, with a scope of the entire class in which they are declared.
+* **Methods** are no different from what you have already learned. <!-- TODO: link to previous section on methods? -->
+* **Constructors** are special methods which create and return an instance of the class in which they are declared.
+* **Properties** are unique to C#, and allow us to write code that looks and acts like a public field.
+* Classes can be used to create **objects**.
+
 :::
