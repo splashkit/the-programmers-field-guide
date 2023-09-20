@@ -107,6 +107,10 @@ There are principles and best practices to help make these decisions, which we w
 :::tip[Syntax]
 The syntax for a C# class declaration is shown in Figure X. The syntax for declaring each of the elements of a class are shown in other diagrams below.
 
+If you are wondering what a property is because you are seeing that term for the first time in this diagram, don't worry!
+Properties are specific to the C# programming language, so we have not included them in our explanation of standard class elements.
+We'll explain what they are below.
+
 ![Figure X](./images/class-syntax-diagram.png)
 <div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for class declarations</div><br/>
 :::
@@ -184,16 +188,35 @@ The syntax for a method declaration is hopefully looking familiar, because it is
 
 ### Property Declarations
 
+**Properties** are a class element we have not explored yet.
+The reason for this is that properties are unique to C#.
+
+Essentially, properties are a way of adding an element to a class that *looks* and *acts* like a public field to other code, but is not *actually* a public field.
+
 :::tip[Syntax]
+The syntax for declaring a property in a C# class is shown in Figure X.
+
 ![Figure X](./images/property-syntax-diagram.png)
 <div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for property declarations</div><br/>
 :::
 
-* For a property, the get and set are both optional
-* a special kind of method unique to C#, that lets us group instructions together but call the group of instructions as if they were a field
-* purely for getting and setting
-* usually associated with a field, but can also construct data within the get
-* Remember that every property starts with an access modifier, that's shown in the class declaration diagram
+The start of a property declaration looks exactly like a field declaration: an access modifier followed by a data type and a name.
+Then, within curly braces you can declare up to two parts of the property:
+
+1. A `get`, which contains code that is executed when the property is *read*.
+2. A `set`, which contains code that is executed when the property is *assigned to*.
+
+Both parts are optional, but can only be used once each in a property.
+A property containing only a `get` part is called a **read-only property**, and a property containing only a `set` part is called a **set-only property**.
+A property containing both is just called a property, or can be called a **read-write property**.
+Most properties are read-write or read-only.
+
+Because `get` is used when the property is read, it must include a **return statement** which returns a value matching the data type of the property.
+The `set` part of a property has access to a special variable, `value`, which has the same data type as the property and the value of the right-hand side of the assignment statement in which the property was used.
+
+The code within a `get` or `set` can be as simple or as complicated as you like, and can call other code within the same class or in libraries.
+Many properties are written as "wrappers" around a private field, and are used to better control access to the data in that field.
+Other properties may instead construct and return new data when they are read.
 
 ## Example
 
