@@ -88,7 +88,7 @@ This means that all methods within the same class can call each other.
 
 ### Showing and hiding responsibilities
 
-Once we have used a class to create an entity, we can write code to access the data within the entity, and execute its functionality.
+Once we have used a class to create an entity, we can write code to access the data within the entity and execute its functionality.
 However, we often don't want our entities to allow just any code to do this.
 This is where the concept of **access modifiers** helps us.
 An access modifier is a piece of information attached to every field and method within a class, telling the compiler what code can access the field or call the method.
@@ -105,44 +105,82 @@ There are principles and best practices to help make these decisions, which we w
 ### Class structure
 
 :::tip[Syntax]
-The syntax for a C# class declaration is shown in Figure X.
-
-* Access modifiers can be public or private for now. We'll cover more of these in part 3.
+The syntax for a C# class declaration is shown in Figure X. The syntax for declaring each of the elements of a class are shown in other diagrams below.
 
 ![Figure X](./images/class-syntax-diagram.png)
 <div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for class declarations</div><br/>
-
 :::
 
-* A class declaration stars with the word `class`. This tells the compiler that the following code defines a class.
-* The **class name** is an identifier. This can be any C# identifier that has not be used for any other classes in the same scope.
-* The block contains all of the fields and methods for the class.
+A class declaration starts with the word `class`.
+This tells the compiler that the following code defines a class.
+The **class name** is an identifier, which can be any valid C# identifier that has not be used for any other classes in the same scope.
+
+The **class block** contains all of the declarations for the class's fields, constructors, methods, and properties.
+Each declaration defines a **class member**, and starts with an **access modifier**.
+For now, an access modifier can be either `public` or `private`, and we'll expore other access modifiers in Part 3.
+
+There are no limitations in the C# syntax to force you to declare the different members of your class in a specific order.
+However, there are some general conventions that C# programmers typically follow:
+
+* Fields are declared first, with constant fields before variable fields.
+* Constructors are declared after fields.
+* Other methods are declared after constructors.
+
+:::note
+These general conventions obviously don't cover every possible case.
+Defining a standard ordering is the subject of much debate amongst programmers, and as you write and read more code you will form strong opinions of your own!
+:::
 
 ### Field Declarations
 
 :::tip[Syntax]
+The syntax for a field declaration in a C# class is shown in Figure X.
+
 ![Figure X](./images/field-syntax-diagram.png)
 <div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for field declarations</div><br/>
 :::
 
-* Field decl. is basically the same as a variable declaration, we just call it a field now
-* Initialise the field in the class constructor
-* Remember that every field starts with an access modifier, that's shown in the class declaration diagram
+Hopefully the syntax for declaring a field looks familiar, because it is the same as the syntax for declaring a variable. <!-- TODO: link to variable concept -->
+Typically, we declare our fields at the top of our class definition, and then initialise their values inside the class's constructor.
+
+:::caution[Reminder]
+Remember that **fields** are also called **class variables** -- there is no difference between the two concepts.
+:::
 
 ### Method Declarations
 
-* Both very similar, constructor just doesn't have a return type, plus methods can return and actual value (which can be a fundamental data type or a class) or can return "void"
-* Remember that every method starts with an access modifier, that's shown in the class declaration diagram
+There are two kinds of methods that we can define in a class: **methods** and **constructors**.<sup>[1](#FootnoteEntities)</sup>
+Let's take a look at the syntax for each.
 
 :::tip[Syntax]
+The syntax for declaring a constructor in a C# class is shown in Figure X.
+
 ![Figure X](./images/constructor-syntax-diagram.png)
 <div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for constructor declarations</div><br/>
 :::
 
 :::tip[Syntax]
+The syntax for declaring a method in a C# class is shown in Figure X.
+
 ![Figure X](./images/method-syntax-diagram.png)
 <div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for method declarations</div><br/>
 :::
+
+The first thing you might notice is that the syntax is practically identical!
+There are really just two main differences between a constructor declaration and a regular method declaration:
+
+1. A constructor does not have a unique method name. It has to use the class's name.
+2. A constructor does not have a return type.
+
+Using the class's name in place of a method name tells the compiler to interpret the declaration as a constructor rather than standard method.
+The reason that a constructor declaration does not need to include a return type is because a constructor, by definition, can only and always will return an **instance** of the class.
+Therefore, its return type is implied and does not need to be explicitly stated.
+
+Aside from these two differences, a constructor declaration is the same as a method declaration.
+The syntax for a method declaration is hopefully looking familiar, because it is the same as the syntax for declaring methods you have already seen. <!-- TODO: link back to method declaration concept -->
+
+<hr class="footnote">
+<div id="FootnoteEntities" class="footnote"><sup>1</sup>Yes, it is confusing that a constructor is a method, but also a separate concept!</div>
 
 ### Property Declarations
 
@@ -173,20 +211,34 @@ class Greeting
     {
         Console.WriteLine(_text);
     }
+
+    public string Text
+    {
+        get
+        {
+            return _text;
+        }
+        set
+        {
+            _text = value;
+        }
+    }
 } 
 ```
 
-<!-- * it's just another way of organising our code and creating our own custom data types
+<!--
+* don't need `return` in a constructor -- it's automatically done
+* `value` special keyword in a property
+ -->
+
+<!--
+* it's just another way of organising our code and creating our own custom data types
 * we use classes as blueprints to make objects (link to next concept)
-* we don't really differentiate between functions and procedures -- everything is just a "method" now
-* we now have the concept of a class variable
 * constructors
 * properties
-* public vs. private (call forward to encapsulation chapter where we'll talk more about how to decide which one to use)
-  * Now here’s where classes give us even more power, we can hide stuff…
 * classes don't run in sequence (just like procedural code with methods don't run in sequence) -- call forward to the "looking inside" section?
 * `this`??
-* no need for a return statement in the constructor -- it's done automatically -->
+-->
 
 :::note[Summary]
 summary
