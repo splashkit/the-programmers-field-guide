@@ -159,7 +159,12 @@ export default defineConfig({
                 },
                 {
                   label: "Looking Inside",
-                  link: "book/part-1-instructions/1-sequence-and-data/3-looking-inside",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-1-instructions/1-sequence-and-data/3-looking-inside",
+                    collapsed: true,
+                  },
                 },
                 {
                   label: "Other Languages",
