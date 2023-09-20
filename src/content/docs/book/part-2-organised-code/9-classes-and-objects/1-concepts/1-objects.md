@@ -20,4 +20,6 @@ For example, if we had a `Person` class with a field called `name`, every `Perso
 
 * static is different tho
 
+* classes don't run in sequence (just like procedural code with methods don't run in sequence) -- call forward to the "looking inside" section?
+
 -->

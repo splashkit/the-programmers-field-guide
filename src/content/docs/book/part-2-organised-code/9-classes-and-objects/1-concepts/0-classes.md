@@ -220,48 +220,71 @@ Other properties may instead construct and return new data when they are read.
 
 ## Example
 
+The following code shows a basic class definition.
+
 ```cs
+using static System.Console;
+
 class Greeting
 {
-    private string _text;
+    private string _message;
 
-    public Greeting(string text)
+    public Greeting(string message)
     {
-        _text = text;
+        _message = message;
     }
 
-    public void PrintGreeting()
+    public void PrintGreeting(string name)
     {
-        Console.WriteLine(_text);
+        WriteLine($"Hello {name}! {_message}");
     }
 
-    public string Text
+    public string Message
     {
         get
         {
-            return _text;
+            return _message;
         }
         set
         {
-            _text = value;
+            _message = value;
         }
     }
 } 
 ```
 
-<!--
-* don't need `return` in a constructor -- it's automatically done
-* `value` special keyword in a property
- -->
+:::note
+We can see a few C# conventions in this example:
 
-<!--
-* it's just another way of organising our code and creating our own custom data types
-* we use classes as blueprints to make objects (link to next concept)
-* constructors
-* properties
-* classes don't run in sequence (just like procedural code with methods don't run in sequence) -- call forward to the "looking inside" section?
-* `this`??
--->
+* Private field names start with an underscore.
+* Property names start with a capital letter.
+* Parameter names start with a lower-case letter.
+* Method names are written in CamelCase.
+* Each class member is separated by a blank line.
+:::
+
+This class is called "Greeting", and it has a few responsibilities.
+The Greeting class...
+
+* ...knows about a string called `_message`.
+* ...can be constructed with an initial value for `_message`.
+* ...can print a greeting containing the text "Hello", a name passed in as an argument, and the value of `message`.
+* ...can provide access to read and change the value of `_message` through a property `Message`.
+
+In other words, this class has one private field, one public constructor, one public method, and one public read-write property.
+
+Earlier in our journey we learned that a constructor creates and returns an instance of its class.
+Given this, you might be surprised to see that the constructor of Greeting does not contain a `return` statement.
+The reason for this is that the compiler already knows exactly what should be returned from a constructor, so it can make sure the right value is returned without being explicitly instructed to do it.
+
+To add this class to your program, copy the code above into a file called "Greeting.cs" within a console project.
+Run your project...nothing happens!
+That is because much like a method that is never called, a class does not do much on its own.
+To actually execute this code we need to use the class to create an **object**.
+So, let's explore the concept of **objects** next.
+
+## Activities
+
 
 :::note[Summary]
 summary
