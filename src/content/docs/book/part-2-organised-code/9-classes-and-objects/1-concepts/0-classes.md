@@ -26,6 +26,7 @@ We will explore this further in [Part 3, Chapter 3](<../../../../part-3-programs
 
 ![Figure X](./images/class-concept.png)
 <div class="caption"><span class="caption-figure-nbr">Figure X: </span>A class describes an entity that knows things and can do things</div><br/>
+<!-- TODO: remake concept diagram properly -->
 
 A class can have a lot of responsibilities, but each one will relate to either knowing something, or doing something.
 Let's explore the kinds of knowing and doing responsibilities a class can have.
