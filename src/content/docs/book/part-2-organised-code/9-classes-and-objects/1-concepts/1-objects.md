@@ -11,9 +11,9 @@ This is because a class is just a *description* of a entity.
 We need to use that description as a blueprint to **construct** an **object**.
 
 Figure X shows a sketch of the **object** concept.
-Remember that a class describes a custom data type; an object is simply a **value** of that type.
+Remember that a class describes a custom data type -- an object is simply a **value** of that type.
 As with any other value in a program, an object has a location in memory.
-That memory is subdivided to make a space to store the value of each of the object's fields.
+That memory is subdivided into spaces for each of the object's fields.<sup>[1](#FootnoteEntities)</sup>
 These fields and their values are the **state** of the object.
 
 ![Figure X](./images/object-concept.png)
@@ -26,14 +26,15 @@ Each instance of a class is a self-contained entity.
 What this means is that although we can create multiple objects from the same class, each object we create will have its own state.
 For example, if we had a "Person" class with a field "name", every instance of "Person" would have its own location in memory and its own "name" variable within that memory.
 
-
-<!--
-* you can think of an object as a big blob of memory that contains values and functionality (it's not actually, but we can use this abstraction to help us think about it)
- -->
+<hr class="footnote">
+<div id="FootnoteEntities" class="footnote"><sup>1</sup>In reality there is a little more to it, but we are ✨abstracting✨!</div>
 
 ## Creating objects
 
-
+<!-- 
+* use a constructor
+* once you use a constructor, you don't ask the object to "do" it again -- that's why only "method" is in the concept diagram above
+ -->
 
 ## Using an object
 <!--
@@ -58,4 +59,9 @@ For example, if we had a "Person" class with a field "name", every instance of "
 ## Activities
 
 :::note[Summary]
+
+* Classes are used to **construct** an **objects**.
+* An object can also be called an **instance** of a class.
+* 
+
 :::
