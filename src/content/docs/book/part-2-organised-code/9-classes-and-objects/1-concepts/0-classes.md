@@ -74,7 +74,9 @@ A constructor is a special method with the same identifier as the class it relat
 
 The constructor's job is to make sure all of the data in the class is initialised.
 It can do this on its own, by using values passed in as arguments, or a combination of both.
+If a constructor does not have any parameters, it is called the **default constructor**.
 A class can have multiple constructors using method [overloading](<../../../../part-1-instructions/1-sequence-and-data/1-concepts/03-method-call/#overloading>), which means programmers can write several different ways of initialising a class's data.
+
 
 Once we have an instance of the class, called an object, we can write code asking it to do things or asking it about the things that it knows.
 This is something we will learn more about when we explore the concept of an [object](<../1-objects.md>).
@@ -307,6 +309,7 @@ So, let's explore the concept of **objects** next.
 * **Fields** are just like variables, with a scope of the entire class in which they are declared.
 * **Methods** are no different from what you have already learned. <!-- TODO: link to previous section on methods? -->
 * **Constructors** are special methods which create and return an instance of the class in which they are declared.
+  * A **default constructor** is a constructor with no parameters.
 * **Properties** are unique to C#, and allow us to write code that looks and acts like a public field.
 * Classes can be used to create **objects**.
 
