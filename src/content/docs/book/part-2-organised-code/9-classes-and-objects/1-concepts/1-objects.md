@@ -55,12 +55,33 @@ Any fields accessed through an object act like normal variables, and any methods
 
 ## In C#
 
-<!-- 
-* syntax for creating a new instance of an object
-* syntax for using a field, assuming it's public
-* syntax for calling a method, assuming it's public
-* syntax for using a property (read and write), assuming it's public and has both parts
- -->
+### Calling a constructor
+
+:::tip[Syntax]
+The syntax for calling a constructor in C# is shown in Figure X.
+
+![Figure X](./images/constructor-call-syntax-diagram.png)
+<div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for calling a constructor</div><br/>
+:::
+
+### Accessing a class field
+
+:::tip[Syntax]
+The syntax for accessing a field within an object in C# is shown in Figure X.
+Note that as a property in C# acts like a field, the syntax is the same for accessing a property.
+
+![Figure X](./images/field-access-syntax-diagram.png)
+<div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for accessing an object's field</div><br/>
+:::
+
+### Calling a class method
+
+:::tip[Syntax]
+The syntax for calling a method within an object in C# is shown in Figure X.
+
+![Figure X](./images/class-method-call-syntax-diagram.png)
+<div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for calling an object's method</div><br/>
+:::
 
 ## Example
 <!-- 
@@ -71,9 +92,10 @@ Any fields accessed through an object act like normal variables, and any methods
 
 :::note[Summary]
 
-* Classes are used to **construct** an **objects**.
+* Classes are used to **construct** or **instantiate objects**.
 * An object can also be called an **instance** of a class.
-* You can call a class's **constructor** to create a new object.
+* Calling a class's **constructor** creates a new object of that class's type.
+* Constructors return a **reference** to the location in memory of the newly created object.
 * A constructor should set an object's **initial state**.
 * An object's **interface** is defined by all of its public members, and describes how code outside of the object can interact with it.
 
