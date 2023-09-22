@@ -46,10 +46,12 @@ A constructor is often called as the right hand side of an assignment statement,
 We can then use that variable to ask the object about things it knows, and to do things it can do.
 
 ## Using an object
-<!--
-* but if an object is just a big blob of data and methods, how do we actually use it?
-* the code in an object doesn't run in sequence (just like procedural code with methods don't run in sequence) -- call forward to the "looking inside" section?
--->
+
+Once you have a reference to an object you can interact with it.
+The ways in which code outside of an object can interact with an object is limited by the object's **interface**.
+An object's interface is all of the public members defined in that object's class blueprint.
+That means, any code with a reference to an object can access any of the object's public fields, or call any of the object's public methods.
+Any fields accessed through an object act like normal variables, and any methods called within an object act like normal methods.
 
 ## In C#
 
@@ -71,6 +73,8 @@ We can then use that variable to ask the object about things it knows, and to do
 
 * Classes are used to **construct** an **objects**.
 * An object can also be called an **instance** of a class.
-* 
+* You can call a class's **constructor** to create a new object.
+* A constructor should set an object's **initial state**.
+* An object's **interface** is defined by all of its public members, and describes how code outside of the object can interact with it.
 
 :::
