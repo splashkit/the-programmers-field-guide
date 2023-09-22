@@ -107,24 +107,31 @@ Methods also need a context, because although the instructions in a method are t
 Dot notation allows the programmer to provide this context in a relatively concise and human-readable way.
 
 ## Example
-<!-- 
-* class from classes concept, creating and using it
- -->
+
+For this example we will use the Greeting class from the [classes concept](../../../9-classes-and-objects/1-concepts/0-classes/#example).
+To add this class to your C# project, copy the class code into a file called "Greeting.cs" within a console project.<sup>[1](#FootnoteEntities)</sup>
+We can now write a program that uses this class.
+
+
 
 :::caution[Reminder]
 Remember that you can only interact with an object through its **interface**.
 That is, you can only access fields and properties or call methods that are **public**.
 :::
 
+<hr class="footnote">
+<div id="FootnoteEntities" class="footnote"><sup>1</sup>The name of the file doesn't actually matter, but the C# convention is to put code defining a class in a file with the same name as the class.</div>
+
 ## Activities
 
 :::note[Summary]
 
-* Classes are used to **construct** or **instantiate objects**.
-* An object can also be called an **instance** of a class.
+* Constructors are used to **construct** or **instantiate objects**.
 * Calling a class's **constructor** creates a new object of that class's type.
+* An object can also be called an **instance** of a class.
 * Constructors return a **reference** to the location in memory of the newly created object.
 * A constructor should set an object's **initial state**.
 * An object's **interface** is defined by all of its public members, and describes how code outside of the object can interact with it.
+* Many languages use **dot notation** to access fields and call methods from an object.
 
 :::

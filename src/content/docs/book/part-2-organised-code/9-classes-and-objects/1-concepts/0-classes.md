@@ -253,7 +253,7 @@ class Greeting
             _message = value;
         }
     }
-} 
+}
 ```
 
 :::note
@@ -280,7 +280,7 @@ Earlier in our journey we learned that a constructor creates and returns an inst
 Given this, you might be surprised to see that the constructor of Greeting does not contain a `return` statement.
 The reason for this is that the compiler already knows exactly what should be returned from a constructor, so it can make sure the right value is returned without being explicitly instructed to do it.
 
-To add this class to your program, copy the code above into a file called "Greeting.cs" within a console project.
+To add this class to your C# project, copy the code above into a file called "Greeting.cs" within a console project.
 Run your project...nothing happens!
 That is because much like a method that is never called, a class does not do much on its own.
 To actually execute this code we need to use the class to create an **object**.
