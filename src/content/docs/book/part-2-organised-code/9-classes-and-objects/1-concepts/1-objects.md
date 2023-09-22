@@ -64,6 +64,8 @@ The syntax for calling a constructor in C# is shown in Figure X.
 <div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for calling a constructor</div><br/>
 :::
 
+In C# every object is created using the keyword `new`, followed by the class name, then any arguments expected by the class's constructor.
+
 ### Accessing a class field
 
 :::tip[Syntax]
@@ -74,6 +76,9 @@ Note that as a property in C# acts like a field, the syntax is the same for acce
 <div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for accessing an object's field</div><br/>
 :::
 
+You can use this syntax to interact with a field or property in an object like you would a regular variable.
+For example, you can use it in an expression, an assignment statement, or as an argument.
+
 ### Calling a class method
 
 :::tip[Syntax]
@@ -83,10 +88,33 @@ The syntax for calling a method within an object in C# is shown in Figure X.
 <div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for calling an object's method</div><br/>
 :::
 
+The syntax to call a method within an object can be used in the same ways any regular method calls can be used.
+This includes in an expression, assignment statement, or as an argument.
+
+### Dot notation
+
+The syntax for accessing fields, properties, and methods in a C# class is called **dot notation**.
+Dot notation is used in a lot of programming languages.
+It got its name because it enables us to access any public member of an object by writing the object's name, then a dot, then the name of the member we want to access.
+
+You might be wondering why we need to do this.
+That is, why can't we just call a method or access a field directly using its identifier?
+The reason is that the computer needs to know the **context** of your request.
+
+Remember that each object is self-contained, and has its own variables with their own values.
+Therefore, if we are accessing a field, we need to tell the computer *which* object's field to access.
+Methods also need a context, because although the instructions in a method are the same between different objects of the same type, the computer still needs to know which object's *data* to use when executing those instructions.
+Dot notation allows the programmer to provide this context in a relatively concise and human-readable way.
+
 ## Example
 <!-- 
 * class from classes concept, creating and using it
  -->
+
+:::caution[Reminder]
+Remember that you can only interact with an object through its **interface**.
+That is, you can only access fields and properties or call methods that are **public**.
+:::
 
 ## Activities
 
