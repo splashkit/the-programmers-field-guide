@@ -23,18 +23,27 @@ These fields and their values are the **state** of the object.
 Another term for an object is an **instance** of a class.
 This is because the process of constructing an object can also be called **instantiating** the object.
 Each instance of a class is a self-contained entity.
-What this means is that although we can create multiple objects from the same class, each object we create will have its own state.
-For example, if we had a "Person" class with a field "name", every instance of "Person" would have its own location in memory and its own "name" variable within that memory.
+What this means is that although we can create multiple objects from the same class blueprint, each object we create will have its own state.
+For example, if we had a "Person" class with a field "name", every instance of "Person" would have its own location in memory and its own "name" variable and value within that memory.
 
 <hr class="footnote">
 <div id="FootnoteEntities" class="footnote"><sup>1</sup>In reality there is a little more to it, but we are ✨abstracting✨!</div>
 
 ## Creating objects
 
-<!-- 
-* use a constructor
-* once you use a constructor, you don't ask the object to "do" it again -- that's why only "method" is in the concept diagram above
- -->
+You can create an object by calling the relevant class's **constructor**.
+The constructor is a method that does three things:
+
+1. Assigns space in memory for the object.
+2. Executes its instructions.
+3. Returns a reference to the new object's location in memory. <!-- TODO: link to section on reference/value types, and/or pointers? -->
+
+The job of the constructor is to set the object's **initial state**.
+That is, it should make sure that all of the object's fields have a sensible value.
+It can do this by using literal values, values passed in through a parameter, calling constructors (i.e., if the field is of a class type), calling other methods (including methods from the class it is constructing), or a combination.
+
+A constructor is often called as the right hand side of an assignment statement, so that the returned value can be stored in a variable.
+We can then use that variable to ask the object about things it knows, and to do things it can do.
 
 ## Using an object
 <!--
