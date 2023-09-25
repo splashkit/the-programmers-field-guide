@@ -1,7 +1,10 @@
 {
   "grammarly.config.documentDomain": "academic",
   "grammarly.config.documentDialect": "australian",
-  "grammarly.files.include": ["**/*.md"],
+  "grammarly.files.include": [
+    "**/*.md",
+    "**/*.mdx"
+  ],
   "files.associations": {
     "*.mdx": "markdown"
   }
