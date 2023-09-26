@@ -1,15 +1,10 @@
 ---
 title: "Overview"
-type: "content"
-date: 2023-08-07 16:45:00
-draft: false
-description: "..."
 ---
-## Overview
 
-The focus so far has been on learning the programming artefacts that you can create within your code. You have seen how to create [Programs](../../1-sequence-and-data/1-concepts/00-program), [Methods](../../1-sequence-and-data/1-concepts/02-method), [Functions](#), and [Variables](#). The actual instructions that you can issue to the computer have been limited to [Method Calls](../../1-sequence-and-data/1-concepts/03-method-call), [Function Calls](#), and [Assignment Statements](../../1-sequence-and-data/1-concepts/19-assignment-statement). This Chapter will introduce you to the other actions that you can command the computer to perform. It will show you how to control the flow of the instructions, unlocking great power, and making it possible to do things that until now seemed impossible.
+The next part of the journey will be spectacular. We are going to see how to take control of the sequence of instructions that the computer runs. This will greatly enhance what you can do with the computer, giving you the tools you need to start building, small but, much more interesting programs.
 
-When you have understood the material in this chapter you will be able to write code that commands the computer to perform a wider range of actions by controlling the sequence in which the basic commands are performed.
+So far, you have seen how to create [programs](../../1-sequence-and-data/1-concepts/00-program) and [variables](../../1-sequence-and-data/1-concepts/07-variable) using code. The instructions have been limited to [method calls](../../1-sequence-and-data/1-concepts/03-method-call) and [assignment statements](../../1-sequence-and-data/1-concepts/19-assignment-statement). This chapter will introduce you to a range of new instructions that control the sequence of the instructions the computer is running, unlocking great power, and making it possible to do things that until now seemed impossible.
 
 ## Overview of Control Flow Concepts
 
