@@ -1,12 +1,29 @@
 ---
-title: "Return Statement"
-type: "content"
-date: 2023-08-07 16:45:00
-draft: false
-description: "..."
+title: Return
 ---
 
-## Concept
+
+The return statement, ends the current [Function](#) or [Method](../../../1-sequence-and-data/1-concepts/02-method). This is useful for skipping the rest of the processing of the Function or Procedure, exiting it early and returning to the calling code.
+
+<a id="FigureExit"></a>
+
+![Figure x.y: Exit ends the current Function or Procedure](./images/statement-exit.png "Exit ends the current Function or Procedure")
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Exit ends the current Function or Procedure</div><br/>
+
+:::note
+
+- Exit is an **action**, allowing you to jump out of the current [Function](#) or [Method](../../../1-sequence-and-data/1-concepts/02-method), and return to the calling code.
+- The Exit should be coded within a [Branching](../02-branching) statement that checks if the Function or Method should end.
+
+:::
+
+:::note[C#]
+
+C’s version of the exit statement is the [Return Statement](#). The return statement also provides the value that will be returned when exiting from a Function. As this sets the value ♢ to be returned you must have a return statement as the last action within a Function.
+
+:::
+
+
 
 - The Return Statement is used to end a [Function](../20-function), or [Method](../03-method), and to return a value.
 - Methods can end completing all of their instructions.

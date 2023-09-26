@@ -1,0 +1,39 @@
+---
+title: While Loop
+sidebar:
+  label: " - While Loop"
+---
+
+```csharp
+using static System.Console;
+using static System.Convert;
+
+int target;
+
+Write("Count to: ");
+target = ToInt32(ReadLine());
+
+int i =  0;
+
+while (i < target)
+{
+  WriteLine(i);
+  i++;
+}
+```
+
+
+```csharp
+using static SplashKitSDK.SplashKit;
+
+OpenWindow("Circle Test", 400, 400);
+ClearScreen(ColorWhite());
+
+while (not WindowCloseRequested())
+{
+  FillCircle(RandomColor(), Rnd(ScreenWidth()), Rnd(ScreenHeight()), Rnd(50));
+  RefreshScreen();
+
+  ProcessEvents();
+}
+```
