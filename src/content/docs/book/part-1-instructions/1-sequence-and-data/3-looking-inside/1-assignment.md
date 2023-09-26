@@ -1,3 +1,0 @@
----
-title: Assignment Up Close
----
