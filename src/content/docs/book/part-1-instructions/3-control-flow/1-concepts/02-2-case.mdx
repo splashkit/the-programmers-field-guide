@@ -20,3 +20,36 @@ The case statement is the second kind of branching statement. This allows you to
 
 :::
 
+### How does the case statement work?
+
+```csharp
+using static System.Console;
+using static System.Convert;
+
+WriteLine("1: [S]ay Hello");
+WriteLine("2: Option 2");
+WriteLine("3: Say Bye");
+WriteLine();
+Write("Option> ");
+
+string option = ReadLine();
+
+switch(option)
+{
+  case 1:
+  case "S":
+  case "s":
+    WriteLine("Hello");
+    break;
+  case 2:
+    WriteLine("Option 2");
+    break;
+  case 3:
+    WriteLine("Bye");
+    break;
+  default:
+    WriteLine("Not a valid option");
+}
+```
+
+**TODO: slides - show from option = ... demo with "s" and "3" and "other"**

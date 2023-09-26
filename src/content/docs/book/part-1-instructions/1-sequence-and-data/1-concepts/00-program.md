@@ -4,7 +4,7 @@ title: "Program"
 
 In most software projects the top-level **building block** you are aiming to create is a **program**. A program is something the user can **run**.
 
-Each program consists of the **list of instructions** the computer will perform when that program is run. When you create a program, think about the goal of that program and the steps you need the computer to perform to achieve that goal.
+Each program consists of the **list of instructions** ([statements](../../../2-communicating-syntax/1-concepts/02-statement) in programming terminology) the computer will perform when that program is run. When you create a program, think about the goal of that program and the steps you need the computer to perform to achieve that goal.
 
 [Figure 5.1](#FigureProgram) shows a sketch of the **program** concept. It shows the program consisting of instructions (written in the **source code**). Key aspects of the program are the starting instruction and the libraries that the program uses.
 

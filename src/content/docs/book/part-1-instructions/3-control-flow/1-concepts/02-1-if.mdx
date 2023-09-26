@@ -115,10 +115,77 @@ The if statement is the most frequently used branching statement. It allows you 
 
 ### How does the if statement work?
 
-Lets work through a few examples. To start, lets look at the case where we have an igf
+Lets work through a few examples. We can look at running code if a condition is true, running different code when it is false, and combining if statements for more than two paths.
+
+#### Run code if something is true
+
+You can use an **if statement** to selectively run a block of code when a condition is true. In the following code, we ask the user to tell us which language they use. Then the **if** allows us to check *if* the language is "C#", and when that is true have the computer output a custom message. This is achieved by skipping over those statements when the condition is false.
 
 ```csharp
+using static System.Console;
+
+string language;
+
+Write("What language do you use? ");
+language = ReadLine();
+
+if (language == "C#")
+{
+    WriteLine("Good choice, C# is a fine language.");
+}
+
+WriteLine("Great chat!");
+```
+
+<MySwiper client:only height="" images={sliderImagesIfStatement}></MySwiper>
+
+#### Following a different path when the condition is false
+
+```csharp
+using static System.Console;
+
+string language;
+
+Write("What language do you use? ");
+
+language = ReadLine();
+
+if (language == "C#")
+{
+    WriteLine("Good choice, C# is a fine language.");
+}
+else
+{
+    WriteLine("Well... good luck with that!");
+}
+
+WriteLine("Great chat!");
 ```
 
 
-<MySwiper client:only height="" images={sliderImagesIfStatement}></MySwiper>
+#### Combining if statements for multiple paths
+
+```csharp
+using static System.Console;
+
+string language;
+
+Write("What language do you use? ");
+
+language = ReadLine();
+
+if (language == "C#")
+{
+    WriteLine("Good choice, C# is a fine language.");
+}
+else if (language == "C" || language = "C++")
+{
+    WriteLine("These are great low level languages - we will be using these soon!");
+}
+else
+{
+    WriteLine("Well... good luck with that!");
+}
+
+WriteLine("Great chat!");
+```
