@@ -8,13 +8,13 @@ You've been using strings in C# and C++ for a little while now. Strings are grea
 
 Earlier, middle-level programming languages like C/C++ didn't have a `string` type! Instead, they utilise simple, existing language features and data types to represent strings. in C/C++, a `char[]` (character array) is used. Before we dive deep into character arrays, let's take a look at the `char` data type.
 
-### The `char` data type
+## The `char` data type
 
 in C/C++, chars are just 8-bit integers (or a single byte) used to represent a single character. let's take a look at an 8-bit integer:
 
-#### `01001010`
+## `01001010`
 
-This is a binary number. It's made up of 8 bits, each of which can be either a `1` or a `0`. To arrive at the decimal integer value it is storing, we start at the right-hand side and work our way left, doubling the value of each bit as we go. If the bit is a `1`, we add the value to our total. If the bit is a `0`, we don't add anything. Let's take a look at the above binary number:
+`01001010` is a binary number. It's made up of 8 bits, each of which can be either a `1` or a `0`. To arrive at the decimal integer value it is storing, we start at the right-hand side and work our way left, doubling the value of each bit as we go. If the bit is a `1`, we add the value to our total. If the bit is a `0`, we don't add anything. Let's take a look at the above binary number:
 
 | 128 | 64  | 32  | 16  | 8   | 4   | 2   | 1   |
 | --- | --- | --- | --- | --- | --- | --- | --- |
