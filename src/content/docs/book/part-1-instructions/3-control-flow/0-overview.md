@@ -2,46 +2,47 @@
 title: "Overview"
 ---
 
-The next part of the journey will be spectacular. We are going to see how to take control of the sequence of instructions that the computer runs. This will greatly enhance what you can do with the computer, giving you the tools you need to start building, small but, much more interesting programs.
+The next part of the journey will be spectacular! We are going to see how to take control of the sequence of instructions that the computer runs. This will greatly enhance what you can do with the computer, giving you the tools you need to start building, small but, much more interesting programs.
 
 So far, you have seen how to create [programs](../../1-sequence-and-data/1-concepts/00-program) and [variables](../../1-sequence-and-data/1-concepts/07-variable) using code. The instructions have been limited to [method calls](../../1-sequence-and-data/1-concepts/03-method-call) and [assignment statements](../../1-sequence-and-data/1-concepts/19-assignment-statement). This chapter will introduce you to a range of new instructions that control the sequence of the instructions the computer is running, unlocking great power, and making it possible to do things that until now seemed impossible.
 
 ## Overview of Control Flow Concepts
 
-Programming is about designing code that commands the computer to perform actions. Earlier chapters have introduced the [Program](../../1-sequence-and-data/1-concepts/00-program), [Method](../../1-sequence-and-data/1-concepts/02-method) and [Function](#) artefacts into which you can enter these instructions, but have not elaborated on the actions that you can perform.
+Programming is about designing code that commands the computer to perform actions. Earlier chapters have introduced the [program](../../1-sequence-and-data/1-concepts/00-program) building block into which you can enter these instructions, but have not elaborated on the actions that you can perform.
 
-Most of a program’s actual work will be carried out in [Assignment Statements](../../1-sequence-and-data/1-concepts/19-assignment-statement), and through [Method Calls](../../1-sequence-and-data/1-concepts/03-method-call) and [Function Calls](#). These are the main commands, allowing you to alter values stored in memory and to execute stored instructions. The remaining commands relate to controlling the order in which the computer performs the instructions; called **control flow statements**.
+Most of a program’s actual work will be carried out with [assignment statements](../../1-sequence-and-data/1-concepts/08-assignment-statement), and through [method calls](../../1-sequence-and-data/1-concepts/03-method-call). These are the main commands, allowing you to alter values stored in memory and to execute stored instructions. The new commands we look at in this chapter relate to controlling the order in which the computer performs the instructions; known as **control flow statements**.
 
-This chapter introduces the following kinds of instructions. You can use these to get the computer to perform certain **actions** within your program.
+This chapter introduces the following **instructions**. You can use these to get the computer to perform certain actions within your program.
 
-- [If Statement](../1-concepts/02-branching#if-statement): Run some code if a condition is true.
-- [Case Statement](../1-concepts/02-branching#case-statement): Selectively run a branch of code.
-- [Compound Statement](../1-concepts/05-compound-statement): Group statements together.
-- [Pre-Test Loop](../1-concepts/03-looping#pre-test-loop): Loop after testing a condition.
-- [Post-Test Loop](../1-concepts/03-looping#post-test-loop): Loop then test a condition.
+- [Compound Statement](../1-concepts/02-compound-statement): Used to group statements together.
+- [If Statement](../1-concepts/03-1-if): Run some code if a condition is true.
+- [Case Statement](../1-concepts/03-2-case): Selectively run a branch of code.
+- [While Loop](../1-concepts/04-1-while-loop): Loop after testing a condition.
+- [Do While Loop](../1-concepts/04-2-do-while): Loop then test a condition.
+- [For Loop](../1-concepts/04-3-for-loop): A structured loop designed to iterate a set number of times.
 
-In addition to these actions, you will need have a look at an existing artefact:
+In addition to these actions, you will need have a look at a new type:
 
-- [Boolean Data](../1-concepts/01-boolean-data): An existing [Type](../../1-sequence-and-data/1-concepts/07-type) that has either a *true* or *false* value.
+- [Boolean Data](../1-concepts/01-0-boolean-data): An existing [type](../../1-sequence-and-data/1-concepts/06-type) that has either a *true* or *false* value.
 
-You may need to revise the following programming **artefacts**:
+You may need to revise the following programming **building blocks**:
 
 - [Program](../../1-sequence-and-data/1-concepts/00-program): The idea of building your own programs.
 - [Method](../../1-sequence-and-data/1-concepts/02-method): Creating your own Method, as well as calling Methods from libraries.
 - [Function](#): Creating your own Functions, as well as calling Functions from libraries.
 
-The following programming terminology will also be used in this Chapter:
+The following programming terminology will also be used in this chapter:
 
-- [Statement](#): An instruction performed in your code.
-- [Type](../../1-sequence-and-data/1-concepts/07-type): A kind of data used in your code.
+- [Statement](../../2-communicating-syntax/1-concepts/02-statement): An instruction performed in your code.
+- [Type](../../1-sequence-and-data/1-concepts/06-type): A kind of data used in your code.
 
-The example for this chapter is a guessing game, where the user is guessing a number between 1 and 100. An example of this program executing is shown in [Listing x.y](#ListingGuessingGame)
+In putting it together, we will see how we can put all of these tools together to build a guessing game where the user is guessing a number between 1 and 100. An example of this program executing is shown in [Listing x.y](#ListingGuessingGame)
 
 
 <a id="ListingGuessingGame"></a>
 
 ```bash
-acain2-mac:control-flow acain$ ./GuessThatNumber
+$ ./GuessThatNumber
 I am thinking of a number between 1 and 100
 
 Guess 1: 73
@@ -63,6 +64,14 @@ You ran out of guesses... the number was 55
 Do you want to play again [Y/n]? n
 
 Bye
-acain2-mac:control-flow acain$
 ```
 <div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Guess that Number run from the Terminal</div>
+
+## Learning Goals
+
+By the end of this section you should be able to:
+
+- Use branching and looping control flow statements.
+- Design algorithms to achieve required outcomes.
+- Demonstrate how a given algorithm functions and explain the purpose of the embedded control flow statements.
+- Use the debugger to explore control flow within a program.
