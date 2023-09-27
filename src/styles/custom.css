@@ -640,6 +640,16 @@ aside[aria-label="How does this work?"] ul > li ul li ul li::before {
   text-decoration: underline;
 }
 
+.booleanTrue {
+  font-weight: bold;
+  color: royalblue;
+}
+
+.booleanFalse {
+  font-weight: bold;
+  color: darkviolet;
+}
+
 /* ------------------------------------------- */
 /* END:   CUSTOM STYLES                        */
 /* - Don't delete this section                 */
