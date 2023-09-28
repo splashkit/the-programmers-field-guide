@@ -52,3 +52,21 @@ C# uses `==` for comparison and `=` for assignment. If you mix this up you may a
 ## Comparison - why, when, and how
 
 Boolean values are core to control flow, and comparisons are the main tool you will use to generate these boolean values. As you think through the actions you want the computer to perform, you use these comparisons to make decisions and determine which actions are run. For example, you can ask the user for their name, then compare that name to your name in order to perform an action when the names match. Similarly, in a banking application you can check if an account balance is larger than, or equal to, the amount being withdrawn as part of the decision on how to respond to the user's request.
+
+## Examples
+
+- `guess == target` - does the guess equal the target?
+- `guess > target` - is the guess larger than the target?
+- `guess <= target` - is the guess smaller than, or equal to, the target?
+
+You can also use comparisons for like like user interaction in SplashKit. In this case, the location of the mouse can be used to determine where the mouse is when the user clicks a mouse button.
+
+|**Method** | **Required Arguments** |**Description** |
+|-----------|------------------------|----------------|
+|`MouseX`| None | How far from the left of the window is the mouse? |
+|`MouseY`| None | How far from the top of the window is the mouse? |
+
+- `MouseX() > 50`
+- `MouseX() <= 75`
+
+In order to determine if the mouse was over something like a button, we will need some additional capabilities that let us combine together multiple boolean values in meaningful ways. Lets look at logical operators now, and how we can use them.
