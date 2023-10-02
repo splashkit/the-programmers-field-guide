@@ -283,11 +283,19 @@ The if statement is the most frequently used branching statement. It allows you 
 
 :::
 
-### How does the if statement work?
+## If Staement - Why, When, and How
+
+The if statement will be a regular feature in your programs. You will use this anywhere you want to optionally run a block of code. The condition has to be a boolean expression, which you can then use comparisons and logical operators to create.
+
+Remember that things still run in **sequence**, so you have to position the if statement within your sequence at the right location. Then set the condition, and program the instructions to run within the if statement. You can add an else branch for statements you want run when the condition is false.
+
+## In C#
+
+## How does if work?
 
 Lets work through a few examples. We can look at running code if a condition is true, running different code when it is false, and combining if statements for more than two paths.
 
-#### Standalone if statement
+### Standalone if statement
 
 You can use an **if statement** to selectively run a block of code when a condition is true. In the following code, we ask the user to tell us which language they use. Then the **if** allows us to check *if* the language is "C#", and when that is true have the computer output a custom message. This is achieved by skipping over those statements when the condition is false.
 
@@ -306,12 +314,11 @@ if (language == "C#")
 
 WriteLine("Great chat!");
 ```
-#### How it works
 
- <MySwiper client:only height="" images={sliderImagesIfStatement}></MySwiper>
+<MySwiper client:only height="" images={sliderImagesIfStatement}></MySwiper>
 
 
-#### if / 'else if' statement
+### if / 'else if' statement
 
 ```csharp
 using static System.Console;
@@ -334,11 +341,9 @@ else
 WriteLine("Great chat!");
 ```
 
-#### How it works
+<MySwiper client:only height="" images={sliderImagesIfElseIfStatement}></MySwiper>
 
- <MySwiper client:only height="" images={sliderImagesIfElseIfStatement}></MySwiper>
-
-#### if / 'else if' / else statement
+### if / 'else if' / else statement
 
 ```csharp
 using static System.Console;
@@ -365,6 +370,4 @@ else
 WriteLine("Great chat!");
 ```
 
-#### How it works
-
- <MySwiper client:only height="" images={sliderImagesIfElseIfElseStatement}></MySwiper>
+<MySwiper client:only height="" images={sliderImagesIfElseIfElseStatement}></MySwiper>

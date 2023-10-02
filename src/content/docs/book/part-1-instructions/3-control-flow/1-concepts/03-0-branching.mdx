@@ -1,18 +1,12 @@
 ---
 title: "Branching"
-type: "content"
-date: 2023-08-07 16:45:00
-draft: false
-description: "..."
 ---
 
+The machine code of a computer will include instructions that allow it to conditionally jump to another instruction somewhere within the code. We have seen a similar example of this with method calls, where control jumped to the instruction at the start of a method. Rather than jumping to new methods, these conditional jumps are useful for jumping between instructions within the current code.
 
+Originally, programs would have been written without any particular structure. This resulted in significant complexity as you could never really be sure of how the program got to any particular place within the code. To overcome this, a set of controled statements were introduced to languages. These structured these conditional jumps to branch or loop statements in a predictable way, where in each case there was a single way into each block of code, and a single way out of it.
 
-
-
-## Concept
-
-There are two main ways of controlling the sequence of actions in a program. The first of these is called **branching**, or **selection**. Branching allows you to get the computer to take one of a number of paths based on the value of a *condition*.
+Lets start by looking at the mechanism know as **branching** or **selection**. Branching allows you to get the computer to take one of a number of paths based on the value of a *condition*. The code enters, evaluates the condition, then jumps to one path or another. All of the paths then rejoin before proceeding to the next statement.
 
 <a id="FigureBranching"></a>
 
@@ -21,16 +15,14 @@ There are two main ways of controlling the sequence of actions in a program. The
 
 :::note
 
-- Branching is a kind of **action**. You can command the computer to take of a number of paths.
+- Branching is a kind of **instruction**. You can command the computer to take of a number of paths.
 - A branch has a **condition** that is evaluated, and based on the condition the computer takes one path.
 - The branch is the act of choosing the path, when its command is performed the computer evaluates the condition and then moves to the instructions in the indicated path.
 - Languages usually offer two kinds of branching statements:
-  - [If Statement](#if-statement) to select between two paths based on a Boolean expression.
-  - [Case Statement](#case-statement) to select a path based on an ordinal<sup>[1](#FootnoteOrdinalValues)</sup> value.
-- The Branch will have one entry point, and one exit point. This feature allows you to combine statements together like building blocks. This idea comes from the principles of **Structured Programming**, where each component in the code should have a single entry and exit point.
-<hr class="footnote"/>
-<div id="FootnoteOrdinalValues" class="footnote"><sup>1</sup>Integers and Characters are ordinal values. Ordinal values have a defined sequence, so it is possible to say which value comes next in the sequence. Integers are Ordinal as you can say that the number after 1 is 2. Real numbers are not ordinal as you cannot say which value comes next in the sequence.</div>
+  - [If Statement](../03-1-if) to select between two paths based on a Boolean expression.
+  - [Case Statement](../03-2-case) to select a path based on matching values.
+- The Branch will have one entry point, and one exit point. This feature allows you to combine statements together. This idea comes from the principles of **Structured Programming**, where each component in the code should have a single entry and exit point.
 
 :::
 
-
+Lets look at the [if statement](../03-1-if) and [case statement](../03-2-case) in a little more detail.

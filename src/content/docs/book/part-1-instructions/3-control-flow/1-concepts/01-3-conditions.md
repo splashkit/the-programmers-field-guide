@@ -1,10 +1,10 @@
 ---
-title: Combining Operator
+title: Conditions
 sidebar:
-  label: " - Combining Operator"
+  label: " - Conditions"
 ---
 
-You can mix *and* and *or* within a single condition. In this case you should use brackets (parenthesis) to clearly show the **order** to do the operations. For example, with the following expression do we want the *or* or the *and* to be evaluated first? The results are different depending on the order, so it is important to think this through. In this case the intention is to use this to trigger an action when the user types the space key, or they click more than 50 pixels from the left of the window.
+You can mix **and** and **or** within a single condition. In this case you should use brackets (parenthesis) to clearly show the **order** to do the operations. For example, with the following expression do we want the *or* or the *and* to be evaluated first? The results are different depending on the order, so it is important to think this through. In this case the intention is to use this to trigger an action when the user types the space key, or they click more than 50 pixels from the left of the window.
 
 - `KeyDown(KeyCode.SpaceKey) || MouseX() > 50 && MouseClicked(MouseButton.LeftButton)`
 
@@ -42,7 +42,3 @@ Where as, `KeyDown(KeyCode.SpaceKey) || (MouseX() > 50 && MouseClicked(MouseButt
 Always make this as clear as you can, and parenthesis help greatly here. The languages have precidence rules that determine what will happen, but you should never really need to know these. If you do, the code isn't clear enough. Add some parenthesis, then everyone can see what was intended.
 
 :::
-
-### Short Circuit Evaluation
-
-Notice how the 

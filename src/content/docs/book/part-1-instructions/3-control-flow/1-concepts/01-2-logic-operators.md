@@ -10,7 +10,9 @@ While you are limited to two values with the comparison operators, there are oth
 
 There are four main *logical operators*: **and**, **or**, **xor**, and **not**. The operators **and**, **or**, and **xor** each work on two boolean values, combining them to give a new boolean value. For example, the [and operator](../01-3-and-operator) allows you to check if both of the expressions are true. The considtion `area > 0` **and** `area < 10` will be true only when area is **both** larger than zero **and** area is less then ten. The **not** operator works with a single boolean value, allowing you to check if something is not true.
 
-Truth tables are a great way of visualising the results from these operators. [Figure x.y](#FigureLogicalOperators) shows the four truth tables for the operators we are looking at. Each table shows a single operator joining two placeholder values (`a` and `b`). For our visualisation, `a` is represented as rows and `b` as columns. There is then one row or column for true and another for false, being the only two value that these placeholders could be. Each cell in the table represents one combination of these values, gives you the four potential combinations in the case of the and, or, and xor tables. The table shows you the result of the operation in each cell, thereby showing you all of the possible results based on the different inputs.
+Truth tables are a great way of visualising the results from these operators. [Figure x.y](#FigureLogicalOperators) shows the four truth tables for the operators we are looking at. The table shows you the result of the operation in each cell, giving you all of the possible results based on the different inputs.
+
+Each table shows a single operator joining two placeholder values (`a` and `b`). For our visualisation, `a` is represented as rows and `b` as columns. There is one row or column for true and another for false, being the only two value that these placeholders could be. Each cell in the table represents one combination of these values, gives you the four potential combinations in the case of the and, or, and xor tables.
 
 <a id="FigureLogicalOperators"></a>
 
@@ -69,6 +71,8 @@ To make matters worse, new versions of C# have added in **and** and **or** keywo
 :::
 
 ## Example
+
+The following table shows some example comparisons joined by logical operator, for an `area` variable and some example values.
 
 <a id="TableLogicalExpressionsExample"></a>
 
