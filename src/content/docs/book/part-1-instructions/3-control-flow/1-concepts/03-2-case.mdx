@@ -36,15 +36,15 @@ string option = ReadLine();
 
 switch(option)
 {
-  case 1:
+  case "1":
   case "S":
   case "s":
     WriteLine("Hello");
     break;
-  case 2:
+  case "2":
     WriteLine("Option 2");
     break;
-  case 3:
+  case "3":
     WriteLine("Bye");
     break;
   default:
@@ -53,3 +53,27 @@ switch(option)
 ```
 
 **TODO: slides - show from option = ... demo with "s" and "3" and "other"**
+
+```csharp
+using static System.Console;
+
+string language;
+
+Write("What language do you use? ");
+language = ReadLine();
+
+switch (language)
+{
+  case "C#":
+    WriteLine("Good choice, C# is a fine language.");
+    break;
+  case "C":
+  case "C++":
+    WriteLine("These are great low level languages - we will be using these soon!");
+    break;
+  default:
+    WriteLine("Well... good luck with that!");
+}
+
+WriteLine("Great chat!");
+```
