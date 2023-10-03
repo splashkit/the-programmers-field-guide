@@ -27,6 +27,8 @@ When you have a condition that may fail, add a test before that within the expre
 
 The truth table above shows the results for a sample of values. For the final case, where `a` is 0, the code `b / a > 1.0` would raise a "divide by zero" error, causing the program to terminate. This is avoided by the guard `a != 0`, which for this example is false (a does equal zero). This results in the remainder of the condition being skipped, as `false and ...` is always false, thereby avoiding the error.
 
-This is a relative simple pattern that you will be able to use any time issues like this arise.
+:::tip
+The use of **and** as a guard condition is a relative simple pattern that you will be able to use any time issues like this arise. Try to keep this in mind as you progress.
+:::
 
 Comparisons and logical operators give you the tools you need to work with boolean data in your programs. Coming up we need to look at how to harness these conditions to control the actions that are performed in your code.

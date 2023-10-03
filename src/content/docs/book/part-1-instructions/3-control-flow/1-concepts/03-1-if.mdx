@@ -15,31 +15,31 @@ import Slide06if from './images/control-flow-statements-in-depth/control-flow-if
 export const sliderImagesIfStatement = [
   {
     src: Slide01if.src,
-    altText: "Lines 1-3 get the user input ('C#'), and store it in the variable 'language' on the stack. The program counter is incremented to line 4, ready to evaluate the 'if' condition.",
+    altText: "Shows the state in the computer where the language variable has the data 'C#' and the code is about to run line 4.",
     tipStart: 1,
     tips: [
       "Lines 1-3 get the user input ('C#'), and store it in the variable 'language' on the stack",
-      "The program counter is incremented to line 4, ready to evaluate the 'if' condition."
+      "The program counter is incremented to line 4, ready to run the 'if' statement."
     ]
   },
   {
     src: Slide02if.src,
-    altText: "To evaluate the 'if' condition on line 4, the CPU will compare either side of the '==' comparison operator. Because the user has input 'C#' this evaluates to true meaning that the associated 'if' block of code will be evaluated. The program counter is incremented to 5 which indicates the start of the 'if' block, then incremented again to 6 to begin running the code within the 'if' block",
+    altText: "Shows the state in the computer with C# in the language, and the code starting to run the if statement.",
     tipStart: 2,
     tips: [
-      "To evaluate the 'if' condition on line 4, the CPU will compare either side of the '==' comparison operator",
-      "Because the user has input 'C#' this evaluates to <span class='booleanTrue'>true</span> meaning that the associated 'if' block of code will be evaluated",
-      "The program counter is incremented to 5 which indicates the start of the 'if' block, then incremented again to 6 to begin running the code within the 'if' block"
+      "The 'if' statement has the computer evaluate the condition as its first action. In this case, the condition checks if the language is 'C#'",
+      "The value in language is 'C#', so the condition is <span class='booleanTrue'>true</span>. This meaning that the program counter increments by one to move into the associated 'if' block of code."
     ]
   },
   {
     src: Slide03if.src,
-    altText: "The CPU runs line 6, which outputs the String 'Good choice. C# is a fine language.' to the terminal. The program counter is increased to line 7 and the closing '}' brace indicates the end of the 'if' block. The program counter is then increased again to line 8",
+    altText: "Shows the state of the computer running the sequence in the if statement.",
     tipStart: 3,
     tips: [
-      "The CPU runs line 6, which outputs the String 'Good choice. C# is a fine language.' to the terminal",
-      "The program counter is increased to line 7 and the closing '}' brace indicates the end of the 'if' block",
-      "The program counter is then increased again to line 8"
+      "The compound statement groups lines 5 to 7.",
+      "Line 6 outputs the string 'Good choice. C# is a fine language.'",
+      "Line 7 indicates the end of the compound statement",
+      "The program continues with the next instruction on line 8"
     ]
   },
   {
@@ -47,18 +47,19 @@ export const sliderImagesIfStatement = [
     altText: "Line 8 runs and prings the output 'Great chat!' to the terminal. The program counter is incremented, and the program ends",
     tipStart: 4,
     tips: [
-      "Line 8 runs and prings the output 'Great chat!' to the terminal",
-      "The program counter is incremented, and the program ends"
+      "Line 8 runs and outputs 'Great chat!' to the terminal",
+      "Key point: this ran in sequence as the condition was true",
+      "Lets try this again with different input..."
     ]
   },
   {
     src: Slide05if.src,
-    altText: "Let's reset the program counter to line 4, but this time, the user has input 'C++'. This time at line 4, the comparison turns out false. In this case, the CPU will skip the 'if' block betweens line 5-7, and increment the program counter to piont to line 8",
+    altText: "Shows the state of the computer back at line 4 with 'C++' in the language.",
     tipStart: 5,
     tips: [
-      "Let's reset the program counter to line 4, but this time, the user has input 'C++'",
-      "Now at line 4, the comparison turns out <span class='booleanFalse'>false</span>",
-      "In this case, the CPU will skip the 'if' block betweens line 5-7, and increment the program counter to point to the next line (line 8)"
+      "This time, the user has input 'C++'",
+      "Now at line 4, the comparison is <span class='booleanFalse'>false</span>",
+      "As the condition is false, the if statement sets the program counter to 8, skipping the compound statement."
     ]
   },
   {
@@ -67,7 +68,86 @@ export const sliderImagesIfStatement = [
     tipStart: 6,
     tips: [
       "Line 8 runs, and outputs 'Great chat!' to the terminal",
-      "The program counter is incremented, and the program ends"
+      "See how the if skips the true branch when the condition is false",
+      "Notice both paths continue with line 8 and output 'Great chat!'"
+    ]
+  }
+];
+
+import Slide01ifelse from './images/control-flow-statements-in-depth/control-flow-if-else-statement-01.png';
+import Slide02ifelse from './images/control-flow-statements-in-depth/control-flow-if-else-statement-02.png';
+import Slide03ifelse from './images/control-flow-statements-in-depth/control-flow-if-else-statement-03.png';
+import Slide04ifelse from './images/control-flow-statements-in-depth/control-flow-if-else-statement-04.png';
+import Slide05ifelse from './images/control-flow-statements-in-depth/control-flow-if-else-statement-05.png';
+import Slide06ifelse from './images/control-flow-statements-in-depth/control-flow-if-else-statement-06.png';
+import Slide07ifelse from './images/control-flow-statements-in-depth/control-flow-if-else-statement-07.png';
+
+export const sliderImagesIfElseStatement = [
+  {
+    src: Slide01ifelse.src,
+    altText: "Shows the state of the computer at line 4 with 'C#' in the language variable.",
+    tipStart: 1,
+    tips: [
+      "Lines 1-3 result in the user input 'C#' being stored in the variable 'language' on the stack",
+      "The comparison evaluates to <span class='booleanTrue'>true</span>",
+      "The program steps into the true branch as before"
+    ]
+  },
+  {
+    src: Slide02ifelse.src,
+    altText: "Shows the cpu runs line 5 to 7 - the true branch.",
+    tipStart: 2,
+    tips: [
+      "The compound statement in lines 5 to 7 run",
+      "Line 6 outputs the message to the terminal",
+    ]
+  },
+  {
+    src: Slide03ifelse.src,
+    altText: "Shows the cpu at the else line - line 8",
+    tipStart: 3,
+    tips: [
+      "Line 8 is back to the if statement",
+      "The 'else' indicates we need to skip the 'false' branch now",
+      "The if statement sets the program counter to 12, jumping over the compound statement that follows the else"
+    ]
+  },
+  {
+    src: Slide04ifelse.src,
+    altText: "Shows the cpu at line 12",
+    tipStart: 4,
+    tips: [
+      "Line 12 runs and prints the output 'Great chat!' to the terminal",
+      "Notice how the true branch now jumps the false branch so only one of the branches is run"
+    ]
+  },
+  {
+    src: Slide05ifelse.src,
+    altText: "Shows the program back to line 4, with 'C++' in the language",
+    tipStart: 5,
+    tips: [
+      "Let's reset back to line 4 to see what happens if the user input 'C++'",
+      "The condition is <span class='booleanFalse'>false</span>, the if statement jumps to the statement that follows the else",
+      "This means the program counter will increment to line 9"
+    ]
+  },
+  {
+    src: Slide06ifelse.src,
+    altText: "Shows the program running lines 9 to 11 as the statements within the else branch",
+    tipStart: 6,
+    tips: [
+      "The else branch has a compound statement from lines 9 to 11",
+      "Line 10 outputs a message to the terminal",
+    ]
+  },
+  {
+    src: Slide07ifelse.src,
+    altText: "Shows the program at line 12 after the if statement.",
+    tipStart: 7,
+    tips: [
+      "The sequence continues as we move out of the if statement",
+      "Line 12 outputs a message",
+      "Notice how the if statement jumps to the start of the else, and then the sequence continues from there"
     ]
   }
 ];
@@ -86,182 +166,116 @@ import Slide11ifelseif from './images/control-flow-statements-in-depth/control-f
 import Slide12ifelseif from './images/control-flow-statements-in-depth/control-flow-if-else-if-statement-12.png';
 
 export const sliderImagesIfElseIfStatement = [
-  {
+    {
     src: Slide01ifelseif.src,
-    altText: "What happens if the user inputs 'C#'? Lines 1-3 result in the user input 'C#' being stored in the variable 'language' on the stack. The program counter is incremented to 4 which indicates the start of the 'if' block",
+    altText: "Shows the language is set to C# after running lines 1 to 3",
     tipStart: 1,
     tips: [
-      "What happens if the user inputs 'C#'?",
-      "Lines 1-3 result in the user input 'C#' being stored in the variable 'language' on the stack",
-      "The program counter is incremented to 4 which indicates the start of the 'if' block"
+      "Let's start by running through with C# again",
+      "Lines 1 to 3 have run, and C# is in the language variable"
     ]
   },
   {
     src: Slide02ifelseif.src,
-    altText: "At line 4, the if statement is evaluated. The comparison evaluates to true. The program counter is incremented to 5 which indicates the start of the 'if' block, then incremented again to 6 to begin running the code within the 'if' block",
+    altText: "Shows the computer will run lines 4 to 7",
     tipStart: 2,
     tips: [
-      "At line 4, the if statement is evaluated. The comparison evaluates to <span class='booleanTrue'>true</span>",
-      "The program counter is incremented to 5 which indicates the start of the 'if' block, then incremented again to 6 to begin running the code within the 'if' block"
+      "The condition is <span class='booleanTrue'>true</span>",
+      "Lines 5 to 7 run as the statement within the if"
     ]
   },
   {
     src: Slide03ifelseif.src,
-    altText: "The CPU runs line 6, which outputs the String 'Good choice. C# is a fine language.' to the terminal. The program counter is increased to line 7 and the closing '}' brace indicates the end of the 'if' block. Because the 'if' block was run, the CPU will then skip any subsequent 'else if' statements and therefore the program counter is increased to point to line 12",
+    altText: "The computer is at line 8 with the else part highlighted",
     tipStart: 3,
     tips: [
-      "The CPU runs line 6, which outputs the String 'Good choice. C# is a fine language.' to the terminal",
-      "The program counter is increased to line 7 and the closing '}' brace indicates the end of the 'if' block",
-      "Because the 'if' block was run, the CPU will then skip any subsequent 'else if' statements and therefore the program counter is increased to point to line 12"
+      "Back to the if statement, and we need to jump the else branch",
+      "The statement in the else branch is the second if statement, which goes all the way to line 16",
+      "The sequence continues from line 16"
     ]
   },
   {
     src: Slide04ifelseif.src,
-    altText: "Line 12 runs and prints the output 'Great chat!' to the terminal. The program counter is incremented and the program ends.",
+    altText: "Back to the start, with C++ now in the language",
     tipStart: 4,
     tips: [
-      "Line 12 runs and prints the output 'Great chat!' to the terminal",
-      "The program counter is incremented and the program ends"
+      "Now let's see how it works with C++ entered"
     ]
   },
   {
     src: Slide05ifelseif.src,
-    altText: "Let's reset back to line 4 and see what happens if the user had inputted 'C++'. In this case, the if-condition evaluates to false, and so the CPU will jump the 'if' block (lines 5-7) and move on to the next 'else if' condition. This means the program counter will increment to line 8.",
+    altText: "Shows line 4 testing the condition and jumping to the else branch",
     tipStart: 5,
     tips: [
-      "Let's reset back to line 4 and see what happens if the user had inputted 'C++'",
-      "In this case, the if-condition evaluates to <span class='booleanFalse'>false</span>, and so the CPU will jump the 'if' block (lines 5-7) and move on to the next 'else if' condition",
-      "This means the program counter will increment to line 8"
+      "Line 4 evaluates the condition, which is <span class='booleanFalse'>false</span>",
+      "The if statement sets the program counter to 8, at the start of the if statement in the else branch"
     ]
   },
   {
     src: Slide06ifelseif.src,
-    altText: "To evaluate the 'else if' condition on line 8, the CPU will evaluate the 'or' logical operator by evaluating the operands left to right. Once a true match for any of it's operands occurs, it will stop processing and evaluate the entire expression as true. If it exhausts its operands and no true match has occurred with any of its operands, it will return false. The first comparison returns false because the user input (C++) does not equal the string 'C', so it moves onto the second operand. The next comparison returns true, and so the entire else-if condition evaluates to true. Therefore the program counter is incremented to lines 9 and then 10 to perform the code in the 'else if' block.",
+    altText: "Shows the program evaluating the second if statements condition on line 8",
     tipStart: 6,
     tips: [
-      "To evaluate the 'else if' condition on line 8, the CPU will evaluate the 'or' logical operator by evaluating the operands left to right<ul><li>Once a true match for any of it's operands occurs, it will stop processing and evaluate the entire expression as true. If it exhausts its operands and no true match has occurred with any of its operands, it will return false</li></ul>",
-      "The first comparison returns <span class='booleanFalse'>false</span> because the user input (C++) does not equal the string 'C', so it moves onto the second operand",
-      "The next comparison returns <span class='booleanTrue'>true</span>, and so the entire else-if condition evaluates to true. Therefore the program counter is incremented to lines 9 and then 10 to perform the code in the 'else if' block"
+      "The statement in the else branch is a new if statement",
+      "Its condition is <span class='booleanTrue'>true</span> as 'false or true' is true",
+      "Control continues to line 9"
     ]
   },
   {
     src: Slide07ifelseif.src,
-    altText: "Line 10 outputs the string 'These are great languages.' to the terminal. The program counter is then incremented to line 11 which indicates the end of the 'else if' block, and then again to point to the first line following the if statement (line 12)",
+    altText: "Shows the statements in the second if statements true branch running",
     tipStart: 7,
     tips: [
-      "Line 10 outputs the string 'These are great languages.' to the terminal",
-      "The program counter is then incremented to line 11 which indicates the end of the 'else if' block, and then again to point to the first line following the if statement (line 12)"
+      "Lines 9 to 11 are run",
+      "A message is output on line 10"
     ]
   },
   {
     src: Slide08ifelseif.src,
-    altText: "Line 12 outputs 'Great chat!' to the terminal. The program counter then increments and the program ends.",
-    tipStart: 8,
+    altText: "The else must jump the second if's else branch",
+    tipStart: 7,
     tips: [
-      "Line 12 outputs 'Great chat!' to the terminal",
-      "The program counter then increments and the program ends"
+      "At line 12 we are back to the second if statement's else",
+      "We jump to line 16 to skip the else branch code",
+      "The sequence continues from there"
     ]
   },
   {
     src: Slide09ifelseif.src,
-    altText: "Once again, let's reset and see what happens if the user inputs 'C'. The 'if' condition evaluates to false, meaning the 'if' block code (lines 5-7) are skipped and control goes to the next 'else if' block (line 8)",
-    tipStart: 9,
+    altText: "Back to the start again, with Fortran in the language",
+    tipStart: 7,
     tips: [
-      "Once again, let's reset and see what happens if the user inputs 'C'",
-      "The 'if' condition evaluates to <span class='booleanFalse'>false</span>, meaning the 'if' block code (lines 5-7) are skipped and control goes to the next 'else if' block (line 8)"
+      "Back to the start a last time",
+      "We now have Fortran"
     ]
   },
   {
     src: Slide10ifelseif.src,
-    altText: "The CPU evaluates the first comparison in the 'else if' block at line 8. This evaluates to true, so it will perform the code in the block (lines 9-11). The program counter increases from line 8 to line 9 (start of the 'else if' block) to line 10 (the first instruction in the block)",
-    tipStart: 10,
+    altText: "Line 4 is run, which jumps to line 8",
+    tipStart: 7,
     tips: [
-      "The CPU evaluates the first comparison in the 'else if' block at line 8",
-      "This evaluates to <span class='booleanTrue'>true</span>, so it will perform the code in the block (lines 9-11)",
-      "The program counter increases from line 8 to line 9 (start of the 'else if' block) to line 10 (the first instruction in the block)"
+      "Line 4 evaluates the condition, which is <span class='booleanFalse'>false</span>",
+      "We skip the if's statement and jump to line 8"
     ]
   },
   {
     src: Slide11ifelseif.src,
-    altText: "Line 10 outputs the string 'These are great languages.' to the terminal. The program counter is then incremented to line 11 which indicates the end of the 'else if' block, and then again to point to the first line following the if statement (line 12)",
-    tipStart: 11,
+    altText: "Line 8 is run, jumping to line 13",
+    tipStart: 7,
     tips: [
-      "Line 10 outputs the string 'These are great languages.' to the terminal",
-      "The program counter is then incremented to line 11 which indicates the end of the 'else if' block, and then again to point to the first line following the if statement (line 12)"
+      "We are in the else branch - in the second if",
+      "Line 8 condition is <span class='booleanFalse'>false</span>",
+      "We skip the if's statement and jump to line 13 - the statement following its else"
     ]
   },
   {
     src: Slide12ifelseif.src,
-    altText: "Line 12 outputs 'Great chat!' to the terminal. The program counter then increments and the program ends.",
-    tipStart: 12,
+    altText: "Lines 13 to 15 and 16 then run",
+    tipStart: 7,
     tips: [
-      "Line 12 outputs 'Great chat!' to the terminal",
-      "The program counter then increments and the program ends"
-    ]
-  }
-];
-
-import Slide01ifelseifelse from './images/control-flow-statements-in-depth/control-flow-if-else-if-else-statement-01.png';
-import Slide02ifelseifelse from './images/control-flow-statements-in-depth/control-flow-if-else-if-else-statement-02.png';
-import Slide03ifelseifelse from './images/control-flow-statements-in-depth/control-flow-if-else-if-else-statement-03.png';
-import Slide04ifelseifelse from './images/control-flow-statements-in-depth/control-flow-if-else-if-else-statement-04.png';
-import Slide05ifelseifelse from './images/control-flow-statements-in-depth/control-flow-if-else-if-else-statement-05.png';
-import Slide06ifelseifelse from './images/control-flow-statements-in-depth/control-flow-if-else-if-else-statement-06.png';
-
-
-export const sliderImagesIfElseIfElseStatement = [
-    {
-    src: Slide01ifelseifelse.src,
-    altText: "Lines 1-3 run and result in the user input 'Fortran' being stored in the variable 'language' on the stack.",
-    tipStart: 1,
-    tips: [
-      "Lines 1-3 run and result in the user input 'Fortran' being stored in the variable 'language' on the stack"
-    ]
-  },
-  {
-    src: Slide02ifelseifelse.src,
-    altText: "At line 4, the value of the variable language ('Fortran') is compared to 'C#' and evaulates to false. The accompanying if-block of code is therefore skipped, and the program counter jumps to line 8",
-    tipStart: 2,
-    tips: [
-      "At line 4, the value of the variable language ('Fortran') is compared to 'C#' and evaulates to <span class='booleanFalse'>false</span>",
-      "The accompanying if-block of code is therefore skipped, and the program counter jumps to line 8"
-    ]
-  },
-  {
-    src: Slide03ifelseifelse.src,
-    altText: "The 'else if' condition in line 8 also evaluates to false (since both comparisons are false). The accompanying 'else if' block of code is therefore ignored and the program counter jumps to line 12.",
-    tipStart: 3,
-    tips: [
-      "The 'else if' condition in line 8 also evaluates to <span class='booleanFalse'>false</span> (since both comparisons are false)",
-      "The accompanying 'else if' block of code is therefore ignored and the program counter jumps to line 12"
-    ]
-  },
-  {
-    src: Slide04ifelseifelse.src,
-    altText: "Because neither the 'if' condition nor any 'else if' condition evaluated true, the final 'else' block of code will execute if present (as here). The program counter skips to line 13 which denotes the start of the else block, then on to line 14 which is the first line of code within the block",
-    tipStart: 4,
-    tips: [
-      "Because neither the 'if' condition nor any 'else if' condition evaluated true, the final 'else' block of code will execute if present (as here)",
-      "The program counter skips to line 13 which denotes the start of the else block, then on to line 14 which is the first line of code within the block"
-    ]
-  },
-  {
-    src: Slide04ifelseifelse.src,
-    altText: "Line 15 runs and prints 'Well... good luck with that !' to the terminal. The program counter advances to line 15 which denotes the end of the else block. The if statement has finished, and the program counter moves to line 16",
-    tipStart: 5,
-    tips: [
-      "Line 14 runs and prints 'Well... good luck with that !' to the terminal",
-      "The program counter advances to line 15 which denotes the end of the else block",
-      "The if statement has finished, and the program counter moves to line 16"
-    ]
-  },
-  {
-    src: Slide06ifelseifelse.src,
-    altText: "Line 16 executes and prints 'Great chat!' to the terminal. The program counter advances and the program ends.",
-    tipStart: 6,
-    tips: [
-      "Line 16 executes and prints 'Great chat!' to the terminal",
-      "The program counter advances and the program ends"
+      "The else branch has a compound statement - lines 13 to 15",
+      "Line 14 outputs a message",
+      "The sequence continues from this point"
     ]
   }
 ];
@@ -285,17 +299,32 @@ The if statement is the most frequently used branching statement. It allows you 
 
 ## If Staement - Why, When, and How
 
-The if statement will be a regular feature in your programs. You will use this anywhere you want to optionally run a block of code. The condition has to be a boolean expression, which you can then use comparisons and logical operators to create.
+The if statement will be a regular feature in your programs. You will use this anywhere you want to optionally run a block of code. The condition has to be a boolean expression, which you can then use comparisons and logical operators to create. You then provide code within the if statement to run when the condition is true. You can also optionally include an *else* branch for when the condition is false.
 
-Remember that things still run in **sequence**, so you have to position the if statement within your sequence at the right location. Then set the condition, and program the instructions to run within the if statement. You can add an else branch for statements you want run when the condition is false.
+Remember that things still run in **sequence**, so you have to position the if statement within your sequence at the right location. Then set the condition, and program the instructions to run within the if statement, and those to run when it is false if needed.
 
 ## In C#
 
+:::tip[Syntax]
+
+The syntax for an if statement in C# uses the `if` keyword, followed by the condition in parenthesis, then the statement to run for when the condition is true. This can optionally be followed by the `else` keyword and a statement to run when the condition is false. To run more than one statement in either of these branches requires the use of a [compound statament](../02-compound-statement).
+
+![An if statement visualisation showing a single entry into the if, two branches selected based on the condition, joining back together before the next statement.](./images/if-statement.png)
+
+:::
 ## How does if work?
 
-Lets work through a few examples. We can look at running code if a condition is true, running different code when it is false, and combining if statements for more than two paths.
+Let's work through a few examples to see how the if statement works. Pay attention to how this fits within the sequence of actions in the code. Understanding how this works will help you see how to make use of it within your projects.
 
-### Standalone if statement
+We can look at running code if a condition is true, running different code when it is false, and combining if statements for more than two paths.
+
+:::tip[Remember]
+
+Control flow statements all utilise the **conditional jump**. This is a very simple mechanism, so you need to add the creativity to see how to use this to achieve your ends.
+
+:::
+
+### Standalone if
 
 You can use an **if statement** to selectively run a block of code when a condition is true. In the following code, we ask the user to tell us which language they use. Then the **if** allows us to check *if* the language is "C#", and when that is true have the computer output a custom message. This is achieved by skipping over those statements when the condition is false.
 
@@ -315,10 +344,21 @@ if (language == "C#")
 WriteLine("Great chat!");
 ```
 
+Step through the following images to see key points about how this runs within the computer. Pay attention to the actions of the if statement itself.
+
 <MySwiper client:only height="" images={sliderImagesIfStatement}></MySwiper>
 
+:::tip[Attention]
 
-### if / 'else if' statement
+Notice the actions of the if - evaluate the condition. If true, run the statement that follows. If false, jump over the statement that follows.
+
+That is all the if does.
+
+:::
+
+### if with else
+
+We can add `else` to have a second branch that gets run only when the condition is false. The following code adds an else branch to output a different message when the user enters anything other than "C#".
 
 ```csharp
 using static System.Console;
@@ -326,7 +366,6 @@ using static System.Console;
 string language;
 
 Write("What language do you use? ");
-
 language = ReadLine();
 
 if (language == "C#")
@@ -341,9 +380,29 @@ else
 WriteLine("Great chat!");
 ```
 
-<MySwiper client:only height="" images={sliderImagesIfElseIfStatement}></MySwiper>
+The else adds to the actions the if statement needs to perform. Review the following images to see how this works.
 
-### if / 'else if' / else statement
+<MySwiper client:only height="" images={sliderImagesIfElseStatement}></MySwiper>
+
+:::tip[Attention]
+
+This is the full set of the if statement actions. They are:
+
+1. Evaluate condition
+2. If true, run the statement following the 'if'.
+3. If false, jump to the statement following 'else' or the end of the if
+4. At the else, jump to the end of the if
+
+When thinking through your code, you need to do the same in your head.
+
+- "If this is true, run this code and skip that code" and...
+- "if this is false, skip this code and run that code".
+
+:::
+
+### Multiple if statements combined
+
+In many cases you will want more than two paths. To achieve this, you need to combine together multiple if statements as shown in the following code. This adds a checks for C and C++ to give them different outputs as well.
 
 ```csharp
 using static System.Console;
@@ -351,7 +410,6 @@ using static System.Console;
 string language;
 
 Write("What language do you use? ");
-
 language = ReadLine();
 
 if (language == "C#")
@@ -370,4 +428,12 @@ else
 WriteLine("Great chat!");
 ```
 
-<MySwiper client:only height="" images={sliderImagesIfElseIfElseStatement}></MySwiper>
+Review the following images to see how the two if statements work together.
+
+<MySwiper client:only height="" images={sliderImagesIfElseIfStatement}></MySwiper>
+
+:::tip[Attention]
+
+Notice how the one statement in the **else** branch can be an **if statement**. When the else is skipped, that means this if statement is skipped.
+
+:::
