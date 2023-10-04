@@ -4,6 +4,38 @@ sidebar:
   label: " - Do While Loop"
 ---
 
+The do while loop is the post-test loop in C#. These loops are rarely used but are useful to know about.
+
+<a id="FigurePostTestLoop"></a>
+
+![Figure x.y: The Post-Test Loop runs the loops body, then checks the condition](./images/loop-post-test.png "The Post-Test Loop runs the loops body, then checks the condition")
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Do while is a post-test loop</div><br/>
+
+## Do While - Why, When, and How
+
+In most cases, you will use a pre-test loop (while). The do while is provided and if you have a situation where it really makes more sense to check the condition after the loop, then the do while loop is an option (though you can also achieve the same thing in the while loop if the condition is set to ensure it runs at least once).
+
+Do while will perform the following actions:
+
+1. Run through the body of the loop to get to the condition.
+2. Evaluate the condition, and jump back to the start of the loop if the condition is true, otherwise it will continue with the code after the loop.
+
+Notice that this means you have to run the body of the loop once, and that the jump is now used to repeat the instructions.
+
+## In C#
+
+:::tip[Syntax]
+
+The syntax of the do while loop positions the `do` at the start of the loop, and the `while` after the loop's statements.
+
+![Syntax of the do while](./images/do-while-loop.png)
+
+:::
+
+## How does do while work?
+
+The following code demonstrates the use of do while to repeat some code. This will run once, and at the end check if `again` is "y" or "Y". When it is, the jump code will move back to the start of the statement after the `do` keyword, thereby repeating that code.
+
 ```csharp
 using static System.Console;
 using static System.Convert;
@@ -19,3 +51,9 @@ do
 } (again == "y" || again == "Y");
 
 ```
+
+Use the following images to see how this works.
+
+**TODO add slider**
+
+Notice how the do marks the start of the statements to repeat, and the while evaluates the condition and jumps back as needed. As with the while loop, this condition is only checked when the computer is at that location in the code. This works in with the general idea of building our program in sequence, using defined control flow statements.
