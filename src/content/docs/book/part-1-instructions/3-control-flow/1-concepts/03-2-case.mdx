@@ -21,7 +21,7 @@ import caseStatementSlide11 from './images/control-flow-statements-in-depth/cont
 export const sliderImagesCaseStatement = [
   {
     src: caseStatementSlide01.src,
-    altText: "Lines 1-4 get the user input ('C'), and store it in the variable 'language' on the stack. The program counter is incremented to line 5, ready to run the 'switch' statement.",
+    altText: "",
     tipStart: 1,
     tips: [
       "Lines 1-4 get the user input ('C'), and store it in the variable 'language' on the stack",
@@ -33,8 +33,8 @@ export const sliderImagesCaseStatement = [
     altText: "On line 5, the switch statement asks the computer to compare the value in the variable 'language' ('C'), to the value of all the case statements in it's scope (which is defined by the opening and closing braces of the switch statement) until a match is found. It increments the program counter to point to the first case statement on line 7.",
     tipStart: 2,
     tips: [
-      "On line 5, the switch statement asks the computer to compare the value in the variable 'language' ('C'), to the value of all the case statements in it's scope (which is defined by the opening and closing braces of the switch statement) until a match is found",
-      "It increments the program counter to point to the first case statement on line 7"
+      "On line 5, the switch statement start to compare the value in the variable 'language' ('C'), to the value of all the cases until a match is found",
+      "This will remember 'C' and compare it against the constant in each case"
     ]
   },
   {
@@ -42,8 +42,9 @@ export const sliderImagesCaseStatement = [
     altText: "Line 7 encounters the first case statement, and compares the value of 'language' ('C') to the value of the case statement ('C#'). The comparison is false ('C' != 'C#'). So the program counter jumps to the next 'case' statement (line 10).",
     tipStart: 3,
     tips: [
-      "Line 7 encounters the first case statement, and compares the value of 'language' ('C') to the value of the case statement ('C#')",
-      "The comparison is <span class='booleanFalse'>false</span> ('C' != 'C#'). So the program counter jumps to the next 'case' statement (line 10)."
+      "The first case is on line 7",
+      "This compares the loaded value ('C') to the value of the case ('C#')",
+      "The comparison is <span class='booleanFalse'>false</span> ('C' != 'C#'). So the program counter jumps to the next case (line 10)."
     ]
   },
   {
@@ -52,6 +53,7 @@ export const sliderImagesCaseStatement = [
     tipStart: 4,
     tips: [
       "On line 10 the comparison is <span class='booleanTrue'>true</span> ('C' == 'C')",
+      "The sequence starts running here",
       "The program counter then increments to line 11"
     ]
   },
@@ -61,7 +63,8 @@ export const sliderImagesCaseStatement = [
     tipStart: 5,
     tips: [
       "Notice that the case statement on line 11, lies directly below the case statement on line 10",
-      "When case statements are grouped together like this, as soon as any 'case' in the group evaluates to 'true', the remaining 'case' statements in the group are skipped over to execute the code associated with this group of case statements",
+      "This drops through the case, meaning that the sequence continues.",
+      "You can grouped together like this, as soon as any 'case' in the group evaluates to 'true', the the code associated with this group is run.",
       "The program counter therefore increments to line 12"
     ]
   },
@@ -79,9 +82,9 @@ export const sliderImagesCaseStatement = [
     altText: "At line 13 we encounter a 'break' statement which terminates the code associated with the 'true' case block. The 'break statement will jump to the end of the 'switch' statement (line 16), and the program counter is incremented to point to the next line of code (line 17)",
     tipStart: 7,
     tips: [
-      "At line 13 we encounter a 'break' statement which terminates the code associated with the 'true' case block",
-      "The 'break statement will jump to the end of the 'switch' statement (line 16)",
-      "The program counter is incremented to point to the next line of code (line 17)"
+      "The 'break' statement on line 13 jumps to the end of the case statement",
+      "This sets the program counter to run line 17 - the first instruction after the case statement",
+      "Without a break, control would flow into the 'default' code that follows"
     ]
   },
   {
@@ -107,7 +110,7 @@ export const sliderImagesCaseStatement = [
     tipStart: 10,
     tips: [
       "Now the switch comparison (line 5) to the case statement values (lines 7, 10 and 11) all evaluate to <span class='booleanFalse'>false</span>",
-      "So the program is incremented to line 14 (the 'default' statement)"
+      "So the program is set to line 14 (the 'default' statement)"
     ]
   },
   {
@@ -115,10 +118,10 @@ export const sliderImagesCaseStatement = [
     altText: "Lines 14 and 15 executes the block of code associated with 'default' and prints a message to the screen. The switch statement ends when it encounters the closing brace. The program counter is incremented to line 17, and the final message is output to the terminal. The program counter increments a final time to end.",
     tipStart: 11,
     tips: [
+      "The default branch runs as none of the other cases match",
       "Lines 14 and 15 executes the block of code associated with 'default' and prints a message to the screen",
       "The switch statement ends when it encounters the closing brace",
-      "The program counter is incremented to line 17, and the final message is output to the terminal",
-      "The program counter increments a final time to end"
+      "The program counter is incremented to line 17, and the final message is output to the terminal"
     ]
   }
 ];
