@@ -4,6 +4,127 @@ sidebar:
   label: " - Case Statement"
 ---
 
+import MySwiper from '../../../../../../components/react/myswiper.jsx'
+
+import caseStatementSlide01 from './images/control-flow-statements-in-depth/control-flow-case-statement-01.png';
+import caseStatementSlide02 from './images/control-flow-statements-in-depth/control-flow-case-statement-02.png';
+import caseStatementSlide03 from './images/control-flow-statements-in-depth/control-flow-case-statement-03.png';
+import caseStatementSlide04 from './images/control-flow-statements-in-depth/control-flow-case-statement-04.png';
+import caseStatementSlide05 from './images/control-flow-statements-in-depth/control-flow-case-statement-05.png';
+import caseStatementSlide06 from './images/control-flow-statements-in-depth/control-flow-case-statement-06.png';
+import caseStatementSlide07 from './images/control-flow-statements-in-depth/control-flow-case-statement-07.png';
+import caseStatementSlide08 from './images/control-flow-statements-in-depth/control-flow-case-statement-08.png';
+import caseStatementSlide09 from './images/control-flow-statements-in-depth/control-flow-case-statement-09.png';
+import caseStatementSlide10 from './images/control-flow-statements-in-depth/control-flow-case-statement-10.png';
+import caseStatementSlide11 from './images/control-flow-statements-in-depth/control-flow-case-statement-11.png';
+
+
+export const sliderImagesCaseStatement = [
+  {
+    src: caseStatementSlide01.src,
+    altText: "Lines 1-4 get the user input ('C'), and store it in the variable 'language' on the stack. The program counter is incremented to line 5, ready to run the 'switch' statement.",
+    tipStart: 1,
+    tips: [
+      "Lines 1-4 get the user input ('C'), and store it in the variable 'language' on the stack",
+      "The program counter is incremented to line 5, ready to run the 'switch' statement."
+    ]
+  },
+  {
+    src: caseStatementSlide02.src,
+    altText: "On line 5, the switch statement asks the computer to compare the value in the variable 'language' ('C'), to the value of all the case statements in it's scope (which is defined by the opening and closing braces of the switch statement) until a match is found. It increments the program counter to point to the first case statement on line 7.",
+    tipStart: 2,
+    tips: [
+      "On line 5, the switch statement asks the computer to compare the value in the variable 'language' ('C'), to the value of all the case statements in it's scope (which is defined by the opening and closing braces of the switch statement) until a match is found",
+      "It increments the program counter to point to the first case statement on line 7"
+    ]
+  },
+  {
+    src: caseStatementSlide03.src,
+    altText: "Line 7 encounters the first case statement, and compares the value of 'language' ('C') to the value of the case statement ('C#'). The comparison is false ('C' != 'C#'). So the program counter jumps to the next 'case' statement (line 10).",
+    tipStart: 3,
+    tips: [
+      "Line 7 encounters the first case statement, and compares the value of 'language' ('C') to the value of the case statement ('C#')",
+      "The comparison is <span class='booleanFalse'>false</span> ('C' != 'C#'). So the program counter jumps to the next 'case' statement (line 10)."
+    ]
+  },
+  {
+    src: caseStatementSlide04.src,
+    altText: "On line 10 the comparison is 'true' ('C' == 'C'). The program counter then increments to line 11.",
+    tipStart: 4,
+    tips: [
+      "On line 10 the comparison is <span class='booleanTrue'>true</span> ('C' == 'C')",
+      "The program counter then increments to line 11"
+    ]
+  },
+  {
+    src: caseStatementSlide05.src,
+    altText: "Notice that the case statement on line 11, lies directly below the case statement on line 10. When case statements are grouped together like this, as soon as any 'case' in the group evaluates to 'true', the remaining 'case' statements in the group are skipped to execute the code associated with this group of case statements. The program counter therefore increments to line 12 ",
+    tipStart: 5,
+    tips: [
+      "Notice that the case statement on line 11, lies directly below the case statement on line 10",
+      "When case statements are grouped together like this, as soon as any 'case' in the group evaluates to 'true', the remaining 'case' statements in the group are skipped over to execute the code associated with this group of case statements",
+      "The program counter therefore increments to line 12"
+    ]
+  },
+  {
+    src: caseStatementSlide06.src,
+    altText: "At line 12 we output the message to the terminal. The program counter is incremented to line 13.",
+    tipStart: 6,
+    tips: [
+      "At line 12 we output the message to the terminal",
+      "The program counter is incremented to line 13"
+    ]
+  },
+  {
+    src: caseStatementSlide07.src,
+    altText: "At line 13 we encounter a 'break' statement which terminates the code associated with the 'true' case block. The 'break statement will jump to the end of the 'switch' statement (line 16), and the program counter is incremented to point to the next line of code (line 17)",
+    tipStart: 7,
+    tips: [
+      "At line 13 we encounter a 'break' statement which terminates the code associated with the 'true' case block",
+      "The 'break statement will jump to the end of the 'switch' statement (line 16)",
+      "The program counter is incremented to point to the next line of code (line 17)"
+    ]
+  },
+  {
+    src: caseStatementSlide08.src,
+    altText: "At line 17 the message is output to the terminal. The program counter increases, and the program ends.",
+    tipStart: 8,
+    tips: [
+      "At line 17 the message is output to the terminal",
+      "The program counter increases, and the program ends"
+    ]
+  },
+  {
+    src: caseStatementSlide09.src,
+    altText: "This time the user has input 'Fortran'",
+    tipStart: 9,
+    tips: [
+      "This time the user has input 'Fortran'"
+    ]
+  },
+  {
+    src: caseStatementSlide10.src,
+    altText: "Now the switch comparison (line 5) to the case statement values (lines 7, 10 and 11) all evaluate to 'false'. So the program is incremented to line 14 (the 'default' statement)",
+    tipStart: 10,
+    tips: [
+      "Now the switch comparison (line 5) to the case statement values (lines 7, 10 and 11) all evaluate to <span class='booleanFalse'>false</span>",
+      "So the program is incremented to line 14 (the 'default' statement)"
+    ]
+  },
+  {
+    src: caseStatementSlide11.src,
+    altText: "Lines 14 and 15 executes the block of code associated with 'default' and prints a message to the screen. The switch statement ends when it encounters the closing brace. The program counter is incremented to line 17, and the final message is output to the terminal. The program counter increments a final time to end.",
+    tipStart: 11,
+    tips: [
+      "Lines 14 and 15 executes the block of code associated with 'default' and prints a message to the screen",
+      "The switch statement ends when it encounters the closing brace",
+      "The program counter is incremented to line 17, and the final message is output to the terminal",
+      "The program counter increments a final time to end"
+    ]
+  }
+];
+
+
 The case statement is the second kind of branching statement. This allows you to create paths that execute based on matching a value from an expression. This allows one case statement to handle many alternative paths.
 
 <a id="FigureCaseStatement"></a>
@@ -77,3 +198,6 @@ switch (language)
 
 WriteLine("Great chat!");
 ```
+#### How does it work?
+
+<MySwiper client:only height="" images={sliderImagesCaseStatement}></MySwiper>
