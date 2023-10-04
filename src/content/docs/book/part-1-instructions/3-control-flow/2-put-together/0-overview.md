@@ -1,5 +1,5 @@
 ---
-title: Put Together
+title: Guess that Number
 ---
 
 The example for this chapter is a guessing game, where the user is guessing a number between 1 and 100. An example of this program executing is shown in [Listing x.y](#ListingGuessingGame)
@@ -29,3 +29,6 @@ Do you want to play again [Y/n]? n
 Bye
 ```
 
+## Getting started
+
+The hardest part of a program is usually getting started. Rather than trying to build this entire thing,

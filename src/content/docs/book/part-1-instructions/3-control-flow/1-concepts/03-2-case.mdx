@@ -194,6 +194,13 @@ switch (language)
 
 WriteLine("Great chat!");
 ```
-#### How does it work?
+
+Use the following images to see how this code runs.
 
 <MySwiper client:only height="" images={sliderImagesCaseStatement}></MySwiper>
+
+:::tip[Attention]
+
+Grouping cases as shown here is a ok, but to help avoid unexpected fallthrough, the C# language will give you an error if you do not have a break statement if you have code within a branch. You can jump to another case at the end of any given case by using `goto case` and providing the constant you want to jump to or `goto default`.
+
+:::

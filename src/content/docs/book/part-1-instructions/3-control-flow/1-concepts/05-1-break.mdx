@@ -3,8 +3,9 @@ title: Break
 sidebar:
     label: " - Break"
 ---
+import { YouTube } from 'astro-embed';
 
-The break statement is used to jump out of the current loop, in effect terminating the loop early. This is useful for ending the current loop, skipping all future cycles.
+The break statement is used to jump **out** of the current loop, in effect terminating the loop early. This is useful for ending the current loop, skipping all future cycles.
 
 <a id="FigureBreak"></a>
 
@@ -17,3 +18,95 @@ The break statement is used to jump out of the current loop, in effect terminati
 - The break statement should be coded within an [Branching](../02-branching) statement that checks if the loop should terminate early.
 
 :::
+
+## Break - Why, When, and How?
+
+Sometimes you get part way through a loop and know that the remainder of the loop is not needed. If you can capture that in a condition, then combining a branching statement with a `break` will let you jump out of the loop.
+
+This isn't something you will use often, but is good to know exists.
+
+## In C#
+
+:::tip[Syntax]
+
+The break statement is simply the break keyword terminated with a semicolon.
+
+![](./images/break-statement.png)
+
+:::
+
+## How break works
+
+### Quit early
+
+The following code demonstrates the use of the break statement in an even driven program. Here the branch checks if the user has hit the escape key, and it breaks the event loop when that is true.
+
+```csharp
+using static SplashKitSDK.SplashKit;
+
+OpenWindow("Circle Test", 400, 400);
+ClearScreen(ColorWhite());
+
+while ( !QuitRequested())
+{
+  FillCircle(RandomColor(), Rnd(ScreenWidth()), Rnd(ScreenHeight()), Rnd(50));
+  RefreshScreen();
+
+  ProcessEvents();
+
+  if (KeyTyped(KeyCode.EscapeKey))
+  {
+    break;  // end the loop
+  }
+}
+```
+
+The following images show how this works.
+
+**TODO add slider**
+
+### Infinite loops
+
+You can create intentional infinite loops, and use break statements within the code to terminate the loop that way. The following program uses an infinite loop, with a break in an if to terminate the loop. 
+
+```csharp
+using static System.Console;
+using static System.Convert;
+
+WriteLine("Before you stands a 12 foot tall Knight...");
+WriteLine();
+WriteLine("\"We are the Knights who say 'Ni'.\"");
+WriteLine("\"I will say Ni to you again if you do not appease us!\"");
+
+while(true)
+{
+    WriteLine("\"Ni!\"");
+
+    Write("Submit? ");
+    
+    if (ReadLine() == "y")
+    {
+        break;
+    }
+
+}
+
+WriteLine("\"Bring us a Shrubbery!\"");
+```
+
+The following images show how this runs.
+
+**TODO add slider here**
+
+:::caution
+
+Generally you should put the condition within the loop itself, but in some cases this pattern can make things simpler.
+
+:::
+
+This is inspired by the classic Monty Python sketch below. This comedy group was the inspiration behind the name for the Python programming language.
+
+<div class="not-content">
+  <YouTube id="zIV4poUZAQo" params="fs=1&start=104&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
