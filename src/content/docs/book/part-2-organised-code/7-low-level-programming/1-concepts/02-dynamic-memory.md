@@ -1,5 +1,0 @@
----
-title: Dynamic memory
----
-
-## Concept
