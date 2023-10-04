@@ -195,8 +195,6 @@ The above program looks simple right? It looks as though we simply take the two 
 
 Without all the functionality strings.h provides us, let's look how we can do a task like string concetanation in plain C.
 
-### Manually concatenating strings
-
 The way to concetenate two strings in C without any libraries is quite simple, and entails looping through the first string, and copying each character into the new string, and then looping through the second string and copying each character into the new string. Let's take a look at how we can manually concatenate two names together (with a space in between):
 
 ```c
