@@ -284,20 +284,20 @@ The if statement is the most frequently used branching statement. It allows you 
 
 <a id="FigureIfStatement"></a>
 
-![Figure x.y: If statement lets you selectively run a branch of code](./images/statement-if.png "If statement lets you selectively run a branch of code")
+![Figure x.y: If statement lets you selectively run a branch of code](./images/statement-if.png "The if statement lets you selectively run a branch of code")
 <div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>If statement lets you selectively run a branch of code</div><br/>
 
 :::note
 
 - An if statement is an **instruction**. It allows you to command the computer to select a path based on a [boolean expression](../01-boolean-data).
-- The if statement has **two** branches, one that is taken when the condition is true, the other when it is false.
+- The if statement has **two** branches, one that is taken when the condition is true, and the other when it is false.
 - The false branch may *optionally* have instructions that are carried out when the condition is not met.
-- If there are no instructions you want performed when the condition is false, you do not need to include an else branch. In this case, the if statement will just skip the true branch when the condition is false.
+- If there are no instructions you want to be performed when the condition is false, you do not need to include an else branch. In this case, the if statement will just skip the true branch when the condition is false.
 - The if statement has one entry point, two paths, and then one exit point.
 
 :::
 
-## If Staement - Why, When, and How
+## If Statement - Why, When, and How
 
 The if statement will be a regular feature in your programs. You will use this anywhere you want to optionally run a block of code. The condition has to be a boolean expression, which you can then use comparisons and logical operators to create. You then provide code within the if statement to run when the condition is true. You can also optionally include an *else* branch for when the condition is false.
 
@@ -307,7 +307,7 @@ Remember that things still run in **sequence**, so you have to position the if s
 
 :::tip[Syntax]
 
-The syntax for an if statement in C# uses the `if` keyword, followed by the condition in parenthesis, then the statement to run for when the condition is true. This can optionally be followed by the `else` keyword and a statement to run when the condition is false. To run more than one statement in either of these branches requires the use of a [compound statament](../02-compound-statement).
+The syntax for an if statement in C# uses the `if` keyword, followed by the condition in parenthesis, and then the statement to run for when the condition is true. This can optionally be followed by the `else` keyword and a statement to run when the condition is false. To run more than one statement in either of these branches requires the use of a [compound statement](../02-compound-statement).
 
 ![An if statement visualisation showing a single entry into the if, two branches selected based on the condition, joining back together before the next statement.](./images/if-statement.png)
 
@@ -320,7 +320,7 @@ We can look at running code if a condition is true, running different code when 
 
 :::tip[Remember]
 
-Control flow statements all utilise the **conditional jump**. This is a very simple mechanism, so you need to add the creativity to see how to use this to achieve your ends.
+Control flow statements all utilise the **conditional jump**. This is a very simple mechanism, so you need to add creativity to see how to use this to achieve your ends.
 
 :::
 

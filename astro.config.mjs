@@ -217,19 +217,20 @@ export default defineConfig({
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-1-instructions/3-control-flow/2-put-together",
-                },
-                {
-                  label: "Looking Inside",
-                  link: "book/part-1-instructions/3-control-flow/3-looking-inside",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-1-instructions/3-control-flow/2-put-together",
+                    collapsed: true,
+                  },
                 },
                 {
                   label: "Other Languages",
-                  link: "book/part-1-instructions/3-control-flow/4-other-languages",
+                  link: "book/part-1-instructions/3-control-flow/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-1-instructions/3-control-flow/5-activities",
+                  link: "book/part-1-instructions/3-control-flow/4-activities",
                 },
               ],
             },
@@ -252,7 +253,12 @@ export default defineConfig({
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-1-instructions/4-structured-programming/2-put-together",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-1-instructions/4-structured-programming/2-put-together",
+                    collapsed: true,
+                  },
                 },
                 {
                   label: "Looking Inside",
