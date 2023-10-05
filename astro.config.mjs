@@ -155,7 +155,12 @@ export default defineConfig({
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-1-instructions/1-sequence-and-data/2-put-together",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-1-instructions/1-sequence-and-data/2-put-together",
+                    collapsed: true,
+                  },
                 },
                 {
                   label: "Other Languages",

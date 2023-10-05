@@ -1,0 +1,88 @@
+---
+title: Air Speed Velocity
+---
+import { YouTube } from 'astro-embed';
+
+
+On your journey, you encountered a strange person who mentioned something about coconuts and queries you vigorously about the airspeed velocity of unladen swallows.
+
+<div class="not-content">
+  <YouTube id="w8Rn_f75UHs" params="fs=1&start=104&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+To answer this age old question, you can mock up the following program to calculate the airspeed velocity of these important birds. With a quick search, you find [an equation](http://www.style.org/strouhalflight) based on the Strouhal Number and some [details on swallows](http://style.org/unladenswallow/). We can use this information to create a program that can be used to calculate the airspeed velocity of African and European Swallows.
+
+From these articles we can determine that the air speed velocity of a swallow can be calculated using `Speed = Frequency * Amplitude / Strouhal`. Code this into a program and then test out the different airspeeds.
+
+- We can use two set Strouhal values - An efficient Strouhal number of 0.20 and low efficiency Strouhal of 0.40.
+- African Swallow: frequency 15hz, amplitude 21cm
+- European Swallow: frequency 14hz, amplitude 22cm
+
+To create this program, we have a few set values, and some values that we want to be able to be different each time the program runs. We can create the following building blocks to help us work with this into our program:
+
+- Two constants:
+  - `STROUHAL_LOW_EFFICIENCY` to store 0.4
+  - `STROUHAL_HIGH_EFFICIENCY` to store 0.2
+- Six variables:
+  - Two strings:
+    - `birdName` to capture the name of the bird the user enters
+    - A `line` to store the numbers they enter, until we can convert them to a double we can use.
+  - Four double values:
+    - `freq` to store the frequency of the birds wing stroke, in beats per second.
+    - `amp` to store the amplitude in meters.
+    - `resultMax` and `resultMin` to store the two speed calculations based on the low and high efficiency Strouhal values.
+
+We will need to use `double` for these numberic values, and we will not have issues with limit of precision or accumulated rounding issues. We need the `line` to read the value, and read line returns us the text they entered.
+
+For our **algorithm**, we will need the program to step through the following actions:
+
+1. Show the start details
+2. Read in the name, frequency, and amplitude
+3. Calculate min and max speeds
+4. Output results
+
+Reading in the frequence and amplitude will require a few steps each:
+
+1. Show the prompt to the user (tell them what we want them to enter)
+2. Read in their response as a string - they enter text
+3. Convert the line entered to a double, and store in the variable
+
+```csharp
+using static System.Console;
+using static System.Convert;
+
+const double STROUHAL_LOW_EFFICIENCY = 0.4;
+const double STROUHAL_HIGH_EFFICIENCY = 0.2;
+
+string birdName, line;
+double freq, amp;
+
+WriteLine("Welcome to the Airspeed Calculator");
+WriteLine();
+WriteLine("What is the name of the bird?");
+Write("Name: ");
+
+WriteLine("What is the frequency of its wing stroke? (beats per second)");
+Write("Frequency: ");
+
+// Read and convert frequency to double
+line = ReadLine();
+freq = ToDouble(line);
+
+WriteLine("What is the amplitude of its wings? (centi)");
+Write("Amplitude: :");
+line = ReadLine();
+amp = ToDouble(line);
+
+// calculate the air speed, given a fixed Strouhal value
+double resultMax, resultMin;
+resultMax = freq * amp / STROUHAL_HIGH_EFFICIENCY;
+resultMin = freq * amp / STROUHAL_LOW_EFFICIENCY;
+
+// output the airspeed of the bird
+WriteLine($"Bird {birdName} ");
+WriteLine($" - f: {freq} A: {amp} Speed: {result} m/s");
+WriteLine($" - f: {freq} A: {amp} Speed: {result} m/s");
+
+```
+
