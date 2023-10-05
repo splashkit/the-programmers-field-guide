@@ -21,7 +21,7 @@ As stated, comments allow you to embed documentation and explanatory text within
 <a href="#FigureCommentsSyntax">Figure 5.13</a> shows the syntax for comments in C#. There are two types of comments, single line comments, and block comments that span multiple lines.
 
 - **Block comments** begin with `/*` and end with `*/` and contain any text in between these, including new lines.
-- **Single line comment** begin with `//` and end with a new line.
+- **Single-line comments** begin with `//` and end with a new line.
 
 <a id="FigureCommentsSyntax"></a>
 
