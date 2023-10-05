@@ -1,3 +1,12 @@
+---
+title: Compiling and Running
+sidebar:
+  label: " - Compiling and Running"
+---
+
+Hopefully you had a go at coding this yourself. Here is what I came up with for this:
+
+```csharp
 /*
 * Program: Simple Change
 * Calculate the ideal change for a given transaction.
@@ -5,6 +14,7 @@
 using static System.Console;
 using static System.Convert;
 
+// Constants for the coin values
 const int TWO_DOLLARS = 200;
 const int ONE_DOLLAR = 100;
 const int FIFTY_CENTS = 50;
@@ -12,15 +22,18 @@ const int TWENTY_CENTS = 20;
 const int TEN_CENTS = 10;
 const int FIVE_CENTS = 5;
 
+// Get the data from the user
 Write("Cost of item in cents: ");
 int costOfItem = ToInt32(ReadLine());
 
 Write("Payment in cents: ");
 int amountPaid = ToInt32(ReadLine());
 
+// Calculate the change
 int changeValue = costOfItem - amountPaid;
 int toGive;
 
+// Give Change
 Write("Change: ");
 
 // Give $2
@@ -53,4 +66,15 @@ toGive = changeValue / TEN_CENTS;
 changeValue = changeValue - toGive * TEN_CENTS;
 Write($"{toGive} x 5c");
 
+// End the line... then end the program
 WriteLine();
+```
+
+:::tip
+The comments helped me track the steps as I went. These will make it easier when I come back to look at this in a few months, when I have forgotten what I was doing now.
+:::
+
+== Compiling and Running
+
+== Debugging
+

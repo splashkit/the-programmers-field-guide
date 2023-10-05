@@ -1,11 +1,8 @@
 ---
-title: Choosing Artefacts
+title: Choosing Building Blocks
 sidebar:
-  label: " - Choosing Artefacts"
+  label: " - Choosing Building Blocks"
 ---
-
-## Choosing Artefacts for the Change Calculator
-
 
 The design for any program should involve thinking about the data as well as the tasks involved. You can start by dividing the program's tasks into functions and procedure, and then look at the data that will be needed by these in order to achieve their tasks.
 
