@@ -240,7 +240,7 @@ export default defineConfig({
               ],
             },
             {
-              label: "4. Structured Programming",
+              label: "4. Project",
               collapsed: true,
               items: [
                 {
