@@ -52,6 +52,27 @@ Code is easy to make mistakes with, so build a little and test how it is going. 
 
 :::
 
+## Compiling and Running
+
+As you build small parts of the code, you need to compile and run the program to test how it is coming along. 
+
+1. Open the [Terminal](../../../../part-0-getting-started/2-computer-use/1-concepts/1-terminal) for your Operating System, or use the integrated terminal in vscode (**ctrl-\`** or **cmd-\`** are the shortcuts).
+2. Use the `cd` command to move to the directory with your code, for example `cd ~/Documents/Code/ChangeCalculator`.
+3. Compile using `dotnet build`.
+4. Fix any compiler errors, using the tips below on how to approach this.
+5. Execute the program using `dotnet run` and check the results.
+
+There are a couple of Terminal shortcuts that can help you here:
+
+- Use the **tab** key to autocomplete filenames in any path. For example, the above `cd` command can be achieved using `cd ~/Doc<TAB>/Co<TAB>/Ch<TAB>`. You have to make sure that you have enough characters to have a unique file or folder. Your home directory probably has "Documents" and "Downloads" folders, so "Doc" is the shortest amount of text that will uniquely identify that we want the "**Doc**uments" folder.
+- Pressing the **up arrow** repeats previous commands. Once you have entered the commands to build and run the program the first time, you can switch back to that same terminal and press the "up arrow" to go back to the command to compile and run the program.
+
+Using the tab key and up/down arrows can really help speed up using the terminal.
+
+:::tip
+Get into the habit of frequently compiling and running your programs. I generally try to get one small piece of functionality coded, then compile and run to make sure that there aren't too many issues to resolve.
+:::
+
 ## Compiler Errors
 
 A compiler is a very sensitive piece of software; they require that you

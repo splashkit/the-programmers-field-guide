@@ -15,10 +15,10 @@ Think about the process of calculating change. At the start you need to determin
 - `Coins to Give`: This Function will be responsible for calculating the number of coins to give as change, given an amount of change and the value of the coin.
 
 
-<a id="FigureChangeCalculatorStructureChart"></a>
+<!-- <a id="FigureChangeCalculatorStructureChart"></a>
 
 ![Figure x.y Structure chart for the Change Calculator](./images/change-calculator-structure-chart.png "Structure chart for the Change Calculator")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Structure chart for the Change Calculator</div><br/>
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Structure chart for the Change Calculator</div><br/> -->
 
 To understand how this is going to work you now need to think about how the kinds if data
 these different tasks are going to need.
@@ -160,8 +160,8 @@ able you are passed. This means a procedure can output values by having param- e
 <br/>
 <a id="FigureChangeCalculatorSequenceDiagram"></a>
 
-![Figure x.y Sequence diagram for the Change Calculator](./images/change-calculator-sequence-diagram.png "Sequence diagram for the Change Calculator")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Sequence diagram for the Change Calculator</div><br/>
+<!-- ![Figure x.y Sequence diagram for the Change Calculator](./images/change-calculator-sequence-diagram.png "Sequence diagram for the Change Calculator")
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Sequence diagram for the Change Calculator</div><br/> -->
 
 
 ### Change Calculator Design Overview
