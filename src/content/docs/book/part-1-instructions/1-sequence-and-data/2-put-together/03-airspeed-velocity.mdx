@@ -54,6 +54,33 @@ Reviewing this plan, we can identify which constants and variables we will need 
 
 We will need to use `double` for these numeric values, and we will not have issues with limit of precision or accumulated rounding issues. We need the `line` to read the value, and read line returns us the text they entered.
 
+## Pseudocode
+
+```
+Declare constants:
+ - STROUHAL_LOW_EFFICIENCY = 0.4
+ - STROUHAL_HIGH_EFFICIENCY = 0.2
+
+Declare variables:
+ - birdName, line to store string data
+ - freq, amp to store double data
+
+Display program details
+
+Read in the name of the bird from the user
+
+Read the frequency and amplitude - converting from string to double
+
+Declare variables:
+  - resultMax, resultMin to store double data
+
+Calculate the air speed, given the fixed Strouhal values
+  resultMax = freq * amp / STROUHAL_HIGH_EFFICIENCY
+  resultMin = freq * amp / STROUHAL_LOW_EFFICIENCY
+
+Output the bird's name, and its min and max airspeed
+```
+
 ## Building and Running
 
 Build and run this in small steps:
