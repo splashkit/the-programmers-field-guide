@@ -76,3 +76,5 @@ Slide 4:
 
 Slide 5:
 - You can no longer access i, it is gone
+
+Make sure you declare variables within the right block so that they are accessible when you need them.
