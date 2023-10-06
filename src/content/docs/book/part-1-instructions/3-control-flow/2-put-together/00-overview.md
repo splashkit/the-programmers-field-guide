@@ -1,8 +1,14 @@
 ---
-title: Guess that Number
+title: Overview
 ---
 
+The Control Flow Statements enable you to alter the purely sequential order in which instructions are performed. Using these Statements you can have the computer select a path to follow, or jump back and repeat statements a number of times. These capabilities make it possible to create programs that react to the data they receive, giving more interactive results than were possible before.
+
+
 The example for this chapter is a guessing game, where the user is guessing a number between 1 and 100. An example of this program executing is shown in [Listing x.y](#ListingGuessingGame)
+
+<br/>
+<a id="ListingGuessingGame"></a>
 
 ```bash
 $ ./GuessThatNumber
@@ -28,6 +34,9 @@ Do you want to play again [Y/n]? n
 
 Bye
 ```
+
+<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Execution output from our Guessing Game</div>
+
 
 ## Getting started
 
