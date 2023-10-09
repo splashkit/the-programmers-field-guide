@@ -448,7 +448,12 @@ export default defineConfig({
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-2-organised-code/5-working-with-multiples/2-put-together",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/5-working-with-multiples/2-put-together",
+                    collapsed: true,
+                  },
                 },
                 {
                   label: "Looking Inside",

@@ -650,10 +650,9 @@ aside[aria-label="How does this work?"] ul > li ul li ul li::before {
   color: darkviolet;
 }
 
-img[src*="#fiftyPctWidth"] {
-  width: 1280;
-  height: 750;
-  aspect-ratio: auto 1280 / 750;
+.mathSymbol {
+  color: firebrick;
+  font-weight: 800;
 }
 
 /* ------------------------------------------- */

@@ -1,0 +1,26 @@
+---
+title: Calculating Mean
+sidebar:
+  label: " - Calculating Mean"
+---
+
+
+The mean of a list of values is the sum of those values divided by the number of values. In the case of the Statistics Calculator program there is already a `Sum` function, so the `Mean` function does not need to recalculate the sum, it can just call the `Sum` and use the result returned.
+
+The length of the array can be calculated in Pascal using its `Length` function, where as C can use the `size` parameter to determine the number of elements in the array. In both cases the basic logic is the same, you use the `Sum` function to calculate the sum and then divide this by the number of elements in the array.
+
+<br/>
+<a id="ListingMean"></a>
+
+```
+Function: Mean
+-------------------------------
+Returns:
+    - Double: The average (mean) of the numbers from the data array
+Parameters:
+    1. data (array of Double) - the list of values
+    2. size (Integer) - the number of elements in data (C only)
+Steps
+    1. Return the result, Sum(data, size) / size
+```
+<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Pseudocode for Mean</div>

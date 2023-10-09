@@ -1,0 +1,53 @@
+---
+title: Calculating Variance
+sidebar:
+  label: " - Calculating Variance"
+---
+
+The last statistic to calculate is the Variance. The processing for this will be very similar to the `Sum` and `Maximum` functions, though the actual calculation is a little more complex. [Equation x.y](#EquationVariance) shows how the Variance of a sample is calculated.
+
+<br/>
+<a id="EquationVariance"></a>
+<span class="mathSymbol">**[INSERT FORMULA HERE]**</span>
+<div class="caption"><span class="caption-figure-nbr">Equation x.y: </span>Formula for calculating the variance</div>
+
+In [Equation x.y](#EquationVariance):
+
+- <span class="mathSymbol">x</span> is the array being processed, 
+- <span class="mathSymbol">xbar</span> is the mean of <span class="mathSymbol">x</span>
+- <span class="mathSymbol">x<sub>i</sub></span> is the value of the *i<sup> th</sup>* element of <span class="mathSymbol">x</span>, and 
+- <span class="mathSymbol">n</span> is the number of elements in the array. 
+ 
+The Sigma indicates that <span class="mathSymbol">x<sub>i</sub> - xbar</span> needs to be summed for each element of <span class="mathSymbol">x</span>.
+
+The steps to calculate the Variance are therefore:
+
+1. Determine the value of the mean (<span class="mathSymbol">xbar</span>).
+2. Calculate <span class="mathSymbol">(x<sub>i</sub> - xbar)<sup>2</sup></span> for each element, and store these in a running sum (called `temp`)
+3. Divide the value (from `temp`) by the number of elements in the array minus one.
+
+The matching Pseudocode for this is shown in [Listing x.y](#ListingVariancePseudoCode). In this case <span class="mathSymbol">x</span> is the `data` array. In Step 1 the mean (<span class="mathSymbol">xbar</span>) is calculated once and stored in `avg`. The loop starts at Step 3, and runs *for each* element of the array. The value <span class="mathSymbol">(x<sub>i</sub> - xbar)<sup>2</sup></span> is calculated for each element in Step 4, and added to the running total stored in `temp`. The final result is then calculated and the result returned in Step 5.
+
+<br/>
+<a id="ListingVariancePseudoCode"></a>
+
+```
+Function: Variance
+-------------------------------
+Returns:
+    - Double: The variance of the numbers from the data array
+Parameters:
+    1. data (array of Double) - the list of values
+    2. size (Integer) - the number of elements in data (C only)
+Local variables:
+    - i (Integer): index of the current element in the array
+    - avg (Double): used to store the mean
+    - temp (Double): stores a temporary values used in the calculation
+Steps
+    1. avg is assigned Mean(data, size)
+    2. temp is assigned 0
+    3. For i, starts at 0 and loops to the highest index of data
+    4.      temp is assigned temp -+ the square of (the ith element of data - avg)
+    5. Return the result, tmp / (size - 1)
+```
+<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Pseudocode for Variance</div>
