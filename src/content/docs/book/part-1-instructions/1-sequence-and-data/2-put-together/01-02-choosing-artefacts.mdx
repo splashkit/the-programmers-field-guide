@@ -110,30 +110,36 @@ Steps:
         (toGive = changeValue / 200)
       Update the amount of change remaining to give
         (changeValue = changeValue - toGive * TWO_DOLLARS;)
-      Output the number of $2 (toGive x $2, use Write to keep it on the same line)
+      Output the number of $2 coins to give - using Write
 
     Give $1 coins (as with $2 above but with ONE_DOLLAR)
       Calculate the number of $1 coins to give
       Update the amount of change remaining to give
-      Output the number of $1
+      Output the number of $1 coins to give - using Write
 
     Give 50c coins (...)
       Calculate the number of 50c coins to give
       Update the amount of change remaining to give
-      Output the number of 50c
+      Output the number of 50c coins to give - using Write
 
     Give 20c coins
       Calculate the number of 20c coins to give
       Update the amount of change remaining to give
-      Output the number of 20c
+      Output the number of 20c coins to give - using Write
 
     Give 10c coins
       Calculate the number of 10c coins to give
       Update the amount of change remaining to give
-      Output the number of 10c
+      Output the number of 10c coins to give - using Write
 
     Give 5c coins
       Calculate the number of 5c coins to give
       Update the amount of change remaining to give
-      Output the number of 5c
+      Output the number of 5c coins to give - using Write
 ```
+
+:::tip[Multiple instructions, one line of output?]
+
+Use the `Write` method to output text to the Terminal without adding a new line character. This lets you build one line of output using multiple instructions to construct the different parts.
+
+:::

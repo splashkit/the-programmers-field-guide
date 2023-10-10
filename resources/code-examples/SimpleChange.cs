@@ -5,6 +5,7 @@
 using static System.Console;
 using static System.Convert;
 
+// Constants for the coin values
 const int TWO_DOLLARS = 200;
 const int ONE_DOLLAR = 100;
 const int FIFTY_CENTS = 50;
@@ -12,15 +13,18 @@ const int TWENTY_CENTS = 20;
 const int TEN_CENTS = 10;
 const int FIVE_CENTS = 5;
 
+// Get the data from the user
 Write("Cost of item in cents: ");
 int costOfItem = ToInt32(ReadLine());
 
 Write("Payment in cents: ");
 int amountPaid = ToInt32(ReadLine());
 
-int changeValue = costOfItem - amountPaid;
+// Calculate the change
+int changeValue = amountPaid - costOfItem;
 int toGive;
 
+// Give Change
 Write("Change: ");
 
 // Give $2
@@ -29,7 +33,7 @@ changeValue = changeValue - toGive * TWO_DOLLARS;
 Write($"{toGive} x $2, ");
 
 // Give $1
-toGive = changeValue / ONE_DOLLARS;
+toGive = changeValue / ONE_DOLLAR;
 changeValue = changeValue - toGive * ONE_DOLLAR;
 Write($"{toGive} x $1, ");
 
@@ -49,8 +53,9 @@ changeValue = changeValue - toGive * TEN_CENTS;
 Write($"{toGive} x 10c, ");
 
 // Give 5c
-toGive = changeValue / TEN_CENTS;
-changeValue = changeValue - toGive * TEN_CENTS;
+toGive = changeValue / FIVE_CENTS;
+changeValue = changeValue - toGive * FIVE_CENTS;
 Write($"{toGive} x 5c");
 
+// End the line... then end the program
 WriteLine();
