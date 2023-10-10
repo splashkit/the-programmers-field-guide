@@ -18,7 +18,7 @@ Duplicated code is always a good place to look to make changes. Control flow can
 
 :::
 
-```pseudocode
+```plaintext
 Constants:
   TWO_DOLLARS = 200;
   ONE_DOLLAR = 100;
@@ -79,6 +79,7 @@ Steps:
 Rather than trying to make one big change to this program, we can plan this out as a number of small iterations.
 
 - Allow it to run multiple times
+- Add validaton
 - Avoid duplication in calculating and giving change
 
 That is the initial plan, which we can update as we go.
