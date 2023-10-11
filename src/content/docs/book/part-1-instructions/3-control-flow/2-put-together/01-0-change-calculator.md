@@ -79,7 +79,7 @@ Steps:
 Rather than trying to make one big change to this program, we can plan this out as a number of small iterations.
 
 - Allow it to run multiple times
-- Add validaton
+- Add validations
 - Avoid duplication in calculating and giving change
 
 That is the initial plan, which we can update as we go.

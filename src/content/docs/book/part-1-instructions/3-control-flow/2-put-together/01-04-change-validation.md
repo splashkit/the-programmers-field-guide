@@ -1,7 +1,7 @@
 ---
-title: Add validation
+title: Adding validations
 sidebar:
-    label: " - Add Validations"
+    label: " - Adding Validations"
 ---
 
 The next thing we can fix are a couple of validation issues. Firstly to check that the user enters a whole number for the cost and payment, and then a check to see that the payment was sufficient.
@@ -144,10 +144,18 @@ Steps:
   While (again != "N" and again != "n")
 ```
 
-Have a go at implementing one of these two options. Both will work. Look at the examples and syntax related to the if statement. Compile and test to make sure that this works as expected. Try testing with the exact amount, and a little over and a little under. These are where errors are more likely to occur.
+Have a go at implementing one of these two options. Both will work. Look at the examples and syntax related to the [if statement](../../1-concepts/03-1-if) and the [continue statement](../../1-concepts/05-2-continue) if you use it. Compile and test to make sure that this works as expected. Try testing with the exact amount, and a little over and a little under. These are where errors are more likely to occur.
 
 :::tip
 
-Make sure to indent the code within the if statement to help make the structure of the code apparent.
+Make sure to indent the code within the if statement to help make the structure of the code apparent. See how this is done in the pseudocode above. Indenting code within these statements helps make it clear which lines are within the loop or branch and those that follow it.
+
+:::
+
+Remember at each step you want to make sure that you have the software working. When you encounter issues, make sure to address these now. Work through them one at a time, starting with the first error, reading the error message carefully, and addressing them before moving on. If you get stuck, you can check the wrap up for the code that we developed - though remember that there are always several ways that you can achieve this.
+
+:::tip
+
+Persistence and attention to detail are important attributes for IT professionals.
 
 :::
