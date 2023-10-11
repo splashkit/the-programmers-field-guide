@@ -41,61 +41,62 @@ do
     
     int amountPaid = ToInt32(line);
 
-    if (amountPaid < costOfItem)
+    if (amountPaid >= costOfItem)
     {
-        WriteLine("Insufficient payment");
-        continue;
-    }
+        int changeValue = amountPaid - costOfItem;
+        int toGive;
 
-    int changeValue = amountPaid - costOfItem;
-    int toGive;
+        Write("Change: ");
 
-    Write("Change: ");
+        int coinValue;
+        string coinText;
 
-    int coinValue;
-    string coinText;
-
-    for(int i = 0; i < NUM_COIN_TYPES; i++)
-    {
-        switch (i)
+        for(int i = 0; i < NUM_COIN_TYPES; i++)
         {
-            case 0:
-                coinValue = TWO_DOLLARS;
-                coinText = "$2, ";
-                break;
-            case 1:
-                coinValue = ONE_DOLLAR;
-                coinText = "$1, ";
-                break;
-            case 2:
-                coinValue = FIFTY_CENTS;
-                coinText = "50c, ";
-                break;
-            case 3:
-                coinValue = TWENTY_CENTS;
-                coinText = "20c, ";
-                break;
-            case 4:
-                coinValue = TEN_CENTS;
-                coinText = "10c, ";
-                break;
-            case 5:
-                coinValue = FIVE_CENTS;
-                coinText = "5c";
-                break;
-            default:
-                coinValue = 0;
-                coinText = "ERROR";
-                break;
+            switch (i)
+            {
+                case 0:
+                    coinValue = TWO_DOLLARS;
+                    coinText = "$2, ";
+                    break;
+                case 1:
+                    coinValue = ONE_DOLLAR;
+                    coinText = "$1, ";
+                    break;
+                case 2:
+                    coinValue = FIFTY_CENTS;
+                    coinText = "50c, ";
+                    break;
+                case 3:
+                    coinValue = TWENTY_CENTS;
+                    coinText = "20c, ";
+                    break;
+                case 4:
+                    coinValue = TEN_CENTS;
+                    coinText = "10c, ";
+                    break;
+                case 5:
+                    coinValue = FIVE_CENTS;
+                    coinText = "5c";
+                    break;
+                default:
+                    coinValue = 0;
+                    coinText = "ERROR";
+                    break;
+            }
+
+            // Give Change
+            toGive = changeValue / coinValue;
+            changeValue = changeValue - toGive * coinValue;
+            Write($"{toGive} x {coinText}");
         }
 
-        // Give Change
-        toGive = changeValue / coinValue;
-        changeValue = changeValue - toGive * coinValue;
-        Write($"{toGive} x {coinText}");
+        WriteLine();
     }
-
-    WriteLine();
+    else
+    {
+        WriteLine("Insufficient payment");
+    }
 
     Write("Run again: ");
     again = ReadLine();

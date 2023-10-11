@@ -101,7 +101,7 @@ Now we can **repeat** this once for each coin, which will require us to think ab
     ...
     Calculate the number of coins to give using the coinValue.
     Update the amount of change remaing
-    Output the number of coins with the coin text
+    Output the number of coins with the coinText
 ```
 
 To create the loop, we need a condition that we can check to determine when the loop ends. This is where we can create a new constant to record the number of coins we need to give change for. We can then loop from 0, *while* the control variable (we will use `i`) is less than that number.
@@ -116,4 +116,113 @@ for(int i = 0; i < NUM_COIN_TYPES; i++)
 //...
 ```
 
+:::tip
+You can read a for loop as "for [initializer] while [condition], then [increment]" (at the end of each loop). So this for loop is:
 
+for i = 0; **while** i < NUM_COIN_TYPE; **then** i++
+:::
+
+Within the loop, we need to populate the `coinValue` and the `coinText` each loop. For the moment, we can use the control variable `i` to determine which values to use. When `i` is 0, we need to use $2, when it is 1 we need to use $1, and so on.
+
+This is a great example of where we can use a [case statement](../../1-concepts/03-2-case). The 
+
+```
+  for each kind of coin (i loops 0 < 6)
+    Switch based on i
+      when 0, coinValue is 200, and coinText is "$2"
+      when 1, coinValue is 100, and coinText is "$1"
+      when 2, coinValue is 50, and coinText is "50c"
+      when 3, coinValue is 20, and coinText is "20c"
+      when 4, coinValue is 10, and coinText is "10c"
+      when 5, coinValue is 5, and coinText is "5c"
+
+    Calculate the number of coins to give using the coinValue.
+    Update the amount of change remaing
+    Output the number of coins with the coinText
+```
+
+## New Pseudocode
+
+Putting this all together, we now have the following pseudocode. As you read through this, try to see how the parts are connected. See how data set in one part is used elsewhere, and how the instructions use this data to achieve the result we need.
+
+```
+Constants:
+  NUM_COIN_TYPES = 6
+
+  TWO_DOLLARS = 200
+  ONE_DOLLAR = 100
+  FIFTY_CENTS = 50
+  TWENTY_CENTS = 20
+  TEN_CENTS = 10
+  FIVE_CENTS = 5
+
+Variables:
+  costOfItem - integer
+  amountPaid - integer
+  changeValue - integer
+  toGive - integer
+  again - string (initialise to "")
+
+  coinValue - integer
+  coinText - string
+  line - string
+
+Steps:
+
+  Do
+    Ask the user to enter the cost in cents
+    Store their response in line
+
+    While line is not an integer
+        Output a message asking for whole numbers only
+        Ask the user to enter the cost in cents
+        Store their response in line
+
+    Convert line to Int32 and store in costOfItem
+
+    Ask the user to enter the payment in cents
+    Store their response in line
+
+    While line is not an integer
+        Output a message asking for whole numbers only
+        Ask the user to enter the payment in cents
+        Store their response in line
+
+    Convert line to Int32 and store in amountPaid
+    
+    If amountPaid >= Cost Of Item    
+      Calculate the amount of change to provide 
+
+      for each kind of coin (i loops 0 < 6)
+        Switch based on i
+          when 0, coinValue is 200, and coinText is "$2"
+          when 1, coinValue is 100, and coinText is "$1"
+          when 2, coinValue is 50, and coinText is "50c"
+          when 3, coinValue is 20, and coinText is "20c"
+          when 4, coinValue is 10, and coinText is "10c"
+          when 5, coinValue is 5, and coinText is "5c"
+
+        Calculate the number of coins to give using the coinValue.
+        Update the amount of change remaing
+        Output the number of coins with the coinText
+    else
+      Output an error message
+
+    Ask the user if they want to run again
+    Read string from user into again
+  While (again != "N" and again != "n")
+```
+
+What we have created ends up being more code, and there is still duplication in this. With some more programming tools we can help improve this further. We are now getting to a point where the amount of code is getting too much to manage in this way, and we need more effective means of manage data within the program. This will be the focus of [Part 2](../../../../part-2-organised-code/00-part-2-programs-as-organised-code), where we will look at [organising code](../../../../part-2-organised-code/2-organising-code/0-overview), [structuring data](../../../../part-2-organised-code/3-structuring-data/0-overview), and [managing multiples](../../../part-2-organised-code/5-working-with-multiples/0-overview).
+
+Adjust your code to incorporate the new structure. Then test it with different amounts of change to make sure it works as expected. Run it through the [debugger](../../../../part-0-getting-started/3-building-programs/1-concepts/4-debug) to help consolidate your understanding of how this works. Remember you can also use this to help fix any logic issues you have, once you sort out any syntax errors.
+
+:::tip
+
+Make sure that you understand how this works before progressing. The upcoming concepts will help you manage your code, but you still need to be able to work with the logic as we are here.
+
+Think through this code yourself. Try explaining code to others. Once you can see how code like this works, it will all start to click.
+
+Keep at it. Remember the computer is unintelligent, and all of these instructions work the same each time.
+
+:::
