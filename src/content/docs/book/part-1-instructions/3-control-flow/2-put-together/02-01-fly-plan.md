@@ -18,7 +18,7 @@ The key features include the spider, fly, event loop, and time.
 
 ### The Spider
 
-For the spider, we only need to know it's location on the screen and its size. We can then update this to move the spider around, and use its size to test when it overlaps the fly.
+For the spider, we only need to know its location on the screen and its size. We can then update this to move the spider around, and use its size to test when it overlaps the fly.
 
 To test when the spider is over the fly we can give the spider and the fly a bounding circle (the area where we consider the spider or fly to be). It will then be easy to check if they touch by seeing if the two circles intersect.
 
@@ -43,7 +43,7 @@ We will need code to track how much time has elapsed. You can get the current ti
 
 There can be an `appearAt` variable to track the time when the fly show appear, this can start as the current time plus a random amount of time. When the current time is larger than the `appearAt` time, we toggle the `appeared` and give the fly a random location on the screen.
 
-When the fly appears, we can set a second time tracking variable `escapeAt` to be the current time plus another random amount. This sets the time when the fly escapes. If the current time is larger than `escapeAt`, then the fly can disapear, and we can set the `appearAt` to a new random time.
+When the fly appears, we can set a second time tracking variable `escapeAt` to be the current time plus another random amount. This sets the time when the fly escapes. If the current time is larger than `escapeAt`, then the fly can disappear, and we can set the `appearAt` to a new random time.
 
 ## Iterations
 
