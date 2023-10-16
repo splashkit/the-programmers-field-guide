@@ -266,16 +266,8 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Looking Inside",
-                  link: "book/part-1-instructions/4-structured-programming/3-looking-inside",
-                },
-                {
-                  label: "Other Languages",
-                  link: "book/part-1-instructions/4-structured-programming/4-other-languages",
-                },
-                {
                   label: "Activities",
-                  link: "book/part-1-instructions/4-structured-programming/5-activities",
+                  link: "book/part-1-instructions/4-structured-programming/3-activities",
                 },
               ],
             },

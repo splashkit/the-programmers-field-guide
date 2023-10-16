@@ -33,7 +33,7 @@ Associated with this is then the styling for these names. As we saw with [identi
 
 As you learn each language, these subtle differences in identifiers will help you understand what each thing is, without having to find where it is declared. This will become second nature as you progress, so breaking these conventions is a real problem.
 
-:::In C#
+  :::tip[In C#]
 
 In C# the coding convention is to use the following:
 
