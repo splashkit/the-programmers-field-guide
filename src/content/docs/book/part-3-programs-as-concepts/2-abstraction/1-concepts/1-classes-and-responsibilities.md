@@ -1,8 +1,14 @@
 ---
-title: "Concept: Classes"
-sidebar:
-  label: Classes
+title: "Classes and Responsibilities"
 ---
+
+To come...
+
+<!-- 
+FIRST DRAFT, restructuring into smaller concepts
+
+Include idea of static.
+-->
 
 ## A new approach to organisation
 

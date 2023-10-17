@@ -1,8 +1,13 @@
 ---
-title: "Concept: Objects"
-sidebar:
-  label: Objects
+title: "Objects and Object Creation"
 ---
+
+<!-- 
+FIRST DRAFT, restructuring into smaller concepts
+
+Focus on idea that object has an identity
+"new" concept, creating objects but not constructors
+-->
 
 ## What is an object?
 
