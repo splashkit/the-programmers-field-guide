@@ -303,16 +303,12 @@ export default defineConfig({
                   link: "book/part-2-organised-code/1-starting-cpp/2-put-together",
                 },
                 {
-                  label: "Looking Inside",
-                  link: "book/part-2-organised-code/1-starting-cpp/3-looking-inside",
-                },
-                {
                   label: "Other Languages",
-                  link: "book/part-2-organised-code/1-starting-cpp/4-other-languages",
+                  link: "book/part-2-organised-code/1-starting-cpp/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-2-organised-code/1-starting-cpp/5-activities",
+                  link: "book/part-2-organised-code/1-starting-cpp/4-activities",
                 },
               ],
             },
@@ -338,16 +334,12 @@ export default defineConfig({
                   link: "book/part-2-organised-code/2-organising-code/2-put-together",
                 },
                 {
-                  label: "Looking Inside",
-                  link: "book/part-2-organised-code/2-organising-code/3-looking-inside",
-                },
-                {
                   label: "Other Languages",
-                  link: "book/part-2-organised-code/2-organising-code/4-other-languages",
+                  link: "book/part-2-organised-code/2-organising-code/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-2-organised-code/2-organising-code/5-activities",
+                  link: "book/part-2-organised-code/2-organising-code/4-activities",
                 },
               ],
             },
@@ -373,16 +365,12 @@ export default defineConfig({
                   link: "book/part-2-organised-code/3-structuring-data/2-put-together",
                 },
                 {
-                  label: "Looking Inside",
-                  link: "book/part-2-organised-code/3-structuring-data/3-looking-inside",
-                },
-                {
                   label: "Other Languages",
-                  link: "book/part-2-organised-code/3-structuring-data/4-other-languages",
+                  link: "book/part-2-organised-code/3-structuring-data/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-2-organised-code/3-structuring-data/5-activities",
+                  link: "book/part-2-organised-code/3-structuring-data/4-activities",
                 },
               ],
             },
@@ -408,16 +396,12 @@ export default defineConfig({
                   link: "book/part-2-organised-code/4-indirect-access/2-put-together",
                 },
                 {
-                  label: "Looking Inside",
-                  link: "book/part-2-organised-code/4-indirect-access/3-looking-inside",
-                },
-                {
                   label: "Other Languages",
-                  link: "book/part-2-organised-code/4-indirect-access/4-other-languages",
+                  link: "book/part-2-organised-code/4-indirect-access/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-2-organised-code/4-indirect-access/5-activities",
+                  link: "book/part-2-organised-code/4-indirect-access/4-activities",
                 },
               ],
             },
@@ -448,16 +432,12 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Looking Inside",
-                  link: "book/part-2-organised-code/5-working-with-multiples/3-looking-inside",
-                },
-                {
                   label: "Other Languages",
-                  link: "book/part-2-organised-code/5-working-with-multiples/4-other-languages",
+                  link: "book/part-2-organised-code/5-working-with-multiples/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-2-organised-code/5-working-with-multiples/5-activities",
+                  link: "book/part-2-organised-code/5-working-with-multiples/4-activities",
                 },
               ],
             },
@@ -488,16 +468,12 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Looking Inside",
-                  link: "book/part-2-organised-code/6-deep-dive-memory/3-looking-inside",
-                },
-                {
                   label: "Other Languages",
-                  link: "book/part-2-organised-code/6-deep-dive-memory/4-other-languages",
+                  link: "book/part-2-organised-code/6-deep-dive-memory/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-2-organised-code/6-deep-dive-memory/5-activities",
+                  link: "book/part-2-organised-code/6-deep-dive-memory/4-activities",
                 },
               ],
             },
@@ -523,16 +499,12 @@ export default defineConfig({
                   link: "book/part-2-organised-code/7-low-level-programming/2-put-together",
                 },
                 {
-                  label: "Looking Inside",
-                  link: "book/part-2-organised-code/7-low-level-programming/3-looking-inside",
-                },
-                {
                   label: "Other Languages",
-                  link: "book/part-2-organised-code/7-low-level-programming/4-other-languages",
+                  link: "book/part-2-organised-code/7-low-level-programming/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-2-organised-code/7-low-level-programming/5-activities",
+                  link: "book/part-2-organised-code/7-low-level-programming/4-activities",
                 },
               ],
             },
@@ -552,32 +524,28 @@ export default defineConfig({
               items: [
                 {
                   label: "Overview",
-                  link: "book/part-3-organised-code/1-back-to-c-sharp/0-overview",
+                  link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/0-overview",
                 },
                 {
                   label: "Concepts",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-3-organised-code/1-back-to-c-sharp/1-concepts",
+                      "book/part-3-programs-as-concepts/1-back-to-c-sharp/1-concepts",
                     collapsed: true,
                   },
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-3-organised-code/1-back-to-c-sharp/2-put-together",
-                },
-                {
-                  label: "Looking Inside",
-                  link: "book/part-3-organised-code/1-back-to-c-sharp/3-looking-inside",
+                  link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/2-put-together",
                 },
                 {
                   label: "Other Languages",
-                  link: "book/part-3-organised-code/1-back-to-c-sharp/4-other-languages",
+                  link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-3-organised-code/1-back-to-c-sharp/5-activities",
+                  link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/4-activities",
                 },
               ],
             },
@@ -603,16 +571,12 @@ export default defineConfig({
                   link: "book/part-3-programs-as-concepts/2-abstraction/2-put-together",
                 },
                 {
-                  label: "Looking Inside",
-                  link: "book/part-3-programs-as-concepts/2-abstraction/3-looking-inside",
-                },
-                {
                   label: "Other Languages",
-                  link: "book/part-3-programs-as-concepts/2-abstraction/4-other-languages",
+                  link: "book/part-3-programs-as-concepts/2-abstraction/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-3-programs-as-concepts/2-abstraction/5-activities",
+                  link: "book/part-3-programs-as-concepts/2-abstraction/4-activities",
                 },
               ],
             },
@@ -638,16 +602,12 @@ export default defineConfig({
                   link: "book/part-3-programs-as-concepts/3-unit-testing/2-put-together",
                 },
                 {
-                  label: "Looking Inside",
-                  link: "book/part-3-programs-as-concepts/3-unit-testing/3-looking-inside",
-                },
-                {
                   label: "Other Languages",
-                  link: "book/part-3-programs-as-concepts/3-unit-testing/4-other-languages",
+                  link: "book/part-3-programs-as-concepts/3-unit-testing/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-3-programs-as-concepts/3-unit-testing/5-activities",
+                  link: "book/part-3-programs-as-concepts/3-unit-testing/4-activities",
                 },
               ],
             },
@@ -901,16 +861,12 @@ export default defineConfig({
                   link: "book/part-4-what-next/1-things-we-left-out/2-put-together",
                 },
                 {
-                  label: "Looking Inside",
-                  link: "book/part-4-what-next/1-things-we-left-out/3-looking-inside",
-                },
-                {
                   label: "Other Languages",
-                  link: "book/part-4-what-next/1-things-we-left-out/4-other-languages",
+                  link: "book/part-4-what-next/1-things-we-left-out/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-4-what-next/1-things-we-left-out/5-activities",
+                  link: "book/part-4-what-next/1-things-we-left-out/4-activities",
                 },
               ],
             },
@@ -936,16 +892,12 @@ export default defineConfig({
                   link: "book/part-4-what-next/2-libraries-packages/2-put-together",
                 },
                 {
-                  label: "Looking Inside",
-                  link: "book/part-4-what-next/2-libraries-packages/3-looking-inside",
-                },
-                {
                   label: "Other Languages",
-                  link: "book/part-4-what-next/2-libraries-packages/4-other-languages",
+                  link: "book/part-4-what-next/2-libraries-packages/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-4-what-next/2-libraries-packages/5-activities",
+                  link: "book/part-4-what-next/2-libraries-packages/4-activities",
                 },
               ],
             },
@@ -971,16 +923,12 @@ export default defineConfig({
                   link: "book/part-4-what-next/3-build-game/2-put-together",
                 },
                 {
-                  label: "Looking Inside",
-                  link: "book/part-4-what-next/3-build-game/3-looking-inside",
-                },
-                {
                   label: "Other Languages",
-                  link: "book/part-4-what-next/3-build-game/4-other-languages",
+                  link: "book/part-4-what-next/3-build-game/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-4-what-next/3-build-game/5-activities",
+                  link: "book/part-4-what-next/3-build-game/4-activities",
                 },
               ],
             },
@@ -1006,16 +954,12 @@ export default defineConfig({
                   link: "book/part-4-what-next/4-build-web-app/2-put-together",
                 },
                 {
-                  label: "Looking Inside",
-                  link: "book/part-4-what-next/4-build-web-app/3-looking-inside",
-                },
-                {
                   label: "Other Languages",
-                  link: "book/part-4-what-next/4-build-web-app/4-other-languages",
+                  link: "book/part-4-what-next/4-build-web-app/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-4-what-next/4-build-web-app/5-activities",
+                  link: "book/part-4-what-next/4-build-web-app/4-activities",
                 },
               ],
             },
@@ -1041,16 +985,12 @@ export default defineConfig({
                   link: "book/part-4-what-next/5-integrate-ai/2-put-together",
                 },
                 {
-                  label: "Looking Inside",
-                  link: "book/part-4-what-next/5-integrate-ai/3-looking-inside",
-                },
-                {
                   label: "Other Languages",
-                  link: "book/part-4-what-next/5-integrate-ai/4-other-languages",
+                  link: "book/part-4-what-next/5-integrate-ai/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-4-what-next/5-integrate-ai/5-activities",
+                  link: "book/part-4-what-next/5-integrate-ai/4-activities",
                 },
               ],
             },
