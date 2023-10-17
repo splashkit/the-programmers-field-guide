@@ -4,6 +4,20 @@ sidebar:
   label: " - Do While Loop"
 ---
 
+import MySwiper from '../../../../../../components/react/myswiper.jsx'
+
+import doWhileLoopSlide01 from './images/control-flow-statements-in-depth/control-flow-do-while-loop-01.png';
+import doWhileLoopSlide02 from './images/control-flow-statements-in-depth/control-flow-do-while-loop-02.png';
+import doWhileLoopSlide03 from './images/control-flow-statements-in-depth/control-flow-do-while-loop-03.png';
+import doWhileLoopSlide04 from './images/control-flow-statements-in-depth/control-flow-do-while-loop-04.png';
+import doWhileLoopSlide05 from './images/control-flow-statements-in-depth/control-flow-do-while-loop-05.png';
+import doWhileLoopSlide06 from './images/control-flow-statements-in-depth/control-flow-do-while-loop-06.png';
+import doWhileLoopSlide07 from './images/control-flow-statements-in-depth/control-flow-do-while-loop-07.png';
+import doWhileLoopSlide08 from './images/control-flow-statements-in-depth/control-flow-do-while-loop-08.png';
+import doWhileLoopSlide09 from './images/control-flow-statements-in-depth/control-flow-do-while-loop-09.png';
+import doWhileLoopSlide10 from './images/control-flow-statements-in-depth/control-flow-do-while-loop-10.png';
+import doWhileLoopSlide11 from './images/control-flow-statements-in-depth/control-flow-do-while-loop-11.png';
+
 The do while loop is the post-test loop in C#. These loops are rarely used but are useful to know about.
 
 <a id="FigurePostTestLoop"></a>
@@ -54,6 +68,94 @@ do
 
 Use the following images to see how this works.
 
-**TODO add slider**
+<MySwiper client:only height="" images={sliderImagesDoWhileLoop}></MySwiper>
+
+
+export const sliderImagesDoWhileLoop = [
+  {
+    src: doWhileLoopSlide01.src,
+    altText: "Lines 1-3: The string variable 'again' is allocated space on the stack.",
+    tipStart: 1,
+    tips: [
+      "Lines 1 and 2 import some System librarires",
+      "Line 3 allocates space on the stack for the string variable 'again'",
+      "The program counter is increased from line 3 to 4"
+    ]
+  },
+  {
+    src: doWhileLoopSlide02.src,
+    altText: "Line 4 is the keyword 'do' which indicates the start of a do-while loop",
+    tipStart: 2,
+    tips: [
+      "Line 4 is the keyword 'do' which indicates the start of a do-while loop",
+      "Note that there is no test condition associated with the 'do' keyword, so the program proceeds and the counter increments to line 5"
+    ]
+  },
+  {
+    src: doWhileLoopSlide03.src,
+    altText: "The opening brace is encountered, indicating the start of the do-while block",
+    tipStart: 3,
+    tips: [
+      "The opening brace is encountered, indicating the start of the do-while block",
+      "The program counter increments to line 6"
+    ]
+  },
+  {
+    src: doWhileLoopSlide04.src,
+    altText: "Line 6 writes 'Hello' to the terminal",
+    tipStart: 4,
+    tips: [
+      "Line 6 writes 'Hello' to the terminal",
+      "The program counter increments to line 7"
+    ]
+  },
+  {
+    src: doWhileLoopSlide05.src,
+    altText: "Line 7 writes 'Again: ' to the terminal",
+    tipStart: 5,
+    tips: [
+      "Line 7 writes 'Again: ' to the terminal",
+      "The program counter increments to line 8"
+    ]
+  },
+  {
+    src: doWhileLoopSlide06.src,
+    altText: "Line 8 reads user input, in this case 'y' and stores it in the 'again' variable on the stack",
+    tipStart: 6,
+    tips: [
+      "Line 8 reads user input, in this case 'y', and stores it in the 'again' variable on the stack",
+      "The program counter increments to line 9"
+    ]
+  },
+  {
+    src: doWhileLoopSlide07.src,
+    altText: "Line 9 tests the condition, which evaluates to true, and jumps back up to the start of the do-while block (line 6)",
+    tipStart: 7,
+    tips: [
+      "Line 9 encounters the closing right brace, which indicates the end of this iteration of the do-while block of code",
+      "There is a condition associated with the end of this iteration, which is then tested",
+      "The condition compares the user input stored in the 'again' variable ('y') with 'y' or 'Y'",
+      "This evaluates to <span class='booleanTrue'>true</span>, and so the program counter will jump back up to the start of the do-while block, line 6"
+    ]
+  },
+  {
+    src: doWhileLoopSlide08.src,
+    altText: "Lines 6-8 reads user input, in this case 'n' and stores it in the variable 'again'",
+    tipStart: 8,
+    tips: [
+      "Line 6-7 are stepped through again, printing 'Hello' and 'Again: ' to the terminal",
+      "Line 8 again reads the user input ('n') and stores it in the string variable 'again'"
+    ]
+  },
+  {
+    src: doWhileLoopSlide09.src,
+    altText: "The condition is tested at the end of this iteration of the do-while block of code, and evaluates to false, ending the program.",
+    tipStart: 9,
+    tips: [
+      "The condition associated with the end of this iteration of the do-while block compares the user input stored in the 'again' variable ('n') with 'y' or 'Y'",
+      "This time it evaluates to <span class='booleanFalse'>false</span>, and so the program counter increases and the program ends"
+    ]
+  },
+];
 
 Notice how the do marks the start of the statements to repeat, and the while evaluates the condition and jumps back as needed. As with the while loop, this condition is only checked when the computer is at that location in the code. This works in with the general idea of building our program in sequence, using defined control flow statements.
