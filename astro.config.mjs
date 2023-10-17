@@ -838,6 +838,37 @@ export default defineConfig({
                 },
               ],
             },
+            {
+              label: "10. Project",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-3-programs-as-concepts/10-project/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/10-project/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-3-programs-as-concepts/10-project/2-put-together",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-3-programs-as-concepts/10-project/3-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-3-programs-as-concepts/10-project/4-activities",
+                },
+              ],
+            },
           ],
         },
         {
