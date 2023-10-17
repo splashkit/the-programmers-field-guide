@@ -245,14 +245,14 @@ export default defineConfig({
               items: [
                 {
                   label: "Overview",
-                  link: "book/part-1-instructions/4-structured-programming/0-overview",
+                  link: "book/part-1-instructions/4-project/0-overview",
                 },
                 {
                   label: "Concepts",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-1-instructions/4-structured-programming/1-concepts",
+                      "book/part-1-instructions/4-project/1-concepts",
                     collapsed: true,
                   },
                 },
@@ -261,13 +261,13 @@ export default defineConfig({
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-1-instructions/4-structured-programming/2-put-together",
+                      "book/part-1-instructions/4-project/2-put-together",
                     collapsed: true,
                   },
                 },
                 {
                   label: "Activities",
-                  link: "book/part-1-instructions/4-structured-programming/3-activities",
+                  link: "book/part-1-instructions/4-project/3-activities",
                 },
               ],
             },
@@ -536,181 +536,6 @@ export default defineConfig({
                 },
               ],
             },
-            {
-              label: "8. Welcome Back to C#",
-              collapsed: true,
-              items: [
-                {
-                  label: "Overview",
-                  link: "book/part-2-organised-code/8-back-to-c-sharp/0-overview",
-                },
-                {
-                  label: "Concepts",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-2-organised-code/8-back-to-c-sharp/1-concepts",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Putting it Together",
-                  link: "book/part-2-organised-code/8-back-to-c-sharp/2-put-together",
-                },
-                {
-                  label: "Looking Inside",
-                  link: "book/part-2-organised-code/8-back-to-c-sharp/3-looking-inside",
-                },
-                {
-                  label: "Other Languages",
-                  link: "book/part-2-organised-code/8-back-to-c-sharp/4-other-languages",
-                },
-                {
-                  label: "Activities",
-                  link: "book/part-2-organised-code/8-back-to-c-sharp/5-activities",
-                },
-              ],
-            },
-            {
-              label: "9. Classes and Objects",
-              collapsed: true,
-              items: [
-                {
-                  label: "Overview",
-                  link: "book/part-2-organised-code/9-classes-and-objects/0-overview",
-                },
-                {
-                  label: "Concepts",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-2-organised-code/9-classes-and-objects/1-concepts",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Putting it Together",
-                  link: "book/part-2-organised-code/9-classes-and-objects/2-put-together",
-                },
-                {
-                  label: "Looking Inside",
-                  link: "book/part-2-organised-code/9-classes-and-objects/3-looking-inside",
-                },
-                {
-                  label: "Other Languages",
-                  link: "book/part-2-organised-code/9-classes-and-objects/4-other-languages",
-                },
-                {
-                  label: "Activities",
-                  link: "book/part-2-organised-code/9-classes-and-objects/5-activities",
-                },
-              ],
-            },
-            {
-              label: "10. Collections",
-              collapsed: true,
-              items: [
-                {
-                  label: "Overview",
-                  link: "book/part-2-organised-code/10-collections/0-overview",
-                },
-                {
-                  label: "Concepts",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-2-organised-code/10-collections/1-concepts",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Putting it Together",
-                  link: "book/part-2-organised-code/10-collections/2-put-together",
-                },
-                {
-                  label: "Looking Inside",
-                  link: "book/part-2-organised-code/10-collections/3-looking-inside",
-                },
-                {
-                  label: "Other Languages",
-                  link: "book/part-2-organised-code/10-collections/4-other-languages",
-                },
-                {
-                  label: "Activities",
-                  link: "book/part-2-organised-code/10-collections/5-activities",
-                },
-              ],
-            },
-            {
-              label: "11. Structured Error Handling",
-              collapsed: true,
-              items: [
-                {
-                  label: "Overview",
-                  link: "book/part-2-organised-code/11-structured-error-handling/0-overview",
-                },
-                {
-                  label: "Concepts",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-2-organised-code/11-structured-error-handling/1-concepts",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Putting it Together",
-                  link: "book/part-2-organised-code/11-structured-error-handling/2-put-together",
-                },
-                {
-                  label: "Looking Inside",
-                  link: "book/part-2-organised-code/11-structured-error-handling/3-looking-inside",
-                },
-                {
-                  label: "Other Languages",
-                  link: "book/part-2-organised-code/11-structured-error-handling/4-other-languages",
-                },
-                {
-                  label: "Activities",
-                  link: "book/part-2-organised-code/11-structured-error-handling/5-activities",
-                },
-              ],
-            },
-            {
-              label: "12. Function Abstractions",
-              collapsed: true,
-              items: [
-                {
-                  label: "Overview",
-                  link: "book/part-2-organised-code/12-function-abstractions/0-overview",
-                },
-                {
-                  label: "Concepts",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-2-organised-code/12-function-abstractions/1-concepts",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Putting it Together",
-                  link: "book/part-2-organised-code/12-function-abstractions/2-put-together",
-                },
-                {
-                  label: "Looking Inside",
-                  link: "book/part-2-organised-code/12-function-abstractions/3-looking-inside",
-                },
-                {
-                  label: "Other Languages",
-                  link: "book/part-2-organised-code/12-function-abstractions/4-other-languages",
-                },
-                {
-                  label: "Activities",
-                  link: "book/part-2-organised-code/12-function-abstractions/5-activities",
-                },
-              ],
-            },
           ],
         },
         {
@@ -722,212 +547,294 @@ export default defineConfig({
               link: "book/part-3-programs-as-concepts/00-part-3-programs-as-concepts",
             },
             {
-              label: "1. Abstraction",
+              label: "1. Welcome Back to C#",
               collapsed: true,
               items: [
                 {
                   label: "Overview",
-                  link: "book/part-3-programs-as-concepts/1-abstraction/0-overview",
+                  link: "book/part-3-organised-code/1-back-to-c-sharp/0-overview",
                 },
                 {
                   label: "Concepts",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-3-programs-as-concepts/1-abstraction/1-concepts",
+                      "book/part-3-organised-code/1-back-to-c-sharp/1-concepts",
                     collapsed: true,
                   },
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-3-programs-as-concepts/1-abstraction/2-put-together",
+                  link: "book/part-3-organised-code/1-back-to-c-sharp/2-put-together",
                 },
                 {
                   label: "Looking Inside",
-                  link: "book/part-3-programs-as-concepts/1-abstraction/3-looking-inside",
+                  link: "book/part-3-organised-code/1-back-to-c-sharp/3-looking-inside",
                 },
                 {
                   label: "Other Languages",
-                  link: "book/part-3-programs-as-concepts/1-abstraction/4-other-languages",
+                  link: "book/part-3-organised-code/1-back-to-c-sharp/4-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-3-programs-as-concepts/1-abstraction/5-activities",
+                  link: "book/part-3-organised-code/1-back-to-c-sharp/5-activities",
                 },
               ],
             },
             {
-              label: "2. Unit Testing",
+              label: "2. Abstraction",
               collapsed: true,
               items: [
                 {
                   label: "Overview",
-                  link: "book/part-3-programs-as-concepts/2-unit-testing/0-overview",
+                  link: "book/part-3-programs-as-concepts/2-abstraction/0-overview",
                 },
                 {
                   label: "Concepts",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-3-programs-as-concepts/2-unit-testing/1-concepts",
+                      "book/part-3-programs-as-concepts/2-abstraction/1-concepts",
                     collapsed: true,
                   },
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-3-programs-as-concepts/2-unit-testing/2-put-together",
+                  link: "book/part-3-programs-as-concepts/2-abstraction/2-put-together",
                 },
                 {
                   label: "Looking Inside",
-                  link: "book/part-3-programs-as-concepts/2-unit-testing/3-looking-inside",
+                  link: "book/part-3-programs-as-concepts/2-abstraction/3-looking-inside",
                 },
                 {
                   label: "Other Languages",
-                  link: "book/part-3-programs-as-concepts/2-unit-testing/4-other-languages",
+                  link: "book/part-3-programs-as-concepts/2-abstraction/4-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-3-programs-as-concepts/2-unit-testing/5-activities",
+                  link: "book/part-3-programs-as-concepts/2-abstraction/5-activities",
                 },
               ],
             },
             {
-              label: "3. Collaboration and Encapsulation",
+              label: "3. Unit Testing",
               collapsed: true,
               items: [
                 {
                   label: "Overview",
-                  link: "book/part-3-programs-as-concepts/3-collaboration-encapsulation/0-overview",
+                  link: "book/part-3-programs-as-concepts/3-unit-testing/0-overview",
                 },
                 {
                   label: "Concepts",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-3-programs-as-concepts/3-collaboration-encapsulation/1-concepts",
+                      "book/part-3-programs-as-concepts/3-unit-testing/1-concepts",
                     collapsed: true,
                   },
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-3-programs-as-concepts/3-collaboration-encapsulation/2-put-together",
+                  link: "book/part-3-programs-as-concepts/3-unit-testing/2-put-together",
                 },
                 {
                   label: "Looking Inside",
-                  link: "book/part-3-programs-as-concepts/3-collaboration-encapsulation/3-looking-inside",
+                  link: "book/part-3-programs-as-concepts/3-unit-testing/3-looking-inside",
                 },
                 {
                   label: "Other Languages",
-                  link: "book/part-3-programs-as-concepts/3-collaboration-encapsulation/4-other-languages",
+                  link: "book/part-3-programs-as-concepts/3-unit-testing/4-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-3-programs-as-concepts/3-collaboration-encapsulation/5-activities",
+                  link: "book/part-3-programs-as-concepts/3-unit-testing/5-activities",
                 },
               ],
             },
             {
-              label: "4. Inheritance and Polymorphism",
+              label: "4. Collections",
               collapsed: true,
               items: [
                 {
                   label: "Overview",
-                  link: "book/part-3-programs-as-concepts/4-inheritance-polymorphism/0-overview",
+                  link: "book/part-3-programs-as-concepts/4-collections/0-overview",
                 },
                 {
                   label: "Concepts",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-3-programs-as-concepts/4-inheritance-polymorphism/1-concepts",
+                      "book/part-3-programs-as-concepts/4-collections/1-concepts",
                     collapsed: true,
                   },
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-3-programs-as-concepts/4-inheritance-polymorphism/2-put-together",
-                },
-                {
-                  label: "Looking Inside",
-                  link: "book/part-3-programs-as-concepts/4-inheritance-polymorphism/3-looking-inside",
+                  link: "book/part-3-programs-as-concepts/4-collections/2-put-together",
                 },
                 {
                   label: "Other Languages",
-                  link: "book/part-3-programs-as-concepts/4-inheritance-polymorphism/4-other-languages",
+                  link: "book/part-3-programs-as-concepts/4-collections/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-3-programs-as-concepts/4-inheritance-polymorphism/5-activities",
+                  link: "book/part-3-programs-as-concepts/4-collections/4-activities",
                 },
               ],
             },
             {
-              label: "5. Interfaces and Abstract Classes",
+              label: "5. Collaboration and Encapsulation",
               collapsed: true,
               items: [
                 {
                   label: "Overview",
-                  link: "book/part-3-programs-as-concepts/5-interfaces-abstract-classes/0-overview",
+                  link: "book/part-3-programs-as-concepts/5-collaboration-encapsulation/0-overview",
                 },
                 {
                   label: "Concepts",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-3-programs-as-concepts/5-interfaces-abstract-classes/1-concepts",
+                      "book/part-3-programs-as-concepts/5-collaboration-encapsulation/1-concepts",
                     collapsed: true,
                   },
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-3-programs-as-concepts/5-interfaces-abstract-classes/2-put-together",
-                },
-                {
-                  label: "Looking Inside",
-                  link: "book/part-3-programs-as-concepts/5-interfaces-abstract-classes/3-looking-inside",
+                  link: "book/part-3-programs-as-concepts/5-collaboration-encapsulation/2-put-together",
                 },
                 {
                   label: "Other Languages",
-                  link: "book/part-3-programs-as-concepts/5-interfaces-abstract-classes/4-other-languages",
+                  link: "book/part-3-programs-as-concepts/5-collaboration-encapsulation/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-3-programs-as-concepts/5-interfaces-abstract-classes/5-activities",
+                  link: "book/part-3-programs-as-concepts/5-collaboration-encapsulation/4-activities",
                 },
               ],
             },
             {
-              label: "6. Design Principles and Patterns",
+              label: "6. Structured Error Handling",
               collapsed: true,
               items: [
                 {
                   label: "Overview",
-                  link: "book/part-3-programs-as-concepts/6-design-principles-patterns/0-overview",
+                  link: "book/part-3-programs-as-concepts/6-structured-error-handling/0-overview",
                 },
                 {
                   label: "Concepts",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-3-programs-as-concepts/6-design-principles-patterns/1-concepts",
+                      "book/part-3-programs-as-concepts/6-structured-error-handling/1-concepts",
                     collapsed: true,
                   },
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-3-programs-as-concepts/6-design-principles-patterns/2-put-together",
-                },
-                {
-                  label: "Looking Inside",
-                  link: "book/part-3-programs-as-concepts/6-design-principles-patterns/3-looking-inside",
+                  link: "book/part-3-programs-as-concepts/6-structured-error-handling/2-put-together",
                 },
                 {
                   label: "Other Languages",
-                  link: "book/part-3-programs-as-concepts/6-design-principles-patterns/4-other-languages",
+                  link: "book/part-3-programs-as-concepts/6-structured-error-handling/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-3-programs-as-concepts/6-design-principles-patterns/5-activities",
+                  link: "book/part-3-programs-as-concepts/6-structured-error-handling/4-activities",
+                },
+              ],
+            },
+            
+            {
+              label: "7. Inheritance and Polymorphism",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-3-programs-as-concepts/7-inheritance-polymorphism/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/7-inheritance-polymorphism/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-3-programs-as-concepts/7-inheritance-polymorphism/2-put-together",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-3-programs-as-concepts/7-inheritance-polymorphism/3-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-3-programs-as-concepts/7-inheritance-polymorphism/4-activities",
+                },
+              ],
+            },
+            {
+              label: "8. Interfaces and Abstract Classes",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-3-programs-as-concepts/8-interfaces-abstract-classes/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/8-interfaces-abstract-classes/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-3-programs-as-concepts/8-interfaces-abstract-classes/2-put-together",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-3-programs-as-concepts/8-interfaces-abstract-classes/3-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-3-programs-as-concepts/8-interfaces-abstract-classes/4-activities",
+                },
+              ],
+            },
+            {
+              label: "9. Design Principles and Patterns",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-3-programs-as-concepts/9-design-principles-patterns/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/9-design-principles-patterns/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  link: "book/part-3-programs-as-concepts/9-design-principles-patterns/2-put-together",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-3-programs-as-concepts/9-design-principles-patterns/3-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-3-programs-as-concepts/9-design-principles-patterns/4-activities",
                 },
               ],
             },
