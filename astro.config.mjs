@@ -73,7 +73,7 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "Computer Use Overview",
+                  label: "Overview",
                   link: "book/part-0-getting-started/2-computer-use/0-overview",
                 },
                 {
