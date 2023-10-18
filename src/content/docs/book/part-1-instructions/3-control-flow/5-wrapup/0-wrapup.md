@@ -1,5 +1,7 @@
 ---
-title: Control Flow In Reviwe
+title: Control Flow In Review
+sidebar:
+    label: Summary
 ---
 
 The introduction of control flow has enabled us to start to move from explicit instructions, to more general instructions that use data. This is the start of our transition to building digital realities - where data and logic will come together as we are seeing here.

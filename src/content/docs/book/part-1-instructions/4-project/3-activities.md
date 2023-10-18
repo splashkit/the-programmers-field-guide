@@ -12,6 +12,8 @@ If you have access to others with more experience, explain your programs to them
 
 Here are some project ideas to get you going.
 
+**TODO: Add activities**
+
 ### Reaction Time
 
 Create a graphical application to capture reaction times. Show a shape and record the time it takes for the user to hit the space bar after the shape is drawn.
