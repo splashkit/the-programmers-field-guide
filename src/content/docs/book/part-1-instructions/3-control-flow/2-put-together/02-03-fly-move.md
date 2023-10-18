@@ -115,7 +115,7 @@ Steps:
     Process Events
 ```
 
-Try coding this and test that the spider now only moves when you press the right arrow key. Once you get that working.
+Try coding this and test that the spider now only moves when you press the right arrow key.
 
 :::tip[Key Codes]
 
@@ -145,6 +145,22 @@ The main options include:
 | RightShiftKey | LeftShiftKey | RightCtrlKey | LeftCtrlKey | RightAltKey |
 | LeftAltKey | LeftSuperKey | RightSuperKey | | |
 :::
+
+### Controlling Speed
+
+If you keep the idea of the flip-book in your mind. Imagine an animation with a circle moving from the left to the right of the page.
+
+How long will this take?
+
+The answer depends on how quickly you flip through the pages. That is the same with our code here. To help ensure a consistent speed, we can limit the number of times we redraw the screen. SplashKit has a version of the [Refresh Screen](https://splashkit.io/api/graphics/#refresh-screen-with-target-fps) method that accepts an integer argument that indicates our target framerate. This then adds in a variable delay to limit the computer to redrawing at the indicated rate.
+
+For this we can update our refresh screen call to limit us to sixty frames per second.
+
+```csharp
+RefreshScreen(60);
+```
+
+### Moving left
 
 Now let's add the code to move the player left if they hold down the left arrow key. Here there are a few options we could use. We could use an **if ... else if**, or just have an **if** followed by another **if**. Let's think through these options.
 

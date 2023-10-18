@@ -237,6 +237,15 @@ export default defineConfig({
                   label: "Activities",
                   link: "book/part-1-instructions/3-control-flow/4-activities",
                 },
+                {
+                  label: "Wrap Up",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-1-instructions/3-control-flow/5-wrapup",
+                    collapsed: true,
+                  },
+                },
               ],
             },
             {
