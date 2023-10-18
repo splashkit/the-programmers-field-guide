@@ -291,7 +291,7 @@ export default defineConfig({
               link: "book/part-2-organised-code/00-part-2-programs-as-organised-code",
             },
             {
-              label: "1. Starting C++",
+              label: "1. Starting C/C++",
               collapsed: true,
               items: [
                 {
