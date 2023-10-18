@@ -15,6 +15,6 @@ In your group, discuss the following:
 
 # Wrap Up
 
-This book is about learning to program, which is learning to create digital realities that exist and operate within a computer. Computers are complicated machines, but we can rise above that due to abstraction.
+This book is about learning to program, which is really learning to create digital realities that exist and operate within a computer. Computers are complicated machines, but we can rise above that due to abstraction.
 
 Before we continue this journey, we need to take a brief tour of the tools and skills you will need to use your computer like a computing professional.
