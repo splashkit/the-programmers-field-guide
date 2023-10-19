@@ -36,36 +36,17 @@ The following programming terminology will also be used in this chapter:
 - [Statement](../../2-communicating-syntax/1-concepts/02-statement): An instruction performed in your code.
 - [Type](../../1-sequence-and-data/1-concepts/06-type): A kind of data used in your code.
 
-In putting it together, we will see how we can put all of these tools together to build a guessing game where the user is guessing a number between 1 and 100. An example of this program executing is shown in [Listing x.y](#ListingGuessingGame)
-
+In putting it together, we will see how we can put all of these tools together to improve our change calculator and build a small game.
 
 <a id="ListingGuessingGame"></a>
 
 ```bash
-$ ./GuessThatNumber
-I am thinking of a number between 1 and 100
+$ dotnet run
 
-Guess 1: 73
-The number is less than 73
-Guess 2: 10
-The number is larger than 10
-Guess 3: 52
-The number is larger than 52
-Guess 4: 60
-The number is less than 60
-Guess 5: 57
-The number is less than 57
-Guess 6: 54
-The numbar is larger than 54
-Guess 7: 56
-The number is less than 56
-You ran out of guesses... the number was 55
-
-Do you want to play again [Y/n]? n
-
-Bye
 ```
 <div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Guess that Number run from the Terminal</div>
+
+**TODO - update output**
 
 ## Learning Goals
 
