@@ -4,7 +4,7 @@ sidebar:
     label: " - fly escape"
 ---
 
-This step adds the code to get the fly to escape.
+Our last step shows how to check for the spider catching the fly.
 
 ```csharp
 using SplashKitSDK;
@@ -42,7 +42,6 @@ while (!QuitRequested())
   {
     spiderX += SPIDER_SPEED;
   }
-
   if (KeyDown(KeyCode.LeftKey) && spiderX - SPIDER_RADIUS > 0)
   {
     spiderX -= SPIDER_SPEED;
@@ -58,11 +57,18 @@ while (!QuitRequested())
     // Give it a new random position
     flyX = Rnd(SCREEN_WIDTH);
     flyY = Rnd(SCREEN_HEIGHT);
-
+    
     // Set its escape time
     escapeAtTime = TimerTicks(GAME_TIMER) + 2000 + Rnd(5000);
   }
   else if (flyAppeared && TimerTicks(GAME_TIMER) > escapeAtTime)
+  {
+    flyAppeared = false;
+    appearAtTime = TimerTicks(GAME_TIMER) + 1000 + Rnd(2000);
+  }
+
+  // Test if the spider and fly are touching
+  if (CirclesIntersect(CircleAt(spiderX, spiderY, SPIDER_RADIUS), CircleAt(flyX, flyY, FLY_RADIUS)))
   {
     flyAppeared = false;
     appearAtTime = TimerTicks(GAME_TIMER) + 1000 + Rnd(2000);
@@ -87,10 +93,10 @@ while (!QuitRequested())
 }
 ```
 
-:::note
+:::caution
 
-Try to be able to focus your attention on different parts of the code one at a time. Understanding how it all fits together at a high level, and then in individual parts.
+Wow, this is **a lot of code** even for me! Generally I would have brought in the code organisation features of the language to help make this easier for me, but we haven't covered those yet.
 
-When you have it working, you can then focus on how the new features code into the existing flow. Don't try to keep all the code in your mind at one time - break it down and work piece by piece.
+The good thing is - once you master these concepts and can create code like this... it is all just going to get easier from here. In Part 2 we will see some tools we can bring to help us better manage this code. Then writing huge chunks of code like this will be a thing of the past. You will still use control flow, but you will have need tools you can use to divide the code up into clearer sections so you can more easily think through how those parts work.
 
 :::
