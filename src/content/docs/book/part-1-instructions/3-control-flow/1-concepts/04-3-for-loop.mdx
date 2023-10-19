@@ -17,6 +17,18 @@ import forLoopSlide08 from './images/control-flow-statements-in-depth/control-fl
 import forLoopSlide09 from './images/control-flow-statements-in-depth/control-flow-for-loop-09.png';
 import forLoopSlide10 from './images/control-flow-statements-in-depth/control-flow-for-loop-10.png';
 
+
+import reversedForLoopSlide01 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-01.png';
+import reversedForLoopSlide02 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-02.png';
+import reversedForLoopSlide03 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-03.png';
+import reversedForLoopSlide04 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-04.png';
+import reversedForLoopSlide05 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-05.png';
+import reversedForLoopSlide06 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-06.png';
+import reversedForLoopSlide07 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-07.png';
+import reversedForLoopSlide08 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-08.png';
+import reversedForLoopSlide09 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-09.png';
+import reversedForLoopSlide10 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-10.png';
+
 There is one other loop that we need to look at: the **for loop**.
 
 The for loop is a pre-test loop, basically a specialised version of the while loop. It can do many things in C#, but it is mainly used to repeat a block of code a set number of times. You can think of it like a counting loop, with it counting from a start value to an end value. The for loop has a **control variable** that has the number of times the loop has currently run, which the loop can use to test when it is looking to see if it should end.
@@ -176,6 +188,114 @@ export const sliderImagesForLoop = [
     ]
   }
 ];
+
+
+#### Reversed for loop
+
+Compare the for loop shown above, with that below, which moves in a numerically reverse order. Take note of the use of a single variable to store the result for comparison this time, as well as the initialization, which has shifted the reading of the user input (along with the initialization of the max variable), from outside the for loop, to inside.
+
+<MySwiper client:only height="" images={sliderImagesReversedForLoop}></MySwiper>
+
+
+export const sliderImagesReversedForLoop = [
+  {
+    src: reversedForLoopSlide01.src,
+    altText: "Lines 1-2 declare an integer variable (max) then prompt the user for input",
+    tipStart: 1,
+    tips: [
+      "Lines 1-2 declare an integer variable (max) then prompt the user for input",
+      "The program counter is increased from line 2 to line 3"
+    ]
+  },
+  {
+    src: reversedForLoopSlide02.src,
+    altText: "Lines 3 begins the for loop: The first step (3a) is the initialization: This initialization code reads the user's input ('10'), converts it to an integer, and stores it in the variable max on the stack.",
+    tipStart: 2,
+    tips: [
+      "Line 3 begins the for loop",
+      "The first step is the initialization (step 3a): This code reads the user's input ('10'), converts it to an integer, and stores it in the variable max on the stack",
+      "Control then moves to step 3b"
+    ]
+  },
+  {
+    src: reversedForLoopSlide03.src,
+    altText: "Step 3b is the comparison which evaluates to true",
+    tipStart: 3,
+    tips: [
+      "Step 3b is the comparison",
+      "Since max (10) is greater than 0, it evaluates to <span class='booleanTrue'>true</span>",
+      "Control then moves through line 4 (the opening of the main for loop block) to line 5, the first line of code in the main for loop block)"
+    ]
+  },
+  {
+    src: reversedForLoopSlide04.src,
+    altText: "Line 5 writes the value of the variable max (10) to the terminal",
+    tipStart: 4,
+    tips: [
+      "Line 5 writes the value of the variable max (10) to the terminal",
+      "Control then moves back to line 3 (step 3c)"
+    ]
+  },
+  {
+    src: reversedForLoopSlide05.src,
+    altText: "Step 3c decrements the value of the variable max by 1 (from 10 to 9), and stores the result back in the same variable",
+    tipStart: 5,
+    tips: [
+      "Step 3c decrements the value of the variable max by 1 (from 10 to 9), and stores the result back in the same variable",
+      "Control then moves to step 3b"
+    ]
+  },
+  {
+    src: reversedForLoopSlide06.src,
+    altText: "Step 3c decrements the value of the variable max by 1 (from 10 to 9), and stores the result back in the same variable",
+    tipStart: 6,
+    tips: [
+      "Step 3b evaluates to <span class='booleanTrue'>true</span> again, since 9 is still greater than 0",
+      "Control then moves to the first line of code in the main for loop (lines 4,5)"
+    ]
+  },
+  {
+    src: reversedForLoopSlide07.src,
+    altText: "Line 5 writes the value of the variable max (9) to the terminal",
+    tipStart: 7,
+    tips: [
+      "Line 5 writes the value of the variable max (9) to the terminal",
+      "Control then moves back to line 3 (step 3c)"
+    ]
+  },
+  {
+    src: reversedForLoopSlide08.src,
+    altText: "Let's jump ahead to where the number 1 has been printed and max decrements from 1 to 0",
+    tipStart: 8,
+    tips: [
+      "The program loops through like this, printing numbers",
+      "Let's jump ahead to where the number 1 has just been printed to the screen (rather than the number 9 as on the previous slide)",
+      "Now at step 3c, max is decremented by 1 (from 1 to 0)",
+      "Control passes back to step 3b, the comparison"
+    ]
+  },
+  {
+    src: reversedForLoopSlide09.src,
+    altText: "This time the comparison at step 3b evaluates to false, and the for loop ends",
+    tipStart: 9,
+    tips: [
+      "This time the comparison at step 3b evaluates to <span class='booleanFalse'>false</span>, since 0 is not greater than 0",
+      "The for loop ends",
+      "Control passes through line 7 (the terminating brace of the main for loop block) to the next line of code at line 8"
+    ]
+  },
+  {
+    src: reversedForLoopSlide10.src,
+    altText: "Line 8 prints 'Blast off !' to the terminal, and the program ends",
+    tipStart: 10,
+    tips: [
+      "Line 8 prints 'Blast off !' to the terminal",
+      "Then the program ends"
+    ]
+  }
+];
+
+
 
 :::tip[Attention]
 
