@@ -10,8 +10,6 @@ const int SPIDER_SPEED = 3;
 
 const int FLY_RADIUS = 10;
 
-OpenWindow("Flay Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
-
 // Set the spider in the center of the screen
 int spiderX = SCREEN_WIDTH / 2;
 int spiderY = SCREEN_HEIGHT / 2;
@@ -21,6 +19,8 @@ int flyX = Rnd(SCREEN_WIDTH), flyY = Rnd(SCREEN_HEIGHT);
 bool flyAppeared = false;
 long appearAtTime = 1000 + Rnd(2000);
 long escapeAtTime = 0;
+
+OpenWindow("Flay Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
 
 CreateTimer(GAME_TIMER);
 StartTimer(GAME_TIMER);
@@ -33,6 +33,21 @@ while (!QuitRequested())
   {
     spiderX += SPIDER_SPEED;
   }
+  if (KeyDown(KeyCode.LeftKey) && spiderX - SPIDER_RADIUS > 0)
+  {
+    spiderX -= SPIDER_SPEED;
+  }
+
+  if (KeyDown(KeyCode.DownKey) && spiderY + SPIDER_RADIUS < SCREEN_HEIGHT)
+  {
+    spiderY += SPIDER_SPEED;
+  }
+  if (KeyDown(KeyCode.UpKey) && spiderY - SPIDER_RADIUS > 0)
+  {
+    spiderY -= SPIDER_SPEED;
+  }
+
+
 
   // Update the Game
   // Check if the fly should appear
@@ -49,6 +64,12 @@ while (!QuitRequested())
     escapeAtTime = TimerTicks(GAME_TIMER) + 2000 + Rnd(5000);
   }
   else if (flyAppeared && TimerTicks(GAME_TIMER) > escapeAtTime)
+  {
+    flyAppeared = false;
+    appearAtTime = TimerTicks(GAME_TIMER) + 1000 + Rnd(2000);
+  }
+
+  if (CirclesIntersect(CircleAt(spiderX, spiderY, SPIDER_RADIUS), CircleAt(flyX, flyY, FLY_RADIUS)))
   {
     flyAppeared = false;
     appearAtTime = TimerTicks(GAME_TIMER) + 1000 + Rnd(2000);
