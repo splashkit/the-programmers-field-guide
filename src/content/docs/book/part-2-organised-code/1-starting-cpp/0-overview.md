@@ -12,6 +12,13 @@ As noted at the start of the guide, we will be using these languages to explore 
 
 ## Focus
 
-For this chapter, notice how the concepts remain the same but the syntax changes... though the syntax will not change much.
+For this chapter, notice how the concepts remain the same but the syntax changes... though the syntax will not change much. The main things we will need to review are:
 
+- Building programs with C/C++.
+- The main function.
+- Naming convention.
+- Review syntax.
+
+:::tip[C/C++ and C#]
 In Part 1, we were using the C# language which is based on the C syntax. You can consider C# to be something like C++ ++. If you draw the sets of ++ one on top of the other, it even looks like the # in C#.
+:::
