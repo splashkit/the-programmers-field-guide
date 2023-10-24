@@ -1,7 +1,5 @@
 ---
 title: The Terminal
-sidebar:
-  order: 1
 ---
 
 Once upon a time, computers were rare, large, and shared between many users. Each computer (picture a whole room, not something in your pocket) had a number of connected monitors and keyboards to allow people to access it. These monitors and keyboards were built into a single box called a **terminal**. To use the computer, you would go to the terminal and respond to the prompts the computer provided you with.

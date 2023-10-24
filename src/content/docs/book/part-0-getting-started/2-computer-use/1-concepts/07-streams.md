@@ -1,7 +1,5 @@
 ---
 title: Streams
-sidebar:
-  order: 7
 ---
 
 Operating systems, like all programs, need to create *digital realities* for us to work with. We have seen how this is applied to saved data, with files and folders. When we look at the execution environments, there is another concept we need to connect with - that of the **data stream**.

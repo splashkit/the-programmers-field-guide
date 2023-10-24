@@ -1,7 +1,5 @@
 ---
 title: Manipulating files
-sidebar:
-  order: 5
 ---
 
 The terminal is also great at manipulating files. For this journey, we only need a few basics but with a little further exploration, you will be able to automate a range of actions. Once you know the commands, you will be able to quickly and easily copy, move, delete, and update files.

@@ -1,7 +1,5 @@
 ---
 title: Using X Windows
-sidebar:
-  order: 10
 ---
 
 If you have been working through this on the multitool Raspberry Pi image, you will have only had access to the terminal interface. Now it is time to fire up the graphical user interface.

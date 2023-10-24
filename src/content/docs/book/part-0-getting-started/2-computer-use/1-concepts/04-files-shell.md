@@ -1,7 +1,5 @@
 ---
 title: Files in the Shell
-sidebar:
-  order: 4
 ---
 
 Files store the data you need to work with, so the shell needs to provide you with convenient ways of accessing and interacting with your files and the folders that organise them. To achieve this, the shell has a **working directory** - i.e. the folder you are working with. You can issue commands to list the files within the current folder (working directory), move to new directories, and perform other commands on your files. 

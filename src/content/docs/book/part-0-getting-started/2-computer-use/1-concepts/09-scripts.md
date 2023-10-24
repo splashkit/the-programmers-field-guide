@@ -1,7 +1,5 @@
 ---
 title: Scripts and Permissions
-sidebar:
-  order: 9
 ---
 
 Manually enterring commands is great, but sometimes you want to do the same thing again and again. Rather than having to type this every time, you can save your commands in a file and run that.

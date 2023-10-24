@@ -1,7 +1,5 @@
 ---
 title: Control Sequences & Signals
-sidebar:
-  order: 8
 ---
 
 Sometimes things go wrong with the programs you are running, particularly when you are building and running your own programs. In these cases, you need to signal the shell and have it perform a task for you. This is achieved through key combinations, using the control key.
