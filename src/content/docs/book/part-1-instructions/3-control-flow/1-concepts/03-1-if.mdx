@@ -405,27 +405,30 @@ When thinking through your code, you need to do the same in your head.
 In many cases you will want more than two paths. To achieve this, you need to combine together multiple if statements as shown in the following code. This adds a checks for C and C++ to give them different outputs as well.
 
 ```csharp
-using static System.Console;
+#include "splashkit.h"
 
-string language;
-
-Write("What language do you use? ");
-language = ReadLine();
-
-if (language == "C#")
+int main()
 {
-    WriteLine("Good choice, C# is a fine language.");
-}
-else if (language == "C" || language = "C++")
-{
-    WriteLine("These are great low level languages - we will be using these soon!");
-}
-else
-{
-    WriteLine("Well... good luck with that!");
-}
+    string language;
 
-WriteLine("Great chat!");
+    write("What language do you use? ");
+    language = read_line();
+
+    if (language == "C#")
+    {
+        write_line("Good choice, C# is a fine language.");
+    }
+    else if (language == "C" || language == "C++")
+    {
+        write_line("These are great low level languages - we will be using these soon!");
+    }
+    else
+    {
+        write_line("Well... good luck with that!");
+    }
+
+    write_line("Great chat!");
+}
 ```
 
 Review the following images to see how the two if statements work together.

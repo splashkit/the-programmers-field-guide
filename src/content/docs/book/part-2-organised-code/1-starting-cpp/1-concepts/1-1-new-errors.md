@@ -1,0 +1,42 @@
+---
+title: "Link errors"
+sidebar:
+    label: " - Link errors"
+---
+
+Error messages with the C/C++ compiler can be more challenging to decipher. One of the new kinds of error you may encounter are linker errors. These occur during the compilation process where you refer to a function coded elsewhere, in a library for example. 
+
+When you get these errors you will get a message that indicates an error from `ld` the linker tool. An example is shown below. Where we removed the `-l SplashKitCPP` library reference, so now the linker cannot find the SplashKit functions we used.
+
+```zsh
+clang++ main.cpp -l SplashKit -Wl,-rpath,/usr/local/lib
+
+ld: Undefined symbols:
+  is_integer(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&), referenced from:
+      _main in main-854ef3.o
+      _main in main-854ef3.o
+  write_line(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>), referenced from:
+      _main in main-854ef3.o
+      _main in main-854ef3.o
+      _main in main-854ef3.o
+  write_line(), referenced from:
+      _main in main-854ef3.o
+  write(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>), referenced from:
+      _main in main-854ef3.o
+      _main in main-854ef3.o
+      _main in main-854ef3.o
+      _main in main-854ef3.o
+      _main in main-854ef3.o
+      _main in main-854ef3.o
+      _main in main-854ef3.o
+      ...
+  read_line(), referenced from:
+      _main in main-854ef3.o
+      _main in main-854ef3.o
+      _main in main-854ef3.o
+      _main in main-854ef3.o
+      _main in main-854ef3.o
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+```
+
+A linker error like this indicates you have a missing library reference, or you have not yet implemented some part of the code (as we will see later). For now, if you see these kinds of errors, make sure you have passed in the required libraries when you run the compiler.
