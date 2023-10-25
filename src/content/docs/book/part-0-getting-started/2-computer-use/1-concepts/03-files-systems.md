@@ -33,24 +33,20 @@ In addition to containing files, folders can also contain other folders. This gi
 
 This organisation results in files and folders creating a tree structure, much like a family tree. This similarity has resulted in the use of metaphors based on genealogy and family relationships to describe file systems. For example, the files and folders within a folder are called that folder's *children*, and a folder can be referred to as the *parent* of the files and folders it contains.
 
-You can picture this as a hierarchy. The file system starts with a folder we call the **root** of the file system. It is the one folder that does not have a **parent**. The name "root" comes from the tree analogy, as the root folder is the point from which all other folders "grow".
+You can picture this as a hierarchy. The file system starts with a folder we call the **root** of the file system. It is the one folder that does not have a parent. The name "root" comes from the tree analogy, as the root folder is the point from which all other folders "grow".
 
-**TODO Add image showing labeling root, parent and child**
+**TODO Add image showing labeling root, parent and child -- mention that we draw trees top-down, not bottom up**
 
-As a user, you need a way of indicating which file you want to use. This means that each file must be uniquely identifiable. To achieve this, files and folders must have a unique name within their parent folder. If you move a file with the same name into a folder, it will replace the existing file, losing all the data associated with the file that has been replaced. You have probably already encountered this restriction during your normal computer use.
+As a user, you need a way of indicating which file you want to use. This means that each file must be uniquely identifiable. To achieve this, files and folders must have a unique name within their parent folder. If you move a file into a folder that already contains a file with the same name, the file you moved will replace the existing file and you will lose all the data associated with the file that has been replaced. You have probably already encountered this during your normal computer use.
 
 ### Paths
 
-To identify a file within the file system, you can list the **path** to follow from the root to the file you are identifying. The path is an ordered list of folders, separated by `/`. For example, `/home/multitool/Documents/code/program1.cs` is the path you take starting at the *root* of the file systems. First, you go into the *home* folder, then into the *multitool* folder within *home*, followed by Documents folder, and code folder. The last element on the path is the *program.cs* file. Here we can see that *Documents* folder is the parent of the *code* folder, and *multitool* folder is the parent of the *Documents* folder.
+To identify a file within the file system, you can list the **path** to follow from the root to the file. The path is an ordered list of folders, separated by `/`. For example, `/home/multitool/Documents/code/program1.cs` is a path to the file "program1.cs". It describes that the file can be located by starting from the root of the file system, then travelling into the *home* folder, then into the *multitool* folder within *home*, followed by *Documents* folder, then the *code* folder. The last element on the path is the *program.cs* file itself. Here we can see that *Documents* folder is the parent of the *code* folder, and the *multitool* folder is the parent of the *Documents* folder.
 
 :::tip[Where does it start?]
-
-The root of the file system is the `/` folder - as this lists no folders in this path. 
-
+The root of the file system is the `/` folder. Therefore, `/` on its own is a valid path! It is also why the path in our example starts with `/`, to indicate that we are starting from the root.
 :::
 
 :::caution
-
 To be different, Windows uses `\` to separate folders. This can be more challenging to program with as `\` also has a special meaning in many programming languages.
-
 :::
