@@ -22,12 +22,6 @@ A Function Call is used to execute a [Function](../20-function), and to read the
 
 - [Figure 5.x](#FigureFunctionCallSyntax) shows the C# syntax for a function call
 
-- A C# function call is similar to a [Method Call](../02-method-call).
-- You use the name of the [Function](../20-function), its [identifier](../07-identifier), to indicate which function is called.
-- Following the Function’s name is the list of arguments, these are the values (or variables) that are being passed to the called Function.
-- The return type of the Function determines where the Function may be called.
-- Method, `void` Functions, can only be called in a Method Call Statement.
-- Other Functions can be used in [Expressions](../23-expression), see Expressions (with Function Calls, Variables, and Constants). In these cases the type of data returned by the Function will determine the type of the Function Call.
 
 <a id="FigureFunctionCallSyntax"></a>
 
@@ -35,6 +29,7 @@ A Function Call is used to execute a [Function](../20-function), and to read the
 <div class="caption"><span class="caption-figure-nbr">Figure 5.x: </span>C# Syntax for a function call</div><br/>
 
 :::
+
 
 ## Examples
 

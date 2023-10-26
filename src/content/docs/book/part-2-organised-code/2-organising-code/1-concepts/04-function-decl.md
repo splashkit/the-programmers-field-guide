@@ -1,15 +1,9 @@
 ---
-title: "Function"
-type: "content"
-date: 2023-08-07 16:45:00
-draft: false
-description: "..."
+title: "Functions"
 ---
 
+Functions are used to calculate values. Where each function is a named group of instructions that calculates and returns a value.
 
-## Concept
-
-Functions are used to calculate values. In many ways a Function is just like a [Method](../03-method), it has a name, can be called, can accept [parameters](../16-parameter), can have [local variables](../14-local-variable), and performs a number of instructions when it is called. Unlike a Method, however, Functions are used to calculate values. When the function you called ends it returns back to you with a value.
 
 <a id="FigureFunction"></a>
 

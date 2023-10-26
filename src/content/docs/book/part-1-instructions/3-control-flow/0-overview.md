@@ -50,7 +50,7 @@ $ dotnet run
 
 ## Learning Goals
 
-By the end of this section you should be able to:
+By the end of this chapter you should be able to:
 
 - Use branching and looping control flow statements.
 - Design algorithms to achieve required outcomes.

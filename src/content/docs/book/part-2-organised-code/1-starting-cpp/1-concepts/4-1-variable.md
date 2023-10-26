@@ -19,6 +19,7 @@ The names of the basic types are also the same in C/C++ as they were in C#:
 - `int` for the type you typically use for whole numbers.
 - `double` for the type you typically use for real numbers.
 - C++ has a `string` type and both C and C++ include a `char` type for data to represent text. As with C#, string if you want zero or more characters, or char for a single character.
+- `bool` for Boolean values. In C/C++, 0 is false, and any other value is considered to be true. Though there are also constants for `true` and `false`.
 
 ## Example
 

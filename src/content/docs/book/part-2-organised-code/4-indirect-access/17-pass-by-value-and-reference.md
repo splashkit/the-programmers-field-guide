@@ -6,6 +6,7 @@ draft: false
 description: "..."
 ---
 
+<!--
 
 ## Concept
 
@@ -74,4 +75,4 @@ int main() {
 - The main use for pass by reference is to allow the [Method](../03-method) or [Function](../20-function) to store a value in the Variable passed to the parameter.
 - It is called pass by reference due to the way it is implemented, with the parameter receiving a reference to the Variable. Section **???** will cover this in more detail, conceptually the Variable itself is passed to the Parameter
 
-:::
+::: -->

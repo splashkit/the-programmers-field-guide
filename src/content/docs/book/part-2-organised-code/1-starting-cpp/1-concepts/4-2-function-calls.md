@@ -12,6 +12,13 @@ Function calls use the same syntax as we have been using for C# methods. To call
 
 ![Function call syntax in C/C++](./images/function-call.png)
 
+- A C/C++ function call is similar to a [method call](../02-method-call) in C#.
+- You use the name of the [function](../../../2-organising-code/1-concepts/04-function-decl), its [identifier](../../../../part-1-instructions/2-communicating-syntax/1-concepts/04-identifier), to indicate which function is called.
+- Following the function’s name is the list of arguments, these are the values that are being passed to the called function.
+- The return type of the function determines where the function may be called.
+- Procedures, `void` functions, can only be called as a statement.
+- Other functions can be used in [expressions](../../../../part-1-instructions/2-communicating-syntax/1-concepts/03-expression).
+
 :::
 
 ## Example
