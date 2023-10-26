@@ -40,3 +40,15 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 ```
 
 A linker error like this indicates you have a missing library reference, or you have not yet implemented some part of the code (as we will see later). For now, if you see these kinds of errors, make sure you have passed in the required libraries when you run the compiler.
+
+:::tip[Order can matter!]
+
+Order can matter with the older compilers like `g++`. For example, with SplashKit the SplashKitCPP library uses the SplashKit library itself. This means you need to link SplashKitCPP first, then link in the SplashKit library.
+
+```zsh
+g++ program.cpp -l SplashKitCPP -l SplashKit -Wl,-rpath,/usr/local/lib -o program
+```
+
+If you are using g++, try switching the order. You will see that when it links in the SplashKitCPP library it has a number of new links it needs to establish. So these will now appear as unresolved references.
+
+:::

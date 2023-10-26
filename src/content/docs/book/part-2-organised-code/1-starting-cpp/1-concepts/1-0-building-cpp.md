@@ -111,7 +111,7 @@ Review the details for your computer in the following sections.
 On the Raspberry Pi, macOS, Linux, or Windows (WSL) you compile with the following command (enter it all on line one):
 
 ```zsh
-clang++ program.cpp -l SplashKit -l SplashKitCPP -Wl,-rpath,/usr/local/lib -o program
+clang++ program.cpp -l SplashKitCPP -l SplashKit -Wl,-rpath,/usr/local/lib -o program
 ```
 
 #### Windows (MSys2)
@@ -121,7 +121,7 @@ clang++ program.cpp -l SplashKit -l SplashKitCPP -Wl,-rpath,/usr/local/lib -o pr
 For Windows (MSys2), you need to use g++. This will create a program you can run from the MSys terminal window.
 
 ```zsh
-g++ program.cpp -l SplashKit -l SplashKitCPP -o program
+g++ program.cpp -l SplashKitCPP -l SplashKit -o program
 ```
 
 There are a few more options that you can also include if you want to be able to run the program by double-clicking it in the Windows explorer (enter it all on line one):
@@ -143,7 +143,7 @@ skm clang++ program.cpp -o program
 When the compiler runs successfully it will output an executable file, the program. With the above commands, we use the `-o` option to indicate the name of the file to create. So when you run these you should see a **program** file appear. This is the machine code for the program all ready to go, so you can run this directly from the terminal. The following shell commands would build and run this on the Raspberry Pi.
 
 ```zsh
-clang++ program.cpp -l SplashKit -l SplashKitCPP -Wl,-rpath,/usr/local/lib -o program
+clang++ program.cpp -l SplashKitCPP -l SplashKit -Wl,-rpath,/usr/local/lib -o program
 ls -lha
 # Notice the program file
 ./program
@@ -236,7 +236,7 @@ In the Terminal window you should see the output from this, as shown below. Make
  *  Executing task: C/C++: clang++ build active file 
 
 Starting build...
-/usr/bin/clang++ -std=gnu++14 -fcolor-diagnostics -fansi-escape-codes -g /Users/acain/Documents/Code/Test2/main.cpp -o /Users/acain/Documents/Code/Test2/main -l SplashKit -l SplashKitCPP -Wl,-rpath,/usr/local/lib
+/usr/bin/clang++ -std=gnu++14 -fcolor-diagnostics -fansi-escape-codes -g /Users/acain/Documents/Code/Test2/main.cpp -o /Users/acain/Documents/Code/Test2/main -l SplashKitCPP -l SplashKit -Wl,-rpath,/usr/local/lib
 
 Build finished successfully.
  *  Terminal will be reused by tasks, press any key to close it. 
