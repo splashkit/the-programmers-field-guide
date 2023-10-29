@@ -43,13 +43,15 @@ There are three procedures declared in the code in [Listing 5.12](#ListingMethod
 
 #include "splashkit.h"
 
-void find_what_to_cook() {
+void find_what_to_cook()
+{
     write_line("Step 1 - Find what to cook -");
     write_line("1 - Find a recipe book");
     write_line("2 - Pick recipe");
 } 
 
-void purchase_missing_ingredients() {
+void purchase_missing_ingredients()
+{
     write_line("Step 2(a) - Purchase Missing Ingredients -");
     write_line("1 - Goto Shop");
     write_line("2 - Find ingredients and put in basket");
@@ -57,7 +59,8 @@ void purchase_missing_ingredients() {
     write_line("4 - Return home");
 }
 
-void get_ingredients() {
+void get_ingredients()
+{
     write_line("Step 2 - Purchase Ingredients -");
     write_line("1 - Read recipe");
     write_line("2 - Write a list of ingredients");
@@ -65,24 +68,23 @@ void get_ingredients() {
     purchase_missing_ingredients();
 }
 
-int main() {
+int main()
+{
     find_what_to_cook();
     get_ingredients();
     // etc...
 
     return 0;
 }
-
 ```
+
 <div class="caption"><span class="caption-figure-nbr">Listing 5.12: </span>C# program for cooking a meal showing three method declarations</div>
 
 :::note[Summary]
 
-- A procedure is an **building block** that you can create and use in your code.
-- Each procedure contains code to perform a certain task. When you want the task
-performed you call the procedure.
-- Procedures should have a **side effect**, meaning that it changes something when it
-is executed. Output to the Terminal is an example of a Side Effect. After calling these methods the text you wanted to appear was written to the Terminal. These Methods changed the Terminal.
+- A procedure is a **building block** that you can create and use in your code.
+- Each procedure contains code to perform a certain task. When you want the task performed, you call the procedure.
+- Procedures should have a **side effect**, meaning that it changes something when it is executed. Output to the Terminal is an example of a side effect. After calling these methods the text you wanted to appear was written to the Terminal. These procedure call changed the Terminal.
 - The procedure's declaration defines its **name**, and the **steps** it performs.
 - Each instruction in the procedure is a [statement](../../../part-1-instructions/2-communicating-syntax/1-concepts/02-statement).
 - The procedure's [identifier](../../../../part-1-instructions/2-communicating-syntax/1-concepts/04-identifier):
