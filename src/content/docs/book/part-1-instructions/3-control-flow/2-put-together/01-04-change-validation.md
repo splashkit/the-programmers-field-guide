@@ -38,7 +38,7 @@ In order to do this, we will need to use the `IsInteger` method from SplashKit. 
 
 The pseudocode for this logic would be:
 
-```plaintext
+```
 Write the prompt to the user
 Store their response in line
 

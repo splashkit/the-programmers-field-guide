@@ -23,6 +23,8 @@ Right-click on the variables you want to rename and choose **Rename Symbol** - v
 
 Here is the final version of the Change Calculator converted to C/C++. Notice how it is mostly just a change of coding convention.
 
+The change of library means we cannot use C#'s Convert ToInt32 method, but C provides an equivalent called [stoi](https://en.cppreference.com/w/cpp/string/basic_string/stol). This function converts text to an integer
+
 For both of these examples it would be great to do the conversion yourself. This will really help you see how similar the code is. The main thing is to follow the logic - the way you think about this in C# is the same as the way you think about this in C/C++.
 
 ```cpp
