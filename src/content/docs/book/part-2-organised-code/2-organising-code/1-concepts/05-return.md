@@ -1,9 +1,7 @@
 ---
 title: Return
 ---
-
-
-The return statement, ends the current [Function](#) or [Method](../../../1-sequence-and-data/1-concepts/02-method). This is useful for skipping the rest of the processing of the Function or Procedure, exiting it early and returning to the calling code.
+The return statement is a kind of [jump statement](../../../../part-1-instructions/3-control-flow/1-concepts/05-0-jumping). It ends the current [function](../04-function-decl) or [procedure](../01-procedures). This is useful for skipping the rest of the processing of the function or procedure, exiting it early and returning to the calling code. In a function, you also use the return statement to provide the value that is sent to the caller.
 
 <a id="FigureExit"></a>
 
@@ -12,26 +10,22 @@ The return statement, ends the current [Function](#) or [Method](../../../1-sequ
 
 :::note
 
-- Exit is an **action**, allowing you to jump out of the current [Function](#) or [Method](../../../1-sequence-and-data/1-concepts/02-method), and return to the calling code.
-- The Exit should be coded within a [Branching](../02-branching) statement that checks if the Function or Method should end.
+- Return is an **instruction**, allowing you to jump out of the current function or procedure and return to the calling code.
+- Return should be coded within [branching](../../../../part-1-instructions/3-control-flow/1-concepts/03-0-branching) statements that checks if the function or procedure should end.
+
+The return statement also provides the value that will be returned when exiting from a function. As this sets the value to be returned, you **must** have a return statement as the last instruction within a function.
 
 :::
 
-:::note[C#]
+## Return - Why, When, How
 
-C’s version of the exit statement is the [Return Statement](#). The return statement also provides the value that will be returned when exiting from a Function. As this sets the value ♢ to be returned you must have a return statement as the last action within a Function.
+There are a couple of reasons why you may want to add a return statement to exit out of the current function or procedure. This includes providing value from function, but can also be used to exit early under certain conditions.
 
-:::
+Every function must return a value, so for every function must return a value at least at the end of the function. You may also need to exit early, and in these cases you will have to return something. So when you do have a function that may end early, you need to work out what it will return to the caller.
 
+When you use return statements to exit a function or procedure early, you need something like an if statement that checks if you should exit, and then put the return statement within the body of the if. This can be used when you know that the procedure or functions only works in certain circumstances, and exit when these are not met. For example, in the change calculator we can exit early if they have not paid enough for the item, or if they have provided the exact value.
 
-
-- The Return Statement is used to end a [Function](../20-function), or [Method](../03-method), and to return a value.
-- Methods can end completing all of their instructions.
-- Functions that return a value must have a `return` to indicate the value to be returned by the caller.
-- The [Expression](../23-expression) in the Return Statement is optional so that you can use the statement to end a Method.
-- When the Return Statement is executed the current Function or Method ends, and the value of the Expression is returned to the Function Call.
-
-## In C#
+## In C/C++
 
 :::tip[Syntax]
 
@@ -39,40 +33,41 @@ C’s version of the exit statement is the [Return Statement](#). The return sta
 
 <a id="FigureReturnStatementSyntax"></a>
 
-![Figure 5.x C# Syntax for a return statement](./images/ReturnStatementSyntax.png "C# Syntax for a return statement")
-<div class="caption"><span class="caption-figure-nbr">Figure 5.x: </span>C# Syntax for a return statement</div><br/>
+![Figure 5.x C/C++ syntax for a return statement](./images/return-statement.png "C/C++ syntax for a return statement")
+<div class="caption"><span class="caption-figure-nbr">Figure 5.x: </span>C/C++ syntax for a return statement</div><br/>
+
+- The [expression](../../../../part-1-instructions/2-communicating-syntax/1-concepts/03-expression) in the return statement is optional so that you can call it within both functions and procedures.
+  - In a function, your return statement **must** have the value to return in the expression.
+  - In a procedure, your return statement **must not** have a value - it does not return a value.
+- When the return statement is executed the current function or procedure ends.
+- In a function, value of the expression in the return statement is returned to the function call that started the function.
 
 :::
 
 ## Examples
 
-- [Listing 5.x](#ListingReturnStatement) illustrates the point that `return` ends the current function, with only the first `printf` call being run in the `test_return()` Function
+[Listing 5.x](#ListingReturnStatement) illustrates the point that `return` ends the current function, with only the first `write_line` call being run in the `test_return()` function.
 
 <a id="ListingReturnStatement"></a>
 
-```csharp
+```cpp
 /* Program: test-return.cs */
-#include <stdio.h>
+#include "splashkit.h"
 
-int test_return() {
-    printf("test-return started\n");
+using std::to_string;
+
+int test_return() 
+{
+    write_line("test-return started");
     return 3;
-    printf("Cannot be run as code returned above!");
+    write_line("Cannot be run as code returned above!");
 }
 
 int main() {
-  printf("Calling test_return - the value %d is returned\n", test_return());
+  write_line("Calling test_return - the value " + to_string(test_return()) + " is returned\n");
   return 0;
 }
 ```
 <div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>Example illustrating return in action</div>
 
-
-## Activities
-
-
-:::note[Summary] 
-
-- The Return Statement is used to end a Function, or Method, and to return a value to the caller
-
-:::
+**TODO: add slider**

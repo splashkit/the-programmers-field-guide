@@ -2,7 +2,9 @@
 title: Functions and Procedures
 ---
 
-Programming languages need a way to help you manage the complexity of your code. To do this, they provide the ability to **group** instructions into reusable chunks of code. In C#, these were known as methods. In C/C++ these are functions. While in Pascal, there are functions and procedures.
+Programming languages need a way to help you manage the complexity of your code. To do this, they provide the ability to **group** instructions into reusable chunks of code. In C#, these were known as methods, in C/C++ these are functions, while in Pascal there are functions and procedures.
+
+![Illustration showing functions and procedures within the program.](./images/prog-fn-proc-idea.png)
 
 While C/C++ does not distinguish between functions and procedures, I think it is good to start with these two concepts separately in our minds.
 
@@ -32,3 +34,7 @@ Learning to move your focus between these different compartments may take some g
 :::
 
 In the next section we will look at how to declare a procedure, then we can look at functions after that.
+
+## In C/C++
+
+
