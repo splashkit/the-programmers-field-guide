@@ -38,15 +38,21 @@ The following programming terminology will also be used in this chapter:
 
 In putting it together, we will see how we can put all of these tools together to improve our change calculator and build a small game.
 
-<a id="ListingGuessingGame"></a>
+<a id="ListingChangeCalc"></a>
 
 ```bash
 $ dotnet run
 
+Cost of item in cents: 450
+Payment in cents: 1000
+Change: 2 x $2, 1 x $1, 1 x 50c, 0 x 20c, 0 x 10c, 0 x 5c
+Run again: yes
+Cost of item in cents: 220
+Payment in cents: 400
+Change: 0 x $2, 1 x $1, 1 x 50c, 1 x 20c, 1 x 10c, 0 x 5c
+Run again: n
 ```
-<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Guess that Number run from the Terminal</div>
-
-**TODO - update output**
+<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Change Calculator run from the Terminal</div>
 
 ## Learning Goals
 

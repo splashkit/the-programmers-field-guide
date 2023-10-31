@@ -9,3 +9,9 @@ High-level languages such as Python, JavaScript and C# do a lot of heavy-lifting
 ![Alt text](./layers.png)
 
 In this chapter, we will utilise the programming constructs you've been learning to explore low-level programming in C/C++. We will look at how to write programs that interact directly with memory, and you will gain insight into how more abstracted language features such as `strings` in C# *actually* work under the hood. In fact, that's a great way to think about this chapter - we're taking a look *under the hood*.
+
+<!-- function pointers -->
+<!-- bit shifting/masking -->
+<!-- Union -->
+<!-- static (C)  -->
+<!-- GPIO? -->

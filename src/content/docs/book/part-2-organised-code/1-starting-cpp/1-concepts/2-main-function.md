@@ -8,7 +8,7 @@ When you start organising code in this way, you need to indicate where the progr
 
 The code below shows `main`, and its code for the hello world program. When this program is run, it will start running the code within this function starting with the call to `write_line`.
 
-```c++
+```cpp
 #include "splashkit.h"
 
 int main()

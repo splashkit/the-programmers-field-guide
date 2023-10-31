@@ -340,7 +340,12 @@ export default defineConfig({
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-2-organised-code/2-organising-code/2-put-together",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/2-organising-code/2-put-together",
+                    collapsed: true,
+                  },
                 },
                 {
                   label: "Other Languages",
@@ -493,6 +498,10 @@ export default defineConfig({
                 {
                   label: "Overview",
                   link: "book/part-2-organised-code/7-low-level-programming/0-overview",
+                },
+                {
+                  label: "Required Tools (DCC)",
+                  link: "book/part-2-organised-code/7-low-level-programming/1-dcc",
                 },
                 {
                   label: "Concepts",

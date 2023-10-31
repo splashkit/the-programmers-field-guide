@@ -1,5 +1,6 @@
 ---
 title: Character arrays (low-level strings)
+order: 3
 ---
 
 ## Concept
@@ -25,6 +26,7 @@ int main() {
     write_line("The user's name is: " + user_name);
 
     return 0;
+}
 ```
 
 The above program may look simple, but we are using a variety of string-related functionality to achieve our goals which either come with the C++ standard string library, or the SplashKit library. Let's break down some of these functionalities:
