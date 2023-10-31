@@ -1,10 +1,5 @@
 {
-  "grammarly.config.documentDomain": "academic",
-  "grammarly.config.documentDialect": "australian",
-  "grammarly.files.include": [
-    "**/*.md",
-    "**/*.mdx"
-  ],
+  "ltex.java.path": "/usr/local/java",
   "files.associations": {
     "*.mdx": "markdown"
   }

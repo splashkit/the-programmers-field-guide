@@ -3,6 +3,127 @@ title: While Loop
 sidebar:
   label: " - While Loop"
 ---
+import MySwiper from '../../../../../../components/react/myswiper.jsx'
+
+import whileLoopSlide01 from './images/control-flow-statements-in-depth/control-flow-while-loop-01.png';
+import whileLoopSlide02 from './images/control-flow-statements-in-depth/control-flow-while-loop-02.png';
+import whileLoopSlide03 from './images/control-flow-statements-in-depth/control-flow-while-loop-03.png';
+import whileLoopSlide04 from './images/control-flow-statements-in-depth/control-flow-while-loop-04.png';
+import whileLoopSlide05 from './images/control-flow-statements-in-depth/control-flow-while-loop-05.png';
+import whileLoopSlide06 from './images/control-flow-statements-in-depth/control-flow-while-loop-06.png';
+import whileLoopSlide07 from './images/control-flow-statements-in-depth/control-flow-while-loop-07.png';
+import whileLoopSlide08 from './images/control-flow-statements-in-depth/control-flow-while-loop-08.png';
+import whileLoopSlide09 from './images/control-flow-statements-in-depth/control-flow-while-loop-09.png';
+import whileLoopSlide10 from './images/control-flow-statements-in-depth/control-flow-while-loop-10.png';
+import whileLoopSlide11 from './images/control-flow-statements-in-depth/control-flow-while-loop-11.png';
+
+
+export const sliderImagesWhileLoop = [
+  {
+    src: whileLoopSlide01.src,
+    altText: "Lines 1-5 get the user input (10), and store it in the variable 'target' on the stack. The program counter is incremented to line 6.",
+    tipStart: 1,
+    tips: [
+      "Lines 1-5 get the user input (<code>10</code>), and store it in the variable 'target' on the stack",
+      "The program counter is incremented to line 6"
+    ]
+  },
+  {
+    src: whileLoopSlide02.src,
+    altText: "On line 6, a variable named 'i' is declared and initialized to 0 on the stack. 'i' will function as our loop counter. The program counter is incremented to line 7, the start of our while loop.",
+    tipStart: 2,
+    tips: [
+      "On line 6, a variable named 'i' is declared and initialized to 0 on the stack",
+      "'i' will function as our loop counter",
+      "The program counter is incremented to line 7, the start of our while loop."
+    ]
+  },
+  {
+    src: whileLoopSlide03.src,
+    altText: "The condition of our while loop is evaluated. Since 'i' (0) is less than target (10), it evaluates to true. The program counter is incremented to the start of the while block (line 8).",
+    tipStart: 3,
+    tips: [
+      "The condition of our while loop is evaluated. Since 'i' (0) is less than target (10), it evaluates to <span class='booleanTrue'>true</span>",
+      "The program counter is incremented to the start of the while block (line 8)"
+    ]
+  },
+  {
+    src: whileLoopSlide04.src,
+    altText: "The opening brace indicates the start of our while loop block of code. The program counter is incremented to line 9.",
+    tipStart: 4,
+    tips: [
+      "The opening brace indicates the start of our while loop block of code",
+      "The program counter is incremented to line 9"
+    ]
+  },
+  {
+    src: whileLoopSlide05.src,
+    altText: "Line 9 outputs the value of our loop counter (i) to the terminal (in this case 0). The program counter increments to line 10.",
+    tipStart: 5,
+    tips: [
+      "Line 9 outputs the value of our loop counter (i) to the terminal (in this case 0)",
+      "The program counter increments to line 10"
+    ]
+  },
+  {
+    src: whileLoopSlide06.src,
+    altText: "The value of our loop counter 'i' is incremented by 1. The program counter is incremented to line 11, where it hits the closing brace, at this point it cycles back up to line 7 in order to evaluate the while condition once more to determine if the loop is to continue or not.",
+    tipStart: 6,
+    tips: [
+      "The value of our loop counter 'i' is incremented by 1",
+      "The program counter is incremented to line 11, where it hits the closing brace",
+      "At this point it cycles back up to line 7 in order to evaluate the while condition once more to determine if the loop is to continue or not"
+    ]
+  },
+  {
+    src: whileLoopSlide07.src,
+    altText: "The while loop condition is evaluated once more. It evaluates to true because the value of 'i' (1) is still less than the value of 'target' (10), and so it will execute the block of code between the while braces once more.",
+    tipStart: 7,
+    tips: [
+      "The while loop condition is evaluated once more",
+      "It evaluates to <span class='booleanTrue'>true</span> because the value of 'i' (1) is still less than the value of 'target' (10), and so it will execute the block of code between the while braces once more."
+    ]
+  },
+  {
+    src: whileLoopSlide08.src,
+    altText: "Line 9 prints the value of 'i' (1) to the terminal. The program counter increases to line 10.",
+    tipStart: 8,
+    tips: [
+      "Line 9 prints the value of 'i' (1) to the terminal",
+      ". The program counter increases to line 10"
+    ]
+  },
+  {
+    src: whileLoopSlide09.src,
+    altText: "Line 10 increments the value of 'i' by 1. The program counter moves to line 11, then back up to line 7 to evaluate the while condition to determine whether the loop continues or ends. While the loop counter 'i' is less than the value of 'target' (10), it keeps printing the value of 'i' to the terminal, then incrementing 'i'. Let's jump ahead",
+    tipStart: 9,
+    tips: [
+      "Line 10 increments the value of 'i' by 1",
+      "The program counter moves to line 11, then back up to line 7 to evaluate the while condition to determine whether the loop continues or ends",
+      "While the loop counter 'i' is less than the value of 'target' (<code>10</code>), it keeps printing the value of 'i' to the terminal, then incrementing 'i'",
+      "Let's jump ahead..."
+    ]
+  },
+  {
+    src: whileLoopSlide10.src,
+    altText: "Let's jump ahead to where 'i' has just been incremented to 10. So far, the numbers 0-9 have been output to the terminal. The program counter increments to lines 11, then 7 again to evaluate the while condition.",
+    tipStart: 10,
+    tips: [
+      "Let's jump ahead to where 'i' has just been incremented to 10",
+      "So far, the numbers 0-9 have been output to the terminal",
+      "The program counter increments to lines 11, then 7 again to evaluate the while condition"
+    ]
+  },
+  {
+    src: whileLoopSlide11.src,
+    altText: " This time on line 7, 'i' (10) is not less than 'target' (10), and so evaluates to false. The program counter jumps to line 11, and both the while loop and the program end.",
+    tipStart: 11,
+    tips: [
+      " This time on line 7, 'i' (10) is not less than 'target' (10), and so evaluates to <span class='booleanFalse'>false</span>",
+      "The program counter jumps to line 11, and both the while loop and the program end."
+    ]
+  }
+];
 
 The while loop is a common feature of most programming languages. The loop starts with the condition and is followed by a statement to be repeated. In C# we can use the [compound statement](../02-compound-statement) to have the while loop repeat a block of code.
 
@@ -86,7 +207,7 @@ You will very often need to create working variables, like `i`, to help keep tra
 
 Use the following images to see how this runs.
 
-**TODO add slider her... show 3 times but also -1 times**
+<MySwiper client:only height="" images={sliderImagesWhileLoop}></MySwiper>
 
 :::tip[Attention]
 

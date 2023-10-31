@@ -51,6 +51,21 @@ With or you can check if **any** of a number of conditions are true. For example
 
 In this case you can see that if any one of the values is true, then the result is true. If you ask to quit *or* you type the escape key, then this condition will be true. If you manage to do both at the same time, that will be true as well.
 
+:::tip[KeyCode?]
+To access the `KeyCode` data, you need to indicate you are using `SplashKitSDK`. For example:
+
+```csharp
+using SplashKitSDK;
+
+while ( !(QuitRequested() || KeyTyped(KeyCode.EscapeKey)) )
+{
+  //...
+  ProcessEvents();
+}
+```
+
+:::
+
 ## In C#
 
 This is one area where C# uses cryptic symbols rather than clear text. This is based upon the heritage of C#, which is based upon the C programming language. Rather than using keywords for *and* and *or* orperators, C# uses **&&** for and, **||** for or, **!** for not, and **^** for xor.

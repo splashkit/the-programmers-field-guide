@@ -1,0 +1,60 @@
+---
+title: Array
+---
+
+## Concept
+
+An array is a special kind of **Variable**, one that stores multiple values instead of a single value. The values within an array, called elements, are all of the same **Type**.
+
+<br/>
+import imgArray from './images/mmv-array.png';
+
+<a id="FigureArray"></a>
+<img src={imgArray.src} alt="Arrays allow you to store multiple values in a variable" width="100%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Arrays allow you to store multiple values in a variable</div><br/>
+
+:::note
+
+- An array is an **artefact**, a kind of variable that you can create in your code.
+- Each array has a number of elements.
+- The elements of an array are accessed via an index. The first element has the index **0**, the second has the index **1**, etc. See **Arrays in Memory**.
+- Individual elements of an array are much like a standard variable.
+- You can store a value in an element of an array using an **Assignment Statement (with Arrays)**.
+- You can use a the value from an element of an array using **Expressions (with Arrays)**.
+- The **For Loop** can be used to perform an action *for each element of an array*.
+
+
+:::
+
+
+## Arrays in Memory
+
+Arrays store multiple values, with an index that provides access to the individual elements within the array. Conceptually this can be viewed as a **Variable** that contains multiple slots (the elements) into which the values are stored.
+
+Many languages have **0** as the index of the first element. This reflects how the values are actually stored in memory. [Figure x.y](#FigureArrayContiguousMemory) shows how an array (named `arr` in this Figure) is stored in memory. The array is a **contiguous** area in memory, with the elements being next to each other. You can think of the array as starting at the first element, so you need to skip *0* elements to access the first element. The second element is accessed by skipping *1* element, so it has index *1*. The third element is accessed by skipping *2* elements, so it has the index *2*, etc.
+
+The size of each of the elements of the array can then be used to quickly locate each element, given its index. If you have an array of `Integer` values then these are each 32 bits (4 bytes), so the element at index 3 is 3 × 32𝑏𝑖𝑡𝑠 (96 bits) past the start of the array.
+
+The great thing is that you do not need to think about these details, but knowing this should you remember that the first<sup>[1](#FootnoteArrayFirstElementIndex)</sup> element of an array is at index 0.
+
+
+<br/>
+import imgArrayContiguousMemory from './images/mmv-array-contiguous-memory.png';
+
+<a id="FigureArrayContiguousMemory"></a>
+<img src={imgArrayContiguousMemory.src} alt="Arrays occupy a contiguous area of memory, with elements next to each other in memory" width="100%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Arrays occupy a contiguous area of memory, with elements next to each other in memory</div><br/>
+
+
+:::note
+- Arrays are allocated a contiguous area of memory, with the elements next to each other.
+- The array index is used to determine how many elements (values) are skipped to access the element you require.
+- The index of the first element of an array is **0**.
+- The last index of the array is therefore **n - 1**, where *n* is the number of elements in the array
+
+:::
+
+
+
+<hr class="footnote"/>
+<div id="FootnoteArrayFirstElementIndex" class="footnote"><sup>1</sup>Some languages allow you to start at other values, but many use 0 based arrays which map more closely to how the data is stored in memory.</div>

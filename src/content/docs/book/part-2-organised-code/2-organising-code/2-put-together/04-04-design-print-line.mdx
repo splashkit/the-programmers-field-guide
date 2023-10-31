@@ -1,0 +1,65 @@
+---
+title: Design Print Line
+sidebar:
+  label: " - Design Print Line"
+---
+
+## Designing Control Flow for Print Line
+
+`Print Line` is a short Procedure used to print a line of '-' characters to the Terminal. The flowchart for this Procedure is shown in [Figure x.y](#FigurePrintLineFlowChart), and again with the blocks highlighted in [Figure x.y](#FigurePrintLineBlocks).
+
+
+<br/>
+<a id="TablePrintLineMethodSpecs"></a>
+
+|   |   |
+|---|---|
+| **Name** | *Print Line* |
+| **Parameters** | `length`: The number of characters to print. Represents the length of the line. |
+| **Description** | Prints a number of ‘-’ characters to the Terminal. The number of characters to print is specified in the `Length` parameter. |
+
+<div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Specification for the <code>Print Line</code> method</div>
+
+<br/>
+import printLineFlowChart from './images/guess-that-number-print-line-flowchart.png';
+
+<a id="FigurePrintLineFlowChart"></a>
+<img src={printLineFlowChart.src} alt="Flowchart for the logic in Print Line code" width="50%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Flowchart for the logic in Print Line code</div><br/>
+
+<br/>
+import printLineBlocks from './images/guess-that-number-print-line-blocks.png';
+
+<a id="FigurePrintLineBlocks"></a>
+<img src={printLineBlocks.src} alt="Blocks in the Print Line code" width="66%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Blocks in the Print Line code</div><br/>
+
+## Pseudocode for Print Line
+
+The Pseudocode for Print Line method is shown in [Listing x.y](#ListingPrintLinePseudoCode) below.
+
+<br/>
+<a id="ListingPrintLinePseudoCode"></a>
+
+```
+Procedure: Print Line
+-------------------------------
+Parameters:
+    - Length (Integer)
+Local Variables:
+    - i (Integer)
+Steps
+    1. Assign i, the value 0
+    2. While i < length
+    3.      Output '-'
+    4.      Increase i by 1
+    5. Output a new line
+```
+<div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>Pseudocode for Print Line</div>
+
+:::note
+- This code includes a Local Variable `i`
+- `i` is used to count the number of times the loop has executed, allowing it to stop when it has printed enough dashes
+- This uses a Pre-Test Loop. This makes sure that no characters are printed if the length is less than or equal to zero
+- Notice that a sequence can be placed within a loop
+:::

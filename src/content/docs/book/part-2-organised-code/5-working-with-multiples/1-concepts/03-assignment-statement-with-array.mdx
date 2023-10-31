@@ -1,0 +1,47 @@
+---
+title: Assignment Statement (With Arrays)
+---
+
+## Assigning a value to an element of an array
+
+The assignment statement allows you to store a value in a variable. This can now be extended to allow you to store a value in an element of an array. To achieve this you indicate the array you want to store the value in, as well as the index at which the value is to be stored.
+
+
+<br/>
+import imgArrayAssignmentStatement from './images/mmv-array-assignment-statement.png';
+
+<a id="FigureArrayAssignmentStatement"></a>
+<img src={imgArrayAssignmentStatement.src} alt="Assigning a value to an element of the array" width="100%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Assigning a value to an element of the array</div><br/>
+
+:::note
+- The assignment statement is an **action**, storing a value in a variable or array.
+- When working with arrays you specify the array, and index at which to store the value.
+- This stores a value into an element of an array.
+- The two snippets below indicate how this is coded in C and Pascal. In each case `data` is the name of the array variable, and 1 is the index of the second element. The code in the snippet stores a 255 in the second element of the array.
+
+:::
+
+:::tip[Syntax]
+In C you can  achieve this using: `data[1] = 127.5 * 2;`
+:::
+
+## Assigning all elements of an array
+
+Many languages also allow you to copy the entire contents of an array into another array. In these cases each of the elements of one array are copied into the elements of the destination array (left hand side of the assignment).
+
+<br/>
+import imgArrayCopy from './images/mmv-array-copy.png';
+
+<a id="FigureArrayCopy"></a>
+<img src={imgArrayCopy.src} alt="All of the elements of an array can be copied across in the assignment statement" width="100%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>All of the elements of an array can be copied across in the assignment statement</div><br/>
+
+:::note
+- The size of the two arrays should match.
+- The value from each of the elements of the array on the right hand side will be copied into the matching element in the array on the left hand side.
+:::
+
+:::tip[Syntax]
+This **cannot** be done in C with an assignment statement, rather it is achieved using the `memcopy` function. The code for this is as follows, with `sz` being the number of elements to copy: `memcpy(data, source, size_of(double) * sz)`
+:::

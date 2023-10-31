@@ -1,0 +1,161 @@
+---
+title: C Type Declarations (with pointers)
+---
+
+
+In C you can declare custom types that make use of pointers. This includes alias types, structs, and unions.
+
+
+<br/>
+import imgCppSyntaxForArrayAndAliasType from './images/cpp-syntax-for-array-and-alias-type-declarations-with-pointers.png';
+
+<a id="FigureSyntaxForArrayAndAliasType"></a>
+<img src={imgCppSyntaxForArrayAndAliasType.src} alt="C++ syntax for array and alias type declarations with pointers" width="100%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>C++ syntax for array and alias type declarations with pointers</div><br/>
+
+:::note
+
+- This is the C syntax to for custom alias type that include Pointers.
+- The main difference is the inclusion of the `*` in the *direct type declaration*. This indicates that the custom type can alias pointer types. This would allow you to declare a type such as `person_ptr` that is a pointer to a person.
+- The *inner type declaration* allows you to have array o fpointers,and pointers to arrays.
+In these cases you use the brackets to indicate if you want to declare a pointer to an array, or an array of pointers. See [Listing x.y](#ListingCcodeDemonstratingTypeAliasingWithPointers) for an example of these type declarations.
+
+:::
+
+<br/>
+<a id="ListingCcodeDemonstratingTypeAliasingWithPointers"></a>
+
+```c
+/* program: alias-types-with-ptrs.c */
+
+// The int_ptr type is a pointer to an integer
+typdef int *int_ptr;
+
+// The five ints type is an array of five integers
+typedef int five_ints[5];
+
+// The ptr_to_array_of_5_ints is a pointer to an array of five ints
+typedef int (*ptr_to_array_of_5_ints)[5];
+
+// The five_int_ptrs is an array of five int pointers
+typedef int *five_int_ptrs[5];
+
+int main()
+{
+   int i;
+   int x = 10;
+
+   // x_ptr is a pointer to x
+   int_ptr x_ptr = &x;
+
+   // an array of five ints
+   five_ints data = {0, 1, 2, 3, 4};
+
+   // a pointer to the array of 5 ints
+   ptr_to_array_of_5_ints data_ptr = &data;
+
+   // an array of five int ptrs
+   fiv_int_ptrs data2 = {&x, &data[0], &data[1], &data[2], &data[3]};
+
+   printf("%d", x);
+
+   for(i=0; i<5; i++)
+   {
+        printf("data[%d] = %d\n", i, data[i]);
+        printf("data_ptr[%d] = %p -> %d\n", i, data_ptr[i], (*data_ptr)[i]);
+        printf("data2[%d] = %p -> %d\n", i, data_ptr[i], *data2[i]);
+   }
+
+   return 0;
+}
+
+
+```
+<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>C code demonstrating type aliasing with pointers</div>
+
+### C Structure Declarations (with pointer fields)
+
+The fields of a structure may be a pointer.
+
+<br/>
+import imgCppSyntaxForStructFieldsWithPointers from './images/cpp-syntax-for-struct-fields-with-pointers.png';
+
+<a id="FigureSyntaxForStructFieldWithPointers"></a>
+<img src={imgCppSyntaxForStructFieldsWithPointers.src} alt="C++ syntax for struct fields with pointers" width="100%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>C++ syntax for struct fields with pointers</div><br/>
+
+<br/>
+<a id="ListingCcodeStructPointer"></a>
+
+```c
+/* struct example */
+#include <stdlib.h>
+
+typedef struct node_struct
+{
+    int     value;              // node value
+    struct  node_struct *next;  // pointer to next mode
+} node;
+
+node *create_node(int val, node *next)
+{
+    node *result;
+    result = (node *)malloc(sizeof(node));
+    result->value = val;
+    result->next = next;
+    return result;
+}
+
+int main()
+{
+   node *current;
+   current = create_node(0, NULL);
+   current = create_node(1, current);
+   return 0;
+}
+
+
+```
+<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>C code with a struct that contains a pointer</div>
+
+
+### C Union Declarations (with pointer fields)
+
+The fields of a union may be pointers.
+
+<br/>
+import imgCppSyntaxForUnionFieldsWithPointers from './images/cpp-syntax-for-union-fields-with-pointers.png';
+
+<a id="FigureSyntaxForUnionFieldWithPointers"></a>
+<img src={imgCppSyntaxForUnionFieldsWithPointers.src} alt="C++ syntax for union fields with pointers" width="100%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>C++ syntax for union fields with pointers</div><br/>
+
+<br/>
+<a id="ListingCcodeUnionPointer"></a>
+
+```c
+/* program: union pointer test */
+
+typedef union
+    int     *int_ptr;   // stores either an int pointer
+    float   *float_ptr; // or a float pointer
+    double  *dbl_ptr;   // or a double pointer
+} value_ptr;
+
+int main()
+{
+   value_ptr ptr, ptr1, ptr2;
+   int i = 1.0;
+   float f = 1.1;
+   double d = 2.2;
+
+   ptr.int_ptr = &i;    // Stores a pointer to an int
+   ptr1.float_ptr = &f; // Stores a pointer to a float
+   ptr2.dbl_ptr = &d;   // Stores a pointer to a double
+
+   return 0;
+}
+
+
+```
+<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>C code with a union that contains pointer fields</div>

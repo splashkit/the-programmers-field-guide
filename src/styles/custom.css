@@ -650,6 +650,11 @@ aside[aria-label="How does this work?"] ul > li ul li ul li::before {
   color: darkviolet;
 }
 
+.mathSymbol {
+  color: firebrick;
+  font-weight: 800;
+}
+
 /* ------------------------------------------- */
 /* END:   CUSTOM STYLES                        */
 /* - Don't delete this section                 */

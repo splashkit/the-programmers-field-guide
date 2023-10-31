@@ -1,0 +1,202 @@
+---
+title: C Memory Allocation Functions
+---
+
+
+C includes a number of memory allocation functions: malloc, calloc, realloc, free. 
+
+## malloc
+
+`malloc` is the standard memory allocation function. You tell it how much space you want, and it allocates you that many bytes on the heap. This is a function, that returns a pointer to the space allocated.
+
+<br/>
+<a id="TableMalloc"></a>
+| | |
+| ------- | ------- |
+| Function Prototype | `void *malloc(size_t size)` |    
+| Returns | `void *`: A pointer to the allocated space is returned |
+| Parameter | `size`:  The number of bytes to allocate on the heap. |
+
+<div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Details of the <code>malloc</code></div><br/>
+
+<br/>
+<a id="ListingMallocExample"></a>
+
+```c
+#include <stdlib.h>
+
+int main()
+{
+   int *p, *p_arr;
+
+   // get space for one integer from the heap
+   p = (int *)malloc(sizeof(int));
+
+   // get space for 5 integers from the heap (like an array)
+   p_arr = (int *)malloc(sizeof(int) * 5);
+
+   // free all sapce allocated
+   free(p);
+   p = NULL;
+   free(p_arr);
+   p_arr = NULL;
+
+   return 0;
+}
+
+
+```
+<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Example calls to <code>malloc</code></div>
+
+:::note
+
+- `malloc` is used for memory allocation.
+- You need to include **stdlib.h** to use `malloc`.
+- `malloc` allows you to allocate space on the heap. It returns a pointer to this space.
+- `malloc` returns a `void` pointer, you need to type cast this to the kind of pointer you want, for example `(int *)` casts it to an integer pointer.
+- `malloc` returns `NULL` if it fails to allocate memory
+:::
+
+
+
+
+## calloc
+
+The difference between `calloc` and `malloc` is that `calloc` clears the memory allocation. When you call `calloc` you pass it a number and a size, and `calloc` returns you a pointer to a block of memory that is
+<span class="mathSymbol">number x size</span> bytes.
+
+<br/>
+<a id="TableCalloc"></a>
+| | |
+| ------- | ------- |
+| Function Prototype | `void *calloc( size_t num, size_t size )` |    
+| Returns | `void *`: A pointer to the allocated space is returned. |
+| Parameter | `num`:  The number of elements to allocate to the array. |
+| Parameter | `size`:  The size of each element to be allocated on the heap. |
+
+<div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Details of the <code>calloc</code></div><br/>
+
+<br/>
+<a id="ListingCallocExample"></a>
+
+```c
+#include <stdlib.h>
+
+int main()
+{
+   int *p, *p_arr;
+
+   // get space for one integer from the heap - will be zeroed
+   p = (int *)calloc(1, sizeof(int));
+
+   // get space for 5 integers from the heap (like an array) - all zeroed
+   p_arr = (int *)malloc(5, sizeof(int));
+
+   // free all sapce allocated
+   free(p);
+   p = NULL;
+   free(p_arr);
+   p_arr = NULL;
+
+   return 0;
+}
+
+
+```
+<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Example calls to <code>calloc</code></div>
+
+:::note
+
+- `calloc` is used for getting a *cleared memory allocation*.
+- You need to include **stdlib.h** to use `calloc`.
+- `calloc` performs a similar task to `malloc`, with the addition of clearing the space allocated.
+- After calling `calloc` the memory you are allocated will have all of its bytes set to 0, whereas with `malloc` the memory retains whatever value was there previously.
+- `calloc` returns `NULL` if it fails to allocate memory.
+:::
+
+
+
+
+
+
+
+
+## realloc
+
+Like `malloc` and `calloc`, `realloc` allows you to allocate space from the heap. `realloc` allows you to allocate or change (*reallocate*) space on the heap.
+
+<br/>
+<a id="TableRealloc"></a>
+| | |
+| ------- | ------- |
+| Function Prototype | `void *realloc( void *ptr, size_t size )` |    
+| Returns | `void *`: A pointer to the allocated space is returned. |
+| Parameter | `ptr`:  The pointer to *reallocate* space for on the heap. |
+| Parameter | `size`:  The size of each element to be allocated on the heap. |
+
+<div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Details of the <code>realloc</code></div><br/>
+
+<br/>
+<a id="ListingReallocExample"></a>
+
+```c
+#include <stdlib.h>
+
+int main()
+{
+   int *p, *p_arr;
+
+   // get space for one integer from the heap
+   p = (int *)realloc(p, sizeof(int));
+   *p = 1; // give it a value...
+
+   // reallocate space for 5 integers
+   p = (int *)realloc(p, sizeof(int) * 5);
+
+   // p[0] is still 1...
+   // but there is now also space for p[1]...p[4]
+
+   // free all space allocated
+   free(p);
+   p = NULL;
+
+   return 0;
+}
+
+
+```
+<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Example calls to <code>realloc</code></div>
+
+:::note
+
+- `realloc` allows you to *reallocate memory* for a pointer.
+- You need to include **stdlib.h** to use `realloc`.
+- `ptr` must be a`NULL`, or a pointer to a memory block on the heap, i.e. space previously allocated with `malloc`, `calloc`, or `realloc`. 
+- `realloc` returns `NULL` if it fails to allocate memory.
+- `realloc` may need to move the memory allocation, so you need to assign the result to a pointer as it may differ from the value passed to the `ptr` parameter.
+:::
+
+
+
+
+## free
+
+When you allocate memory you are responsible for freeing that memory when you no longer require it. The `free` function allows you to do this.
+
+<br/>
+<a id="TableFree"></a>
+| | |
+| ------- | ------- |
+| Function Prototype | `void free( void *ptr )` |    
+| Parameter | `ptr`:  The pointer to the space to free on the heap. |
+
+<div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Details of the <code>free</code></div><br/>
+
+:::note
+
+- `free` allows you to free the memory allocated to a pointer.
+- You need to include **stdlib.h** to use `free`.
+- `ptr` a pointer to a memory block on the heap, i.e. space previously allocated with `malloc`, `calloc`, or `realloc`.
+- You can also pass `ptr` a `NULL` value, in which case nothing occurs.
+- It is good practice to assign a `NULL` value to the pointer after freeing it.
+:::

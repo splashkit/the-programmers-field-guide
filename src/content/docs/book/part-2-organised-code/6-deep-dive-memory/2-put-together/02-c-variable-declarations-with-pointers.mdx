@@ -1,0 +1,69 @@
+---
+title: C Variable Declaration (with pointers)
+---
+
+In C you can declare pointer variables. This includes Local Variables, Global Variables, and Parameters.
+
+<br/>
+import imgCppSyntaxVarDeclWithPointers from './images/cpp-syntax-for-variable-declarations-with-pointers.png';
+
+<a id="FigureCppVarDeclWithPointers"></a>
+<img src={imgCppSyntaxVarDeclWithPointers.src} alt="C++ syntax for variable declaration with pointers" width="100%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>C++ syntax for variable declaration with pointers</div><br/>
+
+:::note
+- This code allows you to declare your own Pointer variables in C.
+- For variable declarations, the main aspect to pay attention to is the `*`. This indicates that the variable is a pointer.
+• See [Listing x.y](#ListingCcodeWithPointerVariables) for example variable declarations
+:::
+
+### Using pointers to emulate pass by reference in C
+
+C does not have built in support for Pass by Reference. Instead, in C you must pass a Pointer to the variable you want passed to the function or procedure. [Listing x.y](#ListingCcodeWithPointerVariables) shows an examples of procedures that accept pointers variables.
+
+:::note
+- A `void` pointer can be used to point to any value.
+- Also see: [Section x.y](#) C Procedure Call (with pass by reference), and [Section x.y](#) C++ Reference Parameters.
+ 
+:::
+
+<br/>
+<a id="ListingCcodeWithPointerVariables"></a>
+
+```c
+#include <stdio.h>
+
+void read_data(const char *prompt, const char *format_tag, void *p)
+{
+    printf("%s", prompt);
+    scanf(format_gag, p);
+}
+
+void print_intp(int *ptr)
+{
+    printf("%p -> %d\n", ptr, *ptr);
+}
+
+int main() 
+{
+    int i, j;
+    float x;
+    int *p;
+    int *ptrs[] = { &i, &j };
+
+    read_data("Enter a value for i: ", "%d", &i);
+    read_data("Enter a value for j: ", "%d", &j);
+    read_data("Enter a value for x: ", "%f", &x);
+
+    p = &i;
+    print_intp(p);
+    print_intp(&i);
+    print_intp(&j);
+    print_intp(ptrs[1]);
+
+    return 0;
+}
+
+
+```
+<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>C code with pointer variables</div>

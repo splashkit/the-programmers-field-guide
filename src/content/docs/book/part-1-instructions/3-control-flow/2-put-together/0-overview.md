@@ -1,34 +1,13 @@
 ---
-title: Guess that Number
+title: Overview
 ---
 
-The example for this chapter is a guessing game, where the user is guessing a number between 1 and 100. An example of this program executing is shown in [Listing x.y](#ListingGuessingGame)
+The control flow concepts give us a whole range of new potentials and opportunities to create dynamic and interactive programs. There are several new things here, and it may take you some time to get to understand how these bits fit together. Make sure to spend the time here to really understand how to **use** these ideas.
 
-```bash
-$ ./GuessThatNumber
-I am thinking of a number between 1 and 100
+This section will guide you through the process of applying these ideas across two different programs. Here your focus should be on the way you think and approach problems, and the ways in which the different control flow mechanisms can come together to achieve different effects.
 
-Guess 1: 73
-The number is less than 73
-Guess 2: 10
-The number is larger than 10
-Guess 3: 52
-The number is larger than 52
-Guess 4: 60
-The number is less than 60
-Guess 5: 57
-The number is less than 57
-Guess 6: 54
-The numbar is larger than 54
-Guess 7: 56
-The number is less than 56
-You ran out of guesses... the number was 55
+First we revisit the change calculator. We will look at using control flow mechanisms to allow the user to calculate and give change multiple times, perform validations to ensure the program does not crash, and reduce duplication of logic within the code.
 
-Do you want to play again [Y/n]? n
+The second walkthrough will explore the use of control flow concepts to build a small game. This will build the program from the ground up, piecing this together across several iterations.
 
-Bye
-```
-
-## Getting started
-
-The hardest part of a program is usually getting started. Rather than trying to build this entire thing,
+Throughout this section we will focus on the concepts and how to design programs using these. You will need to combine these ideas with the syntax details from the concepts' section to build these programs yourself. If you get stuck, you can check your work against the code in the [wrapup](../../5-wrapup/0-wrapup) section - but try to avoid looking at this until you have tried it yourself. This way, you can help use it to validate your understanding.
