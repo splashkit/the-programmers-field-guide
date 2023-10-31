@@ -1,0 +1,33 @@
+---
+title: File Structures
+sidebar:
+  label: " - File Structures"
+---
+
+
+When thinking about using using files, the one aspect that you need to spend the most time on will be the organisation of the data in the file. You need to ensure that the data you save includes sufficient information that it can be read back into the program at a later stage. Some common strategies are to:
+
+1. Write fixed size data blocks where possible.
+2. Store meta data<sup>[1](#FootnoteMetaData)</sup>, such as the number or size of variable data blocks.
+3. Alternatively, mark the end of variable sized or numbered data blocks with a sentinel values.
+
+
+<br/>
+import imgIOfileStructures from './images/io-file-structures.png';
+
+<a id="FigureIOfileStructures"></a>
+<img src={imgIOfileStructures.src} alt="You need to structure data within the file to make it possible to read back successfully." width="100%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>You need to structure data within the file to make it possible to read back successfully.</div><br/>
+
+:::note
+- [Figure x.y](#FigureIOfileStructures) shows different ways of structuring a variable number of 'row' values within a file.
+- The row values are fixed size blocks, or use their own strategy to manage variable length data.
+- One version stores the number of elements in the data before storing the data itself.
+- An alternate strategy is to store a sentinel value at the end of the variable length
+data.<sup>[a](#FootnoteEOF)</sup>
+<hr class="footnote"/>
+<div id="FootnoteEOF" class="footnote"><sup>a</sup>There is an end of file marker that can also be used for this purpose.</div>
+:::
+
+<hr class="footnote"/>
+<div id="FootnoteMetaData" class="footnote"><sup>1</sup>Meta data is data about your data.</div>

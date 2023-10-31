@@ -1,0 +1,59 @@
+---
+title: Reading binary data from a file
+sidebar:
+  label: " - Reading binary data from a file"
+---
+
+To read back binary data you need to use `fread`. This reads back a block of data from the file, and stores it in memory at a location indicated by a pointer.
+
+
+<br/>
+<a id="TableFread"></a>
+
+|   |   |
+|---|---|
+| **Function Prototype** | `size_t fread(void *ptr, size_t size, size_t count, FILE *destination)` |
+| **Returns** | `int`: The number of elements read from the`destination` by `fprintf`. If this does not equal the `count` parameter it indicates an error occurred reading the data to the file. |
+| **Parameter** | `ptr`: A pointer to the location to store the loaded data. This must be large enough to store the values loaded.<br/><br/>`size`: The size of each element to be loaded<br/><br/>`count`: The number of elements to be loaded from the file.<br/><br/>`destination`: The `FILE` to read data from<br/><br/>|
+
+<div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Parameters that must be passed to `fread`</div><br/>
+
+:::note
+- The file must be opened with read permissions. 
+- You must ensure that `ptr` points to sufficient space to load the data into.
+:::
+
+<br/>
+<a id="ListingFread"></a>
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() 
+{
+    FILE *in;
+    int i, count;
+    double data; // dynamic array
+
+    in = fopen("data.bin", "rb");
+    if(in == NULL) return 0;
+    
+    fread(&count, sizeof(int), 1, in); // read the count
+
+    data = calloc(count, sizeof(double)); // allocate space for "count" doubles
+    if(data == NULL) return 0;
+
+    fread(data, sizof(double), count, in); // read data from the file
+    fclose(in);
+
+    for(i=0;i<count;i++) 
+    {
+        printf("data[%d] = %1f\n", i, data[i]);
+    }
+
+    free(data); // Free the space allocated to the data "array"
+
+    return 0;
+```
+<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Example code that reads an array of double values from a binary file.</div>

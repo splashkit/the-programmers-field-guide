@@ -505,7 +505,12 @@ export default defineConfig({
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-2-organised-code/7-low-level-programming/2-put-together",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/7-low-level-programming/2-put-together",
+                    collapsed: true,
+                  },
                 },
                 {
                   label: "Other Languages",

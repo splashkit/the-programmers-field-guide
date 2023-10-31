@@ -1,0 +1,27 @@
+---
+title: Closing a file
+sidebar:
+  label: " - Closing a file"
+---
+
+
+Once you have opened a file it is important that you also close it. The `fclose` function can be used to close an opened file.
+
+
+<br/>
+<a id="TableFclose"></a>
+
+|   |   |
+|---|---|
+| **Function Prototype** | `int fclose(FILE *stream)` |
+| **Returns** | `int`: Returns 0 when it is successfully closed. |
+| **Parameter** | `stream`: The file to close. |
+
+<div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Details of the <code>fclose</code> function</div><br/>
+
+:::note
+
+- Make sure to close all opened files.
+- Remember to check all paths through your code.
+
+:::

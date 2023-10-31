@@ -1,0 +1,24 @@
+---
+title: Persisting Data
+sidebar:
+  label: " - Persisting Data"
+---
+
+When a program is running it uses variables and dynamically allocated memory to store the data it requires. These values exist within the memory allocated to the program when it was started. When the program ends its allocated memory is released, and the values stored within the program are lost. If values must be remembered between executions then this data must be stored outside of the program. To achieve this you can save data from the program into files that are stored on the computer’s hard drive or solid state drive (SSD).
+
+
+<br/>
+import imgIOsaveDataToFile from './images/io-saving-data-to-a-file.png';
+
+<a id="FigureIOsaveDataToFile"></a>
+<img src={imgIOsaveDataToFile.src} alt="When a program ends its data is gone, unless you save it to file" width="100%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>When a program ends its data is gone, unless you save it to file</div><br/>
+
+:::note
+
+- Data stored within a program is lost when the program ends.
+- To *remember* data between executions it must be saved to file.
+- The files are stored in a persistent way on a hard drive, or solid state drive.
+- Hard drives, and solid state drives, are as data storage devices to persist data needed by programs on the computer.
+
+:::

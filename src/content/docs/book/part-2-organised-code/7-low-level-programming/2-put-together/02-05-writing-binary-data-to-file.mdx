@@ -1,0 +1,54 @@
+---
+title: Writing binary data to a file
+sidebar:
+  label: " - Writing binary data to a file"
+---
+
+The `fwrite` function allows you to write binary data to a file. This requires you to pass a pointer to your data, as well as the size and number of elements you want written.
+
+<br/>
+<a id="TableFwrite"></a>
+
+|   |   |
+|---|---|
+| **Function Prototype** | `size_t fwrite(const void *ptr, size_t size, size_t count, FILE *destination)` |
+| **Returns** | `int`: The number of elements written to the`destination` by `fwrite`. If this does not equal the `count` parameter it indicates an error occurred writing the data to the file. |
+| **Parameter** | `ptr`: A pointer to the data to be saved to the file.<br/><br/>`size`: The size of each element to be saved<br/><br/>`count`: The number of elements to be saved to the file.<br/><br/>`destination`: The `FILE` to write the output to<br/><br/>|
+
+<div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Parameters that must be passed to `fwrite`</div><br/>
+
+:::note
+- The file must be opened with write permissions. 
+- This will write the binary data to file from the values pointed to by the `ptr` parameter.
+:::
+
+<br/>
+<a id="ListingWriteBinary"></a>
+
+```c
+// Program write_binary.c
+
+#include <stdio.h>
+
+int main() 
+{
+    FILE *out;
+
+    int count = 3;
+    double data[3] = { 73.98, 43.21, 3.1415 };
+
+    out = fopen("data.bin", "wb");
+    if(out == NULL) return 0;
+
+    fwrite(&count, sizeof(int), 1, out); // write number of doubles
+    fwrite(data, sizeof(double), 3, out; // write 3 doubles
+
+    fclose(out);
+
+    return 0;
+}
+
+
+
+```
+<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Example code that writing an array of double values to a binary file.</div>

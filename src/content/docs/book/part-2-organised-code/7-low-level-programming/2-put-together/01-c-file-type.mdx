@@ -1,0 +1,57 @@
+---
+title: C File Type
+---
+
+
+C includes a `FILE` type that is used to interact with files on the computer. This type includes all of the information that C needs to read and write data to a file.
+
+<br/>
+<a id="ListingFileTypeC"></a>
+
+```c
+#include <stdio.h>
+
+int main() 
+{
+    char message[12] = "Hello World";
+    char in_message[6] = "";
+    int val = 127;
+    int in_val = 0;
+
+    FILE *out;
+    FILE *in;
+
+    out = fopen("test.txt", "w");
+    if(out == NULL) return -1;
+    fprintf(out, "%s\n%d", message, val); // Write the message, and a new line
+    fclose(out);
+
+    in = fopen("test.txt", "r");
+    if(in == NULL) return -1;
+
+    fscanf(in, "%5[^\n]", in_message); // read first 5 characters of the message
+    fscanf(in, "%*[^\n]", in_message); // skip anything else on the line
+    fscanf(in, "%*[\n]", in_message); // skip the new line
+    fscanf(in, "%d", &in_val); // read the number
+
+    fclose(in);
+
+    printf("Read: %s & %d\n", in_message, in_val);
+
+    return 0;
+
+}
+
+```
+<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Example use of the <code>FILE</code> type to read and write text data</div>
+
+:::note
+
+- The `FILE` type is used to read and write data from a file.
+- You open the file using `fopen`.
+- After the file has been opened you must remember to close it using `fclose`.
+- File based versions of `printf` and `scanf` allow you to read and write data from the file.
+- The IO code in C always works with `FILE` pointers, as a result all of your `FILE` variables will be pointers.
+ 
+
+:::

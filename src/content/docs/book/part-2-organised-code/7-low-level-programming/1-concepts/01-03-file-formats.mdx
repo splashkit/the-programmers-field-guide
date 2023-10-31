@@ -1,0 +1,23 @@
+---
+title: File Formats
+sidebar:
+  label: " - File Formats"
+---
+
+There are two main file formats that you can work with in your program: binary files and text files. A text file stores its data as textual characters, whereas a binary file stores the values directly in the file.
+
+<br/>
+import imgIOfileFormats from './images/io-file-formats.png';
+
+<a id="FigureIOfileFormats"></a>
+<img src={imgIOfileFormats.src} alt="Files can store textual or binary data" width="80%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Files can store <em>textual</em> or <em>binary</em> data</div><br/>
+
+:::note
+
+- [Figure x.y](#FigureIOfileFormats) shows a binary and text file used to save the text 'Hello' and the integer 127.
+- In the text file they are stored as the characters 'H', 'e', 'l', 'l', 'o', and '1', '2', and '7' separated by a space. 
+- In the *binary* file the characters are stored in the same way (as they are text), but the integer is stored as the value 127 which if interpreted as text is a *delete* character.
+- If you opened these files in a text editor you could read the values from the text file, but you would see a strange character instead of the number 127 in the binary file
+
+:::

@@ -1,0 +1,26 @@
+---
+title: Opening a file
+sidebar:
+  label: " - Opening a file"
+---
+
+
+Before you can interact with a file the first step will be to open the file. This is done with the `fopen` function. This function will return a `FILE` pointer you can then use to interact with the file.
+
+<br/>
+<a id="TableFopen"></a>
+
+|   |   |
+|---|---|
+| **Function Prototype** | `FILE *fopen(const char *filename, const char *mode)` |
+| **Returns** | `FILE *`: If successful, this returns a pointer to the file stream opened, otherwise it returns `NULL` |
+| **Parameters** | `filename`: The name of the file to open. This can include a relative or absolute path to the file.<br/><br/>`mode`: Indicates the kind of operations that can be performed on the file. Mode should be one of the following:<br/> <ul><li><strong>"r"</strong>: Open the existing file for reading. The file must exist.</li><li><strong>"w"</strong>: Open the file for writing. This will create a new file, or replace an existing file.</li><li><strong>"a"</strong>: Open the file for appending data. This will append data to an existing file, or create a new file if it does not exist.</li><li><strong>"r+"</strong>: Open the file for reading, and writing. The file must exist.</li><li><strong>"w+"</strong>: Open the file for writing, and reading. This will create a new file, replacing any existing files.</li><li><strong>"a+"</strong>: Open the file for appending, and reading. This ensures that all write operations are always performed at the end of the file.</li></ul> |
+
+<div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Details of the <code>fopen</code> function</div><br/>
+
+:::note
+
+- Remember to check that `fopen` has returned you a valid pointer, if you get back `NULL` then it failed to open the file.
+- For binary files you can append a `b` to the mode. For example, to open a binary file for reading you use the mode `rb`, to open for writing and reading you use `w+b`.
+
+:::
