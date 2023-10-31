@@ -47,7 +47,7 @@ C/C++ do not have a strong distinction between functions and procedures. Instead
 
 ## Examples
 
-- [Listing 5.x](#ListingFunctionDeclaration) below shows an example function declaration of a square function.
+[Listing 5.x](#ListingFunctionDeclaration) below shows example function declarations.
 
 <a id="ListingFunctionDeclaration"></a>
 
@@ -57,7 +57,7 @@ C/C++ do not have a strong distinction between functions and procedures. Instead
 
 using std::to_string;
 
-int square(int val) 
+double square(double val) 
 {
   return val * val;
 }
@@ -79,6 +79,14 @@ int main()
 
 ```
 <div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>Example function declaration of a square function</div>
+
+There are three function declarations in this code: `square`, `point_in_circle`, and `main`. Each of these performs a number of steps and returns a value. 
+
+- The `square` function accepts a `val` parameter, and returns the square of this. This is achieved with a single line of code, but helps make the other code more readable.
+- In `point_in_circle`, we accept parameters for the point (`pt_x` and `pt_y`) and the circle (`c_x`, `c_y`, and `c_radius`) and return a boolean value indicating if the point is within the circle. To achieve this, we can get the distance from the point to the center of the circle, which we store in a local variable called `distance`, and then compare this with the circle's radius to get the result;
+- The `main` function exists in all C/C++ programs. It is the entry point, and returns a value that indicates if the program completed successfully or not. Returning 0 at the end indicates the program succeeded, with any other value is treated as an error code.
+
+Notice we can use the `square` function in the calculation for the `point_in_circle`. Once you have a function that calculates something, you can call it any time you need that value. Here we can use the Pythagorean theorem to determine the distance between the points. This requires us to get the square of the distance from each dimension (x and y), and then calculate the square root of this. For this we can then use the [sqrt](https://en.cppreference.com/w/c/numeric/math/sqrt) function from the math standard library in C.
 
 :::note[Summary]
 

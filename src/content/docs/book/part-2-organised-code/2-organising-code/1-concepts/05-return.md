@@ -70,4 +70,6 @@ int main() {
 ```
 <div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>Example illustrating return in action</div>
 
+For other examples, have a look back at the [functions page](../04-function-decl). The `square` function uses the return statement to return the squared value, while the `point_in_circle` returns the value from the comparison as this indicates if the point is within the circle.
+
 **TODO: add slider**

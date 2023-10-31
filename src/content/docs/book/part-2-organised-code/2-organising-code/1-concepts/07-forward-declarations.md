@@ -117,3 +117,12 @@ clang++ *.cpp -l SplashKitCPP -l SplashKit -o test
 ```
 
 You do not include the header files in the compiler call. The preprocessor will read those for you and embed their code where the `#include` is encountered.
+
+:::note[Summary]
+
+- Forward declarations let you make promises to the compiler.
+- These promises let you divide you code between files - which the compiler reads one at a time.
+- You may get linker errors as a result of failing to fulfil a promise or accidentally creating something multiple times.
+- Header files provide a way of sharing these promises between files. You code the promises in the header, and you can include the header wherever you want to use those things.
+
+:::

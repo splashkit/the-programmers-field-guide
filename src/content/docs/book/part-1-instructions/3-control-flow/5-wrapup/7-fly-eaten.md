@@ -68,7 +68,7 @@ while (!QuitRequested())
   }
 
   // Test if the spider and fly are touching
-  if (CirclesIntersect(CircleAt(spiderX, spiderY, SPIDER_RADIUS), CircleAt(flyX, flyY, FLY_RADIUS)))
+  if (CirclesIntersect(spiderX, spiderY, SPIDER_RADIUS, flyX, flyY, FLY_RADIUS))
   {
     flyAppeared = false;
     appearAtTime = TimerTicks(GAME_TIMER) + 1000 + Rnd(2000);

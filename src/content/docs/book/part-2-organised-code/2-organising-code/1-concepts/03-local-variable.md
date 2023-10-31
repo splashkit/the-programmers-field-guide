@@ -48,10 +48,10 @@ int main()
 {
   string user_name, friend_name;
 
-  Write("Enter your name: ");
+  write("Enter your name: ");
   user_name = read_line();
 
-  Write("Enter a friend's name: ");
+  write("Enter a friend's name: ");
   friend_name = read_line();
 
   say_hello_to(user_name);
@@ -62,7 +62,6 @@ int main()
 ```
 
 This code creates two local variables within the main function: one for the user's name, and one for a friend's name. These are only accessible within the main function. Inside the `say_hello_to` procedure you should be able to focus just on that code, so you don't need to think about the two variables within main - they do not need to exist for `say_hello_to` to work. Instead, you can just focus on what you want `say_hello_to` to do and the steps that are needed to achieve that.
-
 
 :::note[Summary]
 

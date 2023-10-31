@@ -36,12 +36,13 @@ A basic stating syntax for a C/C++ procedure declaration is shown in [Figure 5.1
 
 :::
 
-## Examples
+## Example
 
-There are three procedures declared in the code in [Listing 5.12](#ListingMethodDeclaration).
+There are three procedures declared in the code in [Listing 5.12](#ListingMethodDeclaration): `find_what_to_cook`, `purchase_missing_ingredients`, and `get_ingredients`. Following these, there is also the declaration of the `main` function - this is a function not a procedure. We will look at the details of functions soon.
 
-- The **block** of a procedure declaration should look familiar. This is the same as was used in the main function of the program to define its instructions, and is used for the same purpose within the procedure declaration.
-- There are a number of conventions, called coding standards, that describe how your code should appear for a given language. In this text we will use a common C convention of having all *procedure names* in **snake_case**, with underscores ( ) used to separate words. So the *Get Ingredients* procedure becomes `get_ingredients`.
+The **block** of a procedure declaration should look familiar. This is the same as was used in the main function of the program to define its instructions, and is used for the same purpose within the procedure declaration.
+
+There are a number of conventions, called coding standards, that describe how your code should appear for a given language. In this text we will use a common C convention of having all *procedure names* in **snake_case**, with underscores (`_`) used to separate words. So the *Get Ingredients* procedure becomes `get_ingredients`.
 
 <a id="ListingMethodDeclaration"></a>
 

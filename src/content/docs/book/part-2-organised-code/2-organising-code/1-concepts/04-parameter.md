@@ -33,7 +33,7 @@ Think about the different functions and procedure we have been calling already. 
 
 :::
 
-## Examples
+## Example
 
 See [Listing 5.x](#ListingParameters) below for an example of a procedure with parameters.
 
@@ -58,6 +58,10 @@ int main()
 <div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>Parameter Tests</div>
 
 The `print_equation` procedure accepts three parameters: `m`, `x`, and `c`. This means that when `print_equation` is called, it must be passed three argument value. The first value will be passed to the `m` parameter, the second to `x`, and the third to `c`.
+
+You can also look at the example code in the [functions page](../04-function-decl). Both the `square` and `point_in_circle` functions accept parameters in order to achieve their tasks. The `square` function needs to be told the value you want to square, while the `point_in_circle` needs to know the location of the point (`pt_x` and `pt_y`) and the location and size of the circle (`c_x`, `c_y`, `c_radius`). 
+
+The great thing about parameters is that it really helps you generalise what your function can do. By accepting a value parameter, the `square` function can be used to square any `double` value. Similarly, by accepting parameters for the point and circle, the `point_in_circle` function can work for any point in any circle.
 
 **TODO: Add slider here**
 
