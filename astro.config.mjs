@@ -495,6 +495,10 @@ export default defineConfig({
                   link: "book/part-2-organised-code/7-low-level-programming/0-overview",
                 },
                 {
+                  label: "Required Tools (DCC)",
+                  link: "book/part-2-organised-code/7-low-level-programming/1-dcc",
+                },
+                {
                   label: "Concepts",
                   collapsed: true,
                   autogenerate: {
