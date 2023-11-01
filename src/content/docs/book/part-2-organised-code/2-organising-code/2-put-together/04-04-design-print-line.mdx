@@ -4,9 +4,7 @@ sidebar:
   label: " - Design Print Line"
 ---
 
-## Designing Control Flow for Print Line
-
-`Print Line` is a short Procedure used to print a line of '-' characters to the Terminal. The flowchart for this Procedure is shown in [Figure x.y](#FigurePrintLineFlowChart), and again with the blocks highlighted in [Figure x.y](#FigurePrintLineBlocks).
+`Print Line` is a short procedure used to print a line of '-' characters to the Terminal. The flowchart for this procedure is shown in [Figure x.y](#FigurePrintLineFlowChart), and again with the blocks highlighted in [Figure x.y](#FigurePrintLineBlocks).
 
 
 <br/>
@@ -36,7 +34,7 @@ import printLineBlocks from './images/guess-that-number-print-line-blocks.png';
 
 ## Pseudocode for Print Line
 
-The Pseudocode for Print Line method is shown in [Listing x.y](#ListingPrintLinePseudoCode) below.
+The pseudocode for Print Line is shown in [Listing x.y](#ListingPrintLinePseudoCode) below.
 
 <br/>
 <a id="ListingPrintLinePseudoCode"></a>
@@ -45,21 +43,22 @@ The Pseudocode for Print Line method is shown in [Listing x.y](#ListingPrintLine
 Procedure: Print Line
 -------------------------------
 Parameters:
-    - Length (Integer)
+  - Length (Integer)
 Local Variables:
-    - i (Integer)
+  - i (Integer)
 Steps
-    1. Assign i, the value 0
-    2. While i < length
-    3.      Output '-'
-    4.      Increase i by 1
-    5. Output a new line
+  Assign i the value 0
+  While i < length
+    Output '-'
+    Increase i by 1
+  Output a new line
 ```
 <div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>Pseudocode for Print Line</div>
 
 :::note
-- This code includes a Local Variable `i`
+
+- This code includes a local variable `i` to track the number of iterations through the loop.
 - `i` is used to count the number of times the loop has executed, allowing it to stop when it has printed enough dashes
-- This uses a Pre-Test Loop. This makes sure that no characters are printed if the length is less than or equal to zero
-- Notice that a sequence can be placed within a loop
+- You can implement this with a for loop
+
 :::

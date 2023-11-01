@@ -355,6 +355,15 @@ export default defineConfig({
                   label: "Activities",
                   link: "book/part-2-organised-code/2-organising-code/4-activities",
                 },
+                {
+                  label: "Wrap Up",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/2-organising-code/5-wrap-up",
+                    collapsed: true,
+                  },
+                },
               ],
             },
             {

@@ -4,10 +4,9 @@ sidebar:
   label: " - Design Play Game"
 ---
 
-## Designing Control Flow for Play Game
+The `Play Game` procedure will require some thought to design its logic.
 
-The `Play Game` Procedure is another artefact that will require some some thought to design its logic.
-[Table x.y](#TablePlayGameMethodSpecs) contains the specification for this Procedure. It will be responsible for coordinating the actions of the game, while `Perform Guess` coordinates the actions for a *single* guess.
+[Table x.y](#TablePlayGameMethodSpecs) contains the specification for this procedure. It will be responsible for coordinating the actions of the game, while `Perform Guess` coordinates the actions for a *single* guess.
 
 
 <br/>
@@ -20,24 +19,22 @@ The `Play Game` Procedure is another artefact that will require some some though
 
 <div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Specification for the <code>Play Game</code> method</div>
 
-The implementation of this Procedure will require us to store some data. The following Local Variables will be needed to store data within this Procedure:
+The implementation of this procedure will require us to store some data. The following local variables will be needed to store data within this procedure:
 
--  `My Number`: This will store the computer's randomly chosen number.
--  `Guess Number`: This will store the current guess the user is at, allowing the computer to stop looping when the number of guesses is exceeds 7.
+- `My Number`: This will store the computer's randomly chosen number.
+- `Guess Number`: This will store the current guess the user is at, allowing the computer to stop looping when the number of guesses exceeds 7.
+- `Got It`: A Boolean value to indicate if the user did guess the number, allowing the computer to stop looping when the user guesses the number.
 
--  `Got It`: A Boolean value to indicate if the user did guess the number, allowing the computer to stop looping when the user guesses the number.
+The flowchart for this is shown in [Figure x.y](#FigurePlayGameLogic), and again in [Figure x.y](#FigurePlayGameBlocks) with its blocks highlighted. This code uses a **loop** to ask the user to perform up to 7 guesses. The condition on this loop occurs *after* the loop body as the user must have at least one guess.
 
-The flowchart for this is shown in [Figure x.y](#FigurePlayGameLogic), and again in [Figure x.y](#FigurePlayGameBlocks) with its blocks highlighted. This code uses a **repetition** to ask the user to perform up to 7 guesses. The condition on this loop occurs *after* the loop body as the user must have at least one guess.
-
-There is also a **selection** after the loop to output the answer if the user ran out of guesses. This is only done when the user has not guessed it themselves. This does not need to perform any other actions when the user did guess the number, so the False branch has no additional actions. In code this would be implemented with an If Statement without an **else** branch.
+There is also a **selection** after the loop to output the answer if the user ran out of guesses. This is only done when the user has not guessed it themselves. This does not need to perform any other actions when the user did guess the number, so the False branch has no additional actions. In code this would be implemented with an if statement without an **else** branch.
 
 :::note
-- A loop may have its condition before or after it's instructions
-- If the condition is after the loop, as it is with `Play Game`, then this gives a loop the runs **at least once**
-- The else branch on the If Statement is optional. If you have no processing for this branch, you leave the `else` off in the code
-- The condition of the If Statement in `Play Game` check if the `Got It` is `false` using the not logical operator. 
-:::
 
+- Notice how you can focus on the process for playing the game, without needing to worry about the details of performing a single guess.
+- The condition of the if statement in `Play Game` check if the `Got It` is `false` using the not logical operator.
+
+:::
 
 <br/>
 import playGameLogic from './images/guess-that-number-play-game-logic.png';
@@ -55,9 +52,7 @@ import playGameBlocks from './images/guess-that-number-play-game-blocks.png';
 
 ## Pseudocode for Play Game
 
-[Listing x.y](#ListingPlayGamePseudoCode) contains the Pseudocode for the `Play Game` Procedure. This uses Constants for `MAX_NUMBER` and a `MAX_GUESSES`, this will make it easier to change the range of the numbers and the associated number of guesses.
-
-The flowchart for `Play Game` includes a Post-Test Loop, which can be coded as either a `do...while` or a `repeat...until` loop. This two variations are shown in step 7 of [Listing x.y](#ListingPlayGamePseudoCode), with the while version appearing as a comment on the following line. Both of these versions have the same result, but do require different conditions. It is important to understand that the basic ideas of a **post-test loop** is the same regardless of whether it is coded using `do...while` or `repeat...until`.
+[Listing x.y](#ListingPlayGamePseudoCode) contains the pseudocode for the `Play Game` procedure. This uses constants for `MAX_NUMBER` and `MAX_GUESSES`, this will make it easier to change the range of the numbers and the associated number of guesses if we choose at a later point. These also help make the code easier to read and understand.
 
 <br/>
 <a id="ListingPlayGamePseudoCode"></a>
@@ -65,23 +60,30 @@ The flowchart for `Play Game` includes a Post-Test Loop, which can be coded as e
 ```
 Procedure: Play Game
 -------------------------------
+Constants:
+  - MAX_GUESSES: an integer with value 7
+  - MAX_NUMBER: an integer with value 100
 Local Variables:
-    - My Number, Guess Number (Integer)
-    - Got It (Boolean)
+  - My Number, Guess Number (Integer)
+  - Got It (Boolean)
 Steps
-    1. Assign My Number, a Random number between 1 and MAX_NUMBER
-    2. Assign to Guess Number, the value 0
-    3. Output 'I am thinking of a number between 1 and ', and MAX_NUMBER
-    4. Repeat
-    5.      Increase Guess Number by 1
-    6.      Assign Got It, the result of PerformGuess(Guess Number, My Number)
-    7. Until Guess Number >= MAX_GUESSES or Got It
-    (* While Guess Number < MAX_GUESSES and not Got It *)
-    8. If Not Got It then
-    9.      Output 'You ran out of guesses... the number was ', and My Number
+  Assign My Number, a Random number between 1 and MAX_NUMBER
+  Assign to Guess Number, the value 0
+  Output 'I am thinking of a number between 1 and ', and MAX_NUMBER
+  Repeat
+       Increase Guess Number by 1
+       Assign Got It, the result of PerformGuess(Guess Number, My Number)
+  While Guess Number < MAX_GUESSES and not Got It
+  If Not Got It then
+       Output 'You ran out of guesses... the number was ', and My Number
 ```
+
 <div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>Pseudocode for Play Game</div>
 
 :::note
-- Notice the indentation make it ieaser to see which instructions are within the loop and branches of this code
+
+- Isn't it nice to have already coded the logic for perform guess. Here you can then just focus on the steps to play the game.
+- Notice the indentation make it easier to see which instructions are within the loop and branches of this code
+- Breaking the logic into separate functions and procedures helps make your job easier!
+
 :::
