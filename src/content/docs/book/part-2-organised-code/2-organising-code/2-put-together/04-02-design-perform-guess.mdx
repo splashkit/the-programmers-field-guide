@@ -4,12 +4,7 @@ sidebar:
   label: " - Design Perform Guess"
 ---
 
-## Combining blocks for the Perform Guess
-
-With the basic theory at hand, we can now start to design the control flow for the Guess that Number program. This process will involve, once again, the idea of **abstraction**. When designing the flow for a program you first need to be able to perform the process yourself, even if its just on paper, and then work out the steps that you undertook so that you can code these within the program.
-
-For the Guess that Number program we can start by designing the control flow within the `Perform Guess` function. The specification of this is shown in [Table x.y](#TablePerformGuessSpecs). Think about the steps that need to be performed to achieve this. If you had been asked to do this what would you need to do?
-
+Now that we have the different functions and procedure, we can now start to design the control flow for the Guess that Number program. For the Guess that Number program we can start by designing the control flow within the `Perform Guess` function. The specification of this is shown in [Table x.y](#TablePerformGuessSpecs). Think about the steps that need to be performed to achieve this. If you had been asked to do this what would you need to do?
 
 <br/>
 <a id="TablePerformGuessSpecs"></a>
@@ -17,14 +12,16 @@ For the Guess that Number program we can start by designing the control flow wit
 |   |   |
 |---|---|
 | **Function** | `Perform Guess` |
-| **Description** |  `Perform Guess` is responsible for coordinating the actions needed to perform a single guess within a game of *Guess that Number*. The user's `guess` is read, and the value checked against the `target` value. A message is then output telling the user if the target value is less than, larger than, or equal to their guess. This function returns True when the user’s guess is equal to the target.|
-| **Returns** | `Boolean`: True when the user has guessed the number, False otherwise. |
-| **Parameters** | `Guess Number`: The number of the current guess, used in the prompt asking for the user to enter their guess.<br/><br/>`Target`: The number the user is aiming to guess. |
+| **Description** |  `Perform Guess` is responsible for coordinating the actions needed to perform a single guess within a game of *Guess that Number*. The user's `guess` is read, and the value checked against the `target` value. A message is then output telling the user if the target value is less than, larger than, or equal to their guess. This function returns true when the user’s guess is equal to the target, otherwise it returns false.|
+| **Returns** | `Boolean`: True when the user has guessed the number, false otherwise. |
+| **Parameters** | `Guess Number`: The number of the current guess (from 1st to 7th guess), used in the prompt asking for the user to enter their guess. |
+|| `Target`: The number the user is aiming to guess. |
 
 <div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Specification for the <code>Perform Guess</code>program</div><br/>
 
+## Read the Guess
 
-The first task the Function needs to perform is to get the guess from the user. This can be performed in a **sequence**: display a prompt, read the value from the user. This first sequence is shown in [Figure x.y](#FigurePerformGuessInitialSequence).
+The first task the function needs to perform is to get the guess from the user. This can be performed in a **sequence**: display a prompt, read the value from the user. This first sequence is shown in [Figure x.y](#FigurePerformGuessInitialSequence).
 
 import performGuessInitialSeq from './images/guess-that-number-perform-guess-initial-sequence.png';
 
@@ -32,10 +29,18 @@ import performGuessInitialSeq from './images/guess-that-number-perform-guess-ini
 <img src={performGuessInitialSeq.src} alt="Initial sequence for the Perform Guess function" width="33%" />
 <div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Initial sequence for the Perform Guess function</div><br/>
 
-The next step in this sequence is to give the user feedback based upon their guess and the target number. This code requires a the ability to *select* a given branch. The computer needs to output different messages
-based upon the users guess. This can be achieved with a **selection** block. Looking back at [Figure x.y](../04-01-design-basic-theory#FigureGuessThatNumberSequenceBlocks) there are three possible alternatives for implementing this selection. The `if` with no `else` is not a valid option as there are three paths we need to take. The `case` block is also not valid as we are not matching a value, but comparing values to each other. The last option is the `if-else` block, but this only has two branches. It is not going to be possible to code all three options within one block, but it can be achieved using two `if-else` blocks.
+:::tip
 
-The first `if-else` block will check if the `target` is greater than the user's `guess`. If this is true then the computer can take the first branch and output the message 'The number is larger than ' and the value from the user's guess. The flow chart for this part is shown in [Figure x.y](#FigurePerformGuessFirstBranch). This block is the third task in the sequence, this if block has a single entry, causes a branch in the flow, and will have a single exit.
+This sequence sounds familiar. We could reuse our `read_integer` code from the change calculator here!
+
+:::
+
+## Give Feedback
+
+The next step in this sequence is to give the user feedback based upon their guess and the target number. This code requires the ability to *select* a given branch. The computer needs to output different messages
+based upon the user's guess.
+
+This can be achieved with a **selection** block. To achieve this we will need to group together a few if-else statements. The first `if-else` block can check if the `target` is greater than the user's `guess`. If this is true then the computer can take the first branch and output the message 'The number is larger than ' and the value from the user's guess. The flow chart for this part is shown in [Figure x.y](#FigurePerformGuessFirstBranch).
 
 import performGuessFirstBranch from './images/guess-that-number-perform-guess-first-branch.png';
 
@@ -44,13 +49,14 @@ import performGuessFirstBranch from './images/guess-that-number-perform-guess-fi
 <div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>First branch in Perform Guess</div><br/>
 
 :::note
-- The conditions with the If Statement are Boolean Expressions
+
+- The conditions within the if statement are Boolean expressions
 - This condition is checking if target > guess
 - There are now two paths through this code: one when target is > guess, and another when it is not
+
 :::
 
-Following the false path from the first decision, and we have a new location into which to insert a block. At this point we know the target is *not* larger than the user's guess. At this point you can include another `if-else` block to check if the target is **less than** the user's guess. This is shown in [Figure x.y](#FigurePerformGuessSecondBranch)
-
+Following the false path from the first decision, and we have a new location into which to insert a block. At this point we know the target is *not* larger than the user's guess, so we can include another `if-else` block to check if the target is **less than** the user's guess. This is shown in [Figure x.y](#FigurePerformGuessSecondBranch)
 
 import performGuessSecondBranch from './images/guess-that-number-perform-guess-second-branch.png';
 
@@ -60,15 +66,14 @@ import performGuessSecondBranch from './images/guess-that-number-perform-guess-s
 
 :::note
 
-- The newly added block is another If Statement
-- This is nested within the `else` branch of the first If Statement
+- The newly added block is another if statement
+- This is nested within the `else` branch of the first if statement
 - This code checks *if* `target` < `guess`
 - There are now three paths through this code
 
 :::
 
-
-Taking the false path again, and now we have a location at which the target value *must be* equal to the user's guess. The first condition checked if the `target` was larger than the `guess`, which it was not. The second condition checked if the `target` was less than the `guess`, which it was not. So the only way this can be the case if is the `target` and the `guess` are equal. This path can then be used to output the 'Well done...' message. This is shown in [Figure x.y](#FigurePerformGuessThirdPath)
+Taking the false path again, and now we have a location at which the target value *must be* equal to the user's guess. The first condition checked if the `target` was larger than the `guess`, which it was not. The second condition checked if the `target` was less than the `guess`, which it was not. So the only way it can get here is when the `target` and the `guess` are equal. This path can then be used to output the 'Well done...' message. This is shown in [Figure x.y](#FigurePerformGuessThirdPath)
 
 import performGuessThirdPath from './images/guess-that-number-perform-guess-third-path.png';
 
@@ -84,6 +89,8 @@ import performGuessThirdPath from './images/guess-that-number-perform-guess-thir
 
 :::
 
+## Returning
+
 The last action in the code is to return a Boolean result indicating if the user's guess is equal to the target number.
 
 <a id="FigurePerformGuessBooleanReturnValue"></a>
@@ -92,29 +99,14 @@ The last action in the code is to return a Boolean result indicating if the user
 <div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>A Boolean result is returned from the function</div><br/>
 
 :::note
+
 - The newly added block is a single action, defining the result to be returned
 - This action returns the result `true` when the `target` and the `guess` are the same
-:::
-
-
-[Figure x.y](#FigurePerformGuessBlocks) shows the flowchart with annotations highlighting the different blocks within the code. The function starts off with a **sequence** that contains all of the code in the Function. Within this there is the **selection**, that internally contains another **selection**.
-
-<br/>
-<a id="FigurePerformGuessBlocks"></a>
-
-![Figure x.y Blocks in the Perform Guess code](./images/guess-that-number-perform-guess-blocks.png "Blocks in the Perform Guess code")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Blocks in the Perform Guess code</div><br/>
-
-:::note
-- Notice that each block has a single path going into it, and a single path coming out
 
 :::
-
-
-## Setting the result using an Expression
 
 [Figure x.y](#FigurePerformGuessResultCalc) shows the *trick* that is being performed at the end of `Perform Guess`'s code. `Perform Guess` needs to return a result indicating if the user has guessed the number of not.
-This will be a Boolean value, with True indicating they guessed the number. Initially it may seem that you need a **selection** block to enable this, as shown on the right of [Figure x.y](#FigurePerformGuessResultCalc).
+This will be a Boolean value, with true indicating they guessed the number. Initially it may seem that you need a **selection** block to enable this, as shown on the right of [Figure x.y](#FigurePerformGuessResultCalc). However, you do not need this branch. Instead, you can just directly return the expression that would have been used in the if statement's condition.
 
 <br/>
 <a id="FigurePerformGuessResultCalc"></a>
@@ -123,14 +115,31 @@ This will be a Boolean value, with True indicating they guessed the number. Init
 <div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Calculating Perform Guess's result</div><br/>
 
 :::note
+
 - In *most* cases it is better to have less code if possible, as long as this does not obscure the purpose of the code
 - This is an example of replacing *actions* with *data*. The more *intelligence* you can build into the data in your programs, the more flexible they will be
 
 :::
 
+## Structured Programming Blocks
+
+[Figure x.y](#FigurePerformGuessBlocks) shows a flowchart with annotations highlighting the different blocks within the code. The function starts off with a **sequence** that contains all the code in the function. Within this there is the **selection**, that internally contains another **selection**.
+
+<br/>
+<a id="FigurePerformGuessBlocks"></a>
+
+![Figure x.y Blocks in the Perform Guess code](./images/guess-that-number-perform-guess-blocks.png "Blocks in the Perform Guess code")
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Blocks in the Perform Guess code</div><br/>
+
+:::note
+
+- Notice that each block has a single path going into it, and a single path coming out
+
+:::
+
 ## The Pseudocode for Perform Guess
 
-[Listing x.y](#ListingPerformGuessPseudoCode) contains the Pseudocode for the `Perform Guess` logic from the flowchart in [Figure x.y](#FigurePerformGuessBooleanReturnValue). Notice how the indentation in this mirrors the block structures in the flowchart. It is good practice to indent your code in this way as it helps you, and any person who reads your code, to see the structure of the logic. You will be able to avoid many errors by making sure that you always indent your code so that it highlights the code's structure.
+[Listing x.y](#ListingPerformGuessPseudoCode) contains the pseudocode for the `Perform Guess` logic from the flowchart in [Figure x.y](#FigurePerformGuessBooleanReturnValue). Notice how the indentation mirrors the block structures in the flowchart. It is good practice to indent your code in this way as it helps you, and any person who reads your code, to see the structure of the logic. You will be able to avoid many errors by making sure that you always indent your code so that it highlights the code's structure.
 
 <br/>
 <a id="ListingPerformGuessPseudoCode"></a>
@@ -138,30 +147,33 @@ This will be a Boolean value, with True indicating they guessed the number. Init
 ```
 Function: Perform Guess
 --------------------------------
-Returns: Boolean - True if the user has guessed the Target
 Parameters:
-    1. Num Guess (Integer): The number of the guess (1..7)
-    2. Target (Integer): The target the user is aiming for
+    Num Guess (Integer): The number of the guess (1..7)
+    Target (Integer): The target the user is aiming for
+Returns: Boolean - True if the user has guessed the Target
 Steps:
-    1. Ouput 'Guess ', num_guess, and ': '
-    2. Read input into guess
+    Ouput 'Guess ', num_guess, and ': '
+    Read input into guess
 
-    3. if target is less than guess then
-    4.    Output 'The number is less than ', guess
-    5. else
-    6.    if target is larger than guess then
-    7.        Output 'The number is larger than ', guess
-    8.    else
-    9.        Output 'Well don... the number was ', guess
-    10. Return the result, target = guess 
+    if target is less than guess then
+       Output 'The number is less than ', guess
+    else
+       if target is larger than guess then
+           Output 'The number is larger than ', guess
+       else
+           Output 'Well don... the number was ', guess
+    
+    Return target == guess 
 ```
 <div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Pseudocode for <code>Perform Guess</code></div><br/>
 
 :::note
+
 - Code indentation makes it easier to read, and helps locate many common issues.
 - Tab your code in with a **structured statement**
   - Indent the code in the branches of an If Statement and Case Statement
   - Indent the code within the body of the **While Loop** and the **Do While** or **Repeat Until** loops
 - Make this a habit. When you code a **Branching** or **Looping** statement, automatically indent the next line of code
 - Always keep your code neat, make it look good
-::
+- Remember to watch out in the comparison use `==` not `=` in your C/C++ code
+:::
