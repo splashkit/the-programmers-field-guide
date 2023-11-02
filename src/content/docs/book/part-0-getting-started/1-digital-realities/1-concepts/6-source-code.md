@@ -8,16 +8,27 @@ The next step in programming language was to make languages even more human read
 
 ### Compilers and Interpreters
 
-A **compiler** is a program that converts **source code** into machine code and saves it as an executable file called a *program*. The program can then be executed independent of the compiler and the source code. An **interpreter** skips the intermediate steps of translating and saving all of the machine code in advance, and just executes the code as the program is read. This is slower, and means you can't run the program without also having the interpreter, but it does give you additional flexibility that can be hard to achieve otherwise.
+A **compiler** is a program that converts **source code** into machine code and saves it as an executable file called a *program*. The program can then be executed independent of the compiler and the source code. An **interpreter** is a program similar to a compiler, but skips the intermediate steps of translating and saving all the machine code in advance. Instead, an interpreter just executes the code as the program is read. This is slower, and means you can't run the program without also having the interpreter, but it does give you additional flexibility that can be hard to achieve otherwise.
+
+When you're *writing* code, you won't notice any difference between compiled and interpreted languages.
+The difference only matters when you want to *run* your program.
+To run a program written in a compiled language, you need to use the compiler to convert the source code into an executable program.
+To run a program written in an interpreted language, you need to run the interpreter program and tell it to execute your source code.
 
 In this journey we will focus on compiled languages.
-
 Internally, a compiler will perform a number of steps:
 
 1. **Preprocessing**: The compiler reads your code. This may involve some processing to do things like ignoring comments, which are notes written in your code files for the benefit of programmers.
 2. **Compiling**: The compiler coverts your code into assembly instructions and outputs an assembly program.
 3. **Assembling**: The assembly program is converted into machine code and stored in **object files**.
-4. **Linking**: The compiler uses a **linker** to join together the machine code of your program with other machine code from programming libraries your program refers to. It then outputs an executable program.
+4. **Linking**: The compiler uses a **linker**, which is another program, to join together the machine code of your program with other machine code from any **programming libraries** your program refers to. It then outputs an executable program.
+
+:::note
+A **programming library** is a collection of code that is distributed for others to use.
+There are lots of programming libraries to help you create different kinds of digital realities without having to implement everything from scratch.
+
+For example, in this book we will use the [SplashKit](https://splashkit.io/) programming library to help us create graphical programs.
+:::
 
 At the end of this process you have an executable that you can run on your computer.
 

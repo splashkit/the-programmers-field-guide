@@ -8,7 +8,7 @@ Let’s explore the application of abstraction to the instructions we give compu
 
 ### Programming in Machine Code
 
-The following snippet shows a chunk of the machine code for a small program. You can see that 1s and 0s are grouped together. These groups form the instructions that are followed by the computer when this program is executed. Programs can be written directly in machine code like this, but it is a time consuming task. The task is further complicated by the fact that machine code is unique to each kind of CPU. For example, x86 instructions differ from ARM instructions. This means that programming at this level is entirely dependent on the kind of processor that you are targeting.
+The following snippet shows a chunk of the machine code for a small program. You can see that 1s and 0s are grouped together. These groups form the instructions that are followed by the computer when this program is executed. Programs can be written directly in machine code like this, but it is a time consuming task. The task is further complicated by the fact that machine code is unique to each kind of [CPU](https://en.wikipedia.org/wiki/Central_processing_unit). For example, instructions for CPUs using the x86 architecture differ from instructions for CPUs using the ARM architecture. This means that programming at this level is entirely dependent on the kind of processor that you are targeting.
 
 ```
 ...
