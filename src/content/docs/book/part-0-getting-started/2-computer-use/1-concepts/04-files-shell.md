@@ -2,34 +2,45 @@
 title: Files in the Shell
 ---
 
-Files store the data you need to work with, so the shell needs to provide you with convenient ways of accessing and interacting with your files and the folders that organise them. To achieve this, the shell has a **working directory** - i.e. the folder you are working with. You can issue commands to list the files within the current folder (working directory), move to new directories, and perform other commands on your files. 
+Files store the data you need to work with, so the shell needs to provide you with convenient ways of accessing and interacting with both your files and the folders that organise them. To achieve this, the shell has a **working directory**. This represents the folder that you are working with. You can execute shell commands to list the files within the working directory, move to new directories, and perform other operations on your files.
 
 ## File Access Commands
 
-You can directly access files within the current working directory, which we often shorten to just **current directory**. Now lets take a look at the main commands you need to get stared exploring files and manipulating the working directory in your Terminal:
+You can directly access files within the current working directory, which we often just call the **current directory**. Let's take a look at the main commands you need to get stared exploring files and manipulating the working directory in your terminal:
 
 |**Action**               |**Command**  |**Description** |
 |-------------------------|-------------|-----------------------------------------------------------------------------------|
 |Print Working Directory  |`pwd`        |Outputs the current working directory.|
-|Change Directory         |`cd`         |Moves the shell to a different working directory (folder).|
-|List Files               |`ls`         |Outputs a list of files.|
+|Change Directory         |`cd`         |Moves the shell to a different working directory (i.e., folder).|
+|List Files               |`ls`         |Outputs a list of files in the current directory.|
 
-### Print Working Directory (pwd)
+### Print Working Directory (`pwd`)
 
-The `pwd` command will let you know the path to the current working directory. Give it a go in your Terminal. Type `pwd` at the shell’s prompt, and see the path to where you currently are.
+The `pwd` command will let you know the path to the terminal's current working directory. Give it a go in your terminal. Type `pwd` at the shell's prompt, press *enter* to execute the command, and see the path to where you currently are.
 
 ```sh
 pwd
 ```
 
-### Change Directory (cd)
+### Change Directory (`cd`)
 
-Changing directory will require you to tell the shell where you want to go to. We call this **passing** information to a command, and there are some conventions on how you do this which we will look at as we go through these commands.
+Changing directory will require you to tell the shell where you want to go to. We call this **passing** information to a command. There are some conventions on how you pass information to comamnds which we will look at as we go through them.
 
 The main way to pass data to a command is through an **argument**. In the shell, arguments are provided after the command name. You can pass 0, 1, or more arguments to a command, with each argument separated by a space.
 
 :::tip[Argument?]
 An **argument** is the term we use to provide data for a command to use. This is derived from the notion of [mathematical arguments](https://softwareengineering.stackexchange.com/questions/186293/why-are-actual-parameters-called-arguments#:~:text=%22Formal%22%20parameters%20(also%20known,above%20to%20prevent%20any%20confusion.)).
+:::
+
+:::tip[Read the friendly manual]
+The `man` shell command in Unix opens the manual for a given command. You pass `man` a single argument of the name of the command you want help with. So `man pwd` will give you the instructions on how to use the `pwd` command. This can be useful if you are stuck, though searching the internet or accessing Bard or other generative AIs can help too. Online versions of these manuals are also available. For example, you can use this to read about the [cp command](https://man.cx/Cp).
+
+```sh
+man pwd
+# This will open the manual for the pwd command - press q to quit
+man man
+# This will open the manual for the man command - press q to quit
+```
 :::
 
 Here is an example on how the change directory command is used. This will change the current working directory into the folder at the `/home` path.
@@ -40,9 +51,13 @@ cd /home
 
 The `cd` command takes one argument - the path to the directory you want to make the current working directory.
 
+:::tip
+With many terminal programs, you can drag and drop files onto the terminal program to inject their path at the location of the cursor in the prompt.
+:::
+
 ### Give it a try!
 
-Move to the root of the file system, and back to your home folder.
+Use the following commands to move to the root of the file system, print out the working directory, then move back to your home folder and print out the working directory again.
 
 ```sh
 cd /
@@ -52,29 +67,54 @@ pwd
 cd /home/multitool
 pwd
 # This will output > /home/multitool (if you are using the username multitool)
-
 ```
+
+:::note[Comments]
+These are all commands from the **shell** scripting language.
+Comments in this language can be written by starting the line with `#`.
+This tells the interpreter to ignore the text on that line, as it is not an instruction to the computer.
+Comments are very useful for leaving notes in your code for yourself or other programmers.
+:::
+
+:::caution
+Sometimes you will receive back an error from attempting to execute a shell command.
+For example, if you provide `cd` with an **invalid argument**, such as a path that does not exist in your file system, you will see a message "cd: no such file or directory".
+:::
+
+:::tip[Charlotte's tip]
+Lots of beginners forget to read the output of their shell commands and sometimes don't realise that they provided an invalid argument.
+This can be very confusing when they then input other commands assuming the earlier ones worked.
+
+Pay attention to the output of your commands to make sure they are working!
+:::
 
 ## Looking around
 
 Moving folders is great, but we also need to be able to see what is in these folders.
 
-### Listing folder contents (ls)
+### Listing folder contents (`ls`)
 
-Use [ls command](https://man.cx/Ls) to list the files in a folder. By default, this lists the files in the current folder. Alternatively, you can pass `ls` an argument for the path to the folder you want the details from.
+Use the [`ls` command](https://man.cx/Ls) to list the files in a folder. By default, `ls` lists the files in the current folder. Alternatively, you can pass in an argument for the path to the folder you want to list the contents of.
 
 ```sh
 ls
 # You should see a list of the files and folders in the current directory (folder)
 ```
 
-:::tip[Options]
-In addition to arguments, many commands can also take **options**. These are arguments that start with a `-`, and there are some useful options for a command.
+In addition to arguments, many commands can also take **options**. These are arguments that start with a `-`. There are a number of options you can use to help format the output of the list command. One common set of options for `ls` is to use `ls -lha`. The `l` option asks for a long format list (one file per line), `h` asks for file sizes in human-readable numbers, and `a` asks for all files (including hidden files).
+
+:::note
+Files in a computer can be visible or hidden.
+**Hidden files** are used to store information that most computer users do not need to access, and don't show up in your graphical file navigation system (e.g., Finder on OSX or Explorer on Windows) unless you specifically change your settings to show them.
+They also do not show up when using `ls` unless you use the `a` option.
+The idea behind having hidden files is to avoid cluttering the display of directory contents with information most users would not find valuable.
+On OSX and Linux, the name of a hidden file always starts with "."
 :::
 
-There are a number of options you can use to help format the output of the list (ls) command. Generally, I use `ls -lha`, where the `l` option asks for a long format list (one file per line), `h` asks for file sizes in human readable numbers, and `a` asks for all files (including hidden files).
-
 ### Give it a try!
+
+Try running the following commands in your terminal.
+Compare the output of using `ls` with different options.
 
 ```sh
 ls -l
@@ -84,17 +124,17 @@ ls -lha
 # check the file sizes and hidden files
 ```
 
-You can also use arguments with wildcards to indicate the kind of file you want to list. Try `ls -lha D*` The `*` is a wildcard, meaning it can be replaced by anything. So `D*` will be any file or folder starting with the letter `D`.
+You can also use arguments with **wildcards** to indicate the kind of file you want to list. Try `ls -lha D*` The `*` is a wildcard, meaning it can be replaced by anything. So `D*` will be any file or folder starting with the letter `D`.
 
-Try moving around and exploring your file system. Go to the root and list the files and folders there. Then move into some of these folders and list what they contain. Look at a file in your graphical file explorer, and see if you can find it in the terminal.
+Try moving around and exploring your file system. Go to the root and list the files and folders there. Then move into some of your folders and list what they contain. Look at a file in your graphical file explorer, and see if you can find the same file in the terminal.
 
 ## Folder shortcuts
 
-The shell and file system provides some shortcuts to help move to common folders, and create relative paths.
+There are some shortcuts we can use in the shell to help move to common folders, and move between folders without having to type out the entire path from the root.
 
-### Going home (~)
+### Going home (`~`)
 
-To get back to your **home** directory, the one where your files are generally stored, you can either use the path you see printed above in the output from the `pwd` command or you can use the shortcut `~`. The shell knows that you will often want to go to your home folder, so it added `~` as a shortcut.
+To get back to your **home** directory, the one where your files are generally stored, you can either use the full path or the shortcut `~`. The shell knows that you will often want to go to your home folder, so it added `~` as a shortcut.
 
 Give it a try. Move back home using `cd ~`. Use `pwd` to check where you are.
 
@@ -109,27 +149,53 @@ pwd
 # This will output > /home/multitool (if you are using the username multitool)
 ```
 
-:::tip[Comments]
-Adding a `#` at the start of a line makes a comment which is then ignored by the shell. We use comments here to indicate the output from the commands.
-:::
+### Parent Folders (`..`)
 
-### Parent Folders (..)
+*How can you move to the parent of the current?*
 
-*How about moving to the parent folder of your home?*
+Once again you could use the full absolute path, but you could also use the convenient shortcut `..`. In the shell, `.` is a shortcut for the current directory and `..` is the shortcut for the current directory's parent.
 
-Once again you could use the full path, e.g. `cd /home` on the Pi, or you can use the convenient shortcut `..`. In the shell, `.` is a shortcut for the current directory and `..` is the shortcut for its parent.
+```sh
+cd /home
+pwd
+# This will output > /home
+
+cd ..
+pwd
+# This will output > / -- the parent folder of home
+```
+
+### Current folder (`.`)
+
+There is also a shortcut to the current folder. This will be very useful later. You can use `.` to represent the current folder.
+
+```sh
+cd /home
+pwd
+# This will output > /home
+
+cd .
+pwd 
+# This will output > /home -- you moved to the current folder!
+
+cd ./multitool
+cd ./Documents
+cd ./Code
+pwd
+# This will output > /home/multitool/Documents/Code
+```
+
+### Relative paths
 
 :::tip[Shortcuts]
+To summarise, there are three really useful shortcuts:
 
-There are three really useful shortcuts:
-
-* `~` is the path to your home directory
-* `.` is the path to the current working directory
-* `..` is the path to the parent folder
-
+* `~` is the path to your home directory.
+* `.` is the path to the current working directory.
+* `..` is the path to the current working directory's parent folder.
 :::
 
-Using these shortcuts, you can create **relative** paths. This is the path from your current location, to another location within the file system. The following examples demonstrate the use of this to navigate between sibling folders (those with the same parent).
+Using folder shortcuts, you can create **relative** paths. These are paths *relative* to the terminal's current location. That is, they describe a path *from* your current location *to* another location within the file system. The following examples demonstrate the use of relative paths and folder shortcuts to navigate between sibling folders (folders with the same parent).
 
 ```sh
 cd /home/multitool/Documents/code
@@ -141,7 +207,7 @@ pwd
 # This will output > /home/multitool/Documents/presentations
 ```
 
-You can combine together multiple of these shortcuts. 
+You can combine multiple shortcuts together to navigate anywhere in your filesystem without using an absolute path:
 
 ```sh
 cd /home/multitool/Documentations/presentations
@@ -157,51 +223,7 @@ pwd
 # This will output > /home/other-user (assuming this folder exists)
 ```
 
-:::tip[Read the friendly manual]
-
-The `man` command in Unix opens the manual for a given command. You pass `man` a single argument - the name of the command you want help with. So `man pwd` will give you the instructions on how to use the `pwd` command. This can be useful if you are stuck, though searching the internet or accessing Bard or other generative AIs can help too. Online versions of these manuals are also available. For example, you can use this to read about the [cp command](https://man.cx/Cp).
-
-```sh
-man pwd
-# This will open the manual for the pwd command - press q to quit
-man man
-# This will open the manual for the man command - press q to quit
-```
-
-:::
-
-### Current folder (.)
-
-There is also a shortcut to the current folder - which will be useful later. You use `.` for the current folder.
-
-```sh
-cd /home
-pwd
-# This will output > /home
-
-cd .
-pwd 
-# This will output > /home ... you moved to the current folder!
-
-cd ./multitool
-cd ./Documents
-cd ./Code
-pwd
-# This will output > /home/multitool/Documents/Code
-```
-
-:::tip
-
-With many terminal programs, you can drag and drop files onto the terminal program to inject their path at the cursor in the prompt.
-
-:::
-
 :::tip[Auto-complete]
 
-If you start typing the parts of a path, you can auto-complete it using the tab key. For example, `cd ~/Doc<tab>` should complete to become `cd ~/Documents`, assuming you have a Documents folder within your home directory.
-
-**Make sure you use auto-complete!**
-
-The tab key is your friend.
-
+If you start typing part of a path, you can auto-complete it using the tab key. For example, `cd ~/Doc<tab>` should complete to become `cd ~/Documents`, assuming you have a Documents folder within your home directory. Practice using tab to auto-complete paths as you navigate your file system using the terminal. This will greatly increase the speed at which you can move around!
 :::
