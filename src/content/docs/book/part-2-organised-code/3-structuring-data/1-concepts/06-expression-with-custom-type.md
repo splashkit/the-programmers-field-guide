@@ -1,48 +1,40 @@
 ---
-title: "Expression (with custom type)"
-type: "content"
-date: 2023-08-07 16:45:00
-draft: false
-description: "..."
+title: "Expressions"
 ---
-## Concept
 
 The types you define allow you to specify how data values can be formatted, allowing you to declare variables that contain data in this new format. You can then read data back from your variables in expressions.
 
 <a id="FigureExpressionWithCustomTypes"></a>
 
-![Figure x.y: An expression can read the value of a record’s field, a union’s field, and from an enumeration](./images/expression-with-custom-types.png "An expression can read the value of a record’s field, a union’s field, and from an enumeration")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>An expression can read the value of a record’s field, a union’s field, and from an enumeration</div><br/>
+![Figure x.y: An expression can read the value of a struct’s field, a union’s field, and from an enumeration](./images/expression-with-custom-types.png "An expression can read the value of a struct’s field, a union’s field, and from an enumeration")
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>An expression can read the value of a struct’s field, a union’s field, and from an enumeration</div><br/>
 
 :::note
 
 - Expression is the **term** given to the code that calculates values within your Statements.
 - Within an expression you can read the value from... 
-  - a field of a record.
+  - a field of a struct.
   - a field of a union.
   - an enumeration.
-- The dot (`.`) notation is used to indicate which field you want to access from a record or union.
+- The dot (`.`) notation is used to indicate which field you want to access from a struct or union.
 
 :::
 
-## Record Expressions
+## Reading Structs In Expressions
 
-A [Record](../03-type-declaration#record) is a type that contains a number of fields. When using a record value
-you can use either an individual fields from the record, or the record
-in its entirety.
+A [struct](../03-type-declaration#record) is a type that contains a number of fields. When using a struct value, you can read either an individual field from the struct, or read all the fields. In the illustration, you can access the struct via `mouse`, or you can access one of the fields (`x` for example) using the dot operator.
 
 <a id="FigureRecordExpression"></a>
 
-![Figure x.y: A field of a record can be used, or the record can be used in its entirety](./images/expression-record.png "A field of a record can be used, or the record can be used in its entirety")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>A field of a record can be used, or the record can be used in its entirety</div><br/>
+![Figure x.y: A field of a struct can be used, or the struct can be used in its entirety](./images/expression-record.png "A field of a struct can be used, or the struct can be used in its entirety")
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>A field of a struct can be used, or the struct can be used in its entirety</div><br/>
 
 :::note
 
-- [Figure x.y](#FigureRecordExpression) shows some examples of expressions on a record variable and array
-- The `Point` record in the illustration has an `x` field that stores an integer value.
-- You can access a field of the record from its variable using the dot notation. So `mouse.x` reads the `x` value form the record stored in the `mouse` variable. This value is then an Integer, and can be used anywhere an Integer is allowed. For example, you could have this in an equation where the value was subsequently stored in an Integer variable or passed to an integer parameter.
-- You can access the entire record using just `mouse`. This expression has the `Point` type. It can be used anywhere a Point can be used. For example, it could be stored in another `Point` variable, or passed to a `Point` parameter.
-- In an array of records, each element has the records type. In [Figure x.y](#FigureRecordExpression) the `points` array is storing 3 `Point` values. This means the `points` is an expression to access the entire array, `points[2]` accesses the 3<sup>rd</sup> element and therefore has a `Point` type, and `points[2].x` accessed the `x` value of the 3<sup>rd</sup> element of the `points` array.
+- [Figure x.y](#FigureRecordExpression) shows some examples of expressions on a struct variable.
+- The `point_2d` struct in the illustration has an `x` field that stores an integer value.
+- You can access a field of the struct from its variable using dot notation. So `mouse.x` reads the `x` value form the struct stored in the `mouse` variable. This value is then an integer, and can be used anywhere an integer is allowed. For example, you could have this in an equation where the value was subsequently stored in an integer variable or passed to an integer parameter.
+- You can access the entire struct using just `mouse`. This expression has the `point_2d` type. It can be used anywhere a `point_2d` can be used. For example, it could be stored in another `point_2d` variable, or passed to a `point_2d` parameter.
 
 :::
 
@@ -57,31 +49,32 @@ A **Union** has multiple fields that all give access to the same piece of memory
 
 :::note
 
-- A Union is very similar to a Record, the only difference is that the union only stores one of the field values.
-- [Figure x.y](#FigureUnionExpression) shows an example of a union variable and array.
-- The expression `value` gives access to the union stored in the variable. This has a `UserData` type and can be used anywhere a `UserData` value can be accepted.
-- The expression `value.dblVal` is a `Double` value, and can be used anywhere a `Double` is allowed.
-- Accessing a union value from an array is similar to accessing a record value. In [Figure x.y](#FigureUnionExpression) you can access the array in its entirety using `data`, you can access the first `UserData` value using `data[0]`, and you can access its text value using `data[0].txtVal`
-- When accessing the data in a Union you are responsible for ensuring you read it using the correct field. For example, it is possible to read the data stored in `value` using `value.intVal`. This will not cause any errors during compiling or running, but the value read will be the Integer interpretation of the `Double` value stored in the variable.
- 
+- A union is very similar to a struct in the way that you access its values, the difference is that the union only stores one of the field values.
+- [Figure x.y](#FigureUnionExpression) shows an example of a union variable.
+- The expression `value` gives access to the union's value in the variable. This has a `my_numbwer` type and can be used anywhere a `my_numbwer` value can be accepted.
+- The expression `value.dbl_val` is a `double` value, and can be used anywhere a `double` is allowed.
+- When accessing the data in a union you are responsible for ensuring you read it using the correct field. For example, it is possible to read the data stored in `value` using `value.int_val`. This will not cause any errors during compiling or running, but the value read will be the integer interpretation of the `double` value stored in the variable.
 
 :::
-
 
 ## Enumeration Expression
 
-The [Enumeration](../03-type-declaration#enumeration) is the simplest of the custom types to make use of. It defines a list of available options for values of this type. This means that enumerations are just like standard values.
+The [enumeration](../03-type-declaration#enumeration) is the simplest of the custom types to make use of. It defines a list of available options for values of this type. This means that enumerations are just like standard values.
 
 <a id="FigureEnumerationExpression"></a>
 
-![Figure x.y: You interact with an Enumeration just like other simple data types (Integers, and Doubles for example)](./images/expression-enum.png "You interact with an Enumeration just like other simple data types (Integers, and Doubles for example)")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>You interact with an Enumeration just like other simple data types (Integers, and Doubles for example)</div><br/>
+![Figure x.y: You interact with an enumeration just like other simple data types (Integers, and Doubles for example)](./images/expression-enum.png "You interact with an enumeration just like other simple data types (Integers, and Doubles for example)")
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>You interact with an enumeration just like other simple data types (Integers, and Doubles for example)</div><br/>
 
 :::note
 
-- Accessing an value of an Enumeration type is just like accessing an Integer or Double value.
-- In [Figure x.y](#FigureEnumerationExpression) the `kind` variable is storing a `Data Kind` value. This value can be read from the variable using the variable’s name (its [Identifier](#)).
-- The `kinds` variable is an array of `Data Kind` values. The expression `kinds` is an array of `Data Kind` values and can be used anywhere the array would be accepted. `kinds[0]` is a `Data Kind` value and can be used anywhere a `Data Kind` value can be used.
- 
+- Accessing a value of an enumeration type is just like accessing an integer value.
+- In [Figure x.y](#FigureEnumerationExpression) the `accessories` variable is storing an `accessories_flag` value. This value can be read from the variable using the variable’s name (its [identifier](../../../../part-1-instructions/2-communicating-syntax/1-concepts/04-identifier)).
 
 :::
+
+## Expressions - Why, When, and How
+
+Expressions have not changed. With structs and unions you now need the additional tools to access the fields within these as part of your expression. The dot operator (`.`) is used here as it was in the [assignment statement](../05-assignment-statement-with-fields-and-elements) to access the fields of a struct or union.
+
+When accessing a value in a struct or union, you start with the variable that contains the data. Where this is a struct or union, you can follow the variable name with a dot (`.`) and you can then access the fields of the struct or union. When you access a field, the expression now has the same type as the field. So `mouse` in the illustration is a `point_2d` type, and `mouse.x` is an integer.

@@ -6,9 +6,9 @@ sidebar:
 
 Structs and enums are by far the more common mechanism used for creating custom types. The union is rarely used, though it can add some interesting options if you do master it.
 
-A union allows you to declare a type where the values may be one of a number of alternative types. For example, you can say a variable can store an integer, double or a warning level. The compiler will then make sure their is enough space to store the largest one of these, but you have to remember which type is actually stored there at any time.
+A union allows you to declare a type where the values may be one of a number of alternative types. For example, you can say a variable can store an integer, double or a warning level. The compiler will then make sure there is enough space to store the largest one of these, but you have to remember which type is actually stored there at any time.
 
-A union works best when it is accompanyied by a **tag** value. This value then records the kind of data currently being stored in the union variable. A good option is to use an [enumeration](../03-02-enum) for the tag's type, giving you a range of value, that you can match to the range of types stored in the union. The union and its tag can then be coded in a struct, ensuring that you always have the necessary details, being the tag and the union's value, together.
+A union works best when it is accompanied by a **tag** value. This value then records the kind of data currently being stored in the union variable. A good option is to use an [enumeration](../03-02-enum) for the tag's type, giving you a range of value, that you can match to the range of types stored in the union. The union and its tag can then be coded in a struct, ensuring that you always have the necessary details, being the tag and the union's value, together.
 
 <a id="FigureCustomTypeUnion"></a>
 

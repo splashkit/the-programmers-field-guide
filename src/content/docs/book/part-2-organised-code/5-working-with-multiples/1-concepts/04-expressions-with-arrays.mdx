@@ -18,3 +18,9 @@ import imgArrayReadValueExpression from './images/mmv-array-read-value-expressio
 - Arrays are similar to variables in expressions, the expression reads the value from the element of the array.
 - The index you supply determine which value is read.
 :::
+
+- In an array of structs, each element has the structs type. In [Figure x.y](#FigureRecordExpression) the `points` array is storing 3 `Point` values. This means the `points` is an expression to access the entire array, `points[2]` accesses the 3<sup>rd</sup> element and therefore has a `Point` type, and `points[2].x` accessed the `x` value of the 3<sup>rd</sup> element of the `points` array.
+
+- Accessing a union value from an array is similar to accessing a struct value. In [Figure x.y](#FigureUnionExpression) you can access the array in its entirety using `data`, you can access the first `my_numbwer` value using `data[0]`, and you can access its text value using `data[0].txtVal`
+
+- The `kinds` variable is an array of `Data Kind` values. The expression `kinds` is an array of `Data Kind` values and can be used anywhere the array would be accepted. `kinds[0]` is a `Data Kind` value and can be used anywhere a `Data Kind` value can be used.
