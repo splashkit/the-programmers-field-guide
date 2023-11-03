@@ -385,7 +385,12 @@ export default defineConfig({
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-2-organised-code/3-structuring-data/2-put-together",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/3-structuring-data/2-put-together",
+                    collapsed: true,
+                  },
                 },
                 {
                   label: "Other Languages",
