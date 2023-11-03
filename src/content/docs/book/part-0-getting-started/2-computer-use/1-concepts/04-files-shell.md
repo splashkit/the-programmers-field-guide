@@ -1,5 +1,5 @@
 ---
-title: Files in the Shell
+title: Navigating File Systems using the Shell
 ---
 
 Files store the data you need to work with, so the shell needs to provide you with convenient ways of accessing and interacting with both your files and the folders that organise them. To achieve this, the shell has a **working directory**. This represents the folder that you are working with. You can execute shell commands to list the files within the working directory, move to new directories, and perform other operations on your files.
@@ -30,6 +30,7 @@ The main way to pass data to a command is through an **argument**. In the shell,
 
 :::tip[Argument?]
 An **argument** is the term we use to provide data for a command to use. This is derived from the notion of [mathematical arguments](https://softwareengineering.stackexchange.com/questions/186293/why-are-actual-parameters-called-arguments#:~:text=%22Formal%22%20parameters%20(also%20known,above%20to%20prevent%20any%20confusion.)).
+When a command can be provided with an argument we say that it **accepts** the argument.
 :::
 
 :::tip[Read the friendly manual]
@@ -206,6 +207,11 @@ cd ../presentations
 pwd
 # This will output > /home/multitool/Documents/presentations
 ```
+
+:::tip
+If you don't write an absolute path (i.e., start with `/`), and don't start a path with one of the three shortcuts, the shell will assume you mean "from the current location".
+So, `cd Documents` is the same as `cd ./Documents`.
+:::
 
 You can combine multiple shortcuts together to navigate anywhere in your filesystem without using an absolute path:
 
