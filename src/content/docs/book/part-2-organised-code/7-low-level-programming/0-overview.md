@@ -15,3 +15,5 @@ In this chapter, we will utilise the programming constructs you've been learning
 <!-- Union -->
 <!-- static (C)  -->
 <!-- GPIO? -->
+
+<!-- - [Union](#): used to store one value of different possible types. -->
