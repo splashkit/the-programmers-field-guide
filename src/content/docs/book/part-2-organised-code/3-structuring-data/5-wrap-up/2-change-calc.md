@@ -6,7 +6,7 @@ title: Change Calculator
 /*
  * Program: Simple Change
  * Calculate the ideal change for a given transaction.
-*/
+ */
 
 #include "splashkit.h"
 
@@ -14,103 +14,118 @@ using std::stoi;
 using std::to_string;
 
 /**
- * The possible values for the coins given
-*/
+ * The different kinds of coins in the system
+ */
 typedef enum
 {
-  NO_COIN = 0,
-  FIVE_CENTS = 5,
-  TEN_CENTS = 10,
-  TWENTY_CENTS = 20,
-  FIFTY_CENTS = 50,
-  ONE_DOLLAR = 100,
-  TWO_DOLLARS = 200
-} coin_value;
+  NO_COIN = -1,
+  FIVE_CENTS,
+  TEN_CENTS,
+  TWENTY_CENTS,
+  FIFTY_CENTS,
+  ONE_DOLLAR,
+  TWO_DOLLARS
+} coin_kind;
 
 /**
  * The number of coins we can give change for
-*/
+ */
 const int NUM_COIN_TYPES = 6;
 
 /**
- * Each coin has a value and text. This is used to 
- * calculate the number of coins to give in change, and 
+ * Each coin has a value and text. This is used to
+ * calculate the number of coins to give in change, and
  * to determine what text to show the user.
- * 
+ *
  * @field value The value of the coin
  * @field text  The coin text for output
-*/
+ */
 typedef struct
 {
-  coin_value  value;
-  string      text;
-} coin_type;
+  int value;
+  coin_kind kind;
+  string text;
+} coin_data;
 
 /**
  * Read an integer from the user
- * 
+ *
  * @param prompt the message to show the user
  * @returns the integer entered
-*/
+ */
 int read_integer(string prompt)
 {
   write(prompt);
   string line = read_line();
   while (!is_integer(line))
   {
-      write_line("Please enter a whole number.");
-      write(prompt);
-      line = read_line();
+    write_line("Please enter a whole number.");
+    write(prompt);
+    line = read_line();
   }
   return stoi(line);
 }
 
 /**
+ * Initialise a new coin of the indicated kind
+ *
+ * @param kind  The kind of coin to setup
+ * @return coin data of the indicated kind
+ */
+coin_data new_coin(coin_kind kind)
+{
+  coin_data coin;
+
+  coin.kind = kind;
+
+  switch (kind)
+  {
+  case TWO_DOLLARS:
+    coin.text = "$2, ";
+    coin.value = 200;
+    break;
+  case ONE_DOLLAR:
+    coin.text = "$1, ";
+    coin.value = 100;
+    break;
+  case FIFTY_CENTS:
+    coin.text = "50c, ";
+    coin.value = 50;
+    break;
+  case TWENTY_CENTS:
+    coin.text = "20c, ";
+    coin.value = 20;
+    break;
+  case TEN_CENTS:
+    coin.text = "10c, ";
+    coin.value = 10;
+    break;
+  case FIVE_CENTS:
+    coin.text = "5c";
+    coin.value = 5;
+    break;
+  default:
+    coin.text = "ERROR";
+    break;
+  }
+
+  return coin;
+}
+
+/**
  * Give the user change of the indicated amount.
- * 
+ *
  * @param change_value the amount of change to give
-*/
+ */
 void give_change(int change_value)
 {
   int to_give;
 
   write("Change: ");
 
-  coin_type coin;
-
   for (int i = 0; i < NUM_COIN_TYPES; i++)
   {
-    switch (i)
-    {
-    case 0:
-      coin.value = TWO_DOLLARS;
-      coin.text = "$2, ";
-      break;
-    case 1:
-      coin.value = ONE_DOLLAR;
-      coin.text = "$1, ";
-      break;
-    case 2:
-      coin.value = FIFTY_CENTS;
-      coin.text = "50c, ";
-      break;
-    case 3:
-      coin.value = TWENTY_CENTS;
-      coin.text = "20c, ";
-      break;
-    case 4:
-      coin.value = TEN_CENTS;
-      coin.text = "10c, ";
-      break;
-    case 5:
-      coin.value = FIVE_CENTS;
-      coin.text = "5c";
-      break;
-    default:
-      coin.value = NO_COIN;
-      coin.text = "ERROR";
-      break;
-    }
+    coin_data coin = new_coin(coin_kind(i));
 
     // Give Change
     to_give = change_value / coin.value;

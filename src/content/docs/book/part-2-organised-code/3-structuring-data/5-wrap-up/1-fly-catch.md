@@ -24,7 +24,7 @@ const int FLY_RADIUS = 10;
  * @field x its distance from the left of the window (to the center)
  * @field y its distance from the top of the window (to the center)
  * @field appear_at_time  the time when the fly will appear
- * @field game.fly.escape_at_time  the time when the fly will escape
+ * @field escape_at_time  the time when the fly will escape
 */
 typedef struct
 {
@@ -127,11 +127,9 @@ spider_data new_spider()
  * but will be at a random position, and will appear within 1
  * to 3 seconds.
  * 
- * @param current_time  the current time. This is used to determine
- *                      the appear at time.
  * @return the newly initialised fly
 */
-fly_data new_fly(long current_time)
+fly_data new_fly()
 {
   fly_data result;
 
@@ -140,7 +138,7 @@ fly_data new_fly(long current_time)
 
   result.appeared = false;
 
-  result.appear_at_time = current_time + 1000 + rnd(2000);
+  result.appear_at_time = 1000 + rnd(2000);
   result.escape_at_time = 0;
 
   return result;
@@ -178,7 +176,7 @@ bool time_to_escape(fly_data fly, long current_time)
 */
 bool spider_caught_fly(spider_data spider, fly_data fly)
 {
-  return circles_intersect(
+  return fly.appeared && circles_intersect(
     spider.x, spider.y, SPIDER_RADIUS, 
     fly.x, fly.y, FLY_RADIUS);
 }
