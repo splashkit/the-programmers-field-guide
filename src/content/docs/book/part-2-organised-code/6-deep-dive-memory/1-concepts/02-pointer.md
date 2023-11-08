@@ -8,8 +8,8 @@ One of its key ability, however, is the ability to point to values on the [Heap]
 
 <a id="FigurePointerStore"></a>
 
-![Figure x.y: Pointers can be stored anywhere a value can be stored](./images/pointers-where-can-they-be-stored.png "Pointers can be stored anywhere a value can be stored")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Pointers can be stored anywhere a value can be stored</div><br/>
+<!-- ![Figure x.y: Pointers can be stored anywhere a value can be stored](./images/pointers-where-can-they-be-stored.png "Pointers can be stored anywhere a value can be stored")
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Pointers can be stored anywhere a value can be stored</div><br/> -->
 
 
 ## Using pointer to access the heap
