@@ -421,7 +421,12 @@ export default defineConfig({
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-2-organised-code/4-indirect-access/2-put-together",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/4-indirect-access/2-put-together",
+                    collapsed: true,
+                  },
                 },
                 {
                   label: "Other Languages",
@@ -430,6 +435,15 @@ export default defineConfig({
                 {
                   label: "Activities",
                   link: "book/part-2-organised-code/4-indirect-access/4-activities",
+                },
+                {
+                  label: "Wrap Up",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/4-indirect-access/5-wrap-up",
+                    collapsed: true,
+                  },
                 },
               ],
             },

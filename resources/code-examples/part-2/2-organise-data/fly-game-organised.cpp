@@ -9,6 +9,15 @@ const int SPIDER_SPEED = 3;
 
 const int FLY_RADIUS = 10;
 
+/**
+ * Draw the spider and the fly to the screen.
+ * 
+ * @param spider_x is the x location of the spider
+ * @param spider_y is the y location of the spider
+ * @param fly_appeared tells us if we need to draw the fly
+ * @param fly_x the x location of the fly
+ * @param fly_y the y location of the fly
+*/
 void draw_game(int spider_x, int spider_y, bool fly_appeared, int fly_x, int fly_y)
 {
   // Draw the game

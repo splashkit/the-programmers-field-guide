@@ -36,9 +36,10 @@ The core use case of `printf` is to print a string to the terminal, and is quite
 ```c
 #include <stdio.h>
 
-int main(void) {
-    printf("Hello, world!");
-    return 0;
+int main(void) 
+{
+  printf("Hello, world!");
+  return 0;
 }
 ```
 
@@ -59,9 +60,10 @@ You may be wondering what the f stands for in printf. The f stands for *format*,
 ```c
 #include <stdio.h>
 
-int main(void) {
-    printf("Hello, %s!\n", "world");
-    return 0;
+int main(void) 
+{
+  printf("Hello, %s!\n", "world");
+  return 0;
 }
 ```
 

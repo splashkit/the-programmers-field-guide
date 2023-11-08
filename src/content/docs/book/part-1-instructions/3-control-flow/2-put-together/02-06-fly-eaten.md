@@ -53,6 +53,14 @@ Steps:
     Handle Input
 
     Update the game
+      if not fly appeared, and Timer Ticks of the GAME_TIMER > appearAtTime
+        Make the fly appear
+        Give it a new position
+        Set escapeAtTime to a random time 2 to 7 seconds in the future
+      else if the fly has appeared, and the GAME_TIMER ticks are > escapeAtTime
+        Remove the fly - set flyAppeared to false
+        Set appearAtTime to a random time 1 to 3 seconds in the future
+
       If the fly has appeared, and the spider and fly circles intersect
         The fly is caught
         Set flyAppeared to false

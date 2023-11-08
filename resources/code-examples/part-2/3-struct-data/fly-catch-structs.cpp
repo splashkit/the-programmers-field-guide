@@ -1,10 +1,3 @@
----
-title: Fly Catch
----
-
-We can only make a small change to the fly catch game for now, but it is a start. Have a go at this yourself. Our version is shown below.
-
-```cpp
 #include "splashkit.h"
 
 const string GAME_TIMER = "GameTimer";
@@ -247,4 +240,3 @@ int main()
     process_events();
   }
 }
-```

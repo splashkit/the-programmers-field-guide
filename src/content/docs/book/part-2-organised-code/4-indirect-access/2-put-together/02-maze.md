@@ -1,5 +1,5 @@
 ---
-title: Put Together
+title: Maze Game
 ---
 
 To come...

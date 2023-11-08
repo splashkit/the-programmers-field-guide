@@ -145,7 +145,7 @@ In update game we need can switch the fly details to read from `game.fly`. The f
 if (!fly_appeared && timer_ticks(GAME_TIMER) > appear_at_time) //...
 ```
 
-Rather than just coding this as is, we can use this as an opportunity to make the code easier to follow. This test is checking if it is time for the fly to appear, so we could create a `time_to_appear` function. This could be passed the fly and the current time, and return a boolean to say if it is time or not.
+Rather than just coding this as is, we can use this as an opportunity to make the code easier to follow. Here the test is checking if it is time for the fly to appear, so we could create a `time_to_appear` function. We be pass the fly and the current time, and return a boolean to say if it is time or not.
 
 ```
 Function: Time To Appear
@@ -156,7 +156,7 @@ Steps:
     - return (not fly.appeared) and current_time > the fly's appear_at_time
 ```
 
-This can then be called in main using:
+In main, we can now call the new function using:
 
 ```cpp
 if (time_to_appear(game.fly, timer_ticks(GAME_TIMER))) //...

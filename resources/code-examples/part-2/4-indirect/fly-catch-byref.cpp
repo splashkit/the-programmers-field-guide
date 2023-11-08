@@ -1,10 +1,3 @@
----
-title: Fly Catch
----
-
-We can only make a small change to the fly catch game for now, but it is a start. Have a go at this yourself. Our version is shown below.
-
-```cpp
 #include "splashkit.h"
 
 const string GAME_TIMER = "GameTimer";
@@ -66,7 +59,7 @@ typedef struct
  * 
  * @param spider  the spider's data
 */
-void draw_spider(spider_data spider)
+void draw_spider(const spider_data &spider)
 {
   fill_circle(color_black(), spider.x, spider.y, SPIDER_RADIUS);
 }
@@ -76,7 +69,7 @@ void draw_spider(spider_data spider)
  * 
  * @field fly the fly data
 */
-void draw_fly(fly_data fly)
+void draw_fly(const fly_data &fly)
 {
   // Exit if the fly has not appeared
   if (!fly.appeared) return;
@@ -90,7 +83,7 @@ void draw_fly(fly_data fly)
  * 
  * @param game the game data
 */
-void draw_game(game_data game)
+void draw_game(const game_data &game)
 {
   // Draw the game
   clear_screen(color_white());
@@ -150,7 +143,7 @@ fly_data new_fly()
  * @param fly the fly to check
  * @param current_time  the current time
 */
-bool time_to_appear(fly_data fly, long current_time)
+bool time_to_appear(const fly_data &fly, long current_time)
 {
   return !fly.appeared && current_time > fly.appear_at_time;
 }
@@ -161,7 +154,7 @@ bool time_to_appear(fly_data fly, long current_time)
  * @param fly the fly to check
  * @param current_time  the current time
 */
-bool time_to_escape(fly_data fly, long current_time)
+bool time_to_escape(const fly_data &fly, long current_time)
 {
   return fly.appeared && current_time > fly.escape_at_time;
 }
@@ -174,11 +167,82 @@ bool time_to_escape(fly_data fly, long current_time)
  * @param fly     the fly data
  * @return true if the spider has caught the fly.
 */
-bool spider_caught_fly(spider_data spider, fly_data fly)
+bool spider_caught_fly(const spider_data &spider, const fly_data &fly)
 {
   return fly.appeared && circles_intersect(
     spider.x, spider.y, SPIDER_RADIUS, 
     fly.x, fly.y, FLY_RADIUS);
+}
+
+/**
+ * Handle user input and update the location of the spider in response.
+ *
+ * @param spider  a reference to the spider to be moved
+ */
+void handle_input(spider_data &spider)
+{
+  if (key_down(RIGHT_KEY) && spider.x + SPIDER_RADIUS < SCREEN_WIDTH)
+  {
+    spider.x += SPIDER_SPEED;
+  }
+  if (key_down(LEFT_KEY) && spider.x - SPIDER_RADIUS > 0)
+  {
+    spider.x -= SPIDER_SPEED;
+  }
+
+  if (key_down(DOWN_KEY) && spider.y + SPIDER_RADIUS < SCREEN_HEIGHT)
+  {
+    spider.y += SPIDER_SPEED;
+  }
+  if (key_down(UP_KEY) && spider.y - SPIDER_RADIUS > 0)
+  {
+    spider.y -= SPIDER_SPEED;
+  }
+}
+
+/**
+ * Update a fly in the game. Make it appear and escape as needed.
+ *
+ * @param fly   a reference to the fly data to update
+ * @param current_time  the current time in the game 
+ */
+void update_fly(fly_data &fly, long current_time)
+{
+  // Check if the fly should appear
+  if (time_to_appear(fly, current_time))
+  {
+    // Make the fly appear
+    fly.appeared = true;
+
+    // Give it a new random position
+    fly.x = rnd(SCREEN_WIDTH);
+    fly.y = rnd(SCREEN_HEIGHT);
+
+    // Set its escape time
+    fly.escape_at_time = current_time + 2000 + rnd(5000);
+  }
+  else if (time_to_escape(fly, current_time))
+  {
+    fly.appeared = false;
+    fly.appear_at_time = current_time + 1000 + rnd(2000);
+  }
+}
+
+/**
+ * Update the game - updating the fly and seeing if it was caught.
+ *
+ * @param game  a reference to the game data to update
+ * @param current_time  the current time in the game
+*/
+void update_game(game_data &game, long current_time)
+{
+  update_fly(game.fly, current_time);
+
+  if ( spider_caught_fly(game.spider, game.fly) )
+  {
+    game.fly.appeared = false;
+    game.fly.appear_at_time = current_time + 1000 + rnd(2000);
+  }
 }
 
 int main()
@@ -196,55 +260,11 @@ int main()
   // The event loop
   while (!quit_requested())
   {
-    // Handle Input
-    if (key_down(RIGHT_KEY) && game.spider.x + SPIDER_RADIUS < SCREEN_WIDTH)
-    {
-      game.spider.x += SPIDER_SPEED;
-    }
-    if (key_down(LEFT_KEY) && game.spider.x - SPIDER_RADIUS > 0)
-    {
-      game.spider.x -= SPIDER_SPEED;
-    }
-
-    if (key_down(DOWN_KEY) && game.spider.y + SPIDER_RADIUS < SCREEN_HEIGHT)
-    {
-      game.spider.y += SPIDER_SPEED;
-    }
-    if (key_down(UP_KEY) && game.spider.y - SPIDER_RADIUS > 0)
-    {
-      game.spider.y -= SPIDER_SPEED;
-    }
-
-    // Update the Game
-    // Check if the fly should appear
-    if (time_to_appear(game.fly, timer_ticks(GAME_TIMER)))
-    {
-      // Make the fly appear
-      game.fly.appeared = true;
-
-      // Give it a new random position
-      game.fly.x = rnd(SCREEN_WIDTH);
-      game.fly.y = rnd(SCREEN_HEIGHT);
-
-      // Set its escape time
-      game.fly.escape_at_time = timer_ticks(GAME_TIMER) + 2000 + rnd(5000);
-    }
-    else if (time_to_escape(game.fly, timer_ticks(GAME_TIMER)))
-    {
-      game.fly.appeared = false;
-      game.fly.appear_at_time = timer_ticks(GAME_TIMER) + 1000 + rnd(2000);
-    }
-
-    if ( spider_caught_fly(game.spider, game.fly) )
-    {
-      game.fly.appeared = false;
-      game.fly.appear_at_time = timer_ticks(GAME_TIMER) + 1000 + rnd(2000);
-    }
-
+    handle_input(game.spider);
+    update_game(game, timer_ticks(GAME_TIMER));
     draw_game(game);
 
     // Get any new user interactions
     process_events();
   }
 }
-```
