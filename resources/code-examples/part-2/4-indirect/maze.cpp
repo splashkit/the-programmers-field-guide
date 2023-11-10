@@ -38,12 +38,22 @@ void print_room(room_ptr room)
   printf("%s\n-----\n%s\n", room->title.c_str(), room->description.c_str());
 }
 
-double read_int(const string &prompt)
+void print_path(int idx, path &path)
+{
+  printf("%d - %s\n", idx, path.description.c_str());
+}
+
+void move_player(room_ptr &current_room, path &path)
+{
+  current_room = path.destination;
+}
+
+int read_int(const string &prompt)
 {
   int result = 0;
   
   printf("%s", prompt.c_str());
-  while (scanf(" %d", &result) != 1) // Read value, and try to convert double
+  while (scanf(" %d", &result) != 1) // Read value, and try to convert to int
   {
     // Convert failed, as input was not a number
     scanf("%*[^\n]"); // Read past the end of the current line
@@ -67,12 +77,10 @@ int main()
   room_ptr current_room = &r1;
 
   print_room(current_room);
+  print_path(0, p1);
+  print_path(0, p2);
 
-  int option;
-
-  printf("0 - %s\n", p1.description.c_str());
-  printf("1 - %s\n", p2.description.c_str());
-  option = read_int("Option: ");
+  int option = read_int("Option: ");
 
   while(option < 0 || option > 1)
   {
@@ -82,11 +90,11 @@ int main()
 
   if ( option == 0 )
   {
-    current_room = p1.destination;
+    move_player(current_room, p1);
   }
   else 
   {
-    current_room = p2.destination;
+    move_player(current_room, p2);
   }
 
   print_room(current_room);

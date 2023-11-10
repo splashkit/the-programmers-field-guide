@@ -77,12 +77,25 @@ There are several placeholders that you can use in a format string. Here are som
 
 | Placeholder | Description       |
 | ----------- | ----------------- |
-| `%s`        | String            |
+| `%s`        | C-String          |
 | `%d`        | (Decimal) Integer |
 | `%lf`       | Double (Long Float)        |
 | `%c`        | Character         |
 
-### An advanced example
+:::caution
+
+Watch out for the `%s` placeholder. This does not work with the `string` type we have been using. `string` is a C++ type, and the `printf` function can only accept the C equivalent of a string.
+
+You can get a C-string from the string type using the `c_str()` method. The mechanics of how this works will be covered in the next part of the book. For now, you can use this code to get a C-string from a C++ `string`.
+
+```cpp
+string name = "Fred";
+printf("Hello %s!\n", name.c_str());
+```
+
+:::
+
+### Example
 
 ```c
 
@@ -133,10 +146,56 @@ int main(void)
 }
 ```
 
-Let's break down the scanf line:
+Let's break down the `scanf` line:
 
-`scanf("%d", &age);`
+```c
+scanf("%d", &age);
+```
 
-1. The first component, is the call to the scanf function.
-2. Next, we have the format string `"&d"`. This is the format string that contains the placeholders for the other arguments. The same rules apply here as they do for `printf` - the `%d` is a placeholder for a decimal integer (a base-10 integer).
+1. The first component, is the call to the `scanf` function.
+2. Next, we have the format string `"&d"`. The format string contains the placeholders to tell scanf what to read, with the values being copied into the other arguments. The same rules apply here as they do for `printf` - the `%d` is a placeholder for a decimal integer (a base-10 integer).
 3. Finally, we have the `&age` argument. This is a pointer to the variable where the number (from the `%d` placeholder in the format string) will be stored. The `&` symbol is used to get the *address* of the `age` variable in this case.
+
+### Clearing Errors
+
+When `scanf` encounters an error it stops and does not populate the remaining parameters. To let you know if there are errors, `scanf` returns the number of parameters that it did populate. You can use this to detect any errors and respond appropriately using standard control flow logic.
+
+As `scanf` stops when it encounters errors, you cannot just repeat the call to try to read the data again. The old data is still there, so you will get the same result. Instead, you can clear the buffer to something like the next newline. The following format string achieves this:
+
+```c
+scanf("%*[^\n]");
+```
+
+The format string contains:
+
+- The `*` indicates that this does not need to be stored to a parameter. This allows you to get `scanf` to skip data you do not want to read.
+- Next, the `[...]` indicates a pattern matching expression. It will read as many characters as it can that match the pattern within the brackets.
+- In this case the pattern is "not" (`^`) "a newline character" (`\n`). So it will read anything and end at the newline.
+
+This will read up to the newline character, so you need to make sure the remaining newline character can be skipped. This needs a space at the start of the following format string.
+
+You can use this to read an integer as shown below.
+
+```c
+int read_int(const string &prompt)
+{
+  int result = 0;
+  
+  printf("%s", prompt.c_str());
+  while (scanf(" %d", &result) != 1) // Read value, and try to convert to int
+  {
+    // Convert failed, as input was not a number
+    scanf("%*[^\n]"); // Read past the end of the current line
+    printf("Please enter a whole number.\n");
+    printf("%s", prompt.c_str());
+  }
+  
+  return result;
+}
+```
+
+:::tip
+
+The format string and particulars of `printf` and `scanf` are not going to help you greatly with other languages. So there is no need to spend too long exploring all the peculiarities of `scanf` and `printf`.
+
+:::
