@@ -8,24 +8,24 @@ typedef struct path_struct
 {
   string    description;
   room_ptr  destination;
-} path;
+} path_data;
 
 typedef struct room_struct
 {
   string title;
   string description;
-} room;
+} room_data;
 
-room new_room(string title, string description)
+/**
+ * New path populates the data in a path struct and returns it.
+ * 
+ * @param description the description of the path
+ * @param destination the destination of the path - a pointer to the room it goes to
+ * @return path_data with the indicated details
+ */
+path_data new_path(string description, room_ptr destination)
 {
-  room result = { title = title, description = description };
-
-  return result;
-}
-
-path new_path(string description, room_ptr destination)
-{
-  path result = { 
+  path_data result = { 
     description = description,
     destination = destination
   };
@@ -33,21 +33,61 @@ path new_path(string description, room_ptr destination)
   return result;
 }
 
+/**
+ * New room populates the data in a room struct and returns it.
+ *
+ * @param title         The title of the room
+ * @param description   The description of the room
+ * @returns             The new room data
+ */
+room_data new_room(string title, string description)
+{
+  room_data result = { title = title, description = description };
+
+  return result;
+}
+
+/**
+ * Outputs the path's description to the terminal. Showing the index of the path
+ * and the description, but no details of where it goes.
+ * 
+ * @param idx   the index of the path - used to select it from the list
+ * @param path  the path to print (const reference)
+ */
+void print_path(int idx, const path_data &path)
+{
+  printf("%d - %s\n", idx, path.description.c_str());
+}
+
+/**
+ * Output the room's title and description to the terminal.
+ * 
+ * @param room a pointer to the room to print
+ */
 void print_room(room_ptr room)
 {
   printf("%s\n-----\n%s\n", room->title.c_str(), room->description.c_str());
 }
 
-void print_path(int idx, path &path)
-{
-  printf("%d - %s\n", idx, path.description.c_str());
-}
-
-void move_player(room_ptr &current_room, path &path)
+/**
+ * Move the player through the selected path, setting the player's current room
+ * to the destination of the path.
+ * 
+ * @param current_room a reference to the player's current room (a pointer to the room_data)
+ * @param path a constant reference to the path to move through
+ */
+void move_player(room_ptr &current_room, const path_data &path)
 {
   current_room = path.destination;
 }
 
+/**
+ * Reads an integer value from the user. If the user enters a non-integer value,
+ * the function will continue to prompt the user until they enter a valid value.
+ * 
+ * @param prompt the prompt message to display to the user
+ * @return int the integer value entered by the user
+ */
 int read_int(const string &prompt)
 {
   int result = 0;
@@ -67,12 +107,12 @@ int read_int(const string &prompt)
 
 int main()
 {
-  room r1 = new_room("Room 1", "You are in a happy place");
-  room r2 = new_room("Room 2", "This is room 2");
-  room r3 = new_room("Room 3", "This is room 3");
+  room_data r1 = new_room("Room 1", "You are in a happy place");
+  room_data r2 = new_room("Room 2", "This is room 2");
+  room_data r3 = new_room("Room 3", "This is room 3");
 
-  path p1 = new_path("A large sliding door", &r2);
-  path p2 = new_path("An open corridor", &r3);
+  path_data p1 = new_path("A large sliding door", &r2);
+  path_data p2 = new_path("An open corridor", &r3);
 
   room_ptr current_room = &r1;
 
