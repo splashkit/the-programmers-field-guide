@@ -1,0 +1,71 @@
+---
+title: Implementing Inheritance
+---
+
+In C#, inheritance is part of the class declaration. At the top of the class, after its name, you can place a colon (`:`) and then the name of the _parent class_. The following code snippet shows the declaration of the `Rectangle` and `Ellipse` classes. It shows that these classes both inherit from the `Shape` class.
+
+```cs
+  public class Shape
+  {
+    public Color Color {get; set;}
+    public int X {get; set;}
+    public int Y { get; set; }
+    public int Width { get; set; }
+    public int Height { get; set; }
+
+    public void Draw()
+    {
+        SplashKit.FillRectangle(Color, X, Y, Width, Height);
+    }
+
+  }
+
+  public class Rectangle : Shape
+  {
+  }
+
+  public class Ellipse : Shape
+  {
+  }
+
+  public class Program
+  {
+      public static void Main()
+      {
+          Rectangle r = new Rectangle();
+          r.Color = Color.Red;
+          r.X = 100;
+          r.Y = 50;
+          r.Width = 75;
+          r.Height = 25;
+
+          Ellipse e = new Ellipse();
+          e.Color = Color.Green;
+          e.X = 15;
+          e.Y = 200;
+          e.Width = 50;
+          e.Height = 50;
+      }
+  }
+```
+
+Notice that `Main` is able to create rectangle and ellipse shapes, and interact with the properties they have inherited from the `Shape` class. If you think about inheritance as "**is a kind of**", then this makes sense. A `Rectangle` is a kind of `Shape`. So rectangle objects will have these properties, as each rectangle object is a kind of shape.
+
+## Scope Modifiers
+
+With inheritance it is now sometimes necessary to be able to share access to a class's members to child classes, while keeping this protected from others. To achieve this there is an additional scope modifier, `protected`, which allows you to share members with only those classes that inherit from this class.
+
+Modifier | The Class | Child Classes | Other Classes
+---------|----------|--------- |---------
+ `public` | Can access | Can access | Can access
+ `protected` | Can access | Can access | No access
+ `private` | Can access | No access | No access
+
+The `protected` modifier is useful in cases where you want to give child classes access to a field or method that should not otherwise be available. 
+
+
+* Read about the scope modifiers in [Encapsulation](https://en.wikibooks.org/wiki/C_Sharp_Programming/Encapsulation) on C# Programming.
+
+## Your Task
+
+Consider the above code, can you see what is wrong with it? What additional features do you think programming languages offer to help overcome this kind of issue?

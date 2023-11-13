@@ -1,0 +1,124 @@
+---
+title: Overriding
+---
+
+Inheritance allows us to create a class that will _inherit_ all of the features of its _parent_ (or base) class. While this is great for most features, there are often things the child class will want to change.
+
+Let's return to the Shape Drawing example. Previously we had both the `Ellipse` and the `Rectangle` inheriting a `Draw` method from the `Shape` class. This method drew the shape as a rectangle, so our ellipse objects were not working correctly!
+
+To fix this we need to make a couple of changes:
+
+1. We need to give child classes permission to change how `Draw` works. To do this we mark the `Draw` method as `virtual` in the `Shape` class.
+1. Now we can `override` the `Draw` method in the `Ellipse` class. This can then draw itself as an ellipse.
+
+```cs
+public class Shape
+{
+    public Color Color {get; set;}
+    public int X {get; set;}
+    public int Y { get; set; }
+    public int Width { get; set; }
+    public int Height { get; set; }
+
+    public virtual void Draw()
+    {
+        SplashKit.FillRectangle(Color, X, Y, Width, Height);
+    }
+}
+
+public class Rectangle : Shape
+{
+}
+
+public class Ellipse : Shape
+{
+    public override void Draw()
+    {
+        SplashKit.FillEllipse(Color, X, Y, Width, Height);
+    } 
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        Rectangle r = new Rectangle();
+        Ellipse e = new Ellipse();
+        // ...
+
+        r.Draw();
+        e.Draw();
+    }
+}
+``` 
+
+When the above code is run the `Rectangle` will draw as a rectangle, and the `Ellipse` will draw as an ellipse. Why? Each object knows what it is, so when an `Ellipse` object is told to draw it uses the code from the `Ellipse`. Similarly, when a `Rectangle` is told to draw it runs the code from the `Rectangle` class which is this case has not changed the way `Draw` works, so the original code from `Shape` is run.
+
+* Read about [Virtual Methods](https://en.wikibooks.org/wiki/C_Sharp_Programming/Inheritance#Virtual_Methods) on the C# Programming book
+
+## Accessing the base class
+
+Sometimes you want to _extend_ what happens when a method is called on a child class. In these cases you can call the inherited version of the method using the `base` keyword to access the method on the parent class. While it is unnecessary in this case, the following code does show you how you could do this in the `Rectangle` class. Here we override the `Draw` method and then have it explicitly call the `Draw` method on the base class (the version on the `Shape` class). As indicated in the comments, you could then add additional code around the call to the base class method as needed.
+
+```cs
+public class Rectangle : Shape
+{
+    public override void Draw()
+    {
+        // could do other things here.
+
+        base.Draw(); // call draw from within Shape.
+
+        // do more code here..
+    } 
+} 
+``` 
+
+## The Special Case with Constructors
+
+Constructors are used to initialise objects when they are created. When you create a `Rectangle` object, it needs to initialise both the details from the `Rectangle` class and the aspects it inherited from the `Shape` class. When you only have a default constructor there is nothing special that you need to do, but if the parent class does not have a default constructor (one without parameters) then the child class must pass values up to its base class when it is initialised.
+
+If we change the `Shape` class to have a constructor that has two parameters for the `x` and `y` location of the shape, then we also need to change the `Rectangle` and `Ellipse` classes to have constructors that will supply values for this constructor when rectangles and ellipses are created.
+
+```cs
+public class Shape
+{
+    public int X {get; set;}
+    public int Y { get; set; }
+    // ...
+
+    public Shape(int x, int y)
+    {
+        X = x;
+        Y = y;
+    }
+
+    // ...
+}
+```
+
+The following code shows the changes we can make to get this working for the `Rectangle` and `Ellipse` classes. Notice the use of the `:` operator after the declaration of the constructor. This signifies that when the object is created, it is initialised from the parent class down to the child class. So the `Shape` part needs to be initialised first. As a result, the call to the base class constructor happens _before_ the body of the child class's constructor.
+
+In the following example, all `Rectangle` objects will pass `10` and `20` to the base class constructor's `x` and `y` parameters. Whereas the `Ellipse` also has two parameters (`x` and `y`) whose values are passes up to the base class constructor. Notice that `Ellipse` doesn't do anything with these parameters in its constructor, in this case the values are only used to pass to the constructor in `Shape`.
+
+```cs
+public class Rectangle : Shape
+{
+    public Rectangle() : base ( 10, 20 )
+    {
+    }
+}
+
+public class Ellipse : Shape
+{
+    public Ellipse(int x, int y) : base ( x, y )
+    {
+    }
+    
+    // ...
+}
+``` 
+
+* Read about [Inheritance and Constructors](https://en.wikibooks.org/wiki/C_Sharp_Programming/Inheritance#Constructors) on the C# Programming book
+
+For help with syntax details, see this week's [syntax guide](../08-syntax-guide).

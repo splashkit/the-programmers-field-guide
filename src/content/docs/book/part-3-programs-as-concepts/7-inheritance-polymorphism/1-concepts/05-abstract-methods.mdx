@@ -1,0 +1,50 @@
+---
+title: Abstract Methods
+---
+
+To wrap up this discussion of inheritance we have one remaining feature to consider: the ability to create **abstract** classes and methods. With polymorphism we have the ability for a variable to refer to a parent class, but the objects to actually come from other _child_ classes. This was the case with the shapes in the `Drawing`. The drawing had `Shape` objects, but they are actually `Rectangle` or `Ellipse` objects.
+
+This brings us to an issue we have with the current design. Should the `Shape` class actually draw in any way? Having it always draw as a rectangle does not seem right. If you want a rectangle, then you create an object from the `Rectangle` class. The `Shape` class is a more general concept, allowing us to group this family of shapes together and treat them in the same way. Similarly, should we even be able to create `Shape` objects at all. If we had a `Shape` how would it draw?
+
+## Abstract Classes
+
+It is common for object oriented programs to have classes that represent general concepts, and should not be used to create objects. These are known as **abstract** classes. In C# you can make a class **abstract** by adding the modifier `abstract` to the class declaration as shown in the following code. This removes the ability to create objects from this class (no more `new Shape();` to create shape objects) but the class can still have all of its existing functionality.
+
+```cs
+public abstract class Shape
+{
+    //...
+}
+```
+
+The `Shape` class in our shape drawing program is a perfect case for an abstract class. It represents the more general (more abstract) concept of being a shape, which must be inherited from in order to make the actual shapes we want in the program.
+
+## Abstract Methods
+
+If we move remove the `Draw` method out of the `Shape` class, then we no longer be able to loop over the shapes and ask each one to draw in the `Drawing`. So we _need_ `Draw` in `Shape`, but we don't want it to actually do anything. We could do this with just an empty method (using `{}`) but there is a better way.
+
+An abstract method is a placeholder that indicates that this method exists, but that there is no implementation for it in this class. In effect, it is a promise that child classes **will** provide this method, but that we can't implement it at this point.
+
+This is perfect for our `Draw` method on `Shape`. We want _all_ shape objects to know how to draw, but we can't provide that implementation within the `Shape` class. Making this method abstract will ensure that all child classes will provide it, while allowing users of the `Shape` to call this method on their `Shape` variables.
+
+Creating an abstract method is simple. Within the class you just write a single line, which declares the method with an `abstract` modifier. An example is shown in the following code. Notice that the method has no body (no `{...}`) it just ends after the parameters.
+
+```cs
+public abstract class Shape
+{
+    public abstract void Draw();
+}
+```
+
+Once you have an abstract method, the class itself **must** be abstract. You cannot create an object from this class as it would not have an implementation of these abstract methods. So, as soon as you have one abstract method the class itself must also be abstract.
+
+## Further Reading
+[Abstract Classes](https://en.wikibooks.org/wiki/C_Sharp_Programming/Abstract_classes) article in the C# online text
+
+For help with syntax details, see this week's [syntax guide](../08-syntax-guide).
+
+## Your Task
+
+Does it make sense for an abstract class to have a constructor?
+
+Let us know what you think in the comments.

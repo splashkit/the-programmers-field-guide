@@ -1,0 +1,89 @@
+---
+title: Polymorphism
+---
+
+
+Inheritance has allowed us to create families of related types, but to really make use of these features we need to be able to treat these objects in a common way. In object oriented programming, this is achieved through a mechanism known as **polymorphism**.
+
+Polymorphism refers to the ability for programming tools to make use of different types in the one context. This can be as simple as addition, which works on multiple types such as integers ( `5 + 2` ) real numbers ( `7.5 + 3.2` ) and strings (`"Hello " + "World"`), but also includes **subtype polymorphism** which allows us to work with objects in flexible ways.
+
+Subtype polymorphism refers to the ability for us to refer to child objects from variables of a parent object type. For example, we can use `Shape` variables to refer to `Rectangle` or `Ellipse` objects. If you think of inheritance as an _is a kind of_ relationship then this makes sense. A rectangle is a kind of shape, so a shape variable can refer to a rectangle.
+
+The following code demonstrates how this can work. Here we create a `Rectangle` and refer to it from a variable `r`. We can also create a `Shape` variable (`shape1`) and have this refer to that same rectangle object. Similarly, we can create an `Ellipse` and refer to it from a `Shape` variable (`shape2`).
+
+```cs
+public class Program
+{
+    public static void Main()
+    {
+        Rectangle r = new Rectangle();
+        
+        Shape shape1 = r;
+        Shape shape2 = new Ellipse();
+        // ...
+
+        shape1.Draw();
+        shape2.Draw();
+    }
+}
+```
+
+## Making use of Polymorphism
+Polymorphism makes it possible to create flexible structures, making it easy to achieve things that would have been difficult previously. For example, the `Drawing` class in our Shape Drawing program needs to be able to store both `Rectangle` and `Ellipse` objects (and other kinds of shapes when we support them). Without polymorphism you would need to have one list for Rectangle objects, another for Ellipse objects, etc. 
+
+With polymorphism, it is possible to have just one list of `Shape` objects. This list can then store rectangle, ellipse, and any other kind of shape - as long as they inherit from the `Shape` class. In this way, the `Drawing` can contain anything that _is a kind of_ `Shape`.
+
+![UML class diagram of shape drawing, with a Drawing that contains shapes.](./images/ShapesUML2.png)
+
+Within the `Drawing` we can then loop through and ask each shape to draw itself to the screen. As each shape knows what it is, it will use the appropriate draw method. So, the `Rectangle` objects will draw rectangles, the `Ellipse` objects will draw as ellipse, and the `Drawing` will only know that it is asking `Shape` objects to draw.
+
+```cs
+public class Drawing
+{
+    public void Draw()
+    {
+        foreach ( Shape s in _shapes )
+        {
+            s.Draw(); // tell the shape to draw... whatever it is!
+        }
+    }
+}
+```
+
+## Variables and Objects
+
+One of the keys to understanding how this works is to remember that the variable is _not_ the object. The variable is a **reference** to the object, so the type of the variable does not need to be the type of the object. You can think of the variable as being like a window in onto the object. The variable's type defines what you can see, you know that the object _is a kind of_ that type, but it may be something more specific.
+
+If we consider the above code for our Shape Drawing program again. In this code, the `shape1` and `shape2` variables allow you to see their respective objects as `Shape` objects. So, if we added a `MakeSquare` method to the `Rectangle` you would not be able to see this on the `shape1` variable. Why? This variable only allows us to know that it refers to a `Shape` object, and `Shape` objects do not have a `MakeSquare` method. Similarly, if we added a `MakeCircle` method to the `Ellipse` you would not be able to see that on the `shape2` variable.
+
+![Illustration of polymorphism, showing variables referring to objects](./images/Polymorphism.png)
+
+The type of the variable lets you know what you can access. If you refer to a variable as a `Shape` then you can only access `Shape` features.
+
+## Casting
+
+Sometimes you want to be able to get to a more specific type for a variable. To do this you need to **cast** the variable to the type that you are after. To do this you are best to check if the variable does refer to an object of the required type (using `is` in C#), and then perform the cast using `as`. The `as` operator will cast the variable to the required type, but will return `null` if the object is not of the required typed. If you use a standard cast (with brackets) then C# throws an exception if the object is not of the required type.
+ 
+```cs
+// Using as
+if ( shape1 is Rectangle ) (shape1 as Rectangle).MakeSquare();
+else if ( shape1 is Ellipse ) (shape1 as Ellipse).MakeCircle();
+
+// Standard casts
+if ( shape1 is Rectangle ) ((Rectangle) shape1).MakeSquare();
+else if ( shape1 is Ellipse ) ((Ellipse) shape1).MakeCircle();
+```
+
+In general you should avoid the need to cast down the inheritance hierarchy like this.
+
+* [Casting](https://en.wikibooks.org/wiki/C_Sharp_Programming/Casting) in C# Programming
+
+## The Object Class
+
+In C#, all classes inherit from an `Object` base class. This provides a single root class that can be used to refer to _anything_. So, in our case both the `Shape` and the `Drawing` inherit from `Object`. This fact is used by the standard (non-generic) collection classes. They can store a collection of _objects_, meaning you can store objects in the collection and you can get objects out of the collection. This then means that you need to cast these to what you actually want. Generics helped solve this problem, so while the standard collection classes do still exist, they are rarely used.
+
+## Your Task
+
+Overloading and generics are also kinds of polymorphism. Can you explain why?
+
+Let us know in the comments.

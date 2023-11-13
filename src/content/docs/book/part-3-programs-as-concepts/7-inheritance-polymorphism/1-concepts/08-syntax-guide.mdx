@@ -1,0 +1,57 @@
+---
+title: Syntax Guide
+---
+
+## Inheritance
+
+Class inheritance uses the `:` to indicate which class it is inheriting from.
+
+```cs
+public class HeroCharacter : GameObject
+```
+
+Here we have `HeroCharacter` inheriting from a made up `GameObject` class.
+
+## Virtual Methods
+
+Using our GameObject/HeroCharacter example again, we can see the syntax which you can use to implement a virtual method.
+
+Our `HeroCharacter` method overrides the `Area()` function in order to provide the correct implementation for a `HeroCharacter` object.
+
+```cs
+public class GameObject
+{
+  public virtual double Area()
+  {
+    return X * Y;
+  }
+}
+
+public class HeroCharacter : GameObject
+{
+  public override double Area()
+  {
+    return X * Y - 50;
+  }
+}
+```
+
+## Abstract Keyword
+
+The abstract modifier keyword is used to indicate that the thing being modified does not have an implementation, and that the class which overrides it should provide the implementation.
+
+```cs
+public abstract class Shape
+```
+
+```cs
+abstract public int Area();
+```
+
+```cs
+public abstract double Area
+{
+  get;
+}
+```
+
