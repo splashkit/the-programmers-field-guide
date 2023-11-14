@@ -34,7 +34,3 @@ Learning to move your focus between these different compartments may take some g
 :::
 
 In the next section we will look at how to declare a procedure, then we can look at functions after that.
-
-## In C/C++
-
-

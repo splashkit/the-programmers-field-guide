@@ -92,7 +92,7 @@ The pseudocode for this is the same as we covered previously. So there should be
 
 This function will populate a path struct value and return it to the caller. While this can be achieved with a single line at the moment, we will want to be able to expand the struct going forward and this will mean changes to the way things are initialised. Having a function that is responsible for this means we only have one place we need to update when we want to change how initialisation works.
 
-Below if the header comment for the function. This captures the requirements for what this will need to do. In the code, you will need to declare a `path_data` variable, set its title and descriptions, and return it.
+Below is the header comment for the function. This captures the requirements for what this will need to do. In the code, you will need to declare a `path_data` variable, set its title and descriptions, and return it.
 
 ```cpp
 /**
@@ -208,7 +208,7 @@ print_room(current_room);
 
 When you get this to work spend some time thinking about how this is all coming together. You want to focus on understanding how the pointer in current room is working. When this clicks, you will start to see the potential that pointers (and reference in other languages) offer you.
 
-## NULL and nullptr
+## Handling nullptr
 
 In C/C++ you can use `NULL` or `nullptr` to represent a pointer to nothing. We could use this to create a path that leads... nowhere.
 
