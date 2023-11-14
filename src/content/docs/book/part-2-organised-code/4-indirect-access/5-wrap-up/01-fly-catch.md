@@ -10,6 +10,8 @@ Changes include:
 - Added update game, and update fly
 - Changed existing struct parameters to use pass by reference with constant references, so these are not incorrectly updated.
 
+Pay attention to the new functions and procedures and how reference parameters provide access to data from within variables passed from the calling function or procedure's code.
+
 ```cpp
 #include "splashkit.h"
 
