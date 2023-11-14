@@ -1,0 +1,17 @@
+---
+title: Recap
+---
+
+Review all of the object oriented concepts and how they come together to create objects that know and can do things.
+
+Object oriented development is all about creating objects that know and can do things, and getting these objects to collaborate in order to meet their responsibilities. These ideas are all based upon the four key object oriented principles: **abstraction**, **encapsulation**, **inheritance**, and **polymorphism**. Let's go back and look at these principles again to see how they are all essential to help make object oriented programming a reality.
+
+At its core, **abstraction** is the process of identifying the things (objects) that we want to make up our solution. Through abstraction, we can classify these objects and name them to help communicate the roles they play within the solution. A good abstraction will result in an object that plays an identifiable role, and has responsibilities that people can easily associate with the object. Many objects will be immediately identifiable from thinking about the application's domain and the entities associated with it.
+
+In order to have these objects exist, we need to be able to see them as having **identify**, with each object **encapsulating** the things it knows together with the things it can do. The principle of encapsulation has us package up object functionality within the bounds defined by the object and its classes. Each object has perceivable internal and external aspects, with some features being publicly available, and others hidden within the object itself. In this way we are able to control what others can ask of the object, while still allowing us to break down the object's behaviour into smaller methods.
+
+The object may itself be composed of many classes, through the mechanism of **inheritance**. A `Rectangle` object, for example, may be composed of code that defines what it is to be a `Rectangle`, with inherited code that describes what it is to be a `Shape`, which further inherits basic details of what it is to be an `Object` in C#. So this one `Rectangle` object combines together all of these aspects, and can itself be used anywhere a `Rectangle`, `Shape` or `Object` is required due to the ideas of **polymorphism**.
+
+Asking an object to perform an action can then use the intelligence coded within the object in order to determine how this request is best handled. Ask a `Shape` to draw, and you may see a rectangle, ellipse, or other shape appear depending on what kind of object it is. The object **itself** knows what kind of class it was created from, and so will encapsulate the required methods. When asked to do something, the object is responsible for performing the task so it chooses the most appropriate method.
+
+So it is by working together that these four principles have helped to shape the way modern software is developed.

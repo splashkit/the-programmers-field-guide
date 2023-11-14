@@ -1,0 +1,14 @@
+---
+title: How these concepts impact on code quality
+---
+
+Reflect on what you have learnt this week and in this unit, and examine the final tasks to complete in OnTrack.
+
+
+The object oriented principles should help guide the way we write program code. Each of the classes that we create should have an identifiable **abstraction** they are trying to represent. This means that the methods and fields of the class should aim to capture this abstraction, which in some cases means we need to work through ideas to find where responsibilities are best placed.
+
+With encapsulation, we should aim to keep internal implementation details hidden within the object. Using private fields is one example of this. Properties can provide access to these fields, but if we want to change the way this works in the future then these properties can be changed so that users of the object will not need to change because of changes to the object internal details. By making sure as few things know about these details as possible, we make sure that any changes will require as little work as possible.
+
+While inheritance can be a powerful mechanism to create families of related types, these structures do add complexity to solutions. In general, the use of inheritance should be limited with inheritance hierarchies being as small as possible. If you have deep inheritance hierarchies they quickly become fragile and difficult to change.
+
+In general, a good object oriented design will have classes that represent clear abstractions with each class having methods that are small and easy to understand.

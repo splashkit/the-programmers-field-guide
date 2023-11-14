@@ -1,0 +1,104 @@
+---
+title: Interface Inheritance
+---
+Explore the use of interface inheritance to provide a means of objects to interact in order to achieve some shared goal.
+
+As we have seen, object oriented programming is all about creating objects that know and can do things. Using inheritance it is possible to create families of related types, with child classes inheriting features from their parent classes. While inheritance gives us the ability to work with families of related types, we also need ways of providing common interactions with un-related types. Let's consider the case of sorting as an example.
+
+Sorting is a common task, and you often want to be able to sort lists of objects. To achieve this the object doing the sorting needs to have a means of comparing the objects that are being sorted. If we put this code in the sorter then it would only be able to sort the objects it knows about. What we want to do is delegate this responsibility so that others can let the sorter know how the comparison should be performed.
+
+One option is to make use of standard class inheritance. Using inheritance we could create a `Sortable` parent class and have the sorting object be able to sort anything that is _sortable_. This solution has a number of issues, both technical and from a design perspective. From a technical perspective, many classes may already be involved in inheritance relationships. C# only allows _single inheritance_ so it would not be possible for some classes to also be sortable. From the design perspective, we are not really creating a family of related types. Here we just want to provide some features so that the objects can be sorted, there isn't really a family of things that we think of as "sortable". This is more like a set of features that we want to be able to add on to our existing types.
+
+To avoid all of these issues, C# provides **interfaces**. An interface is used to define a set of features that a class can implement in order to be usable in a given scenario. This is exactly what we want for sorting, in this case we need the objects to be **comparable** by providing some kind of comparison method. This method could then be used when the objects are sorted. The following code illustrates how we could create an interface for this purpose, though this interface already exists within the C# class library.
+
+~~~cs
+public interface IComparable
+{
+    int CompareTo(Object other);
+}
+~~~
+
+## Defining and Using an Interfaces
+
+This interface would have been defined while the developers were designing the `List` class, as the `List` class needs to be able to sort its contents. To make this possible, the designers of the `List` would have created the `IComparable` interface, and put the required functionality in there. They can then use this interface when sorting, as shown in the following code example. In this way the interface captures the features that are needed to enable objects to be sorted by the list, and it also provides a clear set of features for those who want their objects to be usable in this scenario.
+
+~~~cs
+public void Sort()
+{
+    for( int i = 0; i < _data.Length - 1; i++ )
+    {
+        for( int j = 0; j < _data.Length - 1; j++ )
+        {
+            IComparable current, next; 
+            current = _data[j] as IComparable;
+            next = _data[j + 1] as IComparable;
+
+            if ( current.CompareTo(next) > 0 )
+            {
+                Swap(_data[j], _data[j+1]);
+            }
+        }
+    }
+}
+~~~
+
+## Implementing an Interface
+
+If we want our StockItem objects to be able to be sorted by the List, we need to implement the `IComparable` interface. This is achieved using the same inheritance style syntax in C# as with class inheritance, as shown below.
+
+~~~cs
+public class StockItem : IComparable
+{
+    // ...
+
+    public int CompareTo(Object other)
+    {
+        StockItem otherStock = other as StockItem;
+
+        return Cost - otherStock.Cost;
+    }
+}
+~~~
+
+To implement the interface you need to:
+
+1. Indicate you are implementing the interface in the class header by adding the interface name after the `:`.
+2. Provide an implementation for each of the interface members (interfaces can have methods and properties) within the class.
+
+We can see in the above code that the `StockItem` class does indicate that it implements the `IComparable` interface, and that it has the `CompareTo` method implemented. So the `StockItem` can now be used whereever an IComparable object is required (another example of polymorphism). In this case the `CompareTo` method needs to return a positive number of this object is larger than then other object, a negative number if it is smaller, or 0 if it is equal. We can perform this comparison using the cost of the `StockItem`, and subtracting the other items cost from the current item. If the current item has a larger cost then this will return a positive number, if it is smaller it will return a negative number, and if it is the same it will return 0 as required.
+
+## Adding Generics to the Interface
+
+To remove the need for the implementing class to have to work with objects, we could also write this using **generics**. This allows us to use a placeholder for the type name. This placeholder is written within triangular brackets ( `< here >` ) after the class name, and can then be used as a type within the code. The following example shows the declaration of an `IComparable<T>` interface. Here `T` is like a type variable, it is the placeholder for the type name the user wants. We can then use `T` as the type within the parameter to the `CompareTo` method. This means that if we create an `IComparable<int>` then this parameter is an integer (`int`) value, similarly if we use `IComparable<StockItem>` then the parameter is a reference to a `StockItem` object.
+
+~~~cs
+public interface IComparable<T>
+{
+    int CompareTo(T other);
+}
+~~~
+
+This would enable us to implement the generic version of the interface, and removes the need for us to cast the object to a `StockItem`. The following code demonstrates how we can implement the `IComparable<T>` interface to allow it to compare itself to other `StockItem` objects. Notice that T here is being replaced with `StockItem`, it appears between the triangular brackets and as the type for the parameter in `CompareTo`.
+
+~~~cs
+public class StockItem : IComparable<StockItem>
+{
+    // ...
+
+    public int CompareTo(StockItem other)
+    {
+        return Cost - other.Cost;
+    }
+}
+~~~
+
+## Your task
+
+Consider how you could use this to add the ability to sort classes you have created. Can you think of any limitations for this approach to sorting?
+
+Let us know in the comments.
+
+## Further Reading
+* [Interfaces](https://en.wikibooks.org/wiki/C_Sharp_Programming/Interfaces) in the online C# Programming text.
+
+For help with syntax details, see this week's [syntax guide](../12-syntax-guide).

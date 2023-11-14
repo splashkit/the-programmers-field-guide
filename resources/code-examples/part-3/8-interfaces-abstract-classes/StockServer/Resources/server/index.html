@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="index.js"></script>
+  <meta charset="UTF-8">
+  <title>stocksite</title>
+</head>
+
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Stock List System
+      </h1>
+      <h2 class="subtitle">
+        Search to get current stock list
+      </h2>
+    </div>
+  </div>
+</section>
+
+<body>
+  <section class="section primary">
+    <span class="select">
+    <select id="searchBy">
+      <option>cost</option>
+      <option>id</option>
+      <option>name</option>
+    </select>
+    </span>
+
+    <button class="button" id="searchButton">Search</button>
+    <p id="page"></p>
+    <table class="table" id="stockTable">
+      <thead>
+        <tr>
+          <th><abbr title="id">ID</abbr></th>
+          <th><abbr title="name">Name</abbr></th>
+          <th><abbr title="price">Price</abbr></th>
+        </tr>
+      </thead>
+    </table>
+
+    <nav class="pagination">
+      <a class="pagination-previous" id="previousButton">Previous</a>
+      <a class="pagination-next" id="nextButton">Next page</a>
+      <ul class="pagination-list">
+    </nav>
+  </section>
+</body>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        See the source code at github.com/splashkit
+      </p>
+      <p>
+        <a class="icon" target="_blank" href="https://github.com/splashkit">
+          <i class="fa fa-github"></i>
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+</html>
