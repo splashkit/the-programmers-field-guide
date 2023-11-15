@@ -1,5 +1,11 @@
 ---
 title: Using X Windows
+sidebar:
+    attrs:
+      class: multitool
+banner:
+  content: |
+    This page is for the Multitool!
 ---
 
 If you have been working through this on the multitool Raspberry Pi image, you will have only had access to the terminal interface. Now it is time to fire up the graphical user interface.
@@ -14,8 +20,8 @@ Make sure to read the section on [launching the editor from the terminal](#launc
 
 The graphical environment is just like everything else -- a program that we can run on the computer. In Unix, the graphical interface is known as **X Windows**. To start this running you can use the `startx` command.
 
-| **Action**                 | **Command** | **Description** |
-|----------------------------|-------------|-----------------------------------|
+| **Action**                 | **Command** | **Description**                    |
+| -------------------------- | ----------- | ---------------------------------- |
 | Open graphical environment | `startx`    | Open the graphical user interface. |
 
 This is really simple to use. Just run the `startx` command in the terminal. You will see the environment change, and you can now use your mouse and interact with the computer as you are used to.
@@ -52,9 +58,9 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 From the terminal you can use all of the commands we have already seen as well as launch programs that use the X Windows environment.
 
-| **Action**          | **Command** | **Description** |
-|---------------------|-------------|----------------------------------------------------|
-| Open a file to edit | `code`      | Launch Visual Studio Code to edit a file or folder.|
+| **Action**          | **Command** | **Description**                                     |
+| ------------------- | ----------- | --------------------------------------------------- |
+| Open a file to edit | `code`      | Launch Visual Studio Code to edit a file or folder. |
 
 Visual Studio Code (vscode) is a graphical text editor designed to write source code. You can launch Visual Studio Code using the `code` command in the terminal. The [Visual Studio Code documentation](https://code.visualstudio.com/docs/editor/command-line) describes how to use this in detail, including how to install this shortcut if you have built your own setup.
 
@@ -71,10 +77,10 @@ code .
 The Raspberry Pi can be configured to boot into either a terminal or graphical mode. Terminal is great if you want to set the Pi up as a server or other processing node that does not need user interaction. As we will be developing code on our Pi, we should switch it to boot into X Windows.
 To change that setting we will need a couple of new shell commands.
 
-| **Action**                | **Command**    | **Description** |
-|---------------------------|----------------|----------------------------------------------------|
+| **Action**                | **Command**    | **Description**                                         |
+| ------------------------- | -------------- | ------------------------------------------------------- |
 | Run as superuser.         | `sudo`         | Run a program as the superuser -- used for admin tasks. |
-| Change Pi config options. | `raspi-config` | Change Raspberry Pi configuration options. |
+| Change Pi config options. | `raspi-config` | Change Raspberry Pi configuration options.              |
 
 ### Run as admin (`sudo`)
 
@@ -107,10 +113,10 @@ When you select the required option it will take you back to the main menu. Choo
 
 ### Accessing other terminals
 
-| **Action**           | **Command**                     | **Description**                    |
-|----------------------|---------------------------------|------------------------------------|
-|Switch terminal.      | **Ctrl-Alt** + **F1** to **F6** | Switch to virtual terminal 1 to 6. |
-|See who is logged in. | `w`                             | List the active terminals.         |
+| **Action**            | **Command**                     | **Description**                    |
+| --------------------- | ------------------------------- | ---------------------------------- |
+| Switch terminal.      | **Ctrl-Alt** + **F1** to **F6** | Switch to virtual terminal 1 to 6. |
+| See who is logged in. | `w`                             | List the active terminals.         |
 
 Unix was designed to handle multiple users connected to the system from separate terminals at the same time. Modern Unix operating systems simulate this with multiple virtual terminals available. If you want to switch from the graphical desktop to a terminal (not just a terminal window) you can do this using the shortcut keys **Ctrl-Alt** followed by one of the first six function keys: **F1** to **F6**. This will switch to the associated virtual terminal.
 

@@ -1,13 +1,30 @@
 @import url("https://use.typekit.net/vzr3ole.css");
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
-@import url('https://fonts.googleapis.com/css?family=Gaegu&display=swap');;
+@import url("https://fonts.googleapis.com/css?family=Gaegu&display=swap");
 
-#_top,.site-title {
+#_top,
+.site-title {
   font-family: "antique-olive", sans-serif;
   font-weight: 700;
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'FontAwesomeBrands';
+  src: url('/src/fonts/fa-brands-400.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+a.multitool:after {
+  font-family: "FontAwesomeBrands";
+  content: "\f7bb";
+  float: right;
+  border-radius: 5px;
+  border: 1px solid white;
+  padding: 0px 5px 0px 5px;
+}
 
 img {
   display: block;
@@ -23,10 +40,6 @@ img {
 /* ------------------------------------------- */
 /* END:   OVERRIDE DEFAULT STYLES              */
 /* ------------------------------------------- */
-
-
-
-
 
 /* ------------------------------------------- */
 /* START: CUSTOM STYLES                        */
@@ -46,7 +59,6 @@ img {
 }
 /* --- END: Footnotes ------*/
 
-
 /* --- START: Figure, Table and Listing captions ------*/
 .main-pane div.caption {
   text-align: center;
@@ -58,13 +70,11 @@ img {
 }
 /* --- END:   Figure, Table and Listing captions ------*/
 
-
 /* --- START: Review changes: Delete style contents once done reviewing ------*/
 .review {
   color: firebrick;
 }
 /* --- END:   Review changes: Delete style contents once done reviewing ------*/
-
 
 /* --- START: Syntax Box ------*/
 aside[aria-label="Syntax"] {
@@ -87,21 +97,21 @@ aside[aria-label="Syntax"] img {
 }
 
 /* required specificity to override */
-html[data-theme="light"] aside[aria-label="Syntax"] ul li p, html[data-theme="dark"] aside[aria-label="Syntax"] ul li p {
+html[data-theme="light"] aside[aria-label="Syntax"] ul li p,
+html[data-theme="dark"] aside[aria-label="Syntax"] ul li p {
   margin-bottom: 0px;
 }
 
-html[data-theme="light"]  aside[aria-label="Syntax"] .starlight-aside__title {
+html[data-theme="light"] aside[aria-label="Syntax"] .starlight-aside__title {
   color: royalblue;
   font-weight: 800;
 }
 
-html[data-theme="dark"]  aside[aria-label="Syntax"] .starlight-aside__title {
+html[data-theme="dark"] aside[aria-label="Syntax"] .starlight-aside__title {
   color: #a7c1ef;
   font-weight: 800;
 }
 /* --- END:   Syntax Box ------*/
-
 
 /* --- START: Summary Box ------*/
 aside[aria-label="Summary"] {
@@ -124,7 +134,8 @@ aside[aria-label="Summary"] img {
 }
 
 /* required specificity to override */
-html[data-theme="light"] aside[aria-label="Summary"] ul li p, html[data-theme="dark"] aside[aria-label="Summary"] ul li p {
+html[data-theme="light"] aside[aria-label="Summary"] ul li p,
+html[data-theme="dark"] aside[aria-label="Summary"] ul li p {
   margin-bottom: 0px;
 }
 
@@ -160,7 +171,8 @@ aside[aria-label="C#"] img {
 }
 
 /* required specificity to override */
-html[data-theme="light"] aside[aria-label="C#"] ul li p, html[data-theme="dark"] aside[aria-label="C#"] ul li p {
+html[data-theme="light"] aside[aria-label="C#"] ul li p,
+html[data-theme="dark"] aside[aria-label="C#"] ul li p {
   margin-bottom: 0px;
 }
 
@@ -175,17 +187,8 @@ html[data-theme="dark"] aside[aria-label="C#"] .starlight-aside__title {
 }
 /* --- END:   C# Box ------*/
 
-
-
-
-
-
-
-
-
-
 /* --- START: How does this work? Box ------*/
- 
+
 /* 
  * Sketched style borders:
  * https://stackoverflow.com/questions/43694588/can-i-use-css-to-distort-borders-so-they-look-like-sketched
@@ -197,160 +200,160 @@ html[data-theme="dark"] aside[aria-label="C#"] .starlight-aside__title {
  */
 
 aside[aria-label="How does this work?"] p.starlight-aside__title {
-  font-size:1.3rem;
+  font-size: 1.3rem;
   font-family: "Gaegu";
   font-weight: 800;
   font-size: 1.7rem;
   color: black;
 }
 
-aside[aria-label="How does this work?"] ol.counterStart2 { 
-  counter-reset: step-counter 1; 
+aside[aria-label="How does this work?"] ol.counterStart2 {
+  counter-reset: step-counter 1;
 }
-aside[aria-label="How does this work?"] ol.counterStart3 { 
-  counter-reset: step-counter 2; 
-}  
-aside[aria-label="How does this work?"] ol.counterStart4 { 
-  counter-reset: step-counter 3; 
-}  
-aside[aria-label="How does this work?"] ol.counterStart5 { 
-  counter-reset: step-counter 4; 
-}  
-aside[aria-label="How does this work?"] ol.counterStart6 { 
-  counter-reset: step-counter 5; 
+aside[aria-label="How does this work?"] ol.counterStart3 {
+  counter-reset: step-counter 2;
 }
-aside[aria-label="How does this work?"] ol.counterStart7 { 
-  counter-reset: step-counter 6; 
-}      
-aside[aria-label="How does this work?"] ol.counterStart8 { 
-  counter-reset: step-counter 7; 
-}      
-aside[aria-label="How does this work?"] ol.counterStart9 { 
-  counter-reset: step-counter 8; 
-}      
-aside[aria-label="How does this work?"] ol.counterStart10 { 
-  counter-reset: step-counter 9; 
-}      
-aside[aria-label="How does this work?"] ol.counterStart11 { 
-  counter-reset: step-counter 10; 
-}      
-aside[aria-label="How does this work?"] ol.counterStart12 { 
-  counter-reset: step-counter 11; 
-}      
-aside[aria-label="How does this work?"] ol.counterStart13 { 
-  counter-reset: step-counter 12; 
-}      
-aside[aria-label="How does this work?"] ol.counterStart14 { 
-  counter-reset: step-counter 13; 
-}      
-aside[aria-label="How does this work?"] ol.counterStart15 { 
-  counter-reset: step-counter 14; 
-}      
-aside[aria-label="How does this work?"] ol.counterStart16 { 
-  counter-reset: step-counter 15; 
-}      
-aside[aria-label="How does this work?"] ol.counterStart17 { 
-  counter-reset: step-counter 16; 
-}      
-aside[aria-label="How does this work?"] ol.counterStart18 { 
-  counter-reset: step-counter 17; 
-}      
-aside[aria-label="How does this work?"] ol.counterStart19 { 
-  counter-reset: step-counter 18; 
-}      
-aside[aria-label="How does this work?"] ol.counterStart20 { 
-  counter-reset: step-counter 19; 
+aside[aria-label="How does this work?"] ol.counterStart4 {
+  counter-reset: step-counter 3;
 }
-aside[aria-label="How does this work?"] ol.counterStart21 { 
-  counter-reset: step-counter 20; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart22 { 
-  counter-reset: step-counter 21; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart23 { 
-  counter-reset: step-counter 22; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart24 { 
-  counter-reset: step-counter 23; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart25 { 
-  counter-reset: step-counter 24; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart26 { 
-  counter-reset: step-counter 25; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart27 { 
-  counter-reset: step-counter 26; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart28 { 
-  counter-reset: step-counter 27; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart29 { 
-  counter-reset: step-counter 28; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart30 { 
-  counter-reset: step-counter 29; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart31 { 
-  counter-reset: step-counter 30; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart32 { 
-  counter-reset: step-counter 31; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart33 { 
-  counter-reset: step-counter 32; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart34 { 
-  counter-reset: step-counter 33; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart35 { 
-  counter-reset: step-counter 34; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart36 { 
-  counter-reset: step-counter 35; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart37 { 
-  counter-reset: step-counter 36; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart38 { 
-  counter-reset: step-counter 37; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart39 { 
-  counter-reset: step-counter 38; 
-}   
-aside[aria-label="How does this work?"] ol.counterStart40 { 
-  counter-reset: step-counter 39; 
+aside[aria-label="How does this work?"] ol.counterStart5 {
+  counter-reset: step-counter 4;
 }
-aside[aria-label="How does this work?"] ol.counterStart41 { 
-  counter-reset: step-counter 40; 
+aside[aria-label="How does this work?"] ol.counterStart6 {
+  counter-reset: step-counter 5;
 }
-aside[aria-label="How does this work?"] ol.counterStart42 { 
-  counter-reset: step-counter 41; 
+aside[aria-label="How does this work?"] ol.counterStart7 {
+  counter-reset: step-counter 6;
 }
-aside[aria-label="How does this work?"] ol.counterStart43 { 
-  counter-reset: step-counter 42; 
+aside[aria-label="How does this work?"] ol.counterStart8 {
+  counter-reset: step-counter 7;
 }
-aside[aria-label="How does this work?"] ol.counterStart44 { 
-  counter-reset: step-counter 43; 
+aside[aria-label="How does this work?"] ol.counterStart9 {
+  counter-reset: step-counter 8;
 }
-aside[aria-label="How does this work?"] ol.counterStart45 { 
-  counter-reset: step-counter 44; 
+aside[aria-label="How does this work?"] ol.counterStart10 {
+  counter-reset: step-counter 9;
 }
-aside[aria-label="How does this work?"] ol.counterStart46 { 
-  counter-reset: step-counter 45; 
+aside[aria-label="How does this work?"] ol.counterStart11 {
+  counter-reset: step-counter 10;
 }
-aside[aria-label="How does this work?"] ol.counterStart47 { 
-  counter-reset: step-counter 46; 
+aside[aria-label="How does this work?"] ol.counterStart12 {
+  counter-reset: step-counter 11;
 }
-aside[aria-label="How does this work?"] ol.counterStart48 { 
-  counter-reset: step-counter 47; 
+aside[aria-label="How does this work?"] ol.counterStart13 {
+  counter-reset: step-counter 12;
 }
-aside[aria-label="How does this work?"] ol.counterStart49 { 
-  counter-reset: step-counter 48; 
+aside[aria-label="How does this work?"] ol.counterStart14 {
+  counter-reset: step-counter 13;
 }
-aside[aria-label="How does this work?"] ol.counterStart50 { 
-  counter-reset: step-counter 49; 
-}       
+aside[aria-label="How does this work?"] ol.counterStart15 {
+  counter-reset: step-counter 14;
+}
+aside[aria-label="How does this work?"] ol.counterStart16 {
+  counter-reset: step-counter 15;
+}
+aside[aria-label="How does this work?"] ol.counterStart17 {
+  counter-reset: step-counter 16;
+}
+aside[aria-label="How does this work?"] ol.counterStart18 {
+  counter-reset: step-counter 17;
+}
+aside[aria-label="How does this work?"] ol.counterStart19 {
+  counter-reset: step-counter 18;
+}
+aside[aria-label="How does this work?"] ol.counterStart20 {
+  counter-reset: step-counter 19;
+}
+aside[aria-label="How does this work?"] ol.counterStart21 {
+  counter-reset: step-counter 20;
+}
+aside[aria-label="How does this work?"] ol.counterStart22 {
+  counter-reset: step-counter 21;
+}
+aside[aria-label="How does this work?"] ol.counterStart23 {
+  counter-reset: step-counter 22;
+}
+aside[aria-label="How does this work?"] ol.counterStart24 {
+  counter-reset: step-counter 23;
+}
+aside[aria-label="How does this work?"] ol.counterStart25 {
+  counter-reset: step-counter 24;
+}
+aside[aria-label="How does this work?"] ol.counterStart26 {
+  counter-reset: step-counter 25;
+}
+aside[aria-label="How does this work?"] ol.counterStart27 {
+  counter-reset: step-counter 26;
+}
+aside[aria-label="How does this work?"] ol.counterStart28 {
+  counter-reset: step-counter 27;
+}
+aside[aria-label="How does this work?"] ol.counterStart29 {
+  counter-reset: step-counter 28;
+}
+aside[aria-label="How does this work?"] ol.counterStart30 {
+  counter-reset: step-counter 29;
+}
+aside[aria-label="How does this work?"] ol.counterStart31 {
+  counter-reset: step-counter 30;
+}
+aside[aria-label="How does this work?"] ol.counterStart32 {
+  counter-reset: step-counter 31;
+}
+aside[aria-label="How does this work?"] ol.counterStart33 {
+  counter-reset: step-counter 32;
+}
+aside[aria-label="How does this work?"] ol.counterStart34 {
+  counter-reset: step-counter 33;
+}
+aside[aria-label="How does this work?"] ol.counterStart35 {
+  counter-reset: step-counter 34;
+}
+aside[aria-label="How does this work?"] ol.counterStart36 {
+  counter-reset: step-counter 35;
+}
+aside[aria-label="How does this work?"] ol.counterStart37 {
+  counter-reset: step-counter 36;
+}
+aside[aria-label="How does this work?"] ol.counterStart38 {
+  counter-reset: step-counter 37;
+}
+aside[aria-label="How does this work?"] ol.counterStart39 {
+  counter-reset: step-counter 38;
+}
+aside[aria-label="How does this work?"] ol.counterStart40 {
+  counter-reset: step-counter 39;
+}
+aside[aria-label="How does this work?"] ol.counterStart41 {
+  counter-reset: step-counter 40;
+}
+aside[aria-label="How does this work?"] ol.counterStart42 {
+  counter-reset: step-counter 41;
+}
+aside[aria-label="How does this work?"] ol.counterStart43 {
+  counter-reset: step-counter 42;
+}
+aside[aria-label="How does this work?"] ol.counterStart44 {
+  counter-reset: step-counter 43;
+}
+aside[aria-label="How does this work?"] ol.counterStart45 {
+  counter-reset: step-counter 44;
+}
+aside[aria-label="How does this work?"] ol.counterStart46 {
+  counter-reset: step-counter 45;
+}
+aside[aria-label="How does this work?"] ol.counterStart47 {
+  counter-reset: step-counter 46;
+}
+aside[aria-label="How does this work?"] ol.counterStart48 {
+  counter-reset: step-counter 47;
+}
+aside[aria-label="How does this work?"] ol.counterStart49 {
+  counter-reset: step-counter 48;
+}
+aside[aria-label="How does this work?"] ol.counterStart50 {
+  counter-reset: step-counter 49;
+}
 
 aside[aria-label="How does this work?"] ol > li {
   counter-increment: step-counter;
@@ -359,14 +362,13 @@ aside[aria-label="How does this work?"] ol > li {
   padding: 0;
   list-style-type: none;
 
-  font-size:1.3rem;
+  font-size: 1.3rem;
   font-family: "Gaegu";
   line-height: 1.3rem;
 
   margin-right: 10px;
-
 }
- 
+
 aside[aria-label="How does this work?"] ol > li::before {
   content: counter(step-counter);
   /* Negative left margin makes the number appear outside of the list.
@@ -378,39 +380,36 @@ aside[aria-label="How does this work?"] ol > li::before {
   border-radius: 3px;
   line-height: 1.7em;
   background-color: #ffd966;
-  padding-left:0.5rem;
-  padding-right:0.5rem;
-  padding-top:0.1rem;
-  padding-bottom:0.1rem;
-  font-size:1.3rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  font-size: 1.3rem;
   font-family: "Gaegu";
 
   border-top-left-radius: 255px 15px;
   border-top-right-radius: 15px 225px;
   border-bottom-right-radius: 225px 15px;
-  border-bottom-left-radius:15px 255px;
-
+  border-bottom-left-radius: 15px 255px;
 }
 html[data-theme="dark"] aside[aria-label="How does this work?"] {
-
 }
-
 
 aside[aria-label="How does this work?"] {
   border-inline-start: inherit;
   border-radius: 8px;
   border: 2px solid black;
-  
+
   /* Hand drawn border box, from: https://stackoverflow.com/questions/43694588/can-i-use-css-to-distort-borders-so-they-look-like-sketched */
-  background:transparent;
-  padding:0.5rem 0.5rem;
-  margin:0 0.5rem;
-  font-size:1rem;
+  background: transparent;
+  padding: 0.5rem 0.5rem;
+  margin: 0 0.5rem;
+  font-size: 1rem;
 
   border-top-left-radius: 7px 45px;
   border-top-right-radius: 15px 225px;
   border-bottom-right-radius: 225px 15px;
-  border-bottom-left-radius:7px 255px;
+  border-bottom-left-radius: 7px 255px;
 }
 
 html[data-theme="light"] aside[aria-label="How does this work?"] {
@@ -427,28 +426,23 @@ aside[aria-label="How does this work?"] img {
   border-radius: 8px;
 }
 
-
-
-
-
-
 aside[aria-label="How does this work?"] ul {
   list-style-type: none;
   padding-left: 10px;
-  padding-right: 5px; 
-  font-size:1.3rem;
+  padding-right: 5px;
+  font-size: 1.3rem;
   font-family: "Gaegu";
   line-height: 1.3rem;
 }
 
-aside[aria-label="How does this work?"] ul > li::before {   
-  content: '';   
-  display: inline-block;   
-  height: 14px;   
-  width: 14px;    
-  background-size: 14px;   
-  background-image: url('/src/content/docs/book/images-common/ol-bullet-2-open-yellow-light.png');   
-  background-repeat: no-repeat;   
+aside[aria-label="How does this work?"] ul > li::before {
+  content: "";
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+  background-size: 14px;
+  background-image: url("/src/content/docs/book/images-common/ol-bullet-2-open-yellow-light.png");
+  background-repeat: no-repeat;
   margin-right: 6px;
   background-position: center center;
   vertical-align: middle;
@@ -458,14 +452,14 @@ aside[aria-label="How does this work?"] ul > li ul {
   list-style-type: none;
 }
 
-aside[aria-label="How does this work?"] ul > li ul li::before {   
-  content: '';   
-  display: inline-block;   
-  height: 12px;   
-  width: 12px;    
-  background-size: 12px;   
-  background-image: url('/src/content/docs/book/images-common/ol-bullet-2-open-yellow-light-2.png');   
-  background-repeat: no-repeat;   
+aside[aria-label="How does this work?"] ul > li ul li::before {
+  content: "";
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  background-size: 12px;
+  background-image: url("/src/content/docs/book/images-common/ol-bullet-2-open-yellow-light-2.png");
+  background-repeat: no-repeat;
   margin-right: 6px;
   background-position: center center;
   vertical-align: middle;
@@ -475,22 +469,20 @@ aside[aria-label="How does this work?"] ul > li ul li ul {
   list-style-type: none;
 }
 
-aside[aria-label="How does this work?"] ul > li ul li ul li::before {   
-  content: '';   
-  display: inline-block;   
-  height: 10px;   
-  width: 10px;    
-  background-size: 10px;   
-  background-image: url('/src/content/docs/book/images-common/ol-bullet-2-open-yellow-light-2.png');   
-  background-repeat: no-repeat;   
+aside[aria-label="How does this work?"] ul > li ul li ul li::before {
+  content: "";
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  background-size: 10px;
+  background-image: url("/src/content/docs/book/images-common/ol-bullet-2-open-yellow-light-2.png");
+  background-repeat: no-repeat;
   margin-right: 6px;
   background-position: center center;
   vertical-align: middle;
 }
 
-
 /* --- END:   How does this work? Box ------*/
-
 
 .linkPoint {
   display: block;
