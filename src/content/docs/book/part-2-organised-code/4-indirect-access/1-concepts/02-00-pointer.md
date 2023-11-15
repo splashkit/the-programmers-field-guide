@@ -31,7 +31,15 @@ If you think about this, notice that each pointer has two values: the pointer's 
 
 :::
 
-## What can a pointer point to?
+## Pointers - Why, When, and How
+
+In C, you do not have references, so you have to use pointers to achieve similar effects. Similarly, in C++ there are limits to working with references, so you need to use a mixture of pointers and references to achieve your goals. Generally we try to avoid having to use pointers, as this will require you to have clear ways of working with memory to make sure that things don't break. Other languages have focused more on the use of references, with different ways of helping make these more generally useful. Learning to work with pointers will help you see how references work, and help you to be aware of some of the issues that can occur when you work with references and pointers.
+
+Pointers can be used to achieve the same mechanics as pass by reference, but would only be used for this when the language does not support pass-by-reference. In these cases you need to use a pointer to accept the address of the value you are to update, in the function or procedure you can then dereference the pointer and manipulate the value at the indicated address.
+
+The other use for pointers is to create relationships between elements in your code. This allows you to say "I am related to that thing over there" by nesting a pointer within a struct. For example, social media platforms would set up relationships between users. Each user would be able to refer to the other users they are connected to. Here you do not want a copy of the related user, so a pointer or similar reference can establish this relationship.
+
+### What can a pointer point to?
 
 Pointers store a value that is an address of the value that it points to. This means that you can point to any value in memory, regardless of where it is. You can have pointer values that point to [local variables](../../../2-organising-code/1-concepts/03-local-variable), [global variables](../../../2-organising-code/1-concepts/06-global-variables), [parameters](../../../2-organising-code/1-concepts/04-parameter), fields of [structs](../../../3-structuring-data/1-concepts/03-01-struct) or [unions](../../../3-structuring-data/1-concepts/03-05-union).
 
@@ -46,7 +54,7 @@ Languages usually require you to declare the kind of data that a pointer value w
 
 :::
 
-## Where can pointer values be stored?
+### Where can pointer values be stored?
 
 A pointer value is the same as any other value. It can be stored in [local variables](../../../2-organising-code/1-concepts/03-local-variable), [global variables](../../../2-organising-code/1-concepts/06-global-variables), it can be passed to a function in a [parameter](../../../2-organising-code/1-concepts/04-parameter), and it can be returned from a [function](../../../2-organising-code/1-concepts/04-function-decl).
 

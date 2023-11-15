@@ -2,9 +2,7 @@
 title: Array
 ---
 
-## Concept
-
-An array is a special kind of **Variable**, one that stores multiple values instead of a single value. The values within an array, called elements, are all of the same **Type**.
+An array is a special kind of **variable**, one that stores multiple values instead of a single value. The values within an array, called elements, all have the same [type](../../../../part-1-instructions/1-sequence-and-data/1-concepts/06-type).
 
 <br/>
 import imgArray from './images/mmv-array.png';
@@ -15,17 +13,24 @@ import imgArray from './images/mmv-array.png';
 
 :::note
 
-- An array is an **artefact**, a kind of variable that you can create in your code.
+- An array is a kind of variable that you can create in your code.
 - Each array has a number of elements.
-- The elements of an array are accessed via an index. The first element has the index **0**, the second has the index **1**, etc. See **Arrays in Memory**.
+- Each element stores a value of the same type as other elements in the array.
+- The elements of an array are accessed via an index. The first element has the index **0**, the second has the index **1**, etc.
 - Individual elements of an array are much like a standard variable.
-- You can store a value in an element of an array using an **Assignment Statement (with Arrays)**.
-- You can use a the value from an element of an array using **Expressions (with Arrays)**.
-- The **For Loop** can be used to perform an action *for each element of an array*.
-
+- You can store a value in an element of an array using an [assignment statement](../03-assignment-statement-with-array).
+- You can use the value from an element of an array in an [expression](../04-expressions-with-arrays).
+- The [for loop](../06-for-loop) works perfectly with an array, you can repeat an action *for each element of an array*.
 
 :::
 
+## Arrays - Why, When, and How
+
+Arrays are another tool that will greatly help you build bigger and more interesting programs. Once you get your head around how they work, you will be able to easily add arrays to your programs to make it easy to add lists of values wherever you need them. You can add arrays to fields of a struct, so you can have multiple values within that entity in your code. You can use arrays of structs to have lists of your entities. They can be local variables and passed as parameters. Anywhere you had data before, you can now start to use arrays.
+
+You need to pair arrays with a loop to repeat actions you want performed to each element of the array. You can then have any number of elements in the array, and a simple loop repeats your instructions for all elements. It is a really simple and effective way to start to grow out what you can do.
+
+One challenge we currently have is that our arrays will have a **fixed size**. We can work around this by having a maximum number of values that we want to allow within the array, and then have a *current number* of elements that we increase and decrease as we add or remove elements.
 
 ## Arrays in Memory
 
