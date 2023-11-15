@@ -10,11 +10,15 @@
 }
 
 @font-face {
-  font-family: 'FontAwesomeBrands';
-  src: url('/src/fonts/fa-brands-400.woff2') format('woff2');
+  font-family: "FontAwesomeBrands";
+  src: url("/src/fonts/fa-brands-400.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+
+html[data-theme="dark"] a.multitool:after {
+  border: 1px solid black;
 }
 
 a.multitool:after {
