@@ -1,0 +1,106 @@
+---
+title: Collection Classes
+---
+
+Why do things yourself, when there is a class that already knows and can do these things for you? See how to use collection classes to manage working with multiple values for you.
+
+C#, as with other object oriented languages, provides an extensive library of classes which encode many commonly required components. This includes collection classes designed specifically for the purpose of managing multiple values for us.
+
+While you can use an array, and sometimes this is appropriate, most of the time you will be working with these collection classes.
+
+There are different kinds of collections, each with a different way of managing the values that they store. We will look at two of these **lists** and **dictionaries**.
+
+## Lists
+
+A [List](https://msdn.microsoft.com/en-us/library/6sh2ey19(v=vs.110).aspx) object works much like an array (which is how it will store data internally). You can access elements by index, just like arrays, but you can also perform operations like adding new elements to the list, inserting elements, deleting elements, sorting, and so on.
+
+To work with the List you need to use the `System.Collections.Generic;` namespace. The following code illustrates the use of the List.
+
+```cs
+using System.Collections.Generic;
+
+// Declare a list of double values
+List<double> numbers;
+
+// Make a new list
+numbers = new List<double>();
+
+// Add some values...
+numbers.Add(10.6);
+numbers.Add(-92.312);
+numbers.Add(5);
+
+// Remove a values
+numbers.Remove(10.6);
+// Remove by index
+numbers.RemoveAt(1);
+
+// Insert a value
+numbers.Insert(0, 1.1);
+
+// Read a value
+Console.WriteLine( numbers[0] ); // prints 1.1
+Console.WriteLine( numbers[1] ); // prints 10.6
+
+// Print all values
+for(int i = 0; i < numbers.Count; i++)
+{
+    Console.WriteLine( numbers[i] );
+}
+
+// or using for each
+foreach(double d in numbers)
+{
+    Console.WriteLine( d );
+}
+```
+
+## Generics
+Notice that the `List` class is followed by a type in angle brackets (`< here >`). This syntax is known as **Generics**, and allows you to provide the type details for what will be stored in the list.
+
+The code above is a list of double values, you could use `List<int>` for a list of integer values, or `List<Account>` for a list of references to Account objects.
+
+## Dictionaries
+
+Lists are the most commonly used collection type. However, there are other classes that can be useful in different circumstances.
+
+Dictionaries are the next most commonly used collection type. These represent collections where you use a _key_ to access a _value_ (rather than doing it by index). You use a [Dictionary](https://msdn.microsoft.com/en-us/library/xfhwa508(v=vs.110).aspx) when you have something you want to lookup using a key.
+
+For example, you could have a Dictionary of Student objects that are accessed by their student ids, a Dictionary of Command objects accessed by their keywords, or a Dictionary of Colors accessed by a StatusKind.
+
+Here is some example code of Dictionary use.
+
+```cs
+using System.Collections.Generic;
+
+// Declare the variable to refer to the object
+Dictionary <string, Student> students;
+
+// Create the Dictionary that uses a string key to access a Student
+students = new Dictionary <string, Student>();
+
+// Add a student to the Dictionary -- with the key "123X".
+students.Add("123X", new Student(...));
+
+// and add another with key "abc"
+students["abc"] = new Student(...);
+
+// Fetch the student with id "123X"
+Student s = students["123X"];
+
+```
+
+Generally Dictionaries are not used if you want to loop through the elements, they are used to give you fast access to an element when you know its key.
+
+## Further reading
+
+- [Generics](https://en.wikibooks.org/wiki/C_Sharp_Programming/Generics) in the online C# text.
+- [Collections](https://en.wikibooks.org/wiki/C_Sharp_Programming/The_.NET_Framework/Collections) in the online C# text.
+
+For help with syntax details, see this week's [syntax guide](../25-syntax-guide).
+
+## Your Task
+
+Recall that object variables are not the object, but a references to it. Consider how this could be used to have the same object in a List and in a Dictionary. What advantages may this have?
+
+Let is know in the comments.

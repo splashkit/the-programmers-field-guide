@@ -1,0 +1,158 @@
+---
+title: Multiple User Chat
+---
+
+See how the Dictionary can extend the chat program to allow targeted messages to users
+
+The Chat program we worked on previously allowed us to broadcast messages to all connected users. The problem was that there was no means of sending a message to a single user, and without Lists or Dictionaries we did not have the tools necessary to achieve this.
+
+The following UML Class Diagram shows the new structure for the Chat program. A `Dictionary<string, Connection>` has been added to allow the `ChatPeer` to keep track of who is connected. We are using a Dictionary so that we can quickly find a connection for a matching username.
+
+![UML Class Diagram showing the ChatPeer with a Dictionary \<string, Connection\>.](./images/multi-user-chat.png)
+
+
+
+To implement this we add a field for the `_peers` and an auto-property for the `Name` of the `ChatPeer`. With the Dictionary the two types indicate the type of the key and the type of the value.
+
+```cs
+public class ChatPeer
+{
+    public string Name { get; set; }
+
+    private Dictionary<string, Connection> _peers = new Dictionary<string, Connection>();
+
+    //...
+}
+```
+
+## Establishing a Connection
+
+We can then make use of the Dictionary in the code when we establish a connection, as shown in the following code. This performs a simple handshake, where we send our name across the network and then read the name of the other party. As we don't know if they will respond, we check for 2 seconds and then timeout if we haven't received a message from them with their name.
+
+```cs
+private void EstablishConnection(Connection con)
+{
+    // Send my name...
+    con.SendMessage(Name);
+
+    // Wait for a message...
+    SplashKit.CheckNetworkActivity();
+    for(int i = 0; i < 10 && ! con.HasMessages; i++)
+    {
+        SplashKit.Delay(200);
+        SplashKit.CheckNetworkActivity();
+    }
+
+    if ( ! con.HasMessages )
+    {
+        con.Close();
+        throw new Exception("Timeout waiting for name of peer");
+    }
+
+    // Read the name
+    string name = con.ReadMessageData();
+
+    // See if we can register this...
+    if ( _peers.ContainsKey(name) )
+    {
+        con.Close();
+        throw new Exception("Unable to connect to multiple peers with the same name");
+    }
+
+    // Register
+    _peers[name] = con;
+    Console.WriteLine($"Connected to {name} at { SplashKit.Ipv4ToStr(con.IP) }:{con.Port}");
+}
+```
+
+Notice how we use the `name` as the key in Dictionary to store the connection. The syntax is the same as working with integer indexes in arrays, but here we are passing in the key and asking for the matching value. The Dictionary then efficiently fetches the value for us. So in this case it stores the connection so that we can access it from the name.
+
+We can now use this `EstablishConnection` method in two places. One where we connect to a remote peer, and another where we are accepting new connections. The following code shows how we accept new connections in the new `CheckNewConnections` method. This method is responsible for getting and establishing new connections. In this way the `ChatPeer` sends its name to anyone who connects to it.
+
+```cs
+public void CheckNewConnections()
+{
+    while ( _server.HasNewConnections )
+    {
+        Connection newConnection = _server.FetchNewConnection();
+
+        try
+        {
+            EstablishConnection(newConnection);
+        }
+        catch
+        {
+            // ignore errors
+        }
+    }
+}
+```
+
+The `catch` block in the above code ensures that we do not crash if a connection times out or we already have a connection to that user. In these cases there is nothing special to do in order to handle this, so we just ignore the errors. The comment is there to remind us later that this was the intended behaviour.
+
+## Sending a Targeted Messages
+
+With the Dictionary in place we can now use it to send targeted messages to individual users. With the Dictionary, accessing a user's connection by name is really easy as we can see in the following code.
+
+```cs
+public void SendMessageTo(string name, string message)
+{
+    if ( _peers.ContainsKey(name) )
+    {
+        _peers[name].SendMessage(message);
+    }
+}
+```
+
+We check that the dictionary has the necessary key registered, and then we can use that key to directly access the `Connection` object. Once we have the connection, we can tell it to `SendMessage` with our text.
+
+## Changing the Program
+
+In order to use this we then need to make some simple changes to the `Program`. We can add a method to get the peer to wait for a new connection, as well as adding an option to send a targeted message.
+
+Waiting for a connection can use a while loop, looping until a new connection is received. Once there is a new connection, we then ask the peer to check the new connection which will do the work needed to establish this link.
+
+```cs
+private static void WaitForConnection(ChatPeer peer)
+{
+    Console.WriteLine("Waiting for a connection...");
+
+    while ( ! SplashKit.HasNewConnections()  )
+    {
+        SplashKit.AcceptAllNewConnections();
+        SplashKit.Delay(200);
+    }
+
+    peer.CheckNewConnections();
+
+    Console.WriteLine("Got one...");
+}
+```
+
+Sending a targeted message is not much more work than broadcasting a message. We just need to ask the user who they want to send it to, and what they want to send. We can then ask the peer to do the sending.
+
+```cs
+private static void SendTargetMessage(ChatPeer peer)
+{
+    Console.Write("Who to: ");
+    string name = Console.ReadLine();
+
+    Console.Write("What message do you want to send: ");
+    string message = Console.ReadLine();
+    peer.SendMessageTo(name, message);
+}
+```
+
+## Running
+
+The following screenshot shows the program being run 3 times. Andrew is running the program in the left, Wilma on the top right, and Jake bottom right. Andrew has connected to both Jake and Wilma, and can then send each of them a targeted message. Notice how the message only appears in their respective programs when they check for messages.
+
+![UML Class Diagram showing the ChatPeer runnning.](./images/multi-user-chat-run.png)
+
+## Your Task
+
+[Download the Code](/resources/code-examples/part-2/5-working-with-multiples/multi-user-chat/MultiChatProgram.zip) and check this program out yourself!
+
+Read over the code and think about other kinds of scenarios for a Dictionary.
+
+Let us know what you think in the comments.

@@ -1,0 +1,131 @@
+---
+title: Arrays
+---
+
+Explore the arrays, and how they can be used to store many values in a single variable.
+
+An [array](https://en.wikibooks.org/wiki/C_Sharp_Programming/Data_structures#Arrays) is a special kind of **variable**, one that stores multiple values instead of a single value. The values within an array, called elements, are all of the same **type**.
+
+- An array is an **artefact**, a kind of variable that you can create in your code.
+- Each array has a number of elements.
+- The elements of an array are accessed via an index. The first element has the index **0**, the second has the index **1**, etc.
+- Individual elements of an array are much like a standard variable.
+- You can store a value in an element of an array using an assignment statement.
+- You can use a the value from an element of an array within an expression.
+- The **for loop** can be used to perform an action _for each element of an array_.
+
+## Arrays in Memory
+
+Arrays store multiple values, with an index that provides access to the individual elements within the array. Conceptually this can be viewed as a **variable** that contains multiple slots (the elements) into which the values are stored. 
+
+Many languages have **0** as the index of the first element. This reflects how the values are actually stored in memory. The following image shows how an array (named `arr` in this case) is stored in memory. The array is a **contiguous** area in memory, with the elements being next to each other. You can think of the array as starting at the first element, so you need to skip _0_ elements to access the first element. The second element is accessed by skipping _1_ element, so it has index _1_. The third element is accessed by skipping _2_ elements, so it has the index _2_, etc.
+
+The size of each of the elements of the array can then be used to quickly locate each element, given its index. If you have an array of _Integer_ values then these are each 32 bits (4 bytes), so the element at index 3 is `3 x 32bits` (96 bits) past the start of the array.
+
+The great thing is that you do not need to think about these details, but knowing this you should remember that the first element of an array is at index 0.
+
+![Arrays in memory](./images/arrays-data.png)
+
+*The image above is a visualisation of an array variable `data` in computer memory.*
+
+## Accessing Array Elements
+
+Arrays are declared like other variables, but with square brackets (`[]`) after the type name. This indicates that the variable will refer to an array. You then need to create the array using `new`, as with objects. Here you provide the **size** of the array within the brackets (`[]`). You can then access elements of the array using the name of the variable and the index you want to access within the brackets. The following code demonstrates the use of an array.
+
+~~~cs
+// declares a variable that can refer to an array
+int[] data;
+
+// creates a new array with 5 elements and store it in data
+data = new int[5];
+
+// assign the first element the value 42;
+data[0] = 42;
+
+// assign the last element the value 73
+data[4] = 73;
+
+// print the first and last values
+Console.WriteLine($"First: {data[0]}");
+Console.WriteLine($"Last: {data[4]}");
+~~~
+
+## Using Loops
+
+The great thing about arrays is that you can use an expression to calculate the index of the value you want to access. This allows you to easily process elements from within an array using a loop.
+
+~~~cs
+int size;
+int[] data;
+
+size = Convert.ToInt32(Console.ReadLine());
+data = new int[size];
+
+int i = 0;
+while ( i < size )
+{
+    data[i] = Convert.ToInt32(Console.ReadLine());
+    i++;
+}
+
+i = 0;
+while ( i < size )
+{
+    Console.WriteLine(data[i]);
+    i++;
+}
+~~~
+
+Notice that in the above code the variable `i` is used to access each element of the array. The first time through the loop `i` has the value 0, this is then used to access the first element of the `data` array. At the end of the loop we add one to `i` and the loop repeats, this time accessing the second element of the array. Each iteration of the loop performs actions on a single element of the array.
+
+This pattern is common, so languages offer an alternative loop designed specifically to loop a number of times with a control variable that can be used to access elements of an array. This is the `for` loop, as shown in the following code. The loop works exactly the same as the above while loop, but consolidates the initialisation of the control variable (`i`) together with the comparison, and the increment that occurs at the end of the loop.
+
+~~~cs
+int size;
+int[] data;
+
+size = Convert.ToInt32(Console.ReadLine());
+data = new int[size];
+
+for(int i = 0; i < size; i++)
+{
+    data[i] = Convert.ToInt32(Console.ReadLine());
+}
+
+for(int i = 0; i < size; i++)
+{
+    Console.WriteLine(data[i]);
+}
+~~~
+
+When coding the for loop `for(int i = 0; i < size; i++)`, you can read this in three parts. `for(int i = 0;` creates and initialises `i` before the start of the loop. While `i < size;` adds in the condition, when you type this you can think `while` as this is the condition used to control the end of the loop. At the end of each loop, `i++)`.
+
+To further assist with this, C# also offers a `foreach` loop that also gets the element out of the array for you. This is demonstrated in the following code. This cannot be used for storing the values in the array (as we need to know where to store them) but can be used for printing the values out.
+
+~~~cs
+foreach(int val in data)
+{
+    Console.WriteLine(val);
+}
+~~~
+
+Read further about this at:
+* [Looping a number of times](https://www.microsoft.com/net/tutorials/csharp/getting-started/for-loops) in Microsoft Tutorial
+* [Working with Arrays and Collections](https://www.microsoft.com/net/tutorials/csharp/getting-started/arrays-collections) from Microsoft Tutorial
+* [Looping through Members of a Collection](https://www.microsoft.com/net/tutorials/csharp/getting-started/looping-collections)
+* [For for Foreach](https://en.wikibooks.org/wiki/C_Sharp_Programming/Control#for_loop) in the online C# Programming book
+* [Arrays](https://en.wikibooks.org/wiki/C_Sharp_Programming/Data_structures#Arrays)
+
+For help with syntax details, see this week's [syntax guide](../25-syntax-guide).
+
+## Working with Arrays
+
+When you work with an array you often want to do something with all of the elements of the array. This isn't possible, so you need to rethink your actions in terms of _each_ element of the array. So in the above examples we want to read in all of the values... but this must be coded as reading in _each_ value. Similarly, printing out _all_ of the values is not possible, but we can provide the instructions to print out _each_ of the values.
+
+By thinking about these actions in terms of what needs to be done _for each_ element, you can now easily code this in a `for` for `foreach` loop. Look back over the above code and see how the instructions within each of the for loop bodies provides the actions that are performed _for each_ element of the array. When you can work out what you need done with _one_ element, you can easily loop this and have the effect of performing it on all elements of the array (one at a time).
+
+## Your Task
+
+Arrays seem like a lot of work, what object oriented concepts could help us work with arrays more easily?
+
+Let us know your ideas in the comments.
