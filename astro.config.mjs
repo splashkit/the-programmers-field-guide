@@ -847,7 +847,12 @@ export default defineConfig({
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-3-programs-as-concepts/9-design-principles-patterns/2-put-together",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/9-design-principles-patterns/2-put-together",
+                    collapsed: true,
+                  },
                 },
                 {
                   label: "Other Languages",

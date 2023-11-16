@@ -1,0 +1,19 @@
+---
+title: Using Scenarios to Identify Responsibilities
+---
+
+Explore the use of role plays as a means of testing your object oriented designs.
+
+Once you have come up with a plan for an object oriented design, you need to test your thinking to make sure things are going to work when you implement this. One strategy is to use role plays to walk through the interactions you have planned for your solution. A role play is best done in a group, but you can perform it on your own by switching between the roles of multiple objects.
+
+In a role play, people take on the roles of objects and play out an interaction to see if they are able to achieve the required functionality with the given design. You start a role play by imagining the objects currently within the system, and assigning people to play these objects if they are expected to be involved. You then pick an interesting scenario and start the interactions with the initial request to one of the objects.
+
+When activated, each object (person) is asked to perform one of its responsibilities. At this stage, the person can think through the **sequence** of steps that the object will perform in order to fulfill this responsibility. In doing this you are designing the **control flow** for the steps within a method. The person is also able to check that the object has sufficient knowledge, and collaborators, in order to fulfill its responsibilities.
+
+As you step through the actions the object needs to perform, it can use objects it knows to help it achieve its goal. When another object is needed to perform a task, the person playing that object can be asked to fulfill their responsibilities by sending them a message. For example, using the maze game example from the previous step a `Player` may ask its room object to perform one of its responsibilities: "I need to move, so I will ask my Room object to move me 'north'". At this point, the control of the role play would move to the person playing that `Room` object.
+
+## Your Task
+
+Consider the process of responsibility driven design, what things do you think you are likely to uncover using a role play?
+
+Let us know in the comments.

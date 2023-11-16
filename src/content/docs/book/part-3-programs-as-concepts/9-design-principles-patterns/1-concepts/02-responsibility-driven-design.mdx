@@ -1,0 +1,31 @@
+---
+title: Responsibility Driven Design
+---
+
+Explore a common approach to designing software solutions that focuses on designing communities of interacting objects.
+
+The way you approach the design of your solutions will have a significant impact on the resulting solution structure. In this unit we will be focusing on a responsibility driven approach to software design. This approach aims to focus on the things that objects are responsible for, rather than taking a more details or data driven approach.
+
+When designing with this approach you aim to identify **roles** for your objects to play. Each of these roles then has a number of associated **responsibilities**, which define the things that objects playing this role will _know_ and be able to _do_. When implemented, the roles will become classes within your solution, and the responsibilities will become fields and methods.
+
+The program design can be thought of as a community of objects, where each object knows and can do things. So in addition to allocating responsibilities to roles you also look for **collaborations**. These are the other roles that the objects will need to collaborate with in order to perform the role. 
+
+The key principles of responsibility driven design are to:
+- **Maximise Abstraction**: Keep the focus on objects that know and can do things.
+- **Distribute Behaviour**: Ensure each object is "smart", has the data it needs and can perform associated tasks. 
+- **Preserve Flexibility**: Make it easy to chance the internal, implementation, details.
+
+Further information can be found with the following resources:
+
+- Read the original paper on [Object-Oriented Design: A Responsibility-Driven Approach](http://dl.acm.org/citation.cfm?doid=74878.74885)
+- If you are interested, watch Rebecca Wirfs-Brock's keynote on [What Drives Design?](https://www.infoq.com/presentations/What-Drives-Design-Rebecca-Wirfs-Brock), there is a good analogy at around 17 minutes.
+
+## Your task
+
+Think about a program you want to design. What roles do you think you would need to implement this? 
+
+Let us know in the comments.
+
+Further reading:
+
+- [Common Patterns and Antipatterns](https://www.microsoft.com/net/tutorials/csharp/getting-started/patterns-antipatterns)

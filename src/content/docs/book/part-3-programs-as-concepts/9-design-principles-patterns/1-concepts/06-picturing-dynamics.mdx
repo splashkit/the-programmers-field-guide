@@ -1,0 +1,24 @@
+---
+title: Picturing Dynamics in UML Sequence Diagrams
+---
+
+See how sequence diagrams can be used to model dynamic behaviour.
+
+Class diagrams are able to show the static structure within a program, showing the fields, methods, and properties of the classes and how the objects are connected together. What it does not show is how this structure is used to achieve any tasks.
+
+When you want to explore object interactions you need to use diagrams that focus on objects. One such diagram is the UML Sequence Diagram. This diagram shows the **sequence** of method calls that flow between objects involved in a particular interaction.
+
+![UML Sequence Diagram showing how a drawing could draw itself to the screen.](./images/DrawingSequence.png)
+
+The above sequence diagram shows how objects in a drawing program could collaborate to have the drawing appear on the screen. Each box at the top of the diagram represents an **object**. So this sequence involves a `Program` object, a `Drawing` object, two `Shape` objects, and a `SplashKit` object. Notice that the `Program` and `SplashKit` boxes are annotated with a `<<class>>` stereotype, by doing this we are trying to indicate that these are the class _objects_ which are executing these **static** methods. Stereotypes are ways of annotating the diagram with additional information to help the reader better understand what you are trying to communicate.
+
+Below each box is a dashed line that is known as the _life line_. This visually represents the life of this object over time, with time increasing as you travel down the page. In this case, all four objects exist for the duration of this interaction.
+
+Upon each of the lifelines it the rectangular boxes indicate periods during which the object is _active_: when it is performing one of its responsibilities. If we follow the lifeline for the `SplashKit` class you can see that it is activated at four different times. The end of the activity box indicates where the object has finished its task, and control returns to the caller. You can place dashed arrows here to indicate values that are being returned, but even without the arrow we know that control returns to the caller. So after `SplashKit` finishes clearning the screen, control will return back to the `Drawing` so it can go to its next step.
+
+In general you start reading a Sequence Diagram from the first message (another name for a method call), and follow these down the page in order to understand the interaction. In this case the first message is the `Program` asking the `Drawing` to `Draw`. This activates the `Drawing` object, and it starts its sequence within which it fulfills its responsibility to draw itself to the screen. Notice that the `Drawing` makes use of its collaborators in order for it to fulfill this responsibility. It first asks `SplashKit` to clear the screen to white, then it asks _each_ of its `Shape` objects to `Draw` themselves to the screen. They then, in turn, ask the `SplashKit` class to fill a rectangle on the screen. In this way, each object fulfills their responsibilities, and we can see how this design allows the `Drawing` to draw itself to the screen.
+
+Read about the sequence diagram at:
+
+- IBM's [UML Basics](http://www.ibm.com/developerworks/rational/library/769.html?ca=drs-) on [The Sequence Diagram](http://www.ibm.com/developerworks/rational/library/3101.html)
+- [Microsoft's sequence diagram reference](https://msdn.microsoft.com/en-us/library/dd409377.aspx)

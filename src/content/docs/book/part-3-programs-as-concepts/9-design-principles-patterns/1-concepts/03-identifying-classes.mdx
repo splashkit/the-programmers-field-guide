@@ -1,0 +1,61 @@
+---
+title: Identifying Classes
+---
+
+How do you perform the basic steps in responsibility driven design?
+
+In responsibility driven design, roles are used to describe the purpose objects given objects have in the solution, the responsibilities of these objects, and the other roles that the objects will need to collaborate with in order to achieve their goals. The design process involves the following steps:
+
+- Finding Objects and defining Roles
+- Identifying Responsibilities and allocating them to Roles
+- Planning Collaborations
+
+## Finding Objects
+
+The first step of the design process is to start identifying objects that will be useful in your solution. Initially these should be things that can be identified from the domain of your program. There are many techniques for identifying these objects, but if you are familiar with the domain you should be able to easily come up with some initial candidates. Start by thinking about the _things_ that are associated with the program's domain. When you think about the program, what entities are you thinking about? 
+
+When you have identified an object you think may be useful in the solution, you need to think abstractly about it and determine a role for the object, this is the process of classification. The idea here is to classify the roles that each of your identified objects plays in the solution.
+
+## Identifying Responsibilities
+
+There are many different techniques for finding responsibilities for the roles in your design. The basic idea is to divide the programs functionality across the roles identified. There are two extremes related to the distribution of responsibilities across your roles:
+
+- **Centralised**: this control style means that few classes contain all of the functionality for your program with other roles providing information but little functionality.
+- **Distributed**: this is the opposite end of the spectrum from centralised. In this control style the responsibilities are evenly distributed across all objects in your design. Each object contributes something to the design.
+
+Generally designs tend toward the centralised end of this spectrum. Functionality is generally unevenly distributed between the roles you define, with some roles having many responsibilities and other having few. The most important thing is to distribute your functionality in such a way that each class _makes sense_. In many cases distributing your functionality will mean that you can achieve greater flexibility.
+
+One good rule of thumb is to watch for roles where they need to make decisions for objects of other roles. It may be better to assign new responsibilities to the other role, and have this role request the action rather than perform the action for them. For example, in a Maze game you could have `Room`, Exit, and `Player` objects. A `Room` has a number of Exits, and the `Player` is in a `Room`. If you want the `Player` to be able to leave their current `Room` where does this responsibility belong? Here is a suggestion:
+
+- The `Player` has a responsibility to be able to:
+    - Leave the current room in a given direction - done by asking the `Room` to move the `Player`.
+- A `Room` has the responsibility to be able to:
+    - Move the player in a direction (done by asking the Exit in that direction, which is fetched using...)
+    - Get an exit in a Direction
+- An Exit has the responsibility to be able to:
+    - Move a player - tells the player its new destination
+    - Knows the direction it is heading
+    - Knows the room it goes to
+
+With the responsibilities distributed in this manner it is possible to achieve additional flexibility. You could introduce different kinds of exits, for example a `Magical Exit` could teleport `Players` to a random `room`, or `Locked Exits` could require the `player` to be holding a certain item. All of this is possible as Exit participates in this interaction. Had this functionality all been in `Player` or `Room` this flexibility would be harder to achieve.
+
+## Planning Collaborations
+
+As you discover roles and responsibilities for your program you will also need to plan how your objects will collaborate. Planning these interaction collaborations will help you discover additional roles and responsibilities you may not have previously thought of.
+
+When planning collaboration you need to think about the objects your program has access to and the objects or information that needs to be used or altered. To achieve this new functionality you need to map a path from the objects you have to the objects you want to interact with, introducing responsibilities to allow these objects to pass on the messages that you need to be performed. For Example, in a maze game you may want a `Player` to leave their current location heading in a given direction. This may be implemented with the following interactions:
+
+- The `Program` tells the `GameController` to run the command `"Move North"`
+- The `GameController` tells the `Player` to "leave heading north"
+- The Player tells its current location to "move me north"
+- The Room asks each of its exits "do you head north?". If the exit responds "Yes"...
+    - Tell that Exit "Move this player"
+    - The Exit tells the Player "You are now in this room" using its destination Room
+
+This sequence of interactions starts with the program knowing only about the GameController. The GameController knows about the Player, but not the Room the player is in, so it can ask the Player to leave heading in a given direction, etc. This makes it possible for each object just to know about objects that are relevant to them, and complex results can be achieved by objects communicating with each other.
+
+## Your Task
+
+Reflect on these processes, and think about how you can apply them to a program you want to create.
+
+Let us know your thoughts in the comments.
