@@ -2,9 +2,9 @@
 title: For Loop
 ---
 
-As has been shown in previous chapters, Computers can only perform simple actions. They cannot perform an action on all of the elements in our arrays. For example, a computer cannot sum **all** of the values in an array. What you need to do is think of these tasks so that they can be performed **for *each*** value in the array. So the sum would become, for each of the numbers in the array, add the number to a running total. When this has been performed for each element in the array you have the sum of all of the elements.
+As has been shown in previous chapters, computers only perform simple actions. They cannot perform an action on *all* the elements in our arrays. For example, a computer cannot sum *all* the values in an array in a single instruction. What you need to do is think of these tasks so that they can be performed **for *each*** value in the array. We can rethink out sum code, so that we think in terms of each number one at a time. With each value, we can add the number to a running total. When this has been performed *for each* element in the array, you have the sum of all elements in the array.
 
-The for loop is a **Pre-Test** Loop that repeats a block of code a number of times. You can think of it like a counting loop, with it counting from a start value to an end value. The for loop has a **control variable** that has the number of the current loop as its value.
+When you code this, the [for loop](../../../../part-1-instructions/3-control-flow/1-concepts/04-3-for-loop) is the perfect choice. The for loop repeats a block of code a number of times. You can think of it like a counting loop, with it counting from a first index value (0) to the last index value (size - 1). Within the body of the for loop, you can use its **control variable** to access the current index value. In this way the for loop steps through each of the elements in your array one at a time.
 
 <br/>
 import imgArrayForLoop from './images/mmv-array-for-loop.png';
@@ -14,9 +14,86 @@ import imgArrayForLoop from './images/mmv-array-for-loop.png';
 <div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>The for loop can be used to loop through the elements of an array</div><br/>
 
 :::note
-- A for loop is an **action**, a kind of statement you can use to command the computer to perform an action.
+
+- A for loop is an **instruction**, a kind of statement you can use to command the computer to perform an action.
 - The key is to think about processing **each** element in an array, rather than thinking about *all* elements of an array.
 - The for loop can then provide the infrastructure to repeat this code *for each* element in the array.
-- The for loop is designed to work well with the array. The values in the *control variable* can be used to access the individual elements of the array.
-- When processing the elements of an array you have it loop from the lowest index value (0) to the highest index value (n - 1).
+- The for loop is designed to work well with arrays. The values in the *control variable* can be used to access the individual elements of the array.
+- When processing the elements of an array you get it to loop from the lowest index value (0) to the highest index value (n - 1).
+
 :::
+
+## Example
+
+The following code illustrates using for loops to populate and print values from arrays.
+
+```cpp
+#include <stdio.h>
+
+const int MAX_NUMBER_DATA_VALUES = 100;
+
+typedef struct
+{
+  double value[MAX_NUMBER_DATA_VALUES];
+  int num_values;
+} number_data;
+
+
+void populate(double data[], int size)
+{
+  printf("Enter %d values (enter between each)\n", size);
+
+  for(int i = 0; i < size; i++)
+  {
+    scanf("%lf", data[i]);
+  }
+}
+
+void print(const double data[], int size)
+{
+  for (int i = 0; i < size; i++ )
+  {
+    printf("%lf\n", data[i]);
+  }
+}
+
+number_data get_numbers(int count)
+{
+  number_data result;
+  if (count > MAX_NUMBER_DATA_VALUES)
+  {
+    count = MAX_NUMBER_DATA_VALUES;
+  }
+  
+  result.num_values = count;
+  populate(result.value, count);
+  
+  return result;
+}
+
+void print(const number_data &data)
+{
+  for (int i = 0; i < data.num_values; i++ )
+  {
+    printf("%lf\n", data[i]);
+  }
+}
+
+int main()
+{
+  const int VALUE_SIZE = 3;
+  double values[VALUE_SIZE];
+
+  populate(values, VALUE_SIZE);
+  print(values, VALUE_SIZE);
+
+  number_data db;
+  db = get_numbers(10);
+
+  // Print the values we have initialised
+  print(db);
+
+  // Print all values we have space for
+  print(db.value, MAX_NUMBER_DATA_VALUES);
+}
+```
