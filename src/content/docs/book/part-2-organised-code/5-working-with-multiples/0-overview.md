@@ -17,9 +17,9 @@ The chapter introduces the following building blocks:
 
 We will revise the following instructions to see how they work with arrays:
 
-- **For Loop**: A **Pre-Test Loop** that can be used to easily repeat a block of code for each element of an array.
-- **Expressions**: Expressions can read the value from the element of an array.
-- **Assignment Statement**: The assignment statement can be used to assign a value to an element in an array.
+- [For Loop](../1-concepts/06-for-loop): A loop that can be used to easily repeat a block of code for each element of an array.
+- [Expressions](../1-concepts/04-expressions-with-arrays): Expressions can read the value from the element of an array.
+- [Assignment Statement](../1-concepts/03-assignment-statement-with-array): The assignment statement can be used to assign a value to an element in an array.
 
 You may need to revise the following building blocks:
 

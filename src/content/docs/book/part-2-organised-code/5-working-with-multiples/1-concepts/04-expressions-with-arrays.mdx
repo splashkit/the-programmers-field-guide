@@ -1,5 +1,7 @@
 ---
-title: Expressions (With Arrays)
+title: Expressions with Arrays
+sidebar:
+    label: " - Reading Values"
 ---
 
 Expressions allow you to read values from the elements of an array. To get an elements value you must supply the name of the array, and the index of the element you want to read.
@@ -18,6 +20,17 @@ import imgArrayReadValueExpression from './images/mmv-array-read-value-expressio
 - Arrays are similar to variables in expressions, the expression reads the value from the element of the array.
 - The index you supply determine which value is read.
 :::
+
+## In C/C++
+
+:::tip[Syntax]
+
+The syntax for accessing an element is the same as with storing a value. You access this via a variable, and can then walk through field accesses and accessing array elements to get to the location in memory where the value should be stored.
+
+![Syntax to access a value in C/C++](./images/access-value.png)
+
+:::
+
 
 - In an array of structs, each element has the structs type. In [Figure x.y](#FigureRecordExpression) the `points` array is storing 3 `Point` values. This means the `points` is an expression to access the entire array, `points[2]` accesses the 3<sup>rd</sup> element and therefore has a `Point` type, and `points[2].x` accessed the `x` value of the 3<sup>rd</sup> element of the `points` array.
 
