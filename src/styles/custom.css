@@ -488,6 +488,24 @@ aside[aria-label="How does this work?"] ul > li ul li ul li::before {
 
 /* --- END:   How does this work? Box ------*/
 
+/* --- START: Fluid Videos ------*/
+/* From: https://css-tricks.com/fluid-width-video/ */
+.main-pane .content .videoProgrammersGuideContainer {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+
+.main-pane .content .videoProgrammersGuideContainer iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* --- END:   Fluid Videos ------*/
+
+
 .linkPoint {
   display: block;
   clear: both;
@@ -521,7 +539,6 @@ aside[aria-label="How does this work?"] ul > li ul li ul li::before {
   color: firebrick;
   font-weight: 800;
 }
-
 /* ------------------------------------------- */
 /* END:   CUSTOM STYLES                        */
 /* - Don't delete this section                 */
