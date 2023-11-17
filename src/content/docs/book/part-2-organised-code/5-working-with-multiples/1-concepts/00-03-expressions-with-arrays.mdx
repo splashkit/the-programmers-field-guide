@@ -1,0 +1,156 @@
+---
+title: Expressions with Arrays
+sidebar:
+    label: " - Reading Values"
+---
+
+Expressions allow you to read values from the elements of an array. To get an elements value you must supply the name of the array, and the index of the element you want to read.
+
+<br/>
+import imgArrayReadValueExpression from './images/mmv-array-read-value-expression.png';
+
+<a id="FigureArrayReadValueExpression"></a>
+<img src={imgArrayReadValueExpression.src} alt="Expressions for reading values from arrays" width="100%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Expressions for reading values from arrays</div><br/>
+
+:::note
+
+- Expression is the **term** given to the code that calculates values within your Statements.
+- You can read the values of elements of an array in an expression.
+- The index values used to access the individual elements of an array are expressions themselves.
+- Arrays are similar to variables in expressions, the expression reads the value from the element of the array.
+- The index you supply determine which value is read.
+
+:::
+
+## Reading Elements - Why, When, and How
+
+In most ways, accessing an array element is the same as accessing a variable. The main difference, in terms of what you can do, is that you now have the index of the element you want to read as an [expression](../../../../part-1-instructions/2-communicating-syntax/1-concepts/03-expression). This is huge! Think about it. You can now have other code that works out which element to access. This is what makes arrays awesome!
+
+Let's think about life before arrays. Say I want to read in three integer values. I can do it like this:
+
+```cpp
+#include <stdio.h>
+
+int main()
+{
+    int data_0, data_1, data_2;
+
+    printf("Enter 3 integers (enter after each)");
+    scanf("%d", &data_0);
+    scanf("%d", &data_1);
+    scanf("%d", &data_2);
+
+    printf("You entered:");
+    printf("%d\n", data_0);
+    printf("%d\n", data_1);
+    printf("%d\n", data_2);
+
+    return 0;
+}
+```
+
+Each variable has a unique name, so we have lots of duplicate the code. With arrays, we can now change this up. To start with, we could code this with hard coded values. In this case we still have duplicate code, but you should be able to see that arrays are much like a number of variables used to store the same thing.
+
+```cpp
+#include <stdio.h>
+
+int main()
+{
+    const int NUM_VALUES = 3;
+    int data[NUM_VALUES];
+
+    printf("Enter %d integers (enter after each)", NUM_VALUES);
+
+    scanf("%d", &data[0]);
+    scanf("%d", &data[1]);
+    scanf("%d", &data[2]);
+
+    printf("You entered:");
+    printf("%d\n", data[0]);
+    printf("%d\n", data[1]);
+    printf("%d\n", data[2]);
+
+    return 0;
+}
+```
+
+Where it becomes cool, is where we realise that the value for the index can be calculated! It can be any expression we want at all! As a first step, we could remove the hard coded indexes.
+
+```cpp
+#include <stdio.h>
+
+int main()
+{
+    const int NUM_VALUES = 3;
+    int data[NUM_VALUES];
+    int i;
+
+    printf("Enter %d integers (enter after each)", NUM_VALUES);
+
+    i = 0;
+    scanf("%d", &data[i]);
+    i++;
+    scanf("%d", &data[i]);
+    i++;
+    scanf("%d", &data[i]);
+
+    printf("You entered:");
+    i = 0;
+    printf("%d\n", data[i]);
+    i++;
+    printf("%d\n", data[i]);
+    i++
+    printf("%d\n", data[i]);
+
+    return 0;
+}
+```
+
+Now the code is screaming out to you to remove the repetition. We are performing exactly the same steps over and over here.
+
+```cpp
+#include <stdio.h>
+
+int main()
+{
+    const int NUM_VALUES = 3;
+    int data[NUM_VALUES];
+    int i;
+
+    printf("Enter %d integers (enter after each)", NUM_VALUES);
+
+    i = 0;
+    while ( i < NUM_VALUES )
+    {
+        scanf("%d", &data[i]);
+        i++;
+    }
+
+    printf("You entered:");
+    i = 0;
+    while ( i < NUM_VALUES )
+    {
+        printf("%d\n", data[i]);
+        i++;
+    }
+
+    return 0;
+}
+```
+
+We can make this neater using for loops, but I hope you can see the potential here.
+
+How do we now change this from working with 3 values to work with 50, 100, 1000, 10000 values? Easy! You just change the `NUM_VALUES` constant. That is all.
+
+Think about it. You now have the tools to work with large numbers of values, and it doesn't take you much more to code this than it takes to code the actions for one value. You just add a loop, and the computer does all the hard work repeating those steps over and over for all the values you give it.
+
+## In C/C++
+
+:::tip[Syntax]
+
+The syntax for accessing an element is the same as with storing a value. You access this via a variable, and can then walk through field accesses and accessing array elements to get to the location in memory where the value should be stored.
+
+![Syntax to access a value in C/C++](./images/access-value.png)
+
+:::

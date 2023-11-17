@@ -32,27 +32,7 @@ Arrays are another tool that will greatly help you build bigger and more interes
 
 You need to pair arrays with a loop to repeat actions you want performed to each element of the array. You can then have any number of elements in the array, and a simple loop repeats your instructions for all elements. It is a really simple and effective way to start to grow out what you can do.
 
-One challenge we currently have is that our arrays will have a **fixed size**. We can work around this by having a maximum number of values that we want to allow within the array, and then have a *current number* of elements that we increase and decrease as we add or remove elements.
-
-## Arrays in C/C++
-
-:::tip[Syntax]
-
-C allows you to declare variables that are arrays. This is done using square brackets (`[...]`), inside which you can indicate the number of elements in the array (*n*). Indexes will then be *0* to *n-1*. For example, `int arr[10];` contains ten elements, accessed by indexes 0 to 9.
-
-![C/C++ array declaration syntax](./images/array-decl.png)
-
-:::
-
-You can initialise an array when it is declared using a list of values in braces (`{...}`). This can only be done to initialise arrays in the variable declaration, and is not valid elsewhere.
-
-The size of the array must be able to be determined at compile time. If you initialise the array, you can leave the number of elements out of the array declaration (in the square brackets) as the compiler can work out the size from the number of elements you provide.
-
-:::caution
-
-Arrays in C/C++ do **not** store anything to remember their length, you must keep track of this yourself. While we work with fixed size arrays, we can use constants to help us remember how many elements are in the array.
-
-:::
+One challenge we currently have is that our arrays will have a **fixed size**. We can work around this by having a maximum number of values that we want to allow within the array, and then have a variable to track the *current number* of elements that we increase and decrease as we add or remove elements.
 
 ## Arrays in Memory
 
@@ -82,27 +62,4 @@ import imgArrayContiguousMemory from './images/mmv-array-contiguous-memory.png';
 
 ## Example
 
-The following example demonstrates the declaration of three arrays: `data`, `my_data`, and `other`. Each has five elements. The elements for `data` and `other` are initialised when the array is created, while values for `my_data` are provided in the for loop.
-
-```cpp
-/* Program: test-array.c */
-#include <stdio.h>
-
-int main()
-{
-  int data[5] = {0, -1, 2, -3, 4};
-  double my_data[5];
-  float other[] = {1.2f, 2.5f, 0, -1, 6};
-  int i;
-
-  for (i = 0; i < 5; i++)
-  {
-    printf("Enter my data[%d]: ", i);
-    scanf("%lf", &my_data[i]);
-
-    printf("data[%d]: %d\n", i, data[i]);
-    printf("other[%d]: %f\n", i, other[i]);
-    printf("my_data[%d]: %lf\n", i, my_data[i]);
-  }
-  return 0;
-}```
+We can use arrays to further adjust some of the programs we have been working with so far. We can extend the Fly Catch game, so that the game has a number of flies. In the change calculator we can put our different coins into an array, further simplifying the process of calculating change. In each case, the array lets us easily store a number of values in a single variable.

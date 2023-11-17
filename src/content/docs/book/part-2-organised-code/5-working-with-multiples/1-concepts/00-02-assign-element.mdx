@@ -1,0 +1,46 @@
+---
+title: Assign Values to Elements
+sidebar:
+    label: " - Assigning Values"
+---
+
+The assignment statement allows you to store a value in a variable. This can now be extended to allow you to store a value in an element of an array. To achieve this, you indicate the array as well as the *index* of the element you want to store the value in.
+
+<br/>
+import imgArrayAssignmentStatement from './images/mmv-array-assignment-statement.png';
+
+<a id="FigureArrayAssignmentStatement"></a>
+<img src={imgArrayAssignmentStatement.src} alt="Assigning a value to an element of the array" width="100%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Assigning a value to an element of the array</div><br/>
+
+:::note
+
+- The assignment statement is an **instruction**, storing a value in a variable or array.
+- When working with arrays, you can store a value in an element by specify the array and index of the element.
+- You can code this in C/C++ using: `data[1] = 127.5 * 2;`. In this case, `data` is the name of the array variable, and 1 is the index of the second element. The code in the snippet stores a 255.0 in the second element of the data array.
+
+:::
+
+## Example
+
+The following example creates two arrays, and assigns values to their elements.
+
+```cpp
+#include "splashkit.h"
+
+int main()
+{
+    int data[4];
+
+    data[0] = 10;
+    data[1] = 72;
+    data[2] = -1;
+    data[3] = 0;
+
+    point_2d points[3];
+
+    points[0] = point_at(0, 0);
+    points[1] = point_at(0.4, -10.1);
+    points[2] = point_at(-1, 8.7);
+}
+```
