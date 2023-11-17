@@ -1,0 +1,67 @@
+---
+title: Returning data from methods
+---
+
+Methods have the capability of returning a value to the caller. This can be used to create methods that calculate or retrieve values.
+
+When you declare a method, the start of the method indicates what type of value the method returns. When this is **void**, it indicates the method does not return a value. Otherwise, this identifier indicates the type of value returned by the method. 
+
+At the end of the method you need to code a **return** statement that provides the value that is returned by the method to the caller. The return statement ends the method, and send the data back to the code that called the method.
+
+When a method returns a value it should be called within an expression so that the value can be used. For example, you could call a method in an assignment statement and store the result that is returned in a variable.
+
+C# also includes **properties** that allow you to expose things the object knows in a controlled fashion. Properties must be declared within a class, and appear like variables when used. Each property is a combination of two methods: one to _get_ the value and one to _set_ the value. 
+
+When the property is accessed within an expression, the _get_ accessor is invoked. When the property is used as the location to store a value in an assignment statement, then the _set_ accessor is invoked. 
+
+Properties can also be read only, if they have only a get accessor. Similarly, a property can be write only if it has a set but no get accessor. 
+
+Properties give you the ability to calculate value in addition to providing access to the object’s fields. In the following examples we will demonstrate both uses of properties.
+
+Using methods and properties, you can give objects the ability to calculate and return values. 
+
+### Example
+
+The following code adds a read only property for `X` and a read/write property for `Y`, as well as adding a method to check if the `Ship` has collided with another `Ship`. The `get` part of these properties reads the value from the field and returns it, while the set part allows the caller to provide a new value. The `CollidedWith` method takes in another `Ship` object and uses `SplashKit`'s `BitmapCollision` method to check if `this` ship has collided with the other ship.
+
+```cs
+public class Ship
+{
+    // A private field to store the x position of the ship
+    private double _x;
+
+    // A property to allow others outside the class to access
+    // the Ship's X position (read only). 
+    public double X
+    {
+        get { return _x; }
+    }
+
+    // A private field to store the y position of the ship
+    private double _x;
+
+    // A property to allow others outside the class to access
+    // the Ship's Y position - can be read and written to. 
+    public double X
+    {
+        get { return _x; }
+        set { _x = value; }
+    }
+
+    // A method that returns true if the ship has
+    // hit another ship...
+    public bool CollidedWith(Ship otherShip)
+    {
+        return SplashKit.BitmapCollision( 
+          "Player.png", _x, _y, // this ship...
+          "Player.png", otherShip.X, otherShip.Y ); // the other
+    }
+}
+```
+
+Further reading:
+
+* [Defining and Calling Methods](https://www.microsoft.com/net/tutorials/csharp/getting-started/methods)
+
+
+There are also details on this in this week's [syntax guide](../16-syntax-guide).

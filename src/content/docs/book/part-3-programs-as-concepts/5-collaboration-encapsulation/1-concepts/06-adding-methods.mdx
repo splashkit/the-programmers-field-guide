@@ -1,0 +1,64 @@
+---
+title: Adding methods
+---
+
+
+A method is a programming artefact which you can create to give your objects and classes the ability to perform different actions.  They are names lists of instructions within an object or class.
+
+Methods are names lists of instructions within an object or class. Each method represents the instructions that perform a single task. 
+
+You have previously created a `Main` method that was run at the start of the program. The static modifier meant that this method was associated with the class. Methods that are not marked as static are instance methods and exist on the objects created from that class.
+
+Each method has an identifier that names the method which should reflect the task you are getting the object to perform.
+
+Within the method you code a list of statements. These are the actions that are run when the method is called. These instructions run within the context of the object, and have access to everything the object knows (all of its fields). 
+
+You can also declare parameters within the method to accept value when the method is run. This allows the caller to pass in values for the method to use.
+
+You should aim for each method to perform a single task. Methods tend to only have a small number of instructions. Bigger methods can be broken down into smaller tasks.
+
+You can have both **public** and **private** methods. Anyone who knows the object is able to call its public methods. These are the features that the object exposes to the rest of the world. 
+
+Private methods are hidden within the object, and are just for the objects use. Others do not have access to these private methods. 
+
+When creating a method it can be helpful to imagine yourself in the place of the object. This can help you work out the sequence of steps you need to perform to get the task done.  If you were the `Window`, and you were told to `MoveTo` a new x and y location, what would you need to do? If you were told to `Draw` how would you do that?
+
+Methods allow you to add capabilities to your objects. Each method codes one thing that objects of your class can perform. To achieve this, each method is a list of instructions that are run in sequence when the method is called.
+
+### Ship Example
+
+The following code provides an example of two methods. In this code, the `Ship` has two fields (`_x` and `_y`) and two methods (`Move` and `Draw`). This means you could tell a `Ship` object to `Move` and you can tell it to `Draw` for example `myShip.Move(5, -3);` and `myShip.Draw();`. When you call one of these methods the instructions within the method are executed.
+
+```cs
+public class Ship
+{
+    // Fields for the Ship's position
+    private double _x;
+    private double _y;
+
+    // A method to move the ship
+    public void Move(double dx, double dy)
+    {
+        _x = _x + dx;
+        _y = _y + dy;
+    }
+
+    // A method to draw the ship
+    public void Draw()
+    {
+        SplashKit.DrawBitmap("Player.png", _x, _y);
+    }
+}
+``` 
+
+### Your Task
+
+In Visual Studio Code, explore the `SoundEffect` class. What things can a `SoundEffect` do? 
+
+Further reading:
+
+* [Defining and Calling Methods](https://www.microsoft.com/net/tutorials/csharp/getting-started/methods)
+* [Understanding Objects and Classes](https://www.microsoft.com/net/tutorials/csharp/getting-started/classes-objects)
+* [Working with Scope and Accessibility Modifiers](https://www.microsoft.com/net/tutorials/csharp/getting-started/scope-accessibility)
+
+Also see this week's [syntax guide](../16-syntax-guide).

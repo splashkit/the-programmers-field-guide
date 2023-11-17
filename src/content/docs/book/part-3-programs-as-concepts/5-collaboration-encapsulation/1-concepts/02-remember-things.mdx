@@ -1,0 +1,95 @@
+---
+title: Let's remember things
+---
+
+To be useful, objects need to remember things. For example, a window needs to know its caption, its location on the screen, its width and its height.
+
+Variables can be used to store data for both long and short term memory within your program’s code.
+
+#### Variable
+
+A **variable** is a programming artefact, and you can create variables where you want to remember a value. 
+
+Each variable has a name (its identifier) that is used to identify it. The name should reflect the value that is being stored. For example, if you had a _name_ variable in the Window you would expect it to relate to the “name” of the window. 
+
+Each variable stores a _single value_ of a certain **type**. The table lists the main basic types that are included in C#. The type can also be a class name, where you want to store a reference to an object of that class. 
+
+| Kind of Data  | Type to Use  |
+| -------------| ------------|
+|Text data like “Hello World”       | `string`      |
+| Single characters like ‘a’ or ‘b’      | `char`      |
+| Whole numbers line 42 or 73    | `int`      |
+| Read numbers like 3.1415 or 1.0   | `double`      |
+
+Note that the built-in types in C# are all lowercase, while all other types will be PascalCase.
+
+You can picture a variable like a box that contains a single value.  
+
+![A visualisation of a variable, showing it as a box that contains a value of a certain type.](./images/sit771-Variable.png)
+
+In memory, all variables store their data as a binary number. The type of the variable is used to give meaning to the data. An integer variable (int in C#) is a whole number.
+
+#### Assignment statement
+You use an **assignment statement** to _assign_ a value to a variable. This statement evaluates an expression, and stores the result in a variable. This will override any previous value stored there.  
+
+Once you have stored a value in a variable, you can use the variable within an **expression** to read its _current_ value. 
+
+The assignment statement gets the computer to perform two actions:
+
+it evaluates the expression on the right of the assignment operator (the =) and stores this value in the variable on the left. For example, each of the following lines of code will assign the value 10 to the x variable.
+
+```cs
+    x = 10;
+    x = 5 * 2;
+    x = 2 + 4 * 2;
+```
+
+The expression can also use variables. For example, if we have an x and a y variable we could do: 
+
+```cs
+    x = 10;
+    y = 2 * x;
+    x = y + 5;
+```
+
+This runs over time. 
+
+1. First, 10 is stored in x. 
+1. In the second assignment statement, we calculate the expression `2 * x` (2 times x) giving 20, which is stored in y.
+1. The final statement then calculates `y + 5`, giving 25, which is stored in x (overwriting the previous value). 
+
+At the end of this code `x` would be storing 25 and `y` would be storing 20. 
+
+The fact that this is two steps can help you understand how the following works. 
+
+```cs
+    x = x + 1; 
+```
+
+This evaluates the value of `x + 1`, and stores this in `x`. If the current value of `x` is 25, then the value would be 26 after this statement runs. 
+
+As it is common to change the value of a variable by adding or removing something, there are a few shorthand ways to achieve this. You can use `+=` to add something to a variable, `-=` to subtract, and `++` to add one or `--` to subtract one. For example: 
+
+```cs
+    x++; // add one to x
+    y--; // subtract one from y
+    x += 10; // add 10 to x
+    y -= x; // subtract the value of x from y
+    y += 2 * x; // add the value of 2 times x to y
+```
+
+These short hand assignment operators perform the same actions as the standard assignment statement.  
+
+### Your Task
+
+What variables do you think you would need within a Bank Account object? 
+
+For additional reading see:
+
+- [Variables](https://en.wikibooks.org/wiki/C_Sharp_Programming/Variables) in the online C# Programming text.
+- [Operators](https://en.wikibooks.org/wiki/C_Sharp_Programming/Operators) in the online C# Programming text.
+- [Learning About Built-In Types and Variables](https://www.microsoft.com/net/tutorials/csharp/getting-started/types-variables)
+- [Working with Strings](https://www.microsoft.com/net/tutorials/csharp/getting-started/strings)
+- [Working with Dates and Times](https://www.microsoft.com/net/tutorials/csharp/getting-started/datetimes)
+
+Also remember to checkout this week's [syntax guide](../16-syntax-guide).

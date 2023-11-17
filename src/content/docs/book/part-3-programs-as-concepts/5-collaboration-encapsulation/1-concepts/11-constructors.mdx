@@ -1,0 +1,37 @@
+---
+title: Initialising fields with constructors
+---
+
+Constructors allow you to initialise an object when it is created. 
+
+Constructors are special methods that are run when a class creates an object. Using parameters, we can provide custom constructors that allow us to initialise the object. You can pass in values to the constructor’s parameters, allowing the creator of the object to indicate how they want the object setup.
+
+- Constructors are special methods that run when an object is created (using new)
+- You can add parameters to a constructor to allow the caller to provide values. 
+- You can have constructors with no parameters that initialise the object with default values – known as the default constructor. 
+
+Here is an example constructor that would allow us to initialise the location of a Ship when it is created: for example `myShip = new Ship(10, 50);`
+
+```cs
+public class Ship
+{
+    // The fields
+    private double _x;
+    private double _y;
+
+    // The constructor
+    public Ship(double x, double y)
+    {
+        _x = x;
+        _y = y;
+    }
+
+    //...
+}
+```
+
+### Your Task
+
+Think about a program you want to create. What classes would you have, what would the objects needs to know, and how would they be constructed?
+
+

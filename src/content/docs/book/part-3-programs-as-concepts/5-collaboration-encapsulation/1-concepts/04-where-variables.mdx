@@ -1,0 +1,84 @@
+---
+title: Where can variables be coded?
+---
+Variables are a key programming artefact. They allow you to remember and work with changing values in your code. Where you declare your variables can change some aspects of how they work.
+
+In what follows you will learn about the three main places you can declare variables: local variables, fields, and parameters.  
+
+#### Local Variables
+
+**Local Variables** are declared within a method, and are _short term memory_. These variables only exist while the method is running. You use local variables to store values you need to work within in the current method. These values cannot be directly accessed from any code outside of the method in which they are declared.
+
+In the following code, `gameWindow` is a local variable within the `Main` method. This means that the `gameWindow` variable is only available to the code within the `Main` method, as local variables are only accessible within the method where they are declared.
+
+```cs
+public class Program
+{
+    public static void Main()
+    {
+        Window gameWindow;
+        gameWindow = new Window("My Game", 800, 600);
+        // ...
+    }
+}
+```
+
+In the coding convention we are using, local variables should be in `camelCase`: start with a lowercase letter, and have an uppercase letter at the start of each subsequent word.
+
+#### Fields
+
+**Fields** are declared with a class (either as instance or static members) and are _long term memory_. Instance fields (those without a static modifier) will exist within each object created from the class. The object will be able to use this variable to _know_ the associated value throughout its lifetime. 
+
+Fields should be declared as **private**. They are only accessible within the class that defines them. Each object is able to protect its own data and you must ask the object to get or set these values for you. 
+
+In the following code, `_balance` is a _field_. As this is a field, it is available to **all** of the methods and properties within the `Account` class where it is declared.
+
+In the coding convention we are using, fields should start with an underscore (`_`).
+
+```cs
+public class Account
+{
+    private decimal _balance;
+    
+    // ...
+}
+```
+
+#### Parameters
+
+**Parameters** are special variables within a method and are used to allow the caller to pass values into the method for it to use. Like local variables, they are short term memory but have their value set as part of the method call.
+
+These variables are declared within the parenthesis after the method name, and when called the caller must supply a value for each of these variables.
+
+In the following code, the `amount` is a parameter within the `Deposit` method. This means that a caller must provide an _amount_ when they call the `Deposit` method in an `Account` object. For example: `myAccount.Deposit(5);` will pass the value 5 to the `amount` _parameter_.
+
+```cs
+public class Account
+{
+    // ...
+
+    public void Deposit(decimal amount)
+    {
+       //...
+    }
+}
+```
+
+### Window class
+
+Let’s consider the Window class. It will have fields to represent its location on the screen. The Window always needs to know this value, so these would be stored as fields.
+
+You can ask a Window to `MoveTo` another location on the screen. To do this you need to tell the `MoveTo` method the values for the new location. The `MoveTo` method will have two parameters: one for the new `x` value and one for the new y value. When you call the `MoveTo` method you need to pass in values for these two parameters. 
+
+From outside of the Window code we cannot see any of its local variables. These are all hidden within the Window code, and are used by the methods when they need to calculate different values. 
+
+These ideas are explored in the following videos which provide you with examples of how to declare and use these variables. 
+
+The main types of variables allow you to code objects that know things. To remember things in code you use variables. You can use **fields** for long term memory, **local variables** for short term values within a method, and **parameters** to allow values to be passed into a method. 
+
+### Your Task
+
+In Visual Studio Code you can explore the API using the context help. If you have a Window variable and you type a dot (.) it should list the members you can access on the related object.
+
+Have a look at the Window class, what are some of the things that will be fields in this class? What are some examples of parameters? 
+
