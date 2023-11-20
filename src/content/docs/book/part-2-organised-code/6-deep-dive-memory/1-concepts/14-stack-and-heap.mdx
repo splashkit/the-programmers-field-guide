@@ -1,0 +1,37 @@
+---
+title: Stack and Heap
+---
+
+Explore the idea of memory organisation in programs, and consider how this impacts on object oriented programs.
+
+Being aware of how our programs execute becomes more important as you start to progress to work with other languages and tools. C# works within a protected environment, which is great when you are learning but can make the switch to lower level languages more challenging. The main challenge will be related to how the computer works with memory. To better understand this we need to have a quick look at how programs work in memory.
+
+When you run a program, the operating system needs to perform a number of tasks to get things started.
+
+1. Allocate memory for the program
+2. Load the program's code into memory
+3. Start executing the program's `Main` (or equivalent)
+
+The programs memory is organised by dividing it into a couple of separate, distinct, areas. The main areas that we need to think about are:
+
+* There is space for the program's instructions (the **code**). This allows the CPU to access the instructions you want run.
+* A **stack** is used to store data associated with the running methods, their local variables and parameters.
+* The **heap** keeps track of any dynamically allocated memory.
+
+The **stack** is used to keep track of the data associated with our method calls. When you call a method it is added to the top of the stack. It allocates enough space for its parameters and local variables, which it can then access as its instructions run. When the method ends, it is _popped_ off the top of the stack, which then returns to the calling method. The space allocated for the ending method is now freed so that it can be used for the next method call. In this way, the programming language will manage this memory for you.
+
+In contrast, the **heap** requires that you manage memory yourself. You can ask to be allocated some space on the heap, and when you are finished with it you need to make sure it is freed. Object oriented programs make extensive use of this idea, with all of the objects that we have created existing on the heap. The `new` command is the request for the language to allocate space for your object on the heap.
+
+![A visualisation of the stack, heap, and code showing memory divided into these separate areas.](./images/sit771-Memory.png)
+
+Once you have allocated this memory, you need to make sure that this memory is freed. Failing to free the memory is known as a **memory leak**. When you have a memory leak, your program will consume more and more memory as it continues to run. I'm sure you have experienced this with programs you have used.
+
+One challenge with memory management is that you need to make sure that you do not prematurely free an object. Doing this is likely to result in your program randomly crashing as it tries to access an object that has been deleted. These kinds of errors are hard to locate, as the data for the object may reside in memory for long periods even after it has been freed.
+
+With C#, this dynamically allocated memory is managed for you. While this is the case in many modern programming languages, it is not the case in all languages. For example, the C/C++ language still requires you to manage this memory allocation yourself. This gives you extra control over how your programs work, but does mean that you have extra work to do. This means that it is still important to understand how the stack and heap work so that you can be aware of potential issues when using other languages.
+
+### Your tasks
+
+What do you think some of the challenges are likely to be with having to manually manage memory yourself?
+
+Let us know your thoughts in the comments.
