@@ -1,0 +1,56 @@
+---
+title: Unified Modeling Language
+---
+
+Get started with UML class and sequence diagrams to help communicate the structure of your design.
+
+The Unified Modeling Language (UML) provides a means of communicating the structure and dynamic behaviour of a software solution. The [class diagram](https://msdn.microsoft.com/en-us/library/dd409437.aspx) and [sequence diagram](https://msdn.microsoft.com/en-us/library/dd409377.aspx) are the two main ways of communicating aspects of object oriented solutions.
+
+## When and Why
+
+Before we think about how to use these diagrams we need to consider, when and why you need them.
+
+Each diagram you create should be aiming to **communicate** something about the design to the reader. So it is important to keep in mind that this is the ultimate goal of any design diagram.
+
+This has particular importance in software engineering, as software solutions are often full of details. Should you show these details? Well, that depends on what you want the diagram to communicate. If the details are important, then include them. If not, then don't. 
+
+Trying to create one diagram that communicates everything, usually results in one diagram that is of no use to anyone. It's important to **focus** each diagram on what it aims to communicate.
+
+## Class Diagram
+The class diagram is used to document the _static structure_ of a solution. It shows the classes, their methods, constructors, properties, and fields, as well as the relationships between classes.
+
+You use a Class Diagram to communicate the structure of your solution. This can help answer questions like: What classes will exist? What will these classes know and be able to do?
+
+The class diagram does not communicate anything about _how_ the objects of these classes will work at runtime.
+
+Read about the class diagram at:
+* IBM's [UML Basics](http://www.ibm.com/developerworks/rational/library/769.html?ca=drs-) on [The Class Diagram](http://www.ibm.com/developerworks/rational/library/content/RationalEdge/sep04/bell/index.html)
+* [Microsoft's class diagram reference](https://msdn.microsoft.com/en-us/library/dd409437.aspx)
+
+## Sequence Diagram
+The sequence diagram is used to document the _dynamic behaviour_ of the solution. Where the class diagram was all about classes, the sequence diagram is all about objects.
+
+You use a Sequence Diagram to communicate how objects within your solution perform a task. This can help answer questions like: What objects are involved in performing _TaskX_? How do they collaborate to achieve the goal of the task?
+
+Each Sequence Diagram communicates just a single task. So you could create many of these if you were trying to communicate every aspect of a program. Usually you would only create these diagrams to communicate parts of the program where there was complex interactions between the objects.
+
+Read about the sequence diagram at:
+* IBM's [UML Basics](http://www.ibm.com/developerworks/rational/library/769.html?ca=drs-) on [The Sequence Diagram](http://www.ibm.com/developerworks/rational/library/3101.html)
+* [Microsoft's sequence diagram reference](https://msdn.microsoft.com/en-us/library/dd409377.aspx)
+
+## Appropriate Tools
+
+Traditional approaches to software engineering attempted to document all aspects of the design before starting to write the code. With more agile processes the focus is not on producing exhaustive documentation, but producing documentation only where needed.
+
+It is often useful to discuss aspects of a design within a team. In these cases a [Whiteboard](https://en.wikipedia.org/wiki/Whiteboard) is the best technology available. The design can be drawn up, edited, and discussed with ease. At the end the design can be captured by taking a photo.
+
+Where a diagram is needed for a more formal purpose, you need to make use of a diagramming tool.
+There are many tools that support UML, for example you can use [LucidChart](https://www.lucidchart.com) for free with an education account (register with your deakin.edu.au account and apply for an upgrade to professional for free).
+
+When producing a formal diagram it is important to make use of professional diagramming tools, as things like Word drawings are not appropriate.
+
+## Your Task
+
+With Agile Development the focus is on shipping working software. This moves the focus from producing extensive documentation. What do you think the advantages and potential pitfalls of this approach may be?
+
+Let us know in the comments.
