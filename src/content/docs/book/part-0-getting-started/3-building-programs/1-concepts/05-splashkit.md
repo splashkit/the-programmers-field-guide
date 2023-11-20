@@ -18,7 +18,7 @@ mkdir TestSplashKit
 cd TestSplashKit
 dotnet new console
 
-dotnet add package SplashKitSDK
+dotnet add package SplashKit
 
 code .
 ```

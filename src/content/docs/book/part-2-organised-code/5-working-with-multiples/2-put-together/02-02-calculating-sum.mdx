@@ -4,9 +4,11 @@ sidebar:
   label: " - Calculating Sum"
 ---
 
-The **sum** is the simplest of the Statistics to calculate. This involves adding together all of the numbers in the array. The main issue here is that the computer cannot add all of these values together, and we must rethink our logic to express it in terms of processing for each element.
-Think about the way you would sum a list of numbers, this is now the task you need to code for the Computer. What is it that you do with each number? To think this through write a list of random numbers down, and then calculate the sum. Do it slowly, and think about the tasks that you are performing for each number.
-You should have noticed that you are keeping a running total, and that you add the value of each number from the list to that. When you have done this for each number in the list you have the total. The Pseudocode for this is shown in [Listing x.y](#ListingSum)
+The sum is the simplest of the Statistics to calculate. This involves adding together *all* the numbers in the array. The main issue here is that the computer cannot add *all* of these values together, and we must rethink our logic to express it in terms of processing *for each* element.
+
+Think about the way you would sum a list of numbers, this is now the task you need to code for the computer. What is it that you do with each number? To think this through write a list of random numbers down. Keep it simple, and make each number between 0 and 9. Now calculate the sum. Do it slowly, and think about the tasks that you are performing for each number. Allow yourself only to look at one number at a time.
+
+You should have noticed that you can achieve this by keeping a running total, and that you add the value of each number from the list to that total. When you have done this for each number in the list, you have the sum of all values. The pseudocode for this is shown in [Listing x.y](#ListingSum)
 
 
 <br/>
@@ -16,28 +18,23 @@ You should have noticed that you are keeping a running total, and that you add t
 Function: Sum
 -------------------------------
 Returns:
-    - Double: The sum of the numbers from the data array
+- Double: The sum of the numbers from the data array
 Parameters:
-    1. data (by const ref. array of Double) - the list of values to sum
-    2. size (Integer) - the number of elements in data (C only)
+- data (const array of Double) - the list of values to sum
+- size (Integer) - the number of elements in data (C only)
 Local Variables:
-    - i (Integer): index of the current element in the array
-    - total (Double): running total
+- i (Integer): index of the current element in the array
+- total (Double): running total
 Steps
-    1. total is assigned 0
-    2. For i. starts at 0 and loops to the highest index of data
-    3.      total is assigned total + the value of the ith element of data
-    4. Return the result total.
+1. total is assigned 0
+2. For i. starts at 0 and loops to the highest index of data
+3.      total is assigned total + the value of the ith element of data
+4. Return the result total.
 ```
 <div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Pseudocode for Sum</div>
 
+There are three key things to notice about the pseudocode in [Listing x.y](#ListingSum). Firstly the [for loop](../../../../part-1-instructions/3-control-flow/1-concepts/04-3-for-loop) is used to repeat the loop once for each element in the array. Second, the `i` variable moves through the valid indexes of the array. Finally, the `total` variable is used to keep the running total throughout the code.
 
+The for loop will repeat its body once for each value in the array. The `i` variable will be updated to have the *current* index value each time the loop is repeated. Within the loop the *i<sup>th</sup>* value from the array is accessed. This is how the for loop processes each of the values from the array.
 
-There are three key things to notice about the Pseudocode in [Listing x.y](#ListingSum). Firstly the is used to repeat the loop once for each element in the array. Second, the `i` variable moves through the valid indexes for the array. Finally, the total is used to keep the running total throughout the code.
-
-The for loop in For Loop will repeat its body once for each value in the array. The `i` variable will be updated to have the *current* index value each time the loop is repeated. Within the loop the *i<sup> th</sup>* value from the array is accessed. This is how the for loop processes each of the values from the array.
-
-The `total` value keeps track of the current running total. Before the loop its value is set to 0, ensuring that it is appropriately initialised. In the body of the loop the current *i<sup> th</sup>* value of the array is added to the `total`, and the result stored back into `total`. This means that by the end of the loop the `total` variable is now storing the sum of all of the elements of the array.
-
-C and Pascal differ in the amount of support they have for working with arrays. C has very limited support, meaning that you need to do some extra work. Pascal has more build in support for arrays, making some
-common tasks easier to achieve. The main difference is that C does not keep track of the length of an array. This means that you need to pass the number of elements in the array along with the array to functions and procedures that will work with this data. Pascal, on the other hand, does keep track of the length of arrays and gives you three functions you can use to manage this: `Low` returns the first index of the array, `High` returns the last index of the array, `Length` returns the number of elements in the array.
+The `total` value keeps track of the current running total. Before the loop its value is set to 0, ensuring that it is appropriately initialised. In the body of the loop the *i<sup>th</sup>* value of the array is added to the `total`, and the result stored back into `total`. This means that by the end of the loop the `total` variable is now storing the sum of all the elements of the array.

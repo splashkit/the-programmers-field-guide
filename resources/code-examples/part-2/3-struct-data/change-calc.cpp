@@ -1,10 +1,3 @@
----
-title: Change Calculator
----
-
-Here is our updated version of the change calculator. This change introduces structs and enumerations to help us manage the data within the change calculator.
-
-```cpp
 /*
  * Program: Simple Change
  * Calculate the ideal change for a given transaction.
@@ -161,4 +154,3 @@ int main()
     again = read_line();
   } while (again != "n" && again != "N");
 }
-```
