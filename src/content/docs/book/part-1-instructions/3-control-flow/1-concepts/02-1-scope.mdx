@@ -4,6 +4,63 @@ sidebar:
   label: " - Scope and the Stack"
 ---
 
+import MySwiper from '../../../../../../components/react/myswiper.jsx'
+
+import sliderStack01 from './images/slider-stack/slider-stack-01.png';
+import sliderStack02 from './images/slider-stack/slider-stack-02.png';
+import sliderStack03 from './images/slider-stack/slider-stack-03.png';
+import sliderStack04 from './images/slider-stack/slider-stack-04.png';
+import sliderStack05 from './images/slider-stack/slider-stack-05.png';
+
+export const sliderImagesStack = [
+  {
+    src: sliderStack01.src,
+    altText: "The program starts and the 'name' variable is allocated on the stack",
+    tipStart: 1,
+    tips: [
+      "The program has started",
+      "The 'name' variable has been allocated on the stack",
+      "The WriteLine() statement runs and prints to the terminal"
+    ]
+  },
+  {
+    src: sliderStack02.src,
+    altText: "The block is added to the top of the stack",
+    tipStart: 2,
+    tips: [
+      "The block is added to the top of the stack"
+    ]
+  },
+  {
+    src: sliderStack03.src,
+    altText: "The 'i' variable is added to the top of the stack",
+    tipStart: 3,
+    tips: [
+      "The 'i' variable is added to the top of the stack",
+      "This is within the new block",
+      "You can still access name, as we are still within that block",
+      "The WriteLine() statement runs and prints to the terminal"
+    ]
+  },
+  {
+    src: sliderStack04.src,
+    altText: "The block has ended, so the top of the stack returns to the previous block",
+    tipStart: 4,
+    tips: [
+      "The block has ended, so the top of the stack returns to the previous block"
+    ]
+  },
+  {
+    src: sliderStack05.src,
+    altText: "You can no longer access the variable 'i', it is gone",
+    tipStart: 5,
+    tips: [
+      "You can no longer access the variable 'i', it is gone",
+      "The WriteLine() statement completes, and the program ends"
+    ]
+  },
+];
+
 Compound statements introduce a new programming concept called **scope** to our code. Scope refers to the lifetime and accessibility of variables within your code.
 
 So far, variables have been accessible from where they are declared to the end of the program. This makes sense, as the variables are created within the program's instructions. So they live from when they are created until the program ends.
@@ -45,36 +102,19 @@ The stack is used to store the variables that you create within the blocks in th
 
 This is a visual metaphor - like a stack of books piled one on top of the other. The main program instructions form the base of the stack, then new blocks are added on top of this, like a book being added to the pile. Each block adds a marker for the current top of the stack when it is created. Any new variables are then added above that line, within the scope of the current block. At the end of the block, the top of the stack is reset - much like removing a book from the top of the pile. The block's variables are now gone, and the top of the stack is returned to the previous block.
 
-**TODO - add slider here for the following code code**
-
 ```csharp
 string name = "My Name";
-WriteLine($"We can access {name} here"); <-- Slide 1 here ( name on stack )
+WriteLine($"We can access {name} here");
 
-{ <-- slide 2 here - add a line in the stack
-  int i = 0; <-- slide 3 here - show i above stack marker
+{
+  int i = 0; 
   WriteLine($"{name} amd {i} are accessible here");
-} <-- slide 4 here - make i very light grey
+} 
 
-WriteLine($"{name} but no i here”); <-- slide 5 here - i is gone
+WriteLine($"{name} but no i here”); 
+
 ```
 
-Slide 1 notes:
-- The program has started
-- The name variable is allocated on the stack
-
-Slide 2:
-- The block is added to the top of the stack
-
-Slide 3:
-- The i variable is added to the top of the stack
-- This is within the new block
-- You can still access name, as we are still within that block
-
-Slide 4:
-- The block has ended, so the top of the stack returns to the previous block
-
-Slide 5:
-- You can no longer access i, it is gone
+<MySwiper client:only height="" images={sliderImagesStack}></MySwiper>
 
 Make sure you declare variables within the right block so that they are accessible when you need them.
