@@ -1,5 +1,5 @@
 ---
-title: Arrays in the Change Calculator
+title: Arrays in Change Calculator
 ---
 
 Currently, the change calculator needs to recreate each of the coins as it calculates the necessary change. The following code shows the steps to calculate the change. In this, the `new_coin` function takes the indicated coin type and returns the related coin data.

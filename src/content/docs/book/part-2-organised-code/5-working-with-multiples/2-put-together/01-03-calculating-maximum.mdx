@@ -1,0 +1,44 @@
+---
+title: Plan for Maximum
+sidebar:
+  label: " - Plan for Maximum"
+---
+
+Calculating the largest value in the array, the maximum, will require the logic be adjusted to use the *for each* style. How do you calculate the largest value in a list of numbers? With a small list you are likely to just quickly scan it and see the largest value. Think about the tasks you need to perform, and maybe think about how you would do it for a very long list of numbers, one that spans across many pages.
+
+The algorithm needed to find the maximum value in an array needs to perform an action *for each* element of the array. It needs to process each value in isolation, ignoring the other values from the list.
+
+The key is similar to the logic from the `Sum` function. You need to keep a *running* maximum. This will store the *current* maximum from the array as you loop through *each element* of the array. Like the sum this value can be updated within the loop.
+
+The pseudocode for this is in [Listing x.y](#ListingMaximum). Notice that its basic layout if the same as the `Sum` function in [Listing x.y](../02-02-calculating-sum#ListingSum). It initialises the `max` value and then loops through the array performing an action for each value. In this case the action is to check if the *i<sup> th</sup>* value of the array is larger than the running maximum in the `max` variable. When this is the case a new maximum has been found and is stored in the `max` variable.
+
+One of the important differences between `Maximum` and `Sum` is the initialisation of the `max` value. In `Maximum` this cannot be initialised to 0. Can you think of a case where initialising this to 0 would fail?
+
+Think of what would happen if all values in the array were negative. In this case the function would return 0 as the maximum, even though 0 is not a value in the array.
+
+To address this, we need to make sure that the maximum is a value from the array. We can do this by initialising the `max` with the first value in the array. The for loop can then start looping from the *2<sup> nd</sup>* element, as the *1<sup> st</sup>*  has already been processed.
+
+<br/>
+<a id="ListingMaximum"></a>
+
+```
+Function: Maximum
+-------------------------------
+Returns:
+    - Double: The sum of the value of the largest number from the data array
+Parameters:
+    1. data (array of Double) - the list of values to sum
+    2. size (Integer) - the number of elements in data
+Local variables:
+    - i (Integer): index of the current element in the array
+    - max (Double): current largest number
+Steps
+    1. max is assigned the value of the 0th element in the array
+    2. For i, starts at 1 and loops to the highest index of data
+    3.      if the i-th element is larger than max then
+    4.          max is assigned the value of the i-th element of the array
+    5. Return the result, max
+```
+<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Pseudocode for Maximum</div>
+
+Notice how the idea is the same as with the earlier functions. You need to think of the logic in a way that can work by processing each element of the array one at time. Additional variables, such as the sum or max, can be added to help you remember values as you go step through the elements in the array.

@@ -1,0 +1,95 @@
+---
+title: Designing the Statistics Calculator
+sidebar:
+  label: " - Design Overview"
+---
+
+In understanding these concepts we have uncovered some functions that will be included in the program’s design.
+
+With the calculations thought through, the design seems to be coming together. So far we have the steps needed to calculate the output, but we have not thought about how these values will be read into the program, and we need to work out how they will be structured in the code.
+
+## Data Structure
+
+For this program we are going to need to handle an array of numbers. We will need to pass this around, and loop through all the elements. As C does not remember the size of the array when it is passed, we could track this with separate parameters, but the easier option is to set this up with a struct.
+
+The following pseudocode outlines the plan for this struct. We need to have a constant to set the array to the largest size we want to accept. This can start at 20, so that we can easily test trying to add more than 20 values. Later we can easily change this to a larger value.
+
+The `Number Data` struct can contain the array and the count of the number of elements in the array. This will simplify passing this data around as we build this program up.
+
+```
+Const: MAX_NUMBERS int with value 20
+
+Struct: Number Data
+Fields:
+- Values: array of MAX_NUMBERS double values
+- Count: an integer for the current number of values
+```
+
+Now we need to look at how we can put this all together.
+
+## Handling Input
+
+Programs can be thought of as transforming data, taking inputs and generating outputs, as shown in [Figure x.y](#FigureProgramInputOutput). So far we have examined the processing needed to create the outputs, but we still need to consider how the data gets into the program, the inputs.
+
+<br/>
+import imgProgramInputOutput from './images/program-input-output.png';
+
+<a id="FigureProgramInputOutput"></a>
+<img src={imgProgramInputOutput.src} alt="Programs convert Inputs to Outputs" width="75%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Programs convert Inputs to Outputs</div><br/>
+
+At the start of the program the user will need to enter the values that will be stored in the array. This task can be coded in a `Populate Array` procedure. This will get the user to enter the values into the array. We can achieve this by getting the user to enter *each value* in the array.
+
+The logic for populating the array can be split into a few functions. At the top we have the `Populate Array` procedure, that can call a `Read Integer` and a `Read Double` function. These functions will be very useful across a number of different programs, so this may be able to be used elsewhere. Within `Populate Array`, we can use `Read Integer` to determine the number of values the user wants to enter, and `Read Double` to read each value.
+
+### Reading double and integer values from the user
+
+[Figure x.y](#FigureFlowchartReadDouble) shows the flowchart for the process of reading a double value from the user, and similar logic can be used for read integer. We have seen this before, and you can copy in the code you have for this already,
+
+<br/>
+import imgFlowChartReadDouble from './images/flowchart-read-double.png';
+
+<a id="FigureFlowchartReadDouble"></a>
+<img src={imgFlowChartReadDouble.src} alt="Flowchart showing the process for reading a double" width="80%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Flowchart showing the process for reading a double</div><br/>
+
+## Populating the array
+
+With the logic for `Read Double` and `Read Integer` in place, the next step is to determine the steps needed in the `Populate Array` procedure. This procedure will ask the user how many values that want to enter, and then loop and read these values from the user one at a time. This can use `Read Integer` to get the number of values to enter, and `Read Double` to get the value from the user, and then store this in the array's elements.
+
+A flowchart illustrating the steps in `Populate Array` is shown in [Figure x.y](#FigureFlowchartPopulateArray). This is passed the number data to populate using the `Number Data` struct passed by reference.
+
+The first part of the procedure reads in the number of elements the user wants to populate. We need to make sure that this is not larger than the maximum capacity of the array. The first decision allows us to detect when this occurs, and we can then set the number the user wants to enter to be the maximum we can accept. The value will need to be stored in the `data.count` field within the struct. This way, the struct will contain both the number of elements and the data itself.
+
+Following this, we have the loop to initialise each of the values the user ahs indicated they want to provide. The decision node is being used to show the control mechanism of the for loop, counting from the lowest index of the array to the highest index. Within the body of the loop the two instructions build a prompt string, and then use this in the call to `Read Double`. The result returned from `Read Double` is stored in the current (i<sup>th</sup>) element of the array.
+
+<br/>
+import imgFlowChartPopulateArray from './images/flowchart-populate-array.png';
+
+<a id="FigureFlowchartPopulateArray"></a>
+<img src={imgFlowChartPopulateArray.src} alt="Flowchart showing the process for Populate Array" width="80%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Flowchart showing the process for `Populate Array`</div><br/>
+
+## Where is the data stored?
+
+The last question to remain is where will the data be stored? The array is a kind of variable, and therefore the array could be a local variable or a global variable. As global variables should be avoided where possible, this will be coded as a **local variable** within the program’s `Main` function. It can then be passed from there to the other functions and procedures in the code.
+
+## Overview of Statistic Calculator's design
+
+That completes the logic needed to implement the statistics calculator program. The final structure is shown in
+[Figure x.y](#FigureStructureChartStatisticsCalculator) as a Structure Chart. Notice the double-headed arrow on `data` in the call from `Main` to `Populate Array`. This indicates that the data parameter is passing the values into, and getting values out of the `Populate Array` procedure. This is a way of indicating that the parameter is passed by reference. Also see how the `data` value is passed from `Main` into the functions that calculate the statistics. In these cases we can still use pass-by-reference, but we can use the `const` modifier to ensure that the values are not changed.
+
+<br/>
+import imgStructureChartStatisticsCalculator from './images/structurechart-statistics-calculator.png';
+
+<a id="FigureStructureChartStatisticsCalculator"></a>
+<img src={imgStructureChartStatisticsCalculator.src} alt="Structure Chart showing the structure of the Statistics Calculator program" width="100%" />
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Structure Chart showing the structure of the `Statistics Calculator` program</div><br/>
+
+:::note
+
+- Remember anytime you need to do something with all the elements in an array you need to work out how you can achieve this **for each** element in the array
+- Notice that the processing of individual values from the arrays are always similar
+- Make sure you can see how the for loop is able to perform actions for each element of the array
+
+:::

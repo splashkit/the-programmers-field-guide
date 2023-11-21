@@ -1,16 +1,23 @@
 ---
-title: Compiling and running
+title: Building the Statistics Calculator
+sidebar:
+    label: " - Building"
 ---
 
-## Compiling and Running Statistics Calculator
+The flowcharts and pseudocode shown communicate the logic that needs to be coded into the functions and procedures of this program. You can use these design plans with the language syntax to implement this.
 
-When the code is finished you can compile and run the program. It is a good idea to implement the solution a little bit at a time, compiling and running it frequently as you progress. Try implementing the solution using the following smaller steps, and the tests shown for each.
+For this program, main can populate the array with values and then output the different statistics. We can then extend this in the next step with a few nice additions, but for now, let's get the main functionality working.
+
+## Iteration Plan
+
+Remember to implement the solution a little at a time, compiling and running it frequently as you progress. Try implementing the solution using the following smaller steps, and the tests shown for each.
 
 1. Start by getting `Read Double` to work. In `Main` just read a single value and output it to the Terminal. **Tests**:
+    - You should be able to get the code for this from your earlier projects.
     - Check that a number can be read correctly.
     - Try entering text, and check the error message is shown and that you can enter a number the next time.
-    - Try entering multiple text values on a single line.
-    - Try entering multiple text values, one after the other.
+    - Enter multiple text values on a single line.
+    - Also try multiple text values, one after the other.
 2. Implement `Populate Array`. Include an array in `Main`, and have its values read in by `Populate Array`. Print the values back to the Terminal so that you can check this code is working. **Tests**:
     - Enter each of the values and check they are printed out correctly.
     - Try entering text, this should be handled by `Read Double` but check it is working correctly with `Populate Array`.
@@ -19,13 +26,11 @@ When the code is finished you can compile and run the program. It is a good idea
     - Try all negative values.
     - Try a mix of positive and negative values.
 4. Implement the `Mean` Function. Same tests as `Sum`.
-5.  Implement the `Variance` Function. Same tests as `Sum`.
-6.  Finish by implementing the `Maximum` Function. Same tests as `Sum`.
+5. Finish by implementing the `Maximum` Function. Same tests as `Sum`.
 
-By building the code a little at a time, and running tests as you go, you will have less code to search when you do find an issue. This makes it easier to fix those little errors that are likely to slip into the
-code from time to time.
+By building the code a little at a time, and running tests as you go, you will have less code to search when you do have an issue. This makes it easier to fix those little errors that are likely to slip into the code from time to time.
 
-When this iterative process is complete you should have a solution for the Statistics Calculator. You should be able to easily change this so that it can read in ten, a hundred, or even a thousand values from the user. This is something that would not have been possible without using arrays.
+When this iterative process is complete you should have a solution for the statistics calculator. You should be able to easily change this so that it can read in ten, a hundred, or even a thousand values from the user. This is something that would not have been possible without using arrays.
 
 :::note
 

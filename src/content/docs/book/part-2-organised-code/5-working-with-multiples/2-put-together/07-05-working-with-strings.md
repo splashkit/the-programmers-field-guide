@@ -1,7 +1,5 @@
 ---
-title: Working with char[]
-sidebar:
-    label: " - Working with char[]"
+title: Working with C-Strings
 ---
 
 Knowing that strings are just character arrays with a null terminator to mark the end of the string, let's think about how a function like SplashKit's write_line might work:
