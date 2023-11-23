@@ -114,7 +114,7 @@ for(int m = 0; m < MONTHS; m++)
 
 *Why would you loop one way or the other?*
 
-Well it depends on what you want to achieve. For the total, either order will achieve the same thing. If you want to print monthly averages, then you want to process each month.
+Well it depends on what you want to achieve. For the total, either order will achieve the same thing. However, if you want yearly or month averages then you need to loop in a particular order. To get each year and its monthly average, you need to loop over the year first. If you want each month and that months average across the years measured, then you loop the months first and then the years within each month. The code for both of these options is shown below.
 
 ```cpp
 // For each year - print year totals and averages
@@ -146,6 +146,9 @@ for(int m = 0; m < MONTHS; m++)
 
 ## Multi Dimensional Arrays
 
+*Is there more than 1 and 2-dimensional arrays?*
+
+Yes, you can have as many dimensions as you want. The number of elements you create can be calculated by multiplying the size of each dimension. So a 3-dimensional array of 4 years, 12 months, and 3 locations would have 4 x 12 x 3 = 144 individual elements.
 
 ## This all seems challenging
 
