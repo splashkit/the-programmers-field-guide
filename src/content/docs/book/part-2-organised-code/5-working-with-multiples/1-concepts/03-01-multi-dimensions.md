@@ -144,14 +144,22 @@ for(int m = 0; m < MONTHS; m++)
 }
 ```
 
+The key thing with this processing is to see how each for loop allows you to process each dimension in the array. The array requires you to indicate two indexes to access each element, therefore this requires two loops if you want to process all elements.
+
 ## Multi Dimensional Arrays
 
 *Is there more than 1 and 2-dimensional arrays?*
 
-Yes, you can have as many dimensions as you want. The number of elements you create can be calculated by multiplying the size of each dimension. So a 3-dimensional array of 4 years, 12 months, and 3 locations would have 4 x 12 x 3 = 144 individual elements.
+Yes, you can have as many dimensions as you need to reflect your data. With each dimension, you can add an index to track the different index values for that dimension. You can have 1, 3, 10, 15, 20, as many dimensions as you need.
+
+The number of elements you create can be calculated by multiplying the size of each dimension. So a 3-dimensional array of 4 years, 12 months, and 3 locations would have 4 x 12 x 3 = 144 individual elements. Each element would represent a single year, month, and location.
+
+As with two-dimensional arrays, you need to have multiple for loops if you want to process all elements in your array. For our 3-dimensional array you need three for loops. For example, one to loop over the years, that contains one that loops over the locations, that contains one to loop over the months.
 
 ## This all seems challenging
 
-The key here is to remember that you only need multidimensional arrays when you have a multidimensional problem. Then the arrays become a convenient way of capturing and processing that data with ease.
+The key here is to remember that you only need multidimensional arrays when you have a multidimensional problem. Then the arrays become a convenient way of capturing and processing that data with ease. In these cases, you will know what the different dimensions need to be and you if you remember to have a loop per dimension, then you can use these multiple loops to iterate over all the elements in the array as you need.
 
-Once you have a multidimensional problem, you will know what all the indexes and data points mean. That makes this process much simpler.
+There are other ways you could capture this kind of information as well. With our 3-dimensional version we had years, months, and locations. Rather than a 3-dimensional array, you could construct this as a series of related structs. Perhaps it could have the location at the root, this could capture details like the name and coordinates of the location as well as a 2-dimensional array of years and months. Alternatively, the location could have an array of years each with the date and an array of months.
+
+When you are modelling data, the key is always to make it clear and simple. You need to think about how the data will be processed, and design the data to make it easy for you to craft the instructions to get the output you need.
