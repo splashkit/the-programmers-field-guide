@@ -5,6 +5,8 @@
 
 #include "splashkit.h"
 
+using std::to_string;
+
 const int MAX_MAP_ROWS = 20;
 const int MAX_MAP_COLS = 20;
 
@@ -15,8 +17,16 @@ typedef enum
 {
   PLAY_STATE,
   EDIT_STATE
-} game_state_kind;
+} explorer_state_kind;
 
+/**
+ * There are different kinds of tiles in the map.
+ * 
+ * @field WATER_TILE   A water tile
+ * @field GRASS_TILE   A grass tile
+ * @field DIRT_TILE    A dirt tile
+ * @field SAND_TILE    A sand tile
+ */
 typedef enum
 {
   WATER_TILE,
@@ -25,11 +35,21 @@ typedef enum
   SAND_TILE
 } tile_kind;
 
+/**
+ * A tile in the map.
+ * 
+ * @field kind  The kind of tile
+ */
 typedef struct
 {
   tile_kind kind;
 } tile_data;
 
+/**
+ * A map containing a two dimensional array of tiles.
+ * 
+ * @field tiles   The tiles in the map
+ */
 typedef struct
 {
   tile_data tiles[MAX_MAP_COLS][MAX_MAP_ROWS];
@@ -39,9 +59,15 @@ typedef struct
 {
   map_data map;
   point_2d camera_position;
-  game_state_kind state;
-} game_data;
+  explorer_state_kind state;
+  tile_kind editor_tile_kind;
+} explorer_data;
 
+/**
+ * Initialise the map with all grass tiles.
+ * 
+ * @param map the map to initialise
+ */
 void init_map(map_data &map)
 {
   for(int c = 0; c < MAX_MAP_COLS; c++)
@@ -53,6 +79,11 @@ void init_map(map_data &map)
   }
 }
 
+/**
+ * Initialise the map with random tiles.
+ * 
+ * @param map the map to initialise
+ */
 void random_map(map_data &map)
 {
   for(int c = 0; c < MAX_MAP_COLS; c++)
@@ -64,14 +95,27 @@ void random_map(map_data &map)
   }
 }
 
-void init_game(game_data &game)
+/**
+ * Initialise the explorer data. Sets the camera position to 0,0 
+ * and the state to PLAY_STATE.
+ * 
+ * @param data the explorer data to initialise
+ */
+void init_explorer_data(explorer_data &data)
 {
-  game.camera_position = point_at(0, 0);
-  game.state = PLAY_STATE;
+  data.camera_position = point_at(0, 0);
+  data.state = PLAY_STATE;
+  data.editor_tile_kind = GRASS_TILE;
 
-  init_map(game.map);
+  init_map(data.map);
 }
 
+/**
+ * Returns the color for the indicated tile kind.
+ * 
+ * @param kind the tile kind to get the color for
+ * @return color the color for the tile kind
+ */
 color color_for_tile_kind(tile_kind kind)
 {
   // Return colors for each of the tile kinds
@@ -85,12 +129,24 @@ color color_for_tile_kind(tile_kind kind)
   }
 }
 
+/**
+ * Draw a tile at the indicated location.
+ * 
+ * @param tile the tile to draw, passed by constant reference
+ * @param x the x location of the top left of the tile
+ * @param y the y location of the top left of the tile
+ */
 void draw_tile(const tile_data &tile, double x, double y)
 {
   color tile_color = color_for_tile_kind(tile.kind);
   fill_rectangle(tile_color, x, y, TILE_WIDTH, TILE_HEIGHT);
 }
 
+/**
+ * Draw the tiles in the map to the screen.
+ * 
+ * @param map the map to draw
+ */
 void draw_map(const map_data &map)
 {
   for(int c = 0; c < MAX_MAP_COLS; c++)
@@ -102,76 +158,130 @@ void draw_map(const map_data &map)
   }
 }
 
-void draw_game(const game_data &game)
+/**
+ * Draw the explorer map to the screen.
+ * 
+ * @param data the explorer data with the map to draw
+ */
+void draw_explorer(const explorer_data &data)
 {
-  set_camera_position(game.camera_position);
+  set_camera_position(data.camera_position);
 
   clear_screen(color_white());
-  draw_map(game.map);
+  draw_map(data.map);
+  if(data.state == EDIT_STATE)
+  {
+    fill_rectangle(color_white(), 0, 0, TILE_WIDTH + 10, TILE_HEIGHT + 18);
+
+    fill_rectangle(color_for_tile_kind(data.editor_tile_kind), 5, 13, TILE_WIDTH, TILE_HEIGHT);
+
+    draw_text("Editor", color_black(), 0, 0, option_to_screen());
+    draw_text("Kind: " + to_string(((int)data.editor_tile_kind) + 1), color_black(), 7, 18, option_to_screen());
+  }
+  else
+  {
+    draw_text("Playing - Shift E to edit", color_black(), 0, 0, option_to_screen());
+  }
 
   refresh_screen();
 }
 
+/**
+ * Returns the next tile kind in the sequence.
+ * 
+ * @param kind 
+ * @return tile_kind 
+ */
 tile_kind next_tile_kind(tile_kind kind)
 {
   return (tile_kind)((((int)kind) + 1) % 4);
 }
 
-void handle_edit_input(game_data &game)
+/**
+ * Handle input when in edit mode.
+ * 
+ * @param data the explorer data to update
+ */
+void handle_edit_input(explorer_data &data)
 {
+  // Quit edit state
   if(key_typed(ESCAPE_KEY))
   {
-    game.state = PLAY_STATE;
+    data.state = PLAY_STATE;
   }
 
+  // Randomise map
   if(key_typed(R_KEY))
   {
-    random_map(game.map);
+    random_map(data.map);
   }
 
-  if(mouse_clicked(LEFT_BUTTON))
+  // Change a tile
+  if(mouse_down(LEFT_BUTTON))
   {
     point_2d mouse_pos = mouse_position();
-    int c = (mouse_pos.x + game.camera_position.x) / TILE_WIDTH;
-    int r = (mouse_pos.y + game.camera_position.y) / TILE_HEIGHT;
+    int c = (mouse_pos.x + data.camera_position.x) / TILE_WIDTH;
+    int r = (mouse_pos.y + data.camera_position.y) / TILE_HEIGHT;
 
     if(c >= 0 && c < MAX_MAP_COLS && r >= 0 && r < MAX_MAP_ROWS)
     {
-      game.map.tiles[c][r].kind = next_tile_kind(game.map.tiles[c][r].kind);
+      data.map.tiles[c][r].kind = data.editor_tile_kind;
     }
+  }
+
+  if (key_typed(NUM_1_KEY))
+  {
+    data.editor_tile_kind = WATER_TILE;
+  }
+  if (key_typed(NUM_2_KEY))
+  {
+    data.editor_tile_kind = GRASS_TILE;
+  }
+  if (key_typed(NUM_3_KEY))
+  {
+    data.editor_tile_kind = DIRT_TILE;
+  }
+  if (key_typed(NUM_4_KEY))
+  {
+    data.editor_tile_kind = SAND_TILE;
   }
 }
 
-void handle_input(game_data &game)
+/**
+ * Handle input, updating the explorer data.
+ * 
+ * @param data the explorer data to update
+ */
+void handle_input(explorer_data &data)
 {
   if(key_down(LEFT_SHIFT_KEY) && key_typed(E_KEY))
   {
-    game.state = EDIT_STATE;
+    data.state = EDIT_STATE;
   }
 
-  if(game.state == EDIT_STATE)
+  if(data.state == EDIT_STATE)
   {
-    handle_edit_input(game);
+    handle_edit_input(data);
   }
 
   if(key_down(LEFT_KEY))
   {
-    game.camera_position.x -= 1;
+    data.camera_position.x -= 1;
   }
 
   if(key_down(RIGHT_KEY))
   {
-    game.camera_position.x += 1;
+    data.camera_position.x += 1;
   }
 
   if(key_down(UP_KEY))
   {
-    game.camera_position.y -= 1;
+    data.camera_position.y -= 1;
   }
 
   if(key_down(DOWN_KEY))
   {
-    game.camera_position.y += 1;
+    data.camera_position.y += 1;
   }
 }
 
@@ -179,14 +289,14 @@ int main()
 {
   open_window("Map Explorer", 800, 600);
 
-  game_data game;
-  init_game(game);
+  explorer_data data;
+  init_explorer_data(data);
 
   while( ! quit_requested() )
   {
-    draw_game(game);
+    draw_explorer(data);
 
     process_events();
-    handle_input(game);
+    handle_input(data);
   }
 }
