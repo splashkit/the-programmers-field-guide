@@ -147,11 +147,20 @@ void draw_tile(const tile_data &tile, double x, double y)
  * 
  * @param map the map to draw
  */
-void draw_map(const map_data &map)
+void draw_map(const map_data &map, const point_2d &camera)
 {
-  for(int c = 0; c < MAX_MAP_COLS; c++)
+  int start_col = camera.x / TILE_WIDTH;
+  int start_row = camera.y / TILE_HEIGHT;
+
+  int end_col = (camera.x + screen_width()) / TILE_WIDTH + 1;
+  int end_row = (camera.y + screen_height()) / TILE_HEIGHT + 1;
+
+  if (start_col < 0) start_col = 0;
+  if (start_row < 0) start_row = 0;
+
+  for(int c = start_col; c < end_col && c < MAX_MAP_COLS; c++)
   {
-    for(int r = 0; r < MAX_MAP_ROWS; r++)
+    for(int r = start_row; r < end_row && r < MAX_MAP_ROWS; r++)
     {
       draw_tile(map.tiles[c][r], c * TILE_WIDTH, r * TILE_HEIGHT);
     }
@@ -168,12 +177,12 @@ void draw_explorer(const explorer_data &data)
   set_camera_position(data.camera_position);
 
   clear_screen(color_white());
-  draw_map(data.map);
+  draw_map(data.map, data.camera_position);
   if(data.state == EDIT_STATE)
   {
-    fill_rectangle(color_white(), 0, 0, TILE_WIDTH + 10, TILE_HEIGHT + 18);
+    fill_rectangle(color_white(), 0, 0, TILE_WIDTH + 10, TILE_HEIGHT + 18, option_to_screen());
 
-    fill_rectangle(color_for_tile_kind(data.editor_tile_kind), 5, 13, TILE_WIDTH, TILE_HEIGHT);
+    fill_rectangle(color_for_tile_kind(data.editor_tile_kind), 5, 13, TILE_WIDTH, TILE_HEIGHT, option_to_screen());
 
     draw_text("Editor", color_black(), 0, 0, option_to_screen());
     draw_text("Kind: " + to_string(((int)data.editor_tile_kind) + 1), color_black(), 7, 18, option_to_screen());
