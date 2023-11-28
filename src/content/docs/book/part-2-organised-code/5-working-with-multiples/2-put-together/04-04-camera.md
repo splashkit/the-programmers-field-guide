@@ -58,7 +58,13 @@ To implement the camera in the map explorer you will need to do the following:
 
 Compile and run this and then explore the map. It looks like you are moving the map around on the screen, but we know we are really just moving where things are drawn.
 
-Now try editing. We need to fix up the editor so that it takes the camera into consideration when we are clicking. To do this, we need to reverse the action performed by the camera. When we draw, the camera takes a world coordinate, subtracts the camera.x/y value to get a screen coordinate. Now we need to take a screen coordinate (the mouse location) and *add* the camera.x/y value to get the world coordinate.
+Now try editing. We need to fix up the editor so that it takes the camera into consideration when we are clicking. To do this, we need to reverse the action performed by the camera. When we draw, the camera takes a world coordinate, subtracts the camera.x/y value to get a screen coordinate. Now we need to take a screen coordinate (the mouse location) and *add* the camera.x/y value to get the world coordinate. This is shown in the following image.
+
+![Mapping mouse to screen coordinates requires you to add the camera x/y to the coordinate to determine the row/column.](./images/editor-plan-camera.png)
+
+Notice how the location of the map's origin is offset by the camera values. We need to add these back to the screen coordinates to determine where in the world the user has clicked.
+
+Go ahead and make the changes necessary to fix the editor:
 
 - Update the `handle_edit_input` to find where you have clicked in the world.
 
