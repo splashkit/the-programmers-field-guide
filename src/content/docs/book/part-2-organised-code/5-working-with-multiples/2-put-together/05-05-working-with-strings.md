@@ -2,7 +2,9 @@
 title: Working with C-Strings
 ---
 
-Knowing that strings are just character arrays with a null terminator to mark the end of the string, let's think about how a function like SplashKit's write_line might work:
+To wrap up this section, let's look at how strings works. While many of these features are likely to be handled by the language and its libraries, knowing how this works will help you understand what is happening when you perform operations with text. Many of these operations are time-consuming as you are working with arrays, so understanding their operations can help you optimise your code, thereby improving its speed and efficiency.
+
+As you will recall, strings are just character arrays with a null terminator to mark the end of the string. Using this knowledge, let's think about how a function like SplashKit's `write_line` might work. We could code something like this ourselves in a program using the following steps:
 
 * **Step 1**: We allocate a block of memory to store the string
 * **Step 2**: We assign the string literal "Hello" to the string my_string (note that string literals automatically add a null terminator)
@@ -31,6 +33,8 @@ This is how the string function operate. Notice that we have two parts to the co
 :::caution
 
 If a C function accepts a char[] and not its size, it cannot be checking if it goes past the end of the string in memory.
+
+Notice in the above code we have the two conditions in the for loop. We are checking for the null terminator, but also checking that we do not go past the array length.
 
 :::
 
