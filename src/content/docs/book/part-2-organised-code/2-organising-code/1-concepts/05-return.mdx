@@ -1,6 +1,90 @@
 ---
 title: Return
 ---
+
+
+import MySwiper from '../../../../../../components/react/myswiper.jsx'
+
+import sliderReturn01 from './images/slider-return/Slide1.png';
+import sliderReturn02 from './images/slider-return/Slide2.png';
+import sliderReturn03 from './images/slider-return/Slide3.png';
+import sliderReturn04 from './images/slider-return/Slide4.png';
+import sliderReturn05 from './images/slider-return/Slide5.png';
+import sliderReturn06 from './images/slider-return/Slide6.png';
+import sliderReturn07 from './images/slider-return/Slide7.png';
+
+export const sliderReturn = [
+  {
+    src: sliderReturn01.src,
+    altText: "The user launches the program from the command line. The program runs and starts at the main() function on line 1",
+    tipStart: 1,
+    tips: [
+      "The user launches the program from the command line",
+      "The program runs and starts at the <code>main()</code> function on line 1"
+    ]
+  },
+  {
+    src: sliderReturn02.src,
+    altText: "Line 2 contains a call to write_line(), whose parameter contains a call to test_return() function which will be evaluated first",
+    tipStart: 2,
+    tips: [
+      "Line 2 contains a call to write_line()",
+      "The parameter of <code>write_line()</code> contains a call to the <code>test_return()</code> function, which will be evaluated (run) first"
+    ]
+  },
+  {
+    src: sliderReturn03.src,
+    altText: "The first line (line 7) of test_return() contains a call to write_line() which prints 'test-return started' to the terminal",
+    tipStart: 3,
+    tips: [
+      "The first line (line 7) of <code>test_return()</code> contains a call to <code>write_line()</code> which prints '<em>test-return started</em>' to the terminal"
+    ]
+  },
+  {
+    src: sliderReturn04.src,
+    altText: "Line 8 then contains a return statement which immediately returns the integer value 3 to the caller, by-passing any other lines below it within the function",
+    tipStart: 4,
+    tips: [
+      "Line 8 then contains a return statement",
+      "It will immediately return the integer value 3 to the caller, by-passing any other lines below it within the function",
+      "Execution skips to the end of the function (line 10) before returning to the caller",
+      "This means that the <code>write_line()</code> call at line 9 will never be run"
+      
+    ]
+  },
+  {
+    src: sliderReturn05.src,
+    altText: "Line 2 then finishes executing by printing it's output to the terminal. In doing so, it utilizes the value 3 which was returned from the call to test_return()",
+    tipStart: 5,
+    tips: [
+      "Line 2 then finishes executing by printing it's output to the terminal",
+      "In doing so, it utilizes the value 3 which was returned from the call to <code>test_return()</code>"
+      
+    ]
+  },
+  {
+    src: sliderReturn06.src,
+    altText: "The main() function ends with another return statement - It returns the integer value 0 to the caller",
+    tipStart: 6,
+    tips: [
+      "The <code>main()</code> function ends with another return statement",
+      "It returns the integer value 0 to the caller",
+      "<strong>NOTE:</strong> The return value 0 is generally used to indicate success to the caller (in this case the bash shell)"
+    ]
+  },
+  {
+    src: sliderReturn07.src,
+    altText: "The caller receives the return value, and the program ends. Here, the shell did not use the value 0 that was returned, but sometimes if you are launching your program from a bash script, you can test the return value and print a message to the screen indicating error or success",
+    tipStart: 7,
+    tips: [
+      "The caller receives the return value, and the program ends",
+      "Here, the shell did not use the value 0 that was returned, but sometimes if you are launching your program from a bash script, you can test the return value and print a message to the screen indicating error or success"
+      
+    ]
+  }
+];
+
+
 The return statement is a kind of [jump statement](../../../../part-1-instructions/3-control-flow/1-concepts/05-0-jumping). It ends the current [function](../04-function-decl) or [procedure](../01-procedures). This is useful for skipping the rest of the processing of the function or procedure, exiting it early and returning to the calling code. In a function, you also use the return statement to provide the value that is sent to the caller.
 
 <a id="FigureExit"></a>
@@ -72,4 +156,4 @@ int main() {
 
 For other examples, have a look back at the [functions page](../04-function-decl). The `square` function uses the return statement to return the squared value, while the `point_in_circle` returns the value from the comparison as this indicates if the point is within the circle.
 
-**TODO: add slider**
+<MySwiper client:only height="" images={sliderReturn}></MySwiper>
