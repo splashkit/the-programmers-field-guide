@@ -437,6 +437,7 @@ aside[aria-label="How does this work?"] ul {
   font-size: 1.3rem;
   font-family: "Gaegu";
   line-height: 1.3rem;
+  margin-top: 4px;
 }
 
 aside[aria-label="How does this work?"] ul > li::before {
@@ -462,7 +463,7 @@ aside[aria-label="How does this work?"] ul > li ul li::before {
   height: 12px;
   width: 12px;
   background-size: 12px;
-  background-image: url("/src/content/docs/book/images-common/ol-bullet-2-open-yellow-light-2.png");
+  background-image: url("/src/content/docs/book/images-common/dash-blue-thick-v1.png");
   background-repeat: no-repeat;
   margin-right: 6px;
   background-position: center center;
