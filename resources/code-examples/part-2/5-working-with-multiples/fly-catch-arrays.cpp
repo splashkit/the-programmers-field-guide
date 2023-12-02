@@ -278,4 +278,6 @@ int main()
     // Get any new user interactions
     process_events();
   }
+
+  return 0;
 }
