@@ -6,6 +6,12 @@ Previous chapters have introduced a number programming building blocks you can c
 
 When you have understood the material in this chapter you will be able to work with multiple values, allowing your programs to work with and manage many data values.
 
+:::tip
+
+This is another big chapter. Unlocking these ideas will open up a world of new possibilities. It will require some time and effort to really understand, as this brings together many things we have already been working on. Keep working at it, and you will see how easy it can be to manage multiple values.
+
+:::
+
 ## Concepts related to managing multiple values
 
 Data is an important part of any program. Earlier chapters have shown how to store and work with data. These chapters covered both the [types](../../../part-1-instructions/1-sequence-and-data/1-concepts/06-type) of data you can work with, and means of storing and exchanging data using [variables](../../../part-1-instructions/1-sequence-and-data/1-concepts/07-variable). So far, each variable has stored a single value, making it difficult to work with multiple values. This chapter introduces the concepts needed start working more effectively with multiple values.

@@ -1,7 +1,7 @@
 ---
 title: Map explorer with map drawn
 sidebar:
-  label: " - map drawn"
+  label: " - Map drawn"
 ---
 
 The first iteration of the map explorer had us put in place the data types and create the code to draw the map to the screen. Make sure to have a go at this yourself first, and only use this to help you if you get stuck.

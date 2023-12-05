@@ -481,6 +481,15 @@ export default defineConfig({
                   label: "Activities",
                   link: "book/part-2-organised-code/5-working-with-multiples/4-activities",
                 },
+                {
+                  label: "Wrap Up",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/5-working-with-multiples/5-wrap-up",
+                    collapsed: true,
+                  },
+                },
               ],
             },
             {

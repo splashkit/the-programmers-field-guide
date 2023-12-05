@@ -16,14 +16,23 @@ As with most design work, each new action is likely to be coded in a new functio
 
 When you do this, you want to think of any cases where things may go wrong. Now, there are a couple that I can think of. Firstly, we need to make sure that we have not already run out of space in the array. We can only add new data if there is space for that data. We can guard against this with a simple if statement at the start of the `add data` code. If there is no space, then we can output an error message and return.
 
-In add data, we can then use the current size to determine where to store the data in the array. We can use the `data.count` value as the index, as the count is one larger than the current highest index. The code would appear like this:
+In add data, we can then use the current size to determine where to store the data in the array. We can use the `data.count` value as the index, as the count is one larger than the current highest index.
+
+With this we also need to check if there is space, outputting an error message if the array is already full. The code would appear like this:
 
 ```cpp
 void add_data(number_data &data)
-{
-  //...
-  data[data.count] = read_double("Enter new value: ");
-  data.count++;
+{    
+  if (data.count < MAX_NUMBERS)
+  {
+    double value = read_double("Enter a value to add: ");
+    data.values[data.count] = value;
+    data.count++;
+  }
+  else
+  {
+    printf("Sorry, you can only enter %d values.\n", MAX_NUMBERS);
+  }
 }
 ```
 

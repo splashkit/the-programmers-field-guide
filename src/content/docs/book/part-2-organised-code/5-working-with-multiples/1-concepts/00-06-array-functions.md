@@ -32,7 +32,7 @@ void populate(double data[], int size)
 
   for(int i = 0; i < size; i++)
   {
-    scanf("%lf", data[i]);
+    scanf("%lf", &data[i]);
   }
 }
 

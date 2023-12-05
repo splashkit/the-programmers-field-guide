@@ -34,7 +34,7 @@ const int MAX_NUMBER_DATA_VALUES = 100;
 
 typedef struct
 {
-  double value[MAX_NUMBER_DATA_VALUES];
+  double values[MAX_NUMBER_DATA_VALUES];
   int num_values;
 } number_data;
 
@@ -45,7 +45,7 @@ void populate(double data[], int size)
 
   for(int i = 0; i < size; i++)
   {
-    scanf("%lf", data[i]);
+    scanf("%lf", &data[i]);
   }
 }
 
@@ -66,7 +66,7 @@ number_data get_numbers(int count)
   }
   
   result.num_values = count;
-  populate(result.value, count);
+  populate(result.values, count);
   
   return result;
 }
@@ -75,7 +75,7 @@ void print(const number_data &data)
 {
   for (int i = 0; i < data.num_values; i++ )
   {
-    printf("%lf\n", data[i]);
+    printf("%lf\n", data.values[i]);
   }
 }
 
@@ -94,6 +94,6 @@ int main()
   print(db);
 
   // Print all values we have space for
-  print(db.value, MAX_NUMBER_DATA_VALUES);
+  print(db.values, MAX_NUMBER_DATA_VALUES);
 }
 ```
