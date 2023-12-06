@@ -13,7 +13,7 @@ To do this, we are going to need to change language. The C# language is designed
 This part will explore the following areas:
 
 - [Starting C/C++](../1-starting-cpp/0-overview) will get you going with the C/C++ language. This will help you see similar the syntax you learn can be between languages. The main focus will be on using the language tools to build and run programs.
-- [Organising Code](../2-organising-code/0-overview) looks at how we can create our own method like building blocks within our code. These will help us break down problems so that we mostly deal with only a few lines within any one part of the code.
+- [Structuring Code](../2-organising-code/0-overview) looks at how we can create our own method like building blocks within our code. These will help us break down problems so that we mostly deal with only a few lines within any one part of the code.
 - [Structuring Data](../3-structuring-data/0-overview) then looks at how you can structure the data within your code. This will really help you start to bring the digital reality into your code, with the ability to create and work with your own data types.
 - [Indirect Access](../4-indirect-access/0-overview) will give you some tools to help access data in more than one way. Allowing you to more efficiently access information throughout your program, and bringing in a whole range of new possibilities.
 - [Working with Multiples](../5-working-with-multiples/0-overview) will help reveal how to move beyond the singular variable values we have been working with so far to start to access multiple values without needing lots of code.

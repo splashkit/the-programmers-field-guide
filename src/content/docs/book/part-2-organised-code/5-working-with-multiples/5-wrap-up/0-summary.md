@@ -1,5 +1,5 @@
 ---
-title: Wrap Up
+title: Summary
 ---
 
 This chapter introduced a number of concepts related to working with multiple values in code. Central to this has been the array, and the use of expressions to access elements within that array.

@@ -300,7 +300,7 @@ So, let's explore the concept of **objects** next.
 
 :::note[Summary]
 
-* Classes are a tool for organising code into entities that contain data and methods.
+* Classes are a tool for strurturing code into entities that contain data and methods.
 * Each class definition is a blueprint that describes an entity in terms of what it **knows** (data) and what it can **do** (methods).
 * A class defines a **custom data type** we can use in our programs when building digital realities.
 * Classes have a **name**, and contain zero or more **members**.

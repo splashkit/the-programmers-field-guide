@@ -322,7 +322,7 @@ export default defineConfig({
               ],
             },
             {
-              label: "2. Organising Code",
+              label: "2. Structuring Code",
               collapsed: true,
               items: [
                 {
