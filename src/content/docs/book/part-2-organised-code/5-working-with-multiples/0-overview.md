@@ -33,7 +33,6 @@ You may need to revise the following building blocks:
 - [Local Variable](../../2-organising-code/1-concepts/03-local-variable): Storing data in a function or procedure.
 - [Parameter](../../2-organising-code/1-concepts/04-parameter): Passing data to a function or procedure.
 
-
 We will use a simple statistics calculator as an example in this chapter. Using this calculator, the user will be able to enter a number of values, and the program calculates some statistics. An example of this program executing is shown in [Listing x.y](#ListingStatsCalculatorTerminalRun)
 
 

@@ -10,13 +10,19 @@ Using these tools you will be able to go beyond the limitations of the stack, wi
 
 ## Concepts related to memory management
 
-The chapter introduces the following building blocks:
+This chapter introduces these new ideas:
 
-- Heap
-- Using pointers to access the heap
+- The [heap](../1-concepts/01-heap) is an area in memory that the operating system reserves for dynamic memory allocation.
 
-You 
+To access this you may need to revise:
 
-- Allocate memory
-- Free memory
-- 
+- Review how memory is allocated on the [stack](../../2-organising-code/1-concepts/01-1-the-stack).
+- [Pointers](../../4-indirect-access/1-concepts/02-00-pointer) to allow you to indirectly access things values in memory.
+- [Arrays](../../5-working-with-multiples/1-concepts/00-00-array) so that you can store and work with multiple values with ease.
+
+We will see the instructions needed to:
+
+- [Allocate memory](../1-concepts/03-allocating-memory) for our program to use.
+- [Free memory](../1-concepts/04-freeing-memory) to return memory you have been allocated when you have finished with it.
+
+We will also explore revisit the issues around the use of pointers, and explore the new problems that arise from being responsible for memory allocation.
