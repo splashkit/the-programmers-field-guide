@@ -9,12 +9,6 @@ Dynamic memory allocation requires that you manage the memory you are allocated 
 ![Figure x.y: You can ask to be allocated enough space to store one value](./images/pointer-freeing.png "You can ask to be allocated enough space to store one value")
 <div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>You can ask to be allocated enough space to store one value</div><br/>
 
-:::note[C#]
-
-The `free` function releases the memory allocated to a pointer. To free the memory allocated to `p` as shown in [Figure x.y](#FigurePointerFreeing) you would use: `free(p); p = NULL;` This will both free the memory allocation and set `p` to point to nothing so that you cannot accidentally access it later.
-
-:::
-
 ## Free - Why, When, and How
 
 If you have allocated memory using `malloc`, `calloc`, or `realloc`... you need to free it. One pattern is to allocate, use, and then free memory within the same function or procedure. That way you can ensure that things get cleaned up.
