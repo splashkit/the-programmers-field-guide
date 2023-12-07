@@ -17,22 +17,22 @@ import whileLoopSlide09 from './images/control-flow-statements-in-depth/control-
 import whileLoopSlide10 from './images/control-flow-statements-in-depth/control-flow-while-loop-10.png';
 import whileLoopSlide11 from './images/control-flow-statements-in-depth/control-flow-while-loop-11.png';
 
-import whileLoopSplashkitImg01 from './images/slider-while-splashkit/slider-while-splashkit-01.png';
-import whileLoopSplashkitImg02 from './images/slider-while-splashkit/slider-while-splashkit-02.png';
-import whileLoopSplashkitImg03 from './images/slider-while-splashkit/slider-while-splashkit-03.png';
-import whileLoopSplashkitImg04 from './images/slider-while-splashkit/slider-while-splashkit-04.png';
-import whileLoopSplashkitImg05 from './images/slider-while-splashkit/slider-while-splashkit-05.png';
-import whileLoopSplashkitImg06 from './images/slider-while-splashkit/slider-while-splashkit-06.png';
-import whileLoopSplashkitImg07 from './images/slider-while-splashkit/slider-while-splashkit-07.png';
-import whileLoopSplashkitImg08 from './images/slider-while-splashkit/slider-while-splashkit-08.png';
-import whileLoopSplashkitImg09 from './images/slider-while-splashkit/slider-while-splashkit-09.png';
-import whileLoopSplashkitImg10 from './images/slider-while-splashkit/slider-while-splashkit-10.png';
-import whileLoopSplashkitImg11 from './images/slider-while-splashkit/slider-while-splashkit-11.png';
-import whileLoopSplashkitImg12 from './images/slider-while-splashkit/slider-while-splashkit-12.png';
-import whileLoopSplashkitImg13 from './images/slider-while-splashkit/slider-while-splashkit-13.png';
-import whileLoopSplashkitImg14 from './images/slider-while-splashkit/slider-while-splashkit-14.png';
-import whileLoopSplashkitImg15 from './images/slider-while-splashkit/slider-while-splashkit-15.png';
-import whileLoopSplashkitImg16 from './images/slider-while-splashkit/slider-while-splashkit-16.png';
+import whileLoopSplashkitImg01 from './images/slider-while-splashkit/Slide1.png';
+import whileLoopSplashkitImg02 from './images/slider-while-splashkit/Slide2.png';
+import whileLoopSplashkitImg03 from './images/slider-while-splashkit/Slide3.png';
+import whileLoopSplashkitImg04 from './images/slider-while-splashkit/Slide4.png';
+import whileLoopSplashkitImg05 from './images/slider-while-splashkit/Slide5.png';
+import whileLoopSplashkitImg06 from './images/slider-while-splashkit/Slide6.png';
+import whileLoopSplashkitImg07 from './images/slider-while-splashkit/Slide7.png';
+import whileLoopSplashkitImg08 from './images/slider-while-splashkit/Slide8.png';
+import whileLoopSplashkitImg09 from './images/slider-while-splashkit/Slide9.png';
+import whileLoopSplashkitImg10 from './images/slider-while-splashkit/Slide10.png';
+import whileLoopSplashkitImg11 from './images/slider-while-splashkit/Slide11.png';
+import whileLoopSplashkitImg12 from './images/slider-while-splashkit/Slide12.png';
+import whileLoopSplashkitImg13 from './images/slider-while-splashkit/Slide13.png';
+import whileLoopSplashkitImg14 from './images/slider-while-splashkit/Slide14.png';
+import whileLoopSplashkitImg15 from './images/slider-while-splashkit/Slide15.png';
+import whileLoopSplashkitImg16 from './images/slider-while-splashkit/Slide16.png';
 
 export const sliderImagesWhileLoop = [
   {
@@ -247,11 +247,12 @@ export const sliderImagesWhileSplashKitLoop = [
   },
   {
     src: whileLoopSplashkitImg12.src,
-    altText: "Let's skip ahead to the 10th iteration of the loop, line 6 will update the window object in memory with the tenth circle",
+    altText: "Let's skip ahead to the 10th iteration of the loop, line 6 will update the window object in memory with the tenth circle. At this point, the user also decides to click the 'Close Window' (quit) button on the window to close it",
     tipStart: 12,
     tips: [
       "Let's skip ahead to the 10th iteration of the loop",
-      "Line 6 will update the window object in memory with the tenth circle"
+      "Line 6 will update the window object in memory with the tenth circle",
+      "At this point, the user also decides to click the 'Close Window' (quit) button on the window to close it<ul><li>This event is added to the event queue which will be processed later</li></ul>"
     ]
   },
   {
@@ -264,19 +265,18 @@ export const sliderImagesWhileSplashKitLoop = [
   },
   {
     src: whileLoopSplashkitImg14.src,
-    altText: "Now, in between the last call to ProcessEvents() and this one, we find that the user has clicked the quit button",
+    altText: "Now, the 'Close Window' event that was triggered previously, will be processed by the call to ProcessEvents(), which makes it available to our program",
     tipStart: 14,
     tips: [
-      "Now, in between the last call to <code>ProcessEvents()</code> and this one, we find that the user has clicked the quit button",
-      "The quit event is processed and available to the program"
+      "Now, the 'Close Window' (quit) event that was triggered previously, will be processed by the call to <code>ProcessEvents()</code>, which makes it available to our program"
     ]
   },
   {
     src: whileLoopSplashkitImg15.src,
-    altText: "Now when the while condition is evaluated, it will return false because the user has requested a quit. Execution moves to the end of the while loop",
+    altText: "This means that when the while condition is evaluated, it will return false because the user has requested a quit. Execution moves to the end of the while loop",
     tipStart: 15,
     tips: [
-      "Now when the while condition is evaluated, it will return false because the user has requested a quit",
+      "This means that when the while condition is evaluated, it will return <span class='booleanFalse'>false</span> because the user has requested a quit",
       "Execution moves to the end of the while loop"
     ]
   },
