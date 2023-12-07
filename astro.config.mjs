@@ -87,7 +87,11 @@ export default defineConfig({
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-0-getting-started/2-computer-use/2-put-together",
+                  collapsed: true,
+                  autogenerate: {
+                    directory: "book/part-0-getting-started/2-computer-use/2-put-together",
+                    collapsed: true,
+                  },
                 },
                 {
                   label: "Activities",
