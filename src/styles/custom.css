@@ -507,6 +507,14 @@ aside[aria-label="How does this work?"] ul > li ul li ul li::before {
 /* --- END:   Fluid Videos ------*/
 
 
+.textImageIconInline {
+  width: 20px; 
+  height: 20px; 
+  display: inline; 
+  vertical-align: top; 
+  margin-bottom: 0;
+}
+
 .linkPoint {
   display: block;
   clear: both;

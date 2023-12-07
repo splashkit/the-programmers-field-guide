@@ -6,6 +6,9 @@ sidebar:
 
 import MySwiper from '../../../../../../components/react/myswiper.jsx'
 
+import redLight from   '/src/content/docs/book/part-2-organised-code/4-indirect-access/1-concepts/images/slider-scope-dangling-pointer/memory-icon-unallocated-red-light.png';
+import greenLight from '/src/content/docs/book/part-2-organised-code/4-indirect-access/1-concepts/images/slider-scope-dangling-pointer/memory-icon-allocated-green-light.png';
+
 import sliderDanglingPointer01 from './images/slider-scope-dangling-pointer/Slide1.png';
 import sliderDanglingPointer02 from './images/slider-scope-dangling-pointer/Slide2.png';
 import sliderDanglingPointer03 from './images/slider-scope-dangling-pointer/Slide3.png';
@@ -24,123 +27,130 @@ import sliderDanglingPointer14 from './images/slider-scope-dangling-pointer/Slid
 export const sliderDanglingPointer = [
   {
     src: sliderDanglingPointer01.src,
-    altText: "The program begins at main, and line 4 declares a pointer variable p which is created on the stack, and which will eventually be assigned the return value from a call to the get_pointer() function",
+    altText: "The program begins at main, and lines 4 and 5 declare two variables p and other which are created on the stack. Note that variables of type long and long* are capable of storing memory addresses, though only p is declared as a pointer variable here.",
     tipStart: 1,
     tips: [
-      "The program begins at main, and line 4 declares a pointer variable <strong>p</strong> which is created on the stack (4a), and which will eventually be assigned the return value from a call to the <strong>get_pointer()</strong> function"
+      "The program begins at main, and lines 4 and 5 declare two variables <strong>p</strong> and <strong>other</strong> which are created on the stack", 
+      "Note that variables of type <strong>long</strong> and <strong>long*</strong> are capable of storing memory addresses, though only <strong>p</strong> is declared as a pointer variable here"
     ]
   },
   {
     src: sliderDanglingPointer02.src,
-    altText: "At step 4b, the get_pointer() function is called",
+    altText: "At step 6a, the get_pointer() function is called",
     tipStart: 2,
     tips: [
-      "At step 4b, the <strong>get_pointer()</strong> function is called"
+      "At step 6a, the <strong>get_pointer()</strong> function is called"
     ]
   },
   {
     src: sliderDanglingPointer03.src,
-    altText: "When the get_pointer() function runs, line 10 declares the <strong>value<strong> variable, which is created on the stack and initialized with the value 10",
+    altText: "When the get_pointer() function runs, line 13 declares the value variable of type long, which is created on the stack and initialized with the value 10. Line 14 then declares the result variable of type long*, which is a pointer variable. result is initialized to contain the memory address of the value variable, and hence becomes a pointer to value",
     tipStart: 3,
     tips: [
-      "When the <strong>get_pointer()</strong> function runs, line 10 declares the <strong>value</strong> variable, which is created on the stack and initialized with the value 10"
+      "When the <strong>get_pointer()</strong> function runs, line 13 declares the variable <strong>value</strong> of type <strong>long</strong>, which is created on the stack and initialized with the value 10",
+      "Line 14 then declares the variable <strong>result</strong> of type <strong>long*</strong>(i.e a pointer variable)",
+      "<strong>result</strong> is initialized to contain the memory address of the <strong>value</strong> variable, and hence becomes a pointer to <strong>value</strong>"
     ]
   },
   {
     src: sliderDanglingPointer04.src,
-    altText: "Line 11 then declares another pointer variable result, which is created on the stack and assigned the address of the value variable",
+    altText: "Lines 15 and 16 print out the memory addresses of the value and result variables as strings to the terminal. This is indicated by the '&' prefixing the variable names in the print statements",
     tipStart: 4,
     tips: [
-      "Line 11 then declares another pointer variable <strong>result</strong>, which is created on the stack and assigned the <em>address</em> of the <strong>value</strong> variable",
-      "<strong>result</strong> is therefore a pointer to <strong>value</strong>"
+      "Lines 15 and 16 print out the <em>memory addresses</em> of the <strong>value</strong> and <strong>result</strong> variables as strings to the terminal",
+      "This is indicated by the '<strong>&</strong>' prefixing the variable names in the print statements"
     ]
   },
   {
     src: sliderDanglingPointer05.src,
-    altText: "Line 12 returns the value of result (which is an address that points to value) to the caller in main()",
+    altText: "Line 17 returns the value of result (which is an address that points to value) to the caller in main()",
     tipStart: 5,
     tips: [
-      "Line 12 returns the value of <strong>result</strong> (which is an address that points to <strong>value</strong>) to the caller in main()"
+      "Line 17 returns the value of <strong>result</strong> (which is an address that points to <strong>value</strong>) to the caller in main()"
     ]
   },
   {
     src: sliderDanglingPointer06.src,
-    altText: "When the call to get_pointer() returns, the return value from the function is assigned to the variable p<, which then becomes a pointer to the memory area on the stack that points to variable value that was scoped within the function (step 4a)",
+    altText: "When the call to get_pointer() returns, the return value from the function ('result') is copied to the variable p<, which then becomes a pointer to the memory area on the stack that points to variable value that was scoped within the function (step 6b)",
     tipStart: 6,
     tips: [
-      "When the call to <strong>get_pointer()</strong> returns, the return value from the function is assigned to the variable <strong>p</strong>",
-      "<strong>p</strong> then becomes a pointer to the memory area on the stack that points to variable <strong>value</strong> that was scoped within the function (step 4c)"
+      "When the call to <strong>get_pointer()</strong> returns, the return value from the function ('<strong>result</strong>') is copied to the variable <strong>p</strong>",
+      "<strong>p</strong> then becomes a pointer to the memory area on the stack that points to variable <strong>value</strong> that was scoped within the function (step 6b)"
     ]
   },
   {
     src: sliderDanglingPointer07.src,
-    altText: "Step 4d shows that once the function has returned and it's return value assigned to p, the function memory space is freed and available for other code to use. It so happens that data is left in place in these memory areas however, even though that data is no longer relevant with respect to the running program. In this case the pointer variable p has been left pointing to an area of memory that is not in use, but happens to contain the value '10'. We call this a dangling pointer",
+    altText: "Step 6c shows that once the function has returned and it's return value assigned to p, the function memory space on the stack is freed and available for other code to use. It so happens that data is left in place in these memory areas however (even though this data is no longer relevant with respect to the running program). In this case the pointer variable p has been left pointing to an area of memory that is not in use, but happens to contain the value '10'. We call this a dangling pointer",
     tipStart: 7,
     tips: [
-      "Step 4d shows that once the function has returned and it's return value assigned to <strong>p</strong>, the function memory space on the stack is freed and available for other code to use",
-      "It so happens that data is left in place in these memory areas however, even though that data is no longer relevant with respect to the running program",
-      "In this case the pointer variable <strong>p</strong> has been left pointing to an area of memory that is not in use, but happens to contain the value <strong>'10'</strong>",
+      "Step 6c shows that once the function has returned and it's return value assigned to <strong>p</strong>, the function memory space on the stack is freed and available for other code to use",
+      "It so happens that data is left in place in these memory areas however (even though this data is no longer relevant with respect to the running program)",
+      "In this case the pointer variable <strong>p</strong> has been left pointing to an area of memory that is not in use, but happens to contain the value '10'",
       "We call this a <strong>dangling pointer</strong>"
     ]
   },
   {
     src: sliderDanglingPointer08.src,
-    altText: "Line 5 (step 5a) declares another variable other on the memory stack",
+    altText: "Line 7 prints the value of p which contains an address that points to the unallocated memory region left behind by the get_pointer() function that was called previously. Note that this time no '&' is required as a prefix to p in the print statement, since p already contains a memory address as it's value",
     tipStart: 8,
     tips: [
-      "Line 5 (step 5a) declares another variable <strong>other</strong> on the memory stack"
+      "Line 7 prints the value of <strong>p</strong> which contains an address that points to the unallocated memory region left behind by the <strong>get_pointer()</strong> function that was called previously",
+      "Note that this time no '<strong>&</strong>' is required as a prefix to <strong>p</strong> in the print statement, since <strong>p</strong> already contains a memory address as it's value" 
     ]
   },
   {
     src: sliderDanglingPointer09.src,
-    altText: "Then at step 5b, Line 5 calls another function get_value() whose return value will initialize the variable once it returns",
+    altText: "At line 8, step 8a calls another function get_value()",
     tipStart: 9,
     tips: [
-      "Then at step 5b, line 5 calls another function <strong>get_value()</strong> whose return value will initialize the variable once it returns"
+      "At line 8, step 8a calls another function <strong>get_value()</strong>"
     ]
   },
   {
     src: sliderDanglingPointer10.src,
-    altText: "The get_value() function runs, and line 16, declares a local variable called result on the stack, initializing it with the value 20. Here is the fun part: This variable could have been allocated space anywhere on the stack, but here you will notice that it happens to have been allocated in the same memory space where value variable was in our previous call to get_pointer(). Therefore it overrides the stale data 10 with a new value of 20",
+    altText: "The get_value() function runs, and lines 21 and 22, declare two local variables called result and other (of type long) on the stack, initializing them with values 20 and 30 respectively. Because the stack is a physical space, and acts like it's name suggests, it has allocated space for these two variables at the next free appropriate memory addresses available in the stack space. In this case since they are both of type long, they are allocated in the same physical memory space where the variables value and result existed from our previous call to get_pointer(), since this space was no longer being used. Hence they both override the stale data that was previously stored there, with their new values",
     tipStart: 10,
     tips: [
-      "The <strong>get_value()</strong> function runs, and line 16, declares a local variable called <strong>result</strong> on the stack, initializing it with the value 20",
-      "Here is the fun part:<ul><li>This variable could have been allocated space anywhere on the stack, but here you will notice that it happens to have been allocated in the <em>same</em> memory space where <strong>value</strong> variable was in our previous call to <strong>get_pointer()</strong></li><li>Therefore it overrides the <em>stale data</em> <strong>10</strong> with a new value of <strong>20</strong></li></ul>"
+      "The <strong>get_value()</strong> function runs, and lines 21 and 22, declare two local variables called <strong>result</strong> and <strong>other</strong> (of type <strong>long</strong>) on the stack, initializing them with values 20 and 30 respectively",
+      "Because the stack is a physical space, and acts like it's name suggests, it has allocated space for these two variables at the next free appropriate memory addresses available in the stack space",
+      "In this case since they are both of type <strong>long</strong>, they are allocated in the <em>same</em> physical memory space where the variables <strong>value</strong> and <strong>result</strong> existed from our previous call to <strong>get_pointer()</strong>, since this space was no longer being used",
+      "Hence they both override the <em>stale data</em> that was previously stored there, with their new values",
     ]
   },
   {
     src: sliderDanglingPointer11.src,
-    altText: "At line 17, the get_value() finishes and returns the value of result (20) to the caller in main()",
+    altText: "Lines 23 and 24 print out the memory addresses of the result and other variables as strings to the terminal",
     tipStart: 11,
     tips: [
-      "At line 17, the <strong>get_value()</strong> finishes and returns the value of <strong>result</strong> (20) to the caller in <strong>main()</strong>"
+      "Lines 23 and 24 print out the memory addresses of the <strong>result</strong> and <strong>other</strong> variables as strings to the terminal"
     ]
   },
   {
     src: sliderDanglingPointer12.src,
-    altText: "At step 5c, the return value from the get_value() function is assigned to the variable other",
+    altText: "Line 25 returns the value of the calculation result + other to the caller in main()",
     tipStart: 12,
     tips: [
-      "At step 5c, the return value from the <strong>get_value()</strong> function is assigned to the variable <strong>other</strong>"
+      "Line 25 returns the value of the calculation <strong>result + other</strong> to the caller in main()"
     ]
   },
   {
     src: sliderDanglingPointer13.src,
-    altText: "Step 5d shows that once the get_value() function has returned and it's return value assigned to other, the function memory space on the stack is freed and available for other code to use. Once again, it so happens that data is left in place in these memory areas however, even though that data is no longer relevant with respect to the running program. In this case the pointer variable p has been left pointing to an area of memory that is not in use, but happens to contain the value '20'",
+    altText: "At step 8b, the get_value() function has returned and it's return value assigned to other, then at step 8c the function memory space on the stack is freed and available for other code to use. Once again, it so happens that data is left in place in these unallocated memory areas however, even though this data is no longer relevant with respect to the running program. In this case the pointer variable p has been left pointing to an area of memory that is not in use, but happens to contain the value '20'",
     tipStart: 13,
     tips: [
-      "Step 5d shows that once the <strong>get_value()</strong> function has returned and it's return value assigned to <strong>other</strong>, the function memory space on the stack is freed and available for other code to use",
-      "Once again, it so happens that data is left in place in these memory areas however, even though that data is no longer relevant with respect to the running program",
+      "At step 8b, the <strong>get_value()</strong> function has returned and it's return value assigned to <strong>other</strong>", 
+      "Then at step 8c the function memory space on the stack is freed and available for other code to use",
+      "Once again, it so happens that data is left in place in these unallocated memory areas however, even though this data is no longer relevant with respect to the running program",
       "In this case the pointer variable <strong>p</strong> has been left pointing to an area of memory that is not in use, but happens to contain the value <strong>'20'</strong>",
     ]
   },
   {
     src: sliderDanglingPointer14.src,
-    altText: "Finally at line 6, the program prints the dereferenced value of p which will contain the value '20' from the stale area of memory to which the dangling pointer p is pointing. NOTE: It is important to note that this value may have been different depending on how the computer happened to allocate memory during it's run. It might have printed '10', if the call to get_value() hadn't have used this memory for it's own result variable. Or it simply might have written some other random data if we were unlucky enough for some other process to have used that space in between our program using it, and hitting the last print statement",
+    altText: "Finally at line 9, the program prints the dereferenced value of p which will contain the value '20' from the stale area of memory to which the dangling pointer p is pointing. The program counter increments to line 10, and the program ends",
     tipStart: 14,
     tips: [
-      "Finally at line 6, the program prints the dereferenced value of <strong>p</strong> which will contain the value '20' from the stale area of memory to which the dangling pointer <strong>p</strong> is pointing",
-      "<strong>NOTE:</strong> It is important to note that this value may have been different depending on how the computer happened to allocate memory during it's run<ul><li>It might have printed '10', if the call to <strong>get_value()</strong> hadn't have used this memory for it's own <strong>result</strong> variable</li><li>Or it simply might have written some other random data if we were unlucky enough for some other process to have used that space in between our program using it, and hitting the last print statement</li></ul>"
+      "Finally at line 9, the program prints the dereferenced value of <strong>p</strong> which will contain the value '20' from the stale area of memory to which the dangling pointer <strong>p</strong> is pointing",
+      "The program counter increments to line 10, and the program ends"
     ]
   }
 ];
