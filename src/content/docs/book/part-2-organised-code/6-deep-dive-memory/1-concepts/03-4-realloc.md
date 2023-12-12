@@ -32,9 +32,9 @@ This seems simple, but needs some thought. If you increase the size of your allo
 
 Like `malloc` and `calloc`, `realloc` allows you to allocate space from the heap. Using `realloc` you can change (*reallocate*) space on the heap, by passing in the existing pointer and the new size.
 
-|**Function** | **Required Arguments** | **Returns** | **Description** |
-|-----------|------------------------|-------|---------|
-| `realloc` | the pointer to reallocate, and the new `size` in bytes. | a pointer (`void *`) to the new address | Changes the memory allocation and returns a pointer to it. |
+|**Function** | **Arguments** | **Returns** | **Description** |
+|-------------|--------------|-------|---------|
+| `realloc`   | the pointer to reallocate, and new `size` in bytes. | a pointer (`void *`) to the new address | Changes the memory allocation and returns a pointer to it. |
 
 As with the other memory allocation functions, you need to import the *stdlib.h* header file. The realloc function has the following prototype:
 
@@ -48,7 +48,7 @@ To use this safely you need to think about how it works:
 - If needed to move the allocation, it will do and returns the new address of the data.
 - When you are out of memory, or it cannot find a new place to store the data, it will return `nullptr` / `NULL`.
 
-To handle all three of these cases you need to make sure you do not update the original pointer value until you have checked if the realloc worked. If you get back NULL, then you need to have kept the original pointer so that you can get back to the space on the heap.
+To handle all three of these cases you need to make sure you do not update the original pointer value until you have checked if the realloc worked. If you get back NULL, then you need to have kept the original pointer so that you can get back to the space on the heap, and potentially free it as you are out of space in memory.
 
 ## Example
 
@@ -102,4 +102,10 @@ To make this work in reality we would need to put this in a struct where we also
 
 ## Reallocating multidimensional arrays
 
-If you need to change the allocation of a multidimensional array, you may need to reallocate space 
+If you need to change the allocation of a multidimensional array, the implications will depend on how this is implemented. If you have a [ragged array](../03-3-ragged-array), then you can reallocate each of the points, giving you the ability to resize different parts of the array as you go. With a rectangular array, you can resize associated memory and then move values from their old positions to their new positions. When you do this, you need to make sure you do this from the end of the old array back to the start.
+
+:::note
+
+Resizing multidimensional arrays isn't something you need to do in many projects. It is good to think about, but not something you will often encounter.
+
+:::
