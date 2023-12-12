@@ -94,7 +94,7 @@ int main()
 
 <!-- TODO: add slider -->
 
-### Allocate space with calloc
+### Allocate memory with calloc
 
 Like `malloc`, `calloc` is used to allocate space on the heap. The difference between `calloc` and `malloc` is that `calloc` clears the memory allocation. This will ensure that each byte in the space allocated is set to 0. Whereas, with `malloc` any previous values that happen to have been in memory will remain there giving the value a seemingly random value.
 

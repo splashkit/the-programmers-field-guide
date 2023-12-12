@@ -31,30 +31,33 @@ The following example demonstrates how to allocate space for an array of 4 eleme
 #include <stdlib.h>
 #include <stdio.h>
 
+// Define the size we will use for this array
+const int ARR_SIZE = 4;
+
 int main()
 {
     int *p;
 
-    // get space for one integer from the heap
-    p = (int *)malloc(4 * sizeof(int));
+    // get space for four integers on the heap
+    p = (int *)malloc(ARR_SIZE * sizeof(int));
 
     // or with calloc using:
-    // p = (int *)calloc(4, sizeof(int));
+    // p = (int *)calloc(ARR_SIZE, sizeof(int));
 
     // Access the data from the heap...
-    for(int i = 0; i < 4; i++)
+    for(int i = 0; i < ARR_SIZE; i++)
     {
         printf("The value on the heap is %d.\n", p[i]);
     }
     
-    // Assign the value 10 to the space on the heap
-    for(int i = 0; i < 4; i++)
+    // Assign the value 10 x i to each element on the heap
+    for(int i = 0; i < ARR_SIZE; i++)
     {
         p[i] = 10 * i;
     }
 
     // Access the data from the heap
-    for(int i = 0; i < 4; i++)
+    for(int i = 0; i < ARR_SIZE; i++)
     {
         printf("The value on the heap is now %d.\n", p[i]);
     }

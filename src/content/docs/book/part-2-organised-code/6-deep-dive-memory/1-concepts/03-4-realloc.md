@@ -99,3 +99,7 @@ To make this work in reality we would need to put this in a struct where we also
 :::
 
 <!-- TODO: add slider -->
+
+## Reallocating multidimensional arrays
+
+If you need to change the allocation of a multidimensional array, you may need to reallocate space 
