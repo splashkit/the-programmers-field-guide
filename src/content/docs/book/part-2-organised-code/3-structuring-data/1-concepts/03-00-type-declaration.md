@@ -38,19 +38,23 @@ As you model your data you need to use these different type options to structure
 
 :::tip[Syntax]
 
-C/C++ syntax is a little clunky in relation to type declarations, which we will disucss in each of the different kinds of types as we go. To get around this C/C++ has syntax to create a type alias. This makes it easy to name your types, and access these through out your code.
+C syntax is a little clunky in relation to type declarations, which we will discuss in each of the different kinds of types as we go. To get around this C has syntax to create a type alias. This makes it easy to name your types, and access these throughout your code.
 
-![The C/C++ syntax for a type def alias](./images/type-decl.png)
+![The C syntax for a type def alias](./images/type-decl.png)
 
-The C/C++ syntax looks a little like you are declaring a list of variables, though it starts with the keyword `typedef`. To set up an alias, you start with `typedef`, the details of the type you want to alias, and then the new name(s) you want to use to refer to these as.
+The C syntax looks a little like you are declaring a list of variables, though it starts with the keyword `typedef`. To set up an alias, you start with `typedef`, the details of the type you want to alias, and then the new name(s) you want to use to refer to these as.
+
+C++ has made things a little easier, avoiding the need to use `typedef` in most places. It also provides the ability to alias types using simpler syntax. The syntax for this is shown below. It indicates that you can use `using new_type = old_type;` to create a `new_type` name for the existing `old_type`.
+
+![C++ syntax to alias a type](./images/cpp-alias.png)
 
 :::
 
 ## Example
 
-The following example creates an `integer` type that is an alias of `int`. We can use this anywhere we would have used `int` previously. Generally you would not do this, but it does show how this syntax works.
+The following C code shows an example that creates an `integer` type that is an alias of `int`. We can use this anywhere we would have used `int` previously. Generally you would not do this, but it does show how this syntax works.
 
-```cpp
+```c
 // Access our utilities like read_int
 #include "utilities.h"
 
@@ -66,3 +70,24 @@ integer main()
 }
 
 ```
+
+In C++ we can achieve the same thing with `using` to create an alias.
+
+```cpp
+// Access our utilities like read_int
+#include "utilities.h"
+
+// Create an integer type, that is an alias of int
+using integer = int;
+
+integer main()
+{
+  integer x;
+
+  x = read_int("");
+  return 0;
+}
+
+```
+
+In most cases we will use the C version, as this works both for C and C++.

@@ -41,7 +41,9 @@ This is the syntax for declaring your own custom struct in C/C++.
 ![The syntax for a struct declaration in C/C++](./images/struct-decl.png)
 
 - The declaration starts with **struct** indicating the declaration of a structured record.
-- Next comes the **struct name**. This identifier can be used to refer to the struct, but requires you to add the keyword `struct` before it. In the below example, we declare a `struct person_struct`, to create a variable from this struct you use `struct person_struct variable_name;`.
+- Next comes the **struct name**. This identifier can be used to refer to the struct.
+- In C, you are required to add the keyword `struct` keyword as well as the name of the struct to identify this type. In the below example, we declare a `struct person_struct`, to create a variable from this struct in C you use `struct person_struct variable_name;`.
+- C++ does not need you to add the `struct` keyword in its identifier when using these types. This removes the need to use the `typedef`, but then limits your code to only work with C++.
 - Following this is a **list of fields** between braces (i.e. `{...}`). Each field is a variable within the struct, they each have their own type that may be of any type, including other structures, standard types, enumerations, and unions for example.
 - You can embed a struct definition within a **typedef**. This allows you to alias the type during its declaration.
 

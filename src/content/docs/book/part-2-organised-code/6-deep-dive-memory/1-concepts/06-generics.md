@@ -49,7 +49,7 @@ template<typename T>
 struct my_generic_data
 {
     string name;
-    T value; // use T... it is the type indicated when used
+    T value; // use T... it is a variable type!
 };
 
 // This function also uses a variable type - T
