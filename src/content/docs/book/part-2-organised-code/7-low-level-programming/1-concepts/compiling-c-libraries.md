@@ -49,7 +49,7 @@ Next, let's create our actual program source file which will use this library. S
 
 #include <stdio.h>
 
-// we need to tell the compiler that the function is defined externall
+// we need to tell the compiler that the function is defined externally
 extern void print_message();
 
 int main() {
