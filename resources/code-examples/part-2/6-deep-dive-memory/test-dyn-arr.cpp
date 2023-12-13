@@ -1,10 +1,10 @@
 #include <cstdio>
 #include "dyn-arr-fn.hpp"
 
-void print(dynamic_array<int> *array);
-
 int main()
 {
+  // Create a dynamic array of int
+  // and initialise it to a new dynamic array of 10 elements
   dynamic_array<int> *array = new_dynamic_array<int>(10);
 
   // Print the size and capacity of the array
@@ -15,8 +15,6 @@ int main()
   {
     add(array, i);
   }
-
-  print(array);
 
   // Reprint the size and capacity of the array after adding
   printf("size: %d, capacity: %d\n", size(array), capacity(array));
@@ -51,6 +49,10 @@ int main()
   {
     printf("array[%d] =  %d\n", i, get(array, i, -1));
   }
+
+  // Free the array and ensure we do not have a dangling pointer
+  delete_dynamic_array(array);
+  array = nullptr;
 
   return 0;
 }
