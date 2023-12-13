@@ -1,5 +1,5 @@
 #include <cstdio>
-#include "dyn-arr-fn.hpp"
+#include "dynamic-array.hpp"
 
 int main()
 {

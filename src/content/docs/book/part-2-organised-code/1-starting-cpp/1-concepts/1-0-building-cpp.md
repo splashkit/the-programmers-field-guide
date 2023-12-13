@@ -4,7 +4,7 @@ title: Building a C/C++ Program
 
 C/C++ are **compiled** languages. Unlike C#, they do not need a runtime environment. This means that you compile and then directly run the resulting program.
 
-To get started, let's build a Hello World program. This will use the SplashKit library to handle user input and output, which we will use for now. When we get to [Chapter 2.7](../../../7-low-level-programming/0-overview), you will understand the concepts needed to use the C input and output functions, as they are very primitive.
+To get started, let's build a Hello World program. This will use the SplashKit library to handle user input and output, which we will use for now. When we get to [Chapter 2.7](../../../9-low-level-programming/0-overview), you will understand the concepts needed to use the C input and output functions, as they are very primitive.
 
 The following steps go through the necessary actions to build and run programs using C/C++. We will recap some steps that you can skip if you have already installed SplashKit for C#.
 

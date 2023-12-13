@@ -84,7 +84,7 @@ void delete_dynamic_array(dynamic_array<T> *array)
  * @return unsigned int the size of the dynamic array
  */
 template<typename T>
-unsigned int size(dynamic_array<T> *array)
+unsigned int size(const dynamic_array<T> *array)
 {
   if (array)
     return array->size;
@@ -100,7 +100,7 @@ unsigned int size(dynamic_array<T> *array)
  * @return unsigned int the capacity of the dynamic array
  */
 template<typename T>
-unsigned int capacity(dynamic_array<T> *array)
+unsigned int capacity(const dynamic_array<T> *array)
 {
   if (array)
     return array->capacity;
@@ -184,7 +184,7 @@ bool add(dynamic_array<T> *array, T value)
  * @param default_value the value to return if the index is out of bounds
 */
 template<typename T>
-T get(dynamic_array<T> *array, unsigned int index, T default_value)
+T get(const dynamic_array<T> *array, unsigned int index, T default_value)
 {
   // Check if the index is out of bounds
   if (!array || index >= array->size)
