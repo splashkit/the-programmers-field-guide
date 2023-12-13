@@ -4,9 +4,10 @@
 #include <cstdlib>
 
 /**
- * @brief Implement the dynamic array data structure.
+ * @brief A dynamic array struct that contains the size, capacity,
+ *        and data pointer used to implement this dynamic structure.
  * 
- * @tparam T 
+ * @tparam T the type of data to store in the dynamic array
  * @field data a pointer to the data in the dynamic array on the heap
  * @field size the number of elements used in the dynamic array
  * @field capacity the number of elements the dynamic array can hold
@@ -30,8 +31,14 @@ template<typename T>
 dynamic_array<T> *new_dynamic_array(unsigned int capacity = 50)
 {
   dynamic_array<T> *result = (dynamic_array<T>*)malloc(sizeof(dynamic_array<T>));
+  // Make sure result was allocated
+  if (result == nullptr)
+  {
+    return result;
+  }
   result->data = (T*)malloc(sizeof(T) * capacity);
   result->size = 0;
+  // Make sure that data was allocated, if not set capacity to 0
   if(result->data == nullptr)
   {
     result->capacity = 0;
@@ -48,11 +55,14 @@ dynamic_array<T> *new_dynamic_array(unsigned int capacity = 50)
  *        the data in the array will no longer be accessible.
  * 
  * @tparam T the data type of the dynamic array
- * @param array the dynamic array to free
+ * @param array a pointer to the dynamic array to free
  */
 template<typename T>
 void delete_dynamic_array(dynamic_array<T> *array)
 {
+  // Ensure that the array is allocated
+  if (!array) return;
+
   // Clear to ensure we remove any data from memory before freeing it
   array->size = 0;
   array->capacity = 0;
@@ -76,7 +86,10 @@ void delete_dynamic_array(dynamic_array<T> *array)
 template<typename T>
 unsigned int size(dynamic_array<T> *array)
 {
-  return array->size;
+  if (array)
+    return array->size;
+  else
+    return 0;
 }
 
 /**
@@ -89,7 +102,10 @@ unsigned int size(dynamic_array<T> *array)
 template<typename T>
 unsigned int capacity(dynamic_array<T> *array)
 {
-  return array->capacity;
+  if (array)
+    return array->capacity;
+  else
+    return 0;
 }
 
 /**
@@ -100,10 +116,14 @@ unsigned int capacity(dynamic_array<T> *array)
  * @tparam T the type of data in the dynamic array
  * @param array the dynamic array to grow
  * @param new_capacity the new capacity of the dynamic array
+ * @returns true if this succeeded, or false if it could not reallocate memory
 */
 template<typename T>
 bool resize(dynamic_array<T> *array, unsigned int new_capacity)
 {
+  // Ensure that the array is allocated
+  if (!array) return false;
+
   // Resize the data in the array
   T* new_data = (T*)realloc(array->data, sizeof(T) * new_capacity);
   // Check if the allocation failed
@@ -136,6 +156,9 @@ bool resize(dynamic_array<T> *array, unsigned int new_capacity)
 template<typename T>
 bool add(dynamic_array<T> *array, T value)
 {
+  // Ensure that the array is allocated
+  if (!array) return false;
+
   // Check if we need to resize the array, and if we failed to resize the array
   if (array->size >= array->capacity && !resize(array, array->capacity * 2))
   {
@@ -164,7 +187,7 @@ template<typename T>
 T get(dynamic_array<T> *array, unsigned int index, T default_value)
 {
   // Check if the index is out of bounds
-  if (index >= array->size)
+  if (!array || index >= array->size)
   {
     // The index is out of bounds, so return the default value
     return default_value;
@@ -176,18 +199,19 @@ T get(dynamic_array<T> *array, unsigned int index, T default_value)
 /**
  * @brief set the value of the indicated element from the dynamic array.
  * 
- * If the index is out of bounds, the function will do nothing.
+ * If the index is out of bounds, the function will do nothing and return false.
  * 
  * @tparam T the type of data in the dynamic array
- * @param array the dynamic array to remove the element from
- * @param index the index of the element to remove
+ * @param array the dynamic array to set the element in
+ * @param index the index of the element to change
  * @param value the value to set the element to
+ * @returns true when the value is set, or false if this failed
 */
 template<typename T>
 bool set(dynamic_array<T> *array, unsigned int index, T value)
 {
   // Check if the index is out of bounds
-  if (index >= array->size)
+  if (!array || index >= array->size)
   {
     // The index is out of bounds, so do nothing
     return false;

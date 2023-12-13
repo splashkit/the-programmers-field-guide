@@ -75,10 +75,10 @@ int main()
     double_data.name = "Double data";
     double_data.value = 3.1415;
 
-    // We can call the generic functions, and T is inferred from the
+    // We can call the generic functions, and T can be inferred from the
     // types we pass in. This allows us to pass in the my_generic_data<int>
     // where T is an int, and my_generic_data<double> where T is a double.
-    print("%s: %d\n", int_data);
+    print<int>("%s: %d\n", int_data);
     print("%s: %lf\n", double_data);
 
     return 0;
