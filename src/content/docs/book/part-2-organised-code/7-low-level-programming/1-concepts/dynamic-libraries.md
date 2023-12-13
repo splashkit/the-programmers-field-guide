@@ -1,10 +1,10 @@
 ---
-title: Compiling C Code into Shared Libraries (or shared objects)
+title: Compiling Dynamic Libraries
 ---
 
 So far, we have been compiling C source code into executable programs that we can then run. These programs are a machine-readable format that computer's CPUs can execute. We can think of this as *compiling* source code into programs that users can run.
 
-If you want to read more on compilation, check out: 
+If you want to read more on compilation, check out:
 <!-- TODO: Link to compilation intro -->
 
 <!-- TODO: Review the analogy -->
@@ -15,6 +15,12 @@ One anology for compilation could that of someone baking a cake. You assemble ra
 A shared library can be thought of as a pre-baked cake, or a program that has been pre-compiled. We can then use this pre-baked cake in other programs, without having to bake it again. This is useful for a number of reasons, but the main one is that it allows us to share code between programs. If we have a function that we want to use in multiple programs, we can compile it into a library, and then link that library into each program. This means that we don't have to write the function multiple times, and if we want to change the function, we only have to change it once. It is commonly used for sharing platform-specific code between programs, and for organising large programs into smaller, more manageable chunks.
 
 ## Compiling to libraries
+
+<!-- replace with splashkit library -->
+
+<!-- .h -> names things -->
+<!-- .c -> defines things -->
+<!-- .so -> compiled library -->
 
 A simple example of a shared library are some of the standard libraries we've been using so far. The `printf` function (used to print text to the terminal) is one of the most commonly used functions in C. It's so useful that it makes little sense for C programmers to have to implement the function over and ocer. As such, the C language provides the `printf` function for us, and it is defined in the `stdio.h` library. When we write `#include <stdio.h>` at the top of our source code, we are telling the compiler to link the compiled code in `stdio.h` into our program. This means that we can use the `printf` function in our program, without having to write it ourselves.
 
@@ -93,5 +99,9 @@ Let's break this down a bit more:
 3. -o program -> Tells `gcc` to compile the source code in `my_program.c` into an executable program called `program`.
 4. `my_program.c` -> The source code for our program.
 5. `-lmylibrary` -> Tells `gcc` to link the compiled code in `libmylibrary.so` into the executable program.
+
+<!-- add -rpath -->
+<!-- export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/Users/jake/Repos/the-programmers-fieldguide/src/content/docs/book/part-2-organised-code/7-low-level-programming/1-concepts/libraries -->
+
 
 If you see your message from the my_library.c file printed, you have successfully compiled a shared library in C!

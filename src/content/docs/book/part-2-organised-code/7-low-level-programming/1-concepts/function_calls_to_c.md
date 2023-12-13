@@ -1,5 +1,5 @@
 ---
-title: Character arrays (low-level strings)
+title: Function calls to C (low-level strings)
 order: 3
 ---
 
