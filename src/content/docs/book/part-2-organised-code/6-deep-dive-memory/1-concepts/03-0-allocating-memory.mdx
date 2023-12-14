@@ -42,11 +42,11 @@ export const sliderMalloc = [
   },
   {
     src: sliderMalloc03.src,
-    altText: "At step 4b, malloc() is called and memory is allocated on the heap for an integer. The initial value of the integer isn't guaranteed by malloc(). As you can see here, it happens to have allocated a region of memory where the bits have an integer value of 5152. NOTE: We've shown the bit-representation of an integer to help you see the actual low-level memory allocation that is performed in this step. The last thing to note here is that malloc() will return a void pointer...",
+    altText: "At step 4b, malloc() is called and memory is allocated on the heap for an integer. The initial value of the integer isn't guaranteed by malloc(). As you can see here, it happens to have allocated a region of memory where the bits have an integer value of 5155. NOTE: We've shown the bit-representation of an integer to help you see the actual low-level memory allocation that is performed in this step. The last thing to note here is that malloc() will return a void pointer...",
     tipStart: 3,
     tips: [
       "At step 4b, <strong>malloc()</strong> is called and memory is allocated on the heap for an integer",
-      "The initial value of the integer isn't guaranteed by <strong>malloc()</strong>. As you can see here, it happens to have allocated a region of memory where the bits have an integer value of 5152.",
+      "The initial value of the integer isn't guaranteed by <strong>malloc()</strong>. As you can see here, it happens to have allocated a region of memory where the bits have an integer value of 5155.",
       "<strong>NOTE:</strong> We've shown the bit-representation of an integer to help you see the actual low-level memory allocation that is performed in this step",
       "The last thing to note here is that <strong>malloc()</strong> will return a <strong>void</strong> pointer..."
     ]
@@ -78,19 +78,19 @@ export const sliderMalloc = [
   },
   {
     src: sliderMalloc07.src,
-    altText: "Line 6 prints the dereferenced value of  p, in this case 0 (we've gone back to decimal representation now for simplicity)",
+    altText: "Line 6 prints the dereferenced value of  p, in this case 5155 (we've gone back to decimal representation now for simplicity)",
     tipStart: 7,
     tips: [
-      "Line 6 prints the dereferenced value of  <strong>p</strong>, in this case 0 (we've gone back to <em>decimal</em> representation now for simplicity)"
+      "Line 6 prints the dereferenced value of  <strong>p</strong>, in this case 5155 (we've gone back to <em>decimal</em> representation now for simplicity)"
     ]
   },
   {
     src: sliderMalloc08.src,
-    altText: "Line 7 assigns the dereferenced value of p, the new value of 10. You can see that the value has changed from 0 to 10 on the heap",
+    altText: "Line 7 assigns the dereferenced value of p, the new value of 10. You can see that the value has changed from 5155 to 10 on the heap",
     tipStart: 8,
     tips: [
       "Line 7 assigns the dereferenced value of <strong>p</strong>, the new value of 10",
-      "You can see that the value has changed from 0 to 10 on the heap"
+      "You can see that the value has changed from 5155 to 10 on the heap"
     ]
   },
   {
