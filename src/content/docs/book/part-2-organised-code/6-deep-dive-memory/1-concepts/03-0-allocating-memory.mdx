@@ -42,12 +42,13 @@ export const sliderMalloc = [
   },
   {
     src: sliderMalloc03.src,
-    altText: "At step 4b, malloc() is called and memory is allocated on the heap for an integer. We've shown the bit-representation of an integer with value 0 to help you see the actual low-level memory allocation that is performed in this step The value of the integer will be initialized to 0.  malloc() will return a void pointer",
+    altText: "At step 4b, malloc() is called and memory is allocated on the heap for an integer. The initial value of the integer isn't guaranteed by malloc(). As you can see here, it happens to have allocated a region of memory where the bits have an integer value of 5152. NOTE: We've shown the bit-representation of an integer to help you see the actual low-level memory allocation that is performed in this step. The last thing to note here is that malloc() will return a void pointer...",
     tipStart: 3,
     tips: [
       "At step 4b, <strong>malloc()</strong> is called and memory is allocated on the heap for an integer",
-      "The value of the integer will be initialized to 0<ul><li><strong>NOTE:</strong> We've shown the bit-representation of an integer with value 0 here to help you see the actual low-level memory allocation that is performed in this step</li></ul>",
-      "<strong>malloc()</strong> will return a <strong>void</strong> pointer..."
+      "The initial value of the integer isn't guaranteed by <strong>malloc()</strong>. As you can see here, it happens to have allocated a region of memory where the bits have an integer value of 5152.",
+      "<strong>NOTE:</strong> We've shown the bit-representation of an integer to help you see the actual low-level memory allocation that is performed in this step",
+      "The last thing to note here is that <strong>malloc()</strong> will return a <strong>void</strong> pointer..."
     ]
   },
   {
@@ -69,10 +70,10 @@ export const sliderMalloc = [
   },
   {
     src: sliderMalloc06.src,
-    altText: "Line 5 prints the address of the memory space pointed to by p",
+    altText: "Line 5 prints the address of the memory space pointed to by p to the terminal",
     tipStart: 6,
     tips: [
-      "Line 5 prints the address of the memory space pointed to by <strong>p</strong>"
+      "Line 5 prints the address of the memory space pointed to by <strong>p</strong> to the terminal"
     ]
   },
   {
@@ -80,7 +81,7 @@ export const sliderMalloc = [
     altText: "Line 6 prints the dereferenced value of  p, in this case 0 (we've gone back to decimal representation now for simplicity)",
     tipStart: 7,
     tips: [
-      "Line 6 prints the dereferenced value of  <strong>p</strong>, in this case 0 (we've gone back to decimal representation now for simplicity)"
+      "Line 6 prints the dereferenced value of  <strong>p</strong>, in this case 0 (we've gone back to <em>decimal</em> representation now for simplicity)"
     ]
   },
   {
@@ -94,10 +95,10 @@ export const sliderMalloc = [
   },
   {
     src: sliderMalloc09.src,
-    altText: "Line 8 prints the new dereferenced value of p",
+    altText: "Line 8 prints the new dereferenced value of p to the terminal",
     tipStart: 9,
     tips: [
-      "Line 8 prints the new dereferenced value of <strong>p</strong>"
+      "Line 8 prints the new dereferenced value of <strong>p</strong> to the terminal"
     ]
   },
   {
@@ -120,10 +121,10 @@ export const sliderMalloc = [
   },
   {
     src: sliderMalloc12.src,
-    altText: "To avoid problems with any later use of variables that have acted as pointers, the best practice is toto reset the value of p to a NULL value. We do this by assigning p> the value nullptr, which is a which is a a built in constant that is a shorthand for a null pointer",
+    altText: "To avoid problems with any later use of variables that have acted as pointers, the best practice is to reset the value of p to a NULL value. We do this by assigning p> the value nullptr, which is a which is a a built in constant that is a shorthand for a null pointer",
     tipStart: 12,
     tips: [
-      "To avoid problems with any later use of variables that have acted as pointers, the best practice is toto reset the value of <strong>p</strong> to a <strong>NULL</strong> value",
+      "To avoid problems with any later use of variables that have acted as pointers, the best practice is to reset the value of <strong>p</strong> to a <strong>NULL</strong> value",
       "We do this by assigning <strong>p</strong> the value <strong>nullptr</strong>, which is a a built in constant that is a shorthand for a <em>null pointer</em>"
 
     ]
