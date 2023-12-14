@@ -530,6 +530,15 @@ export default defineConfig({
                   label: "Activities",
                   link: "book/part-2-organised-code/6-deep-dive-memory/4-activities",
                 },
+                {
+                  label: "Wrap Up",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/6-deep-dive-memory/5-wrap-up",
+                    collapsed: true,
+                  },
+                },
               ],
             },
             {
