@@ -1,7 +1,7 @@
 ---
 title: Using the Dynamic Array
 sidebar:
-    label: " - Using "
+    label: " - Using the Dynamic Array"
 ---
 
 Now that we have the dynamic array we can start to use it within our projects. In this section we can have a look at using moving the code into a header file so that it can be included in other projects easily, and we can then look at how we could have used this in our statistics calculator and our fly catch programs.
