@@ -23,11 +23,17 @@ Remember that the term **object** refers to a value created from a struct. We us
 
 :::
 
+## Destructors
+
+Similar to constructors, you can also hook into the code that occurs when the object is destroyed. This may occur when a stack based object goes out of scope, or when you explicitly `delete` an object from the heap.
+
+You would use the code in the destructor to clean up any additional memory, or other resources, allocated to your object.
+
 ## In C++
 
 :::tip[Syntax]
 
-Constructors are coded in the struct as a special looking function. It does not specify any return type, and it uses the same name as the struct for its function name.
+Constructors are coded in the struct as a special looking function. It does not specify any return type, and it uses the same name as the struct for its function name. Destructors are similar, but start with a `~` and can not have any parameters.
 
 ![Constructors are coded as special functions in the struct](./images/constructor.png)
 
@@ -75,6 +81,11 @@ struct stock
         // We are inside the struct - so we can access id and value
         id = id_init;
         value = value_init;
+    }
+
+    ~stock()
+    {
+        write_line("Stock destroyed - " + id);
     }
 
     /**
