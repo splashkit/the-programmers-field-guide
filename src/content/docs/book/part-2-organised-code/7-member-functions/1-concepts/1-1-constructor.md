@@ -44,17 +44,34 @@ using std::to_string;
 
 struct stock
 {
+    // The fields are created in the struct, so they are directly accessible
+    // within the struct itself.
     string id;
     int value;
 
+    /**
+     * The constructor initialises the stock with
+     * the supplied id and value.
+     *
+     * @param id_init the id to initialise the stock with
+     * @param value_init the value to initialise the stock with
+     */
     stock(string id_init, int value_init)
     {
+        // We are inside the struct - so we can access id and value
         id = id_init;
         value = value_init;
     }
 
+    /**
+     * Adjust the value by the indicated amount.
+     *
+     * @param diff the amount to change the value by
+     */
     void adjust_value(int diff)
     {
+        // We can update the value of the struct
+        // methods are always run on the stock itself...
         value += diff;
     }
 
@@ -66,6 +83,7 @@ struct stock
 
 int main()
 {
+    // We can use new to allocate stock on the heap
     stock *s1 = new stock("TEST", 123);
     
     s1->adjust_value(-4);
@@ -74,6 +92,18 @@ int main()
     delete s1;
     s1 = nullptr;
 
+    // This also works with a stack allocated stock
+    stock s2("Test", 123);
+    s2.adjust_value(-4);
+    s2.print();
+
     return 0;
 }
 ```
+
+When you look at this, notice that the combination of `new` and the constructor perform the same steps as we had previously coded within something like a `new_stock` function. The `new` takes care of the memory allocation and the constructor takes care of initialising the data within the value created.
+
+Notice in the above code that you can also use the constructor for stack allocated stock. The syntax for this is a little strange, and makes the variable declaration look like a function call. You have to remember that in these cases you are calling the constructor. In this case, you *have to* call the constructor as there is not a constructor with no parameter (which is also known as the **default constructor**). If you want to be able to declare a stock variable without having to pass in the stock id and value, then you can add a second constructor that takes no parameters and initialises the id and value to some set defaults.
+
+<!-- TODO: add slider -->
+
