@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
-import react from '@astrojs/react';
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
@@ -89,7 +89,8 @@ export default defineConfig({
                   label: "Putting it Together",
                   collapsed: true,
                   autogenerate: {
-                    directory: "book/part-0-getting-started/2-computer-use/2-put-together",
+                    directory:
+                      "book/part-0-getting-started/2-computer-use/2-put-together",
                     collapsed: true,
                   },
                 },
@@ -264,8 +265,7 @@ export default defineConfig({
                   label: "Concepts",
                   collapsed: true,
                   autogenerate: {
-                    directory:
-                      "book/part-1-instructions/4-project/1-concepts",
+                    directory: "book/part-1-instructions/4-project/1-concepts",
                     collapsed: true,
                   },
                 },
@@ -773,7 +773,7 @@ export default defineConfig({
                 },
               ],
             },
-            
+
             {
               label: "7. Inheritance and Polymorphism",
               collapsed: true,
@@ -997,8 +997,7 @@ export default defineConfig({
                   label: "Concepts",
                   collapsed: true,
                   autogenerate: {
-                    directory:
-                      "book/part-4-what-next/3-build-game/1-concepts",
+                    directory: "book/part-4-what-next/3-build-game/1-concepts",
                     collapsed: true,
                   },
                 },

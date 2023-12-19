@@ -1,36 +1,36 @@
 ---
-title: A field guide to the art of programming
-description: Get started building your docs site with Starlight.
+title: The Programmer's Field Guide
+description: Your trusty field guide to the art of programming
 template: splash
 hero:
-  tagline: Learn to survive, and thrive.
+  tagline: Your trusty field guide to the art of programming.
   image:
-    file: ../../assets/houston.webp
+    file: ../../assets/hero.png
   actions:
-    - text: Start now
+    - text: Embark on your journey
       link: /book/part-0-getting-started/00-introduction/
       icon: right-arrow
       variant: primary
-    - text: Learn more
-      link: https://starlight.astro.build
-      icon: external
+    # - text: Learn more
+    #   link: https://starlight.astro.build
+    #   icon: external
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+## Not just another programming texbook
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card class="home-card" title="Your journey to develop a mental model of programming" icon="open-book">
+		The programmer's field guide is your companion as you embark on your journey to understand the world of programming. Rather than a traditional textbook that focuses on the syntax of the latest and greatest programming language, this guide will help you develop your own mental model of programming that you can apply to any language.
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card class="home-card" title="Become an effective programmer" icon="puzzle">
+		Not only will you learn how to write code, but you will also learn how to think like a programmer. You will learn how to break down problems into smaller pieces, how to think about the data you are working with, and how to use the tools available to you to solve problems. This guide is designed by a mix of academics and software engineers with industry experience.
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
+	<Card class="home-card" title="Choose your own adventure" icon="random">
+		Parts of the Programmer's Field Guide are designed to be read in order, but you can also jump around to the topics that interest you. Each chapter is designed to be read in a single sitting, and you can always come back to a chapter later if you need to refresh your memory.
 	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card class="home-card" title="Learn more about the team" icon="open-book">
+		The Programmer's Field Guide is a passion project made possible by the many generous contributions of the team. Learn more about [the team](/credits/).
 	</Card>
 </CardGrid>
