@@ -95,7 +95,7 @@ html[data-theme="dark"] a.multitool:after {
   border: 1px solid black;
 }
 
-a.multitool:after {
+a.pi:after {
   font-family: "FontAwesomeBrands";
   content: "\f7bb";
   float: right;
@@ -103,6 +103,46 @@ a.multitool:after {
   border: 1px solid white;
   padding: 0px 5px 0px 5px;
 }
+
+html[data-theme="dark"] a.apple:after {
+  border: 1px solid black;
+}
+
+a.apple:after {
+  font-family: "FontAwesomeBrands";
+  content: "\f179";
+  float: right;
+  border-radius: 5px;
+  border: 1px solid white;
+  padding: 0px 5px 0px 5px;
+}
+
+html[data-theme="dark"] a.windows:after {
+  border: 1px solid black;
+}
+
+a.windows:after {
+  font-family: "FontAwesomeBrands";
+  content: "\f17a";
+  float: right;
+  border-radius: 5px;
+  border: 1px solid white;
+  padding: 0px 5px 0px 5px;
+}
+
+html[data-theme="dark"] a.linux:after {
+  border: 1px solid black;
+}
+
+a.linux:after {
+  font-family: "FontAwesomeBrands";
+  content: "\f17c";
+  float: right;
+  border-radius: 5px;
+  border: 1px solid white;
+  padding: 0px 5px 0px 5px;
+}
+
 
 img {
   display: block;

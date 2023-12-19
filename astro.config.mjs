@@ -530,26 +530,31 @@ export default defineConfig({
                   label: "Activities",
                   link: "book/part-2-organised-code/6-deep-dive-memory/4-activities",
                 },
+                {
+                  label: "Wrap Up",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/6-deep-dive-memory/5-wrap-up",
+                    collapsed: true,
+                  },
+                },
               ],
             },
             {
-              label: "7. Low Level Programming",
+              label: "7. Member Functions",
               collapsed: true,
               items: [
                 {
                   label: "Overview",
-                  link: "book/part-2-organised-code/7-low-level-programming/0-overview",
-                },
-                {
-                  label: "Required Tools (DCC)",
-                  link: "book/part-2-organised-code/7-low-level-programming/1-dcc",
+                  link: "book/part-2-organised-code/7-member-functions/0-overview",
                 },
                 {
                   label: "Concepts",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-2-organised-code/7-low-level-programming/1-concepts",
+                      "book/part-2-organised-code/7-member-functions/1-concepts",
                     collapsed: true,
                   },
                 },
@@ -558,17 +563,116 @@ export default defineConfig({
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-2-organised-code/7-low-level-programming/2-put-together",
+                      "book/part-2-organised-code/7-member-functions/2-put-together",
                     collapsed: true,
                   },
                 },
                 {
                   label: "Other Languages",
-                  link: "book/part-2-organised-code/7-low-level-programming/3-other-languages",
+                  link: "book/part-2-organised-code/7-member-functions/3-other-languages",
                 },
                 {
                   label: "Activities",
-                  link: "book/part-2-organised-code/7-low-level-programming/4-activities",
+                  link: "book/part-2-organised-code/7-member-functions/4-activities",
+                },
+                {
+                  label: "Wrap Up",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/7-member-functions/5-wrap-up",
+                    collapsed: true,
+                  },
+                },
+              ],
+            },
+            {
+              label: "8. Saving and Loading Data",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-2-organised-code/8-file-io/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/8-file-io/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/8-file-io/2-put-together",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-2-organised-code/8-file-io/3-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-2-organised-code/8-file-io/4-activities",
+                },
+                {
+                  label: "Wrap Up",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/8-file-io/5-wrap-up",
+                    collapsed: true,
+                  },
+                },
+              ],
+            },
+            {
+              label: "9. Low Level Programming",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-2-organised-code/9-low-level-programming/0-overview",
+                },
+                {
+                  label: "Concepts",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/9-low-level-programming/1-concepts",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Putting it Together",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/9-low-level-programming/2-put-together",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-2-organised-code/9-low-level-programming/3-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-2-organised-code/9-low-level-programming/4-activities",
+                },
+                {
+                  label: "Wrap Up",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/9-low-level-programming/5-wrap-up",
+                    collapsed: true,
+                  },
                 },
               ],
             },

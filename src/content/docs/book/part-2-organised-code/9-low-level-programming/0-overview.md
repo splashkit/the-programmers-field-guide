@@ -6,7 +6,7 @@ There are many ways to think about and classify programming languages. One such 
 
 High-level languages such as Python, JavaScript and C# do a lot of heavy-lifting for you. They abstract away the details of hardware-level implementations such as memory management, bits, bytes, pointers, etc so that you can be more productive, and focus on the problems you're tring to solve. The trade-off is that you have less control or insight into what's happening under the hood, and in some cases there may be a performance penalty as the languages are doing more for you. As such, programmers may choose to use a lower-level language such as C or C++ when performance is critical.
 
-![Alt text](./layers.png)
+![Alt text](./1-concepts/images/layers.png)
 
 In this chapter, we will utilise the programming constructs you've been learning to explore low-level programming in C/C++. We will look at how to write programs that interact directly with memory, and you will gain insight into how more abstracted language features such as `strings` in C# *actually* work under the hood. In fact, that's a great way to think about this chapter - we're taking a look *under the hood*.
 

@@ -1,7 +1,7 @@
 ---
 title: Using the Dynamic Array
 sidebar:
-    label: " - Using "
+    label: " - Using the Dynamic Array"
 ---
 
 Now that we have the dynamic array we can start to use it within our projects. In this section we can have a look at using moving the code into a header file so that it can be included in other projects easily, and we can then look at how we could have used this in our statistics calculator and our fly catch programs.
@@ -51,4 +51,10 @@ In the next chapter we will see how to extend the dynamic array further, making 
 
 ## Fly Catch
 
+In the fly catch program, we could consider using the dynamic array within the game to manage a number of flies. This would allow you to increase or decrease the number of flies within the game as it progresses. The changes would be similar to those for the statistics calculator, mostly switching from direct array access to using the functions to access the dynamic array features.
 
+:::tip
+
+As with the statistics calculator, the next chapter will boost what we can do to make this transition easier.
+
+:::

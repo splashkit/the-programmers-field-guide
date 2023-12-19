@@ -42,12 +42,13 @@ export const sliderMalloc = [
   },
   {
     src: sliderMalloc03.src,
-    altText: "At step 4b, malloc() is called and memory is allocated on the heap for an integer. We've shown the bit-representation of an integer with value 0 to help you see the actual low-level memory allocation that is performed in this step The value of the integer will be initialized to 0.  malloc() will return a void pointer",
+    altText: "At step 4b, malloc() is called and memory is allocated on the heap for an integer. The initial value of the integer isn't guaranteed by malloc(). As you can see here, it happens to have allocated a region of memory where the bits have an integer value of 5155. NOTE: We've shown the bit-representation of an integer to help you see the actual low-level memory allocation that is performed in this step. The last thing to note here is that malloc() will return a void pointer...",
     tipStart: 3,
     tips: [
       "At step 4b, <strong>malloc()</strong> is called and memory is allocated on the heap for an integer",
-      "The value of the integer will be initialized to 0<ul><li><strong>NOTE:</strong> We've shown the bit-representation of an integer with value 0 here to help you see the actual low-level memory allocation that is performed in this step</li></ul>",
-      "<strong>malloc()</strong> will return a <strong>void</strong> pointer..."
+      "The initial value of the integer isn't guaranteed by <strong>malloc()</strong>. As you can see here, it happens to have allocated a region of memory where the bits have an integer value of 5155.",
+      "<strong>NOTE:</strong> We've shown the bit-representation of an integer to help you see the actual low-level memory allocation that is performed in this step",
+      "The last thing to note here is that <strong>malloc()</strong> will return a <strong>void</strong> pointer..."
     ]
   },
   {
@@ -69,35 +70,35 @@ export const sliderMalloc = [
   },
   {
     src: sliderMalloc06.src,
-    altText: "Line 5 prints the address of the memory space pointed to by p",
+    altText: "Line 5 prints the address of the memory space pointed to by p to the terminal",
     tipStart: 6,
     tips: [
-      "Line 5 prints the address of the memory space pointed to by <strong>p</strong>"
+      "Line 5 prints the address of the memory space pointed to by <strong>p</strong> to the terminal"
     ]
   },
   {
     src: sliderMalloc07.src,
-    altText: "Line 6 prints the dereferenced value of  p, in this case 0 (we've gone back to decimal representation now for simplicity)",
+    altText: "Line 6 prints the dereferenced value of  p, in this case 5155 (we've gone back to decimal representation now for simplicity)",
     tipStart: 7,
     tips: [
-      "Line 6 prints the dereferenced value of  <strong>p</strong>, in this case 0 (we've gone back to decimal representation now for simplicity)"
+      "Line 6 prints the dereferenced value of  <strong>p</strong>, in this case 5155 (we've gone back to <em>decimal</em> representation now for simplicity)"
     ]
   },
   {
     src: sliderMalloc08.src,
-    altText: "Line 7 assigns the dereferenced value of p, the new value of 10. You can see that the value has changed from 0 to 10 on the heap",
+    altText: "Line 7 assigns the dereferenced value of p, the new value of 10. You can see that the value has changed from 5155 to 10 on the heap",
     tipStart: 8,
     tips: [
       "Line 7 assigns the dereferenced value of <strong>p</strong>, the new value of 10",
-      "You can see that the value has changed from 0 to 10 on the heap"
+      "You can see that the value has changed from 5155 to 10 on the heap"
     ]
   },
   {
     src: sliderMalloc09.src,
-    altText: "Line 8 prints the new dereferenced value of p",
+    altText: "Line 8 prints the new dereferenced value of p to the terminal",
     tipStart: 9,
     tips: [
-      "Line 8 prints the new dereferenced value of <strong>p</strong>"
+      "Line 8 prints the new dereferenced value of <strong>p</strong> to the terminal"
     ]
   },
   {
@@ -120,10 +121,10 @@ export const sliderMalloc = [
   },
   {
     src: sliderMalloc12.src,
-    altText: "To avoid problems with any later use of variables that have acted as pointers, the best practice is toto reset the value of p to a NULL value. We do this by assigning p> the value nullptr, which is a which is a a built in constant that is a shorthand for a null pointer",
+    altText: "To avoid problems with any later use of variables that have acted as pointers, the best practice is to reset the value of p to a NULL value. We do this by assigning p> the value nullptr, which is a which is a a built in constant that is a shorthand for a null pointer",
     tipStart: 12,
     tips: [
-      "To avoid problems with any later use of variables that have acted as pointers, the best practice is toto reset the value of <strong>p</strong> to a <strong>NULL</strong> value",
+      "To avoid problems with any later use of variables that have acted as pointers, the best practice is to reset the value of <strong>p</strong> to a <strong>NULL</strong> value",
       "We do this by assigning <strong>p</strong> the value <strong>nullptr</strong>, which is a a built in constant that is a shorthand for a <em>null pointer</em>"
 
     ]
@@ -283,4 +284,154 @@ int main()
 - `calloc` returns `NULL` if it fails to allocate memory.
 :::
 
-TODO: add slider
+
+import sliderCalloc01 from './images/slider-calloc/Slide1.png';
+import sliderCalloc02 from './images/slider-calloc/Slide2.png';
+import sliderCalloc03 from './images/slider-calloc/Slide3.png';
+import sliderCalloc04 from './images/slider-calloc/Slide4.png';
+import sliderCalloc05 from './images/slider-calloc/Slide5.png';
+import sliderCalloc06 from './images/slider-calloc/Slide6.png';
+import sliderCalloc07 from './images/slider-calloc/Slide7.png';
+import sliderCalloc08 from './images/slider-calloc/Slide8.png';
+import sliderCalloc09 from './images/slider-calloc/Slide9.png';
+import sliderCalloc10 from './images/slider-calloc/Slide10.png';
+import sliderCalloc11 from './images/slider-calloc/Slide11.png';
+import sliderCalloc12 from './images/slider-calloc/Slide12.png';
+import sliderCalloc13 from './images/slider-calloc/Slide13.png';
+import sliderCalloc14 from './images/slider-calloc/Slide14.png';
+import sliderCalloc15 from './images/slider-calloc/Slide15.png';
+
+export const sliderCalloc = [
+  {
+    src: sliderCalloc01.src,
+    altText: "The program begins at main() and line 3 declares an int pointer variable",
+    tipStart: 1,
+    tips: [
+      "The program begins at <strong>main()</strong> and line 3 declares an int pointer variable"
+    ]
+  },
+  {
+    src: sliderCalloc02.src,
+    altText: "Line 4 will allocate some memory space on the heap by calling the calloc() function, and return a pointer to this memory region which we can use to initialize the variable p. Let's break line 4 down into steps. At step 4a, the first thing calloc() needs is two arguments which specifies how much memory needs to be allocated in bytes. Because we are creating space for a single integer, we specify: 1 for as the first argument to calloc() which says that we want space for one integer.Then as the second argument we call the sizeof(int) function, which will return the size of an integer on our system (often this will be 4 bytes, but it depends on your computer)calloc() will use these two arguments to calculate how much memory space needs to be allocated",
+    tipStart: 2,
+    tips: [
+      "Line 4 will allocate some memory space on the heap by calling the <strong>calloc()</strong> function, and return a pointer to this memory region which we can use to initialize the variable <strong>p</strong>. Let's break line 4 down into steps",
+      "At step 4a, the first thing <strong>calloc()</strong> needs is two arguments which specifies how much memory needs to be allocated in bytes",
+      "Because we are creating space for a single integer, we specify: <ul><li><strong>1</strong> for as the first argument to <strong>calloc()</strong> which says that we want space for one integer</li><li>Then as the second argument we call the <strong>sizeof(int)</strong> function, which will return the size of an integer on our system (often this will be 4 bytes, but it depends on your computer)</li><li><strong>calloc()</strong> will use these two arguments to calculate how much memory space needs to be allocated</li></ul>"
+    ]
+  },
+  {
+    src: sliderCalloc03.src,
+    altText: "At step 4b, calloc() is called and memory is allocated on the heap for an integer. You can see that once calloc() has allocated the memory, there is initially a residual value left over in the memory area where the space was created... NOTE: We've shown the bit-representation of an integer to help you see the actual low-level memory allocation that is performed in this step. The last thing to note here is that calloc() will return a void pointer...",
+    tipStart: 3,
+    tips: [
+      "At step 4b, <strong>calloc()</strong> is called and memory is allocated on the heap for an integer",
+      "You can see that once <strong>calloc()</strong> has allocated the memory, there is initially a residual value left over in the memory area where the space was created...",
+      "<strong>NOTE:</strong><ul><li>We've shown the bit-representation of an integer to help you see the actual low-level memory allocation that is performed in this step</li><li>The last thing to note here is that <strong>calloc()</strong> will return a void pointer</li></ul>"
+    ]
+  },
+  {
+    src: sliderCalloc04.src,
+    altText: "At step 4c, after calloc() has allocated memory space, it will overwrite the memory region allocated with zeros, guaranteeing that the we will always start with a 0 in any memory area allocated by calloc()",
+    tipStart: 4,
+    tips: [
+      "At step 4c, after <strong>calloc()</strong> has allocated memory space, it will overwrite the memory region allocated with zeros, guaranteeing that the we will always start with a 0 in any memory area allocated by <strong>calloc()</strong>"
+    ]
+  },
+  {
+    src: sliderCalloc05.src,
+    altText: "Because calloc() returns a void pointer, we need to cast it to the type of pointer our variable will hold, in this case an int pointer (step 4d)",
+    tipStart: 5,
+    tips: [
+      "...because <strong>calloc()</strong> returns a <strong>void</strong> pointer, we need to cast it to the type of pointer our variable will hold, in this case an <strong>int</strong> pointer (step 4d)"
+    ]
+  },
+  {
+    src: sliderCalloc06.src,
+    altText: "The last step of line 4 (step 4e) is the assignment step. The address of the memory space that has been allocated on the heap is copied into the variable p",
+    tipStart: 6,
+    tips: [
+      "The last step of line 4 (step 4e) is the assignment step",
+      "The address of the memory space that has been allocated on the heap is copied into the variable <strong>p</strong>"
+    ]
+  },
+  {
+    src: sliderCalloc07.src,
+    altText: "Line 5 prints the address of the memory space pointed to by p to the terminal",
+    tipStart: 7,
+    tips: [
+      "Line 5 prints the address of the memory space pointed to by <strong>p</strong> to the terminal"
+    ]
+  },
+  {
+    src: sliderCalloc08.src,
+    altText: "Line 6 prints the dereferenced value of  p, in this case our initial value of 0 (we've gone back to decimal representation now for simplicity)",
+    tipStart: 8,
+    tips: [
+      "Line 6 prints the dereferenced value of  <strong>p</strong>, in this case our initial value of 0 (we've gone back to <em>decimal</em> representation now for simplicity)"
+    ]
+  },
+  {
+    src: sliderCalloc09.src,
+    altText: "Line 9 assigns the dereferenced value of p, the new value of 10. You can see that the value has changed from 0 to 10 on the heap",
+    tipStart: 9,
+    tips: [
+      "Line 7 assigns the dereferenced value of <strong>p</strong>, the new value of 10",
+      "You can see that the value has changed from our initial value of 0 to our new value of 10 on the heap"
+    ]
+  },
+  {
+    src: sliderCalloc10.src,
+    altText: "Line 8 prints the new dereferenced value of p to the terminal",
+    tipStart: 10,
+    tips: [
+      "Line 8 prints the new dereferenced value of <strong>p</strong> to the terminal"
+    ]
+  },
+  {
+    src: sliderCalloc11.src,
+    altText: "Line 9 calls the <strong>free</strong> function, passing it the pointer p. This will free the space allocated on the heap for the memory area that was allocated to the pointer p. NOTE: however, that although the area on the heap is deallocated and available for use by other code within our program, the value of our pointer p has not changed and is still pointing to that area (it's a dangling pointer)",
+    tipStart: 11,
+    tips: [
+      "Line 9 calls the <strong>free</strong> function, passing it the pointer <strong>p</strong>",
+      "This will free the space allocated on the heap for the memory area that was allocated to the pointer <strong>p</strong>",
+      "<strong>NOTE:</strong> however, that although the area on the heap is deallocated and available for use by other code within our program, the value of our pointer <strong>p</strong> has not changed and is still pointing to that area (it's a <strong>dangling pointer</strong>)..."
+    ]
+  },
+  {
+    src: sliderCalloc12.src,
+    altText: "...this means that when we print the value of p, it will still show the same address of the memory area that was in use before (but now deallocated)",
+    tipStart: 12,
+    tips: [
+      "...this means that when we print the value of <strong>p</strong>, it will still show the same address of the memory area that was in use before (but now deallocated)"
+    ]
+  },
+  {
+    src: sliderCalloc13.src,
+    altText: "To avoid problems with any later use of variables that have acted as pointers, the best practice is to reset the value of p to a NULL value. We do this by assigning p> the value nullptr, which is a which is a a built in constant that is a shorthand for a null pointer",
+    tipStart: 13,
+    tips: [
+      "To avoid problems with any later use of variables that have acted as pointers, the best practice is to reset the value of <strong>p</strong> to a <strong>NULL</strong> value",
+      "We do this by assigning <strong>p</strong> the value <strong>nullptr</strong>, which is a a built in constant that is a shorthand for a <em>null pointer</em>"
+
+    ]
+  },
+  {
+    src: sliderCalloc14.src,
+    altText: "This time when we print the value of p, we can see that it has been reset to null, by printing 0",
+    tipStart: 14,
+    tips: [
+      "This time when we print the value of <strong>p</strong>, we can see that it has been reset to null, by printing <strong>0</strong>"
+    ]
+  },
+  {
+    src: sliderCalloc15.src,
+    altText: "Finally we hit the return statement, and control returns to our caller, ending our program",
+    tipStart: 15,
+    tips: [
+      "Finally we hit the <strong>return</strong> statement, and control returns to our caller, ending our program"
+    ]
+  }
+];
+
+<MySwiper client:only height="" images={sliderCalloc}></MySwiper>

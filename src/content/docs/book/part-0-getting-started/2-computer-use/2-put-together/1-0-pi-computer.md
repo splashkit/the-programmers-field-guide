@@ -1,8 +1,8 @@
 ---
-title: Build a computer
+title: Build my Raspberry Pi
 sidebar:
   attrs:
-    class: multitool
+    class: pi
 banner:
   content: |
     Build your own Multi-tool!
@@ -33,3 +33,11 @@ Let's get going...
 Not sure if you want the hardware, but still want to set something like this up? There are some alternatives.
 
 Rather than getting a new physical machine, you can download virtual machine software and follow the software setup to get it working in there.
+
+## Hardware
+
+### Get the components
+
+### Connect the components
+
+
