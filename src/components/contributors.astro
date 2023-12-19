@@ -16,36 +16,40 @@ const dont_include = ["macite", "jakerenzella", "charlottepierce"];
   <MainContributor
     name="Andrew Cain"
     affiliation="Deakin University"
-    imgUrl="andrew_hike_img.png"
+    imgUrl="andrew_hike_img"
     tag="Co-Creator"
+    desc="Andrew is a legend"
   />
 
   <MainContributor
     name="Charlotte Pierce"
+    desc="Charlotte is a legend"
     affiliation="Monash University"
-    imgUrl="charlotte_hike_img.png"
+    imgUrl="charlotte_hike_img"
     tag="Co-Creator"
   />
   <MainContributor
     name="Jake Renzella"
     affiliation="UNSW, Sydney"
-    imgUrl="jake_hike.png"
+    imgUrl="jake_hike"
     tag="Co-Creator"
-    desc="Jake is a "
+    desc="Jake is a legend"
     twitter="https://twitter.com/jakerenzella"
     website="https://jakerenzella.com/"
   />
 </CardGrid>
 
-<h2>All contributors</h2>
+<p style="text-align: center; font-family: 'antique-olive';">
+  Artwork by ..., and a whole bunch of other people who contributed to the
+  project:
+</p>
 
 {
   users.map
-    ? (
-    users.map((data: { login: string; html_url: string }) =>
+    ? users.map((data: { login: string; html_url: string }) =>
         dont_include.includes(data.login) ? null : (
           <Contributor name={data.login} url={data.html_url} />
         )
-      ))
+      )
     : null
 }

@@ -8,7 +8,7 @@ const { name, affiliation, desc, imgUrl, tag, twitter, website } = Astro.props;
 <style>
 
   
-  p !important {
+  p {
     font-family: "antique-olive", cursive, sans-serif;
     margin-bottom: -20px;
     margin-top: 0px;
@@ -19,10 +19,6 @@ const { name, affiliation, desc, imgUrl, tag, twitter, website } = Astro.props;
     color: #247f00;
     font-style: bold;
   }
-  h1 {
-    color: red;
-    font-family: "antique-olive", cursive, sans-serif;
-  }
 </style>
 
 <Card title={name}>
@@ -31,7 +27,7 @@ const { name, affiliation, desc, imgUrl, tag, twitter, website } = Astro.props;
   <p style="margin-top: 0; margin-bottom: 0">{desc}</p>
   <Image
     width={200}
-    src={import(`../assets/illustrations/${imgUrl}`)}
+    src={import(`../assets/illustrations/${imgUrl}.png`)}
     alt={"Illustration of " + name}
   />
   { website ? <LinkCard title="Website" href={website} /> : null }
