@@ -101,6 +101,16 @@ int main()
 }
 ```
 
+### Referring to struct values as objects
+
+When you start programming in this way, you will quickly encounter the need to talk about values created from a struct type. In the past, this was just data, whereas now these are becoming larger entities that embody the concepts associated with our programs. The term we use to refer to these values is **object**, as in "*C1 refers to a contact object*". The object is the memory allocated for the fields of the struct, along with the functionality we embedded within it. This term, and the fact that this style of programming leads to new ways of thinking about our code, lead to the term **object-oriented programming**. For now, we will focus on the mechanics of this while in [Part 3](../../../../part-3-programs-as-concepts/00-part-3-programs-as-concepts) we will look how to approach developing programs using this mentality.
+
+:::tip[Classes?]
+
+We will explore the role of classes in [Part 3](../../../../part-3-programs-as-concepts/00-part-3-programs-as-concepts). Generally, object-oriented programs involve creating classes which capture similar aspects to what we are looking at with structs here. For now, as we focus on the mechanics of this we will use structs and when we fully transition to object-oriented programming we will switch to C# and classes. In C++, structs and classes are very similar so what you are learning now will help you transition when we make the jump.
+
+:::
+
 ## Struct Members - Why, When, and How
 
 The difference is small, and relatively simple. We have just embedded functionality within the struct, but this can change how we think about our code. We can now more clearly start to see the entities in our digital reality, and we can picture the things that these entities know and the things they can do. This is the focus of [Part 3](../../../../part-3-programs-as-concepts/00-part-3-programs-as-concepts), so for now we can focus on the mechanics of how this works before we review how to use these ideas to start designing and building larger more complex programs.

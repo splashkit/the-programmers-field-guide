@@ -6,18 +6,22 @@ sidebar:
 
 The constructors are probably the trickiest of the members to consider, but let's start with them anyway as we need to see how struct values are initialised before we start to perform other actions on them.
 
-A constructor is a special method that is used to initialise a struct when it is created. This is called in one of two ways:
+A constructor is a special method that is used to initialise an object created from the struct when it is created. This is called in one of two ways:
 
 1. When a struct variable is declared.
-2. When the **new** keyword is used to dynamically allocate memory on the heap.
+2. When the **new** keyword is used to create an object on the heap.
 
 ## Constructor - Why, When, and How
 
-When you start to work more within the struct, it is probably always a good idea to create a constructor that can initialise everything just the way you want. This can accept parameters, and use the provided values to set fields of the struct, or it can just allocate default values that make sure things work as expected. In any case, the idea is to make sure the struct is always set up in a way that will mean it works straight away.
+When you start to work more within the struct, it is probably always a good idea to create a constructor that can initialise everything just the way you want. This can accept parameters, and use the provided values to set fields of the object when it is created, or it can just allocate default values that make sure things work as expected. In any case, the idea is to make sure that each object is always set up in a way that will mean it works straight away.
 
-In our example code, the `new_contact` function performed the same role in the original struct code. This can be coded into the constructor in our contact.
+In our example code, the `new_contact` function performed the same role in the original struct code. This can be coded into the constructor in our contact. This will initialise each object created from the struct, ensuring that it always has valid data within it. The great thing with the constructor is that it can be used to initialise values on the stack and on the heap, which our original `new_contact` function could not do.
 
-The great thing with the constructor is that it can be used to initialise values on the stack and on the heap, which our original `new_contact` function could not do.
+:::tip[Object?]
+
+Remember that the term **object** refers to a value created from a struct. We use this when thinking about these values as they now *know* and *can do* things based on the fields and methods declared within the struct. In this way the struct is like the template, and the object is created in memory using this template. In C++ objects can be allocated on the stack or on the heap.
+
+:::
 
 ## In C++
 
@@ -31,7 +35,17 @@ Constructors are coded in the struct as a special looking function. It does not 
 
 ### The new and delete keywords
 
-C++ also include a **new** keyword that can be used to allocate memory on the heap, and **delete** to free that memory. This is given the name of the type to create, and will allocate space on the heap for that element calling the matching constructor as part of this process. When you are working with structs with members this would be the appropriate way of allocating memory for them. You can then free the memory using the `delete` keyword.
+C++ also include a **new** keyword that can be used to create an object (allocate memory for it on the heap) and **delete** to remove the object (free that memory). `new` is given the name of the type of object to create, and will allocate space on the heap for that object, and call the matching constructor to ensure it is initialised. You can then free the memory using the `delete` keyword, and passing in a reference to the object.
+
+:::tip[Syntax]
+
+The new keyword will create an object on the heap and return a pointer to it. You need to store that somewhere so that you can refer to the object and get it to do things. When you are finished with the object, you can delete it which frees it from memory.
+
+![Use new to create objects on the heap, and delete to free them](./images/new-delete.png)
+
+Remember that `new` creates an object from a struct, and `delete` must then be used to delete that object.
+
+:::
 
 ## Example
 
