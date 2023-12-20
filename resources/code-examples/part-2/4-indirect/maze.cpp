@@ -25,10 +25,7 @@ typedef struct room_struct
  */
 path_data new_path(string description, room_ptr destination)
 {
-  path_data result = { 
-    description = description,
-    destination = destination
-  };
+  path_data result = { description, destination };
 
   return result;
 }
@@ -42,7 +39,7 @@ path_data new_path(string description, room_ptr destination)
  */
 room_data new_room(string title, string description)
 {
-  room_data result = { title = title, description = description };
+  room_data result = { title, description };
 
   return result;
 }

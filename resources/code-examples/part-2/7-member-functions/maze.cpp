@@ -1,11 +1,5 @@
----
-title: Maze Game
----
-
-Here is our implementation of the maze game. This is an initial prototype to explore setting up rooms with paths between them. Pay attention to the use of pointers here, and how the path uses pointers to move the player to another room.
-
-```cpp
 #include <string>
+#include "dynamic-array-2.hpp"
 
 using std::string;
 
@@ -21,6 +15,7 @@ typedef struct room_struct
 {
   string title;
   string description;
+  dynamic_array<path_data> paths;
 } room_data;
 
 /**
@@ -46,7 +41,7 @@ path_data new_path(string description, room_ptr destination)
  */
 room_data new_room(string title, string description)
 {
-  room_data result = { title, description };
+  room_data result = { title, description, dynamic_array<path_data>(0, {})};
 
   return result;
 }
@@ -71,6 +66,15 @@ void print_path(int idx, const path_data &path)
 void print_room(room_ptr room)
 {
   printf("%s\n-----\n%s\n", room->title.c_str(), room->description.c_str());
+
+  if ( room->paths.size > 0 )
+  {
+    printf("There are paths leading:\n");
+    for (int i = 0; i < room->paths.size; i++)
+    {
+      print_path(i, room->paths[i]);
+    }
+  }
 }
 
 /**
@@ -108,6 +112,22 @@ int read_int(const string &prompt)
   return result;
 }
 
+void explore(room_ptr &room)
+{
+  int option = 0;
+
+  print_room(room);
+
+  option = read_int("Which path do you want to take? ");
+
+  while(option < 0 || option > room->paths.size - 1)
+  {
+    printf("Choose a value between 0 and %d\n", room->paths.size - 1);
+    option = read_int("Option: ");
+  }
+
+  move_player(room, room->paths[option]);
+}
 
 int main()
 {
@@ -115,32 +135,20 @@ int main()
   room_data r2 = new_room("Room 2", "This is room 2");
   room_data r3 = new_room("Room 3", "This is room 3");
 
-  path_data p1 = new_path("A large sliding door", &r2);
-  path_data p2 = new_path("An open corridor", &r3);
+  r1.paths.add(new_path("A large sliding door", &r2));
+  r1.paths.add(new_path("An open corridor", &r3));
+  r1.paths.add(new_path("A small door", &r1));
 
+  r2.paths.add(new_path("A large sliding door", &r1));
+  r2.paths.add(new_path("A small door", &r1));
+  
   room_ptr current_room = &r1;
 
-  print_room(current_room);
-  print_path(0, p1);
-  print_path(0, p2);
-
-  int option = read_int("Option: ");
-
-  while(option < 0 || option > 1)
+  while(current_room->paths.size > 0)
   {
-    printf("Choose a value between 0 and 1\n");
-    option = read_int("Option: ");
+    explore(current_room);
   }
 
-  if ( option == 0 )
-  {
-    move_player(current_room, p1);
-  }
-  else 
-  {
-    move_player(current_room, p2);
-  }
-
+  printf("You have reached the end of the maze!\n");
   print_room(current_room);
 }
-```

@@ -137,7 +137,7 @@ struct dynamic_array
      * Provide array style access to the dynamic array.
      * 
      * @param index the index of the element to get
-     * @return T& the element at the given index
+     * @return const T& the element at the given index
      */
     const T &operator[](unsigned int index) const
     {
