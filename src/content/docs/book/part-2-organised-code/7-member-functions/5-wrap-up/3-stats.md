@@ -61,9 +61,9 @@ double read_double(const char *prompt)
  */
 void populate_array(dynamic_array<double> &data)
 {
-  int count = read_integer("How many values do you want to enter? ");
+  int size = read_integer("How many values do you want to enter? ");
 
-  for (int i = 0; i < count; i++)
+  for (int i = 0; i < size; i++)
   {
     data.add(read_double("Enter value: "));
   }

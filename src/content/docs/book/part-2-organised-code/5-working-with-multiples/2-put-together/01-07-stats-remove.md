@@ -12,7 +12,7 @@ There are three options for removing an element as shown in the image below. All
 
 ## Option 1 - move the last element
 
-The easy way to do this would be to swap the last element of the array into the location where the element to be removed is. Then reduce the count, so that the old last element is no longer considered to be part of the data.
+The easy way to do this would be to swap the last element of the array into the location where the element to be removed is. Then reduce the size, so that the old last element is no longer considered to be part of the data.
 
 ```
 Procedure: Remove Element
@@ -27,7 +27,7 @@ Steps:
   - Output an error message
   - Return
 - Store the last element of data.values in data.values[index]
-- Reduce data.count by one
+- Reduce data.size by one
 ```
 
 The first action would probably be good as its own procedure. This could accept the number data as a const reference and loop through printing out each element and its index.
@@ -57,9 +57,9 @@ Steps:
 - If it is less than 0 or larger than the max index
   - Output an error message
   - Return
-- For i = index + 1 to last index ( while i < data.count)
+- For i = index + 1 to last index ( while i < data.size)
   - Set data.values[i - 1] = data.values[i]
-- Reduce data.count by one
+- Reduce data.size by one
 ```
 
 Any time you are using something like `i + 1` or `i - 1` to access an array element, you need to think about the array boundaries. You want to make sure your code can never go past the end of the array (back past the start, or on past the end). In our case, we start at `index + 1` and index much be >= 0. Therefore, `i - 1` will never read past the start of the array.
@@ -83,9 +83,9 @@ Steps:
 - If it is less than 0 or larger than the max index
   - Output an error message
   - Return
-- size = sizeof(double) * data.count - index - 1;
+- size = sizeof(double) * data.size - index - 1;
 - memcpy(address of data.values[index], address of data.values[index + 1], size)
-- Reduce data.count by one
+- Reduce data.size by one
 ```
 
 ## Summary

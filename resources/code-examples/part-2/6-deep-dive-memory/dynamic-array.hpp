@@ -77,38 +77,6 @@ void delete_dynamic_array(dynamic_array<T> *array)
 }
 
 /**
- * @brief Get the current size of the dynamic array.
- * 
- * @tparam T the type of data in the dynamic array
- * @param array the dynamic array to get the size of
- * @return unsigned int the size of the dynamic array
- */
-template<typename T>
-unsigned int size(const dynamic_array<T> *array)
-{
-  if (array)
-    return array->size;
-  else
-    return 0;
-}
-
-/**
- * @brief Get the current capacity of the dynamic array.
- * 
- * @tparam T the type of data in the dynamic array
- * @param array the dynamic array to get the capacity of
- * @return unsigned int the capacity of the dynamic array
- */
-template<typename T>
-unsigned int capacity(const dynamic_array<T> *array)
-{
-  if (array)
-    return array->capacity;
-  else
-    return 0;
-}
-
-/**
  * @brief Resize the capacity of the dynamic array.
  * 
  * If the new capacity is smaller than the current size, the size will be updated to match the new capacity.
@@ -160,7 +128,8 @@ bool add(dynamic_array<T> *array, T value)
   if (!array) return false;
 
   // Check if we need to resize the array, and if we failed to resize the array
-  if (array->size >= array->capacity && !resize(array, array->capacity * 2))
+  // We double the capacity and add 1 to address issues where capacity is 0 initially
+  if (array->size >= array->capacity && !resize(array, array->capacity * 2 + 1))
   {
     // We didn't have space, and we failed to resize the array!
     return false;

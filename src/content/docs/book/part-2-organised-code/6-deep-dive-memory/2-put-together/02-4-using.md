@@ -29,7 +29,7 @@ As a thought exercise, here are the steps I followed to convert the code to usin
 3. Multi-select the `number_data &` code and replace all instances with the new `dynamic_array<double> *`.
 4. Scan the code to change how we access the data:
    - Remove old limited imposed by `MAX_NUMBERS`
-   - Remove any code that sets the count, and use `add` instead
+   - Remove any code that sets the size, and use `add` instead
      - Use `add` in `populate_array`
      - Adjust `add_data` to use `add` as well
    - Replace any code setting a value in the array with a call to `set`:
@@ -38,9 +38,9 @@ As a thought exercise, here are the steps I followed to convert the code to usin
    - Replace any code getting a value from the array with a call to `get`. For example:
      - `printf("%d: %lf\n", i, data.values[i]);` becomes
      - `printf("%d: %lf\n", i, get(data, i, 0.0));`
-   - Adjust the places where data.count is used, and replace with `size(data)`. For example:
-     - `for (int i = 0; i < data.count; i++)` becomes:
-     - `for (int i = 0; i < size(data); i++)`
+   - Adjust the places where data.size is used, and access via the pointer. For example:
+     - `for (int i = 0; i < data.size; i++)` becomes:
+     - `for (int i = 0; i < data->size; i++)`
    - Adjust the code in `remove_value` to use resize, or rewrite the logic to remove an element into the `dynamic_array` and have `remove_value` call that.
 
 :::tip

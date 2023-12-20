@@ -310,7 +310,7 @@ export default defineConfig({
           link: "book/part-2-organised-code/3-structuring-data/4-activities"
         }]
       }, {
-        label: "4. Indirectly Accessing Data",
+        label: "4. Indirect Access",
         collapsed: true,
         items: [{
           label: "Overview",
@@ -378,7 +378,7 @@ export default defineConfig({
           }
         }]
       }, {
-        label: "6. Deep Dive on Memory",
+        label: "6. Memory Deep Dive",
         collapsed: true,
         items: [{
           label: "Overview",

@@ -1,10 +1,3 @@
----
-title: Dynamic Array
----
-
-The updated code for the dynamic array header file is provided below. This now embeds the functionality within the dynamic array, making it a much more cohesive package to work with.
-
-```cpp
 #ifndef DYNAMIC_ARRAY_HEADER
 #define DYNAMIC_ARRAY_HEADER
 
@@ -106,8 +99,7 @@ struct dynamic_array
     bool add(T value)
     {
         // Check if we need to resize the array, and if we failed to resize the array
-        // We double the capacity and add 1 to address issues where capacity is 0 initially
-        if (size >= capacity && !resize(capacity * 2 + 1))
+        if (size >= capacity && !resize(capacity * 2))
         {
             // We didn't have space, and we failed to resize the array!
             return false;
@@ -193,4 +185,3 @@ struct dynamic_array
 };
 
 #endif
-```
