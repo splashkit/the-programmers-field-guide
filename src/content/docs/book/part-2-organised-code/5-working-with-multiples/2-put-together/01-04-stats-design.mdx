@@ -14,7 +14,7 @@ For this program we are going to need to handle an array of numbers. We will nee
 
 The following pseudocode outlines the plan for this struct. We need to have a constant to set the array to the largest size we want to accept. This can start at 20, so that we can easily test trying to add more than 20 values. Later we can easily change this to a larger value.
 
-The `Number Data` struct can contain the array and the count of the number of elements in the array. This will simplify passing this data around as we build this program up.
+The `Number Data` struct can contain the array and the number of elements in the array (its size). This will simplify passing this data around as we build this program up.
 
 ```
 Const: MAX_NUMBERS int with value 20
@@ -22,7 +22,7 @@ Const: MAX_NUMBERS int with value 20
 Struct: Number Data
 Fields:
 - Values: array of MAX_NUMBERS double values
-- Count: an integer for the current number of values
+- Size: an integer for the current number of values
 ```
 
 Now we need to look at how we can put this all together.
@@ -59,7 +59,7 @@ With the logic for `Read Double` and `Read Integer` in place, the next step is t
 
 A flowchart illustrating the steps in `Populate Array` is shown in [Figure x.y](#FigureFlowchartPopulateArray). This is passed the number data to populate using the `Number Data` struct passed by reference.
 
-The first part of the procedure reads in the number of elements the user wants to populate. We need to make sure that this is not larger than the maximum capacity of the array. The first decision allows us to detect when this occurs, and we can then set the number the user wants to enter to be the maximum we can accept. The value will need to be stored in the `data.count` field within the struct. This way, the struct will contain both the number of elements and the data itself.
+The first part of the procedure reads in the number of elements the user wants to populate. We need to make sure that this is not larger than the maximum capacity of the array. The first decision allows us to detect when this occurs, and we can then set the number the user wants to enter to be the maximum we can accept. The value will need to be stored in the `data.size` field within the struct. This way, the struct will contain both the number of elements and the data itself.
 
 Following this, we have the loop to initialise each of the values the user ahs indicated they want to provide. The decision node is being used to show the control mechanism of the for loop, counting from the lowest index of the array to the highest index. Within the body of the loop the two instructions build a prompt string, and then use this in the call to `Read Double`. The result returned from `Read Double` is stored in the current (i<sup>th</sup>) element of the array.
 

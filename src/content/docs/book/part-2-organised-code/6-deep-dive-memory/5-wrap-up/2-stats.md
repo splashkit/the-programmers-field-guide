@@ -5,7 +5,7 @@ title: Stats Calculator
 Here is an example of how we can use the dynamic array to implement the statistics calculator.
 
 ```cpp
-/* stats-calc.c */
+/* stats-calc.cpp */
 
 #include <stdio.h>
 #include "dynamic-array.hpp"
@@ -61,11 +61,11 @@ double read_double(const char *prompt)
  */
 void populate_array(dynamic_array<double> *data)
 {
-  int count = read_integer("How many values do you want to enter? ");
+  int size = read_integer("How many values do you want to enter? ");
 
-  for (int i = 0; i < count; i++)
+  for (int i = 0; i < size; i++)
   {
-    set(data, i, read_double("Enter value: "));
+    add(data, read_double("Enter value: "));
   }
 }
 
@@ -76,7 +76,7 @@ void populate_array(dynamic_array<double> *data)
  */
 void print(const dynamic_array<double> *data)
 {
-  for (int i = 0; i < size(data); i++)
+  for (int i = 0; i < data->size; i++)
   {
     printf("%d: %lf\n", i, get(data, i, 0.0));
   }
@@ -93,7 +93,7 @@ double sum(const dynamic_array<double> *data)
   int i;
   double result = 0;
 
-  for (i = 0; i < size(data); i++)
+  for (i = 0; i < data->size; i++)
   {
     result += get(data, i, 0.0);
   }
@@ -109,8 +109,8 @@ double sum(const dynamic_array<double> *data)
  */
 double mean(const dynamic_array<double> *data)
 {
-  if (size(data) > 0)
-    return sum(data) / size(data);
+  if (data->size > 0)
+    return sum(data) / data->size;
   else
     return 0;
 }
@@ -124,14 +124,14 @@ double mean(const dynamic_array<double> *data)
 double max(const dynamic_array<double> *data)
 {
   // Ensure there is data
-  if (size(data) == 0)
+  if (data->size == 0)
     return 0;
 
   // Assume the first value is the largest
   double result = get(data, 0, 0.0);
 
   // Check the rest of the values
-  for (int i = 1; i < size(data); i++)
+  for (int i = 1; i < data->size; i++)
   {
     if (get(data, i, 0.0) > result)
     {
@@ -168,13 +168,13 @@ void remove_value(dynamic_array<double> *data)
 
   int index = read_integer("Enter the index of the value to remove: ");
 
-  if (index >= 0 && index < size(data))
+  if (index >= 0 && index < data->size)
   {
-    for (int i = index; i < size(data) - 1; i++)
+    for (int i = index; i < data->size - 1; i++)
     {
       set(data, i, get(data, i + 1, 0.0));
     }
-    resize(data, size(data) - 1);
+    resize(data, data->size - 1);
   }
   else
   {
@@ -203,6 +203,8 @@ int main()
   remove_value(data);
 
   print(data);
+
+  delete_dynamic_array(data);
 
   return 0;
 }

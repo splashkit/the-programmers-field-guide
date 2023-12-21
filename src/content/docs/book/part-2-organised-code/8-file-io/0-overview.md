@@ -1,5 +1,7 @@
 ---
-title: "Input and Output Concepts Overview"
+title: Input and Output Concepts Overview
+sidebar:
+    labels: "Overview"
 ---
 
 Over the previous chapter you have learnt to create programs that manipulate data. So far this data has only existed within the program, with the values stored being lost when the program terminates. If you want to be able to maintain these values between executions you need to learn to save data to file. By saving the program’s data to file you can then load it back in when the program is restarted.

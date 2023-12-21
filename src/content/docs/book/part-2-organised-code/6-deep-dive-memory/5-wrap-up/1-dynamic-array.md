@@ -88,38 +88,6 @@ void delete_dynamic_array(dynamic_array<T> *array)
 }
 
 /**
- * @brief Get the current size of the dynamic array.
- * 
- * @tparam T the type of data in the dynamic array
- * @param array the dynamic array to get the size of
- * @return unsigned int the size of the dynamic array
- */
-template<typename T>
-unsigned int size(const dynamic_array<T> *array)
-{
-  if (array)
-    return array->size;
-  else
-    return 0;
-}
-
-/**
- * @brief Get the current capacity of the dynamic array.
- * 
- * @tparam T the type of data in the dynamic array
- * @param array the dynamic array to get the capacity of
- * @return unsigned int the capacity of the dynamic array
- */
-template<typename T>
-unsigned int capacity(const dynamic_array<T> *array)
-{
-  if (array)
-    return array->capacity;
-  else
-    return 0;
-}
-
-/**
  * @brief Resize the capacity of the dynamic array.
  * 
  * If the new capacity is smaller than the current size, the size will be updated to match the new capacity.
@@ -171,7 +139,8 @@ bool add(dynamic_array<T> *array, T value)
   if (!array) return false;
 
   // Check if we need to resize the array, and if we failed to resize the array
-  if (array->size >= array->capacity && !resize(array, array->capacity * 2))
+  // We double the capacity and add 1 to address issues where capacity is 0 initially
+  if (array->size >= array->capacity && !resize(array, array->capacity * 2 + 1))
   {
     // We didn't have space, and we failed to resize the array!
     return false;
@@ -250,7 +219,7 @@ int main()
   dynamic_array<int> *array = new_dynamic_array<int>(10);
 
   // Print the size and capacity of the array
-  printf("size: %d, capacity: %d\n", size(array), capacity(array));
+  printf("size: %d, capacity: %d\n", array->size, array->capacity);
 
   // Add 15 values to the array
   for(int i = 0; i < 15; i++)
@@ -259,10 +228,10 @@ int main()
   }
 
   // Reprint the size and capacity of the array after adding
-  printf("size: %d, capacity: %d\n", size(array), capacity(array));
+  printf("size: %d, capacity: %d\n", array->size, array->capacity);
 
   // Print and update the values in the array, using the get and set functions
-  for(int i = 0; i < size(array); i++)
+  for(int i = 0; i < array->size; i++)
   {
     printf("array[%d] =  %d\n", i, get(array, i, -1));
     set(array, i, i * 2);
@@ -281,11 +250,11 @@ int main()
     printf("Failed to set array[99]\n");
   }
 
-  printf("Before resize - size: %d, capacity: %d\n", size(array), capacity(array));
+  printf("Before resize - size: %d, capacity: %d\n", array->size, array->capacity);
   // Change the size of the array
   resize(array, 5);
 
-  printf("After resize - size: %d, capacity: %d\n", size(array), capacity(array));
+  printf("After resize - size: %d, capacity: %d\n", array->size, array->capacity);
 
   for(int i = 0; i < 20; i++)
   {

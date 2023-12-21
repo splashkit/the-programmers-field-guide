@@ -8,7 +8,7 @@ int main()
   dynamic_array<int> *array = new_dynamic_array<int>(10);
 
   // Print the size and capacity of the array
-  printf("size: %d, capacity: %d\n", size(array), capacity(array));
+  printf("size: %d, capacity: %d\n", array->size, array->capacity);
 
   // Add 15 values to the array
   for(int i = 0; i < 15; i++)
@@ -17,10 +17,10 @@ int main()
   }
 
   // Reprint the size and capacity of the array after adding
-  printf("size: %d, capacity: %d\n", size(array), capacity(array));
+  printf("size: %d, capacity: %d\n", array->size, array->capacity);
 
   // Print and update the values in the array, using the get and set functions
-  for(int i = 0; i < size(array); i++)
+  for(int i = 0; i < array->size; i++)
   {
     printf("array[%d] =  %d\n", i, get(array, i, -1));
     set(array, i, i * 2);
@@ -39,11 +39,11 @@ int main()
     printf("Failed to set array[99]\n");
   }
 
-  printf("Before resize - size: %d, capacity: %d\n", size(array), capacity(array));
+  printf("Before resize - size: %d, capacity: %d\n", array->size, array->capacity);
   // Change the size of the array
   resize(array, 5);
 
-  printf("After resize - size: %d, capacity: %d\n", size(array), capacity(array));
+  printf("After resize - size: %d, capacity: %d\n", array->size, array->capacity);
 
   for(int i = 0; i < 20; i++)
   {

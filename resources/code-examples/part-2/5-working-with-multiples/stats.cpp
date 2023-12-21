@@ -8,12 +8,12 @@ const int MAX_NUMBERS = 20;
  * The data structure to store the numbers
  *
  * @field values the array of values
- * @field count the number of values in the array - up to MAX_NUMBERS
+ * @field size the number of values in the array - up to MAX_NUMBERS
  */
 typedef struct
 {
   double values[MAX_NUMBERS];
-  int count;
+  int size;
 } number_data;
 
 /**
@@ -67,15 +67,15 @@ double read_double(const char *prompt)
  */
 void populate_array(number_data &data)
 {
-  int count = read_integer("How many values do you want to enter? ");
-  if (count > MAX_NUMBERS)
+  int size = read_integer("How many values do you want to enter? ");
+  if (size > MAX_NUMBERS)
   {
     printf("Sorry, you can only enter %d values.\n", MAX_NUMBERS);
-    count = MAX_NUMBERS;
+    size = MAX_NUMBERS;
   }
 
-  data.count = count;
-  for (int i = 0; i < data.count; i++)
+  data.size = size;
+  for (int i = 0; i < data.size; i++)
   {
     data.values[i] = read_double("Enter value: ");
   }
@@ -88,7 +88,7 @@ void populate_array(number_data &data)
  */
 void print(const number_data &data)
 {
-  for (int i = 0; i < data.count; i++)
+  for (int i = 0; i < data.size; i++)
   {
     printf("%d: %lf\n", i, data.values[i]);
   }
@@ -105,7 +105,7 @@ double sum(const number_data &data)
   int i;
   double result = 0;
 
-  for (i = 0; i < data.count; i++)
+  for (i = 0; i < data.size; i++)
   {
     result += data.values[i];
   }
@@ -121,8 +121,8 @@ double sum(const number_data &data)
  */
 double mean(const number_data &data)
 {
-  if (data.count > 0)
-    return sum(data) / data.count;
+  if (data.size > 0)
+    return sum(data) / data.size;
   else
     return 0;
 }
@@ -136,14 +136,14 @@ double mean(const number_data &data)
 double max(const number_data &data)
 {
   // Ensure there is data
-  if (data.count == 0)
+  if (data.size == 0)
     return 0;
 
   // Assume the first value is the largest
   double result = data.values[0];
 
   // Check the rest of the values
-  for (int i = 1; i < data.count; i++)
+  for (int i = 1; i < data.size; i++)
   {
     if (data.values[i] > result)
     {
@@ -163,10 +163,10 @@ void add_data(number_data &data)
 {
   double value = read_double("Enter a value to add: ");
 
-  if (data.count < MAX_NUMBERS)
+  if (data.size < MAX_NUMBERS)
   {
-    data.values[data.count] = value;
-    data.count++;
+    data.values[data.size] = value;
+    data.size++;
   }
   else
   {
@@ -185,13 +185,13 @@ void remove_value(number_data &data)
 
   int index = read_integer("Enter the index of the value to remove: ");
 
-  if (index >= 0 && index < data.count)
+  if (index >= 0 && index < data.size)
   {
-    for (int i = index; i < data.count - 1; i++)
+    for (int i = index; i < data.size - 1; i++)
     {
       data.values[i] = data.values[i + 1];
     }
-    data.count--;
+    data.size--;
   }
   else
   {

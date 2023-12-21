@@ -11,14 +11,15 @@
   },
   "dependencies": {
     "@astrojs/react": "^3.0.7",
-    "@astrojs/starlight": "^0.15.0",
+    "@astrojs/sitemap": "^3.0.3",
+    "@astrojs/starlight": "^0.15.1",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
-    "astro": "^4.0.4",
+    "astro": "^4.0.6",
     "astro-embed": "^0.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sharp": "^0.33",
+    "squoosh": "^0.0.0",
     "swiper": "^11.0"
   }
 }

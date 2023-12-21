@@ -20,7 +20,6 @@ In terms of functionality, we can build the following functions and procedures. 
 
 - A `new_dynamic_array` function that will initialise the data in the struct. As we want to have this on the heap, this will allocate the memory for the `dynamic_array` and enough space for the initial capacity in the array's `data` field.
 - Once we add the code to create the array, we should next create a `delete_dynamic_array` to free these allocations. This can free both the `data` and the `dynamic_array`. We can set values in memory to avoid issues if there are [dangling pointers](../../1-concepts/05-3-dangling-pointer).
-- Providing functions to access `size` and `capacity` will make it easy for people to access these values when they are wanting to check what is happening within the dynamic array. This will mean that you should not need to access the fields of the struct directly.
 - To put data in the array we can create an `add` function. This will check if there is capacity, and resize if needed. We can make this return a boolean so that it can return `false` if it cannot get space to add the data. This will only happen if we are out of memory, so it won't happen often.
 - A `resize` function can be told the new capacity, and change the array's `data` field memory allocation. This can grow or shrink the size of the array. We can call it from `add`, and it can be called by users of the dynamic array.
 - Once a value is added to the array, we can read it using `get` and update it using `set`. These can do the bounds checking, and make sure that they only get or set values that are allocated within the array. The get will need to accept a `default_value` that can be returned if we ask for something out of bounds. We cannot just return a fixed `0` or `""` as we do not know the type.
@@ -29,7 +28,6 @@ We can build this in a few steps.
 
 - Generate and initialise the data structure
 - Implement add and resize
-- Code the size and capacity functions
 - Build the get and set functions
 
 But before we get started, there is one tool that can help us with this.
