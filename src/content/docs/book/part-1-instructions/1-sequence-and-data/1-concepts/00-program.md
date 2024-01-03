@@ -84,12 +84,9 @@ Delay(5000);
 
 :::tip[Code Comments]
 C# source code is [abstracted](../../../part-0-getting-started/1-digital-realities/1-concepts/6-source-code/#programming-with-a-third-generation-language) to make it more understandable for humans, but ultimately it is still written for computers.
-Because of this, C# and virtually all programming languages include syntax for writing **code comments**.
+Because of this, C# and virtually all programming languages include syntax for writing [**code comments**](../09-comments.md).
 
-A code comment is a directive to the compiler to ignore some text.
-Comments are useful for leaving notes for other programmers, including your future self.
-
-In C#, `//` is the syntax for a code comment -- any text after `//` and on the same line will be ignored by the compiler.
+In the code above the line starting with `//` is a code comment and will be ignored by the compiler.
 :::
 
 Data is also key within every program. Can you spot data in the examples above?
