@@ -2,7 +2,7 @@
 title:  Airspeed Velocity
 ---
 
-Here is our version of the Air Speed velocity program code. When building your own version of this program, you can use this if you get stuck. Remember that your code may be a little different to this, and that is ok. The most important thing is that you create your own version, have a good understanding of how it works, and have developed the knowledge and skills necessary to create similar programs using variable and constant declarations, assignment statements, method calls, and an iterative process.
+Here is our version of the Airspeed velocity program code. When building your own version of this program, you can use this if you get stuck. Remember that your code may be a little different to this, and that is ok. The most important thing is that you create your own version, have a good understanding of how it works, and have developed the knowledge and skills necessary to create similar programs using variable and constant declarations, assignment statements, method calls, and an iterative process.
 
 ```csharp
 using static System.Console;
@@ -35,7 +35,7 @@ Write("Amplitude: :");
 line = ReadLine();
 amp = ToDouble(line);
 
-// calculate the air speed, given a fixed Strouhal value
+// calculate the airspeed, given a fixed Strouhal value
 double resultMax, resultMin;
 resultMax = freq * amp / STROUHAL_HIGH_EFFICIENCY;
 resultMin = freq * amp / STROUHAL_LOW_EFFICIENCY;
