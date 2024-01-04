@@ -95,8 +95,6 @@ while (!QuitRequested())
 
 :::caution
 
-Wow, this is **a lot of code** even for me! Generally I would have brought in the code organisation features of the language to help make this easier for me, but we haven't covered those yet.
-
-The good thing is - once you master these concepts and can create code like this... it is all just going to get easier from here. In Part 2 we will see some tools we can bring to help us better manage this code. Then writing huge chunks of code like this will be a thing of the past. You will still use control flow, but you will have need tools you can use to divide the code up into clearer sections so you can more easily think through how those parts work.
+Wow, this is **a lot of code** to write directly within the program, even for me! Generally I would have brought in the code organisation features of the language to help make this easier for me, but we haven't covered those yet. The good thing is - once you master these concepts and can create code like this... it is all just going to get easier from here. In Part 2 we will see some tools we can bring to help us better manage this code. Then writing huge chunks of code like this will be a thing of the past. You will still use control flow, but you will have need tools you can use to divide the code up into clearer sections so you can more easily think through how those parts work.
 
 :::

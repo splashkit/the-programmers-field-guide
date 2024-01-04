@@ -132,10 +132,17 @@ export default defineConfig({
           }
         }, {
           label: "Other Languages",
-          link: "book/part-1-instructions/1-sequence-and-data/4-other-languages"
+          link: "book/part-1-instructions/1-sequence-and-data/3-other-languages"
         }, {
           label: "Activities",
-          link: "book/part-1-instructions/1-sequence-and-data/5-activities"
+          link: "book/part-1-instructions/1-sequence-and-data/4-activities"
+        }, {
+          label: "Wrap Up",
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-1-instructions/1-sequence-and-data/5-wrap-up",
+            collapsed: true
+          }
         }]
       }, {
         label: "2. Communicating Syntax",
