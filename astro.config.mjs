@@ -315,6 +315,13 @@ export default defineConfig({
         }, {
           label: "Activities",
           link: "book/part-2-organised-code/3-structuring-data/4-activities"
+        }, {
+          label: "Wrap Up",
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-2-organised-code/3-structuring-data/5-wrap-up",
+            collapsed: true
+          }
         }]
       }, {
         label: "4. Indirect Access",
