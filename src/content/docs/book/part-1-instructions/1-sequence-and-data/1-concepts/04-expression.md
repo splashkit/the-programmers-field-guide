@@ -87,7 +87,6 @@ What values do the following expressions evaluate to?
 6. `7 / 2.0`
 7. `10 - (1 + 2) * 3`
 
-<div class="caption"><span class="caption-figure-nbr">Listing 5.7: </span>Evaluate the expressions</div>
 <details>
   <summary role="button">Answers</summary>
   <ul>
