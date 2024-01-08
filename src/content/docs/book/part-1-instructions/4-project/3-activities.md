@@ -43,7 +43,7 @@ Create a graphical application that gets the user to indicate the midpoint betwe
 
 ## Test Your Knowledge
 
-### Task 1 - 
+### Advanced Unit Converter & Calculator
 
 NEED TO ADD
 
@@ -69,12 +69,12 @@ Your program needs to:
 
 ### Task 3 - Creating a Key Collection Game
 
-In this project, you will need to develop a simple game where the player needs to move a character around a window and collect 3 randomly placed keys in the correct order determined by you. Once all the keys have been collected, if keys are collected in the wrong order, all keys should be deleted and 3 new keys should be placed in the level in random locations. Once all keys have been collected in the correct order, you should stop taking movement input and write "WIN" on the window.
+In this project, you will need to develop a simple puzzle game where the player needs to move a character around a window and collect 3 randomly placed keys in the correct order based on their colour. Once all the keys have been collected, if the keys are collected in the wrong order, all keys should be deleted and 3 new keys should be placed in the level in random locations. Once all keys have been collected in the correct colour order, you should stop taking movement input and write "WIN" on the window.
 
 Some SplashKit functions you might need:
 Rnd(min: int, max: int)
 KeyDown(KeyCode key)
-Some kind of sprite collision, or maybe using rectangles and circles
+Some kind of bitmap collision
 
 Your program needs to:
 
@@ -83,6 +83,6 @@ Your program needs to:
 - Allow the player to move their character around with WASD
 - Not allow the player to move their character outside of the window
 - Allow the player to collect a key once their character has overlapped with the key
-- Check to see if keys have been collected in the correct order
+- Check to see if keys have been collected in the correct colour order
   - If so, stop taking input and display "WIN" on the window
-  - If not, spawn the keys in different random locations again, making sure to not initially overlap with the character
+  - If not, spawn the keys in different random locations again with the same colours, making sure to not initially overlap with the character

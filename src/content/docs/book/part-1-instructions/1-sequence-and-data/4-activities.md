@@ -12,7 +12,7 @@ As you work through this, you need to draw together several aspects important to
 
 ### Unit Converter
 
-Here we will be putting together everything we learnt across this chapter into something that might help us - A unit converter!
+Here we will be putting together everything we learnt across the last section into something that might help us - A unit converter!
 
 In this task, it is up to you to create a program that takes in a number of millimeters, and converts them into metric units such as centimeters, meters, and kilometers, as well as imperial units such as inches, feet, and miles.
 
@@ -28,33 +28,40 @@ For your reference:
 Your program should:
 
 - Ask the user how many millimeters they would like to convert.
-- Return the resultant conversions for both metric and imperial units, from largest denomination to smallest denomination.
+- Output the resultant conversions for both metric and imperial units
 
 ### Sound Player
 
 Here we will be trying out some SplashKit functionality and playing a song (or part thereof) back to us!
 
-In this task, it is up to you to create a program which will ask the user where a sound file is located, the name of that sound file, as well as what timestamp the sound is to start playing, and for how long.
+In this task, it is up to you to create a program which will ask the user the filename of a sound file, the name they would like to refer to it as, and for how long they would like to play it. You will then play the sound back at 50% volume for the specified time, then again at 100% volume.
+
+NOTE:
+Your sound files need to be stored under: [PROJECTNAME]\bin\Debug\net8.0\sounds (If you don't have a sounds folder, create one)
 
 You might need the following SplashKit functions:
+new Music();
+SplashKit.LoadMusic();
+SplashKit.Delay();
+SplashKit.StopMusic();
 
 Your program should:
 
-- Ask the user the file path of the folder the song is located in (e.g: C:/Users/Desktop/Songs/)
-- Ask the user the file name of the song
-- Ask the user what timestamp they would like the song to start at (e.g: 00:45 for 45 seconds into the song)
+- Ask the user the file name (including the file extension) of the sound
+- Ask the user what they would like to name the song
 - Ask the user how long they would like the song to play for in seconds
-- Play the section of the song the user asked for
+- Play the section of the song the user asked for at 50%, then 100% for the time specified by the user
 
 ### Game Splash Screen
 
 Here we will be creating the beginning of any good game; a splash-screen/title animation!
 
-In this task, it is up to you to create a short sequence of SplashKit events, such as shapes, colours, and delays to act as an introduction or title animation to a game.
+In this task, it is up to you to create a short sequence of SplashKit events, such as shapes, colours, images, sound/music, and delays to act as an introduction or title animation to a game.
 
 You might need the following SplashKit functions:
+
 
 Your program should:
 
 - Welcome the user to the game with an appropriate title
-- Play an introductory animation users shapes, colours, and delays
+- Play an introductory animation users shapes, colours, images, sound/music, and delays
