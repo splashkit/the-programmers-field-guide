@@ -2,54 +2,54 @@
 title: "Program"
 ---
 
-In most software projects the top-level **building block** you are aiming to create is a **program**. A program is something the user can **run**.
+In most software projects the top-level building block you are aiming to create is a **program**. A program is something the user can **run** to get the computer to do something.
 
-Each program consists of the **list of instructions** ([statements](../../../2-communicating-syntax/1-concepts/02-statement) in programming terminology) the computer will perform when that program is run. When you create a program, think about the goal of that program and the steps you need the computer to perform to achieve that goal.
+Each program consists of a **list of instructions** ([statements](../../../2-communicating-syntax/1-concepts/02-statement) in programming terminology) that the computer will perform when the program is run. When you create a program, think about the goal of that program and the steps you need the computer to perform to achieve that goal.
 
-[Figure 5.1](#FigureProgram) shows a sketch of the **program** concept. It shows the program consisting of instructions (written in the **source code**). Key aspects of the program are the starting instruction and the libraries that the program uses.
+[Figure 5.1](#FigureProgram) shows a sketch of the program concept. It shows a program consisting of instructions (written in **source code**). Some key aspects of the program are the starting instruction and the libraries that it uses.
 
 <a id="FigureProgram" class="linkPoint"></a>
+![Figure 5.1 A program contains instructions that tell the computer what to do](./images/program-concept.png "A program contains instructions that tell the computer what to do")
+<div class="caption"><span class="caption-figure-nbr">Figure 5.1: </span>A program contains instructions that tell the computer what to do</div><br/>
 
-![Figure 5.1 A program contains instructions that command the computer to perform actions](./images/program-concept.png "A program contains instructions that command the computer to perform ")
-<div class="caption"><span class="caption-figure-nbr">Figure 5.1: </span> A program contains instructions that command the computer to perform </div><br/>
+## Program -- why, when, and how
 
-## Program - why, when, and how
+You will need to create a program to be able to run and share each digital reality/piece of software you create. A large software system may have several programs, but each program will create its own digital reality when it is executed.
 
-You will need to create a program to be able to run and share each digital reality/piece of software you create. One larger software system may have several programs, but each program will create its own digital reality when it is executed.
-
-Programs are created at the top level - so there it is really just having a file to put the source code in and the project files that `dotnet` creates around these.
-
-When you think about the program, you are thinking **big picture**. What do I want this program to do and, at this stage, what are the steps to achieve this?
-
-The program will **contain** other building blocks like [variables](./12-variable.md) you need to store values. See it as the setting that contains your instructions and data.
-
-Going forward, as you pick up more tools these will expand what you create within your program. For now, it is simply a list of instructions that are followed when the program runs.
+When you think about a program, you are thinking **big picture**.
+What do you want this program to do, and what are the steps to achieve this?
+Each program will contain other building blocks to achieve its goals.
+As you continue your journey, you will pick up more tools to expand what you can create in your programs.
+For now, a program is simply a list of instructions that are followed when the program runs.
 
 ## In C#
 
 :::tip[Syntax]
-In a C# project, you have one source code file that will contain the program's main code. The following illustration shows the structure of the syntax for this program.
+In a C# project, you have one source code file that will contain the program's main code. The following illustration shows the structure of the syntax for this.
 
 <a id="FigureProgramSyntax"></a>
 
-![Figure 5.2 The syntax for a C# program.](./images/program.png "The syntax for a C# program")
+![Figure 5.2 The syntax for a C# program](./images/program.png "The syntax for a C# program")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.2: </span>The syntax for a C# program</div><br/>
-
 :::
 
-Each program starts with an optional list of **using directives**. These allow you to tell the compiler where you want it to look for [methods](./03-method.md) you are calling. Following this list, you provide a list of instructions that each end with a semicolon (`;`).
+Each program starts with an optional list of **using directives**.
+These allow you to tell the compiler where you want it to look for the [methods](./02-method) you call in your program.
+Following this list, you provide a list of instructions that each end with a semicolon (`;`).
+
+In C#, the library identifiers in using directives will refer to classes, either written by the C# language developers or distributed by other programmers.
+Classes are a concept we will cover in [Part 3](../../../part-3-programs-as-concepts/00-part-3-programs-as-concepts) -- for now, just think of them abstractly as a collection of code you can use.
 
 :::tip[Directive?]
+A directive is an instruction for the compiler, rather than an instruction that gets added to the program created by the compiler. You use these to let the compiler know something about the code you are writing.
 
-A directive is an instruction for the **compiler**, rather than an instruction that gets added to the program created by the compiler. You use these to let the compiler know something about the code you are writing.
-
-For example, the **using directive** lets you tell the compiler of parts of the library you want to access in your code. This allows you to access the [methods](./03-method.md) from this part of the library in your code.
-
+For example, the using directive tells the compiler which parts of a code library you want to access.
+This allows you to use the [methods](./02-method) from this part of the library in your code.
 :::
 
 ## Examples
 
-[Listing 5.x](#ListingHelloWorld) shows a basic Hello World C# Program. You should be able to match this up with the syntax defined in [Figure 5.x](#FigureProgramSyntax). This program uses the `System.Console` code to access the `WriteLine` method, which can be called to output a message to stdout. The important thing to see here is that **all** of this code is the program - each of the lines is a part of the program.
+[Listing 5.x](#ListingHelloWorld) shows a basic Hello World C# Program. You should be able to match this up with the syntax defined in [Figure 5.x](#FigureProgramSyntax). This program uses code from the `System.Console` part of the C# library to access the `WriteLine` method, which can be called to output a message to [stdout](../../../../part-0-getting-started/2-computer-use/1-concepts/07-streams#input-output-and-errors). The important thing to see here is that **all** of this code is the program -- each line is a part of the program.
 
 <a id="ListingHelloWorld"></a>
 
@@ -61,7 +61,7 @@ WriteLine("Hello World!");
 
 <div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>C# Hello World Program</div>
 
-The following program uses SplashKit to open a window and draw some shapes to it. Once again, the important thing is that the program is **all** of these instructions. They all come together to create the program and make it what it is.
+The following program uses SplashKit to open a window and draw some shapes to it. Once again, the important thing to think about for now is that the program is **all** of these instructions. They all come together to create the program.
 
 <a id="ListingDrawShapes"></a>
 
@@ -82,15 +82,21 @@ Delay(5000);
 
 <div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>SplashKit House Drawing Code</div>
 
+:::tip[Code Comments]
+C# source code is [abstracted](../../../part-0-getting-started/1-digital-realities/1-concepts/6-source-code/#programming-with-a-third-generation-language) to make it more understandable for humans, but ultimately it is still written for computers.
+Because of this, C# and virtually all programming languages include syntax for writing [**code comments**](../09-comments.md).
+
+In the code above the line starting with `//` is a code comment and will be ignored by the compiler.
+:::
+
 Data is also key within every program. Can you spot data in the examples above?
 
-We use data to capture the information we need the program to work with. The data in the above examples are all **fixed** or [literal](../06-literal) values. That means these values can not change when the program runs. They are fixed, being literally the value that appears in the code.
+We use data to capture information we need a program to work with. The data in the above examples are all **fixed** or [literal](./05-literal) values. That means these values can not change when the program runs. They are fixed, being literally the value that appears in the code.
 
 :::note[Summary]
-
-- You can create something the user can run from the program's **source code**.
-- Most importantly, you can't really *see* the program in the code. The program is **all** of this code together. It is the container that holds the instructions that will run when it is executed.
-- The program has an **entry point** that indicates where the program’s instructions start - in this case the first instruction.
-- Your program can use code from [libraries](../08-library) giving it access to building blocks others have created.
-- Data is also central to the program.
+- You can create something the user can run from a program's **source code**.
+- Most importantly, you can't really *see* the program in the code. The program is **all** of the code together.
+- The program has an **entry point** that indicates where the program’s instructions start -- in this case that is the first instruction in the source code.
+- Your program can use code from [libraries](./10-library), giving it access to building blocks others have created.
+- Data is central to a program.
 :::
