@@ -11,7 +11,7 @@ This can be either a **number value** or **text value** written directly in the 
 
 <a id="FigureLiteral"></a>
 
-![Figure 5.7 Concepts related to literals.](./images/program-creation/Literal.png "Concepts related to iterals.")
+![Figure 5.7 Concepts related to literals.](./images/literal-concept.png "Concepts related to iterals.")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.7: </span>Concepts related to literals.</div><br/>
 
 ## Literals -- why, when, and how
