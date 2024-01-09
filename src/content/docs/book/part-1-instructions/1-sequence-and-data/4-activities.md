@@ -36,14 +36,16 @@ Here we will be trying out some SplashKit functionality and playing a song (or p
 
 In this task, it is up to you to create a program which will ask the user the filename of a sound file, the name they would like to refer to it as, and for how long they would like to play it. You will then play the sound back at 50% volume for the specified time, then again at 100% volume.
 
-NOTE:
+:::note[Storing Sound Files]
 Your sound files need to be stored under: [PROJECTNAME]\bin\Debug\net8.0\sounds (If you don't have a sounds folder, create one)
+:::
 
 You might need the following SplashKit functions:
-new Music();
-SplashKit.LoadMusic();
-SplashKit.Delay();
-SplashKit.StopMusic();
+
+- new Music();
+- SplashKit.LoadMusic();
+- SplashKit.Delay();
+- SplashKit.StopMusic();
 
 Your program should:
 
@@ -59,9 +61,12 @@ Here we will be creating the beginning of any good game; a splash-screen/title a
 In this task, it is up to you to create a short sequence of SplashKit events, such as shapes, colours, images, sound/music, and delays to act as an introduction or title animation to a game.
 
 You might need the following SplashKit functions:
-
+FillCircle()
+FillTriangle()
+FillQuad()
+DrawText()
 
 Your program should:
 
 - Welcome the user to the game with an appropriate title
-- Play an introductory animation users shapes, colours, images, sound/music, and delays
+- Play an introductory animation using a combination of shapes, colours, images, sound/music, and delays

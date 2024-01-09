@@ -47,41 +47,22 @@ Create a graphical application that gets the user to indicate the midpoint betwe
 
 NEED TO ADD
 
-### Task 2 - Creating a 3-Song Sound/Music Player
+### Creating a Key Collection Game
 
-In this project, you will need to build a simple 3-song music player, where the user will be able to set up to three of chosen sound clips. The program will continously ask if the user wants to choose a sound slot, and then either set the slot to a new sound, or play the existing sound. When setting a new sound, the program should ask the user where the sound is located, the file name, sound name, and for how long they would like the sound to play.
+In this project, you will need to develop a simple puzzle game where the player needs to move a character around a window and collect 3 randomly placed keys in the correct order based on their colour. Once each of the keys have been collected, the game should check if you have collected it in the correct order and if not; all keys should be deleted and 3 new keys should be placed in the level in random locations. Once all keys have been collected in the correct colour order, you should stop taking movement input and write "WIN" on the window.
 
 Some SplashKit functions you might need:
-OpenAudio()
-PlayMusic()
-FreeMusic()
-LoadMusic()
-MusicNamed()
+
+- Rnd()
+- KeyDown()
+- BitmapCollision()
 
 Your program needs to:
 
-- Ask the user which sound slot they would like to select, showing information about the sound if previously entered
-- Once a slot is selected, ask if the user would like to set a new sound for the slot, or play the current sound in the slot
-  - If there is no sound in the selected slot, it should skip asking this and instead skip to setting a new sound for the slot
-- When setting a new sound, ask the user for the path where the sound is located, the file name for the sound, and for how long (in seconds) they would like the sound to play for
-- When playing a sound, the sound should only play for the amount of time the user has defined
-- If the user fills all three sound slots, the program should additionally praise the user on their full sound library
-
-### Task 3 - Creating a Key Collection Game
-
-In this project, you will need to develop a simple puzzle game where the player needs to move a character around a window and collect 3 randomly placed keys in the correct order based on their colour. Once all the keys have been collected, if the keys are collected in the wrong order, all keys should be deleted and 3 new keys should be placed in the level in random locations. Once all keys have been collected in the correct colour order, you should stop taking movement input and write "WIN" on the window.
-
-Some SplashKit functions you might need:
-Rnd(min: int, max: int)
-KeyDown(KeyCode key)
-Some kind of bitmap collision
-
-Your program needs to:
-
-- Spawn the character in the center of the window
-- Spawn three keys of different colours at random locations throughout the window, making sure to not initially overlap with the character
+- Spawn the character bitmap in the center of the window
+- Spawn three key bitmaps of different colours at random locations throughout the window, making sure to not initially overlap with the character
 - Allow the player to move their character around with WASD
-- Not allow the player to move their character outside of the window
+- If the player moves to the edge of the window, they should wrap around to the other side of the window
 - Allow the player to collect a key once their character has overlapped with the key
 - Check to see if keys have been collected in the correct colour order
   - If so, stop taking input and display "WIN" on the window
