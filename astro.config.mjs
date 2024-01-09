@@ -95,7 +95,11 @@ export default defineConfig({
           }
         }, {
           label: "Putting it Together",
-          link: "book/part-0-getting-started/3-building-programs/2-put-together"
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-0-getting-started/3-building-programs/2-put-together",
+            collapsed: true
+          }
         }, {
           label: "Other Languages",
           link: "book/part-0-getting-started/3-building-programs/3-other-languages"
