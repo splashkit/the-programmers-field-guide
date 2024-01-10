@@ -20,7 +20,7 @@ xcode-select --install
 
 Then, open your **Terminal** app and paste the copied text.
 
-![Gif showing Spotlight Search to open Terminal and pasting Xcode install command](./images/terminal-xcode-install.gif)
+<!-- ![Gif showing Spotlight Search to open Terminal and pasting Xcode install command](./images/terminal-xcode-install.gif) -->
 
 :::note[How do I find the Terminal on my Mac?]
 Press ***Command + Space bar*** to open the Spotlight Search.  
