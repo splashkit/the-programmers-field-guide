@@ -306,9 +306,3 @@ I achieved this with the following code.
 ```
 
 Compile and run the program, and you should be able to explore your maze. Make sure you have a room with no paths, that is reachable via paths from other rooms. Explore your maze and make sure it works as expected.
-
-## Graphs
-
-Have you noticed how the structure of the maze is similar to a [linked list](../../../6-deep-dive-memory/2-put-together/03-0-linked-list)?
-
-You can think of the maze as a graph, and the player is able to traverse that graph exploring the data along the way. While we used a game style theme here, the skills you develop by thinking and working through this will help you in other contexts that use graphs. For example, exploring connections in a social media graph, finding files in a file system, and many other applications.

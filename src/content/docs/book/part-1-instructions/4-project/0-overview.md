@@ -1,5 +1,7 @@
 ---
-title: Overview
+title: Structured Programming Project
+sidebar:
+  label: Overview
 ---
 
 We are now at a point where we have seen the concepts and practices for instructing the computer. The focus has been on the different instructions, how they work within the computer, and how we can start to put these together in order to create small programs.

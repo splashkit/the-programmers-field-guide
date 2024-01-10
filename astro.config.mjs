@@ -95,7 +95,11 @@ export default defineConfig({
           }
         }, {
           label: "Putting it Together",
-          link: "book/part-0-getting-started/3-building-programs/2-put-together"
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-0-getting-started/3-building-programs/2-put-together",
+            collapsed: true
+          }
         }, {
           label: "Other Languages",
           link: "book/part-0-getting-started/3-building-programs/3-other-languages"
@@ -132,10 +136,17 @@ export default defineConfig({
           }
         }, {
           label: "Other Languages",
-          link: "book/part-1-instructions/1-sequence-and-data/4-other-languages"
+          link: "book/part-1-instructions/1-sequence-and-data/3-other-languages"
         }, {
           label: "Activities",
-          link: "book/part-1-instructions/1-sequence-and-data/5-activities"
+          link: "book/part-1-instructions/1-sequence-and-data/4-activities"
+        }, {
+          label: "Wrap Up",
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-1-instructions/1-sequence-and-data/5-wrap-up",
+            collapsed: true
+          }
         }]
       }, {
         label: "2. Communicating Syntax",
@@ -308,6 +319,13 @@ export default defineConfig({
         }, {
           label: "Activities",
           link: "book/part-2-organised-code/3-structuring-data/4-activities"
+        }, {
+          label: "Wrap Up",
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-2-organised-code/3-structuring-data/5-wrap-up",
+            collapsed: true
+          }
         }]
       }, {
         label: "4. Indirect Access",
@@ -510,6 +528,40 @@ export default defineConfig({
           collapsed: true,
           autogenerate: {
             directory: "book/part-2-organised-code/9-low-level-programming/5-wrap-up",
+            collapsed: true
+          }
+        }]
+      }, {
+        label: "10. Project",
+        collapsed: true,
+        items: [{
+          label: "Overview",
+          link: "book/part-2-organised-code/10-project/0-overview"
+        }, {
+          label: "Concepts",
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-2-organised-code/10-project/1-concepts",
+            collapsed: true
+          }
+        }, {
+          label: "Putting it Together",
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-2-organised-code/10-project/2-put-together",
+            collapsed: true
+          }
+        }, {
+          label: "Other Languages",
+          link: "book/part-2-organised-code/10-project/3-other-languages"
+        }, {
+          label: "Activities",
+          link: "book/part-2-organised-code/10-project/4-activities"
+        }, {
+          label: "Wrap Up",
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-2-organised-code/10-project/5-wrap-up",
             collapsed: true
           }
         }]

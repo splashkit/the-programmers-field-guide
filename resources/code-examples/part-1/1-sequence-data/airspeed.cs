@@ -25,7 +25,7 @@ Write("Amplitude: ");
 line = ReadLine();
 amp = ToDouble(line) / 100; // Convert to meters
 
-// calculate the air speed, given a fixed Strouhal value
+// calculate the airspeed, given a fixed Strouhal value
 double resultMax, resultMin;
 resultMax = freq * amp / STROUHAL_HIGH_EFFICIENCY;
 resultMin = freq * amp / STROUHAL_LOW_EFFICIENCY;

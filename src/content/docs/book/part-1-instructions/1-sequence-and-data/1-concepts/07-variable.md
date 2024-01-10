@@ -2,62 +2,58 @@
 title: "Variable and Constant"
 ---
 
-While fixed values are useful, to make programs dynamic you need to be able to work with values that change.
+While fixed literal values are useful, to make programs dynamic you need to be able to work with values that change.
 
-A **variable** is a **building block** you can use to store a value that you can change and read as the program runs.  You can picture a variable as a **container** into which you store a value and retrieve it later.
-
-<a id="FigureVariable"></a>
+A **variable** is a **building block** you can use to store a value that you can change as the program runs. You can picture a variable as a **container** into which you can store a value and retrieve it later.
 
 ![Figure 5.17 Variables store a value that can be read and changed](./images/variable-concept.png "Variables store a value that can be read and changed")
 
-<Caption><FigureText>Figure 5.17: </FigureText>Variables store a value that can be read and changed</Caption><br/>
+<div class="caption"><span class="caption-figure-nbr">Figure 5.17:</span>Variables store a value that can be read and changed</div><br/>
 
-## Variables - why, when, and how
+## Variables -- why, when, and how
 
-A variable allows you to store a value that represents something in your code. You can change the value as that *thing* changes, and read the value when it is needed. When you have something you want to be able to change, you create a variable to store this. The type of the variable needs to match the kind of data you want to store.
+Variables are an invaluable tool to help you build digital realities.
+They allow you to capture simple values, associate them with a name -- the variable's **identifier** -- and change the value within your code.
+You can also use the variable to retrieve (i.e., read) the value it contains.
 
-You need to initialise the variable with a starting value, and you can then read and store new values within the variable as the program runs and the *thing* the variable represents changes.
-
-This is where you start to build your digital reality. Within this reality, you can capture simple values and change these within your code.
+Whenever you have information in your program that you want to be able to change, you create a variable to store it. Every variable has a [data type](../06-type), which needs to match the kind of data you want to store.
+After you define a variable with an **identifier** and [**data type**](../06-type), you need to **initialise** it with a starting value.
+Then, you can then read the current value and store new values in the variable as the program runs and the information the variable represents changes.
 
 ## Constants
 
-A **constant** is just like a variable, but its value cannot be changed. Constants are declared within a program and must be given a value when they are created. Once they are created, the value within the constant cannot be changed. This is useful for data that should not change during the program's execution.
-
-<a id="FigureConstant"></a>
+A **constant** is similar to a variable, in that they have a name and a data type. Constants are declared within a program and must be given a value when they are created. However, they differ from a variable because once they are created the value within a constant cannot be changed. This is useful for data that should not change during the program's execution.
 
 ![Figure 5.13 Constants have a value that cannot be changed](./images/constant.png "Constants have a value that cannot be changed")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.13: </span> Constants have a value that cannot be changed</div><br/>
+ <!-- TODO: update to new image style -->
 
-## Constants - why, when, and how
+## Constants -- why, when, and how
 
 *Literals are values that are fixed within the code, so why do we need constants?*
 
-With programming, the biggest challenge is making sure your code is **understandable**. Scattering your program with literal values becomes confusing very quickly. When you see a value like *10* in the code it doesn't mean much - and potentially could represent anything. There will often be lots of these values that are easy to lose track of. Using a **constant** lets you name the value - giving it meaning. When you see `MAX_ITEMS` in the code, you are reminded of its meaning.
+With programming, the biggest challenge is making sure your code is **understandable**. Scattering your program with literal values becomes confusing very quickly. When you see a value like `10` in code it doesn't mean much, and potentially could represent anything. There will often be lots of these values that are easy to lose track of. Using a constant lets you name the value, which gives it meaning. When you see `MAX_ITEMS` in the code instead of `10`, you are reminded of its meaning.
 
-Another advantage of using a set constant is that you can change the value in one place. If you want to change the maximum number of items in your pack from 10 to 42, you change it in one place. Updating the value of the constant means that everywhere that reads it will get the new value.
+Another advantage of using a constant is that you can change the value in one place. If you want to change the maximum number of items in your pack from 10 to 42, you change it in one place. Updating the value of the constant means that everywhere that reads it will get the new value.
 
 ## In C#
 
-Variable and constant declarations can be described at the same time. [Figure 5.18](#FigureVariableSyntax) shows the syntax for creating a variable or constant in C#. The difference between a variable and a constant is the `const` keyword at the start of the declaration. If you include `const`, you are creating constants. Without it, you are creating variables.
-
 :::tip[Syntax]
+![Figure 5.18 The syntax for variable declarations in C#.](./images/variable-declaration.png "The syntax for variable declarations in C#")
+<div class="caption"><span class="caption-figure-nbr">Figure 5.18: </span>The syntax for variable declarations in C#</div><br/>
 
-- This is the C# Syntax for creating variables and constants.
-- Add the `const` keyword to the start, to create constants.
-- Next, the [Type](../06-type) indicates the kind of data the constants or variables will store.
-- Following the type is a list of the names (identifiers) for the variables or constants you are creating.
-- You can create one or more variables/constants in a single declaration, all with the same type.
-- Each variable can be assigned a value when it is declared, and constants need to be given their value.
-- By convention, all constants should have an **UPPERCASE** name. Where the name has multiple words, separate them with underscores (`_`). For example: `MAX_ITEMS`.
-- Variables should have a **camelCase** name - where the first letter is lowercase, but each new word in the identifier starts with an uppercase character. For example, `bottleVolume`.
-
-<a id="FigureVariableSyntax"></a>
-
-![Figure 5.18 The syntax for C# variable declarations.](./images/variable-declaration.png "The syntax for C# variable declarations")
-<div class="caption"><span class="caption-figure-nbr">Figure 5.18: </span>The syntax for C# variable declarations</div><br/>
-
+![Figure 5.18 The syntax for constant declarations in C#.](./images/constant-declaration.png "The syntax for constant declarations in C#")
+<div class="caption"><span class="caption-figure-nbr">Figure 5.18: </span>The syntax for constant declarations in C#</div><br/>
 :::
+
+Variable and constant declarations use almost identical syntax in C#, shown in Figure 5.18. The main difference between a variable and a constant is the `const` keyword at the start of the declaration. If you include `const`, you are creating constants. Without it, you are creating variables.
+
+Both variables and constant declarations need to include the [type](../06-type) of data you want to store.Then, you provide a name (identifier) for the variable or constant.
+A variable can optionally be given a value when it is declared, but a constant must be given a value.
+You can also declare multiple variables or constants in the one line of code, as long as they are of the same data type.
+
+By convention, all constants should have an **UPPERCASE** name. Where the name has multiple words, separate them with underscores (`_`). For example: `MAX_ITEMS`.
+Variables should have a **camelCase** name, where the first letter is lowercase but each new word in the identifier starts with an uppercase character. For example, `bottleVolume`.
 
 ## Examples
 
@@ -80,9 +76,9 @@ WriteLine();
 WriteLine("Hello " + name);
 ```
 
-<div class="caption"><span class="caption-figure-nbr">Listing 5.14: </span>Example program with varible declaration</div>
+<div class="caption"><span class="caption-figure-nbr">Listing 5.14: </span>Example program with variable declaration</div>
 
-The next example will help us calculate the volume of our water bottles - assuming they are cylinders. To achieve this, we need the following variables:
+The next example will help us calculate the volume of our water bottles, assuming they are cylinders. To achieve this, we need the following variables:
 
 - A `PI` constant for the calculation.
 - Numbers for `radius` and `height` which the user will enter.
@@ -120,35 +116,14 @@ WriteLine($"       { litres } litres");
 ```
 
 :::tip
-
 Notice how the names of the variables help us understand how the program works. In this, we are building the things we need in the digital reality that exists as the program runs.
 
 Adding in additional line breaks also helps group the steps in our code to make it more readable.
-
 :::
-
-In this program, we want to capture the user's name and greet them using it.
-
-```csharp
-using static System.Console;
-
-string name;
-
-WriteLine("Welcome to The Greeting");
-WriteLine();
-WriteLine("What is your name?")
-Write("name: ");
-name = Console.ReadLine();
-
-WriteLine();
-WriteLine("Hello " + name);
-```
-
-<div class="caption"><span class="caption-figure-nbr">Listing 5.14: </span>Example program with varible declaration</div>
 
 ### Circle Drawing Example
 
-The following program captures a radius for a circle and uses that to draw to the screen. To achieve this we need two variables, `line` and `radius`. We use `ReadLine` to read a `string` from the user, and `ConvertToDouble` to convert the text read into a `double` value. This value is stored in the `radius` variable, which can then be used in the call to `FillRadius`.
+Let's use SplashKit to look how variables can be used in a graphical program. The following program captures a radius for a circle and uses that to draw to the screen. To achieve this we need two variables, `line` and `radius`. We use `ReadLine` to read a `string` from the user, and `ConvertToDouble` to convert the text read into a `double` value. This value is stored in the `radius` variable, which can then be used in the call to `FillRadius`.
 
 ```csharp
 using static System.Convert;
@@ -182,29 +157,22 @@ ClearScreen(ColorWhite());
 FillCircle(HSBColor(hue, SATURATION, BRIGHTNESS), 400, 300, radius);
 RefreshScreen();
 Delay(5000);
-
 ```
 
-## Activities
-
-[TODO]
-
+<!-- ## Activities -->
+<!-- [TODO] -->
 
 :::note[Summary]
 
-- Variables and constants are **building blocks**, you can create them to store values in your programs.
-- You can think of a variable as a box to note down a value. The variable is the box, its value is written within it.
-
-- Each Variable has a ...
-  - **Name** that can be used to refer to it.
-  - **Value** that it is storing.
-  - **Type** that determines the size of the Variable and how its value is interpreted.
-- You use an [Assignment Statement](../19-assignment-statement) to store a value in a variable.
-- Constants are just like variables, but you can only assign them a value when they are created.
+- Variables and constants are **building blocks** you can create to store values in your programs.
+- You can think of a variable or constant as a box. The variable or constant is the box, and its value is stored within it.
+- Each variable and constant has a ...
+  - **name** (identifier) that can be used to refer to it.
+  - **type** that determines its size and how its value is interpreted.
+  - **value** that it is storing.
+- The first time you assign a value to a variable or constant, you are **initialising** it.
+- Constants are just like variables, but you can only assign them a value once, when they are created.
 - You can **read** the value from variables and constants in your instructions.
-- Each variable is **different** to its value:
-  - The variable is the container into which a value can be stored.
-  - You can read the value from the variable.
-  - The variable **is not** the value, it has a value but that value can change over time as you write new values into the variable.
+- A variable **is not** its value -- it is a container that stores a value, but its value can change over time as you write new values into the variable.
 
 :::

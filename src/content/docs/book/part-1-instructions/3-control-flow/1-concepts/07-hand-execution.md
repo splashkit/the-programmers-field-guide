@@ -1,7 +1,5 @@
 ---
 title: Hand Execution
-sidebar:
-  label: " - Hand Execution"
 ---
 
 Running the code yourself can also be a great way to help you understand how the program works. This is useful both for functioning programs, and for when you are thinking through issues that have arisen.

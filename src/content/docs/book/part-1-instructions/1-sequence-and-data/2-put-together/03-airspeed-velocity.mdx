@@ -1,5 +1,5 @@
 ---
-title: Air Speed Velocity
+title: Airspeed Velocity
 ---
 import { YouTube } from 'astro-embed';
 
@@ -11,7 +11,7 @@ On your journey, you encountered a strange person who mentioned something about 
 
 To answer this age-old question, you can mock up the following program to calculate the airspeed velocity of these important birds. With a quick search, you find [an equation](http://www.style.org/strouhalflight) based on the Strouhal Number and some [details on swallows](http://style.org/unladenswallow/). We can use this information to create a program that can be used to calculate the airspeed velocity of African and European Swallows.
 
-From these articles we can determine that the air speed velocity of a swallow can be calculated using `Speed = Frequency * Amplitude / Strouhal`. Code this into a program and then calculate and display the airspeed for different wing values.
+From these articles we can determine that the airspeed velocity of a swallow can be calculated using `Speed = Frequency * Amplitude / Strouhal`. Code this into a program and then calculate and display the airspeed for different wing values.
 
 - We can use two set Strouhal values - An efficient Strouhal number of 0.20 and low efficiency Strouhal of 0.40.
 - African Swallow: frequency 15hz, amplitude 21cm
@@ -74,7 +74,7 @@ Read the frequency and amplitude - converting from string to double
 Declare variables:
   - resultMax, resultMin to store double data
 
-Calculate the air speed, given the fixed Strouhal values
+Calculate the airspeed, given the fixed Strouhal values
   resultMax = freq * amp / STROUHAL_HIGH_EFFICIENCY
   resultMin = freq * amp / STROUHAL_LOW_EFFICIENCY
 
