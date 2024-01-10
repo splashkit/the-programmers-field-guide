@@ -531,6 +531,40 @@ export default defineConfig({
             collapsed: true
           }
         }]
+      }, {
+        label: "10. Project",
+        collapsed: true,
+        items: [{
+          label: "Overview",
+          link: "book/part-2-organised-code/10-project/0-overview"
+        }, {
+          label: "Concepts",
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-2-organised-code/10-project/1-concepts",
+            collapsed: true
+          }
+        }, {
+          label: "Putting it Together",
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-2-organised-code/10-project/2-put-together",
+            collapsed: true
+          }
+        }, {
+          label: "Other Languages",
+          link: "book/part-2-organised-code/10-project/3-other-languages"
+        }, {
+          label: "Activities",
+          link: "book/part-2-organised-code/10-project/4-activities"
+        }, {
+          label: "Wrap Up",
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-2-organised-code/10-project/5-wrap-up",
+            collapsed: true
+          }
+        }]
       }]
     }, {
       label: "Part 3: Programs as Concepts",
