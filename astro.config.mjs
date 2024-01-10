@@ -570,7 +570,7 @@ export default defineConfig({
       label: "Part 3: Programs as Concepts",
       collapsed: true,
       items: [{
-        label: "0. Introducing Conceptual Thinking",
+        label: "0. Introducing Concept Modelling",
         link: "book/part-3-programs-as-concepts/00-part-3-programs-as-concepts"
       }, {
         label: "1. Welcome Back to C#",
@@ -596,7 +596,7 @@ export default defineConfig({
           link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/4-activities"
         }]
       }, {
-        label: "2. Abstraction",
+        label: "2. Classes and Objects",
         collapsed: true,
         items: [{
           label: "Overview",
