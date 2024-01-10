@@ -32,6 +32,7 @@ Then, open your **Terminal** app and paste the copied text.
 ![Gif showing Spotlight Search to open Terminal and pasting Xcode install command](/gifs/setup-macos/terminal-xcode-install.gif)
 
 :::note[How do I find the Terminal on my Mac?]
+
 1. Press ***Command + Space bar*** to open the Spotlight Search.  
 2. Start typing "Terminal".  
 3. Click the **Terminal** app.
@@ -47,9 +48,9 @@ That means you've already installed it, and are ready to move to the next step!
 
 Copy and paste the following command into your Terminal window:
 
-  ```bash
-  bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)
-  ```
+```bash
+bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)
+```
 
 ![Gif showing skm installing in Terminal](/gifs/setup-macos/skm-install.gif)
 
@@ -123,8 +124,6 @@ For coding in C#, you will need to install the `.NET` framework, also commonly c
 We recommend using **.NET 8.0**, which you can download from the Microsoft dotnet website [here](https://dotnet.microsoft.com/en-us/download).
 :::
 
-**TODO: Need to include nuGet package?**
-
 ### C++ Tools
 
 For coding in C++, you will need to have a C++ compiler installed.  
@@ -136,13 +135,109 @@ If you installed Xcode Command Line Tools successfully in Step 1, then you will 
 
 ## 5. Install SplashKit Globally
 
-**TODO: Add intro text**
+- **TODO: Add intro text?** [Update from here](https://programmers.guide/book/part-2-organised-code/1-starting-cpp/1-concepts/1-0-building-cpp/)
 
 To install SplashKit globally on your machine:  
 Copy and paste the following command into your Terminal window:
 
 ```bash
-  skm global install
+skm global install
 ```
 
 ![Gif showing skm installing globally in Terminal](/gifs/setup-macos/skm-global-install.gif)
+
+## 6. Testing SplashKit Install
+
+(Only skeleton structure so far)
+
+TODO: Add preamble
+
+TODO: Add text about using Code folder
+
+```zsh
+cd ~/Documents
+mkdir Code
+```
+
+### Testing C# SplashKit Project
+
+#### Create new C# project
+
+TODO: Add preamble
+
+##### 1. Create C# project folder
+
+TODO: Add text about using Code folder etc
+
+```zsh
+cd ~/Documents/Code
+mkdir HelloWorldCSharp
+cd HelloWorldCSharp
+```
+
+##### 2. Create new *dotnet* project
+
+To create a new dotnet project within the current folder:  
+Copy and paste the following command into your Terminal window:
+
+```bash
+dotnet new console
+```
+
+To open the current folder in Visual Studio Code from your terminal, you can use the command:
+
+```bash
+code .
+```
+
+##### 3. Add SplashKit NuGet package
+
+TODO: Add about NuGet packages
+
+To install the SplashKit NuGet package in your project:  
+Copy and paste the following command into your Terminal window:
+
+```bash
+dotnet add package splashkit
+```
+
+##### 4. Compile and Run your program
+
+Copy the following code into your Program.cs file:
+
+TODO: Add code for testing
+
+TODO: Add compile and run steps (and images?)
+
+### Testing C++ SplashKit Project
+
+#### Create new C++ project
+
+TODO: Add preamble
+
+##### 1. Create C++ program folder
+
+TODO: Add text about using Code folder etc
+
+```zsh
+cd ~/Documents/Code
+mkdir HelloWorldCPP
+cd HelloWorldCPP
+```
+
+##### 2. Create new c++ code file
+
+TODO: Add text about using touch and code .
+
+```zsh
+touch program.cpp
+code .
+```
+
+##### 3. Compile and Run your program
+
+Copy the following code into your Program.cs file:
+
+TODO: Add code for testing
+
+TODO: Add compile and run steps (and images?)
