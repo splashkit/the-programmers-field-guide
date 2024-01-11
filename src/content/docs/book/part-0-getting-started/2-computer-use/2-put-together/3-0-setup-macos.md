@@ -177,8 +177,28 @@ The command above will add the **SplashKit libraries** into the `/usr/local/lib/
 
 Through this installation process, some steps *should* have edited your computer's environment variables. We now need to ensure the required *paths* have been added to your **PATH** environment variable.
 
-If the previous steps have installed correctly, you should see the following lines in your `.zshrc` or `.zshenv` file....
-<!-- more coming soon -->
+If the previous steps have installed correctly, you should see the following lines in your `.zshrc` file (or `.bashrc` if you are using `bash` instead of `zsh`):
+
+```bash
+export PATH="$HOME/.splashkit:$PATH"
+export PATH="/usr/local/share/dotnet:$PATH"
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+```
+
+You can check this using the following command in your Terminal:
+
+```bash
+nano .zshrc
+```
+
+The result of the command above will look similar to this:
+
+![Terminal window showing nano opening .zshrc file](./images/setup-macos/nano-zshrc.png)
+
+If you are missing any of these lines, you can edit the file directly in the **nano** terminal window.  
+For example, if the last line was missing:
+
+![Gif showing .zshrc file being edited using nano command](/gifs/setup-macos/nano-edit-zshrc.gif)
 
 ## 7. Testing SplashKit Install
 
