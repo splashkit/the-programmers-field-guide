@@ -104,7 +104,7 @@ To install: double-click the zip file, then click and drag the **Visual Studio C
 Visual Studio Code has an extensive library of *Extensions* that let you add improved functionality for languages, debuggers, and tools to support your development workflow.  
 Using extensions in VS Code will make it easier and faster to code with whatever language or tools you are using.
 
-### - C# Language Extensions
+#### C# Language Extensions
 
 For **C#** code, we recommended that you install the `C#`, `C# Dev Kit` and `IntelliCode for C# Dev Kit` extensions.
 
@@ -117,7 +117,7 @@ For **C#** code, we recommended that you install the `C#`, `C# Dev Kit` and `Int
 ![Visual Studio Code window showing recommended extensions for C#](./images/setup-macos/vs-code-csharp-extensions.png)
 :::
 
-### - C++ Language Extensions
+#### C++ Language Extensions
 
 For **C++** code, we recommended that you install the `C/C++` extension.  
 
