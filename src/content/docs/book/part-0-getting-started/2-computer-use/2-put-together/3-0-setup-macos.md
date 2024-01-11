@@ -5,7 +5,10 @@ sidebar:
     class: apple
 ---
 
-Let's get your macOS computer ready to start coding!
+*Let's get your macOS computer ready to start coding!*
+
+In this guide, we will go through all the steps to install the required Applications and Tools that you will need to code in C# and C++ with SplashKit.  
+We will be using the **Terminal** app, with the **zsh** shell. You can also use the **bash** shell if you prefer.
 
 :::note[Already have SplashKit installed?]
 If you have previously installed SplashKit (before 2024):
@@ -14,12 +17,16 @@ If you have previously installed SplashKit (before 2024):
 - Then you can skip to Step [5. Install SplashKit Globally](#5-install-splashkit-globally)
 :::
 
-Now, to get SplashKit installed on macOS, follow the five steps outlined below:
+Now, to get SplashKit and other coding tools installed on macOS, follow the steps outlined below:
 
 ## 1. Install Xcode Command Line Tools
 
-The Command Line Tools provided by Xcode provide a large amount of developer
-tools required to compile and develop applications.
+The Command Line Tools provided by Xcode provide a large amount of developer tools required to compile and develop applications.
+
+:::tip[Why Xcode Command Line Tools?]
+By installing Xcode Command Line Tools, you will effectively install a large variety of tools (terminal commands you can use) all at once.  
+Most importantly for these installation steps, you will need the **git** tool (used for *Step 2*) and the **C++ compilers** (mentioned in *Step 4*).
+:::
 
 To install these tools, copy the command below:
 
@@ -38,13 +45,22 @@ Then, open your **Terminal** app and paste the copied text.
 3. Click the **Terminal** app.
 :::
 
-**Note:** When you run the command above, if you get something like this:
+**Note:** After running the command above, if you get something like this:
 
 ![A Terminal window showing message that 'Command Line Tools' are already installed](./images/setup-macos/xcode-install.png)
 
-That means you've already installed it, and are ready to move to the next step!
+That means you've already installed Xcode, and are ready to move to the next step!
 
 ## 2. Install the SplashKit SDK
+
+SplashKit is a beginner's all-purpose software toolkit that will allow you to create fun and exciting programs more easily, especially for Graphical User Interface (GUI) programs.
+
+:::tip[Curious to know more?]
+The **SplashKit SDK** is installed using the `skm-install.sh` shell script which is stored in the [**skm**](https://github.com/splashkit/skm) GitHub repository (in the **install-scripts** folder).
+
+This install script uses the `git` command (**that we installed with Xcode in Step 1!**) to access and download the contents of the GitHub repository.  
+It will also add the required paths to your PATH environment variable.
+:::
 
 Copy and paste the following command into your Terminal window:
 
@@ -73,15 +89,20 @@ For example, if the file is in your *Downloads* folder:
 
 Visual Studio Code, also commonly known as *VS Code* or just *Code*, is a powerful and versatile code editor that enables efficient coding, debugging, and collaboration for your SplashKit projects!
 
-Firstly, download the zip file from: [code.visualstudio.com/Download](https://code.visualstudio.com/Download)
+:::note[VS Code has it all!]
+Once you have your code project set up, Visual Studio Code will be the main program you will use to write, build, run and debug your code.
+:::
 
-To install, double-click the zip file, then click and drag the **Visual Studio Code** Application file into the ***Applications*** folder:
+First you will need to download the zip file from: [code.visualstudio.com/Download](https://code.visualstudio.com/Download)
+
+To install: double-click the zip file, then click and drag the **Visual Studio Code** Application file into the ***Applications*** folder:
 
 ![Gif showing Visual Studio installation in Finder](/gifs/setup-macos/vs-code-install.gif)
 
 ### Recommended Extensions
 
-Visual Studio Code has an extensive library of *Extensions* that let you add improved functionality for languages, debuggers, and tools to support your development workflow.
+Visual Studio Code has an extensive library of *Extensions* that let you add improved functionality for languages, debuggers, and tools to support your development workflow.  
+Using extensions in VS Code will make it easier and faster to code with whatever language or tools you are using.
 
 #### C# Language Extensions
 
@@ -114,11 +135,12 @@ You can also install the `C/C++ Extension Pack` extension which includes multipl
 
 ## 4. Install Language Specific Tools
 
-Some coding languages require specific tools/frameworks to be installed as well. As you will be coding in C# and C++ in this book, let's look at the tools needed for these languages:
+Some coding languages require specific tools/frameworks to be installed to be able to build and run your code files.  
+As you will be coding in C# and C++ in this book, let's look at the tools needed for these languages:
 
 ### C# Tools
 
-For coding in C#, you will need to install the `.NET` framework, also commonly called *dotnet*.
+For coding in C#, you will need to install the `.NET` framework, also commonly called *dotnet*. You will use this to create, build, and run your C# project code.
 
 :::tip
 We recommend using **.NET 8.0**, which you can download from the Microsoft dotnet website [here](https://dotnet.microsoft.com/en-us/download).
@@ -126,7 +148,7 @@ We recommend using **.NET 8.0**, which you can download from the Microsoft dotne
 
 ### C++ Tools
 
-For coding in C++, you will need to have a C++ compiler installed.  
+For coding in C++, you will need to have a C++ compiler installed to build your C++ code into a file you can use to run your program.  
 Commonly used compilers are `g++` and `clang++`.
 
 :::note
@@ -135,9 +157,10 @@ If you installed Xcode Command Line Tools successfully in Step 1, then you will 
 
 ## 5. Install SplashKit Globally
 
-- **TODO: Add intro text?** [Update from here](https://programmers.guide/book/part-2-organised-code/1-starting-cpp/1-concepts/1-0-building-cpp/)
+Now we need to install the SplashKit libraries and library include files into the system default global locations so that when building (compiling) programs created with SplashKit, the compiler can find these files automatically.
 
-To install SplashKit globally on your machine:  
+To install SplashKit globally on your machine:
+
 Copy and paste the following command into your Terminal window:
 
 ```bash
@@ -146,98 +169,19 @@ skm global install
 
 ![Gif showing skm installing globally in Terminal](/gifs/setup-macos/skm-global-install.gif)
 
-## 6. Testing SplashKit Install
+:::note[What does this command do specifically?]
+The command above will add the **SplashKit libraries** into the `/usr/local/lib/` folder, and the required **SplashKit library include files** into the `/usr/local/include` folder.
+:::
 
-(Only skeleton structure so far)
+## 6. Check Environment Variables
 
-TODO: Add preamble
+Through this installation process, some steps *should* have edited your computer's environment variables. We now need to ensure the required *paths* have been added to your **PATH** environment variable.
 
-TODO: Add text about using Code folder
+If the previous steps have installed correctly, you should see the following lines in your `.zshrc` or `.zshenv` file....
+<!-- more coming soon -->
 
-```zsh
-cd ~/Documents
-mkdir Code
-```
+## 7. Testing SplashKit Install
 
-### Testing C# SplashKit Project
-
-#### Create new C# project
-
-TODO: Add preamble
-
-##### 1. Create C# project folder
-
-TODO: Add text about using Code folder etc
-
-```zsh
-cd ~/Documents/Code
-mkdir HelloWorldCSharp
-cd HelloWorldCSharp
-```
-
-##### 2. Create new *dotnet* project
-
-To create a new dotnet project within the current folder:  
-Copy and paste the following command into your Terminal window:
-
-```bash
-dotnet new console
-```
-
-To open the current folder in Visual Studio Code from your terminal, you can use the command:
-
-```bash
-code .
-```
-
-##### 3. Add SplashKit NuGet package
-
-TODO: Add about NuGet packages
-
-To install the SplashKit NuGet package in your project:  
-Copy and paste the following command into your Terminal window:
-
-```bash
-dotnet add package splashkit
-```
-
-##### 4. Compile and Run your program
-
-Copy the following code into your Program.cs file:
-
-TODO: Add code for testing
-
-TODO: Add compile and run steps (and images?)
-
-### Testing C++ SplashKit Project
-
-#### Create new C++ project
-
-TODO: Add preamble
-
-##### 1. Create C++ program folder
-
-TODO: Add text about using Code folder etc
-
-```zsh
-cd ~/Documents/Code
-mkdir HelloWorldCPP
-cd HelloWorldCPP
-```
-
-##### 2. Create new c++ code file
-
-TODO: Add text about using touch and code .
-
-```zsh
-touch program.cpp
-code .
-```
-
-##### 3. Compile and Run your program
-
-Copy the following code into your Program.cs file:
-
-TODO: Add code for testing
-
-TODO: Add compile and run steps (and images?)
+:::tip[Coming Soon]
+Test your install with `skm test`.
+:::
