@@ -2,6 +2,7 @@
 title: Building Your First Program
 ---
 
+<!-- Note: Flesh out this overview, for what will be included in the next pages (can be more casual/fun for this) -->
 
 To build your own program you need do:
 
