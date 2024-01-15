@@ -70,6 +70,36 @@
       center / var(--dot-space) var(--dot-space),
     var(--dot-color);
 }
+[data-has-hero][data-theme="dark"] .page {
+  /* simple, light dots repeating */
+  --dot-bg: black;
+  --dot-color: rgba(212, 212, 212, 0.449);
+  --dot-size: 1.5px;
+  --dot-space: 12px;
+  img {
+    filter: invert(1);
+    opacity: 0.9;
+  }
+  background: linear-gradient(215deg, #000000, transparent 20%),
+    linear-gradient(125deg, #000000, transparent 20%),
+    linear-gradient(15deg, #000000, transparent 20%),
+    /* radial-gradient(#b3c4b6, transparent 40%) no-repeat -60vw -40vh / 105vw
+      200vh,
+    radial-gradient(#b3c4b6, transparent 65%) no-repeat 50% calc(100% + 20rem) /
+      60rem 30rem */
+      linear-gradient(
+        90deg,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+}
 
 [data-has-hero] header {
   border-bottom: 1px solid transparent;
@@ -142,7 +172,6 @@ a.linux:after {
   border: 1px solid white;
   padding: 0px 5px 0px 5px;
 }
-
 
 img {
   display: block;
