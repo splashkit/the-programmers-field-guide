@@ -1,0 +1,76 @@
+---
+title: The Field Guide's Guide to Style
+tableOfContents: true
+# hero:
+  # actions:
+  #   - text: Tell me more
+  #     link: /getting-started/
+  #     icon: right-arrow
+  #     variant: primary
+  #   - text: View on GitHub
+  #     link: https://github.com/astronaut/my-project
+  #     icon: external
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+Code style can be subjective, divisive, and conterversial - but it is important. Each software project has its own style guide, and while style guides will change between different projects or organisations, what's important is that your code is consistent within a project. This helps others become familiar with a cohesive codebase, and ensures teams are on the same page.
+
+This document will highlight, with examples and reasons, our own style guide which we suggest you follow.
+
+---
+
+### Braces (`{` and `}`)
+
+<Tabs>
+  <TabItem label="Rule">We suggest you place braces on the next line.</TabItem>
+  <TabItem label="Explanation">In C-style languages, braces `{` and `}` are used to open and close code blocks or scopes. Some style guides determine that braces should be on the same line as the definition of the block, while others suggest that braces should be on the next line. Benefits of the former are reduced line counts. We suggest you place braces on the next line as we think it makes it easier to pair associated braces at a glance.</TabItem>
+  <TabItem label="C/C++/C#">
+    ```c
+    int main()
+    {
+      // ...
+    }
+    ```
+
+    **Don't do**
+    ```c
+    int main() {
+      // ...
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+### Comments
+
+<Tabs>
+  <TabItem label="Suggestion">Comments are a great way to explain what your code is doing, or why it is doing it. However, comments can also be a distraction, and can become outdated or redundant. We suggest you only comment code when necessary or where the code may be unclear to the reader. Don't overcomment your code in unecessary places, which can clutter the codebase, or become outdated or redundant. Whether or not a comment is necessary is subjective.</TabItem>
+  <TabItem label="Example">
+    ```c
+    // This is a comment
+    int main()
+    {
+      // This is also a comment
+      // ...
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+### Naming Identifiers
+
+<Tabs>
+  <TabItem label="Suggestion">Naming your identifiers is one of the most important things you can do to make your code readable. As the famous quote goes, "There are only two hard things in Computer Science: cache invalidation and naming things." We suggest you use descriptive names for your identifiers, and avoid abbreviations where possible.</TabItem>
+  <TabItem label="Example">
+    ```c
+    // This is a comment
+    int main()
+    {
+      // This is also a comment
+      // ...
+    }
+    ```
+  </TabItem>
+</Tabs>
