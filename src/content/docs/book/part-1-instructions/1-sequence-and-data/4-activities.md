@@ -27,7 +27,7 @@ For your reference:
 
 Your program should:
 
-- Ask the user how many millimeters they would like to convert.
+- Ask the user how many millimeters they would like to convert
 - Output the resultant conversions for both metric and imperial units
 
 ### Sound Player
@@ -36,16 +36,23 @@ Here we will be trying out some SplashKit functionality and playing a song (or p
 
 In this task, it is up to you to create a program which will ask the user the filename of a sound file, the name they would like to refer to it as, and for how long they would like to play it. You will then play the sound back at 50% volume for the specified time, then again at 100% volume.
 
+:::note[Converting Sound Files to .ogg]
+To convert sound files (.mp3, .wav, etc) to the format SplashKit requires (.ogg), we recommend using Audacity. You can download Audacity at the following link: https://www.audacityteam.org/ Once installed, open the sound file you want to convert, then go to File->Export Audio, make sure to select Ogg Vorbis Files as the format and then select Export.
+:::
+
+:::note[Converting Sound Files to .ogg]
+If you are running the application through the terminal, your sound files need to be stored under: [PROJECTNAME]\Resources\sounds (If you don't have a Resources folder, make sure to run skm resources in the bash window for the project)
+:::
+
 :::note[Storing Sound Files]
-Your sound files need to be stored under: [PROJECTNAME]\bin\Debug\net8.0\sounds (If you don't have a sounds folder, create one)
+If you are running the application through the debugger, your sound files need to be stored under: [PROJECTNAME]\bin\Debug\net8.0\sounds (If you don't have a sounds folder, create one)
 :::
 
 You might need the following SplashKit functions:
 
-- new Music();
-- SplashKit.LoadMusic();
-- SplashKit.Delay();
-- SplashKit.StopMusic();
+- LoadMusic();
+- Delay();
+- StopMusic();
 
 Your program should:
 
@@ -61,10 +68,11 @@ Here we will be creating the beginning of any good game; a splash-screen/title a
 In this task, it is up to you to create a short sequence of SplashKit events, such as shapes, colours, images, sound/music, and delays to act as an introduction or title animation to a game.
 
 You might need the following SplashKit functions:
-FillCircle()
-FillTriangle()
-FillQuad()
-DrawText()
+
+- FillCircle()
+- FillTriangle()
+- FillRectangle()
+- DrawText()
 
 Your program should:
 

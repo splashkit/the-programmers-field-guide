@@ -30,7 +30,8 @@ In this task, it is up to you to create a program which will will ask the user t
 
 You might need the following functions:
 
-- SplashKit.MusicPlaying()
+- MusicPlaying()
+- HasMusic()
 - Console.In.Peek()
 
 Your program should:
