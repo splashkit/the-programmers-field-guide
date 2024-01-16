@@ -40,7 +40,7 @@ Then, open your **Terminal** app and paste the copied text.
 
 :::note[How do I find the Terminal on my Mac?]
 
-1. Press ***Command + Space bar*** to open the Spotlight Search.  
+1. Press ***Command*** (⌘) + ***Space bar*** to open the Spotlight Search.  
 2. Start typing "Terminal".  
 3. Click the **Terminal** app.
 :::
@@ -99,6 +99,23 @@ To install: double-click the zip file, then click and drag the **Visual Studio C
 
 ![Gif showing Visual Studio installation in Finder](/gifs/setup-macos/vs-code-install.gif)
 
+### Add 'code' command to PATH
+
+You can install the `code` command to allow you to open any file or folder in a new Visual Studio Code window, right from your Terminal!
+
+Follow the steps in the [Visual Studio Code on macOS](https://code.visualstudio.com/docs/setup/mac) article on the Visual Studio Code website to install this command.
+
+:::caution['zsh: command not found: code']
+If you are having issues with the `code` command not working after following the steps above, you can run the following command (adapted from the [Alternative Manual Instructions](https://code.visualstudio.com/docs/setup/mac#_alternative-manual-instructions) section).
+
+```zsh
+cat << EOF >> ~/.zshrc
+export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+EOF
+```
+
+:::
+
 ### Recommended Extensions
 
 Visual Studio Code has an extensive library of *Extensions* that let you add improved functionality for languages, debuggers, and tools to support your development workflow.  
@@ -140,10 +157,12 @@ As you will be coding in C# and C++ in this book, let's look at the tools needed
 
 ### C# Tools
 
-For coding in C#, you will need to install the `.NET` framework, also commonly called *dotnet*. You will use this to create, build, and run your C# project code.
+For coding in C#, you will need to install the `.NET` framework, also commonly called *dotnet*.  
+You will use this to create, build, and run your C# project code.
 
-:::tip
-We recommend using **.NET 8.0**, which you can download from the Microsoft dotnet website [here](https://dotnet.microsoft.com/en-us/download).
+:::tip[Which version should I use?]
+We recommend using **.NET 8.0**, which you can download from:  
+[dotnet.microsoft.com/en-us/download](https://dotnet.microsoft.com/en-us/download)
 :::
 
 ### C++ Tools
@@ -175,9 +194,9 @@ The command above will add the **SplashKit libraries** into the `/usr/local/lib/
 
 ## 6. Check Environment Variables
 
-Through this installation process, some steps *should* have edited your computer's environment variables. We now need to ensure the required *paths* have been added to your **PATH** environment variable.
+Through this installation process, some steps *should* have edited your computer's environment variables, or your "Shell Profile" file.
 
-If the previous steps have installed correctly, you should see the following lines in your `.zshrc` file (or `.bashrc` if you are using `bash` instead of `zsh`):
+To ensure the required *paths* will be added to your **PATH** environment variable each time you open a new Terminal shell, you will need to check that your **"Shell Profile" file** contains the following lines:
 
 ```bash
 export PATH="$HOME/.splashkit:$PATH"
@@ -185,7 +204,19 @@ export PATH="/usr/local/share/dotnet:$PATH"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 ```
 
-You can check this using the following command in your Terminal:
+:::tip[Shell Profiles]
+The two most common shell profiles are **zsh** (Default shell since macOS Catalina) and **bash**:
+
+- If you are using `zsh` (Z Shell) then the *"Shell Profile"* files are: `.zshrc` or `.zprofile`.
+- If you are using `bash` (Bash Shell) then the *"Shell Profile"* files are: `.bash_profile` or `.bashrc`.
+
+:::
+
+If you are missing any of the lines above, you can edit your "Shell Profile" file in a few ways:
+
+### Using '*nano*' in the Terminal
+
+To open the file in the "nano" shell, copy and paste the following command in your Terminal:
 
 ```bash
 nano .zshrc
@@ -195,10 +226,24 @@ The result of the command above will look similar to this:
 
 ![Terminal window showing nano opening .zshrc file](./images/setup-macos/nano-zshrc.png)
 
-If you are missing any of these lines, you can edit the file directly in the **nano** terminal window.  
+Now, to edit the file directly inside the **nano** terminal window, you can just move the cursor down to the last line and paste the missing command.  
+Once you're finished, press ***Control*** (^) + ***X*** to exit **nano** and follow the prompts to save the changes.
+
 For example, if the last line was missing:
 
 ![Gif showing .zshrc file being edited using nano command](/gifs/setup-macos/nano-edit-zshrc.gif)
+
+### Using 'code' to open .zshrc file in Visual Studio Code
+
+You can open your `.zshrc` file in Visual Studio Code using the `code` command, to edit and add any missing lines.
+
+To do this, copy and paste the following command in your Terminal:
+
+```bash
+code ~/.zshrc
+```
+
+![Gif showing 'code ~/.zshrc' command opening file in VS Code](/gifs/setup-macos/code-zshrc-open.gif)
 
 ## 7. Testing SplashKit Install
 
