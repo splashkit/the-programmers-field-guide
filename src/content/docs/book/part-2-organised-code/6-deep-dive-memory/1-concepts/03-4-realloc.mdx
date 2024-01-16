@@ -59,12 +59,13 @@ export const sliderReallocContiguous = [
   },
   {
     src: sliderReallocContiguous05.src,
-    altText: "At line 9, we call realloc again to grow the memory area pointed to by p from 1 integer to 5 integers. When it can, realloc will grow the memory area using the same original location. You can see here, that this has happened, and that the same memory address has been returned and assigned to new_p that was originally allocated to p. Again, note that any uninitialized elements in the the expanded memory area are not initialized to 0 by realloc",
+    altText: "At line 9, we call realloc again to grow the memory area pointed to by p from 1 integer to 5 integers. When it can, realloc will grow the memory area using the same original location. You can see here, there is no allocated memory blocking expansion, and so our memory can simply grow at that the same memory address that was used originally. The original memory address that was originally allocated to p (0x1A2) has therefore been returned and assigned to new_p which represents the start of our new expanded memory. Again, note that any uninitialized elements in the the expanded memory area are not initialized to 0 by realloc",
     tipStart: 5,
     tips: [
       "At line 9, we call <strong>realloc</strong> again to grow the memory area pointed to by <strong>p</strong> from 1 integer to 5 integers",
       "When it can, <strong>realloc</strong> will grow the memory area using the same original location",
-      "You can see here, that this has happened, and that the same memory address has been returned and assigned to <strong>new_p</strong> that was originally allocated to <strong>p</strong>",
+      "You can see here, there is no allocated memory blocking expansion, and so our memory can simply grow at that the same memory address that was used originally",
+      "The original memory address that was originally allocated to <strong>p</strong> (0x1A2) has therefore been returned and assigned to <strong>new_p</strong> which represents the start of our new expanded memory",
       "Again, note that any uninitialized elements in the the expanded memory area are not initialized to 0 by <strong>realloc</strong>"
     ]
   },
@@ -88,10 +89,10 @@ export const sliderReallocContiguous = [
   },
   {
     src: sliderReallocContiguous08.src,
-    altText: "Now let's try assigning a new value to the 4th element of our memory region (which contains an array of ints)",
+    altText: "Now let's try assigning a new value (the int value 9) to the 4th element of our memory region (which contains an array of ints)",
     tipStart: 8,
     tips: [
-      "Now let's try assigning a new value to the 4th element of our memory region (which contains an array of ints)"
+      "Now let's try assigning a new value (the int value 9) to the 4th element of our memory region (which contains an array of ints)"
     ]
   },
   {
@@ -101,7 +102,7 @@ export const sliderReallocContiguous = [
     tips: [
       "Next, we'll execute a for loop to print out the values of our array",
       "These values are printed to the terminal",
-      "<strong>NOTE:</strong><ul><li>That <strong>p[0]</strong> contains our original value of <strong>1</strong></li><li><strong>p[3]</strong> contains our newly initialized value of <strong>9</strong></li><li>And that any elements that were not initialized will contain an uncertain value (although here they happen to be 0) </li></ul>"
+      "<strong>NOTE:</strong><ul><li>That <strong>p[0]</strong> contains our original value of <strong>1</strong></li><li><strong>p[3]</strong> contains our newly initialized value of <strong>9</strong></li><li>And that any elements that were not initialized (p[1], p[2] and p[4]) will contain an uncertain value (as you can see with the random values printed out)</li></ul>"
     ]
   },
   {
@@ -116,10 +117,11 @@ export const sliderReallocContiguous = [
   },
   {
     src: sliderReallocContiguous11.src,
-    altText: "p is then assigned the null pointer value (nullptr), cutting it's ties to the heap space that was allocated previously",
+    altText: "p is then assigned the null pointer value (nullptr), cutting it's ties to the heap space that was allocated previously. new_p however, still remains a dangling pointer",
     tipStart: 11,
     tips: [
-      "<strong>p</strong> is then assigned the null pointer value (<strong>nullptr</strong>), cutting it's ties to the heap space that was allocated previously"
+      "<strong>p</strong> is then assigned the null pointer value (<strong>nullptr</strong>), cutting it's ties to the heap space that was allocated previously",
+      "<strong>new_p</strong> however, still remains a dangling pointer"
     ]
   },
   {
@@ -150,19 +152,21 @@ import sliderReallocMoved12 from './images/slider-realloc-moved/Slide12.png';
 export const sliderReallocMoved = [
   {
     src: sliderReallocMoved01.src,
-    altText: "The program begins by declaring an int pointer p and initializing it to NULL",
+    altText: "Before beginning, we note that there is an area on the heap where some memory has already been allocated by the system (this will become relevant later on). The program begins by declaring an int pointer p and initializing it to NULL",
     tipStart: 1,
     tips: [
+      "Before beginning, we note that there is an area on the heap where some memory has already been allocated by the system (this will become relevant later on)",
       "The program begins by declaring an int pointer <strong>p</strong> and initializing it to NULL"
     ]
   },
   {
     src: sliderReallocMoved02.src,
-    altText: "We then call realloc to allocate memory for an integer on the heap, and assign the address of that area to our int pointer variable p. NOTE: That realloc() doesn't initialize the memory space with 0. It will retain whatever value was already existing in this space.",
+    altText: "We then call realloc to allocate memory for an integer on the heap, and assign the address of that area (0x1A2) to our int pointer variable p. NOTE: That realloc() doesn't initialize the memory space with 0. It will retain whatever value was already existing in this space. Also note that the system allocated space for our integer on the heap just before the memory that was already in use by the system",
     tipStart: 2,
     tips: [
-      "We then call <strong>realloc</strong> to allocate memory for an integer on the heap, and assign the address of that area to our int pointer variable <strong>p</strong>",
-      "<strong>NOTE:</strong> That realloc() doesn't initialize the memory space with 0. It will retain whatever value(s) were already existing in this space."
+      "We then call <strong>realloc</strong> to allocate memory for an integer on the heap, and assign the address of that area <strong>(0x1A2)</strong> to our int pointer variable <strong>p</strong>",
+      "<strong>NOTE:</strong> That realloc() doesn't initialize the memory space with 0. It will retain whatever value(s) were already existing in this space.",
+      "Also note that the system allocated space for our integer on the heap just before the memory that was already in use by the system"
     ]
   },
   {
@@ -185,12 +189,13 @@ export const sliderReallocMoved = [
   },
   {
     src: sliderReallocMoved05.src,
-    altText: "At line 9, we call realloc again to grow the memory area pointed to by p from 1 integer to 5 integers. When it can, realloc will grow the memory area using the same original location, but if it can't it will allocate a new space in memory. You can see that in this case, a new memory space has been allocated and that any values from the original memory area have been copied over to this new space. new_p is assigned the address of this new memory region and the old memory region is de-allocated. Again, note that any uninitialized elements in the the expanded memory area are not initialized to 0 by realloc",
+    altText: "At line 9, we call realloc again to grow the memory area pointed to by p from 1 integer to 5 integers. When it can, realloc will grow the memory area using the same original location, but if it can't it will allocate a new space in memory. You can see that in this case, a new memory space has been allocated at 0xCD8 because the next available space to our current memory at 0x1A2 was already occupied. Any values from the original memory area are also copied over to this new reallocated memory region. new_p is assigned the address of this new memory region and the old memory region is de-allocated. Again, note that any uninitialized elements in the the expanded memory area are not initialized to 0 by realloc",
     tipStart: 5,
     tips: [
       "At line 9, we call <strong>realloc</strong> again to grow the memory area pointed to by <strong>p</strong> from 1 integer to 5 integers",
       "When it can, <strong>realloc</strong> will grow the memory area using the same original location, but if it can't it will allocate a new space in memory",
-      "You can see that in this case, a new memory space has been allocated and that any values from the original memory area have been copied over to this new space",
+      "You can see that in this case, a new memory space has been allocated at <strong>0xCD8</strong> because the next available space to our current memory at <strong>0x1A2</strong> was already occupied",
+      "Any values from the original memory area are also copied over to this new reallocated memory region",
       "<strong>new_p</strong> is assigned the address of this new memory region and the old memory region is de-allocated",
       "Again, note that any uninitialized elements in the the expanded memory area are not initialized to 0 by <strong>realloc</strong>"
     ]
@@ -215,10 +220,10 @@ export const sliderReallocMoved = [
   },
   {
     src: sliderReallocMoved08.src,
-    altText: "Now let's try assigning a new value to the 4th element of our memory region (which contains an array of ints)",
+    altText: "Now let's try assigning a new value (the int value 9) to the 4th element of our memory region (which contains an array of ints)",
     tipStart: 8,
     tips: [
-      "Now let's try assigning a new value to the 4th element of our memory region (which contains an array of ints)"
+      "Now let's try assigning a new value (the int value 9) to the 4th element of our memory region (which contains an array of ints)"
     ]
   },
   {
@@ -228,7 +233,7 @@ export const sliderReallocMoved = [
     tips: [
       "Next, we'll execute a for loop to print out the values of our array",
       "These values are printed to the terminal",
-      "<strong>NOTE:</strong><ul><li>That <strong>p[0]</strong> contains our original value of <strong>1</strong></li><li><strong>p[3]</strong> contains our newly initialized value of <strong>9</strong></li><li>And that any elements that were not initialized will contain an uncertain value (although here they happen to be 0) </li></ul>"
+      "<strong>NOTE:</strong><ul><li>That <strong>p[0]</strong> contains our original value of <strong>1</strong></li><li><strong>p[3]</strong> contains our newly initialized value of <strong>9</strong></li><li>And that any elements that were not initialized (p[1], p[2] and p[4]) will contain an uncertain value (as you can see with the random values printed out)</li></ul>"
     ]
   },
   {
@@ -243,18 +248,20 @@ export const sliderReallocMoved = [
   },
   {
     src: sliderReallocMoved11.src,
-    altText: "p is then assigned the null pointer value (nullptr), cutting it's ties to the heap space that was allocated previously",
+    altText: "p is then assigned the null pointer value (nullptr), cutting it's ties to the heap space that was allocated previously. new_p however, still remains a dangling pointer",
     tipStart: 11,
     tips: [
-      "<strong>p</strong> is then assigned the null pointer value (<strong>nullptr</strong>), cutting it's ties to the heap space that was allocated previously"
+      "<strong>p</strong> is then assigned the null pointer value (<strong>nullptr</strong>), cutting it's ties to the heap space that was allocated previously",
+      "<strong>new_p</strong> however, still remains a dangling pointer"
     ]
   },
   {
     src: sliderReallocMoved12.src,
-    altText: "Finally, the program returns 0 and ends",
+    altText: "Finally, the program returns 0 and ends. Note that the system memory that was allocated to the heap prior to our program running still remains allocated at this point, since it must be being used by some other process",
     tipStart: 12,
     tips: [
-      "Finally, the program returns 0 and ends"
+      "Finally, the program returns 0 and ends",
+      "Note that the system memory that was allocated to the heap prior to our program running still remains allocated at this point, since it must be being used by some other process"
     ]
   }
 ];

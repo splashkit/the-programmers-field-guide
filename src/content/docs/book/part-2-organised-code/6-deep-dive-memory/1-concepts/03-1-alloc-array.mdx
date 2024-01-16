@@ -47,10 +47,12 @@ export const sliderAllocateArray = [
   },
   {
     src: sliderAllocateArray04.src,
-    altText: "A for loop runs, iterating over the elements in our array, and printing the initial value of each element to the terminal",
+    altText: "A for loop runs, iterating over the elements in our array, and printing the initial value of each element to the terminal. NOTE: That we can use array notation p[i] to access elements in a memory region allocated by malloc, calloc or realloc. p[i] is equivalent to *(p + i) (which accesses the memory region using pointer notation instead of array notation)Since p is the memory address of the start of the memory region, (p+i) refers to an offset from that start point, where i refers to the i-th element. The actual offset in bytes is determined by the system using the formula i*sizeof(int)Although we can use this pointer notation, it's much more convenient to use the array notation",
     tipStart: 4,
     tips: [
-      "A for loop runs, iterating over the elements in our array, and printing the initial value of each element to the terminal"
+      "A for loop runs, iterating over the elements in our array, and printing the initial value of each element to the terminal",
+      "<strong>NOTE:</strong> That we can use array notation <strong>p[i]</strong> to access elements in a memory region allocated by malloc, calloc or realloc",
+      "<span style='border: 2px solid black; border-radius: 4px; background-color: #ffd966; padding-top: 3px; padding-bottom: 3px; padding-left: 5px; padding-right: 5px;margin-bottom: 2px; margin-top: 4px;'><strong>p[i]</strong> is equivalent to <strong>*(p + i)</strong></span> (which accesses the memory region using pointer notation instead of array notation)<ul><li>Since p is the memory address of the start of the memory region, (p+i) refers to an offset from that start point, where i refers to the i-th element</li><li>The actual offset in bytes is determined by the system using the formula <span style='border: 2px solid black; border-radius: 4px; background-color: #ffd966; padding-top: 3px; padding-bottom: 3px; padding-left: 5px; padding-right: 5px;margin-bottom: 4px;margin-top:4px;'>i*sizeof(int)</span></li><li>Although we can use this pointer notation, it's much more convenient to use the array notation</li></ul>"
     ]
   },
   {
