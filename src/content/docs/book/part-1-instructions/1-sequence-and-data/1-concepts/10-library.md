@@ -8,7 +8,7 @@ A library is a collection of reusable code building blocks. Each programming lan
 
 <a id="FigureLibrary"></a>
 
-![Figure 5.9 A library contains code that can be used by your Program](./images/program-creation/Library.png "A library contains code that can be used by your Program")
+![Figure 5.9 A library contains code that can be used by your Program](./images/library-concept.png "A library contains code that can be used by your Program")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.9: </span>A library contains code that can be used by your Program</div><br/>
 
 ## Libraries - why, when, and how

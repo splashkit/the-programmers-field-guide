@@ -24,9 +24,8 @@ Then, you can then read the current value and store new values in the variable a
 
 A **constant** is similar to a variable, in that they have a name and a data type. Constants are declared within a program and must be given a value when they are created. However, they differ from a variable because once they are created the value within a constant cannot be changed. This is useful for data that should not change during the program's execution.
 
-![Figure 5.13 Constants have a value that cannot be changed](./images/constant.png "Constants have a value that cannot be changed")
+![Figure 5.13 Constants have a value that cannot be changed](./images/constant-concept.png "Constants have a value that cannot be changed")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.13: </span> Constants have a value that cannot be changed</div><br/>
- <!-- TODO: update to new image style -->
 
 ## Constants -- why, when, and how
 

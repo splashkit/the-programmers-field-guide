@@ -15,9 +15,11 @@ There are three basic data types available in a programming language:
 - **Whole numbers** such as `1`, `0`, `-5`, and `37`.
 - **Real numbers** such as `0.5`, `-126.0`, `3.141516` and `23.981`.
 
-Figure 5.9 shows the concepts related to types.
+[Figure 5.9](#FigureType) shows the concepts related to types.
 
-![Figure 5.9 A type defines how a piece of data in a program is interpreted, and what operations can be performed on the data.](./images/program-creation/Type.png "A type defines how a piece of data in a program is interpreted, and what operations can be performed on the data.")
+<a id="FigureType"></a>
+
+![Figure 5.9 A type defines how a piece of data in a program is interpreted, and what operations can be performed on the data.](./images/type-concept.png "A type defines how a piece of data in a program is interpreted, and what operations can be performed on the data.")
 <div class="caption"><span class="caption-figure-nbr">Figure 5.9: </span>A type defines how a piece of data in a program is interpreted, and what operations can be performed on the data.</div><br/>
 
 ## Types -- why, when, and how
