@@ -116,3 +116,64 @@ int main()
 - [Listing x.y](#ListingCcodePointerOperatorUsage) shows how you can get addresses of different variables, and how you can access the value pointed to using `*` and `->`.
 
 :::
+
+## Pointer notation in C
+
+As final word on the usage of pointers in C, we should note that reading the notation for pointers can sometimes be a bit confusing at first, since similar looking syntax can mean different things depending on how we format the code and the context in which it occurs..
+
+Consider the following sample code:
+
+<br/>
+<a id="ListingPointerNotation"></a>
+
+```c
+#include <stdio.h>
+
+int main()
+{
+  int p1 = 8, p2 = 9;
+  int val;
+  int *pointer1;
+  int *pointer2;
+
+  pointer1 = &p1;
+  pointer2 = &p2;
+
+  val = *pointer1 * *pointer2;
+
+  printf("The value of val is: [%d]\n", val);
+}
+```
+
+<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>C code showing pointer notation</div>
+
+The ``*pointer1`` and ``*pointer2`` notation looks exactly the same in lines 6 and 7 (``int *pointer1`` and ``int *pointer2``) as it is in line 10 (``val = *pointer1 * *pointer2;``). However the former are declarations of integer pointer variables, and the latter are the dereferencing of these two variables. Further complicating matters, is that the ``*`` is also used as a multiplication operator in the ``val = *pointer1 * *pointer2;`` statement.
+
+To avoid confusion, we can reformat our code to reposition the ``*`` in the declaration to make it clear that it is not acting as a dereferencing operator, and use braces to group the pointer variables in the arithmetic statement as follows: (refer to comments in the code below)
+
+```c
+#include <stdio.h>
+
+int main()
+{
+  int p1 = 8, p2 = 9;
+  int val;
+  int* pointer1; // reformat to int* to show that the * is associated with the declaration of an integer pointer
+  int* pointer2; // reformat to int* to show that the * is associated with the declaration of an integer pointer
+
+  pointer1 = &p1;
+  pointer2 = &p2;
+
+  val = (*pointer1) * (*pointer2); // use braces to group each pointer variable, showing the * is being used as a dereference operator for each pointer, and making the multiplication sign * distinct as the multiplication operator
+
+  printf("The value of val is: [%d]\n", val);
+}
+```
+
+<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>C code showing pointer notation</div>
+
+The output of the code in both cases is:
+
+```bash
+The value of val is: [72]
+```
