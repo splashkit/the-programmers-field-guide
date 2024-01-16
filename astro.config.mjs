@@ -27,6 +27,9 @@ export default defineConfig({
     social: {
       github: "https://github.com/splashkit/the-programmers-field-guide"
     },
+    editLink: {
+      baseUrl: 'https://github.com/splashkit/the-programmers-field-guide/edit/main/',
+    },
     sidebar: [{
       label: "Home",
       link: "/"
