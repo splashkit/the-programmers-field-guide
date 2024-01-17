@@ -7,6 +7,4 @@ sidebar:
 
 <!-- Might end up combining with previous page -->
 
-<!-- TODO: Mention only using C# here to simplify -->
-
 <!-- TODO: Decide on headings (same or different to cli page) -->

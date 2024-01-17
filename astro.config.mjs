@@ -251,13 +251,24 @@ export default defineConfig({
           }
         }, {
           label: "Putting it Together",
-          link: "book/part-2-organised-code/1-starting-cpp/2-put-together"
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-2-organised-code/1-starting-cpp/2-put-together",
+            collapsed: true
+          }
         }, {
           label: "Other Languages",
           link: "book/part-2-organised-code/1-starting-cpp/3-other-languages"
         }, {
           label: "Activities",
           link: "book/part-2-organised-code/1-starting-cpp/4-activities"
+        }, {
+          label: "Wrap Up",
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-2-organised-code/1-starting-cpp/5-wrap-up",
+            collapsed: true
+          }
         }]
       }, {
         label: "2. Structuring Code",
