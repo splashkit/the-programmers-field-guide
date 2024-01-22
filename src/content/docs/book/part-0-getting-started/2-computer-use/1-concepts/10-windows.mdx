@@ -10,12 +10,6 @@ banner:
 
 If you have been working through this on the multitool Raspberry Pi image, you will have only had access to the terminal interface. Now it is time to fire up the graphical user interface.
 
-:::caution
-If you have been using macOS or Windows, you might think you can skip this section as you have already been using a graphical user interface.
-However, there are still a few things here that you will need.
-Make sure to read the section on [launching the editor from the terminal](#launching-editor-from-terminal).
-:::
-
 ## Launch the graphical interface
 
 The graphical environment is just like everything else -- a program that we can run on the computer. In Unix, the graphical interface is known as **X Windows**. To start this running you can use the `startx` command.
@@ -54,24 +48,6 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 **TODO: Add images and instructions above**
 
-### Launching an editor from terminal
-
-From the terminal you can use all of the commands we have already seen as well as launch programs that use the X Windows environment.
-
-| **Action**          | **Command** | **Description**                                     |
-| ------------------- | ----------- | --------------------------------------------------- |
-| Open a file to edit | `code`      | Launch Visual Studio Code to edit a file or folder. |
-
-Visual Studio Code (vscode) is a graphical text editor designed to write source code. You can launch Visual Studio Code using the `code` command in the terminal. The [Visual Studio Code documentation](https://code.visualstudio.com/docs/editor/command-line) describes how to use this in detail, including how to install this shortcut if you have built your own setup.
-
-The `code` command can be passed an argument to indicate the file or folder you want to open. For example, `code .` will launch vscode and have it open the folder from the current working directory. Use `code Program.cs` to open vscode with the *Program.cs* file.
-
-```sh
-cd ~/Documents/Code/HelloWorld
-code .
-# launch vscode with the HelloWorld folder open
-```
-
 ## Changing the default start environment
 
 The Raspberry Pi can be configured to boot into either a terminal or graphical mode. Terminal is great if you want to set the Pi up as a server or other processing node that does not need user interaction. As we will be developing code on our Pi, we should switch it to boot into X Windows.
@@ -81,21 +57,6 @@ To change that setting we will need a couple of new shell commands.
 | ------------------------- | -------------- | ------------------------------------------------------- |
 | Run as superuser.         | `sudo`         | Run a program as the superuser -- used for admin tasks. |
 | Change Pi config options. | `raspi-config` | Change Raspberry Pi configuration options.              |
-
-### Run as admin (`sudo`)
-
-Operating systems restrict some actions to admin users, particularly when the actions will change the behaviour of the system. In Unix, you can use the `sudo` shell command to get the **superuser** to **do** something. You follow the `sudo` command with the details of the command you want to do.
-
-:::tip
-
-If you have lots of things you want to run as the superuser, you can use `sudo` to run a new shell. When you are finished, you can close that shell using **ctrl-d**.
-
-```sh
-sudo zsh
-# You are now in a shell as the super user
-```
-
-:::
 
 ### Adjust Raspberry Pi Configuration (`raspi-config`)
 
