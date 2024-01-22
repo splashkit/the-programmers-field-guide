@@ -2,7 +2,7 @@
 title: Editing code
 ---
 
-## Launching an editor from terminal
+## Launching an editor from the terminal
 
 From the terminal you can use all of the commands we have already seen as well as launch graphical programs.
 
