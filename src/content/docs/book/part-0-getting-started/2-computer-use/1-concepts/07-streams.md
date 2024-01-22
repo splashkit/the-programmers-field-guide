@@ -21,7 +21,7 @@ In Unix, streams are used as the metaphor for all data flows.
 Having one common abstraction for all of these different sources of data is great for us. It means that once you know how to work with a stream, you can apply the same knowledge to work with other data sources.
 :::
 
-### Input, Output, and Errors
+## Input, Output, and Errors
 
 When you run a program, the operating system gives it **three** different data **streams** - one for input to be read, and two for outputs.
 
@@ -35,7 +35,7 @@ When you run a program, the operating system gives it **three** different data *
 When picturing the stream, remember the first thing put on the stream will be the first thing read at the other end.
 :::
 
-#### Standard Input (stdin)
+### Standard Input (stdin)
 
 The **standard input** stream provides your program with text input that it can read. By default, the shell will stream data from the keyboard to your program while it is running.
 
@@ -47,7 +47,7 @@ A program can write text output to its **standard output** stream. By default, t
 
 **Picture of data from program going to the terminal**
 
-#### Standard Error (stderr)
+### Standard Error (stderr)
 
 A program can write text output to its **standard error** stream. By default, the shell will stream this to the terminal for the user to see.
 
@@ -57,7 +57,7 @@ However, there are ways of redirecting these streams, so it is useful to have th
 For example, some programs redirect standard error to a log file.
 :::
 
-### Redirection
+## Redirection
 
 One of the great features of streams is the ability the operating system provides to **redirect** them. 
 Using this feature, you can change where the data for standard input comes from, and where standard output and standard error go.
@@ -103,7 +103,7 @@ wc -l < lines.txt
 # outputs the number of lines in lines.txt
 ```
 
-### Pipes
+## Pipes
 
 Pipes offer another option for redirecting streams. In this case you can connect the output from one program to the input of another. This is a super powerful feature, allowing you to combine together multiple programs.
 

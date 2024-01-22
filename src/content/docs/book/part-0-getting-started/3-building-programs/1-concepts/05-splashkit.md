@@ -9,7 +9,7 @@ This lets us concentrate on the unique features of our program.
 
 Creating graphical programs really aids the learning process. They let you **see** things working, and see when things are *not* working. You will also be able to create programs that are much more engaging and fun to interact with, while still practicing knowledge and skills that can be transferred to any domain.
 
-### Add SplashKit to your project
+## Add SplashKit to your project
 
 Languages usually provide a system that lets developers build *packages* to share libraries and their related files. In C#, you can use the [NuGet](https://learn.microsoft.com/en-us/nuget) package management to add a library to your project. To add the SplashKit package to your project you can provide the **add package** argument to the `dotnet` command as shown below.
 

@@ -6,7 +6,7 @@ sidebar:
 
 The next step in programming language was to make languages even more human readable. These languages, known as **third generation languages**, use more advanced programs than assemblers to convert their instructions into machine code. The code that a programmer writes in these languages is called **source code**. Programs written in these languages are converted to machine code by a **compiler** or **interpreter**.
 
-### Compilers and Interpreters
+## Compilers and Interpreters
 
 A **compiler** is a program that converts **source code** into machine code and saves it as an executable file called a *program*. The program can then be executed independent of the compiler and the source code. An **interpreter** is a program similar to a compiler, but skips the intermediate steps of translating and saving all the machine code in advance. Instead, an interpreter just executes the code as the program is read. This is slower, and means you can't run the program without also having the interpreter, but it does give you additional flexibility that can be hard to achieve otherwise.
 
@@ -32,7 +32,7 @@ For example, in this book we will use the [SplashKit](https://splashkit.io/) pro
 
 At the end of this process you have an executable that you can run on your computer.
 
-### Programming with a Third Generation Language
+## Programming with a Third Generation Language
 
 The following snippet is the source code for a small program that can be used to output a message
 to the command line.

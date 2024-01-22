@@ -6,11 +6,10 @@ In most software projects the top-level building block you are aiming to create 
 
 Each program consists of a **list of instructions** ([statements](../../../2-communicating-syntax/1-concepts/02-statement) in programming terminology) that the computer will perform when the program is run. When you create a program, think about the goal of that program and the steps you need the computer to perform to achieve that goal.
 
-[Figure 5.1](#FigureProgram) shows a sketch of the program concept. It shows a program consisting of instructions (written in **source code**). Some key aspects of the program are the starting instruction and the libraries that it uses.
+The image below shows a sketch of the program concept. It shows a program consisting of instructions (written in **source code**). Some key aspects of the program are the starting instruction and the libraries that it uses.
 
-<a id="FigureProgram" class="linkPoint"></a>
-![Figure 5.1 A program contains instructions that tell the computer what to do](./images/program-concept.png "A program contains instructions that tell the computer what to do")
-<div class="caption"><span class="caption-figure-nbr">Figure 5.1: </span>A program contains instructions that tell the computer what to do</div><br/>
+![A program contains instructions that tell the computer what to do](./images/program-concept.png "A program contains instructions that tell the computer what to do")
+<div class="caption">A program contains instructions that tell the computer what to do</div><br/>
 
 ## Program -- why, when, and how
 
@@ -27,10 +26,8 @@ For now, a program is simply a list of instructions that are followed when the p
 :::tip[Syntax]
 In a C# project, you have one source code file that will contain the program's main code. The following illustration shows the structure of the syntax for this.
 
-<a id="FigureProgramSyntax"></a>
-
-![Figure 5.2 The syntax for a C# program](./images/program.png "The syntax for a C# program")
-<div class="caption"><span class="caption-figure-nbr">Figure 5.2: </span>The syntax for a C# program</div><br/>
+![The syntax for a C# program](./images/program.png "The syntax for a C# program")
+<div class="caption">The syntax for a C# program</div><br/>
 :::
 
 Each program starts with an optional list of **using directives**.

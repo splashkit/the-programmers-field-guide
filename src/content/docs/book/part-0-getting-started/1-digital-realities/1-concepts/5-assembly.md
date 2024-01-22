@@ -6,7 +6,7 @@ The next level of abstraction up from machine code is called **assembly**, or **
 
 Programs written in this language cannot be executed directly by the computer, because they aren't in machine code. Instead, assembler code must be converted to machine code by a program called an **assembler**. This program reads the instructions from the assembler code and outputs machine code. So, in our example, anywhere the assembler encounters `add` in the code it would output `0000 0011`.
 
-#### Programming in Assembly
+## Programming in Assembly
 
 The following snippet shows an example of some assembler code. This is the assembler code that was used to generate the machine code we showed you in the [machine code](../4-machine-code) concept. The machine code was 13,344 bytes in size, where the same program in assembler code is only 658 bytes. Before this program can be executed, we need the assembler to read these 658 bytes and translate them into the equivalent machine code.
 
