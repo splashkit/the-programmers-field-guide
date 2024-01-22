@@ -1,5 +1,5 @@
 ---
-title: Manipulating files
+title: Manipulating Files
 ---
 
 The terminal is also great at manipulating files. With just a few commands you will be able to quickly and easily copy, move, delete, and update files all from the command line.
