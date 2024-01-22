@@ -1,5 +1,5 @@
 ---
-title: "Variable and Constant"
+title: Variable and Constant
 ---
 
 While fixed literal values are useful, to make programs dynamic you need to be able to work with values that change.
@@ -158,8 +158,27 @@ RefreshScreen();
 Delay(5000);
 ```
 
-<!-- ## Activities -->
-<!-- [TODO] -->
+## Activities
+
+For each piece of information, identify whether it would make the most sense to store it in a variable or constant. Then, try writing the C# code to declare that variable or constant. Remember that variables and constants both need an appropriate name and data type, and constants must also be initialised when declared.
+
+1. The number of hours in a day.
+2. The amount of water, in litres, left in your water bottle.
+3. The number of meters walked so far in the day.
+4. The name of the species of wildlife you have most recently seen.
+
+<details>
+  <summary role="button">Answers</summary>
+  There are other acceptable answers for the identifiers.
+  The key to a good identifier is that it is short and meaningful.
+  It should also follow the C# conventions, by using all upper case letters with words separated by underscores for constants, and camelCase for variables.
+  <ul>
+    <li><strong>1: </strong>Constant, because this value will not change. <code>const int HOURS_IN_DAY = 24;</code></li>
+    <li><strong>2: </strong>Variable, because it will change if you drink from or fill up your bottle. <code>double waterLeft;</code></li>
+    <li><strong>3: </strong>Variable, because it will increase as you walk. <code>int metersWalked;</code></li>
+    <li><strong>4: </strong>Variable, because it will change when you see something new. <code>string lastSpeciesSeen;</code></li>
+  </ul>
+</details>
 
 :::note[Summary]
 
