@@ -58,7 +58,7 @@ This Article will show you how to setup your Raspberry Pi software including:
 
 5. Optional Select Wi-Fi network and enter password, click next.
 
-![Image showing the Raspberry Pi Set Wi-Fi screen](./images/setup-pi/1-2-setup-pi-SetWifi.png)
+![Image showing the Raspberry Pi Set Wi-Fi screen](./images/setup-pi/1-2-setup-pi-SetWiFi.png)
 
 6. Select your preferred Browser Chromium or Firefox, Click next.
 
@@ -335,4 +335,3 @@ navigate to the plugins line and add `autojump` to the list git will be listed a
 ```bash
 plugins=(git autojump)
 ```
-
