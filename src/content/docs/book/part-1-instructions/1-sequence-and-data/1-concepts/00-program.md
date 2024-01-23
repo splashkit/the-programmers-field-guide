@@ -56,7 +56,7 @@ using static System.Console;
 WriteLine("Hello World!");
 ```
 
-<div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>C# Hello World Program</div>
+<div class="caption">C# Hello World Program</div>
 
 The following program uses SplashKit to open a window and draw some shapes to it. Once again, the important thing to think about for now is that the program is **all** of these instructions. They all come together to create the program.
 
@@ -77,11 +77,11 @@ RefreshScreen();
 Delay(5000);
 ```
 
-<div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>SplashKit House Drawing Code</div>
+<div class="caption">SplashKit House Drawing Code</div>
 
 :::tip[Code Comments]
 C# source code is [abstracted](../../../part-0-getting-started/1-digital-realities/1-concepts/6-source-code/#programming-with-a-third-generation-language) to make it more understandable for humans, but ultimately it is still written for computers.
-Because of this, C# and virtually all programming languages include syntax for writing [**code comments**](../09-comments.md).
+Because of this, C# and virtually all programming languages include syntax for writing [**code comments**](../09-comments).
 
 In the code above the line starting with `//` is a code comment and will be ignored by the compiler.
 :::
