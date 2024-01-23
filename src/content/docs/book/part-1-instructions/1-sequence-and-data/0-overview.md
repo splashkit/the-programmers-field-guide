@@ -1,70 +1,72 @@
 ---
 title: Overview of Sequence and Data
-sidebar:
-  order: 0
 ---
 
-At a basic level, programs consist of sequences of instructions that work on data. With a basic terminal program, data can flow into the application from [standard input](../../../part-0-getting-started/2-computer-use/1-concepts/7-streams) and it can flow out via [standard output](../../../part-0-getting-started/2-computer-use/1-concepts/7-streams). Using SplashKit, you can use a sequence of instructions to create a visualisation or animation or play sound effects. The knowledge and skills you pick up in this trek will enable you to build small programs and give you a solid start upon which future journeys will build.
+At a basic level, programs are sequences of instructions that work on data.
+They can receive data as input, and produce data as output.
+For example, in a basic terminal program data can flow in and out from [standard input](../../part-0-getting-started/2-computer-use/1-concepts/07-streams).
+Using SplashKit, data might flow in from a mouse and keyboard, and out as a visualisation, animation, or sound.
 
-This chapter examines the following **building blocks** that you can create within your code:
+Programs are made up of **building blocks**.
+Building blocks describe something that can be **created and used** within code.
+Think of them as the template for the *things* you can build in a program.
+This chapter examines the following building blocks:
 
-- [Program](../1-concepts#program): A program is a sequence of instructions that when compiled creates an executable file that a user can run.
-- [Method](../1-concepts#procedure): A procedure is a named sequence of instructions that will get the computer to perform a task. When you want the task performed you can call the procedure.
-- [Variable](../1-concepts#variable): You can **store** a value in a Variable, and **retrieve** the value from the Variable.
-- [Constant](../1-concepts#constant): Is similar to a Variable, except that its value cannot change after it is declared.
-- [Library](../1-concepts#library): The program can use code from other Libraries. These libraries contain reusable Procedures and Types.
-- [Type](../1-concepts#type): A type defines how data is interpreted by the program. The programming language will support a number of basic types by default, and libraries can add other types.
+- [Program](1-concepts/00-program): a sequence of instructions that when compiled creates an executable file that a user can run.
+- [Method](1-concepts/02-method): a named group of instructions in a program that will get the computer to perform a task. When you want the task performed you can call the method.
+- [Variable](1-concepts/07-variable): allows you to **store** and **retrieve** values within a program.
+- [Constant](1-concepts/07-variable#constants): similar to a variable, except that its value cannot change after it is stored.
+- [Library](1-concepts/10-library): a collection of reusable code that can be used in programs.
+- [Type](1-concepts/06-type): defines how data is interpreted by a program. A programming language will support a number of basic types by default, and libraries can add other types.
 
-:::note[Building Blocks?]
-
-Programming is about building abstract models that create digital realities within the computer. To help engage with this, we have categorised the programming concepts and features based on their role within these models. This aims to guide you on how to think about these as you start to picture how the software works in your mind.
-
-**Building blocks** describe something that can be **created and used** within your code. Think of them as the template for the *things* you can build within the system. When you build a program you will need to picture the *things* you are creating, and how they interact to achieve your desired results.
-
+:::tip[Overwhelmed?]
+When you start learning programming you encounter a lot of new terms.
+Don't worry if you can't remember them all!
+As you keep learning and practicing you will get better.
+A cheat sheet or concept map written in your own words can be a useful reference, so consider making one as you continue your journey.
 :::
 
-Alongside the building blocks, we need something we can get the computer to *do*.
-This section also introduces the following **instructions** you can get the computer to perform:
+Building blocks are created and used in programs, but on their own they don't *do* anything.
+For that we need **instructions**.
+This chapter introduces two instructions you can use in your code to get the computer to do something:
 
-- [Procedure Call](../1-concepts#procedure-call): The instruction to run a procedure.
-- [Assignment Statement](../1-concepts#assignment-statement): You use an Assignment Statement to store a value in a Variable.
+- [Method Call](1-concepts/03-method-call): tells the computer to execute the instructions in a method.
+- [Assignment Statement](1-concepts/08-assignment-statement): tells the computer to store a value in a variable or constant.
 
-:::note[Instructions?]
+:::tip[Thinking for the computer]
+The instructions in your code tell the computer what to do.
+You want to study these and understand how they work.
+As you learn about an instruction, think about what it does, when to use it, and how to combine it with building blocks and other instructions to achieve a goal.
 
-**Instructions** are the different actions you can get the computer to perform. The instructions in your code will tell the computer what to do. You want to study these and understand how they work. Think about what they do, when to use them, and how to combine them with the building blocks you create to achieve a goal.
-
-Instructions exist *within* the building blocks you create.
-
-This is the core of **computational thinking** - the ability to take an idea and work out how to turn it into something that can exist as a functioning digital reality within the computer.
-
+This is the core of **computational thinking** -- the ability to take an idea and work out how to turn it into a functioning digital reality.
 :::
 
-To demonstrate these concepts in action, we will [put them together](./3-put-together.md) to create two different programs: one that calculates airspeed and another that creates a drawing using [SplashKit](https://splashkit.io). The airspeed calculator lets you calculate the airspeed velocity of unladen birds, as shown below.
+To demonstrate these concepts in action, we will [put them together](./2-put-together/00-overview) to create two different programs: one that calculates airspeed and another that creates a drawing using [SplashKit](https://splashkit.io). The airspeed calculator lets you calculate the [airspeed velocity of unladen birds](https://www.youtube.com/watch?v=uio1J2PKzLI&ab_channel=6o18948oo3312612oo), as shown below.
 
 ```sh
 $ dotnet run
 Welcome to the Airspeed Calculator
 
 What is the name of the bird?
-Name: Africal Swallow
+Name: African Swallow
 What is the frequency of its wing stroke? (beats per second)
 Frequency: 15
 What is the amplitude of its wings? (centimeters)
 Amplitude: 21
 
-Africal Swallow
+African Swallow
  - f: 15 A: 0.21 Speed: 15.75 m/s
  - f: 15 A: 0.21 Speed: 7.88 m/s
 ```
 
-In the graphical program, you will create a scene using primitive shapes and will be given the tools to see how you can use this to draw images and play sound effects. With just these tools, you can build a small animation to tell a story.
+In the graphical program, you will create a scene using primitive shapes and will be given the tools to see how you can extend this to draw images and play sound effects. With just these basic tools, you can build a small animation to tell a story.
 
 ## Learning Goals
 
-By the end of this section you should be able to:
+By the end of this chapter you should be able to:
 
-- Build a small program that involves a sequence of instructions that manipulate and use data.
+- Build a small program using a sequence of instructions that use data.
 - Describe programs as sequence and data.
-- Describe the program, method, variable, and constant building blocks, how you picture these, and how these are related.
+- Describe the program, method, variable, and constant building blocks, how you picture these, and how they are related.
 - Use method calls and assignment statements within a program.
-- Describe the actions the computer performs when an assignment statement or method call runs.
+- Describe the actions the computer performs when executing an assignment statement or method call instruction.

@@ -8,7 +8,7 @@ The terminal gave you access to the low-level workings of the computer.
 
 <!-- **TODO: ADD IMAGE - terminal machine** -->
 
-### Modern Terminals
+## Modern Terminals
 
 Now, computers are everywhere, but we still need a way of accessing them at a lower level. The name "terminal" has stuck, but now the **terminal** is a **program** that gives you command line access to the computer. With command line access the computer will give you a prompt to enter commands. You can type text, and hit *enter* (or *return*) to have the computer run that command. Programs you run at the terminal output details back to the terminal for you to read, and interactive programs can receive input from you through this same terminal.
 
@@ -26,7 +26,7 @@ It also allows scripts to be easily shared, as they can be run on any device wit
 Windows, OSX, and Linux all come with in-built support for at least one scripting language.
 :::
 
-### Using the Terminal
+## Using the Terminal
 
 Getting experience using the terminal to interact with the computer through the command line will mean that you can start using these utilities and tools yourself. Understanding how they work will also help you understand the options available to you and help you debug any errors that occur.
 

@@ -2,13 +2,15 @@
 title: Overview of Programs as Instructions
 ---
 
-Part 0 has helped us set the stage for the first leg of our journey in which we explore **programs as instructions**. As we saw in the chapter on [Digital Realities](../part-0-getting-started/1-digital-realities/0-overview.md), programming is about building abstractions. As this is done using tools we create, there can be different ways of thinking about these programs - different **paradigms**.
+Part 0 has helped us set the stage for the first leg of our journey, in which we will explore **programs as instructions**.
+As we saw in [Digital Realities](../part-0-getting-started/1-digital-realities/0-overview), programming is about building abstractions.
+There are different ways or styles of thinking about abstractions, called **programming paradigms**.
 
-The focus of this guide is on **imperative** programming, in which we view programs *as a sequence of instructions* that tell the computer what to do. Part 1 focuses directly on this perspective. In this part, you will learn how each instruction works, when to use them, and how to combine them to create small programs.
+In this guide we will start by focusing on **imperative** programming, in which we view programs as a **sequence of instructions** that tell the computer what to do. Part 1 focuses directly on this perspective. You will learn how each instruction works, when to use them, and how to combine them to create small programs.
 
-[Sequence and Data](./1-sequence-and-data/0-overview.md) starts the journey by looking at the basic premise of imperative programs - programs are a sequence of instructions that manipulate data. In [Communicating Syntax](./2-communicating-syntax/0-overview.md) we detour to explore how programming language details can be communicated using grammar and outlines the visual notation we will use to describe syntax within the guide. The bulk of Part 1 will come in [Control Flow](./3-control-flow/0-overview.md) which explores the ways to control the computer to achieve dynamic behaviour. Finally, in [Structured Programming](./4-structured-programming/0-overview.md) Part 1 concludes by drawing together the aspects of sequence and control flow, showing you how to put these together in a structured and ordered manner.
+Your journey begins with [Sequence and Data](./1-sequence-and-data/0-overview), where we will look at the basic premise of imperative programs: that programs are a sequence of instructions that manipulate data. In [Communicating Syntax](./2-communicating-syntax/0-overview) we detour to explore how the details of a programming language can be communicated, including the visual notation we will use. The bulk of Part 1 will come in [Control Flow](./3-control-flow/0-overview), which explores ways to achieve dynamic behaviour in the computer. Finally, the first leg of your journey will end in [Project](./4-project/0-overview), which shows you how to combine these concepts to build a digital reality.
 
-This Part will focus on developing key competencies in:
+This part will focus on developing key competencies in:
 
-- **Computational thinking**. By understanding how instructions work, you will start to see ways of formulating solutions that can be turned into digital solutions.
-- You will learn to formulate **algorithms** central to building solutions.
+- **Computational thinking**. By understanding how instructions work, you will start to see ways of using them to design and build digital realities.
+- **Algorithms**. You will learn to translate larger tasks into steps the computer can execute.

@@ -4,7 +4,7 @@ title: Scripts and Permissions
 
 Manually entering commands is great, but sometimes you want to do the same thing again and again. Rather than having to type the commands every time, you can save your commands in a file and run that.
 
-### Creating a shell script
+## Creating a shell script
 
 A shell script is just a text file that contains shell commands. You can create a shell script in any text editor, but for now we will create and edit them in the terminal and with `nano``.
 
@@ -26,7 +26,7 @@ The **shebang** (`#!`, a.k.a. hashbang) must be the first line of the shell scri
 
 The remainder of the file contains the commands you want to run, in the order you want them to run.
 
-### Permissions
+## Permissions
 
 To be able to run the script you need to tell the operating system that this file is executable.
 This is handled through the permissions system, which we can interact with using shell commands.

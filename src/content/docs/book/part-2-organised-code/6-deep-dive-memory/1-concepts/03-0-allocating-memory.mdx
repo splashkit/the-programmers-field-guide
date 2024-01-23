@@ -53,10 +53,11 @@ export const sliderMalloc = [
   },
   {
     src: sliderMalloc04.src,
-    altText: "Because malloc() returns a void pointer, we need to cast it to the type of pointer our variable will hold, in this case an int pointer (step 4c)",
+    altText: "Because malloc() returns a void pointer, we need to cast it to the type of pointer our variable will hold, in this case an int pointer (step 4c). Now that we know these bytes are an int, the value at that location in memory is 5155",
     tipStart: 4,
     tips: [
-      "...because <strong>malloc()</strong> returns a <strong>void</strong> pointer, we need to cast it to the type of pointer our variable will hold, in this case an <strong>int</strong> pointer (step 4c)"
+      "...because <strong>malloc()</strong> returns a <strong>void</strong> pointer, we need to cast it to the type of pointer our variable will hold, in this case an <strong>int</strong> pointer (step 4c)",
+      "Now that we know these bytes are an int, the value at that location in memory is 5155"
     ]
   },
   {
@@ -70,26 +71,29 @@ export const sliderMalloc = [
   },
   {
     src: sliderMalloc06.src,
-    altText: "Line 5 prints the address of the memory space pointed to by p to the terminal",
+    altText: "Line 5 prints the value of p to the terminal. Remember that p is a pointer variable so it holds the address of a memory space on the heap",
     tipStart: 6,
     tips: [
-      "Line 5 prints the address of the memory space pointed to by <strong>p</strong> to the terminal"
+      "Line 5 prints the value of <strong>p</strong> to the terminal",
+      "Remember that p is a pointer variable so it holds the <em>address</em> of a memory space on the heap"
     ]
   },
   {
     src: sliderMalloc07.src,
-    altText: "Line 6 prints the dereferenced value of  p, in this case 5155 (we've gone back to decimal representation now for simplicity)",
+    altText: "Line 6 prints the dereferenced value of p to the terminal. Remember that when we dereference a pointer using the *p notation, what we are doing is getting the address stored in the pointer, then finding the value at that location in memory (in this case 5155)",
     tipStart: 7,
     tips: [
-      "Line 6 prints the dereferenced value of  <strong>p</strong>, in this case 5155 (we've gone back to <em>decimal</em> representation now for simplicity)"
+      "Line 6 prints the dereferenced value of  <strong>p</strong> to the terminal",
+      "Remember that when we dereference a pointer using the <strong>*p</strong> notation, what we are doing is getting the address stored in the pointer, then finding the value at that location in memory (in this case 5155)"
     ]
   },
   {
     src: sliderMalloc08.src,
-    altText: "Line 7 assigns the dereferenced value of p, the new value of 10. You can see that the value has changed from 5155 to 10 on the heap",
+    altText: "Line 7 assigns the dereferenced value of p, the new value of 10. Once again remember that dereferencing a pointer using the notation *p means that we are dealing with the value at the location of the memory address (not the memory address value itself). You can see that the value has changed from 5155 to 10 on the heap",
     tipStart: 8,
     tips: [
       "Line 7 assigns the dereferenced value of <strong>p</strong>, the new value of 10",
+      "Once again remember that dereferencing a pointer using the notation <strong>*p</strong> means that we are dealing with the value at the location of the memory address (not the memory address value itself)",
       "You can see that the value has changed from 5155 to 10 on the heap"
     ]
   },
@@ -340,10 +344,11 @@ export const sliderCalloc = [
   },
   {
     src: sliderCalloc05.src,
-    altText: "Because calloc() returns a void pointer, we need to cast it to the type of pointer our variable will hold, in this case an int pointer (step 4d)",
+    altText: "Because calloc() returns a void pointer, we need to cast it to the type of pointer our variable will hold, in this case an int pointer (step 4d). Now that we know these bytes are an int, the value at that location in memory is 0",
     tipStart: 5,
     tips: [
-      "...because <strong>calloc()</strong> returns a <strong>void</strong> pointer, we need to cast it to the type of pointer our variable will hold, in this case an <strong>int</strong> pointer (step 4d)"
+      "...because <strong>calloc()</strong> returns a <strong>void</strong> pointer, we need to cast it to the type of pointer our variable will hold, in this case an <strong>int</strong> pointer (step 4d)",
+      "Now that we know these bytes are an int, the value at that location in memory is 0"
     ]
   },
   {
@@ -357,26 +362,29 @@ export const sliderCalloc = [
   },
   {
     src: sliderCalloc07.src,
-    altText: "Line 5 prints the address of the memory space pointed to by p to the terminal",
+    altText: "Line 5 prints the value of p to the terminal. Remember that p is a pointer variable so it holds the address of a memory space on the heap",
     tipStart: 7,
     tips: [
-      "Line 5 prints the address of the memory space pointed to by <strong>p</strong> to the terminal"
+      "Line 5 prints the value of <strong>p</strong> to the terminal",
+      "Remember that p is a pointer variable so it holds the <em>address</em> of a memory space on the heap"
     ]
   },
   {
     src: sliderCalloc08.src,
-    altText: "Line 6 prints the dereferenced value of  p, in this case our initial value of 0 (we've gone back to decimal representation now for simplicity)",
+    altText: "Line 6 prints the dereferenced value of p to the terminal. Remember that when we dereference a pointer using the *p notation, what we are doing is getting the address stored in the pointer, then finding the value at that location in memory (in this case our initial value of 0)",
     tipStart: 8,
     tips: [
-      "Line 6 prints the dereferenced value of  <strong>p</strong>, in this case our initial value of 0 (we've gone back to <em>decimal</em> representation now for simplicity)"
+      "Line 6 prints the dereferenced value of  <strong>p</strong> to the terminal",
+      "Remember that when we dereference a pointer using the <strong>*p</strong> notation, what we are doing is getting the address stored in the pointer, then finding the value at that location in memory (in this case our initial value of 0)"
     ]
   },
   {
     src: sliderCalloc09.src,
-    altText: "Line 9 assigns the dereferenced value of p, the new value of 10. You can see that the value has changed from 0 to 10 on the heap",
+    altText: "Line 9 assigns the dereferenced value of p, the new value of 10. Once again remember that dereferencing a pointer using the notation *p means that we are dealing with the value at the location of the memory address (not the memory address value itself). You can see that the value has changed from 0 to 10 on the heap",
     tipStart: 9,
     tips: [
       "Line 7 assigns the dereferenced value of <strong>p</strong>, the new value of 10",
+      "Once again remember that dereferencing a pointer using the notation <strong>*p</strong> means that we are dealing with the value at the location of the memory address (not the memory address value itself)",
       "You can see that the value has changed from our initial value of 0 to our new value of 10 on the heap"
     ]
   },
