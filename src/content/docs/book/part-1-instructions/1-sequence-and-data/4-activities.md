@@ -40,11 +40,9 @@ In this task, it is up to you to create a program which will ask the user the fi
 To convert sound files (.mp3, .wav, etc) to the format SplashKit requires (.ogg), we recommend using Audacity. You can download Audacity at the following link: https://www.audacityteam.org/ Once installed, open the sound file you want to convert, then go to File->Export Audio, make sure to select Ogg Vorbis Files as the format and then select Export.
 :::
 
-:::note[Converting Sound Files to .ogg]
-If you are running the application through the terminal, your sound files need to be stored under: [PROJECTNAME]\Resources\sounds (If you don't have a Resources folder, make sure to run skm resources in the bash window for the project)
-:::
-
 :::note[Storing Sound Files]
+If you are running the application through the terminal, your sound files need to be stored under: [PROJECTNAME]\Resources\sounds (If you don't have a Resources folder, make sure to run skm resources in the bash window for the project)
+
 If you are running the application through the debugger, your sound files need to be stored under: [PROJECTNAME]\bin\Debug\net8.0\sounds (If you don't have a sounds folder, create one)
 :::
 
