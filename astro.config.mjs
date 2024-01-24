@@ -20,6 +20,7 @@ export default defineConfig({
       wrap: true,
     },
   },
+  site: 'https://programmers.guide',
   integrations: [
     starlight({
       title: "Field Guide",
