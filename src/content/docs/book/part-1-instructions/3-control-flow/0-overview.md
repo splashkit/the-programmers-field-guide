@@ -29,7 +29,7 @@ You may need to revise the following programming **building blocks**:
 
 - [Program](../../1-sequence-and-data/1-concepts/00-program): The idea of building your own programs.
 - [Method](../../1-sequence-and-data/1-concepts/02-method): Creating your own Method, as well as calling Methods from libraries.
-- [Function](#): Creating your own Functions, as well as calling Functions from libraries.
+- [Function]: Creating your own Functions, as well as calling Functions from libraries.
 
 The following programming terminology will also be used in this chapter:
 

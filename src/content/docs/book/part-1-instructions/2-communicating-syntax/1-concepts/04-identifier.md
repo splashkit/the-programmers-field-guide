@@ -65,7 +65,7 @@ While you can use most things to name the things you build, there are some reser
 
 Most of the time this is ok, sometimes you have to work around it. For example `class` is taken, so you cant call anything a `class` which can be a pain if you are building education related software.
 
-Keywords are identifiers that have special meaning to the language. These are listed in [Table 5.5](#TableKeywords) below.
+Keywords are identifiers that have special meaning to the language. These are listed in [Table 5.5](#TablePermittedOperators) below.
 
 <a id="TablePermittedOperators"></a>
 
