@@ -27,6 +27,9 @@ export default defineConfig({
     social: {
       github: "https://github.com/splashkit/the-programmers-field-guide"
     },
+    editLink: {
+      baseUrl: 'https://github.com/splashkit/the-programmers-field-guide/edit/main/',
+    },
     sidebar: [{
       label: "Home",
       link: "/"
@@ -95,7 +98,11 @@ export default defineConfig({
           }
         }, {
           label: "Putting it Together",
-          link: "book/part-0-getting-started/3-building-programs/2-put-together"
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-0-getting-started/3-building-programs/2-put-together",
+            collapsed: true
+          }
         }, {
           label: "Other Languages",
           link: "book/part-0-getting-started/3-building-programs/3-other-languages"
@@ -247,13 +254,24 @@ export default defineConfig({
           }
         }, {
           label: "Putting it Together",
-          link: "book/part-2-organised-code/1-starting-cpp/2-put-together"
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-2-organised-code/1-starting-cpp/2-put-together",
+            collapsed: true
+          }
         }, {
           label: "Other Languages",
           link: "book/part-2-organised-code/1-starting-cpp/3-other-languages"
         }, {
           label: "Activities",
           link: "book/part-2-organised-code/1-starting-cpp/4-activities"
+        }, {
+          label: "Wrap Up",
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-2-organised-code/1-starting-cpp/5-wrap-up",
+            collapsed: true
+          }
         }]
       }, {
         label: "2. Structuring Code",
@@ -527,12 +545,46 @@ export default defineConfig({
             collapsed: true
           }
         }]
+      }, {
+        label: "10. Project",
+        collapsed: true,
+        items: [{
+          label: "Overview",
+          link: "book/part-2-organised-code/10-project/0-overview"
+        }, {
+          label: "Concepts",
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-2-organised-code/10-project/1-concepts",
+            collapsed: true
+          }
+        }, {
+          label: "Putting it Together",
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-2-organised-code/10-project/2-put-together",
+            collapsed: true
+          }
+        }, {
+          label: "Other Languages",
+          link: "book/part-2-organised-code/10-project/3-other-languages"
+        }, {
+          label: "Activities",
+          link: "book/part-2-organised-code/10-project/4-activities"
+        }, {
+          label: "Wrap Up",
+          collapsed: true,
+          autogenerate: {
+            directory: "book/part-2-organised-code/10-project/5-wrap-up",
+            collapsed: true
+          }
+        }]
       }]
     }, {
       label: "Part 3: Programs as Concepts",
       collapsed: true,
       items: [{
-        label: "0. Introducing Conceptual Thinking",
+        label: "0. Introducing Concept Modelling",
         link: "book/part-3-programs-as-concepts/00-part-3-programs-as-concepts"
       }, {
         label: "1. Welcome Back to C#",
@@ -558,7 +610,7 @@ export default defineConfig({
           link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/4-activities"
         }]
       }, {
-        label: "2. Abstraction",
+        label: "2. Classes and Objects",
         collapsed: true,
         items: [{
           label: "Overview",

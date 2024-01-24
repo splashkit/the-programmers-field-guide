@@ -7,14 +7,12 @@ Programs are instructions and data, so we need a way to capture data within our 
 The most direct way of achieving this is to type the value you want within the code itself. This is called a **literal**, as the value you put in is *literally* used in the instruction.
 This can be either a **number value** or **text value** written directly in the code, and can be a whole, or part of, an [expression](../04-expression).
 
-[Figure 5.7](#FigureLiteral) shows the concepts related to literals.
+The concept map below shows the concepts related to literals.
 
-<a id="FigureLiteral"></a>
+![Concepts related to literals.](./images/literal-concept.png "Concepts related to iterals.")
+<div class="caption">Concepts related to literals.</div><br/>
 
-![Figure 5.7 Concepts related to literals.](./images/program-creation/Literal.png "Concepts related to iterals.")
-<div class="caption"><span class="caption-figure-nbr">Figure 5.7: </span>Concepts related to literals.</div><br/>
-
-## Literals -- why, when, and how
+## Literals -- when, why, and how
 
 Your instructions need data, and one way you can provide it is by literally typing data into the code itself. A literal on its own is a valid expression (though you may also want to look at using [constants](../07-variable/#constants) to make this clearer), but literals can also be combined with values from variables to help you calculate new values. Literals can also be used in expressions just with other literals if you want.
 
@@ -24,8 +22,8 @@ Figure 5.8 shows the syntax for the different literal values you can enter into 
 
 :::tip[Syntax]
 
-![Figure 5.8 The syntax of a lteral.](./images/program-creation/LiteralSyntax.png "The syntax of a literal")
-<div class="caption"><span class="caption-figure-nbr">Figure 5.8: </span>The syntax of a literal</div><br/>
+![The syntax of a lteral.](./images/program-creation/LiteralSyntax.png "The syntax of a literal")
+<div class="caption">The syntax of a literal</div><br/>
 
 :::
 

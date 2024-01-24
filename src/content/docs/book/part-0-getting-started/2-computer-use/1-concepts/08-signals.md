@@ -20,7 +20,7 @@ Related to these are some other shell commands:
 | Run in background |`bg`         | Move a program to run in the background. Specify the program with an argument, or by default the last suspended program will be used. |
 | Run in foreground |`fg`         | Move a program to run in the background. Specify the program with an argument, or by default the last suspended program will be used. |
 
-### Killing a program (`ctrl-c`)
+## Killing a program (`ctrl-c`)
 
 When things go wrong, you can signal the shell and have it kill the program for you. Pressing the control and c keys at the same time (**ctrl-c**) gets the shell to send a signal to the program that will cause it to be terminated. We can test this out using the `sleep` command to simulate a program that is running. Run `sleep` and terminate it rather than waiting for it to end.
 
@@ -34,7 +34,7 @@ sleep 120
 Keep **ctrl-c** in your toolkit. Sometimes the programs you create won't work as you expected. You will need this handy tool to kill those programs so you can get back to the shell.
 :::
 
-### Closing input or shell (`ctrl-d``)
+## Closing input or shell (`ctrl-d``)
 
 You can use **ctrl-d** to close your current shell. It can also be used to send a signal that we are at the end of standard input (**stdin**). This works for programs that are reading input, and is a way of ending these programs without killing them. If you try this with `sleep` you will see it keeps running because there is no input to end, so to try this out we need to use `read`.
 
@@ -45,7 +45,7 @@ read
 # ctrl-d will end the input
 ```
 
-### Jobs and background tasks
+## Jobs and background tasks
 
 Unix was designed with the idea that you should be able to have a number of programs running at a time. While we don't really need this yet, it is good to know that it is there for the future.
 

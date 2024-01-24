@@ -1,0 +1,387 @@
+---
+title: Reallocate memory
+sidebar:
+    label: " - Reallocate memory"
+---
+
+
+import MySwiper from '../../../../../../components/react/myswiper.jsx'
+
+
+import sliderReallocContiguous01 from './images/slider-realloc-contiguous/Slide1.png';
+import sliderReallocContiguous02 from './images/slider-realloc-contiguous/Slide2.png';
+import sliderReallocContiguous03 from './images/slider-realloc-contiguous/Slide3.png';
+import sliderReallocContiguous04 from './images/slider-realloc-contiguous/Slide4.png';
+import sliderReallocContiguous05 from './images/slider-realloc-contiguous/Slide5.png';
+import sliderReallocContiguous06 from './images/slider-realloc-contiguous/Slide6.png';
+import sliderReallocContiguous07 from './images/slider-realloc-contiguous/Slide7.png';
+import sliderReallocContiguous08 from './images/slider-realloc-contiguous/Slide8.png';
+import sliderReallocContiguous09 from './images/slider-realloc-contiguous/Slide9.png';
+import sliderReallocContiguous10 from './images/slider-realloc-contiguous/Slide10.png';
+import sliderReallocContiguous11 from './images/slider-realloc-contiguous/Slide11.png';
+import sliderReallocContiguous12 from './images/slider-realloc-contiguous/Slide12.png';
+
+export const sliderReallocContiguous = [
+  {
+    src: sliderReallocContiguous01.src,
+    altText: "The program begins by declaring an int pointer p and initializing it to NULL",
+    tipStart: 1,
+    tips: [
+      "The program begins by declaring an int pointer <strong>p</strong> and initializing it to NULL"
+    ]
+  },
+  {
+    src: sliderReallocContiguous02.src,
+    altText: "We then call realloc to allocate memory for an integer on the heap, and assign the address of that area to our int pointer variable p. NOTE: That realloc() doesn't initialize the memory space with 0. It will retain whatever value was already existing in this space.",
+    tipStart: 2,
+    tips: [
+      "We then call <strong>realloc</strong> to allocate memory for an integer on the heap, and assign the address of that area to our int pointer variable <strong>p</strong>",
+      "<strong>NOTE:</strong> That realloc() doesn't initialize the memory space with 0. It will retain whatever value(s) were already existing in this space."
+    ]
+  },
+  {
+    src: sliderReallocContiguous03.src,
+    altText: "At line 7, we assign the value 1 to our integer space on the heap",
+    tipStart: 3,
+    tips: [
+      "At line 7, we assign the value 1 to our integer space on the heap",
+    ]
+  },
+  {
+    src: sliderReallocContiguous04.src,
+    altText: "Now we declare another int pointer variable, new_p. In the next step (at line 9) we'll want to grow the memory area currently pointed to by p by calling realloc again. new_p will be the pointer to this new reallocation of our memory area currently being pointed to by p.",
+    tipStart: 4,
+    tips: [
+      "Now we declare another int pointer variable, <strong>new_p</strong>",
+      "In the next step (at line 9) we'll want to grow the memory area currently pointed to by <strong>p</strong> by calling <strong>realloc</strong> again",
+      "<strong>new_p</strong> will be the pointer to this new reallocation of our memory area currently being pointed to by <strong>p</strong>"
+    ]
+  },
+  {
+    src: sliderReallocContiguous05.src,
+    altText: "At line 9, we call realloc again to grow the memory area pointed to by p from 1 integer to 5 integers. When it can, realloc will grow the memory area using the same original location. You can see here, there is no allocated memory blocking expansion, and so our memory can simply grow at that the same memory address that was used originally. The original memory address that was originally allocated to p (0x1A2) has therefore been returned and assigned to new_p which represents the start of our new expanded memory. Again, note that any uninitialized elements in the the expanded memory area are not initialized to 0 by realloc",
+    tipStart: 5,
+    tips: [
+      "At line 9, we call <strong>realloc</strong> again to grow the memory area pointed to by <strong>p</strong> from 1 integer to 5 integers",
+      "When it can, <strong>realloc</strong> will grow the memory area using the same original location",
+      "You can see here, there is no allocated memory blocking expansion, and so our memory can simply grow at that the same memory address that was used originally",
+      "The original memory address that was originally allocated to <strong>p</strong> (0x1A2) has therefore been returned and assigned to <strong>new_p</strong> which represents the start of our new expanded memory",
+      "Again, note that any uninitialized elements in the the expanded memory area are not initialized to 0 by <strong>realloc</strong>"
+    ]
+  },
+  {
+    src: sliderReallocContiguous06.src,
+    altText: "At line 10 we test to make sure that new_p is not NULL which would mean that our memory reallocation had failed. Since new_p contains a valid address, our realloc from the previous step was successful",
+    tipStart: 6,
+    tips: [
+      "At line 10 we test to make sure that <strong>new_p</strong> is not NULL which would mean that our memory reallocation had failed",
+      "Since <strong>new_p</strong> contains a valid address, our realloc from the previous step was successful"
+    ]
+  },
+  {
+    src: sliderReallocContiguous07.src,
+    altText: "Because we can't be sure if our realloc reallocates memory at our original location, if we would like to continue working with our original pointer variable p, we need to re-assign p the value of our updated memory location. So at this step, we assign p the value of new_p (even though it is redundant in this case, we can never be sure whether the original location or a new location was returned)",
+    tipStart: 7,
+    tips: [
+      "Because we can't be sure if our <strong>realloc</strong> reallocates memory at our original location, if we would like to continue working with our original pointer variable <strong>p</strong>, we need to re-assign <strong>p</strong> the value of our updated memory location",
+      "So at this step, we assign <strong>p</strong> the value of <strong>new_p</strong> (even though it is redundant in this case, we can never be sure whether the original location or a new location was returned)"
+    ]
+  },
+  {
+    src: sliderReallocContiguous08.src,
+    altText: "Now let's try assigning a new value (the int value 9) to the 4th element of our memory region (which contains an array of ints)",
+    tipStart: 8,
+    tips: [
+      "Now let's try assigning a new value (the int value 9) to the 4th element of our memory region (which contains an array of ints)"
+    ]
+  },
+  {
+    src: sliderReallocContiguous09.src,
+    altText: "Next, we'll execute a for loop to print out the values of our array",
+    tipStart: 9,
+    tips: [
+      "Next, we'll execute a for loop to print out the values of our array",
+      "These values are printed to the terminal",
+      "<strong>NOTE:</strong><ul><li>That <strong>p[0]</strong> contains our original value of <strong>1</strong></li><li><strong>p[3]</strong> contains our newly initialized value of <strong>9</strong></li><li>And that any elements that were not initialized (p[1], p[2] and p[4]) will contain an uncertain value (as you can see with the random values printed out)</li></ul>"
+    ]
+  },
+  {
+    src: sliderReallocContiguous10.src,
+    altText: "Line 18 calls the <strong>free</strong> function, passing it the pointer p. This will free the space allocated on the heap for the memory area that was allocated to the pointer p. p then becomes a dangling pointer (as does new_p)",
+    tipStart: 10,
+    tips: [
+      "Line 18 calls the <strong>free</strong> function, passing it the pointer <strong>p</strong>",
+      "This will free the space allocated on the heap for the memory area that was allocated to the pointer <strong>p</strong>",
+      "<strong>p</strong> then becomes a <strong>dangling pointer</strong> (as does <strong>new_p</strong>)..."
+    ]
+  },
+  {
+    src: sliderReallocContiguous11.src,
+    altText: "p is then assigned the null pointer value (nullptr), cutting it's ties to the heap space that was allocated previously. new_p however, still remains a dangling pointer",
+    tipStart: 11,
+    tips: [
+      "<strong>p</strong> is then assigned the null pointer value (<strong>nullptr</strong>), cutting it's ties to the heap space that was allocated previously",
+      "<strong>new_p</strong> however, still remains a dangling pointer"
+    ]
+  },
+  {
+    src: sliderReallocContiguous12.src,
+    altText: "Finally, the program returns 0 and ends",
+    tipStart: 12,
+    tips: [
+      "Finally, the program returns 0 and ends"
+    ]
+  }
+];
+
+
+
+import sliderReallocMoved01 from './images/slider-realloc-moved/Slide1.png';
+import sliderReallocMoved02 from './images/slider-realloc-moved/Slide2.png';
+import sliderReallocMoved03 from './images/slider-realloc-moved/Slide3.png';
+import sliderReallocMoved04 from './images/slider-realloc-moved/Slide4.png';
+import sliderReallocMoved05 from './images/slider-realloc-moved/Slide5.png';
+import sliderReallocMoved06 from './images/slider-realloc-moved/Slide6.png';
+import sliderReallocMoved07 from './images/slider-realloc-moved/Slide7.png';
+import sliderReallocMoved08 from './images/slider-realloc-moved/Slide8.png';
+import sliderReallocMoved09 from './images/slider-realloc-moved/Slide9.png';
+import sliderReallocMoved10 from './images/slider-realloc-moved/Slide10.png';
+import sliderReallocMoved11 from './images/slider-realloc-moved/Slide11.png';
+import sliderReallocMoved12 from './images/slider-realloc-moved/Slide12.png';
+
+export const sliderReallocMoved = [
+  {
+    src: sliderReallocMoved01.src,
+    altText: "Before beginning, we note that there is an area on the heap where some memory has already been allocated by the system (this will become relevant later on). The program begins by declaring an int pointer p and initializing it to NULL",
+    tipStart: 1,
+    tips: [
+      "Before beginning, we note that there is an area on the heap where some memory has already been allocated by the system (this will become relevant later on)",
+      "The program begins by declaring an int pointer <strong>p</strong> and initializing it to NULL"
+    ]
+  },
+  {
+    src: sliderReallocMoved02.src,
+    altText: "We then call realloc to allocate memory for an integer on the heap, and assign the address of that area (0x1A2) to our int pointer variable p. NOTE: That realloc() doesn't initialize the memory space with 0. It will retain whatever value was already existing in this space. Also note that the system allocated space for our integer on the heap just before the memory that was already in use by the system",
+    tipStart: 2,
+    tips: [
+      "We then call <strong>realloc</strong> to allocate memory for an integer on the heap, and assign the address of that area <strong>(0x1A2)</strong> to our int pointer variable <strong>p</strong>",
+      "<strong>NOTE:</strong> That realloc() doesn't initialize the memory space with 0. It will retain whatever value(s) were already existing in this space.",
+      "Also note that the system allocated space for our integer on the heap just before the memory that was already in use by the system"
+    ]
+  },
+  {
+    src: sliderReallocMoved03.src,
+    altText: "At line 7, we assign the value 1 to our integer space on the heap",
+    tipStart: 3,
+    tips: [
+      "At line 7, we assign the value 1 to our integer space on the heap",
+    ]
+  },
+  {
+    src: sliderReallocMoved04.src,
+    altText: "Now we declare another int pointer variable, new_p. In the next step (at line 9) we'll want to grow the memory area currently pointed to by p by calling realloc again. new_p will be the pointer to this new reallocation of our memory area currently being pointed to by p.",
+    tipStart: 4,
+    tips: [
+      "Now we declare another int pointer variable, <strong>new_p</strong>",
+      "In the next step (at line 9) we'll want to grow the memory area currently pointed to by <strong>p</strong> by calling <strong>realloc</strong> again",
+      "<strong>new_p</strong> will be the pointer to this new reallocation of our memory area currently being pointed to by <strong>p</strong>"
+    ]
+  },
+  {
+    src: sliderReallocMoved05.src,
+    altText: "At line 9, we call realloc again to grow the memory area pointed to by p from 1 integer to 5 integers. When it can, realloc will grow the memory area using the same original location, but if it can't it will allocate a new space in memory. You can see that in this case, a new memory space has been allocated at 0xCD8 because the next available space to our current memory at 0x1A2 was already occupied. Any values from the original memory area are also copied over to this new reallocated memory region. new_p is assigned the address of this new memory region and the old memory region is de-allocated. Again, note that any uninitialized elements in the the expanded memory area are not initialized to 0 by realloc",
+    tipStart: 5,
+    tips: [
+      "At line 9, we call <strong>realloc</strong> again to grow the memory area pointed to by <strong>p</strong> from 1 integer to 5 integers",
+      "When it can, <strong>realloc</strong> will grow the memory area using the same original location, but if it can't it will allocate a new space in memory",
+      "You can see that in this case, a new memory space has been allocated at <strong>0xCD8</strong> because the next available space to our current memory at <strong>0x1A2</strong> was already occupied",
+      "Any values from the original memory area are also copied over to this new reallocated memory region",
+      "<strong>new_p</strong> is assigned the address of this new memory region and the old memory region is de-allocated",
+      "Again, note that any uninitialized elements in the the expanded memory area are not initialized to 0 by <strong>realloc</strong>"
+    ]
+  },
+  {
+    src: sliderReallocMoved06.src,
+    altText: "At line 10 we test to make sure that new_p is not NULL which would mean that our memory reallocation had failed. Since new_p contains a valid address, our realloc from the previous step was successful",
+    tipStart: 6,
+    tips: [
+      "At line 10 we test to make sure that <strong>new_p</strong> is not NULL which would mean that our memory reallocation had failed",
+      "Since <strong>new_p</strong> contains a valid address, our realloc from the previous step was successful"
+    ]
+  },
+  {
+    src: sliderReallocMoved07.src,
+    altText: "Because we can't be sure if our realloc reallocates memory at our original location, if we would like to continue working with our original pointer variable p, we need to re-assign p the value of our updated memory location. So at this step, we assign p the value of new_p, hence making sure it points to the correct memory region",
+    tipStart: 7,
+    tips: [
+      "Because we can't be sure if our <strong>realloc</strong> reallocates memory at our original location, if we would like to continue working with our original pointer variable <strong>p</strong>, we need to re-assign <strong>p</strong> the value of our updated memory location",
+      "So at this step, we assign <strong>p</strong> the value of <strong>new_p</strong>, hence making sure it points to the correct memory region"
+    ]
+  },
+  {
+    src: sliderReallocMoved08.src,
+    altText: "Now let's try assigning a new value (the int value 9) to the 4th element of our memory region (which contains an array of ints)",
+    tipStart: 8,
+    tips: [
+      "Now let's try assigning a new value (the int value 9) to the 4th element of our memory region (which contains an array of ints)"
+    ]
+  },
+  {
+    src: sliderReallocMoved09.src,
+    altText: "Next, we'll execute a for loop to print out the values of our array",
+    tipStart: 9,
+    tips: [
+      "Next, we'll execute a for loop to print out the values of our array",
+      "These values are printed to the terminal",
+      "<strong>NOTE:</strong><ul><li>That <strong>p[0]</strong> contains our original value of <strong>1</strong></li><li><strong>p[3]</strong> contains our newly initialized value of <strong>9</strong></li><li>And that any elements that were not initialized (p[1], p[2] and p[4]) will contain an uncertain value (as you can see with the random values printed out)</li></ul>"
+    ]
+  },
+  {
+    src: sliderReallocMoved10.src,
+    altText: "Line 18 calls the <strong>free</strong> function, passing it the pointer p. This will free the space allocated on the heap for the memory area that was allocated to the pointer p. p then becomes a dangling pointer (as does new_p)",
+    tipStart: 10,
+    tips: [
+      "Line 18 calls the <strong>free</strong> function, passing it the pointer <strong>p</strong>",
+      "This will free the space allocated on the heap for the memory area that was allocated to the pointer <strong>p</strong>",
+      "<strong>p</strong> then becomes a <strong>dangling pointer</strong> (as does <strong>new_p</strong>)..."
+    ]
+  },
+  {
+    src: sliderReallocMoved11.src,
+    altText: "p is then assigned the null pointer value (nullptr), cutting it's ties to the heap space that was allocated previously. new_p however, still remains a dangling pointer",
+    tipStart: 11,
+    tips: [
+      "<strong>p</strong> is then assigned the null pointer value (<strong>nullptr</strong>), cutting it's ties to the heap space that was allocated previously",
+      "<strong>new_p</strong> however, still remains a dangling pointer"
+    ]
+  },
+  {
+    src: sliderReallocMoved12.src,
+    altText: "Finally, the program returns 0 and ends. Note that the system memory that was allocated to the heap prior to our program running still remains allocated at this point, since it must be being used by some other process",
+    tipStart: 12,
+    tips: [
+      "Finally, the program returns 0 and ends",
+      "Note that the system memory that was allocated to the heap prior to our program running still remains allocated at this point, since it must be being used by some other process"
+    ]
+  }
+];
+
+
+
+The advantage of dynamic memory allocation is that you can change your allocations. If you asked for an array of two values, you may later want to be able to expand that array to three or four elements. Alternatively, an array with twenty elements may have some data removed and be shrunk down to only 5 elements. All of this is possible with dynamic memory allocation. You can ask to have the memory you were allocated changed to a different size.
+
+<a id="FigureArraySizeChange"></a>
+
+![Figure x.y: You can change the size of the allocation, growing or shrinking the number of element](./images/array-size-change.png "You can change the size of the allocation, growing or shrinking the number of element")
+<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>You can change the size of the allocation, growing or shrinking the number of element</div><br/>
+
+:::note
+
+- These reallocations will keep the data that was in the array previously. Obviously if the new allocation is smaller than than existing one you will lose some values, but the others are kept. 
+- It is possible that the Operating System will need to move your new allocation, so if you change the size of an array you need to be careful if other pointers refer to elements in their old locations.
+
+:::
+
+## Realloc - Why, When, and How
+
+You can use realloc when you have an existing heap allocation that you want to change. You may need more space, or have reduced the size you need. In either case the realloc call can let you change the allocation.
+
+:::caution
+
+This seems simple, but needs some thought. If you increase the size of your allocation, the operating system may need to move it elsewhere in memory. When this occurs the old space is freed. Any pointers you had going into the space will no longer be valid. So be careful with your design when reallocating things in memory.
+
+:::
+
+## In C/C++
+
+Like `malloc` and `calloc`, `realloc` allows you to allocate space from the heap. Using `realloc` you can change (*reallocate*) space on the heap, by passing in the existing pointer and the new size.
+
+|**Function** | **Arguments** | **Returns** | **Description** |
+|-------------|--------------|-------|---------|
+| `realloc`   | the pointer to reallocate, and new `size` in bytes. | a pointer (`void *`) to the new address | Changes the memory allocation and returns a pointer to it. |
+
+As with the other memory allocation functions, you need to import the *stdlib.h* header file. The realloc function has the following prototype:
+
+```cpp
+void *realloc( void *ptr, size_t size )
+```
+
+To use this safely you need to think about how it works:
+
+- If it can reallocate at the same location, it will and returns the original pointer.
+- If needed to move the allocation, it will do and returns the new address of the data.
+- When you are out of memory, or it cannot find a new place to store the data, it will return `nullptr` / `NULL`.
+
+To handle all three of these cases you need to make sure you do not update the original pointer value until you have checked if the realloc worked. If you get back NULL, then you need to have kept the original pointer so that you can get back to the space on the heap, and potentially free it as you are out of space in memory.
+
+## Example
+
+The following example shows how to use `realloc` to both allocation and then change the memory allocation. This would work equally well if you used `malloc` or `calloc` to do the original memory allocation.
+
+```c
+#include <stdlib.h>
+
+int main()
+{
+    int *p = NULL;
+
+    // get space for one integer from the heap - same as malloc
+    p = (int *)realloc(p, sizeof(int));
+    *p = 1; // give it a value...
+
+    // reallocate space for 5 integers
+    int *new_p;
+    new_p = (int *)realloc(p, sizeof(int) * 5);
+    if ( new_p != NULL )
+    {
+        p = new_p;
+    }
+
+    // p[0] is still 1...
+    // but there is now also space for p[1]...p[4]
+
+    // free all space allocated
+    free(p);
+    p = NULL;
+
+    return 0;
+}
+```
+<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Example calls to <code>realloc</code></div>
+
+Notice how we use an if statement to check if the realloc worked. If it did, we update the pointer, otherwise it retains its original value.
+
+To make this work in reality we would need to put this in a struct where we also keep track of the size of the array as we have before.
+
+:::note
+
+- `realloc` allows you to *reallocate memory* for a pointer.
+- You need to include **stdlib.h** to use `realloc`.
+- `ptr` must be a`NULL`, or a pointer to a memory block on the heap, i.e. space previously allocated with `malloc`, `calloc`, or `realloc`. 
+- `realloc` returns `NULL` if it fails to allocate memory.
+- `realloc` may need to move the memory allocation, so you need to assign the result to a pointer as it may differ from the value passed to the `ptr` parameter.
+:::
+
+<br/>
+
+### Realloc (allocation at original address)
+
+Navigate the slide-show below to understand how realloc works when the memory reallocation happens to expand at the original memory address
+<br/>
+<MySwiper client:only height="" images={sliderReallocContiguous}></MySwiper>
+
+### Realloc (allocation at new address)
+Navigate the slide-show below to understand how realloc works when the memory reallocation happens to shift from it's original memory space to a new area 
+
+<br/>
+<MySwiper client:only height="" images={sliderReallocMoved}></MySwiper>
+
+## Reallocating multidimensional arrays
+
+If you need to change the allocation of a multidimensional array, the implications will depend on how this is implemented. If you have a [ragged array](../03-3-ragged-array), then you can reallocate each of the points, giving you the ability to resize different parts of the array as you go. With a rectangular array, you can resize associated memory and then move values from their old positions to their new positions. When you do this, you need to make sure you do this from the end of the old array back to the start.
+
+:::note
+
+Resizing multidimensional arrays isn't something you need to do in many projects. It is good to think about, but not something you will often encounter.
+
+:::

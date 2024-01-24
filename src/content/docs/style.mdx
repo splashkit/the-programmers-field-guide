@@ -1,0 +1,165 @@
+---
+title: The Field Guide's Guide to Style
+tableOfContents: true
+template: splash
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+Code style can be subjective, divisive, and conterversial -- but it is important. Each software project has its own style guide, and while style guides will change between different projects or organisations, what's key is that your code is consistent within a project. This helps others become familiar with a cohesive codebase, and ensures teams are on the same page.
+
+This document will highlight, with examples and reasons, our own style guide which we will follow in our code. If you chose not to follow parts of this guide that's okay -- but make sure you are consistent within your own project.
+
+---
+
+## Braces (`{` and `}`)
+
+<Card>
+<Tabs>
+  <TabItem label="Rule">Place braces on the line following the declaration.</TabItem>
+  <TabItem label="Explanation">In C-style languages, braces `{` and `}` are used to open and close code blocks or scopes. Some style guides determine that braces should be on the same line as the definition of the block, while others suggest that braces should be on the next line. Benefits of the former are reduced line counts. We place braces on the next line as we think it makes it easier to pair associated braces at a glance.</TabItem>
+  <TabItem label="C/C++/C#">
+    ```c
+    int main()
+    {
+      // ...
+    }
+    ```
+
+    **Don't do**
+    ```c
+    int main() {
+      // ...
+    }
+    ```
+  </TabItem>
+</Tabs>
+</Card>
+
+## Comments
+
+<Card>
+<Tabs>
+  <TabItem label="Suggestion">Comments are a great way to explain what your code is doing, or why it is doing it. However, comments can also be a distraction, and can become outdated or redundant. Only comment code when necessary or where the code may be unclear to the reader. Don't overcomment your code in unecessary places, which can clutter the codebase, or become outdated or redundant. Whether or not a comment is necessary is subjective.</TabItem>
+  <TabItem label="Example">
+    ```c
+    // This is a comment
+    int main()
+    {
+      // This is also a comment
+      // ...
+    }
+    ```
+  </TabItem>
+</Tabs>
+</Card>
+
+## Naming Identifiers
+
+<Card>
+<Tabs>
+  <TabItem label="Suggestion">Naming your identifiers is one of the most important things you can do to make your code readable. As the famous quote goes, "There are only two hard things in Computer Science: cache invalidation and naming things." We suggest you use descriptive names for your identifiers, and avoid abbreviations where possible.</TabItem>
+  <TabItem label="C">
+    ```c
+    int main()
+    {
+      // this is a good variable name
+      int users_age = read_age();
+
+      // this is a bad variable name
+      int data = read_age();
+    }
+    ```
+  </TabItem>
+</Tabs>
+</Card>
+
+## Constants
+
+<Card>
+
+<Tabs>
+  <TabItem label="Rule">Any variable which could be made a constant, should be. Constants should be named according to the style guide of the language.</TabItem>
+  <TabItem label="C">
+    ```c
+    #define MIN_AGE 18
+
+    int main()
+    {
+    }
+    ```
+  </TabItem>
+  <TabItem label="C++">
+    ```c++
+    int main()
+    {
+      const int MIN_AGE = 15;
+    }∂=
+    ```
+  </TabItem>
+    <TabItem label="C#">
+    ```c#
+      const int MONTHS = 12;
+    ```
+  </TabItem>
+</Tabs>
+</Card>
+
+## Global Variables
+
+<Card>
+
+<Tabs>
+  <TabItem label="Rule">Global variables should not be used.</TabItem>
+  <TabItem label="Explanation">Global variables are variables which are declared outside of a function or class. Because of this, global variables are accessible and can be modified from anywhere in the program, at any time, by any other part of the program. This makes it difficult to track where the variable is being used, and can lead to bugs. If you are reaching for a global variable, it is often a sign that your code may need to be restructured.</TabItem>
+</Tabs>
+</Card>
+
+## Indentation
+
+<Card>
+<Tabs>
+  <TabItem label="Rule">Use 4 space characters between any new pair of braces `{`,`}`.</TabItem>
+  <TabItem label="Tip">You can configure your code editor to follow and enforce your indentation settings.</TabItem>
+</Tabs>
+</Card>
+
+## Statements
+
+<Card>
+<Tabs>
+  <TabItem label="Rule">You should only have one statement per line.</TabItem>
+  <TabItem label="Explanation">Having multiple statements on a single line (seperated by a `;`) is hard to read.</TabItem>
+  <TabItem label="Example">
+  ```c
+    int main()
+    {
+      int x = 0;
+      int y = 0;
+    }
+  ```
+    Don't do:
+    ```c
+    int main()
+    {
+      int x = 0; int y = 0;
+    }
+    ```
+  </TabItem>
+</Tabs>
+</Card>
+
+## Avoid these language features
+
+The following low-level control flow features should be avoided, as they can lead to bugs and make code difficult to read.
+
+* `goto`: can make it difficult to track the flow of a program, and can lead to bugs.
+* `break`: can make it difficult to track the flow of a program, and can lead to bugs. There may be occasions where `break` statements are necessary, but they should be avoided where possible.
+* `continue`: can make it difficult to track the flow of a program, and can lead to bugs. There may be occasions where `continue` statements are necessary, but they should be avoided where possible.
+* `return` (in the middle of a function): You should aim to write functions with a single return point.
+
+## Be aware of these common mistakes
+
+* `switch` statements without a `default` case.
+* `switch` statements without a `break` statement.

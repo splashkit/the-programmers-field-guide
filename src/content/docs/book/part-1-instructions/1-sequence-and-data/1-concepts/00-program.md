@@ -6,13 +6,12 @@ In most software projects the top-level building block you are aiming to create 
 
 Each program consists of a **list of instructions** ([statements](../../../2-communicating-syntax/1-concepts/02-statement) in programming terminology) that the computer will perform when the program is run. When you create a program, think about the goal of that program and the steps you need the computer to perform to achieve that goal.
 
-[Figure 5.1](#FigureProgram) shows a sketch of the program concept. It shows a program consisting of instructions (written in **source code**). Some key aspects of the program are the starting instruction and the libraries that it uses.
+The image below shows a sketch of the program concept. It shows a program consisting of instructions (written in **source code**). Some key aspects of the program are the starting instruction and the libraries that it uses.
 
-<a id="FigureProgram" class="linkPoint"></a>
-![Figure 5.1 A program contains instructions that tell the computer what to do](./images/program-concept.png "A program contains instructions that tell the computer what to do")
-<div class="caption"><span class="caption-figure-nbr">Figure 5.1: </span>A program contains instructions that tell the computer what to do</div><br/>
+![A program contains instructions that tell the computer what to do](./images/program-concept.png "A program contains instructions that tell the computer what to do")
+<div class="caption">A program contains instructions that tell the computer what to do</div><br/>
 
-## Program -- why, when, and how
+## Program -- when, why, and how
 
 You will need to create a program to be able to run and share each digital reality/piece of software you create. A large software system may have several programs, but each program will create its own digital reality when it is executed.
 
@@ -27,10 +26,8 @@ For now, a program is simply a list of instructions that are followed when the p
 :::tip[Syntax]
 In a C# project, you have one source code file that will contain the program's main code. The following illustration shows the structure of the syntax for this.
 
-<a id="FigureProgramSyntax"></a>
-
-![Figure 5.2 The syntax for a C# program](./images/program.png "The syntax for a C# program")
-<div class="caption"><span class="caption-figure-nbr">Figure 5.2: </span>The syntax for a C# program</div><br/>
+![The syntax for a C# program](./images/program.png "The syntax for a C# program")
+<div class="caption">The syntax for a C# program</div><br/>
 :::
 
 Each program starts with an optional list of **using directives**.
@@ -49,9 +46,7 @@ This allows you to use the [methods](./02-method) from this part of the library 
 
 ## Examples
 
-[Listing 5.x](#ListingHelloWorld) shows a basic Hello World C# Program. You should be able to match this up with the syntax defined in [Figure 5.x](#FigureProgramSyntax). This program uses code from the `System.Console` part of the C# library to access the `WriteLine` method, which can be called to output a message to [stdout](../../../../part-0-getting-started/2-computer-use/1-concepts/07-streams#input-output-and-errors). The important thing to see here is that **all** of this code is the program -- each line is a part of the program.
-
-<a id="ListingHelloWorld"></a>
+The following code shows a basic Hello World C# Program. You should be able to match this up with the syntax defined above. This program uses code from the `System.Console` part of the C# library to access the `WriteLine` method, which can be called to output a message to [stdout](../../../../part-0-getting-started/2-computer-use/1-concepts/07-streams#input-output-and-errors). The important thing to see here is that **all** of this code is the program -- each line is a part of the program.
 
 ```csharp
 using static System.Console;
@@ -59,11 +54,7 @@ using static System.Console;
 WriteLine("Hello World!");
 ```
 
-<div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>C# Hello World Program</div>
-
 The following program uses SplashKit to open a window and draw some shapes to it. Once again, the important thing to think about for now is that the program is **all** of these instructions. They all come together to create the program.
-
-<a id="ListingDrawShapes"></a>
 
 ```csharp
 using static SplashKitSDK.SplashKit;
@@ -80,11 +71,9 @@ RefreshScreen();
 Delay(5000);
 ```
 
-<div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>SplashKit House Drawing Code</div>
-
 :::tip[Code Comments]
 C# source code is [abstracted](../../../part-0-getting-started/1-digital-realities/1-concepts/6-source-code/#programming-with-a-third-generation-language) to make it more understandable for humans, but ultimately it is still written for computers.
-Because of this, C# and virtually all programming languages include syntax for writing [**code comments**](../09-comments.md).
+Because of this, C# and virtually all programming languages include syntax for writing [**code comments**](../09-comments).
 
 In the code above the line starting with `//` is a code comment and will be ignored by the compiler.
 :::

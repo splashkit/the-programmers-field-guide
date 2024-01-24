@@ -12,7 +12,7 @@ Operating systems provide ways of organising stored data into **files** and **fo
 These terms were chosen because files and folders in the computer are abstractions of the paper-based files and folders used in the real world.
 Organising data into digital files and folders on our computers helps the computer store the information efficiently, and helps users to find (and retrieve) information when they need it.
 
-### Files and Folders
+## Files and Folders
 
 A **file** stores data associated with a single thing such as a document, image, song, or program. Through the operating system, programs can open files and read the data within them, change the data stored, or add new data. You could picture this as a book, or as sheets of paper, where you can read, edit, or add information.
 
@@ -29,7 +29,7 @@ In addition to containing files, folders can also contain other folders. This gi
 
 **TODO Add image to show folders**
 
-### Tree Metaphor
+## Tree Metaphor
 
 This organisation results in files and folders creating a tree structure, much like a family tree. This similarity has resulted in the use of metaphors based on genealogy and family relationships to describe file systems. For example, the files and folders within a folder are called that folder's *children*, and a folder can be referred to as the *parent* of the files and folders it contains.
 
@@ -39,7 +39,7 @@ You can picture this as a hierarchy. The file system starts with a folder we cal
 
 As a user, you need a way of indicating which file you want to use. This means that each file must be uniquely identifiable. To achieve this, files and folders must have a unique name within their parent folder. If you move a file into a folder that already contains a file with the same name, the file you moved will replace the existing file and you will lose all the data associated with the file that has been replaced. You have probably already encountered this during your normal computer use.
 
-### Paths
+## Paths
 
 To identify a file within the file system, you can list the **path** to follow from the root to the file. The path is an ordered list of folders, separated by `/`. For example, `/home/multitool/Documents/code/program1.cs` is a path to the file "program1.cs". It describes that the file can be located by starting from the root of the file system, then travelling into the *home* folder, then into the *multitool* folder within *home*, followed by *Documents* folder, then the *code* folder. The last element on the path is the *program.cs* file itself. Here we can see that *Documents* folder is the parent of the *code* folder, and the *multitool* folder is the parent of the *Documents* folder.
 

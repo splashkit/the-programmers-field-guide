@@ -15,12 +15,12 @@ There are three basic data types available in a programming language:
 - **Whole numbers** such as `1`, `0`, `-5`, and `37`.
 - **Real numbers** such as `0.5`, `-126.0`, `3.141516` and `23.981`.
 
-Figure 5.9 shows the concepts related to types.
+The concept map below shows the concepts related to types.
 
-![Figure 5.9 A type defines how a piece of data in a program is interpreted, and what operations can be performed on the data.](./images/program-creation/Type.png "A type defines how a piece of data in a program is interpreted, and what operations can be performed on the data.")
-<div class="caption"><span class="caption-figure-nbr">Figure 5.9: </span>A type defines how a piece of data in a program is interpreted, and what operations can be performed on the data.</div><br/>
+![A type defines how a piece of data in a program is interpreted, and what operations can be performed on the data.](./images/type-concept.png "A type defines how a piece of data in a program is interpreted, and what operations can be performed on the data.")
+<div class="caption">A type defines how a piece of data in a program is interpreted, and what operations can be performed on the data.</div><br/>
 
-## Types -- why, when, and how
+## Types -- when, why, and how
 
 As you work with code you will need to be able to classify the different pieces of data within your program using types. This will allow you to determine where you can use the data, and what actions you can perform on it.
 
@@ -97,8 +97,8 @@ The only important thing to remember is that not every floating point number can
 :::tip[Syntax]
 By default, numeric literals will be either `int` or `double`. For other types, C# provides suffix syntax for literals of specific types.
 
-![Figure 5.10 The syntax for literal values of different types in C#.](./images/literal-type.png "Figure 5.10 The syntax for literal values of different types in C#.")
-<div class="caption"><span class="caption-figure-nbr">Figure 5.10: </span>Figure 5.10 The syntax for literal values of different types in C#.</div><br/>
+![The syntax for literal values of different types in C#.](./images/literal-type.png "The syntax for literal values of different types in C#.")
+<div class="caption">The syntax for literal values of different types in C#.</div><br/>
 :::
 
 ### Types in Expressions
@@ -110,8 +110,6 @@ You can use mathematical operators to work with values in your code. The followi
 | Whole Numbers    | `( ) + - / * %`      |
 | Real Numbers     | `( ) + - / *`        |  
 | Text             | `( ) +`              |
-
-<div class="caption"><span class="caption-figure-nbr">Table 5.3: </span>Operators permitted for each type of basic data in C#</div><br/>
 
 ## Example
 

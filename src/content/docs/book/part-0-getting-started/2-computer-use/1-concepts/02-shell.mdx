@@ -6,7 +6,7 @@ title: The Shell
 
 The **terminal** program provides a text environment, allowing text input and output much like the old physical terminals once did. A terminal on its own is not very helpful though. Something within the computer needs to receive the text you type into the terminal and respond to it. We call this program a **shell**.
 
-### Shell?
+## Shell?
 
 *Why is this program called a shell?*
 
@@ -14,7 +14,7 @@ This comes from an analogy relating to nuts. In the real world, the shell of a n
 
 **TODO:** `ADD IMAGE - application <--> kernel <--> CPU, Memory, etc... see wikipedia`
 
-### Terminal and Shell
+## Terminal and Shell
 
 A shell program runs within a terminal program to interpret your commands and instruct the kernel to perform the actions you request. 
 A shell program is very simple. It provides a text prompt at which you can enter commands. The shell reads the text you entered, and performs an action based on this text.
@@ -29,7 +29,7 @@ The quick summary is that the **terminal** allows you to input commands and view
 The **shell** has the actual *logic* to interpret and execute your commands.
 :::
 
-### Accessing the Shell
+## Accessing the Shell
 
 Ok, enough talk. We need to get our hands dirty and start playing with the Terminal.
 
@@ -67,7 +67,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 **TODO ADD IMAGE(s) maybe above**
 
-### Give it a try!
+## Give it a try!
 
 At this point, you should see a “prompt” within the terminal. This is the **shell** asking you to give it an instruction. You type commands, and press the Enter or Return key on your keyboard to get the shell to do what you have asked.
 
@@ -94,3 +94,17 @@ For these commands to work, make sure you are using double quotes (") around the
 :::
 
 **TODO ADD curl example - check BoM data?**
+
+## Run as admin (`sudo`)
+
+Operating systems restrict some actions to admin users, particularly when the actions will change the behaviour of the system. In Unix, you can use the `sudo` shell command to get the **superuser** to **do** something. You follow the `sudo` command with the details of the command you want to do.
+
+:::tip
+If you have lots of things you want to run as the superuser, you can use `sudo` to run a new shell. When you are finished, you can close that shell using **ctrl-d**.
+
+```sh
+sudo zsh
+# You are now in a shell as the super user
+```
+
+:::
