@@ -33,9 +33,11 @@ To draw, you need something to draw onto. The base interactive component in Spla
 
 The `OpenWindow` method can be called to create a new window for the user to interact with, and for your code to draw upon. This method requires three arguments: the window’s title, its width and its height. For example, `OpenWindow("House Drawing", 800, 600);` will open a window that is 800 pixels wide and 600 pixels high with the title "House Drawing", as shown in the following image. Please note that the house and hill are drawn by additional code.
 
-**TODO Fix Image**
+**TODO Check Images below**
 
-![Window with dimensions illustrated](./images/NewWindow.png)
+![Window with dimensions illustrated](./images/window-dimensions-house-drawing.png)
+
+![Window with dimensions illustrated](./images/window-dimensions-house-drawing-alt.png)
 
 To test this out, try out the following code for a program that opens a new window using SplashKit. In this program we are also using the SplashKit method `Delay`. This makes the program wait so that we can see what is happening. When you compile and run this, you will see the window open and the program delay for 5 seconds. Try changing the title and size of the window.
 
