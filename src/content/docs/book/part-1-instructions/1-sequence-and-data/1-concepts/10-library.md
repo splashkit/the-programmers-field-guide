@@ -9,7 +9,7 @@ The image below shows the concepts related to a library.
 ![A library contains code that can be used by your program](./images/library-concept.png "A library contains code that can be used by your program")
 <div class="caption">A library contains code that can be used by your program</div><br/>
 
-## Libraries -- why, when, and how
+## Libraries -- when, why, and how
 
 Building programs requires many, many, instructions. You can build all of these yourself, but this will reinvent much of what already exists elsewhere. Libraries provide a way of packaging up code to be shared and used by others.
 

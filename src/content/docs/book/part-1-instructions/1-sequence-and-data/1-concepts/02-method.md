@@ -10,12 +10,10 @@ Often these instructions require data, so a method may need to be passed data wh
 This data is called the method's **arguments**.
 When the method finishes its task, control is given back to the code that called the method.
 
-[Figure 5.5](#FigureMethod) shows the concepts related to methods.
+The following diagram shows the concepts related to methods.
 
-<a id="FigureMethod"></a>
-
-![Figure 5.5 A method contains instructions to perform a task, and may need to be passed data in order to do this](./images/method-concept.png "A method calls runs a method, passing in values for the method to use")
-<div class="caption"><span class="caption-figure-nbr">Figure 5.5: </span>A method contains instructions to perform a task, and may need to be passed data in order to do this</div><br/>
+![A method contains instructions to perform a task, and may need to be passed data in order to do this](./images/method-concept.png "A method calls runs a method, passing in values for the method to use")
+<div class="caption">A method contains instructions to perform a task, and may need to be passed data in order to do this</div><br/>
 
 ## Method -- when, why, and how
 
