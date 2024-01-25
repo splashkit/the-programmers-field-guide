@@ -2,7 +2,7 @@
 title: Water Bottle
 ---
 
-As with the Airspeed Velocity code, this is our version of the water bottle visualiser. Use it if you get stuck building your own version of this. As always, it is not important that your code matches this exactly. What is important is that you use this example to work through the thinking and coding skills needed to create programs using the concepts from this chapter.
+As with the Airspeed Velocity code, this is our version of the water bottle visualiser. Use it if you get stuck building your own version. As always, it is not important that your code matches this exactly. What is important is that you use this example to work through the thinking and coding skills needed to create programs using the concepts from this chapter.
 
 ```csharp
 using static System.Convert;

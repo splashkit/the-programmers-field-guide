@@ -7,7 +7,6 @@ Some instructions need data, which can be calculated or provided as a literal va
 The concepts related to expressions are shown below.
 
 ![An expression provides a value to be used in an instruction.](./images/expression-concept.png "An expression provides a value to be used in an instruction.")
-<div class="caption">An expression provides a <strong>value</strong> to be used in an instruction.</div><br/>
 
 ## Expressions -- when, why, and how
 
@@ -36,11 +35,10 @@ For example, it does not make sense to use the division operator on text data, s
 <div id="FootnoteOperators" class="footnote">
 <sup>a </sup>The remainder after division. For example, 9 modulo 3 is 0, 10 modulo 3 is 1, 11 modulo 3 is 2, 12 modulo 3 is 0, and so on.
 </div>
-<div class="caption">C# Operators and Example Expressions</div><br/>
 
 ## Examples
 
-The follow table shows some example expressions and the value they evaluate to in C#.
+The following table shows some example expressions and the value they evaluate to in C#.
 Some of these examples are literal values, and others use mathematical calculations.
 Have a look at the table, and note down anything that surprises you.
 If you are confused about the last row, remember that C# will follow the [BOMDAS order of operations](https://en.wiktionary.org/wiki/BOMDAS#:~:text=English-,Phrase,division%2C%20then%20addition%20and%20subtraction).
@@ -66,7 +64,6 @@ If you are confused about the last row, remember that C# will follow the [BOMDAS
 <sup>b </sup>C# does <a href="https://mathworld.wolfram.com/IntegerDivision.html">integer division</a> when none of the values in an expression contain decimal places.<br/>
 <sup>c </sup>If any of the values in an expression have decimal places, the value the expression evaluates to does as well.
 </div>
-<div class="caption">Example C# Expressions and their values</div><br/>
 
 :::tip[When to use quotes]
 The convention when describing data is to use double quotes `"` around text, and nothing around regular numbers.

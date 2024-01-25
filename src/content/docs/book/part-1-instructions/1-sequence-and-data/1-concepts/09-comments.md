@@ -19,7 +19,6 @@ Some good practices include adding comments outlining the steps within your code
 The following diagram shows the syntax for code comments in C#.
 
 ![The syntax for code comments in C#.](./images/program-creation/CommentsSyntax.png "The syntax of comments")
-<div class="caption">The syntax for code comments in C#</div><br/>
 :::
 
 

@@ -5,7 +5,6 @@ title: "Summary"
 So far this chapter has introduced several programming building blocks, some programming terminology, and lots of different instructions. An overview of these concepts is shown in the concept map below. The next section will look at how you can use these concepts to design some small programs.
 
 ![Key concepts from the sequence and data chapter](./images/sequence-data-summary.png "Summary of Sequence and Data")
-<div class="caption">Key Sequence and Data Concepts</div><br/>
 
 :::note[Summary]
 

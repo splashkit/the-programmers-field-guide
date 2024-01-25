@@ -9,7 +9,6 @@ Each program consists of a **list of instructions** ([statements](../../../2-com
 The image below shows a sketch of the program concept. It shows a program consisting of instructions (written in **source code**). Some key aspects of the program are the starting instruction and the libraries that it uses.
 
 ![A program contains instructions that tell the computer what to do](./images/program-concept.png "A program contains instructions that tell the computer what to do")
-<div class="caption">A program contains instructions that tell the computer what to do</div><br/>
 
 ## Program -- when, why, and how
 
@@ -27,7 +26,6 @@ For now, a program is simply a list of instructions that are followed when the p
 In a C# project, you have one source code file that will contain the program's main code. The following illustration shows the structure of the syntax for this.
 
 ![The syntax for a C# program](./images/program.png "The syntax for a C# program")
-<div class="caption">The syntax for a C# program</div><br/>
 :::
 
 Each program starts with an optional list of **using directives**.
