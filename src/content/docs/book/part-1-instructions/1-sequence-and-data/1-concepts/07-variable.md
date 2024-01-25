@@ -75,7 +75,7 @@ WriteLine();
 WriteLine("Hello " + name);
 ```
 
-<div class="caption">Example program with variable declaration</div>
+### Example using multiple variables
 
 The next example will help us calculate the volume of our water bottles, assuming they are cylinders. To achieve this, we need the following variables:
 

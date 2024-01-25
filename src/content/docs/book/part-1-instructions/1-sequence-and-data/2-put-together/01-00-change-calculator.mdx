@@ -2,30 +2,31 @@
 title: Change Calculator
 ---
 
-[Table x.y](#tableChangeCalculator) contains a description of the program we are going to design. This program will calculate and output the ideal change for a given transaction. In designing this program, we will make use of the concepts introduced in this chapter; we will use variables to store values such as the amount paid, constants for the values of the different coins, and instructions to calculate and output the change expected.
+For this exercise we want to build a terminal program to calculate and output the ideal change for a given transaction in a vending machine. In designing this program, we will make use of the concepts introduced in this chapter. We will use:
 
-<br/>
-<a id="tableChangeCalculator"></a>
-
-|   |   |
-|---|---|
-| **Name** | *Change Calculator* |
-| **Description** | Calculates the idea change for a given transaction in a Vending Machine. The transaction involves reading the cost of the item purchased and the amount paid, and then outputting the number of each type of coin to give as change. |
-
-<div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Description of the <em>Change Calculator</em> program.</div><br/>
+* [variables](../../1-concepts/07-variable) to store values such as the amount paid,
+* [constants](../../1-concepts/07-variable#constants) for the values of the different coins, and
+* [instructions](../../1-concepts/00-program) to calculate and output the change expected.
 
 To design and implement this program we need to follow a number of steps:
 
 1. Understand the problem, and get some ideas on the tasks that need to be performed.
-2. Choose the building blocks we will create and use
-3. Design the steps needed to achieve our goals
-4. Map these building blocks and instructions to code
-5. Compile and run the program
-6. Test the program
+2. Choose the building blocks we will create and use.
+3. Design the steps needed to achieve our goals.
+4. Map these steps to building blocks and instructions in code.
+5. Compile and run the program.
+6. Test the program.
 
-This start by understanding what you want the program to do. This will involve determining the tasks to be performed, the steps involved in those tasks, and any data associated with them. Once you have a good understanding of what you want to achieve you can start to build a solution. In this step you determine the building blocks you want to create, and try to locate those you could use from the available libraries. Step 4 then turns your plans into source code that can be compiled and run in Step 5 and test in Step 6.
+Let's start by understanding what the program needs to do. This will involve determining the tasks to be performed, the steps involved in those tasks, and any data associated with them. Only then can you start building a solution.
 
-<a id="listingSimpleChange"></a>
+One good first step in understanding what a program needs to do is to make sure we have clear inputs and outputs.
+For our change calculator these will be defined as:
+
+* **Input:** the cost of the item purchased and the amount paid. Entered by the user at the terminal.
+* **Output:** the number of each type of coin to give as change.
+
+Based on these, running the completed program might look something like this:
+
 ```bash
 $ dotnet run
 Cost of item (in cents): 15
@@ -43,4 +44,5 @@ Amount paid (in cents): 200
 Change: 0 x $2, 0 x $1, 0 x 50c, 1 x 20c, 0 x 10c, 1 x 5c
 ```
 
-<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>The Change Calculator running in the Terminal, from Figure x.y</div>
+This is a good start, as we now have a clear understanding of our initial data, and the end goal of our program.
+However, we still need to think through how we get from one to the other.

@@ -6,15 +6,14 @@ sidebar:
 
 The pseudocode shows the instructions we need to get this program working. At this stage these instructions need to be translated into source code, so that they can be compiled and the resulting program tested.
 
-You have seen the syntax details for how to create programs, variables, and constants and how to code the instructions for method calls and assignment statements. Now all you need to do is apply those rules with the ideas captured in our pseudocode, and you will have something you can compile.
+You have seen the syntax details for how to create [programs](../../1-concepts/00-program), [variables](../../1-concepts/07-variable), and [constants](../../1-concepts/07-variable#constants), and how to code the instructions for [method calls](../../1-concepts/03-method-call) and [assignment statements](../../1-concepts/08-assignment-statement). Now all you need to do is apply those rules with the ideas captured in our pseudocode, and you will have something you can compile.
 
 :::note
+The next chapter, [Communicating Syntax](../../../2-communicating-syntax/0-overview), is all about how to read and use the syntax diagrams that we have used to outline the syntax. For now you can use the examples to give you a good idea of how to code these instructions. To use the syntax diagrams directly you would:
 
-The next chapter, [Communicating Syntax](../../../2-communicating-syntax/0-overview) will be all about how to read and use the syntax diagrams that we have used to outline the syntax. For now you can use the examples to give you a good idea of how to code these instructions. To use the syntax diagrams directly you would:
-
-1. Find the page with the Syntax rule you are interested in using
-2. Have a quick look at the Syntax Diagram and the rules it contains. Read each rule and get a basic feel for how it is going to come together for your program.
-3. Read the example to see one way of using the Rule. The Syntax Diagram can be used to create any number of variations of the rule, the example gives you at least one way these rules can be coded.
+1. Find the page with the syntax rule you are interested in using.
+2. Have a quick look at the syntax diagram and the rules it contains. Read each rule and get a basic feel for how it is going to come together for your program.
+3. Read the example to see one way of using the rule. The syntax diagram can be used to create any number of variations of the rule, and the example gives you at least one way these rules can be coded.
 4. Return to the diagram and make sure you can match each part of the example back to the rule that created it.
 5. Look up any related rules that are not explained on this rule's page.
 
@@ -24,63 +23,59 @@ The next chapter, [Communicating Syntax](../../../2-communicating-syntax/0-overv
 
 Remember the steps to get going with a new program:
 
-1. Open the Terminal
-2. `cd` to your projects folder
-3. `mkdir` something called **ChangeCalculator** maybe
-4. `cd ./ChangeCalculator`
-5. `dotnet new console`
-6. `vscode .`
+1. Open the terminal
+2. `cd` to your **projects** folder
+3. `mkdir` a folder for your new project -- perhaps **ChangeCalculator** in this case
+4. `cd` to your new folder
+5. Run `dotnet new console`
+6. Run `vscode .`
 
 This will set up the project through the terminal, then launch vscode to get started coding.
 
-Now you just need to convert the pseudocode to code.
+All that's left is to convert the pseudocode to C# code. Have a go at this yourself.
 
-Have a go at this yourself.
-
-:::tip
-
+:::tip[Andrew's tip]
 I'd suggest the following process:
 
-- Declare the constants first
-- Open a terminal and build to make sure you have no errors
-- Read in the values from the user, and output them just to check
-- Run it in the terminal
-- Calculate the change, output that, and run again
-- Add each coins calculation one at a time - building and running as you go
+- Declare the constants first.
+- Open a terminal and build to make sure you have no errors.
+- Read in the values from the user, and output them just to check.
+- Run it in the terminal.
+- Calculate the change, output that, and run again.
+- Add each coins calculation one at a time - building and running as you go.
 
 Code is easy to make mistakes with, so build a little and test how it is going. Do not write this all at once. That usually results in it taking longer.
-
 :::
 
 ## Compiling and Running
 
-As you build small parts of the code, you need to compile and run the program to test how it is coming along. 
+As you build small parts of the code, you need to compile and run the program to test how it is coming along.
 
-1. Open the [Terminal](../../../../part-0-getting-started/2-computer-use/1-concepts/1-terminal) for your Operating System, or use the integrated terminal in vscode (**ctrl-\`** or **cmd-\`** are the shortcuts).
+1. Open the [terminal](../../../../part-0-getting-started/2-computer-use/1-concepts/01-terminal), or use the integrated terminal in vscode (**ctrl-\`** or **cmd-\`** is the shortcut for this).
 2. Use the `cd` command to move to the directory with your code, for example `cd ~/Documents/Code/ChangeCalculator`.
 3. Compile using `dotnet build`.
 4. Fix any compiler errors, using the tips below on how to approach this.
 5. Execute the program using `dotnet run` and check the results.
 
-There are a couple of Terminal shortcuts that can help you here:
+There are a couple of terminal shortcuts that can help you here:
 
 - Use the **tab** key to autocomplete filenames in any path. For example, the above `cd` command can be achieved using `cd ~/Doc<TAB>/Co<TAB>/Ch<TAB>`. You have to make sure that you have enough characters to have a unique file or folder. Your home directory probably has "Documents" and "Downloads" folders, so "Doc" is the shortest amount of text that will uniquely identify that we want the "**Doc**uments" folder.
-- Pressing the **up arrow** repeats previous commands. Once you have entered the commands to build and run the program the first time, you can switch back to that same terminal and press the "up arrow" to go back to the command to compile and run the program.
+- Press the **up arrow** to cycle through previous commands. Once you have entered the commands to build and run the program the first time, you can switch back to that same terminal and press the "up arrow" to go back to the command to compile and run the program without typing it in again.
 
 Using the tab key and up/down arrows can really help speed up using the terminal.
 
-:::tip
+:::tip[Andrew's tip]
 Get into the habit of frequently compiling and running your programs. I generally try to get one small piece of functionality coded, then compile and run to make sure that there aren't too many issues to resolve.
 :::
 
 ## Compiler Errors
 
-A compiler is a very sensitive piece of software; they require that you
+A compiler is a very sensitive piece of software. They require that you
 follow the language's syntax *precisely*. One small mistake, and the
 compiler will fail to compile your program and end with an error
 message. This is a *good* thing! (Although it may not feel like it at
-first.) Why? Because when programs become complicated we need the exact
-details to help us, and to assure the program works the way we need it
+first.) Why? Because when programs become complicated we need exact
+details to help us, and to ensure the program works the way we need it
 to.
 
 Here are some handy hints related to dealing with compiler errors.
@@ -91,11 +86,12 @@ Here are some handy hints related to dealing with compiler errors.
     the first time.
 
 2. **Error messages may appear cryptic at first**. In many cases the
-    compiler's error messages can appear cryptic, you need to learn to
-    decode the messages the compiler gives you.
+    compiler's error messages can appear cryptic. You need to learn to
+    decode the messages the compiler gives you, and you will get better
+    at this with practice.
 
 3. **Start with the first error message, and do not move on until it is fixed**. The compiler will read your code 'top down'.
-    So the first error it outputs will be the first in the file. The
+    So, the first error it outputs will be the first in the file. The
     problem is that the compiler will *try* to continue on, despite the
     error. This can mean that other errors further on in the output may
     actually be caused by the compiler being *confused* due to the first
@@ -108,9 +104,9 @@ Here are some handy hints related to dealing with compiler errors.
 
 5. **Do not add more code until the errors are fixed**. Compile your
     program frequently. Add small pieces of functionality, and then fix
-    any syntax errors before adding the next piece of functionality.
+    any syntax errors before adding anything else.
     Coding in this way makes sure that you do not get too many errors,
-    and reduces the code you have to search in order to fix the problems.
+    and reduces the code you have to search in order to fix problems.
 
 6. **Read the error message carefully**. The message will
     *try* to tell you what has gone wrong, and once you understand what
@@ -119,7 +115,7 @@ Here are some handy hints related to dealing with compiler errors.
 
 7. **Work out what the error messages mean**. Understanding the error
     messages will mean that you will know what to look for, and will
-    help you avoid these errors in the future. If your not sure what an
+    help you avoid these errors in the future. If you're not sure what an
     error message means ask others developers or search for the message
     on the internet.
 
@@ -141,7 +137,8 @@ Here are some handy hints related to dealing with compiler errors.
 10. **When you get stuck ask for help**. Compiler errors
     are likely to be something small, but sometimes the causes are hard
     to find. If you get stuck, *ask for help*! Having access to other
-    more experienced developers will be a valuable resource as you learn
+    more experienced developers or even just someone who hasn't been
+    staring at your code as long as you will be a valuable resource as you learn
     to program. Learning to program can be tough at times, and having
     someone who can help you when you get stuck will make all the
     difference.
