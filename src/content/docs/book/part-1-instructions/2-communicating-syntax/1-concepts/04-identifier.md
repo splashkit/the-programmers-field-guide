@@ -117,7 +117,7 @@ Which of the following names are valid identifiers in C# and why/why not?
 
 :::note[Summary]
 
-- The **name** used to identify a programming artefact (such as a [program](#program), [library](#library) or [method](../../../1-sequence-and-data/1-concepts/02-method) is an identifier.
+- The **name** used to identify a programming artefact (such as a [program](../../../1-sequence-and-data/1-concepts/00-program), [library](../../../1-sequence-and-data/1-concepts/10-library) or [method](../../../1-sequence-and-data/1-concepts/02-method) is an identifier.
 - You use identifiers to indicate which libraries you want to access in your program.
 - Each [method call](../../../1-sequence-and-data/1-concepts/03-method-call) uses an identifier to determine which method is run.
 - Each [assignment statement](../../../1-sequence-and-data/1-concepts/08-assignment-statement) uses an identifier to determine which variable to store a value in.
