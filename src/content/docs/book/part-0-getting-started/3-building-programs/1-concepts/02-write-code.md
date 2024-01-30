@@ -22,7 +22,7 @@ Replace the code you see with the following, and save using **Ctrl-S** (or **Cmd
 ```cs
 using static System.Console;
 
-WriteLine("Hello World!");
+WriteLine("Hello, World!");
 ```
 
 :::tip
