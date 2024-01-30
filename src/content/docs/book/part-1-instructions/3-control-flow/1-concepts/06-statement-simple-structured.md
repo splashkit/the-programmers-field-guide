@@ -32,7 +32,7 @@ The following shows the list of things we have seen so far that can exist as sta
 - Statement is the **term** given to the instructions in code.
 - **Simple Statements** that perform an action. The actions you can perform are:
   - [Method Call](../../../1-sequence-and-data/1-concepts/03-method-call) used to run the code in a Procedure.
-  - [Assignment Statement](#) used to calculate a value and store it in a Variable.
+  - [Assignment Statement](../../../1-sequence-and-data/1-concepts/08-assignment-statement) used to calculate a value and store it in a Variable.
   - [Jump Statements](../04-jumping) allow you to affect which instruction will be performed next.
   This includes:
     - [Break](../04-jumping#break): to jump out of a Looping Statement.

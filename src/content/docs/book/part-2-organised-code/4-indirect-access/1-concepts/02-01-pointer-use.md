@@ -18,7 +18,7 @@ You need to be able to perform certain actions to make pointers useful. These in
 
 :::note
 
-- You can get the address of values in [Local Variables](#), [Global Variables](#), [Parameters](#), fields of [Records](#) and [Unions](#). Basically, you can get the address of any value you can read.
+- You can get the address of values in [Local Variables](../../../2-organising-code/1-concepts/03-local-variable), [Global Variables](../../../2-organising-code/1-concepts/06-global-variables), [Parameters](../../../2-organising-code/1-concepts/04-parameter), fields of [Structs](../../../3-structuring-data/1-concepts/03-01-struct) and [Unions](../../../3-structuring-data/1-concepts/03-05-union). Basically, you can get the address of any value you can read.
 - Once you have the address (the Pointer value), you can store, or you can use it.
 - You need to follow the pointer, called **dereferencing** the pointer, to read its value or to assign a new value to the location it refers to.
 - Remember there are two values with pointers:
