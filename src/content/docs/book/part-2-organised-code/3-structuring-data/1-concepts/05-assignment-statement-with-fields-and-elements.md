@@ -24,14 +24,12 @@ With the addition of the custom types you can now also store values in **fields*
 
 The assignment statement can be used to assign a value to a struct's fields, or to copy all fields from an existing struct's value.
 
-<a id="FigureAssignmentRecord"></a>
-
 ![Figure x.y: You can assign an individual field or the entire struct in one assignment statement](./images/assignment-record.png "You can assign an individual field or the entire struct in one assignment statement")
 <div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>You can assign an individual field or the entire struct in one assignment statement</div><br/>
 
 :::note
 
-- The two examples from [Figure x.y](#FIgureAssignmentRecord) show the following:
+- The two examples from Figure x.y show the following:
   1. You can assign a value to a field of a record. In this case 24 is assigned to `mouse.x`.
   2. A `point_2d` expression can be assigned to a `point_2d` variable. This copies the **entire**
 struct into the variable (including passing these to parameters).

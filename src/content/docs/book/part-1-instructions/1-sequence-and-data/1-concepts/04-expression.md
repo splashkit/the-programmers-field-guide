@@ -4,14 +4,11 @@ title: "Expression"
 
 Some instructions need data, which can be calculated or provided as a literal value. The term **expression** is used in programming to describe any code that represents a value. Expressions are used wherever data must be supplied in code. When a program runs, each expression is **evaluated** to become a single value that can be used by an instruction.
 
-The concepts related to expressions are shown in [Figure 5.6](#FigureExpression).
+The concepts related to expressions are shown below.
 
-<a id="FigureExpression"></a>
+![An expression provides a value to be used in an instruction.](./images/expression-concept.png "An expression provides a value to be used in an instruction.")
 
-![Figure 5.6 An expression provides a value to be used in an instruction.](./images/expression-concept.png "An expression provides a value to be used in an instruction.")
-<div class="caption"><span class="caption-figure-nbr">Figure 5.6: </span> An expression provides a <strong>value</strong> to be used in an instruction.</div><br/>
-
-## Expressions - why, when, and how
+## Expressions -- when, why, and how
 
 Whenever an instruction needs data, an expression is needed to provide it. This lets you put whatever data you want in that instruction. Data can be hard-coded as a [literal](../05-literal), use [variables](../07-variable), and contain mathematical operators to calculate a value.
 
@@ -25,7 +22,7 @@ An expression is used to define a value.
 If a literal value is given, the computer doesn't need to do anything.
 However, if an expression uses mathematical operations, the computer will evaluate the expression to a single value.
 
-Table 5.1 lists the operators that you can include in expressions in [order of precedence](https://en.wikipedia.org/wiki/Order_of_operations). The operators you can use in any specific expression depend on the kind of data that you are using.
+The following table lists the operators that you can include in expressions in [order of precedence](https://en.wikipedia.org/wiki/Order_of_operations). The operators you can use in any specific expression depend on the kind of data that you are using.
 For example, it does not make sense to use the division operator on text data, so C# will return an error if you try to do this in your code.
 
 | **Operator** | **Description**                          | **Example**    |
@@ -38,11 +35,10 @@ For example, it does not make sense to use the division operator on text data, s
 <div id="FootnoteOperators" class="footnote">
 <sup>a </sup>The remainder after division. For example, 9 modulo 3 is 0, 10 modulo 3 is 1, 11 modulo 3 is 2, 12 modulo 3 is 0, and so on.
 </div>
-<div class="caption"><span class="caption-figure-nbr">Table 5.1: </span> C# Operators and Example Expressions</div><br/>
 
 ## Examples
 
-Table 5.2 shows some example expressions and the value they evaluate to in C#.
+The following table shows some example expressions and the value they evaluate to in C#.
 Some of these examples are literal values, and others use mathematical calculations.
 Have a look at the table, and note down anything that surprises you.
 If you are confused about the last row, remember that C# will follow the [BOMDAS order of operations](https://en.wiktionary.org/wiki/BOMDAS#:~:text=English-,Phrase,division%2C%20then%20addition%20and%20subtraction).
@@ -68,7 +64,6 @@ If you are confused about the last row, remember that C# will follow the [BOMDAS
 <sup>b </sup>C# does <a href="https://mathworld.wolfram.com/IntegerDivision.html">integer division</a> when none of the values in an expression contain decimal places.<br/>
 <sup>c </sup>If any of the values in an expression have decimal places, the value the expression evaluates to does as well.
 </div>
-<div class="caption"><span class="caption-figure-nbr">Table 5.2: </span>Example C# Expressions and their values</div><br/>
 
 :::tip[When to use quotes]
 The convention when describing data is to use double quotes `"` around text, and nothing around regular numbers.

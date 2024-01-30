@@ -4,7 +4,7 @@ sidebar:
   label: " - Comparisons"
 ---
 
-Comparisons are a common way of generating a boolean value in your code. These [expressions](../../../2-communicating-syntax/1-concepts/03-expression) allow you to compare two values and determine the *truth* of a given condition. For example, the expression shown in [Figure x.y](#FigureBooleanData) is asking if the value in the `area` variable is larger than `23.5` . The result of this expression will be either `true` or `false` depending on the current value stored in `area`. [Table x.y](#TableExpressionValues) lists some example values for this expression, given different values stored in the `area` variable.
+Comparisons are a common way of generating a boolean value in your code. These [expressions](../../../2-communicating-syntax/1-concepts/03-expression) allow you to compare two values and determine the *truth* of a given condition. For example, the expression shown in Figure x.y is asking if the value in the `area` variable is larger than `23.5` . The result of this expression will be either `true` or `false` depending on the current value stored in `area`. [Table x.y](#TableExpressionValues) lists some example values for this expression, given different values stored in the `area` variable.
 
 <a id="TableExpressionValues"></a>
 

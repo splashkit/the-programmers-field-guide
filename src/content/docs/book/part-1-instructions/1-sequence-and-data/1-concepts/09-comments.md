@@ -7,7 +7,7 @@ A program's source code contains instructions for the computer to perform. Altho
 Programming languages support the ability to embed **comments** into source code.
 This is simply text that is ignored by the compiler.
 
-## Comments -- why, when, and how
+## Comments -- when, why, and how
 
 Comments do not change how your program runs, so why bother? Well, getting things working is great, but sometimes you need to capture your thought process. Comments allow you to embed documentation and explanatory text within your program’s code. You write comments to explain what you intend the program to do, and any thoughts you want to record along with the code. This can be helpful for other programmers, or even just future you!
 
@@ -19,7 +19,6 @@ Some good practices include adding comments outlining the steps within your code
 The following diagram shows the syntax for code comments in C#.
 
 ![The syntax for code comments in C#.](./images/program-creation/CommentsSyntax.png "The syntax of comments")
-<div class="caption">The syntax for code comments in C#</div><br/>
 :::
 
 

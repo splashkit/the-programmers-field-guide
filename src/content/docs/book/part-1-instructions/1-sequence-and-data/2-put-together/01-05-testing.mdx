@@ -4,45 +4,43 @@ sidebar:
   label: " - Testing the Code"
 ---
 
-Now that our program is making greater use of data it becomes more important to think about how to test your program. Testing is the process of trying to locate issues with your code. There are two main
+Now that our program is making greater use of data it becomes more important to think about how to test your program. Testing is the process of trying to locate issues within your code. There are two main
 classifications for issues, **syntactic errors** and **semantic errors** (also known as logic errors).
 
-Syntactic errors indicate places in your code where you have not correctly followed the **syntax** of the language. These are the easiest kind of error to find as the compiler will not be able to compile the program if its syntax is not correct. The errors that the compiler report are all syntax errors. As you gain experience with a Language you will find that you make fewer and fewer of these kinds of errors.
+Syntactic errors indicate places in your code where you have not correctly followed the **syntax** of the language. These are the easiest kinds of error to find as the compiler will not be able to compile the program if its syntax is not correct. The errors that the compiler reports are all syntax errors. As you gain experience with a language you will find that you make fewer and fewer of these kinds of errors.
 
-Semantic errors, on the other hand, will not be found by the compiler. These are errors in the **logic** within the program. They are cases where you have correctly structured the code, but the code itself does not get the computer to achieve the outcome you need. These are the kinds of errors that you need to learn to be able to detect yourself. Selecting the right kind of test data is an important task when you start to think about testing programs.
+Semantic errors, on the other hand, will not be found by the compiler. These are errors in the **logic** within the program. They are cases where you have correctly structured the code, but the code itself does not get the computer to achieve the outcome you need. These are the kinds of errors that you need to learn to be able to detect yourself.
 
-For the Change Calculator there are two inputs provided by the user. In order to test this program you need to determine the values that are passed to the `Cost of the Item` and the `Payment` inputs. You want to choose values that can help you uncover any unexpected issues with the programs code.
+Selecting the right kind of test data is an important task when you start to think about testing programs.
+For the change calculator there are two inputs provided by the user. In order to test this program you need to determine the values that are given for the cost of the item and the amount paid. You want to choose values that can help you uncover any unexpected issues with the program's code.
 
-<br/>
-<a id="tableTestData"></a>
+Here are some tests you might want to try to make sure your change calculator is working:
 
-| Cost of Item | Payment | Expected Output    | Reason |
+| Cost of Item | Payment | <div style="width:110px">Expected Output</div>    | Reason |
 | ------------ | ------- | ------------------ | ------ |
 | \$2.50       | \$5.00  | 1 x \$2, 1 x 50c   | Basic test to check that the program works for a simple data input.
-| \$0.15       | \$4.00  | 1 of each coin     |  Generates \$3.85 in change, checking that each coin is used.
-| \$0.05       | \$0.10  | 1 x 5c             |  Check the output can be a single coin. Could also add tests to check other individual coins.
-| \$0.60       | \$1.00  | 2 x 20c            |  Check that 2 coins can be given.
-| \$0.00       | \$5.00  | 2 x \$2, 1 x \$1   |  Can it accept no cost of item, and give back payment?
-| \$3.85       | \$0.00  | -1 of each coin    |  Check what happens if insufficient funds are provided.
+| \$0.15       | \$4.00  | 1 of each coin     | Generates \$3.85 in change, checking that each coin is used.
+| \$0.05       | \$0.10  | 1 x 5c             | Check the output can be a single coin. Could also add tests to check other individual coins.
+| \$0.60       | \$1.00  | 2 x 20c            | Check that 2 coins can be given.
+| \$0.00       | \$5.00  | 2 x \$2, 1 x \$1   | Can it accept no cost of item, and give back payment?
+| \$3.85       | \$3.85  | 0 of each coin     | Check that the output can be no coins.
+| \$3.85       | \$0.00  | -1 of each coin    | Check what happens if insufficient funds are provided.
 
-<div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Test Data for the Change Calculator</div>
-
-The data we use to test an execution of a program is called a **Test Case**. Each test case provides a set of input values, and the expected results given this input. Example test cases for the Change Calculator
-are shown in [Table x.y](#tableTestData). This table shows the input values, the expected output values, and some rational for why this test case should be run. To perform the testing you run the program once for each test case and check the output of the program against the expected output. If there are any differences you know that there is a problem, and need to check the program's code to find the source of the logic errors.
+The data we use to test an execution of a program is called a **test case**. Each test case provides a set of input values, and the expected results given this input. To perform the testing you run the program once for each test case and check the output of the program against the expected output. If there are any differences you know that there is a problem, and need to check the program's code to find the source of the logic errors.
 
 ## Debugging
 
-When you have the program running, you can use the debugger to help you find any of these errors in logic. For now, it is a great idea to run the program through the debugger to see how it works. We can do this for practice at the moment, even if your program is working as needed. Make sure to run the program in the debugger as we went through in the [debugging](../../../../part-0-getting-started/3-building-programs/1-concepts/4-debug) section in [Chapter 0.3](../../../../part-0-getting-started/3-building-programs/0-overview).
+When you have the program running, you can use the debugger to help you find any of these errors in logic. For now, it is a great idea to run the program through the debugger to see how it works. We can do this for practice at the moment, even if your program is working as intended. If you need a reminder on how to do this, head back to the page on [debugging](../../../../part-0-getting-started/3-building-programs/1-concepts/04-debug).
 
 Pay attention to the following as you run the program:
 
-- Add a breakpoint at the start, and step through the program line by line
-- Check the value of `toGive` as each the change for each coin is calculated
-- Also see how `changeValue` is being updated
-- You should be able to see the output in the terminal as you step through each instruction
+- Add a breakpoint at the start, and step through the program line by line.
+- Check the value of `toGive` as the number of each coin type needed is calculated.
+- See how `changeValue` is being updated.
+- See the output in the terminal as you step through each instruction.
 
 :::tip
+Debuggers are great for finding issues you can't see in your code. Generally we would suggest thinking about the error and what may cause it first, as this may be enough to spot the problem.
 
-Debuggers are great for finding those issues you can't see in your code. Generally we would suggest thinking about the error and what may cause this, then you can usually spot many errors without needing a debugger. For now, the debugger can also help you see how the program runs. You can watch it execute, instruction by instruction, and see how these help you achieve the required result.
-
+As you are learning, the debugger can also help you see how the program runs. You can watch it execute, instruction by instruction, and see if it matches your understanding.
 :::

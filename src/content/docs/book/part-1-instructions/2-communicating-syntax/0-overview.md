@@ -1,21 +1,18 @@
 ---
 title: Overview of Communicating Syntax
-sidebar:
-  label: Overview
-  order: 0
 ---
 
-This chapter takes a detour to explore the hidden path to understanding how programming languages are communicated. This will explore programming language **terminology**, and the tools that language designers use to capture and communicate the rules of their programmign lagnuages. This will help you make the most of the following chapters as you learn how to use a programming to build your own digital realities.
+This chapter takes a detour to explore the hidden path to understanding how programming languages are communicated. This will explore programming language **terminology**, and the tools that language designers use to capture and communicate the rules of their programming lagnuages. This will help you make the most of the following chapters as you learn how to use programming to build your own digital realities.
 
-The path starts with a look at the concept of [Grammar](../1-concepts/04-grammar). Programming language grammars describe the rules for building valid programs and the way we can express these. One part of learning to program involves learning these rules, and how to use them to turn your ideas into code you can use to build and run programs.
+The path starts with a look at the concept of [grammar](./1-concepts/01-grammar). Programming language grammars describe the rules for building valid programs. One part of learning to program involves learning these rules, and how to use them to turn your ideas into code.
 
-After this start, we take a step back to look at some of the terminology that plays an important role in programming. Understanding the terms we use will help you understand documentation, engage with error messages, and discuss ideas with others involved in software development. This chapter will introduce the following terminology:
+After this, we take a step back to look at some of the terminology that plays an important role in programming. Understanding the terms we use will help you understand documentation, engage with error messages, and discuss ideas with others involved in software development. This chapter will introduce the following terminology:
 
-- [Statement](../1-concepts/01-statement) - the technical name for an instruction.
-- [Expression](../1-concepts/02-expression) - a place in a statement where a value is calculated.
-- [Identifier](../1-concepts/03-identifier) - the used to identify a building block (eg. method, variable, constant) you have created.
+- [Statement](./1-concepts/02-statement): the technical name for an instruction.
+- [Expression](./1-concepts/03-expression): a place in a statement where a value is calculated.
+- [Identifier](./1-concepts/04-identifier): the used to identify a building block (eg. method, variable, constant) you have created.
 
-In [Put Together](../2-put-together), we explore the way you can use syntax to help you turn your ideas into code.
+In [Putting it Together](./2-put-together), we explore the way you can use syntax to help turn your ideas into code.
 
 ## Learning Goals
 

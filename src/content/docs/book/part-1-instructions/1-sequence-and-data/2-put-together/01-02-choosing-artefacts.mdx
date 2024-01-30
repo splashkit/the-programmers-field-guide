@@ -4,27 +4,45 @@ sidebar:
   label: " - Choosing Building Blocks"
 ---
 
-To build out the design of the program, we need to think about the *things* that we will need to go alongside the instructions. We have [variables](../../1-concepts/07-variable) and [constants](../../1-concepts/07-variable/#constants) that we can use to capture the data needed to make our program work.
+Now that we understand the goal of our program, know its inputs and outputs, and have figured out the steps it needs to follow, we need to think about the *things* that we will need to go alongside the instructions.
 
-Designing data is an important step in designing your program. You need to think about the solution and try to identify the different values that are being used. Each of these values can then become a variable or a constant.
+## Identifying values
 
-Looking over the steps for calculating change you should be able to identify several values you will need to work with. You need to be able to store things like the cost of the item being purchased, the amount of money paid, and the amount of change you need to give. A good way to approach this is to think about the values the program will **output**, as well as the values the user will need to **input**, and any intermediate values you will need to perform the required calculations.
+[Variables](../../1-concepts/07-variable) and [constants](../../1-concepts/07-variable/#constants) are our tools for capturing the data we need to make our program work.
+Designing data is an important step in designing a program. You need to think about the solution and try to identify the different values that are being used. Each of these values can then become a variable or a constant.
 
-You can use the input/output/processing ideas to help you think about the data that will be required. Let us examine each of the steps in turn.
+Looking over the steps for calculating change you should be able to identify several values you will need to work with. A good way to approach this is to think about the values the program will **output**, as well as the values the user will need to **input**, and any intermediate values you will need to perform the required calculations. You can use the input/output/processing idea to help you think about the data that will be required. Let's look at each area of data in turn.
 
-## Capturing Coin Values
+### Inputs
 
-These values are taken for granted when you think about giving change yourself, but remember the computer is **unintelligent** so you need to specify **everything** for it. The values of the coins can be coded using a constant for each coin. Using constants is a better option than hard coding these values directly in the program, as the name helps provide a context for the value when it is used.
+We need somewhere to store the inputs we capture from the user. These include the **cost of the item** of the item, the **amount paid**. From these we can calculate the value of the **change** we need to give. As we have decided to work with cents, these can all be integer values.
 
-:::tip[Hard Coding]
+When we read a value from the user, we will need to read this as a string. So we could add a variable to store these values before we convert them to integers to store in these variables. This would string variable, maybe called **line** to in indicate that it stores the line of text the user enters.
 
-Coding data directly into the instructions is often referred to as hard coding. These values are often called **magic number**, as the value appear in the code without context or any indication of their intent. These should be avoided, and constants provide a great way to capture and communicate the intent behind the values that appear.
+This gives us the following variables:
 
+- `costOfItem` - an integer storing the cost in cents.
+- `amountPaid` - an integer storing the payment in cents.
+- `line` - a string to capture the data entered by the user.
+
+:::tip
+We could possibly do without `line` by passing the result of reading the user's input straight into the method to convert the value to an integer. This is a basic example of how there are often may different ways to achieve the same thing. The main goal is an efficient and functioning program.
 :::
 
-With any data value you want to think about the [type](../../1-concepts/06-type) of data the constant or variable will store. In this case, the program can work with the cost of items in cents, and these constants can be integers. This avoids the issues with rounding errors associated with floating point values.
+### Processing
 
-We can create the following **constants** at the start of the program:
+We can use the cost of the item and the amount paid to calculate the amount of change we need to give.
+Again, as we have decided to work with cents, this can be an integer value.
+This gives us another variable for our program:
+
+- `changeValue` - an integer that stores the amount of change to give.
+
+In order to follow the steps in our [pseudocode](../01-01-understanding-the-change-calculator), we need a way of representing the different coins that could make up our change.
+These values are taken for granted when you think about giving change yourself, but remember the computer is **unintelligent**, so you need to specify **everything** for it.
+We could hard-code these values, but a better option is to create a constant for each.
+The reason for this is that the name of each constant helps provide a context for the value when it is used.
+
+This means we need to create the following **constants** at the start of the program:
 
 - `TWO_DOLLARS` with value 200, represents the value of a $2 coin
 - `ONE_DOLLAR` with value 100, represents the value of a $1 coin
@@ -33,113 +51,91 @@ We can create the following **constants** at the start of the program:
 - `TEN_CENTS` with value 10, represents the value of a 10c coin
 - `FIVE_CENTS` with value 5, represents the value of a 5c coin
 
-## Get Cost, Amount Paid, and Change Value
-
-The first step in the program is to **determine how much change to give**. To design the data needed for this task, you can think about its inputs, outputs, and temporary values. Where is this data coming from.
-
-We need somewhere to store the inputs we capture from the user. These include the **cost of the item** of the item, the **amount paid**. From these we can calculate the value of the **change** we need to give. 
-
-*What type of data will these variables store?*
-
-As with the coins, these can all be integer values. They will store the number of cents for the cost, payment, and the value of the change.
-
-When we read a value from the user, we will need to read this as a string. So we could add a variable to store these values before we convert them to integers to store in these variables. This would string variable, maybe called **line** to in indicate that it stores the line of text the user enters.
-
-This gives us the following variables:
-
-- `costOfItem` - an integer storing the cost in cents
-- `amountPaid` - an integer storing the payment in cents
-- `changeValue` - an integer that stores the amount of change to give
-- `line` - a string to capture the data entered by the user
-
-:::tip
-
-We could possibly do without `line` by passing the result of read line straight into the `ToInt32` method. There are often may different ways to achieve the same thing. The main goal is an efficient and functioning program.
-
+:::tip[Hard Coding]
+Coding data directly into instructions is often referred to as hard coding. These values are often called **magic number**, as the values appear in the code without any context or indication of their meaning or intent. Magic numbers should be avoided, and constants provide a great way to avoid using them.
 :::
 
-## Giving Change
+### Outputs
 
-The next task to consider is the process for `Give Change`. This has all the details that it needs, so there are no additional inputs. It has the `changeValue` which indicates the amount of change to be given. We need to output details for each coin in a format like "3 x $2". So this gives us some new hints of the variables we need.
+Have a look at the output in our [example execution](../01-00-change-calculator) for this program.
+There is still one thing we haven't considered -- we need to be able to output the number of each coin that needs to be given, in a format like "3 x $2".
 
-The "x $2" can just be text we output, but the "3" needs to be calculated. This must be a variable. It captures the number of coins **to give**. This will be an integer, and we know we can calculate it from the change value and the coin value which we already have.
+This gives us some new hints of the variables we need.
+The "x $2" can just be text we output, but the "3" needs to be calculated. So, this must be a variable. This will be an integer, and we know we can calculate it from the change value and the coin values which we already have.
 
-So this adds one variable:
+So we have one more variable to add:
 
 - `toGive` - an integer to store the number of coins we need to give
 
 ## Other things we need
 
-In addition to the things we create, the program will make use of some methods from the available libraries. This will include the following:
+In addition to the things we create, our program will need some instructions.
+Looking back at the description of the program, we will need a way of reading input from the user, converting that input into a numeric data type, and outputting the results of the change calcuation.
 
-- **Output messages**: The `Write` and `WriteLine` methods can be used to output things to the terminal.
+This means we will need to make use of the following methods from the C# library:
+
 - **Read inputs**: `ReadLine` can be used to read data in from the user.
-- **Convert data**: We can call `ToInt32` to convert the text read into an integer.
+- **Convert data**: We can call `ToInt32` to convert text into an integer.
+- **Output messages**: The `Write` and `WriteLine` methods can be used to output things to the terminal.
 
-With these methods, and the variables and steps we have determined, we should have a working change calculator!
+With these methods, and the variables and steps we have designed, we should have a working change calculator!
+
+:::tip[Multiple instructions, one line of output?]
+Use the `Write` method to output text to the Terminal without adding a new line character. This lets you build one line of output using multiple instructions to construct the different parts.
+:::
 
 ## New Pseudocode
 
 Our ideas can be captured in text as follows.
 
-```
+```txt
 Constants:
-  TWO_DOLLARS = 200;
-  ONE_DOLLAR = 100;
-  FIFTY_CENTS = 50;
-  TWENTY_CENTS = 20;
-  TEN_CENTS = 10;
-  FIVE_CENTS = 5;
+    TWO_DOLLARS = 200;
+    ONE_DOLLAR = 100;
+    FIFTY_CENTS = 50;
+    TWENTY_CENTS = 20;
+    TEN_CENTS = 10;
+    FIVE_CENTS = 5;
 
 Variables:
-  costOfItem - integer
-  amountPaid - integer
-  changeValue - integer
-  toGive - integer
+    costOfItem - integer
+    amountPaid - integer
+    changeValue - integer
+    toGive - integer
 
 Steps:
+    Get the details from the user.
+        Get the cost (store in costOfItem)
+        Get the amount paid (store in amountPaid)
+    Calculate the amount of change to provide  (changeValue = amountPaid - costOfItem)
+    Give change
+        Give $2 coins
+            Calculate the number of $2 coins to give (toGive = changeValue / 200)
+            Update the amount of change remaining to give (changeValue = changeValue - toGive * TWO_DOLLARS)
+            Output the number of $2 coins to give - using Write
 
-  Get the details from the user.
-    Get the cost (store in costOfItem)
-    Get the amount paid (store in amountPaid)
-  Calculate the amount of change to provide 
-    (changeValue = amountPaid - costOfItem)
-  Give change
-    Give $2 coins
-      Calculate the number of $2 coins to give
-        (toGive = changeValue / 200)
-      Update the amount of change remaining to give
-        (changeValue = changeValue - toGive * TWO_DOLLARS;)
-      Output the number of $2 coins to give - using Write
+        Give $1 coins (as with $2 above but with ONE_DOLLAR)
+            Calculate the number of $1 coins to give
+            Update the amount of change remaining to give
+            Output the number of $1 coins to give - using Write
 
-    Give $1 coins (as with $2 above but with ONE_DOLLAR)
-      Calculate the number of $1 coins to give
-      Update the amount of change remaining to give
-      Output the number of $1 coins to give - using Write
+        Give 50c coins (...)
+            Calculate the number of 50c coins to give
+            Update the amount of change remaining to give
+            Output the number of 50c coins to give - using Write
 
-    Give 50c coins (...)
-      Calculate the number of 50c coins to give
-      Update the amount of change remaining to give
-      Output the number of 50c coins to give - using Write
+        Give 20c coins
+            Calculate the number of 20c coins to give
+            Update the amount of change remaining to give
+            Output the number of 20c coins to give - using Write
 
-    Give 20c coins
-      Calculate the number of 20c coins to give
-      Update the amount of change remaining to give
-      Output the number of 20c coins to give - using Write
+        Give 10c coins
+            Calculate the number of 10c coins to give
+            Update the amount of change remaining to give
+            Output the number of 10c coins to give - using Write
 
-    Give 10c coins
-      Calculate the number of 10c coins to give
-      Update the amount of change remaining to give
-      Output the number of 10c coins to give - using Write
-
-    Give 5c coins
-      Calculate the number of 5c coins to give
-      Update the amount of change remaining to give
-      Output the number of 5c coins to give - using Write
+        Give 5c coins
+            Calculate the number of 5c coins to give
+            Update the amount of change remaining to give
+            Output the number of 5c coins to give - using Write
 ```
-
-:::tip[Multiple instructions, one line of output?]
-
-Use the `Write` method to output text to the Terminal without adding a new line character. This lets you build one line of output using multiple instructions to construct the different parts.
-
-:::

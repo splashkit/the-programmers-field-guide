@@ -11,15 +11,16 @@
   },
   "dependencies": {
     "@astrojs/react": "^3.0.9",
-    "@astrojs/sitemap": "^3.0.4",
-    "@astrojs/starlight": "^0.15.3",
+    "@astrojs/sitemap": "^3.0.5",
+    "@astrojs/starlight": "^0.16.0",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
-    "astro": "^4.1.2",
+    "astro": "^4.2.4",
     "astro-embed": "^0.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "squoosh": "^0.0.0",
+    "starlight-links-validator": "^0.5.2",
     "swiper": "^11.0"
   }
 }
