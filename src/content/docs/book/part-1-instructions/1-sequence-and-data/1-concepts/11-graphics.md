@@ -191,7 +191,6 @@ RefreshScreen();
 Delay(5000);
 ```
 
-**TODO: Check if new image style works**
 ![A window showing "Hello World" written in the two fonts.](./images/draw-text-new.png)
 
 ### Playing sound effects

@@ -10,6 +10,8 @@ no_clang=false
 no_sudo_check=false
 no_dotnet=false
 splashkit_url="https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh"
+background_light=false
+zsh = false
 
 # Check platform
 platform=$(uname -m)
@@ -42,6 +44,8 @@ function display_help() {
    echo "--no_clang      Do not install clang."
    echo "--no_dotnet     Do not install .NET."
    echo "--splashkit_url=<url>  Specify the url to the splashkit install script."
+   echo "--background_light     Specify if the backgound image theme is light. Defualt is dark."
+   echo "--zsh    Specify if you want to install zsh. Defualt is false."
    echo
 }
 
@@ -71,6 +75,12 @@ for arg in "$@"; do
                 splashkit_url="${arg#*=}"
             fi
             ;;
+        --background_light)
+            background_light=true
+            ;;
+        --zsh)
+            zsh=true
+            ;;
         -h|--help)
             display_help
             exit 0
@@ -86,6 +96,7 @@ done
 ###################################################################################################
 
  sudo apt-get update
+
 
 # Check if wget is installed
 if ! command -v wget &> /dev/null; then
@@ -104,6 +115,24 @@ if ! command -v curl &> /dev/null; then
     echo "curl is not installed. Installing..."
     sudo apt-get -y install curl
 fi
+
+if [[ "$zsh" == true ]]; then
+    # Check if zsh is installed
+    if ! command -v zsh &> /dev/null; then
+        echo "zsh is not installed. Installing..."
+        sudo apt-get -y install zsh
+    fi
+
+    # Check if oh-my-zsh is installed
+    if [ ! -d ~/.oh-my-zsh ]; then
+        echo "oh-my-zsh is not installed. Installing..."
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    fi
+    # Set ZSH as default shell
+    chsh -s $(which zsh)
+    chsh -s /usr/bin/zsh
+fi
+
 
 # Check if VS Code is installed
 if command -v code &> /dev/null; then
@@ -178,7 +207,42 @@ if [[ "$no_dotnet" == false ]]; then
     fi
 fi
 
+# Add Programers Feild guide to Menu (Pi Only)
+if [[ "$platform" == "aarch64" ]]; then
 
+    echo "Adding Programers Feild guide to Menu"
+    sudo curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/public/favicon.svg" -o /usr/share/pixmaps/feildguide.svg 
 
-echo "Installation Complete"
+    touch ~/programmers-field-guide.desktop
+    echo "[Desktop Entry]" >> ~/programmers-field-guide.desktop
+    echo "Type=Application" >> ~/programmers-field-guide.desktop
+    echo "Name=Programmers Field Guide" >> ~/programmers-field-guide.desktop
+    echo "TryExec=/usr/bin/x-www-browser" >> ~/programmers-field-guide.desktop
+    echo "Exec=/usr/bin/x-www-browser https://programmers.guide/" >> ~/programmers-field-guide.desktop
+    echo "Icon=/usr/share/pixmaps/feildguide.svg" >> ~/programmers-field-guide.desktop
+    echo "Categories=Development;" >> ~/programmers-field-guide.desktop
+    sudo mv ~/programmers-field-guide.desktop /usr/share/raspi-ui-overrides/applications/programmers-field-guide.desktop
+
+fi
+
+if [[ "$platform" == "aarch64" ]]; then
+    sudo curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/part-0-getting-started/2-computer-use/2-put-together/images/setup-pi/Deakin-Backgound-1920x1080-outline-dark.jpg" -o /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-dark.jpg
+    sudo curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/part-0-getting-started/2-computer-use/2-put-together/images/setup-pi/Deakin-Backgound-1920x1080-outline-light.jpg" -o /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-light.jpg
+
+    echo "Setting background image"
+    if [[ "$background_light" == true ]]; then
+        echo "Setting background image to light"
+        pcmanfm --set-wallpaper /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-light.jpg
+    else
+        echo "Setting background image to dark"
+        pcmanfm --set-wallpaper /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-dark.jpg
+    fi
+fi
+
+2echo "Installation Complete"
 echo "Please restart your terminal to use commands such as skm or dotnet"
+if [[ "$zsh" == true ]]; then
+    echo "Please restart your Pi to use zsh"
+fi
+
+

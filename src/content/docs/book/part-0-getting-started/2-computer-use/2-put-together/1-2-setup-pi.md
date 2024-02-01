@@ -14,29 +14,29 @@ This Article will show you how to setup your Raspberry Pi software including:
 ## Download Raspberry Pi OS
 
 1. Download and install the Raspberry Pi Imager from [raspberrypi.org](https://www.raspberrypi.org/software/)
-    - Select the version for your operating system.
-    - Run the installer and follow the instructions.
+   - Select the version for your operating system.
+   - Run the installer and follow the instructions.
 2. Insert the micro SD card into your computer.
-    - You may need a Micro SD card adapter and/or a USB SD card reader.
-    - Recommend at least 16 GB micro SD card
+   - You may need a Micro SD card adapter and/or a USB SD card reader.
+   - Recommend at least 16 GB micro SD card
 3. Open the Raspberry Pi Imager.
 4. Click CHOOSE OS.
-  ![Image of Raspberry Pi Imager](./images/setup-pi/1-2-setup-pi-RaspberryPiImager.png)
+   ![Image of Raspberry Pi Imager](./images/setup-pi/1-2-setup-pi-RaspberryPiImager.png)
 5. Select Raspberry Pi OS (64b-bit)
-  ![Image Showing the Raspberry Pi Imager select OS screen](./images/setup-pi/1-2-setup-pi-SelectOS.png)
+   ![Image Showing the Raspberry Pi Imager select OS screen](./images/setup-pi/1-2-setup-pi-SelectOS.png)
 6. Click storage and select the micro SD card and click next.
 
-  :::danger[Which Device should I select?]
-  Make sure you select the correct storage device. Selecting the wrong device will result in the data on that device being erased.
+:::danger[Which Device should I select?]
+Make sure you select the correct storage device. Selecting the wrong device will result in the data on that device being erased.
 
-  In the image we are using a 32 GB micro SD card connected via a USB SD card reader.
-  ![Image Showing the Raspberry Pi Imager select storage screen](./images/setup-pi/1-2-setup-pi-SelectStorage.png)
-  :::
+In the image we are using a 32 GB micro SD card connected via a USB SD card reader.
+![Image Showing the Raspberry Pi Imager select storage screen](./images/setup-pi/1-2-setup-pi-SelectStorage.png)
+:::
 
 7. Click `No` to the question "Would you like to apply OS customisation setting?
-    - Optionally you can click edit settings to preconfigure options like the hostname, password, and Wi-Fi settings. Click yes if you want to do this.
+   - Optionally you can click edit settings to preconfigure options like the hostname, password, and Wi-Fi settings. Click yes if you want to do this.
 8. Click `Yes` to the question Are you sure you want to continue?
-    - **WARNING**: This will erase all data on the selected storage device.
+   - **WARNING**: This will erase all data on the selected storage device.
 9. Wait until the Raspberry Pi Imager has Downloaded, written and verified the image on micro SD card. (This may take a while)
 10. Click continue and remove the micro SD card from your computer.
     ![Image showing the Raspberry Pi Imager has completed writing to the SD card](./images/setup-pi/1-2-setup-pi-Complete.png)
@@ -79,14 +79,15 @@ This Article will show you how to setup your Raspberry Pi software including:
 
 ## Setup Raspberry Pi OS
 
-*Let's get your Raspberry Pi ready to start coding*
+_Let's get your Raspberry Pi ready to start coding_
 
-This section will go through all the steps to install the required Applications and Tools that you will need to code in C# and C++ with SplashKit. 
+This section will go through all the steps to install the required Applications and Tools that you will need to code in C# and C++ with SplashKit.
 To make things easier we have an automated script for fresh installs that will install all the required tools and applications for you or you can follow the manual steps below.
 
 :::note[How do I open the Terminal on my Pi?]
-*Click the Terminal icon in the task bar or press `Ctrl + Alt + T`* ![Image Showing the Terminal Icon](./images/setup-pi/1-2-setup-pi-Terminal_Icon.png)
+_Click the Terminal icon in the task bar or press `Ctrl + Alt + T`_ ![Image Showing the Terminal Icon](./images/setup-pi/1-2-setup-pi-Terminal_Icon.png)
 :::
+
 ### Automated Setup
 
 This script will install the following applications and tools:
@@ -105,9 +106,9 @@ This script will install the following applications and tools:
 1. Open the Terminal.
 2. Run the following command. The scrip will take a while to run (approx. 12-15 mins)
 
-  ```bash
-  curl -s "https://raw.githubusercontent.com/DaGoblin/the-programmers-field-guide/PiSoftware/src/content/docs/book/part-0-getting-started/2-computer-use/2-put-together/scripts/_Linux_Pi_InstallScript.sh" | bash /dev/stdin
-  ```
+```bash
+curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/part-0-getting-started/2-computer-use/2-put-together/scripts/_Linux_Pi_InstallScript.sh" | bash /dev/stdin
+```
 
 3. Close and Reopen the Terminal. Type `skm` to check SplashKit is installed correctly.
 
@@ -115,9 +116,9 @@ This script will install the following applications and tools:
 The linux_pi_install script supports a number of options that can be used to customise the installation.
 They can be added to the end of the command. The example below will display the help menu which lists the available options.
 
-  ```bash
-  curl -s "https://raw.githubusercontent.com/DaGoblin/the-programmers-field-guide/PiSoftware/src/content/docs/book/part-0-getting-started/2-computer-use/2-put-together/scripts/_Linux_Pi_InstallScript.sh" | bash /dev/stdin --help
-  ```
+```bash
+curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/part-0-getting-started/2-computer-use/2-put-together/scripts/_Linux_Pi_InstallScript.sh"| bash /dev/stdin --help
+```
 
 :::
 
@@ -140,11 +141,11 @@ bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-sc
 ```
 
 2. close and reopen the Terminal.
-3. Run this command to build SplashKit on the Pi *(This will take a while approx. 10 mins)*
-  
-  ```bash
-  skm linux install
-  ```
+3. Run this command to build SplashKit on the Pi _(This will take a while approx. 10 mins)_
+
+```bash
+skm linux install
+```
 
 Type `y` and press enter to confirm the installation.
 
@@ -167,17 +168,17 @@ What if the command above does nothing? (as shown in the image below)
 
 Make sure your computer is connected to the internet.
 
-***Still no luck?***  
-Download the install script locally by right-clicking on [this link](https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh) and selecting "Save Link As".  
+**_Still no luck?_**  
+Download the install script locally by right-clicking on [this link](https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh) and selecting "Save Link As".
 
 To run the downloaded shell script, open the Terminal and navigate to the folder where you saved the file and then use the command: `bash skm-install.sh`.  
-For example, if the file is in your *Downloads* folder:
+For example, if the file is in your _Downloads_ folder:
 ![A Terminal window running local install script file](./images/setup-pi/1-2-setup-pi-SplashKitManualInstall.png)
 :::
 
 #### 2. Install Visual Studio Code
 
-Visual Studio Code, also commonly known as *VS Code* or just *Code*, is a powerful and versatile code editor that enables efficient coding, debugging, and collaboration for your SplashKit projects!
+Visual Studio Code, also commonly known as _VS Code_ or just _Code_, is a powerful and versatile code editor that enables efficient coding, debugging, and collaboration for your SplashKit projects!
 
 :::note[VS Code has it all!]
 Once you have your code project set up, Visual Studio Code will be the main program you will use to write, build, run and debug your code.
@@ -209,10 +210,9 @@ For **C#** code, we recommended that you install the `C#`, `C# Dev Kit` and `Int
 ![Visual Studio Code window showing recommended extensions for C#](./images/setup-macos/vs-code-csharp-extensions.png)
 :::
 
-
 ##### C++ Language Extensions
 
-For **C++** code, we recommended that you install the `C/C++` extension.  
+For **C++** code, we recommended that you install the `C/C++` extension.
 
 You can also install the `C/C++ Extension Pack` extension which includes multiple extensions bundled together. If you have issues with syntax highlighting, the `Better C++ Syntax` extension is one of the best for this.
 
@@ -233,7 +233,7 @@ As you will be coding in C# and C++ in this book, let's look at the tools needed
 
 ##### C# Tools
 
-For coding in C#, you will need to install the `.NET` framework, also commonly called *dotnet*.  
+For coding in C#, you will need to install the `.NET` framework, also commonly called _dotnet_.  
 You will use this to create, build, and run your C# project code.
 
 :::tip[Which version should I use?]
@@ -275,7 +275,7 @@ Nano is a command line text editor that is installed by default on the Raspberry
 - navigate the cursor using the arrow keys
 - `Ctrl + O` to save the file
 - `Ctrl + X` to exit the editor
-:::
+  :::
 
 #### Setup zhs shell
 
@@ -330,7 +330,7 @@ Then add it to the plugins list in `~/.zshrc`
 nano ~/.zshrc
 ```
 
-navigate to the plugins line and add `autojump` to the list git will be listed already, use a space to separate the plugins.
+Navigate to the plugins line and add `autojump` to the list git will be listed already, use a space to separate the plugins.
 
 ```bash
 plugins=(git autojump)

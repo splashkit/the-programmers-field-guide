@@ -121,13 +121,15 @@ clang++ program.cpp -l SplashKitCPP -l SplashKit -Wl,-rpath,/usr/local/lib -o pr
 For Windows (MSys2), you need to use g++. This will create a program you can run from the MSys terminal window.
 
 ```zsh
-g++ program.cpp -l SplashKitCPP -l SplashKit -o program
+g++ program.cpp -I /usr/local/include -L /usr/local/lib -l SplashKitCPP -l SplashKit -o program
 ```
+
+This has a few additional options, on most unix systems the `/usr/local/include` is searched for the library header files and the `/usr/local/lib` is searched for the libraries. In MSys2, you have to tell the compiler about these paths manually. The `-I /usr/local/include` tells it to add this folder to the paths it searches for header file (like "splashkit.h"). Similarly, the `-L /usr/local/lib` add this folder to the paths it searches for libraries you link (the `-l SplashKitCPP -l SplashKit` from this call). You can use `ls` to check that these files are there, for example `ls /usr/local/include` should show you the `splashkit.h` and `ls /usr/local/lib` will show you the SplashKitCPP and SplashKit library files.
 
 There are a few more options that you can also include if you want to be able to run the program by double-clicking it in the Windows explorer (enter it all on line one):
 
 ```zsh
-g++ program.cpp -Wl,--as-needed -static-libstdc++ -static-libgcc -lSplashKit -Wl,-Bstatic -lstdc++ -lpthread -lSplashKitCPP -o program
+g++ program.cpp -I /usr/local/include -L /usr/local/lib -Wl,--as-needed -static-libstdc++ -static-libgcc -lSplashKit -Wl,-Bstatic -lstdc++ -lpthread -lSplashKitCPP -o program
 ```
 
 #### Using skm
