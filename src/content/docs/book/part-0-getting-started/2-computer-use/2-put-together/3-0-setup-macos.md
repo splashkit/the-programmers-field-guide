@@ -14,7 +14,7 @@ We will be using the **Terminal** app, with the **zsh** shell. You can also use 
 If you have previously installed SplashKit (before 2024):
 
 - Update SplashKit using your Terminal, with the command: `skm update`
-- Then you can skip to Step [5. Install SplashKit Globally](#5-install-splashkit-globally)
+- Then you can skip to Step [3. Install SplashKit Globally](#3-install-splashkit-globally)
 
 :::
 
@@ -37,7 +37,7 @@ xcode-select --install
 
 Then, open your **Terminal** app and paste the copied text.
 
-![Gif showing Spotlight Search to open Terminal and pasting Xcode install command](/gifs/setup-macos/terminal-xcode-install.gif)
+![Gif showing Spotlight Search to open Terminal and pasting Xcode install command](/public/gifs/setup-macos/terminal-xcode-install.gif)
 
 :::note[How do I find the Terminal on my Mac?]
 
@@ -70,7 +70,7 @@ Copy and paste the following command into your Terminal window:
 bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)
 ```
 
-![Gif showing skm installing in Terminal](/gifs/setup-macos/skm-install.gif)
+![Gif showing skm installing in Terminal](/public/gifs/setup-macos/skm-install.gif)
 
 :::danger[My install command is not working. Help!]
 What if the command above does nothing? (as shown in the image below)
@@ -84,10 +84,30 @@ Download the install script locally by right-clicking on [this link](https://raw
 
 To run the downloaded shell script, open the Terminal and navigate to the folder where you saved the file and then use the command: `bash skm-install.sh`.  
 For example, if the file is in your *Downloads* folder:
+
 ![A Terminal window running local install script file](./images/setup-macos/local-bash-skm-install.png)
+
 :::
 
-## 3. Install Visual Studio Code
+## 3. Install SplashKit Globally
+
+Now we need to install the SplashKit libraries and library include files into the system default global locations so that when building (compiling) programs created with SplashKit, the compiler can find these files automatically.
+
+To install SplashKit globally on your machine:
+
+Copy and paste the following command into your Terminal window:
+
+```bash
+skm global install
+```
+
+![Gif showing skm installing globally in Terminal](/public/gifs/setup-macos/skm-global-install.gif)
+
+:::note[What does this command do specifically?]
+The command above will add the **SplashKit libraries** into the `/usr/local/lib/` folder, and the required **SplashKit library include files** into the `/usr/local/include` folder.
+:::
+
+## 4. Install Visual Studio Code
 
 Visual Studio Code, also commonly known as *VS Code* or just *Code*, is a powerful and versatile code editor that enables efficient coding, debugging, and collaboration for your SplashKit projects!
 
@@ -99,7 +119,7 @@ First you will need to download the zip file from: [code.visualstudio.com/Downlo
 
 To install: double-click the zip file, then click and drag the **Visual Studio Code** Application file into the ***Applications*** folder:
 
-![Gif showing Visual Studio installation in Finder](/gifs/setup-macos/vs-code-install.gif)
+![Gif showing Visual Studio installation in Finder](/public/gifs/setup-macos/vs-code-install.gif)
 
 ### Add 'code' command to PATH
 
@@ -152,7 +172,7 @@ You can also install the `C/C++ Extension Pack` extension which includes multipl
 ![Visual Studio Code window showing recommended extensions for C++](./images/setup-macos/vs-code-cpp-extensions.png)
 :::
 
-## 4. Install Language Specific Tools
+## 5. Install Language Specific Tools
 
 Some coding languages require specific tools/frameworks to be installed to be able to build and run your code files.  
 As you will be coding in C# and C++ in this book, let's look at the tools needed for these languages:
@@ -174,24 +194,6 @@ Commonly used compilers are `g++` and `clang++`.
 
 :::note
 If you installed Xcode Command Line Tools successfully in Step 1, then you will already have the necessary compilers installed and ready for coding in C++!
-:::
-
-## 5. Install SplashKit Globally
-
-Now we need to install the SplashKit libraries and library include files into the system default global locations so that when building (compiling) programs created with SplashKit, the compiler can find these files automatically.
-
-To install SplashKit globally on your machine:
-
-Copy and paste the following command into your Terminal window:
-
-```bash
-skm global install
-```
-
-![Gif showing skm installing globally in Terminal](/gifs/setup-macos/skm-global-install.gif)
-
-:::note[What does this command do specifically?]
-The command above will add the **SplashKit libraries** into the `/usr/local/lib/` folder, and the required **SplashKit library include files** into the `/usr/local/include` folder.
 :::
 
 ## 6. Check Environment Variables
@@ -233,7 +235,7 @@ Once you're finished, press ***Control*** (^) + ***X*** to exit **nano** and fol
 
 For example, if the last line was missing:
 
-![Gif showing .zshrc file being edited using nano command](/gifs/setup-macos/nano-edit-zshrc.gif)
+![Gif showing .zshrc file being edited using nano command](/public/gifs/setup-macos/nano-edit-zshrc.gif)
 
 ### Using 'code' to open .zshrc file in Visual Studio Code
 
@@ -245,10 +247,22 @@ To do this, copy and paste the following command in your Terminal:
 code ~/.zshrc
 ```
 
-![Gif showing 'code ~/.zshrc' command opening file in VS Code](/gifs/setup-macos/code-zshrc-open.gif)
+![Gif showing 'code ~/.zshrc' command opening file in VS Code](/public/gifs/setup-macos/code-zshrc-open.gif)
 
 ## 7. Testing SplashKit Install
 
 :::tip[Coming Soon]
 Test your install with `skm test`.
 :::
+
+<!-- Will uncomment the text below once `skm test` has been finished -->
+
+<!-- To test your SplashKit installation on your Mac, run the following command in the Terminal:
+
+```bash
+skm test
+```
+
+This will ensure that SplashKit is correctly installed and working on your macOS machine.
+
+With these steps completed, you have set up your macOS computer for coding in C# and C++ with SplashKit. Happy coding! -->
