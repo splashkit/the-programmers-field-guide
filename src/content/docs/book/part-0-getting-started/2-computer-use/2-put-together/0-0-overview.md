@@ -20,3 +20,7 @@ The rest of the tools presented in this chapter are things you can come back to 
 You are already starting to program the computer. You can give it shell commands to do things directly, and save shell commands into scripts that can help automate tasks.
 
 In the next chapter we will see how to build our own programs. To do this you will need to navigate the file system through the terminal, and run a few additional programs. Confidence with the basics presented in this chapter will mean that you are set to take the next step.
+
+:::note[Setting up your computer]
+To install the program and tools you will need in the following chapters, follow the guide for your Operating System (shown in the sidebar).
+:::
