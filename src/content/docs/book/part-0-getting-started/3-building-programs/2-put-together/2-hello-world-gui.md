@@ -67,17 +67,7 @@ Using a Graphical User Interface for your program will allow you to create more 
 
 ### Using Basic Shapes/Text
 
-Here we will be using the following SplashKit functionality to draw on the Window that will open when the program is run:
-
-- `OpenWindow` to open a GUI window,
-- `ClearScreen` to set the background colour,
-- `DrawText` to write text,
-- `FillRectangle` to draw a filled in Rectangle,
-- `FillEllipse` to draw a filled in Ellipse (elongate circle),
-- `FillTriangle` to draw a filled in Triangle,
-- `FillCircle` to draw a filled in Circle,
-- `RefreshScreen` to show the graphics on the lines above it, and
-- `Delay` to keep the Window open for a set amount of time.
+Here we will be using SplashKit functionality to draw some shapes on the Window that will open when the program is run.
 
 :::note
 You're not expected to understand how the following code works at this point. It has been created for fun, so you can just copy and paste - and enjoy a colourful "Hello World!" GUI program!
@@ -153,62 +143,15 @@ RefreshScreen();
 Delay(5000);
 ```
 
-...
-
-Hope you like ***RAINBOW*** words!
-
-...
-
 Here is what the code above will create:
 
 ![A window showing the GUI output of the program being run in the terminal.](./images/splashkit-gui-shapes-hello-world.png)
 
-Yep... I really did spend the time to write all the letters using just 3 shapes - Rectangles, Ellipses, and Triangles! (Well... 4 if you count the last little Circle on the exclamation mark haha)
+Yes... The program above was created using just 3 shapes - Rectangles, Ellipses, and Triangles! (Well... 4 if you count the last little Circle on the exclamation mark)
 
-But how cool is it?!  
-I told you we were getting to the fun part &#128540;
+### Using Images, Fonts and SoundEffects
 
-And there's more to come! Let's have a look at using bitmap images, fonts and sounds:
-
-### Using Resources
-
-When adding additional resource files to your SplashKit project, such as images, sounds, etc., you *can* just add these files into the same folder as your code files, **but** if you have a lot of files then it is better to sort them into separate folders.
-
-You can run the following command to add these folders to your project:
-
-```bash
-skm resources
-```
-
-![Gif showing skm resources command being run in vscode terminal](/public/gifs/part-0-chapter-3/skm-resources-command.gif)
-
-The code for this part will be using the following SplashKit functionality to draw images, play sound effects and draw text with a specific font:
-
-- `OpenWindow` to open a GUI window,
-- `ClearScreen` to set the background colour,
-- `LoadFont` to load a font for use with `DrawText`,
-- `DrawText` to write text,
-- `LoadSoundEffect` to load a sound effect file (.ogg, or .wav),
-- `PlaySoundEffect` to play the loaded sound effect,
-- `LoadBitmap` to load an image file (.png),
-- `DrawBitmap` to draw the loaded bitmap image,
-- `RefreshScreen` to show the graphics on the lines above it, and
-- `Delay` to keep the Window open for a set amount of time.
-
-You will also need to download the following resource files, and then move them into your project folder:
-
-<!-- TODO: Check this again: May update this to either be a zip file, or use the Download functions instead -->
-| ***Description***         | ***Type***   | ***File*** |
-|---------------------------|--------------|------------|
-| Hello World Sound Snippet | Sound Effect | <a href="/public/resources/code-examples/part-0/hello-world-snippet-saddle-club.ogg" download>Click to Download</a> |
-| Large Cartoon Earth Image | Bitmap Image | <a href="/public/resources/code-examples/part-0/earth.png" download>Click to Download</a> |
-| Small Cartoon Earth Image | Bitmap Image | <a href="/public/resources/code-examples/part-0/earth-small.png" download>Click to Download</a> |
-| SplashKit Box Icon        | Bitmap Image | <a href="/public/resources/code-examples/part-0/skbox.png" download>Click to Download</a> |
-| Roboto Italic Font        | Font         | <a href="/public/resources/code-examples/part-0/Roboto-Italic.ttf" download>Click to Download</a> |
-
-In Visual Studio Code, your Resources folders would look like this:
-
-![A vscode window showing the resource folders in explorer panel](./images/resources-folders-hello-world.png)
+The code for this part will be using SplashKit functionality to draw images, play sound effects and draw text with a specific font.
 
 :::note[Reminder]
 You're not expected to understand how the following code works at this point. It has been created for fun, so you can just copy and paste - and enjoy another "Hello World!" GUI program!
@@ -219,12 +162,12 @@ Copy the following code and paste it into your Program.cs file (replacing existi
 ```cs
 using static SplashKitSDK.SplashKit;
 
-// load resources
-LoadSoundEffect("Hello World", "hello-world-snippet-saddle-club.ogg");
-LoadFont("main", "Roboto-Italic.ttf");
-LoadBitmap("Earth", "earth.png");
-LoadBitmap("SmallEarth", "earth-small.png");
-LoadBitmap("SplashKitBox", "skbox.png");
+// download resources
+DownloadSoundEffect("Hello World", "https://github.com/splashkit/the-programmers-field-guide/raw/main/public/resources/code-examples/part-0/hello-world-snippet-saddle-club.ogg", 443);
+DownloadFont("main", "https://github.com/splashkit/the-programmers-field-guide/raw/main/public/resources/code-examples/part-0/Roboto-Italic.ttf", 443);
+DownloadBitmap("Earth", "https://github.com/splashkit/the-programmers-field-guide/raw/main/public/resources/code-examples/part-0/earth.png", 443);
+DownloadBitmap("SmallEarth", "https://github.com/splashkit/the-programmers-field-guide/raw/main/public/resources/code-examples/part-0/earth-small.png", 443);
+DownloadBitmap("SplashKitBox", "https://github.com/splashkit/the-programmers-field-guide/raw/main/public/resources/code-examples/part-0/skbox.png", 443);
 
 OpenWindow("Hello World: Using Resources with SplashKit", 800, 600);
 PlaySoundEffect("Hello World");
@@ -313,12 +256,9 @@ RefreshScreen(60);
 Delay(2000);
 ```
 
-Following a bit of a theme with *writing words out of something other than actual text*, we get this:
+Following a bit of a theme with *writing words out of something other than actual text*, we get this as the final screen:
 
-<!-- Testing embedded video -->
-<!-- TODO: upload video to SplashKit youtube instead -->
-<!-- May update this to be a png of the final images on the window if/when a full video has been created -->
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nYVyxuZOqpo?si=PtXf2TXsQXCpZNkL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+![A SplashKit window showing output of code above: HELLO written in worlds, then a bigger world image and an image of the SplashKit logo](./images/hello-world-with-resources-output.png)
 
 &#127759; Yes, that is "HELLO", written using "worlds" &#128516;  
 (Because "HELLO" ... "*world*")

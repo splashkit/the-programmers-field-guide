@@ -4,8 +4,7 @@ sidebar:
   label: " - Terminal Hello World"
 ---
 
-**TODO: Add preamble**
-<!-- Maybe add about using mac for screenshots or add multiple screenshots? -->
+In this guide, we will go through the steps of building a basic terminal-based C# program to output the text: "Hello, World".
 
 :::note[Why "Hello World"?]
 Whenever you start learning a new programming language, you will likely write code to output **"Hello, World"** for your first program - just like we are going to do here!
