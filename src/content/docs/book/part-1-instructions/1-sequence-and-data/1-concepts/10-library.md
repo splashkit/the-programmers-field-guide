@@ -7,7 +7,6 @@ A library is a collection of reusable code building blocks. Each programming lan
 The image below shows the concepts related to a library.
 
 ![A library contains code that can be used by your program](./images/library-concept.png "A library contains code that can be used by your program")
-<div class="caption">A library contains code that can be used by your program</div><br/>
 
 ## Libraries -- when, why, and how
 
@@ -21,7 +20,6 @@ We will explore creating our own libraries later in our journey. For now, you ca
 
 :::tip[Syntax]
 ![The syntax for a C# program.](./images/program.png "The syntax for a C# program")
-<div class="caption">The syntax for a C# program</div><br/>
 :::
 
 In a C# project, the **using clause** lets you access the code in a library. Once you add this directive you will be able to directly call any of the methods within that part of the library.

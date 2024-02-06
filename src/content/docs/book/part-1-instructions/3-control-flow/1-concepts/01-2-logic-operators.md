@@ -4,73 +4,140 @@ sidebar:
   label: " - Logical Operators"
 ---
 
-The comparison operators allow you to compare *two* values. This is very useful, but in itself is incomplete. What, for example, do you do when you want to compare three or more values, or you want to check multiple different conditions?
+Comparison operators allow you to compare *two* values. This is very useful, but has limitations. For example, what do you do when you want to compare three or more values, or you want to check multiple different conditions?
 
-While you are limited to two values with the comparison operators, there are other operators that allow you to **combine** boolean expressions. This will enable you to combine together multiple boolean values into a single boolean expression.
+In addition to the comparison operators, there are other operators that allow you to **combine** boolean expressions. This will enable you to combine multiple boolean values together into a single boolean expression.
 
-There are four main *logical operators*: **and**, **or**, **xor**, and **not**. The operators **and**, **or**, and **xor** each work on two boolean values, combining them to give a new boolean value. For example, the [and operator](../01-3-and-operator) allows you to check if both of the expressions are true. The considtion `area > 0` **and** `area < 10` will be true only when area is **both** larger than zero **and** area is less then ten. The **not** operator works with a single boolean value, allowing you to check if something is not true.
+There are four main **logical operators**:
 
-Truth tables are a great way of visualising the results from these operators. [Figure x.y](#FigureLogicalOperators) shows the four truth tables for the operators we are looking at. The table shows you the result of the operation in each cell, giving you all of the possible results based on the different inputs.
+- **and**: checks if two boolean values are both true.
+- **or**: checks if one or both of two boolean values are true.
+- **xor**: checks if one or the other of two boolean values is true.
+- **not**: checks if a boolean value is false.
 
-Each table shows a single operator joining two placeholder values (`a` and `b`). For our visualisation, `a` is represented as rows and `b` as columns. There is one row or column for true and another for false, being the only two value that these placeholders could be. Each cell in the table represents one combination of these values, gives you the four potential combinations in the case of the and, or, and xor tables.
+For example, the condition `area > 0` **and** `area < 10` will be true only when `area` is **both** larger than zero **and** area is less than ten.
 
-<a id="FigureLogicalOperators"></a>
+Truth tables are a great way of visualising the results from these operators. In our image below we show you a table for each operator, so you can see the result of using that operator with all the different possible inputs.
 
-![Figure x.y: Logical Operators combine Boolean values](./images/logical-operators.png "Logical Operators combine Boolean values")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Logical Operators combine Boolean values</div><br/>
+For example, the top-left corner of the top-left table shows that the expression `a and b` is true when both `a` and `b` are true. In all other cases `a and b` is false.
+Have a look at the four tables and make sure you understand how each value was calculated given the description of each operator above.
 
-## Logical Operators - why, when, and how
+![Truth tables for and, or, xor, and not logical operators](./images/logical-operators.png "Truth tables for and, or, xor, and not logical operators")
+
+## Logical Operators -- when, why, and how
 
 You often want to check multiple conditions when you are making a decision. For example, to check if the user has clicked something on the screen, you need to check if they have clicked *and* the mouse cursor is over that area. This is a case where **and** is useful.
 
-We could achieve this using something like the following. This will be true when the left button was clicked, and the mouse is 5 to 10 pixels from the left of the window. Explore this in a table as shown below. To help fit this on the page, the table header uses some shorthand names for the parts.
+We could achieve this using the condition like `MouseClicked(MouseButton.LeftButton) and MouseX() >= 5 and MouseX() <= 10`. This will be true when the left button was clicked, and the mouse is between 5 and 10 pixels from the left of the window. You can explore conditions like this in a table as shown below.
 
-- Idea: The left button was clicked, **and** the X value of the mouse cursor is >= 5 and <= 10
-- Code: `MouseClicked(MouseButton.LeftButton) && MouxeX() >= 5 && MouseX() <= 10`
+<table>
+  <thead>
+    <tr>
+      <th colspan=2>Input</th>
+      <th colspan=3>Condition</th>
+      <th>Overall Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="font-weight:bold">Clicked?</td>
+      <td style="font-weight:bold">MouseX</td>
+      <td style="font-weight:bold">MouseClicked</td>
+      <td style="font-weight:bold">MouseX >= 5</td>
+      <td style="font-weight:bold">MouseX <= 10</td>
+      <td style="font-weight:bold"></td>
+    </tr>
+    <tr>
+      <td>No</td>
+      <td>7</td>
+      <td>false</td>
+      <td>true</td>
+      <td>true</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>Yes</td>
+      <td>7</td>
+      <td>true</td>
+      <td>true</td>
+      <td>true</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>Yes</td>
+      <td>11</td>
+      <td>true</td>
+      <td>true</td>
+      <td>false</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>Yes</td>
+      <td>4</td>
+      <td>true</td>
+      <td>false</td>
+      <td>true</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
 
-| Clicked? | MouseX() | Clicked? | mx > 5 | mx <= 10 | MouseClicked(MouseButton.LeftButton) && MouxeX() >= 5 && MouseX() <= 10 |
-|---|---|---|---|---|---|
-| Not clicked | 7 | false | true | true | false |
-| Clicked | 7 | true | true | true | true |
-| Clicked | 11 | true | true | false | false |
-| Clicked | 4 | true | false | true | false |
+Notice that in this case we need to have all parts of the condition being true for the overall result to be true. This matches what we asked for -- the mouse must be clicked and the mouse `x` between 5 and 10.
 
-Notice that in this case we need to have all of the part of the condition being true for the result to be true. This matches what we asked for - the mouse must be clicked and the mouse x between 5 and 10.
+With **or** you can check if **any** of a number of conditions are true. For example, has the user asked to quit or have they typed the escape key. This can be achieved with a condition like `QuitRequested() or KeyTyped(KeyCode.EscapeKey)`, which is expanded in the following truth table.
 
-With or you can check if **any** of a number of conditions are true. For example, has the user asked to quit or have they typed the escape key. This can be achieved with the following condition. The following truth table shows the possible combinations for this.
+<table>
+  <thead>
+    <tr>
+      <th colspan=2>Input</th>
+      <th colspan=2>Condition</th>
+      <th>Overall Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="font-weight:bold">Quit?</td>
+      <td style="font-weight:bold">Escape key?</td>
+      <td style="font-weight:bold">QuitRequested</td>
+      <td style="font-weight:bold">KeyTyped(Escape)</td>
+      <td style="font-weight:bold"></td>
+    </tr>
+    <tr>
+      <td>No</td>
+      <td>No</td>
+      <td>false</td>
+      <td>false</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>Yes</td>
+      <td>No</td>
+      <td>true</td>
+      <td>false</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>No</td>
+      <td>Yes</td>
+      <td>false</td>
+      <td>true</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>true</td>
+      <td>true</td>
+      <td>true</td>
+    </tr>
+  </tbody>
+</table>
 
-- Idea: The user asked to quit, **or** they typed the escape key
-- Code: `QuitRequested() || KeyTyped(KeyCode.EscapeKey)`
-
-| Quit? | Escape Key Typed? | QuitRequested() \|\| KeyTyped? |
-| --- | --- | --- |
-| false | false | false |
-| true | false | true |
-| false | true | true |
-| true | true | true |
-
-In this case you can see that if any one of the values is true, then the result is true. If you ask to quit *or* you type the escape key, then this condition will be true. If you manage to do both at the same time, that will be true as well.
-
-:::tip[KeyCode?]
-To access the `KeyCode` data, you need to indicate you are using `SplashKitSDK`. For example:
-
-```csharp
-using SplashKitSDK;
-
-while ( !(QuitRequested() || KeyTyped(KeyCode.EscapeKey)) )
-{
-  //...
-  ProcessEvents();
-}
-```
-
-:::
+In this case you can see that if any one of the values is true, then the result is true. So, if you ask to quit *or* you type the escape key, then this condition will be true. If you manage to do both at the same time, that will be true as well.
 
 ## In C#
 
-This is one area where C# uses cryptic symbols rather than clear text. This is based upon the heritage of C#, which is based upon the C programming language. Rather than using keywords for *and* and *or* orperators, C# uses **&&** for and, **||** for or, **!** for not, and **^** for xor.
-
-<a id="TableLogicalOperators"></a>
+Because of the heritage of C#, which is based upon the C programming language, this is one area where C# uses cryptic symbols rather than clear text. Rather than using keywords for *and* and *or* orperators, C# uses **&&** for and, **||** for or, **!** for not, and **^** for xor. This is summarised in the following table.
 
 |  | Description | Operator | Example |
 |---|---|---|---|
@@ -79,17 +146,13 @@ This is one area where C# uses cryptic symbols rather than clear text. This is b
 | **Xor** | Is one value true, and the other false? | `^` | `a ^ b` |
 | **Not** | Is the value false? | `!` | `! a` |
 
-<div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Logical Operators</div><br/>
-
 :::caution
 To make matters worse, new versions of C# have added in **and** and **or** keywords for pattern matching expressions. These differ from boolean operators, so avoid their use.
 :::
 
 ## Example
 
-The following table shows some example comparisons joined by logical operator, for an `area` variable and some example values.
-
-<a id="TableLogicalExpressionsExample"></a>
+The following table shows some example comparisons using logical operators and an `area` variable with some example values.
 
 <table>
 <thead>
@@ -97,7 +160,7 @@ The following table shows some example comparisons joined by logical operator, f
     <th rowspan="2">area</th>
     <th rowspan="2">area > 0</th>
     <th rowspan="2">area < 10</th>
-    <th colspan="3">area > 0 ... area < 10</th>
+    <th colspan="3">area > 0 [OPERATOR] area < 10</th>
   </tr>
   <tr>
     <th>and</th>
@@ -135,5 +198,3 @@ The following table shows some example comparisons joined by logical operator, f
 
 </tbody>
 </table>
-
-<div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Example Logical Expressions</div><br/>

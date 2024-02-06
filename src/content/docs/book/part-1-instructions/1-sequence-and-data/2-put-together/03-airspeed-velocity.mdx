@@ -9,54 +9,55 @@ On your journey, you encountered a strange person who mentioned something about 
   <YouTube id="w8Rn_f75UHs" params="fs=1&start=104&modestbranding=1&rel=0&autoplay=1"/>
 </div>
 
-To answer this age-old question, you can mock up the following program to calculate the airspeed velocity of these important birds. With a quick search, you find [an equation](http://www.style.org/strouhalflight) based on the Strouhal Number and some [details on swallows](http://style.org/unladenswallow/). We can use this information to create a program that can be used to calculate the airspeed velocity of African and European Swallows.
+To answer this age-old question, you can mock up the following program to calculate the airspeed velocity of these important birds. With a quick search, you find [an equation](http://www.style.org/strouhalflight) based on the Strouhal Number and some [details on swallows](http://style.org/unladenswallow/). We can use this information to create a program that can calculate the airspeed velocity of African and European Swallows.
 
 From these articles we can determine that the airspeed velocity of a swallow can be calculated using `Speed = Frequency * Amplitude / Strouhal`. Code this into a program and then calculate and display the airspeed for different wing values.
 
-- We can use two set Strouhal values - An efficient Strouhal number of 0.20 and low efficiency Strouhal of 0.40.
-- African Swallow: frequency 15hz, amplitude 21cm
-- European Swallow: frequency 14hz, amplitude 22cm
+Some values that will help with this are:
+
+- We can use two set Strouhal values: an efficient Strouhal of 0.20 and low efficiency Strouhal of 0.40.
+- African Swallow: frequency 15hz, amplitude 21cm.
+- European Swallow: frequency 14hz, amplitude 22cm.
 
 ## The Algorithm
 
 My plan for this program involves the following steps:
 
-1. Show the program details at the start
-2. Read in the name, frequency, and amplitude
-3. Calculate min and max speeds
-4. Output results
+1. Show the program details at the start.
+2. Read in the name, frequency, and amplitude.
+3. Calculate min and max speeds.
+4. Output results.
 
 When the program starts, we can output a few messages to let the user know what the program does. This can be a sequence of calls to `WriteLine` from `System.Console`.
 
-Reading in the bird's name will be relatively straightforward, we can use `Write` to display a prompt asking the user to enter the bird name, and then use `ReadLine` to get the value we then store in the variable. With frequency and amplitude, we will require the extra step to convert this to a number. These will need to be `double` values, and any loss of precision will not cause issues. To do the conversion we can call `ToDouble` from C#'s `System.Convert`. The steps will be:
+Reading in the bird's name will be relatively straightforward.
+We can use `Write` to display a prompt asking the user to enter a bird name, and then use `ReadLine` to get a value we then store in a variable.
 
-1. Show the prompt to the user (tell them what we want them to enter)
-2. Read in their response as a string - they enter text
-3. Convert the line entered to a double, and store in the variable
+With frequency and amplitude, we will require the extra step to convert the user's input to a number. These will need to be `double` values, and any loss of precision will not cause issues. To do the conversion we can call `ToDouble` from C#'s `System.Convert`. This is very similar to what we did in the change calculator, just for a double instead of an integer.
 
-Calculating the min and max speeds can use the expression that we noted above, and we will need some variables into which we can store these results. These can then be used in the "output results" step, where we can call `WriteLine` to output the calculated details.
+To calculate the min and max speeds we can use the equation that we noted above, using variables to store the results. These can then be used in the "output results" step, where we can call `WriteLine` to output the calculated details.
 
 ## The Building Blocks
 
 Reviewing this plan, we can identify which constants and variables we will need to create within our program. We have a few set values, and some values that we want to be able to be different each time the program runs. We can create the following building blocks to help us work with this into our program:
 
 - Two constants:
-  - `STROUHAL_LOW_EFFICIENCY` to store 0.4
-  - `STROUHAL_HIGH_EFFICIENCY` to store 0.2
+  - `STROUHAL_LOW_EFFICIENCY` to store 0.4.
+  - `STROUHAL_HIGH_EFFICIENCY` to store 0.2.
 - Six variables:
   - Two strings:
-    - `birdName` to capture the name of the bird the user enters
-    - A `line` to store the numbers they enter, until we can convert them to a double we can use.
+    - `birdName` to capture the name of the bird the user enters.
+    - A `line` to store the numbers they enter until we can convert them to a double.
   - Four double values:
-    - `freq` to store the frequency of the birds wing stroke, in beats per second.
+    - `freq` to store the frequency of the bird's wing stroke in beats per second.
     - `amp` to store the amplitude in meters.
     - `resultMax` and `resultMin` to store the two speed calculations based on the low and high efficiency Strouhal values.
 
-We will need to use `double` for these numeric values, and we will not have issues with limit of precision or accumulated rounding issues. We need the `line` to read the value, and read line returns us the text they entered.
-
 ## Pseudocode
 
-```
+Using all of this information, and our selected building blocks, we might write the following pseudocode for our program:
+
+```txt
 Declare constants:
  - STROUHAL_LOW_EFFICIENCY = 0.4
  - STROUHAL_HIGH_EFFICIENCY = 0.2
@@ -85,15 +86,15 @@ Output the bird's name, and its min and max airspeed
 
 Build and run this in small steps:
 
-- Get the initial output messages, reading the bird's name, and a start for the output. Build and run.
+- Read in the bird's name and output it back. Build and run.
 - Add reading in frequency, and add it to the output. Build and run.
-- Duplicate the frequency code and change to read and output the amplitude. Build and run.
+- Duplicate the frequency code and change it to read and output the amplitude. Build and run.
 - Add the calculation for max speed, update output, then build and run.
-- Test the values work as expected
+- Test the values work as expected.
 - Duplicate for min speed, update output, then build and run.
-- Test that it all works
+- Test that it all works.
 - Celebrate!
 
 ## Wrap Up
 
-Notice that the process for building this program was the same as the change calculator. Think about the algorithm, identify any things you need in the code (variables and constants), then code by building out the plan little by little.
+Notice that the process for building this program was the same as the change calculator. Think about the algorithm, identify any things you need in the code (variables and constants), then code by building out the plan little by little. As you write more programs you will get very used to this process.

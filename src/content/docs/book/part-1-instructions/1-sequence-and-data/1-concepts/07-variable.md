@@ -8,8 +8,6 @@ A **variable** is a **building block** you can use to store a value that you can
 
 ![Variables store a value that can be read and changed](./images/variable-concept.png "Variables store a value that can be read and changed")
 
-<div class="caption">Variables store a value that can be read and changed</div><br/>
-
 ## Variables -- when, why, and how
 
 Variables are an invaluable tool to help you build digital realities.
@@ -25,7 +23,6 @@ Then, you can then read the current value and store new values in the variable a
 A **constant** is similar to a variable, in that they have a name and a data type. Constants are declared within a program and must be given a value when they are created. However, they differ from a variable because once they are created the value within a constant cannot be changed. This is useful for data that should not change during the program's execution.
 
 ![Constants have a value that cannot be changed](./images/constant-concept.png "Constants have a value that cannot be changed")
-<div class="caption">Constants have a value that cannot be changed</div><br/>
 
 ## Constants -- why, when, and how
 
@@ -38,14 +35,16 @@ Another advantage of using a constant is that you can change the value in one pl
 ## In C#
 
 :::tip[Syntax]
-![The syntax for variable declarations in C#.](./images/variable-declaration.png "The syntax for variable declarations in C#")
-<div class="caption">The syntax for variable declarations in C#</div><br/>
+Variables can be declared in C# using the following syntax:
 
+![The syntax for variable declarations in C#.](./images/variable-declaration.png "The syntax for variable declarations in C#")
+
+The syntax for declaring a constant is very similar:
 ![The syntax for constant declarations in C#.](./images/constant-declaration.png "The syntax for constant declarations in C#")
 <div class="caption">The syntax for constant declarations in C#</div><br/>
 :::
 
-Variable and constant declarations use almost identical syntax in C#, shown in Figure 5.18. The main difference between a variable and a constant is the `const` keyword at the start of the declaration. If you include `const`, you are creating constants. Without it, you are creating variables.
+Variable and constant declarations use almost identical syntax in C#. The main difference between a variable and a constant is the `const` keyword at the start of the declaration. If you include `const`, you are creating constants. Without it, you are creating variables.
 
 Both variables and constant declarations need to include the [type](../06-type) of data you want to store.Then, you provide a name (identifier) for the variable or constant.
 A variable can optionally be given a value when it is declared, but a constant must be given a value.
@@ -75,7 +74,7 @@ WriteLine();
 WriteLine("Hello " + name);
 ```
 
-<div class="caption">Example program with variable declaration</div>
+### Example using multiple variables
 
 The next example will help us calculate the volume of our water bottles, assuming they are cylinders. To achieve this, we need the following variables:
 

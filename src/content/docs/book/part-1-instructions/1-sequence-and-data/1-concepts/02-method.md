@@ -13,7 +13,6 @@ When the method finishes its task, control is given back to the code that called
 The following diagram shows the concepts related to methods.
 
 ![A method contains instructions to perform a task, and may need to be passed data in order to do this](./images/method-concept.png "A method calls runs a method, passing in values for the method to use")
-<div class="caption">A method contains instructions to perform a task, and may need to be passed data in order to do this</div><br/>
 
 ## Method -- when, why, and how
 

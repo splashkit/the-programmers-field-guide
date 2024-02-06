@@ -18,7 +18,6 @@ There are three basic data types available in a programming language:
 The concept map below shows the concepts related to types.
 
 ![A type defines how a piece of data in a program is interpreted, and what operations can be performed on the data.](./images/type-concept.png "A type defines how a piece of data in a program is interpreted, and what operations can be performed on the data.")
-<div class="caption">A type defines how a piece of data in a program is interpreted, and what operations can be performed on the data.</div><br/>
 
 ## Types -- when, why, and how
 
@@ -98,7 +97,6 @@ The only important thing to remember is that not every floating point number can
 By default, numeric literals will be either `int` or `double`. For other types, C# provides suffix syntax for literals of specific types.
 
 ![The syntax for literal values of different types in C#.](./images/literal-type.png "The syntax for literal values of different types in C#.")
-<div class="caption">The syntax for literal values of different types in C#.</div><br/>
 :::
 
 ### Types in Expressions

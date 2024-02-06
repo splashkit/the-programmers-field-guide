@@ -68,7 +68,7 @@ int main()
 
 Reading through the above code, look at **main**. Notice how we set the value of `x` to be 3, then a couple of lines later output the value of `x`... but what does it output?
 
-- What does the program shown in [Listing 5.x](#ListingGlobalVariables) output to the terminal?<br/>
+- What does the program shown in Listing 5.x output to the terminal?<br/>
 - What is the value of x when the program completes?
 <br/>
 <details>

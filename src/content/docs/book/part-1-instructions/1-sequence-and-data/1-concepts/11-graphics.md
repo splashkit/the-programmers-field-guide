@@ -33,9 +33,7 @@ To draw, you need something to draw onto. The base interactive component in Spla
 
 The `OpenWindow` method can be called to create a new window for the user to interact with, and for your code to draw upon. This method requires three arguments: the window’s title, its width and its height. For example, `OpenWindow("House Drawing", 800, 600);` will open a window that is 800 pixels wide and 600 pixels high with the title "House Drawing", as shown in the following image. Please note that the house and hill are drawn by additional code.
 
-**TODO Fix Image**
-
-![Window with dimensions illustrated](./images/NewWindow.png)
+![Window with dimensions illustrated](./images/window-dimensions.png)
 
 To test this out, try out the following code for a program that opens a new window using SplashKit. In this program we are also using the SplashKit method `Delay`. This makes the program wait so that we can see what is happening. When you compile and run this, you will see the window open and the program delay for 5 seconds. Try changing the title and size of the window.
 
@@ -63,9 +61,7 @@ It uses this information, and the knowledge that position (0, 0) is the top left
 So, the blue filled rectangle is drawn at x 1, y 1, is 7 pixels wide, and 3 pixels high.
 The magenta outlined rectangle is drawn 10 pixels from the left of the screen, 1 pixel from the top, 7 pixels wide, and 3 pixels high.
 
-**TODO: fix image**
-
-![Pixel locations are based on x and y locations."](./images/DrawFill.png)
+![Pixel locations are based on x and y locations](./images/window-pixels.png)
 
 :::tip[Why the top down?]
 The answer is simply **history**. The original monitors were based on Cathode Ray Tubes (CRTs) and drew to the screen from left to right, and top to bottom, matching the writing style of Western cultures.
@@ -84,7 +80,7 @@ Instead of having each element we draw appear individually, we just want the who
 To achieve this, SplashKit uses a technique called **double buffering**, illustrated in the image below. With double buffering, the computer first draws the shapes to an off-screen surface.
 It then waits for a command to display that surface to the user. With SplashKit, the command for this is `RefreshScreen`.
 
-![Illustration of double buffering, and the need to call refresh screen.](./images/RefreshScreen.png)
+![Illustration of double buffering, and the need to call refresh screen.](./images/refresh-screen.png)
 
 ### Drawing to a Window
 
@@ -95,14 +91,14 @@ These methods typically require arguments that allow you to control where the sh
 
 | <div style="width:70px">**Method**</div> | **Required Arguments** | **Description** |
 |-----------|------------------------|----------------|
-| `ColorWhite`, ... | None | Returns a value that represents the color indicated in the name of the method.  |
+| `ColorWhite`, `ColorBlue`, ... | None | Returns a value that represents the color indicated in the name of the method.  |
 | `FillRectangle`, `DrawRectangle` | A color and four numeric values for the location (x and y), width, and height of the rectangle | Draws a filled or hollow rectangle to the screen. |
 | `FillEllipse`, `DrawEllipse` | A color and four numeric values for the location (x and y), width, and height of the ellipse | Draws a filled or hollow ellipse to the screen. |
 | `FillTriangle`, `DrawTriangle` | A color and six numeric values for the location (x and y) or each point of the triangle. | Draws a filled or hollow triangle to the screen. |
 |`DrawLine` | A color and four numeric values for the location (x and y) of the start and end of the line. | Draws a line from one point to another. |
 | `RefreshScreen` | none | Present what has been drawn to the user. |
 
-The following code draws a house on a hill using some basic shapes in SplashKit.
+The following code draws a house on a hill using some basic shapes in SplashKit.  
 Try running it, then modify the drawing to make it your own.
 
 ```csharp
@@ -122,9 +118,7 @@ Delay(5000);
 :::tip[Autocomplete]
 If you are ever unsure of what a method requires, you should be able to get Visual Studio Code to show you a list of the arguments you need to provide. To do this, type the start of the method name then press `ctrl-space`. There are usually a couple of different ways to draw a shape in SplashKit, which you can eexplore by pressing the up/down arrows to navigate the pop-up list. An example with C# is shown below. Try it out for yourself as you modify you first shape drawing program.
 
-**TODO Fix image**
-
-![Use `ctrl-space` to bring up the autocomplete for procedures you want to call.](./images/AutoComplete.png)
+![Use `ctrl-space` to bring up the autocomplete for procedures you want to call.](./images/auto-complete.png)
 :::
 
 ## Working with Resources
@@ -197,9 +191,7 @@ RefreshScreen();
 Delay(5000);
 ```
 
-**TODO: Fix image width**
-
-![A window showing "Hello World" written in the two fonts.](./images/DrawText.png)
+![A window showing "Hello World" written in the two fonts.](./images/draw-text-new.png)
 
 ### Playing sound effects
 

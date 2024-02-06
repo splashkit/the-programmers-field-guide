@@ -16,15 +16,14 @@ To this point, data has been about single values that are either numbers, text, 
 
 This chapter introduces the following **building blocks**:
 
-- [Enumeration](#): used to store one of a list of available options.
-- [Record](#): used to store multiple fields in a single composite value.
-
+- [Enumeration](../1-concepts/03-02-enum): used to store one of a list of available options.
+- [Struct](../1-concepts/03-01-struct): used to store multiple fields in a single composite value.
 
 You may need to revise the following programming building blocks:
 
 - [Variable](../../../part-1-instructions/1-sequence-and-data/1-concepts/08-variable).: The idea of storing data within your code.
 - [Local Variable](../../2-organising-code/1-concepts/03-local-variable): Storing data in a or [Function](../../2-organising-code/1-concepts/04-function-decl) or [Procedure](../../2-organising-code/1-concepts/02-procedures).
-- [Parameter](../../2-organising-code/1-concepts/04-parameter): Passing data to a [Function](#) or [Procedure](../../../part-1-instructions/1-sequence-and-data/1-concepts/02-method).
+- [Parameter](../../2-organising-code/1-concepts/04-parameter): Passing data to a [Function or Procedure](../../2-organising-code/1-concepts/01-0-functions-and-procedures).
 
 The following programming terminology will also be used in this chapter:
 

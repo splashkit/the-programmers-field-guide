@@ -2,7 +2,9 @@
 title: Change Calculator
 ---
 
-Here is what I came up with for the change calculator code. I decided not to have a separate `line` variable, but it would probably have been better to include that. I made sure to lay out the code with gaps and comments to help me see the different steps. Your code is probably very similar to this as we were both working from the same pseudocode plan. Your program does not need to be exactly the same as this, but hopefully reviewing this and comparing it with your program will give you confidence that you are on the right path.
+Here is what we came up with for the change calculator code. We decided not to have a separate `line` variable, but it would probably have been better to include that. We made sure to lay out the code with gaps and comments to help us see the different steps.
+
+Your code is probably very similar to this as we were both working from the same pseudocode plan. Your program does not need to be exactly the same as this, but hopefully reviewing this and comparing it with your program will give you confidence that you are on the right path.
 
 ```csharp
 /*
@@ -68,6 +70,6 @@ Write($"{toGive} x 5c");
 WriteLine();
 ```
 
-:::tip
+:::tip[Andrew's tip]
 The comments helped me track the steps as I went. These will make it easier when I come back to look at this in a few months, when I have forgotten what I was doing now.
 :::
