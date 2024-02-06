@@ -15,6 +15,7 @@ If you have previously installed SplashKit (before 2024):
 
 - Update SplashKit using your Terminal, with the command: `skm update`
 - Then you can skip to Step [5. Install SplashKit Globally](#5-install-splashkit-globally)
+
 :::
 
 Now, to get SplashKit and other coding tools installed on macOS, follow the steps outlined below:
@@ -43,6 +44,7 @@ Then, open your **Terminal** app and paste the copied text.
 1. Press ***Command*** (⌘) + ***Space bar*** to open the Spotlight Search.  
 2. Start typing "Terminal".  
 3. Click the **Terminal** app.
+
 :::
 
 **Note:** After running the command above, if you get something like this:

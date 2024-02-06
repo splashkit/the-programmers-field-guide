@@ -2,42 +2,36 @@
 title: "Compound Statement"
 ---
 
-Before we explore the control flow statements we need to make a small detour to see one new statement that programming languages use to simplify their syntax. This is the idea of a **compound statement** - one statement that is actually a grouped list of statements.
+Before we explore control flow statements we need to make a small detour to see one new statement that programming languages use to simplify their syntax. This is a **compound statement** -- one statement that is actually a grouped list, or **block** of statements.
 
-The [Branching](../03-branching) and [Looping](../04-looping) statements need to be able to include a number of instructions within their paths. Often languages will manage this by indicating that only a **single** statement can be used, and then provide the ability to code multiple statements in a **single compound statement**.
+Programming languages will typically define control flow statements as only being able to control the flow of a **single** instruction.
+This is quite limiting.
+However, with compound statements we are able to bypass the limitation, by using a compound statement where this single instruction is expected.
+This allows us to write control flow statements that actually alter the flow of more than one instruction.
 
-<a id="FigureCompoundStatement"></a>
+Have a look at the following figure to see a visualisation of this idea.
 
-![Figure x.y: A compound statement is a statement that can contain other statements](./images/statement-compound.png "A compound statement is a statement that can contain other statements")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>A compound statement is a statement that can contain other statements</div><br/>
+![A compound statement is a statement that is actually a grouped list of statements](./images/statement-compound.png "A compound statement is a statement that is actually a grouped list of statements")
 
-:::note
+## Compound Statements -- when, why, and how
 
-- *Compound Statement* is a **statement** that allows you to create a single statement that contains multiple statements.
-- A compound statement may contain 0 or more statements.
-- Compound Statements are useful when combined with [Branching](../03-branching) and [Looping](../04-looping) statements. Allowing you to put multiple statements within a path.
-- The statements within the compound statement are often referred to as a **block**.
-
-:::
-
-## Compound Statements - Why, When, and How
-
-You will use these compound statements all of the time within the control flow statements. It simply provides you with a way of clearly showing which statements belong within the group, and then the group can be embedded within the other control flow statements.
+You will use compound statements regularly within control flow statements. It simply provides you with a way of clearly showing which statements belong within the group, and then embedding that group within the flow of control.
 
 ## In C#
 
-In C# you use braces (`{...}`) to bring together a list of statements. The group starts with the open brace (`{`) and end with the closing brace (`}`) everything in between is part of the group.
-
 :::tip[Syntax]
+The following diagram shows the syntax for a compound statement in C#.
+
 ![Syntax for the compound statement showing a 0 or more statements between braces](./images/compound-statement.png)
 :::
 
+In C# you use curly braces (`{...}`) to bring together a list of statements. The group starts with the open brace (`{`) and end with the closing brace (`}`), with everything in between the two braces being part of the group. There are no restrictions on how many statements can be in a compound statement.
+
 ## Example
 
-You can use compound statements anywhere in your code, but they really make the most sense when combined with the control flow statements.
+You can use compound statements anywhere in your code, such as in the following example.
 
 ```csharp
-// Demo compound statement
 using static System.Console;
 
 WriteLine("Statement 1");
@@ -50,3 +44,14 @@ WriteLine("Statement 1");
 
 WriteLine("Statement 3");
 ```
+
+There isn't any reason to do this though -- compound statements really make the most sense when combined with the control flow statements.
+
+:::note[Summary]
+
+- A compound statement is a **statement** that allows you to create a single statement that contains multiple statements.
+- A compound statement may contain 0 or more statements.
+- Compound Statements are useful when combined with control flow statements.
+- The statements within the compound statement are often referred to as a **block**.
+
+:::
