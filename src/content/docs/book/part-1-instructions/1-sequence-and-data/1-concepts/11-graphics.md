@@ -80,7 +80,7 @@ Instead of having each element we draw appear individually, we just want the who
 To achieve this, SplashKit uses a technique called **double buffering**, illustrated in the image below. With double buffering, the computer first draws the shapes to an off-screen surface.
 It then waits for a command to display that surface to the user. With SplashKit, the command for this is `RefreshScreen`.
 
-![Illustration of double buffering, and the need to call refresh screen.](./images/double-buffering.png)
+![Illustration of double buffering, and the need to call refresh screen.](./images/refresh-screen.png)
 
 ### Drawing to a Window
 
