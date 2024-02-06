@@ -690,6 +690,20 @@ aside[aria-label="How does this work?"] ul > li ul li ul li::before {
   color: firebrick;
   font-weight: 800;
 }
+.starlight-aside,
+.card {
+  border-radius: 0.5rem;
+}
+.main-pane  {
+  img {
+    border-radius: 0.5rem;
+    box-shadow: var(--sl-shadow-md);
+  }
+}
+.expressive-code {
+  border-radius: 0.6rem;
+  box-shadow: var(--sl-shadow-md);
+}
 /* ------------------------------------------- */
 /* END:   CUSTOM STYLES                        */
 /* - Don't delete this section                 */
