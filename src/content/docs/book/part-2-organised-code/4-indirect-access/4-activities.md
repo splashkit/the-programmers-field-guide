@@ -15,6 +15,19 @@ Your program should:
   - Changing the screen
   - Selling a product
   - Changing the stock
+- - Introduce a "Sell Product" screen which allows the user to:
+  - Select which Staff is responsible for the sale
+  - Select which Product has been sold
+  - Select how many of the Product has been sold
+  - Reduces the stock of the Product and increases the sale count of the Staff
+- Introduce an "Alter Stock" screen which is only accessible by Managers and Owners, and allows the user to:
+  - Select a Product to restock
+  - Input a number (either positive or negative) to change the stock by
+  - Change the stock of the Product by that amount
+
+Validation:
+
+- Ensure that the current stock of an item cannot go below 0
 
 ### Breaking Down Dotifin
 

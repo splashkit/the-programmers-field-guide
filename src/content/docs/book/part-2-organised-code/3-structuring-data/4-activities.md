@@ -21,19 +21,15 @@ Your program should:
   - Sale count (How many Products they've sold)
 - Have a Staff
 - Have a Product
-- Introduce a "Sell Product" screen which allows the user to:
-  - Select which Staff is responsible for the sale
-  - Select which Product has been sold
-  - Select how many of the Product has been sold
-  - Reduces the stock of the Product and increases the sale count of the Staff
-- Introduce an "Alter Stock" screen which is only accessible by Managers and Owners, and allows the user to:
-  - Select a Product to restock
-  - Input a number (either positive or negative) to change the stock by
-  - Change the stock of the Product by that amount
-
-Validation:
-
-- Ensure that the current stock of an item cannot go below 0
+- Introduce a "View Product" screen which:
+  - Shows a Product's Name
+  - Shows a Product's Description
+  - Shows a Product's Price
+  - Shows a Product's Current Stock
+- Introduce a "View Staff" screen which:
+  - Shows a Staff's Name
+  - Shows a Staff's Position
+  - Shows a Staff's Sale Count
 
 ### Creating Songs and Artists
 
@@ -44,26 +40,21 @@ Your program should:
 - Have an Artist struct with their:
   - Name
   - About (bio)
-  - Number of listens
 - Have a Song struct with its:
+  - File Name
   - Name
-  - Genre (one of Pop, Rock, R&B)
-  - Artist
+  - Genre (one of Pop, Rock, RnB)
   - Runtime
-  - Number of listens
 - Have an Artist
-- Introduce a "Add Song" screen which allows the user to:
-  - Select an artist for that song
+- Introduce an "Add Song" screen which allows the user to:
   - Specify a file name for that song
   - Specify a name for that song
   - Specify a genre for that song
   - Create a Song
-- Introduce a "Browse Artists" screen which allows the user to:
-  - Select which Artist they would like to browse
-    - Show the About section for that Artist
-    - Show the songs by that Artist once selected
-  - Select a song, and play that song
-  - Increase the number of listens for both the artist and the song
+  - Play that Song
+- Introduce a "Show Artist Details" screen which:
+  - Shows the About section for an Artist
+  - Shows the Bio section for an Artist
 
 ### Creating the Player and NPCs
 
@@ -75,6 +66,7 @@ Your program should:
   - Name
   - X position
   - Y position
+  - Radius
   - Move speed
 - Have a Player Actor
 - Have a NPC Actor

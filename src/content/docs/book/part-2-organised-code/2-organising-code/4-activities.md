@@ -14,12 +14,18 @@ Your program should:
 - Ask the user which "screen/functionality" they would like to choose
   - You should have different functions for numbers and char input
 - Wait for user input, then change the "screen/functionality" based on what they chose
-- Include some dummy data for the other screens
+  - For now just include welcome messages for each "screen"
 - Allow the user to go back to the main screen at any point or quit the application
 
 Validation:
 
 - Ensure that whatever user input your program takes matches the options
+
+Functions you should have:
+
+- CharInputValid - Checks to see if user input a valid character
+- IntInputValid - Checks to see if user input a valid integer
+- ProcessCharInput - Performs different operations, like changing "screens" based on the character input
 
 ### Dotifin Input System
 
@@ -31,15 +37,21 @@ Your program should:
 
 - Ask the user which "screen/functionality" they would like to choose
   - You should have different functions for numbers and char input
-- Add a play song "screen" that asks the user for a music file's filename, and what they would like to name it, then play it
 - Wait for user input on each screen, then change the "screen/functionality" based on what option they choose
-- Include some dummy data for the other screens
-  - Add a home screen header, maybe some ASCII art that says "Dotifin"
+  - For now just include welcome messages for each "screen"
+- Add a play song "screen" that asks the user for a music file's filename and what they would like to name it, then plays it
 - Allow the user to go back to the main screen at any point or quit the application
 
 Validation:
 
 - Ensure that whatever user input your program takes matches the options
+
+Functions you should have:
+
+- CharInputValid - Checks to see if user input a valid character
+- IntInputValid - Checks to see if user input a valid integer
+- ProcessCharInput - Performs different operations, like changing "screens" based on the character input
+- PlaySong - Asks the User for a File name and name for their song, then plays it
 
 ### RPG Collision Tests
 
@@ -50,11 +62,17 @@ As a start to our RPG Game, we're going to start with our event loop and render 
 Your program should:
 
 - Draw the player character to the center of the screen (just a square for now!)
-- Draw a NPC to the screen somewhere away from the character (just a circle for now!)
+- Draw a NPC to the screen somewhere away from the character (just a triangle for now!)
 - Allow the player to move their character around the screen with WASD
   - Don't let the character leave the edges of the screen
 - Perform a series of collision checks:
   - First, see if anything is within a relatively large circle of the player
   - If that succeeds, then check a smaller circle that still fits the player inside comfortably
   - Finally, if that succeeds, check to see if something is actually colliding with our character
-  - Delete the NPC for now if the player character collides with them
+  - Don't Draw the NPC anymore for now if the player character ever collides with them
+  
+Functions you should have:
+
+- Render - Performs the drawing of the characters
+- Tick - Performs movement and collision logic
+- CollisionRadius - Takes two points and a radius and checks if the second point is in a circle around the first point of distance radius

@@ -12,8 +12,8 @@ For
 
 Your program should:
 
-- Add more Products (let's say 5 for now)
-- Add more Staff (again, 5 for now)
+- Add more Products (let's say up to 5 for now)
+- Add more Staff (again, up to 5 for now)
 - Modify existing functionality to account for multiple Products and Staff
 - Add a new "Check Stock" screen which:
   - Displays all of the Product's name and stock in order of greatest stock to fewest stock
