@@ -17,7 +17,7 @@ dotnet add package SplashKit
 :::note
 After running the command above, your `HelloWorld.csproj` file will have been updated to look like this:
 
-![A vscode window showing the program being run in the terminal.](./images/splashkit-package-csproj.png)
+![A vscode window showing the SplashKit included in the project file](./images/splashkit-package-csproj.png)
 :::
 
 Now we can use all the SplashKit functionality in our program &#128526;
@@ -47,7 +47,16 @@ WriteLine("Using SplashKit!");
 We would get this output in the Terminal (shown in the Green Box):
 
 ![A vscode window showing the program being run in the terminal.](./images/cli-hello-world-splashkit.png)
+:::
 
+:::caution['dotnet run' not working?]
+If you were not able to install SplashKit globally in the installation guide in the [previous chapter](../../2-computer-use/2-put-together/0-0-overview.md), you can use the following command instead:
+
+```bash
+skm dotnet run
+```
+
+You will need to add `skm` to the front of the commands mentioned in the Concepts [Build and Run](../1-concepts/03-build-and-run.md) page until you are able to get SplashKit installed globally (by [troubleshooting](../../2-computer-use/2-put-together/0-1-troubleshooting-install.md), or asking one of the tutors for help).
 :::
 
 ## Graphical Hello World
@@ -74,7 +83,7 @@ Here we will be using the following SplashKit functionality to draw on the Windo
 You're not expected to understand how the following code works at this point. It has been created for fun, so you can just copy and paste - and enjoy a colourful "Hello World!" GUI program!
 :::
 
-Copy the following code and paste into your Program.cs file (replacing existing code) and then run your program using `dotnet run`:
+Copy the following code and paste it into your Program.cs file (replacing existing code) and then run your program using `dotnet run`:
 
 ```cs
 using static SplashKitSDK.SplashKit;
@@ -159,14 +168,163 @@ Yep... I really did spend the time to write all the letters using just 3 shapes 
 But how cool is it?!  
 I told you we were getting to the fun part &#128540;
 
-And there's more to come! Let's have a look at using bitmap images and sounds:
+And there's more to come! Let's have a look at using bitmap images, fonts and sounds:
 
 ### Using Resources
 
-Coming soon...
-<!-- TODO: Add about using `skm resources` to create folders -->
+When adding additional resource files to your SplashKit project, such as images, sounds, etc., you *can* just add these files into the same folder as your code files, **but** if you have a lot of files then it is better to sort them into separate folders.
 
-<!-- Check best way to link resources in the page, or use https://splashkit.io/api/networking/#download-bitmap etc for this -->
+You can run the following command to add these folders to your project:
 
-<!-- Bitmaps undecided -->
-<!-- Sound will be the start of the Saddle Club theme song - check about copywrite if under 10 seconds -->
+```bash
+skm resources
+```
+
+![Gif showing skm resources command being run in vscode terminal](/public/gifs/part-0-chapter-3/skm-resources-command.gif)
+
+The code for this part will be using the following SplashKit functionality to draw images, play sound effects and draw text with a specific font:
+
+- `OpenWindow` to open a GUI window,
+- `ClearScreen` to set the background colour,
+- `LoadFont` to load a font for use with `DrawText`,
+- `DrawText` to write text,
+- `LoadSoundEffect` to load a sound effect file (.ogg, or .wav),
+- `PlaySoundEffect` to play the loaded sound effect,
+- `LoadBitmap` to load an image file (.png),
+- `DrawBitmap` to draw the loaded bitmap image,
+- `RefreshScreen` to show the graphics on the lines above it, and
+- `Delay` to keep the Window open for a set amount of time.
+
+You will also need to download the following resource files, and then move them into your project folder:
+
+<!-- TODO: Check this again: May update this to either be a zip file, or use the Download functions instead -->
+| ***Description***         | ***Type***   | ***File*** |
+|---------------------------|--------------|------------|
+| Hello World Sound Snippet | Sound Effect | <a href="/public/resources/code-examples/part-0/hello-world-snippet-saddle-club.ogg" download>Click to Download</a> |
+| Large Cartoon Earth Image | Bitmap Image | <a href="/public/resources/code-examples/part-0/earth.png" download>Click to Download</a> |
+| Small Cartoon Earth Image | Bitmap Image | <a href="/public/resources/code-examples/part-0/earth-small.png" download>Click to Download</a> |
+| SplashKit Box Icon        | Bitmap Image | <a href="/public/resources/code-examples/part-0/skbox.png" download>Click to Download</a> |
+| Roboto Italic Font        | Font         | <a href="/public/resources/code-examples/part-0/Roboto-Italic.ttf" download>Click to Download</a> |
+
+In Visual Studio Code, your Resources folders would look like this:
+
+![A vscode window showing the resource folders in explorer panel](./images/resources-folders-hello-world.png)
+
+:::note[Reminder]
+You're not expected to understand how the following code works at this point. It has been created for fun, so you can just copy and paste - and enjoy another "Hello World!" GUI program!
+:::
+
+Copy the following code and paste it into your Program.cs file (replacing existing code) and then run your program using `dotnet run`:
+
+```cs
+using static SplashKitSDK.SplashKit;
+
+// load resources
+LoadSoundEffect("Hello World", "hello-world-snippet-saddle-club.ogg");
+LoadFont("main", "Roboto-Italic.ttf");
+LoadBitmap("Earth", "earth.png");
+LoadBitmap("SmallEarth", "earth-small.png");
+LoadBitmap("SplashKitBox", "skbox.png");
+
+OpenWindow("Hello World: Using Resources with SplashKit", 800, 600);
+PlaySoundEffect("Hello World");
+
+ClearScreen(ColorWhite());
+DrawText("Anyone remember the \"Hello World\" Saddle Club song?", ColorBlack(), "main", 30, 40, 200);
+RefreshScreen();
+Delay(2500);
+
+ClearScreen(ColorWhite());
+
+// H
+DrawBitmap("SmallEarth", 20, 100);
+DrawBitmap("SmallEarth", 20, 130);
+DrawBitmap("SmallEarth", 20, 160);
+DrawBitmap("SmallEarth", 20, 190);
+DrawBitmap("SmallEarth", 20, 220);
+DrawBitmap("SmallEarth", 52, 160);
+DrawBitmap("SmallEarth", 84, 100);
+DrawBitmap("SmallEarth", 84, 130);
+DrawBitmap("SmallEarth", 84, 160);
+DrawBitmap("SmallEarth", 84, 190);
+DrawBitmap("SmallEarth", 84, 220);
+RefreshScreen();
+Delay(200);
+
+// E
+DrawBitmap("SmallEarth", 148, 100);
+DrawBitmap("SmallEarth", 148, 130);
+DrawBitmap("SmallEarth", 148, 160);
+DrawBitmap("SmallEarth", 148, 190);
+DrawBitmap("SmallEarth", 148, 220);
+DrawBitmap("SmallEarth", 180, 100);
+DrawBitmap("SmallEarth", 212, 100);
+DrawBitmap("SmallEarth", 180, 160);
+DrawBitmap("SmallEarth", 180, 220);
+DrawBitmap("SmallEarth", 212, 220);
+RefreshScreen();
+Delay(200);
+
+// L
+DrawBitmap("SmallEarth", 276, 100);
+DrawBitmap("SmallEarth", 276, 130);
+DrawBitmap("SmallEarth", 276, 160);
+DrawBitmap("SmallEarth", 276, 190);
+DrawBitmap("SmallEarth", 276, 220);
+DrawBitmap("SmallEarth", 308, 220);
+DrawBitmap("SmallEarth", 340, 220);
+RefreshScreen();
+Delay(200);
+
+// L
+DrawBitmap("SmallEarth", 404, 100);
+DrawBitmap("SmallEarth", 404, 130);
+DrawBitmap("SmallEarth", 404, 160);
+DrawBitmap("SmallEarth", 404, 190);
+DrawBitmap("SmallEarth", 404, 220);
+DrawBitmap("SmallEarth", 436, 220);
+DrawBitmap("SmallEarth", 468, 220);
+RefreshScreen();
+Delay(200);
+
+// O
+DrawBitmap("SmallEarth", 530, 160);
+DrawBitmap("SmallEarth", 622, 160);
+DrawBitmap("SmallEarth", 540, 128);
+DrawBitmap("SmallEarth", 560, 100);
+DrawBitmap("SmallEarth", 592, 100);
+DrawBitmap("SmallEarth", 612, 128);
+DrawBitmap("SmallEarth", 540, 192);
+DrawBitmap("SmallEarth", 560, 220);
+DrawBitmap("SmallEarth", 592, 220);
+DrawBitmap("SmallEarth", 612, 192);
+RefreshScreen();
+Delay(500);
+
+// World
+DrawBitmap("Earth", 100, 350);
+RefreshScreen(60);
+Delay(2000);
+
+// SplashKit ("Me")
+DrawBitmap("SplashKitBox", 450, 300);
+DrawText("SplashKit!", ColorBlack(), "main", 50, 450, 530);
+RefreshScreen(60);
+Delay(2000);
+```
+
+Following a bit of a theme with *writing words out of something other than actual text*, we get this:
+
+<!-- Testing embedded video -->
+<!-- TODO: upload video to SplashKit youtube instead -->
+<!-- May update this to be a png of the final images on the window if/when a full video has been created -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nYVyxuZOqpo?si=PtXf2TXsQXCpZNkL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+&#127759; Yes, that is "HELLO", written using "worlds" &#128516;  
+(Because "HELLO" ... "*world*")
+
+:::tip[Hooray!]
+You have now successfully run terminal and graphical programs in C#!
+
+Next we will have a look at the Debugger, to help you when things don't run quite so smoothly.
+:::
