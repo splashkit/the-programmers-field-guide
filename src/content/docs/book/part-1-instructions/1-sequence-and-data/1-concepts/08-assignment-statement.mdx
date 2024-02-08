@@ -226,8 +226,8 @@ export const sliderImagesAssignDouble = [
     altText: "Assignment for a division stored in a double.",
     tipStart: 1,
     tips: [
-      "How does the assignment operator work when the result is to be stored in a double instead of an int? <br>&nbsp; <span class='fa fa-arrow-right'></span> &nbsp; Let's change the type of the variable that stores the result of the division ('quotient') from an int to a double.",
-      "Remember, the assignment operator ('=') implies two actions: <ul><li><span class='boldunderline'>evaluate</span> the right hand side expression (5a,5b,5c) and</li> <li><span class='boldunderline'>save</span> the result of the evaluation into the variable on the left hand side (5d).</li></ul>"
+      "How does the assignment operator work when the result is to be stored in a double instead of an int?",
+      "Everything up to instruction 5 is the same, except the variable 'quotient' can store a double value now, so we'll skip over the first 4 instructions in our source code.",
     ]
   },
   {
@@ -235,8 +235,8 @@ export const sliderImagesAssignDouble = [
     altText: "The right hand.",
     tipStart: 3,
     tips: [
-      "To <span class='boldunderline'>evalulate</span> the right hand side expression, the CPU needs to first <span class='boldunderline'>load</span> the dividend and divisor from the stack into the registers (5a, 5b), then perform the <span class='boldunderline'>division</span> (5c)",
-      "To perform the <span class='boldunderline'>division</span> (5c):<ul><li>The cpu calculates register 1 / register 2</li><li>Although the divisor and dividend are both integers, the result is to be stored in a double, and so the CPU stores the result as a double in a register (register 3)</li><li>The double value 5.25 represents the final evaluation of the right hand side expression.</li></ul>"
+      "To <span class='boldunderline'>evalulate</span> the right hand side expression, the CPU needs to first <span class='boldunderline'>load</span> the dividend and divisor from the stack into registers (5a, 5b).",
+      "To perform the <span class='boldunderline'>division</span> (5c):<ul><li>The CPU calculates the value of register 1 / register 2.</li><li>Although the divisor and dividend are both integers, the result is to be stored in a double, and so the CPU stores the result, 5.25, as a double in register 3.</li></ul>"
     ]
   },
   {
@@ -244,7 +244,7 @@ export const sliderImagesAssignDouble = [
     altText: "The result of the evaluation of the right hand side, is saved into the variable on the left hand side of the assignment operator.",
     tipStart: 5,
     tips: [
-      "The final part of the assignment statement is to save the result of the evaluation of the right hand side expression, into the variable on the stack ('quotient') (5d)"
+      "The final part of the assignment statement is to <span class='boldunderline'>store</span> the result of evaluating the expression on the right hand side into the variable on the left hand side ('quotient') (5d)."
     ]
   },
   {
@@ -252,7 +252,8 @@ export const sliderImagesAssignDouble = [
     altText: "the CPU increments the program counter ready for the next instruction",
     tipStart: 6,
     tips: [
-      "Once the assignment is done, the CPU increments the program counter ready for the next instruction."
+      "Once the assignment is done, the CPU increments the program counter ready for the next instruction.",
+      "This is the same as the previous example."
     ]
   }
 ];
