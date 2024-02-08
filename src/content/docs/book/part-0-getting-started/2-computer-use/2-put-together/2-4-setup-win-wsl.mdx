@@ -1,9 +1,9 @@
 ---
 title: Set up my Windows - WSL
 sidebar:
-  label: Set up my Windows (WSL)
   attrs:
     class: windows
+  label: " - Windows (WSL)"
 ---
 
 import { Card, CardGrid } from "@astrojs/starlight/components";
@@ -25,10 +25,10 @@ Now, to set up WSL and install SplashKit on Windows, follow the steps outlined b
 
 To install WSL on your Windows computer, follow the official Microsoft documentation: [Install Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
-![](/gifs/setup-windows/install-wsl.gif)
+![](/public/gifs/setup-windows/install-wsl.gif)
 
 Make sure to choose the WSL version that suits your needs (WSL 1 or WSL 2) and follow the instructions provided.
-![](/gifs/setup-windows/wsl-terminal.gif)
+![](/public/gifs/setup-windows/wsl-terminal.gif)
 
 ## 2. Install the SplashKit SDK
 
@@ -56,7 +56,7 @@ This ensures that you have the latest information about available packages.
 sudo apt install git curl
 ```
 
-![](/gifs/setup-windows/wsl-git-curl.gif)
+![](/public/gifs/setup-windows/wsl-git-curl.gif)
 
 ### Step 4: Download and run the SplashKit installer
 
@@ -66,7 +66,7 @@ Copy and paste the following command into your WSL Terminal to download and run 
 bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)
 ```
 
-![](/gifs/setup-windows/wsl-skm-install.gif)
+![](/public/gifs/setup-windows/wsl-skm-install.gif)
 
 :::note
 If the command above does not produce any response, ensure that your computer is connected to the internet and try disabling your firewall.
@@ -122,7 +122,7 @@ These commands will install the necessary C/C++ compilers and debuggers for your
 ## 3. Install SplashKit Globally
 
 To install SplashKit globally on your WSL, run the following command in your WSL Terminal:
-![](/gifs/setup-windows/wsl-install-global.gif)
+![](/public/gifs/setup-windows/wsl-install-global.gif)
 
 ```bash title="Splashkit Installation script"
 skm linux install
@@ -143,7 +143,7 @@ After installing MSYS, proceed to set up Visual Studio Code:
 4. Customize installation options as needed.
 5. Open Visual Studio Code from the Start menu.
 
-![Install VSCode](/gifs/setup-windows/install-vscode.gif)
+![Install VSCode](/public/gifs/setup-windows/install-vscode.gif)
 
 ## 5. Install VSCode Extensions
 
@@ -161,17 +161,4 @@ Open Visual Studio Code and install these extensions for a better development ex
 
 </Tabs>
 
-  Now, your Windows machine is set up with MSYS, Visual Studio Code, and
-  SplashKit, ready for C++ and C# development. Happy coding!
-
-## 6. Testing SplashKit Install
-
-To test your SplashKit installation on WSL, run the following command in your WSL Terminal:
-
-```bash
-skm test
-```
-
-This will ensure that SplashKit is correctly installed and working on your WSL environment.
-
-With these steps completed, you have set up your Windows computer for coding in C# and C++ with SplashKit using WSL. Happy coding!
+Now, your Windows machine is set up with WSL, Visual Studio Code, and SplashKit, ready for C++ and C# development. Happy coding!

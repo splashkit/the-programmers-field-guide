@@ -1,9 +1,9 @@
 ---
 title: Set up my Windows - MSYS
 sidebar:
-  label: Set up my Windows (MSYS)
   attrs:
     class: windows
+  label: " - Windows (MSYS)"
 ---
 
 import { Card, CardGrid } from "@astrojs/starlight/components";
@@ -13,8 +13,10 @@ In this guide, we will walk through the steps to install the necessary applicati
 
 :::note[Already have MSYS installed?]
 If you have previously installed SplashKit (before 2024):
-- Update SplashKit using your WSL terminal with the command: skm update
+
+- Update SplashKit using your WSL terminal with the command: `skm update`
 - Then you can skip to Step [2. Install VScode](#2-install-visual-studio-code).
+
 :::
 
 ### 1. Install MSYS
@@ -28,7 +30,7 @@ To set up your Windows machine for development using MSYS, follow these steps:
 3. Follow the on-screen instructions for installation, customizing options as needed.
 4. Once installed, open the MSYS terminal from the Start menu.
 
-![Install MSYS](/gifs/setup-windows/install-msys.gif)
+![Install MSYS](/public/gifs/setup-windows/install-msys.gif)
 
 ### 2. Install Visual Studio Code
 
@@ -42,7 +44,7 @@ After installing MSYS, proceed to set up Visual Studio Code:
 4. Customize installation options as needed.
 5. Open Visual Studio Code from the Start menu.
 
-![Install VSCode](/gifs/setup-windows/install-vscode.gif)
+![Install VSCode](/public/gifs/setup-windows/install-vscode.gif)
 
 ### 3. Install SplashKit SDK
 
@@ -75,21 +77,22 @@ bash skm-install.sh
 
 :::
 
-![MSYS SKM Install](/gifs/setup-windows/msys-skm-install.gif)
+![MSYS SKM Install](/public/gifs/setup-windows/msys-skm-install.gif)
 
 #### Step 3: Install SplashKit Globally
-- Open the MinGW terminal as an **administrator**. 
+
+- Open the MinGW terminal as an **administrator**.
 - Run the following script to install SplashKit globally:
 
 ```bash
 skm global install
 ```
 
-![MSYS Global Install](/gifs/setup-windows/msys-global-install.gif)
+![MSYS Global Install](/public/gifs/setup-windows/msys-global-install.gif)
 
 ### 4. Install Language Tools for C++ and C#
 
-#### For C++:
+#### For C++
 
 Ensure you have the necessary tools by running these commands in MSYS terminal:
 
@@ -98,7 +101,7 @@ pacman -S mingw-w64-x86_64-gcc --noconfirm --disable-download-timeout
 pacman -S mingw-w64-x86_64-gdb --noconfirm --disable-download-timeout
 ```
 
-#### For C# (.NET SDK):
+#### For C# (.NET SDK)
 
 1. Download the latest .NET SDK for Windows from [https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download).
 2. Run the installer and follow on-screen instructions.

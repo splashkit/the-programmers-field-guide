@@ -82,7 +82,7 @@ Locate the Raspberry Pi and 3 piece heatsink kit. Remove the Pi from its packagi
 
 ![Picture of Raspberry Pi and heatsink kit](./images/Pi-Computer/Pi_Heatsink.jpg)
 
-Peel the backing off the heat sinks and stick them to the Pi. 
+Peel the backing off the heat sinks and stick them to the Pi.
 
 :::note
 The largest heatsink goes on the CPU(SOC), the two smaller ones go on the RAM and USB chips (as shown below):
@@ -322,8 +322,8 @@ To make the cables a bit neater, you can use the cable ties from the packaging t
 
 ### Complete Setup
 
-You should now have a fully constructed Raspberry Pi multi-tool. 
-
-To continue the setup process, continue to the next page: [Set up my Raspberry Pi](/book/part-0-getting-started/2-computer-use/2-put-together/1-2-setup-pi/) for instructions on how to install the operating system and configure the Pi.
+You should now have a fully constructed Raspberry Pi multi-tool.
 
 ![Image of the full Raspberry Pi multi-tool](./images/Pi-Computer/CompeteSetup.jpg)
+
+To continue the setup process, continue to the next page: [Set up my Raspberry Pi](/book/part-0-getting-started/2-computer-use/2-put-together/1-2-setup-pi/) for instructions on how to install the operating system and configure the Pi.

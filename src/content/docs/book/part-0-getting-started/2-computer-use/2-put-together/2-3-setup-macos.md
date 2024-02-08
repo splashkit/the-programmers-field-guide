@@ -3,6 +3,7 @@ title: Set up my macOS
 sidebar:
   attrs:
     class: apple
+  label: " - macOS"
 ---
 
 *Let's get your macOS computer ready to start coding!*
@@ -248,21 +249,3 @@ code ~/.zshrc
 ```
 
 ![Gif showing 'code ~/.zshrc' command opening file in VS Code](/public/gifs/setup-macos/code-zshrc-open.gif)
-
-## 7. Testing SplashKit Install
-
-:::tip[Coming Soon]
-Test your install with `skm test`.
-:::
-
-<!-- Will uncomment the text below once `skm test` has been finished -->
-
-<!-- To test your SplashKit installation on your Mac, run the following command in the Terminal:
-
-```bash
-skm test
-```
-
-This will ensure that SplashKit is correctly installed and working on your macOS machine.
-
-With these steps completed, you have set up your macOS computer for coding in C# and C++ with SplashKit. Happy coding! -->

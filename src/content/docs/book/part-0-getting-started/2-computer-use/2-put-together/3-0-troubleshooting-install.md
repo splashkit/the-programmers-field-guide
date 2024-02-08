@@ -1,7 +1,5 @@
 ---
 title: Installation Troubleshooting
-sidebar:
-  label: " - Installation Troubleshooting"
 ---
 
 As you go through the **"Set up my ..."** installation guide for your operating system *(shown in the sidebar below this page)*, you may encounter errors or issues that prevent you from completing a particular step.
@@ -75,7 +73,7 @@ Take the time to try to *understand* what you are reading, especially related to
 
 Understanding a bit about the software or context of your issue can drastically improve your skills with searching for issues online, or understanding the suggested solutions enough to know if it could work for your situation.
 
-It might be helpful to go back and revise the content in the "Concepts" pages in [1: Digital Realities](../../1-digital-realities/1-concepts/1-programs.mdx) and [2: Computer Use](../1-concepts/01-terminal.md) because you now have more context for how to interpret the information on those pages.
+It might be helpful to go back and revise the content in the "Concepts" pages in [1: Digital Realities](../../../1-digital-realities/1-concepts/1-programs) and [2: Computer Use](../../1-concepts/01-terminal) because you now have more context for how to interpret the information on those pages.
 
 :::tip[Learning from errors]
 Troubleshooting errors/issues can be a fantastic opportunity to learn more about how your computer works, or clarify your understanding of related concepts!
@@ -152,7 +150,7 @@ By using an older version of SplashKit, you won't be able to install SplashKit g
 
 Therefore, you will need to use `skm` at the start of any compiling/building commands, or when running C# programs.
 
-For example, here is the updated versions of the terminal commands mentioned at the end of the [Build and Run](../../3-building-programs/1-concepts/03-build-and-run.md) page:
+For example, here is the updated versions of the terminal commands mentioned at the end of the [Build and Run](../../../3-building-programs/1-concepts/03-build-and-run) page:
 
 - `skm dotnet new console` - create a new C# terminal project in the current working directory.
 - `skm dotnet build` - compile the project in the current working directory (can be skipped).
