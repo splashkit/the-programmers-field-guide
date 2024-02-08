@@ -18,7 +18,7 @@ Firstly, we need to create a new C# project folder and the initial project files
 
 ### 1. Create Project Folder
 
-As mentioned earlier, in the Concepts page: [Create a Project](../1-concepts/01-create-project.md), we will be using the **~/Documents/Code** folder as the base. If you are saving your code elsewhere then make sure to adjust paths as needed.
+As mentioned earlier, in the Concepts page: [Create a Project](../../1-concepts/01-create-project), we will be using the **~/Documents/Code** folder as the base. If you are saving your code elsewhere then make sure to adjust paths as needed.
 
 To set up your HelloWorld folder from the terminal, copy and paste the following command into your Terminal window:
 

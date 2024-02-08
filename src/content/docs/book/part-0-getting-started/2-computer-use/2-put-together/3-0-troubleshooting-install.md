@@ -145,18 +145,21 @@ git fetch –unshallow
 git checkout cbb68dc
 ```
 
-:::note[No more globally installed SplashKit libraries]
+:::note
 By using an older version of SplashKit, you won't be able to install SplashKit globally.
 
-Therefore, you will need to use `skm` at the start of any compiling/building commands, or when running C# programs.
+Therefore, you will need to use the commands mentioned in the [section below](#no-splashkit-global-install).
+:::
+
+### No SplashKit Global Install
+
+If you have had issues installing the SplashKit global libraries, or you are using an older version of SplashKit, you will need to use `skm` at the start of any compiling/building commands, or when running C# programs.
 
 For example, here is the updated versions of the terminal commands mentioned at the end of the [Build and Run](../../../3-building-programs/1-concepts/03-build-and-run) page:
 
 - `skm dotnet new console` - create a new C# terminal project in the current working directory.
 - `skm dotnet build` - compile the project in the current working directory (can be skipped).
 - `skm dotnet run` - build if needed, then execute your program.
-
-:::
 
 You may encounter other limitations, but with the commands above, you will be able to create and run SplashKit projects successfully.
 

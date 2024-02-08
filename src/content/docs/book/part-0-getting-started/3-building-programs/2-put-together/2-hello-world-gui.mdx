@@ -4,7 +4,9 @@ sidebar:
   label: " - Graphical Hello World"
 ---
 
-Continuing on from [the previous page](./1-hello-world-cli.md), we will now be using *SplashKit* to create a GUI (**G**raphical **U**ser **I**nterface) Hello World program.
+import { YouTube } from 'astro-embed';
+
+Continuing on from [the previous page](../1-hello-world-cli), we will now be using *SplashKit* to create a GUI (**G**raphical **U**ser **I**nterface) Hello World program.
 
 ## Add SplashKit package to project
 
@@ -50,13 +52,15 @@ We would get this output in the Terminal (shown in the Green Box):
 :::
 
 :::caution['dotnet run' not working?]
-If you were not able to install SplashKit globally in the installation guide in the [previous chapter](../../2-computer-use/2-put-together/0-0-overview.md), you can use the following command instead:
+If you were not able to install SplashKit globally in the installation guide in the [previous chapter](../../../2-computer-use/2-put-together/2-0-set-up-my), you can use the following command instead:
 
 ```bash
 skm dotnet run
 ```
 
-You will need to add `skm` to the front of the commands mentioned in the Concepts [Build and Run](../1-concepts/03-build-and-run.md) page until you are able to get SplashKit installed globally (by [troubleshooting](../../2-computer-use/2-put-together/0-1-troubleshooting-install.md), or asking one of the tutors for help).
+You will need to add **`skm`** to the front of your `dotnet` terminal commands.
+
+You can find the updated commands to use in the [No SplashKit Global Install](../../../2-computer-use/2-put-together/3-0-troubleshooting-install/#no-splashkit-global-install) section on the Installation Troubleshooting page from the previous chapter.
 :::
 
 ## Graphical Hello World
@@ -256,9 +260,11 @@ RefreshScreen(60);
 Delay(2000);
 ```
 
-Following a bit of a theme with *writing words out of something other than actual text*, we get this as the final screen:
+Following a bit of a theme with *writing words out of something other than actual text*, we get this:
 
-![A SplashKit window showing output of code above: HELLO written in worlds, then a bigger world image and an image of the SplashKit logo](./images/hello-world-with-resources-output.png)
+<div class="not-content">
+  <YouTube id="LVYH18vDQ-w" params="fs=1&start=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
 
 &#127759; Yes, that is "HELLO", written using "worlds" &#128516;  
 (Because "HELLO" ... "*world*")
