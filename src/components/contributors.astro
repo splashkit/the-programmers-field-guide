@@ -9,7 +9,7 @@ import Contributor from "./contributor.astro";
 
 import { CardGrid } from "@astrojs/starlight/components";
 
-const dont_include = ["macite", "jakerenzella", "charlottepierce"];
+const dont_include = ["macite", "jakerenzella", "charlottepierce", "dependabot[bot]"];
 ---
 
 <CardGrid>
@@ -43,6 +43,7 @@ const dont_include = ["macite", "jakerenzella", "charlottepierce"];
   Artwork by ..., and a whole bunch of other people who contributed to the
   project:
 </p>
+
 
 {
   users.map
