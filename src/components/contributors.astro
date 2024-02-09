@@ -46,9 +46,9 @@ const dont_include = ["macite", "jakerenzella", "charlottepierce"];
 
 {
   users.map
-    ? users.map((data: { login: string; html_url: string }) =>
+    ? users.map((data: { login: string; html_url: string; avatar_url: string }) =>
         dont_include.includes(data.login) ? null : (
-          <Contributor name={data.login} url={data.html_url} />
+          <Contributor name={data.login} url={data.html_url} avatar_url={data.avatar_url} />
         )
       )
     : null

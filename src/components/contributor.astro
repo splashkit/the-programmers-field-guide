@@ -1,7 +1,8 @@
 ---
-import { LinkCard } from "@astrojs/starlight/components";
+import { LinkCard, Card } from "@astrojs/starlight/components";
+import { Image } from "astro:assets";
 
-const { name, url } = Astro.props;
+const { name, url, avatar_url } = Astro.props;
 ---
 
 <style>
@@ -10,4 +11,20 @@ const { name, url } = Astro.props;
   }
 </style>
 
-<LinkCard title={name} href={url} />
+
+
+test
+
+<div>
+  <Image src={avatar_url} alt={name} width={50} height={50} />
+</div>
+
+<Card title={name}>
+  <Image src={avatar_url} alt={name} width={50} height={50} />
+  <p>{name}</p>
+  <p>{url}</p>
+</Card>
+
+<LinkCard title={name} href={url}>
+  <Image src={avatar_url} alt={name} width={50} height={50} />
+</LinkCard>
