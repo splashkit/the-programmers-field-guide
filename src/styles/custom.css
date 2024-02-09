@@ -43,6 +43,8 @@
   font-family: "antique-olive", sans-serif;
 }
 
+
+
 [data-has-hero] .page {
   /* simple, light dots repeating */
   --dot-bg: white;
@@ -693,12 +695,6 @@ aside[aria-label="How does this work?"] ul > li ul li ul li::before {
 .starlight-aside,
 .card {
   border-radius: 0.5rem;
-}
-.main-pane  {
-  img {
-    border-radius: 0.5rem;
-    box-shadow: var(--sl-shadow-md);
-  }
 }
 .expressive-code {
   border-radius: 0.6rem;
