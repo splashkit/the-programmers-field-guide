@@ -290,39 +290,30 @@ export const sliderImagesWhileSplashKitLoop = [
   }
 ];
 
+The while loop is a common feature of most programming languages. It is a pre-test loop, meaning that the statement starts with a condition, then a statement to be repeated. This means the code inside the loop will be repeated zero or more times, depending on the value of the condition. This is visualised in the following diagram.
 
-The while loop is a common feature of most programming languages. The loop starts with the condition and is followed by a statement to be repeated. In C# we can use the [compound statement](../02-compound-statement) to have the while loop repeat a block of code.
+![The pre-test Loop checks the condition, then runs the loop’s body](./images/loop-pre-test.png "The pre-test loop checks the condition, then runs the loop’s body")
 
-<a id="FigurePreTestLoop"></a>
+## While -- when, why, and how
 
-![Figure x.y: The Pre-Test Loop checks the condition, then runs the loop’s body](./images/loop-pre-test.png "The Pre-Test Loop checks the condition, then runs the loop’s body")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>A while loop is a pre-test loop, evaluating the condition before running or jumping the loop body.</div><br/>
+The while loop is a flexible way to have code repeated and will be used a lot in your programs. It should be your first thought when you want something to be repeated.
 
-## While - Why, When, and How
-
-The while loop is a flexible way to have code repeated and will be used more often than the do while loop. The while loop should be your first thought when you want something to be repeated.
-
-When planning to use a while loop, you need to determine the condition that will indicate if the loop should be run. This condition then determines if the code continues into the while loop's body, or if the loop body is skipped and the sequence continues with the instructions that follow the loop.
-
+When planning to use a while loop, you first need to determine the condition that will indicate if the loop should be run. This condition determines if the computer continues into the while loop's body, or if the loop body is skipped and the sequence continues with the instructions that follow the loop.
 You then want to make sure that something in the loop will change the condition so that there is a definite end to the loop. This could be reading a value from the user, or re-checking which events have occurred.
 
 :::caution
-
-At some point, you will end up with an unexpected infinite loop. In these cases, you need to remember the details on how to [signal](../../../../part-0-getting-started/2-computer-use/1-concepts/8-signals) the operating system. You can use the ctrl-c to [kill](../../../../part-0-getting-started/2-computer-use/1-concepts/8-signals/#killing-a-program-ctrl-c) the program.
-
+At some point you will end up with an unexpected infinite loop. In these cases, you need to remember the details on how to [signal](../../../../part-0-getting-started/2-computer-use/1-concepts/08-signals) the operating system. You can use the ctrl-c to [kill](../../../../part-0-getting-started/2-computer-use/1-concepts/08-signals#killing-a-program-ctrl-c) the program.
 :::
 
 At a lower level, the while loop is achieved using two jump statements:
 
 1. At the start of the loop, we have a conditional jump. If the condition is false, we jump to the instruction that follows the loop. Otherwise, control continues to flow in sequence to the loop's body (the statement following the condition).
-2. At the end of the body of the loop, a jump statement is added to go back to the condition. Repeating step 1.
+2. At the end of the body of the loop, a jump statement is added to go back to the condition, and step 1 is repeated.
 
-It is important to remember these actions that are performed. The while is just testing at the start, then either going into the body of the loop or jumping to the statement that follows. The condition may change at any time, but this will only be used by the while loop when it is back at the top of the loop checking it and using the expression to determine if to skip the body or not.
+It is important to remember these actions that are performed. The while is just testing at the start, then either going into the body of the loop or jumping to the statement that follows. The value the condition evaluates to may change at any time, but it will only be checked when control is back at the top of the loop and the computer needs to determine whether to run the loop again or not.
 
 :::tip
-
-Remember everything is always in sequence. The word "while" seems to indicate this happens any time the condition is true. This would bring in lots of complexity if that were true, like what happens if we are halfway through and the condition is no longer true? Fortunately for us, this isn't even something we need to think about. This is simply a way of organising jumping statements to create a loop. The condition is only checked when it is the instruction that is being run. So, you can retain the sequential, stepwise, thinking process as you picture how this works.
-
+Remember everything is always in sequence. The word "while" seems to indicate that the code in the loop's body will only keep executing when the condition is true. If this were the case, our programs would suddenly be a lot more complex. For example, what happens if we are halfway through the body of a loop and the condition is suddenly false? Fortunately for us, this isn't how it works, so we don't need to worry. The condition is only checked when it is the instruction that is being run. So, you can retain the sequential, stepwise, thinking process as you picture how a loop works.
 :::
 
 ## In C#
@@ -334,6 +325,9 @@ In C#, as with most languages, the while loop starts with the `while` keyword fo
 ![While loop syntax.](./images/while-loop.png)
 
 :::
+
+ In C# we can use a [compound statement](../02-0-compound-statement) to have the while loop repeat a block of code.
+
 
 ## How does while work?
 
