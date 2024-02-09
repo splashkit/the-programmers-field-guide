@@ -64,7 +64,7 @@ This is the list of components we used to build our multi-tool with links to Aus
 ## 2. Building your multi-tool
 
 :::tip
-Using your own SD card? Make sure you have installed Raspberry Pi OS on it. You can find the instructions in the [Set up my Raspberry Pi](/book/part-0-getting-started/2-computer-use/2-put-together/1-2-setup-pi/) section.
+Using your own SD card? Make sure you have installed Raspberry Pi OS on it. You can find the instructions in the [Set up my Raspberry Pi](/book/part-0-getting-started/2-computer-use/2-put-together/2-1-setup-pi/) section.
 If we have provided you with an SD card, it will already have the OS installed.
 :::
 
@@ -326,4 +326,4 @@ You should now have a fully constructed Raspberry Pi multi-tool.
 
 ![Image of the full Raspberry Pi multi-tool](./images/Pi-Computer/CompeteSetup.jpg)
 
-To continue the setup process, continue to the next page: [Set up my Raspberry Pi](/book/part-0-getting-started/2-computer-use/2-put-together/1-2-setup-pi/) for instructions on how to install the operating system and configure the Pi.
+To continue the setup process, continue to the next page: [Set up my Raspberry Pi](/book/part-0-getting-started/2-computer-use/2-put-together/2-1-setup-pi/) for instructions on how to install the operating system and configure the Pi.
