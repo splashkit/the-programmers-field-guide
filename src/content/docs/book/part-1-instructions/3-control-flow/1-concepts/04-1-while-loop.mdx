@@ -40,7 +40,7 @@ export const sliderImagesWhileLoop = [
     altText: "Lines 1 - 5 get the user input (in this case we'll say the user entered 10), and store it in the variable 'target' on the stack. The program counter is incremented to line 6.",
     tipStart: 1,
     tips: [
-      "Lines 1 - 5 get the user input (in this case we'll say the user entered <code>10</code>), and store it in the variable 'target' on the stack.",
+      "Lines 1 - 5 get the user input (in this case we'll say the user entered '10'), and store it in the variable 'target' on the stack.",
       "The program counter is incremented to line 6."
     ]
   },
@@ -49,18 +49,18 @@ export const sliderImagesWhileLoop = [
     altText: "On line 6, a variable named 'i' is declared and initialized to 0 on the stack. 'i' will function as our loop counter. The program counter is incremented to line 7, the start of our while loop.",
     tipStart: 2,
     tips: [
-      "On line 6, a variable named 'i' is declared and initialized to 0 on the stack",
-      "'i' will function as our loop counter",
+      "On line 6, a variable named 'i' is declared and initialized to 0.",
+      "'i' will function as our loop counter.",
       "The program counter is incremented to line 7, the start of our while loop."
     ]
   },
   {
     src: whileLoopSlide03.src,
-    altText: "The condition of our while loop is evaluated. Since 'i' (0) is less than target (10), it evaluates to true. The program counter is incremented to the start of the while block (line 8).",
+    altText: "The condition of our while loop is evaluated. Since 'i' (0) is less than 'target' (10), it evaluates to true. The program counter is incremented to the start of the while block (line 8).",
     tipStart: 3,
     tips: [
-      "The condition of our while loop is evaluated. Since 'i' (0) is less than target (10), it evaluates to <span class='booleanTrue'>true</span>",
-      "The program counter is incremented to the start of the while block (line 8)"
+      "The condition of our while loop is evaluated. Since 'i' (0) is less than 'target' (10), it evaluates to <span class='booleanTrue'>true</span>.",
+      "Because the condition is true, the program counter is incremented to the start of the while block (line 8)."
     ]
   },
   {
@@ -68,8 +68,8 @@ export const sliderImagesWhileLoop = [
     altText: "The opening brace indicates the start of our while loop block of code. The program counter is incremented to line 9.",
     tipStart: 4,
     tips: [
-      "The opening brace indicates the start of our while loop block of code",
-      "The program counter is incremented to line 9"
+      "The opening brace indicates the start of our while loop body.",
+      "The program counter is incremented to line 9."
     ]
   },
   {
@@ -77,8 +77,8 @@ export const sliderImagesWhileLoop = [
     altText: "Line 9 outputs the value of our loop counter (i) to the terminal (in this case 0). The program counter increments to line 10.",
     tipStart: 5,
     tips: [
-      "Line 9 outputs the value of our loop counter (i) to the terminal (in this case 0)",
-      "The program counter increments to line 10"
+      "Line 9 outputs the value of our loop counter 'i', which currently has a value of 0, to the terminal.",
+      "The program counter increments to line 10."
     ]
   },
   {
@@ -86,9 +86,9 @@ export const sliderImagesWhileLoop = [
     altText: "The value of our loop counter 'i' is incremented by 1. The program counter is incremented to line 11, where it hits the closing brace, at this point it cycles back up to line 7 in order to evaluate the while condition once more to determine if the loop is to continue or not.",
     tipStart: 6,
     tips: [
-      "The value of our loop counter 'i' is incremented by 1",
+      "The value of our loop counter 'i' is incremented by 1.",
       "The program counter is incremented to line 11, where it hits the closing brace",
-      "At this point it cycles back up to line 7 in order to evaluate the while condition once more to determine if the loop is to continue or not"
+      "At this point the computer jumps back up to line 7 in order to evaluate the condition once more to determine if the loop is to continue or not."
     ]
   },
   {
@@ -96,8 +96,9 @@ export const sliderImagesWhileLoop = [
     altText: "The while loop condition is evaluated once more. It evaluates to true because the value of 'i' (1) is still less than the value of 'target' (10), and so it will execute the block of code between the while braces once more.",
     tipStart: 7,
     tips: [
-      "The while loop condition is evaluated once more",
-      "It evaluates to <span class='booleanTrue'>true</span> because the value of 'i' (1) is still less than the value of 'target' (10), and so it will execute the block of code between the while braces once more."
+      "The while loop condition is evaluated.",
+      "It evaluates to <span class='booleanTrue'>true</span> because the value of 'i' (1) is still less than the value of 'target' (10).",
+      "Because the condition is true, the body of the loop will be executed again."
     ]
   },
   {
@@ -105,8 +106,9 @@ export const sliderImagesWhileLoop = [
     altText: "Line 9 prints the value of 'i' (1) to the terminal. The program counter increases to line 10.",
     tipStart: 8,
     tips: [
-      "Line 9 prints the value of 'i' (1) to the terminal",
-      ". The program counter increases to line 10"
+      "Line 8 signifies the start of the looped code, so let's skip to line 9.",
+      "Line 9 prints the value of 'i', which is 1, to the terminal.",
+      "The program counter increases to line 10."
     ]
   },
   {
@@ -114,10 +116,9 @@ export const sliderImagesWhileLoop = [
     altText: "Line 10 increments the value of 'i' by 1. The program counter moves to line 11, then back up to line 7 to evaluate the while condition to determine whether the loop continues or ends. While the loop counter 'i' is less than the value of 'target' (10), it keeps printing the value of 'i' to the terminal, then incrementing 'i'. Let's jump ahead",
     tipStart: 9,
     tips: [
-      "Line 10 increments the value of 'i' by 1",
-      "The program counter moves to line 11, then back up to line 7 to evaluate the while condition to determine whether the loop continues or ends",
-      "While the loop counter 'i' is less than the value of 'target' (<code>10</code>), it keeps printing the value of 'i' to the terminal, then incrementing 'i'",
-      "Let's jump ahead..."
+      "Line 10 increments the value of 'i' by 1.",
+      "The program counter moves to line 11, then back up to line 7 to evaluate the while condition to determine whether the loop continues or ends.",
+      "As long as the value of the loop counter 'i' is less than the value of 'target', the computer will keep printing the value of 'i' then incrementing 'i'.",
     ]
   },
   {
@@ -125,23 +126,21 @@ export const sliderImagesWhileLoop = [
     altText: "Let's jump ahead to where 'i' has just been incremented to 10. So far, the numbers 0-9 have been output to the terminal. The program counter increments to lines 11, then 7 again to evaluate the while condition.",
     tipStart: 10,
     tips: [
-      "Let's jump ahead to where 'i' has just been incremented to 10",
-      "So far, the numbers 0-9 have been output to the terminal",
-      "The program counter increments to lines 11, then 7 again to evaluate the while condition"
+      "Let's jump ahead to where 'i' has just been incremented to 10.",
+      "So far, the numbers 0 - 9 have been output to the terminal.",
+      "The program counter increments to lines 11, then 7 again to evaluate the while condition."
     ]
   },
   {
     src: whileLoopSlide11.src,
-    altText: " This time on line 7, 'i' (10) is not less than 'target' (10), and so evaluates to false. The program counter jumps to line 11, and both the while loop and the program end.",
+    altText: " This time on line 7, 'i' is not less than 'target', and so evaluates to false. The program counter jumps to line 11, and both the while loop and the program end.",
     tipStart: 11,
     tips: [
-      " This time on line 7, 'i' (10) is not less than 'target' (10), and so evaluates to <span class='booleanFalse'>false</span>",
+      "This time at line 7, 'i' is <b>not</b> less than 'target' (10), and so the while condition evaluates to <span class='booleanFalse'>false</span>.",
       "The program counter jumps to line 11, and both the while loop and the program end."
     ]
   }
 ];
-
-
 
 export const sliderImagesWhileSplashKitLoop = [
   {
@@ -365,15 +364,11 @@ Use the following images to see how this runs.
 
 <MySwiper client:only height="" images={sliderImagesWhileLoop}></MySwiper>
 
-:::tip[Attention]
-Notice how the loop is achieved through a few simple jump statements.
-:::
-
 ### Keeping graphical programs running
 
-Now let's look at how we can use a while loop to keep a window open in SplashKit. In this case, we can use the `QuitRequested` method from SplashKit to find out if the user has asked to quit the program (by closing the window). This will return false if they have not asked to quit, so we need to loop *while* quit was **not** requested. Remember, in C# the `!` is used for not, giving us `!QuitRequested()`.
+Now let's look at how we can use a while loop to keep a window open in SplashKit. In this case, we can use the `QuitRequested` method from SplashKit to find out if the user has asked to quit the program by closing the SplashKit window on their screen. `QuitRequested` will return `false` if the user has not asked to quit, so we need to loop **while** quit is **not** requested. Remember, in C# we use `!` for "not", giving us a condition `!QuitRequested()` for our loop.
 
-Within the loop, we need to tell SplashKit to respond to any events the user has performed. This is achieved with the `ProcessEvents()` method. It reads things like key presses, mouse moves, window closes, etc and retains this information so that you can access it using the methods provided. In this case, it will record if the user has asked to quit and we check this when we call `QuitRequested` in the condition. If you forget to add the call to `ProcessEvents` then you will not be able to close the window. In these cases, switch to the terminal and kill the program with ctrl-c.
+Within the loop, we need to tell SplashKit to respond to any events the user has performed. This is achieved with the `ProcessEvents()` method. It reads things like key presses, mouse movements, and window closes, and retains this information so that you can access it using other methods. In this case, it will record if the user has asked to quit, and we're accessing this information when we call `QuitRequested` in the condition. If you forget to add the call to `ProcessEvents` then you will not be able to close the window. In these cases, switch to the terminal and kill the program with [ctrl-c](../../../../part-0-getting-started/2-computer-use/1-concepts/08-signals).
 
 ```csharp
 using static SplashKitSDK.SplashKit;
@@ -381,12 +376,12 @@ using static SplashKitSDK.SplashKit;
 OpenWindow("Circle Test", 400, 400);
 ClearScreen(ColorWhite());
 
-while ( !QuitRequested())
+while (!QuitRequested())
 {
-  FillCircle(RandomColor(), Rnd(ScreenWidth()), Rnd(ScreenHeight()), Rnd(50));
-  RefreshScreen();
+    FillCircle(RandomColor(), Rnd(ScreenWidth()), Rnd(ScreenHeight()), Rnd(50));
+    RefreshScreen();
 
-  ProcessEvents();
+    ProcessEvents();
 }
 ```
 
