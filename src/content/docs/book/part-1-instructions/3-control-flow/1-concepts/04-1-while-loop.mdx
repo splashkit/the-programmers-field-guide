@@ -148,9 +148,9 @@ export const sliderImagesWhileSplashKitLoop = [
     altText: "Lines 1 and 2 use the SplashKit library to open a new window on the user's desktop, with the title 'Circle Test' and the dimensions 400px x 400px",
     tipStart: 1,
     tips: [
-      "Lines 1 and 2 use the SplashKit library to open a new window",
-      "The Window object is created in memory before opening on the user's desktop",
-      "It has the title 'Circle Test' and dimensions 400x400px as given by the parameters to the <code>OpenWindow()</code> function"
+      "Lines 1 and 2 use the SplashKit library to open a new window.",
+      "The window is created in memory before opening on the user's desktop.",
+      "The window has the title 'Circle Test' and dimensions 400x400px as given by the parameters to the <code>OpenWindow()</code> method."
     ]
   },
   {
@@ -158,8 +158,8 @@ export const sliderImagesWhileSplashKitLoop = [
     altText: "Line 3 clears the main window area, initializing it to the color yellow in memory",
     tipStart: 2,
     tips: [
-      "Line 3 clears the main window area, initializing it to the color yellow",
-      "It does this in memory - the user window remains unchanged"
+      "Line 3 clears the main window area, initializing it to the color yellow.",
+      "It does this in memory, so the window the user can see remains unchanged."
     ]
   },
   {
@@ -167,9 +167,9 @@ export const sliderImagesWhileSplashKitLoop = [
     altText: "Line 4 tests if the user has requested a quit operation, and in this case, the user hasn't so the program proceeds into the body of the while loop",
     tipStart: 3,
     tips: [
-      "Line 4 contains the while loop condition",
-      "It tests if the user has requested a 'Quit' operation (for e.g. clicking the top left red quit button, or entering 'Ctrl-C' on the command-line)",
-      "In this case the user hasn't, so execution continues into the body of the while loop"
+      "Line 4 contains the while loop condition.",
+      "This condition tests if the user has requested a 'Quit' operation (for example by clicking the top left red quit button).",
+      "In this case the user hasn't, so execution continues into the body of the while loop."
     ]
   },
   {
@@ -177,11 +177,11 @@ export const sliderImagesWhileSplashKitLoop = [
     altText: "At line 6 the FillCircle() function creates a new circle in the main window area (in memory only) with random dimensions",
     tipStart: 4,
     tips: [
-      "At line 6, the <code>FillCircle()</code> function creates a new circle in the main window area with the parameters given to the function",
-      "It does this in memory only, not in the window created on the desktop",
-      "The parameters specify a circle with a random color, position and radius",
-      "The max values for position are the screen width and height",
-      "The max value of the radius is 50px"
+      "At line 6, the <code>FillCircle()</code> method draws a circle on the window.",
+      "It does this in memory only, not in the window created on the desktop.",
+      "The parameters specify a circle with a random color, position, and radius.",
+      "The max values for the circle's position are the screen width and height.",
+      "The max value of the circle's radius is 50px."
     ]
   },
   {
@@ -189,7 +189,7 @@ export const sliderImagesWhileSplashKitLoop = [
     altText: "The call to RefreshScreen() on line 7 then updates the window on the user's desktop with the previous operations performed on the window in memory (lines 3 and 6)",
     tipStart: 5,
     tips: [
-      "The call to <code>RefreshScreen()</code> on line 7 then updates the window on the user's desktop with the previous operations performed on the window in memory (lines 3 and 6)"
+      "The call to <code>RefreshScreen()</code> on line 7 then updates the window on the user's desktop with the image stored in memory."
     ]
   },
   {
@@ -197,8 +197,8 @@ export const sliderImagesWhileSplashKitLoop = [
     altText: "Line 8 calls ProcessEvents() which processes any events on the event queue, including looking for user quit events",
     tipStart: 6,
     tips: [
-      "Line 8 calls <code>ProcessEvents()</code> which processes any events on the event queue, including looking for user quit events",
-      "Execution then moves back to line 4"
+      "Line 8 calls <code>ProcessEvents()</code>, which processes any events on the event queue (including requests from the user to quit).",
+      "Execution then moves back to line 4, the start of the while loop."
     ]
   },
   {
@@ -206,8 +206,8 @@ export const sliderImagesWhileSplashKitLoop = [
     altText: "The while loop condition is evaluated once more. The user hasn't requested a quit, so the while loop continues",
     tipStart: 7,
     tips: [
-      "The while loop condition is evaluated once more",
-      "The user hasn't requested a quit, so the while loop continues"
+      "The while loop condition is evaluated once more.",
+      "The user hasn't requested a quit, so the condition is <span class='booleanTrue'>true</span> and the while loop executes again."
     ]
   },
   {
@@ -215,7 +215,7 @@ export const sliderImagesWhileSplashKitLoop = [
     altText: "Another random circle is created in the window in memory",
     tipStart: 8,
     tips: [
-      "Another random circle is created in the window in memory"
+      "Another random circle is created in the window in memory."
     ]
   },
   {
@@ -223,7 +223,7 @@ export const sliderImagesWhileSplashKitLoop = [
     altText: "The window is refreshed from memory onto the desktop, displaying the new circle",
     tipStart: 9,
     tips: [
-      "The window is refreshed from memory onto the desktop, displaying the new circle"
+      "The window is refreshed from memory onto the desktop, displaying the new circle."
     ]
   },
   {
@@ -231,8 +231,8 @@ export const sliderImagesWhileSplashKitLoop = [
     altText: "Line 8 calls ProcessEvents() which processes any events on the event queue, including looking for user quit events",
     tipStart: 10,
     tips: [
-      "Line 8 calls <code>ProcessEvents()</code> which processes any events on the event queue, including looking for user quit events",
-      "Execution then moves back to line 4"
+      "Line 8 calls <code>ProcessEvents()</code>, which processes any events on the event queue (including requests from the user to quit).",
+      "Execution then moves back to line 4, the start of the while loop."
     ]
   },
   {
@@ -240,8 +240,8 @@ export const sliderImagesWhileSplashKitLoop = [
     altText: "The while loop condition is evaluated once more. The user hasn't requested a quit, so the while loop continues",
     tipStart: 11,
     tips: [
-      "The while loop condition is evaluated once more",
-      "The user hasn't requested a quit, so the while loop continues"
+      "The while loop condition is evaluated once more.",
+      "The user hasn't requested a quit, so the condition is <span class='booleanTrue'>true</span> and the while loop executes again."
     ]
   },
   {
@@ -249,9 +249,10 @@ export const sliderImagesWhileSplashKitLoop = [
     altText: "Let's skip ahead to the 10th iteration of the loop, line 6 will update the window object in memory with the tenth circle. At this point, the user also decides to click the 'Close Window' (quit) button on the window to close it",
     tipStart: 12,
     tips: [
-      "Let's skip ahead to the 10th iteration of the loop",
-      "Line 6 will update the window object in memory with the tenth circle",
-      "At this point, the user also decides to click the 'Close Window' (quit) button on the window to close it<ul><li>This event is added to the event queue which will be processed later</li></ul>"
+      "Let's skip ahead to the 10th iteration of the loop.",
+      "At this point there are 9 circles visible to the user.",
+      "Line 6 will update the window in memory with a tenth circle.",
+      "Let's pretend that the user now decides to click the 'Close Window' (quit) button on the window to close it. This event is added to the event queue which will be processed later."
     ]
   },
   {
@@ -259,7 +260,7 @@ export const sliderImagesWhileSplashKitLoop = [
     altText: "The window is refreshed from memory onto the desktop, displaying the new circle",
     tipStart: 13,
     tips: [
-      "The window is refreshed from memory onto the desktop, displaying the new circle"
+      "The window is refreshed from memory onto the desktop, displaying the new circle."
     ]
   },
   {
@@ -267,7 +268,7 @@ export const sliderImagesWhileSplashKitLoop = [
     altText: "Now, the 'Close Window' event that was triggered previously, will be processed by the call to ProcessEvents(), which makes it available to our program",
     tipStart: 14,
     tips: [
-      "Now, the 'Close Window' (quit) event that was triggered previously, will be processed by the call to <code>ProcessEvents()</code>, which makes it available to our program"
+      "Now, the 'Close Window' (quit) event that was triggered previously will be processed by the call to <code>ProcessEvents()</code>, which makes it available to our program."
     ]
   },
   {
@@ -275,8 +276,8 @@ export const sliderImagesWhileSplashKitLoop = [
     altText: "This means that when the while condition is evaluated, it will return false because the user has requested a quit. Execution moves to the end of the while loop",
     tipStart: 15,
     tips: [
-      "This means that when the while condition is evaluated, it will return <span class='booleanFalse'>false</span> because the user has requested a quit",
-      "Execution moves to the end of the while loop"
+      "This means that when the while condition is evaluated, it will evaluate to <span class='booleanFalse'>false</span> because the user has requested a quit.",
+      "Execution moves to the end of the while loop."
     ]
   },
   {
@@ -284,7 +285,8 @@ export const sliderImagesWhileSplashKitLoop = [
     altText: "The loop finishes and the program ends. The window in memory will be wiped and the window on the desktop will be closed",
     tipStart: 16,
     tips: [
-      "The loop finishes and the program ends (the window in memory is wiped and the window on the desktop will be closed)"
+      "The loop finishes and the program ends.",
+      "The window in memory is wiped and the window on the desktop will be closed."
     ]
   }
 ];
@@ -389,4 +391,4 @@ Use the following images to see how this runs.
 
 <MySwiper client:only height="" images={sliderImagesWhileSplashKitLoop}></MySwiper>
 
-If you have looked at sample code for most windowed programs online, you will not have seen this loop. This is what is generally known as an **event loop**, which the libraries usually take care of for you. That is great for productivity, but not great when you are trying to learn how this all works. With SplashKit we want you to be in control, so you need to create something like this loop to keep things going. When you move on to the professional libraries, you will then have a good idea of what they are doing for you in the background.
+If you have looked at sample code for most windowed programs online, you will not have seen this loop. This is what is generally known as an **event loop**, which the libraries usually take care of for you. That is great for productivity, but not great when you are trying to learn how this all works. With SplashKit we want you to be in control, so you need to create something like this loop to keep things going. When you move on to professional libraries, you will then have a good idea of what they are doing for you in the background.
