@@ -11,7 +11,7 @@ You have already seen jumping in action in [branching](../03-0-branching) and [l
 There are two kinds of jumping statements: **structured** and **unstructured**.
 
 **Structured** jumping statements like [break](../05-1-break) and [continue](../05-2-continue) only allow you to jump to specific points in your code.
-You will use these regularly, but take care that you do not complicate the overall sequence of your code unnecessarily.
+When you use these, take care that you do not complicate the overall sequence of your code unnecessarily.
 **Unstructured** jumping statements like [goto](../05-3-goto) allow you to jump to any instruction within the code.
 You need to be aware that these statements exist, but they should not be used.
 

@@ -17,77 +17,6 @@ import breakStatementSlide07 from './images/control-flow-statements-in-depth/con
 import breakStatementSlide08 from './images/control-flow-statements-in-depth/control-flow-break-08.png';
 import breakStatementSlide09 from './images/control-flow-statements-in-depth/control-flow-break-09.png';
 
-import infiniteLoopSlide01 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-01.png';
-import infiniteLoopSlide02 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-02.png';
-import infiniteLoopSlide03 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-03.png';
-import infiniteLoopSlide04 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-04.png';
-import infiniteLoopSlide05 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-05.png';
-import infiniteLoopSlide06 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-06.png';
-import infiniteLoopSlide07 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-07.png';
-import infiniteLoopSlide08 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-08.png';
-import infiniteLoopSlide09 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-09.png';
-
-The break statement is used to jump **out** of the current loop, in effect terminating the loop early. This is useful for ending the current loop, skipping all future cycles.
-
-<a id="FigureBreak"></a>
-
-![Figure x.y: The Break Statement allows you to end a loop early](./images/statement-break.png "The Break Statement allows you to end a loop early")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>The Break Statement allows you to end a loop early</div><br/>
-
-:::note
-
-- The break statement is an **action**, allowing you to jump to the end of the current loop. 
-- The break statement should be coded within an [Branching](../02-branching) statement that checks if the loop should terminate early.
-
-:::
-
-## Break - Why, When, and How?
-
-Sometimes you get part way through a loop and know that the remainder of the loop is not needed. If you can capture that in a condition, then combining a branching statement with a `break` will let you jump out of the loop.
-
-This isn't something you will use often, but is good to know exists.
-
-## In C#
-
-:::tip[Syntax]
-
-The break statement is simply the break keyword terminated with a semicolon.
-
-![](./images/break-statement.png)
-
-:::
-
-## How break works
-
-### Quit early
-
-The following code demonstrates the use of the break statement in an even driven program. Here the branch checks if the user has hit the escape key, and it breaks the event loop when that is true.
-
-```csharp
-using static SplashKitSDK.SplashKit;
-
-OpenWindow("Circle Test", 400, 400);
-ClearScreen(ColorWhite());
-
-while ( !QuitRequested())
-{
-  FillCircle(RandomColor(), Rnd(ScreenWidth()), Rnd(ScreenHeight()), Rnd(50));
-  RefreshScreen();
-
-  ProcessEvents();
-
-  if (KeyTyped(KeyCode.EscapeKey))
-  {
-    break;  // end the loop
-  }
-}
-```
-
-The following images show how this works.
-
-<MySwiper client:only height="" images={sliderImagesBreakStatement}></MySwiper>
-
-
 export const sliderImagesBreakStatement = [
   {
     src: breakStatementSlide01.src,
@@ -181,39 +110,15 @@ export const sliderImagesBreakStatement = [
   }
 ];
 
-### Infinite loops
-
-You can create intentional infinite loops, and use break statements within the code to terminate the loop that way. The following program uses an infinite loop, with a break in an if to terminate the loop. 
-
-```csharp
-using static System.Console;
-using static System.Convert;
-
-WriteLine("Before you stands a 12 foot tall Knight...");
-WriteLine();
-WriteLine("\"We are the Knights who say 'Ni'.\"");
-WriteLine("\"I will say Ni to you again if you do not appease us!\"");
-
-while(true)
-{
-    WriteLine("\"Ni!\"");
-
-    Write("Submit? ");
-    
-    if (ReadLine() == "y")
-    {
-        break;
-    }
-
-}
-
-WriteLine("\"Bring us a Shrubbery!\"");
-```
-
-The following images show how this runs.
-
-<MySwiper client:only height="" images={sliderImagesInfiniteLoop}></MySwiper>
-
+import infiniteLoopSlide01 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-01.png';
+import infiniteLoopSlide02 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-02.png';
+import infiniteLoopSlide03 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-03.png';
+import infiniteLoopSlide04 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-04.png';
+import infiniteLoopSlide05 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-05.png';
+import infiniteLoopSlide06 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-06.png';
+import infiniteLoopSlide07 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-07.png';
+import infiniteLoopSlide08 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-08.png';
+import infiniteLoopSlide09 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-09.png';
 
 export const sliderImagesInfiniteLoop = [
   {
@@ -302,15 +207,105 @@ export const sliderImagesInfiniteLoop = [
   }
 ];
 
-:::caution
+The break statement is used to jump **out** of the current loop. As shown in the visualisation below, this is useful for ending a loop early.
 
-Generally you should put the condition within the loop itself, but in some cases this pattern can make things simpler.
+![The Break Statement allows you to end a loop early](./images/statement-break.png "The Break Statement allows you to end a loop early")
+{/* TODO: add paper dot background to image */}
 
+## Break -- when, why, and how?
+
+Sometimes you get part-way through a loop and know that the remainder of the loop's code is not needed, and there is no need to check the loop's condition again. If you can capture that in a condition, then combining a branching statement with a `break` will let you jump out of the loop.
+
+This isn't something you will use often, but is good to know exists.
+
+## In C#
+
+:::tip[Syntax]
+The C# syntax for a break statement is shown in the following diagram.
+
+![C# syntax for a break statement](./images/break-statement.png)
 :::
 
-This is inspired by the classic Monty Python sketch below. This comedy group was the inspiration behind the name for the Python programming language.
+The break statement is simply the `break` keyword terminated with a semicolon.
+
+## How break works
+
+### Ending a loop early
+
+The following code demonstrates the use of the break statement in an event driven program. Here the `if` statement checks whether the user has hit the escape key on their keyboard, and it breaks the event loop when that is true.
+
+```csharp
+using static SplashKitSDK.SplashKit;
+
+OpenWindow("Circle Test", 400, 400);
+ClearScreen(ColorWhite());
+
+while (!QuitRequested())
+{
+    FillCircle(RandomColor(), Rnd(ScreenWidth()), Rnd(ScreenHeight()), Rnd(50));
+    RefreshScreen();
+
+    ProcessEvents();
+
+    if (KeyTyped(KeyCode.EscapeKey))
+    {
+        break;  // end the loop
+    }
+}
+```
+
+The following images show how this works.
+
+<MySwiper client:only height="" images={sliderImagesBreakStatement}></MySwiper>
+
+### Leaving intentionally infinite loops
+
+You can create intentionally infinite loops, and use `break` statements within the code to terminate the loop. The following program uses an infinite loop, with a break in an `if` statement to terminate the loop.
+
+```csharp
+using static System.Console;
+using static System.Convert;
+
+WriteLine("Before you stands a 12 foot tall Knight...");
+WriteLine();
+WriteLine("\"We are the Knights who say 'Ni'.\"");
+WriteLine("\"I will say Ni to you again if you do not appease us!\"");
+
+while(true)
+{
+    WriteLine("\"Ni!\"");
+
+    Write("Submit? ");
+    
+    if (ReadLine() == "y")
+    {
+        break;
+    }
+
+}
+
+WriteLine("\"Bring us a Shrubbery!\"");
+```
+
+:::caution[Use your power wisely]
+Just because you *can* do something in code doesn't mean it's a *good* way of doing it.
+Try to avoid writing intentionally infinite loops.
+In some cases doing so can make your code simpler, but usually there's a way of restructuring your logic to use a condition instead.
+:::
+
+The following images show how this works.
+
+<MySwiper client:only height="" images={sliderImagesInfiniteLoop}></MySwiper>
+
+This example was inspired by the classic Monty Python sketch below. This comedy group was the inspiration behind the name for the Python programming language.
 
 <div class="not-content">
   <YouTube id="zIV4poUZAQo" params="fs=1&start=104&modestbranding=1&rel=0&autoplay=1"/>
 </div>
 
+:::note[Summary]
+
+- The break statement is an **action**, allowing you to jump to the end of the current loop.
+- The break statement is typically coded within a [branching](../03-0-branching) statement that checks if the loop should terminate early.
+
+:::
