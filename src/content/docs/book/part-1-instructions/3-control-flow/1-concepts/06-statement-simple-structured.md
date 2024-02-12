@@ -2,51 +2,49 @@
 title: "Statement"
 ---
 
-Statements are the instructions that we can get the computer to perform. Now that we have added the control flow statements, we have a whole range of different things we can get the computer to do.
+Statements are instructions that we can get the computer to perform. Now that we have added control flow statements to our tool kit we have a whole range of different things we can get the computer to do.
 
-Hopefully these seem like very simple actions, and you may be thinking "Surely programs are made of more complex things?". But that is not the case. Individual instructions are very simple. Once you know how they work, you need to practice combining these in different ways to help achieve your goals.
+Hopefully these seem like very simple actions, and you may even be thinking "Surely programs are made of more complex things?". The answer is no! Individual instructions are very simple. Once you know how they work, you need to practice combining them in different ways to help achieve your goals.
 
 :::tip
-
-Remember. The computer is **unintelligent**. So none of the actions it performs can be complex. It achieves things by doing millions of tiny, insignificant, actions every second.
-
+Remember. The computer is **unintelligent**, so none of the actions it performs can be complex. It achieves things by doing millions of tiny, insignificant, actions every second.
 :::
 
-## Statements - Why, When, and How?
+## Statements -- when, why, and how?
 
-We have already seen that a program, and a compound statement, is a list of statments (instructions) and that the if, case, while, do while, and for loop stataments can also contain statements (the ones they choose between).
+We have already seen that a [program](../../../1-sequence-and-data/1-concepts/00-program) is just a list of statements, as is a [compound statement](../02-0-compound-statement).
+[If](../03-1-if), [case](../03-2-case), [while](../04-1-while-loop), [do while](../04-2-do-while), and [for](../04-3-for-loop) loop statements also contain statements, which are only run under certain conditions.
 
-The great thing to see now is that you can **combine** these in lots of different ways. An if statement can contain a while loop, that contains a case statement. Anywhere you can put a statement, you can now **choose** between any of these different statements to create a sequence of actions that get the computer to do what you want.
+The great thing to see now is that you can **combine** these in lots of different ways. An `if` statement can contain a `while` loop, that contains a `case` statement. Anywhere you can put a statement, you can now choose between any of these different statements to create a sequence of actions that get the computer to do what you want.
 
 ## In C#
 
 :::tip[Syntax]
-The following shows the list of things we have seen so far that can exist as statements.
+The following diagram shows the list of things we have seen so far that can exist as statements.
 
 ![Syntax for statement, showing a list of options made up of the simple and control flow statements we have seen.](./images/statement-with-control-flow.png)
 
 :::
 
-:::note
+:::note[Summary]
 
-- Statement is the **term** given to the instructions in code.
+- A statement is a single instruction in code.
 - **Simple Statements** that perform an action. The actions you can perform are:
-  - [Method Call](../../../1-sequence-and-data/1-concepts/03-method-call) used to run the code in a Procedure.
-  - [Assignment Statement](../../../1-sequence-and-data/1-concepts/08-assignment-statement) used to calculate a value and store it in a Variable.
-  - [Jump Statements](../04-jumping) allow you to affect which instruction will be performed next.
+  - [Method Call](../../../1-sequence-and-data/1-concepts/03-method-call): run the code in a method.
+  - [Assignment Statement](../../../1-sequence-and-data/1-concepts/08-assignment-statement): store a value in a variable.
+  - [Jump Statements](../05-0-jumping): alter which instruction will be performed next.
   This includes:
-    - [Break](../04-jumping#break): to jump out of a Looping Statement.
-    - [Continue](../04-jumping#continue): jumps to the condition in a Looping Statement.
-    - [Exit](../04-jumping#exit): (return in C) to end the current Function or Procedure.
-    - [Goto](../04-jumping#goto): the unstructured jump<sup>[1](#FootnoteRaptor)</sup> to an arbitrary location in the code.
+    - [Break](../05-1-break): jump out of a looping statement.
+    - [Continue](../05-2-continue): jump to the condition in a looping statement.
+    - [Goto](../05-3-goto): jump<sup>[1](#FootnoteRaptor)</sup> to an arbitrary location in the code.
 - **Structured Statements** contain statements and control the flow of execution:
-  - [Looping Statements](../03-looping): that repeat a statement a number of times.
-    - [While Loop](../04-1-while-loop): Test condition before the body, repeating **0 to many** times.
-    - [Do While Loop](./04-2-do-while.mdx): Test condition after the body, repeating **1 to many** times.
-    - [For Loop](../04-3-for-loop): A variation of the while designed to perform a counting loop.
-  - [Branching](../02-branching): that select from a number of optional statements.
-    - [If Statement](../02-branching#if-statement): Branch based on a Boolean Data Expression (2 paths).
-    - [Case Statement](../02-branching#case-statement): Branch based on an Ordinal Expression (n paths).
+  - [Looping Statements](../04-0-looping): repeat a statement a number of times.
+    - [While Loop](../04-1-while-loop): test condition **before** the body, repeating **0 to many** times.
+    - [Do While Loop](../04-2-do-while): test condition **after** the body, repeating **1 to many** times.
+    - [For Loop](../04-3-for-loop): a variation of the while designed to perform a counting loop.
+  - [Branching](../03-0-branching): select from a number of optional statements.
+    - [If Statement](../03-1-if): branch based on a boolean expression (2 paths).
+    - [Case Statement](../03-2-case): branch based on the value of an expression (n paths).
 <hr class="footnote">
 <div id="FootnoteRaptor" class="footnote"><sup>1</sup>Often resulting in death by raptor</div>
 :::
