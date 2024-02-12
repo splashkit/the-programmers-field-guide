@@ -299,6 +299,12 @@ The while loop is a common feature of most programming languages. It is a pre-te
 
 The while loop is a flexible way to have code repeated and will be used a lot in your programs. It should be your first thought when you want something to be repeated.
 
+As with [branching](../03-0-branching), a while loop is a form of control flow because it literally controls the flow of instructions to the CPU.
+See the image below for a visualisation of this.
+Overall, the instructions are still being processed in sequence -- there are just two paths to choose from (repeating or ending the loop).
+
+![A while loop is still seen as a sequence of instructions to the CPU](./images/pre-test-flow.png)
+
 When planning to use a while loop, you first need to determine the condition that will indicate if the loop should be run. This condition determines if the computer continues into the while loop's body, or if the loop body is skipped and the sequence continues with the instructions that follow the loop.
 You then want to make sure that something in the loop will change the condition so that there is a definite end to the loop. This could be reading a value from the user, or re-checking which events have occurred.
 
