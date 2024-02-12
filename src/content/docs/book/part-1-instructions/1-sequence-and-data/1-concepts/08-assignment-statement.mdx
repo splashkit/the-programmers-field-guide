@@ -45,7 +45,7 @@ export const sliderImagesAssignInt = [
     tipStart: 2,
     listType: "ul",
     tips: [
-      "Instruction 1 runs and the variable 'quotient' is allocated memory on the stack"
+      "Instruction 1 runs and the variable 'quotient' is allocated memory."
     ]
   },
   {
@@ -54,8 +54,8 @@ export const sliderImagesAssignInt = [
     tipStart: 3,
     listType: "ul",
     tips: [
-      "1 is added to the program counter - it is now at instruction 2",
-      "Instructions on line 1 are now finished... line 2 is about to start"
+      "1 is added to the program counter. It is now at instruction 2.",
+      "Instructions on line 1 are now finished...line 2 is about to start."
     ]
   },
   {
@@ -64,7 +64,7 @@ export const sliderImagesAssignInt = [
     tipStart: 4,
     listType: "ul",
     tips: [
-      "Line 2 also allocates memory on the stack for the two variables 'dividend' and 'divisor'"
+      "Line 2 allocates memory for the variables 'dividend' and 'divisor'."
     ]
   },
   {
@@ -73,7 +73,7 @@ export const sliderImagesAssignInt = [
     tipStart: 5,
     listType: "ul",
     tips: [
-      "1 is added to the program counter again - line 2 is done, line 3 is starting"
+      "1 is added to the program counter again - line 2 is done, line 3 is starting."
     ]
   }
   ,
@@ -83,8 +83,7 @@ export const sliderImagesAssignInt = [
     tipStart: 6,
     listType: "ul",
     tips: [
-      "Line 3 is an assignment - it involves <span class='boldunderline'>evaluating</span> the expression (3a) and <span class='boldunderline'>saving</span> the result (3b)",
-      "These involve distinct instructions, but we will update the program counter with letters"
+      "Line 3 is an assignment statement - it involves <span class='boldunderline'>evaluating</span> the expression (3a) and <span class='boldunderline'>storing</span> the result (3b)."
     ]
   }
   ,
@@ -94,8 +93,8 @@ export const sliderImagesAssignInt = [
     tipStart: 7,
     listType: "ul",
     tips: [
-      "Instruction 3a will evaluate the right-hand side...",
-      "...to evaluate - 21 is loaded into the CPU - the compiler decided to put it in register 1"
+      "Instruction 3a will evaluate the right-hand side of the assignment statement.",
+      "This comes to 21, which is loaded into the CPU. The compiler decided to put it in register 1."
     ]
   }
   ,
@@ -105,7 +104,7 @@ export const sliderImagesAssignInt = [
     tipStart: 8,
     listType: "ul",
     tips: [
-      "1 is added to the program counter... but we will call it '3b'"
+      "1 is added to the program counter...but we will call it '3b' because we're still at the same line in our source code. Remember that the computer is actually working with machine code!"
     ]
   }
   ,
@@ -115,9 +114,9 @@ export const sliderImagesAssignInt = [
     tipStart: 9,
     listType: "ul",
     tips: [
-      "3b saves the result of the expression to 'dividend'",
-      "The value is in Register 1, 3b copies it to memory",
-      "So 21 is <span class='boldunderline'>saved</span> to the location of the dividend variable"
+      "3b saves the result of the expression to 'dividend'.",
+      "As the value of the expression is stored in Register 1, 3b copies it to memory.",
+      "So, the value 21 is <span class='boldunderline'>stored</span> in the location of the dividend variable."
     ]
   }
   ,
@@ -127,17 +126,17 @@ export const sliderImagesAssignInt = [
     tipStart: 10,
     listType: "ul",
     tips: [
-      "The last step of the instruction on line 3... add one to the program counter... on to line 4!"
+      "The computer has finished the last step of instruction 3, so add one to the program counter and on to line 4!"
     ]
   }
   ,
   {
     src: Slide11int.src,
-    altText: "Line 4 is also an assignment - and again involves evaluating the expression (4a) and saving the result (4b)",
+    altText: "Line 4 is also an assignment statement - and again involves evaluating the expression (4a) and saving the result (4b)",
     tipStart: 11,
     listType: "ul",
     tips: [
-      "Line 4 is also an assignment - and again involves <span class='boldunderline'>evaluating</span> the expression (4a) and <span class='boldunderline'>saving</span> the result (4b)"
+      "Line 4 is also an assignment statement, and again involves <span class='boldunderline'>evaluating</span> the expression (4a) and <span class='boldunderline'>storing</span> the result (4b)."
     ]
   }
   ,
@@ -147,7 +146,7 @@ export const sliderImagesAssignInt = [
     tipStart: 12,
     listType: "ul",
     tips: [
-      "Let's run through it quickly:<ul><li>4a: loads 4 into Register 1 (replacing the old value 21)</li><li>4b: save the result (in Register 1) into the 'divisor' variable on the stack memor</li><li>4c: The program counter is incremented to line 5</li></ul>"
+      "Let's run through it quickly:<ul><li>4a: evaluates the expression and loads 4 into Register 1 (replacing the old value 21).</li><li>4b: store the result (from Register 1) in the 'divisor' variable.</li><li>4c: The program counter is incremented to line 5.</li></ul>"
     ]
   }
   ,
@@ -157,9 +156,9 @@ export const sliderImagesAssignInt = [
     tipStart: 13,
     listType: "ul",
     tips: [
-      "How does the division operator work?",
-      "Again, remember that assignment = two actions: <span class='boldunderline'>evaluate</span> (the right hand side expression) and <span class='boldunderline'>save</span> (into the left hand variable)",
-      "For division, the <span class='boldunderline'>evaluate</span> part will need a few actions - Load the variables (5a and 5b) and do the division (5c)"
+      "Line 5 is another assignment statement, but this time with a division operator in the expression.",
+      "Remember that assignment requires two actions: <span class='boldunderline'>evaluate</span> (the right hand side expression) and <span class='boldunderline'>store</span> (into the left hand variable).",
+      "For division, the <span class='boldunderline'>evaluate</span> part will need a few steps: load the variables (5a and 5b), and do the division (5c)."
     ]
   }
   ,
@@ -169,7 +168,7 @@ export const sliderImagesAssignInt = [
     tipStart: 14,
     listType: "ul",
     tips: [
-      "Let's consider 5a and 5b in the same step <ul><li>5a: Load the divisor value (4) into Register 1</li><li>5b: Load the dividend value (21) into Register 2</li></ul>"
+      "5a and 5b are basically the same - they each read a value from memory into a CPU register.</ul>"
     ]
   }
   ,
@@ -179,9 +178,9 @@ export const sliderImagesAssignInt = [
     tipStart: 15,
     listType: "ul",
     tips: [
-      "The CPU does the division (Register 1 / Register 2)",
-      "This is integer division, so 21/4 = 5",
-      "The result of this instruction is stored in it's own register (Register 3 here)"
+      "Step 5c is the division operation.",
+      "The CPU reads the values from the registers and stores the result of the division (Register 1 / Register 2) in Register 3.",
+      "This is integer division, so 21/4 = 5.",
     ]
   }
   ,
@@ -191,22 +190,22 @@ export const sliderImagesAssignInt = [
     tipStart: 16,
     listType: "ul",
     tips: [
-      "Step 5d is the <span class='boldunderline'>save</span> part of the assignment",
-      "The result is in Register 3 - so it is saved to the 'quotient' variable in the stack memory",
-      "Assignment done... add one to the program counter !"
+      "Step 5d is the <span class='boldunderline'>store</span> part of the assignment statement.",
+      "The result is in Register 3, so it is saved to the 'quotient' variable in memory.",
+      "Assignment done...add one to the program counter!"
     ]
   }
   ,
   {
     src: Slide17int.src,
-    altText: "Argh... lots of steps here ! We must evaluate the argument to pass to WriteLine. 6a: Load dividend 6b: Convert to string 6c: Load '/' 6d: Append 6e: Load divisor 6f: Convert to string 6g: Append 6h: Load '=' 6i: Append 6j: Load quotient 6k: Convert to string 6l: Append. Result is '21/4=5'. Result passed to WriteLine(k) which outputs it to the terminal",
+    altText: "Argh... lots of steps here ! We must evaluate the arguments to pass to WriteLine. 6a: Load dividend 6b: Convert to string 6c: Load '/' 6d: Append 6e: Load divisor 6f: Convert to string 6g: Append 6h: Load '=' 6i: Append 6j: Load quotient 6k: Convert to string 6l: Append. Result is '21/4=5'. Result passed to WriteLine(k) which outputs it to the terminal",
     tipStart: 17,
     listType: "ul",
     tips: [
-      "Argh... lots of steps here !",
-      "We must evaluate the argument to pass to WriteLine:<ul><li>6a: Load dividend</li> <li>6b: Convert to string</li> <li>6c: Load '/'</li> <li>6d: Append</li> <li>6e: Load divisor</li> <li>6f: Convert to string</li> <li>6g: Append</li> <li>6h: Load '='</li> <li>6i: Append</li> <li>6j: Load quotient</li> <li>6k: Convert to string</li> <li>6l: Append.</li></ul>",
-      "Result is '21/4=5'",
-      "Result passed to WriteLine(k) which outputs it to the terminal"
+      "Argh...lots of steps here!",
+      "We must evaluate the arguments to pass to WriteLine:<ul><li>6a: Load 'dividend' variable.</li> <li>6b: Convert the dividend value to string.</li> <li>6c: Load the string literal '/'.</li> <li>6d: Append '/' to the overall string.</li> <li>6e: Load 'divisor' variable.</li> <li>6f: Convert the divisor value to string.</li> <li>6g: Append this value to the overall string.</li> <li>6h: Load the string literal '='.</li> <li>6i: Append '=' to the overall string.</li> <li>6j: Load the 'quotient' variable.</li> <li>6k: Convert the quotient value to string.</li> <li>6l: Append this value to the overall string.</li></ul>",
+      "Overall argument value is '21/4=5'.",
+      "Argument is passed to WriteLine, which outputs it to the terminal."
     ]
   }
   ,
@@ -216,7 +215,7 @@ export const sliderImagesAssignInt = [
     tipStart: 18,
     listType: "ul",
     tips: [
-      "The procedure call ends, so we add one to the program counter... ending our program"
+      "The procedure call ends, so we add one to the program counter...ending our program."
     ]
   }
 ];
@@ -227,8 +226,8 @@ export const sliderImagesAssignDouble = [
     altText: "Assignment for a division stored in a double.",
     tipStart: 1,
     tips: [
-      "How does the assignment operator work when the result is to be stored in a double instead of an int? <br>&nbsp; <span class='fa fa-arrow-right'></span> &nbsp; Let's change the type of the variable that stores the result of the division ('quotient') from an int to a double.",
-      "Remember, the assignment operator ('=') implies two actions: <ul><li><span class='boldunderline'>evaluate</span> the right hand side expression (5a,5b,5c) and</li> <li><span class='boldunderline'>save</span> the result of the evaluation into the variable on the left hand side (5d).</li></ul>"
+      "How does the assignment operator work when the result is to be stored in a double instead of an int?",
+      "Everything up to instruction 5 is the same, except the variable 'quotient' can store a double value now, so we'll skip over the first 4 instructions in our source code.",
     ]
   },
   {
@@ -236,8 +235,8 @@ export const sliderImagesAssignDouble = [
     altText: "The right hand.",
     tipStart: 3,
     tips: [
-      "To <span class='boldunderline'>evalulate</span> the right hand side expression, the CPU needs to first <span class='boldunderline'>load</span> the dividend and divisor from the stack into the registers (5a, 5b), then perform the <span class='boldunderline'>division</span> (5c)",
-      "To perform the <span class='boldunderline'>division</span> (5c):<ul><li>The cpu calculates register 1 / register 2</li><li>Although the divisor and dividend are both integers, the result is to be stored in a double, and so the CPU stores the result as a double in a register (register 3)</li><li>The double value 5.25 represents the final evaluation of the right hand side expression.</li></ul>"
+      "To <span class='boldunderline'>evalulate</span> the right hand side expression, the CPU needs to first <span class='boldunderline'>load</span> the dividend and divisor from the stack into registers (5a, 5b).",
+      "To perform the <span class='boldunderline'>division</span> (5c):<ul><li>The CPU calculates the value of register 1 / register 2.</li><li>Although the divisor and dividend are both integers, the result is to be stored in a double, and so the CPU stores the result, 5.25, as a double in register 3.</li></ul>"
     ]
   },
   {
@@ -245,7 +244,7 @@ export const sliderImagesAssignDouble = [
     altText: "The result of the evaluation of the right hand side, is saved into the variable on the left hand side of the assignment operator.",
     tipStart: 5,
     tips: [
-      "The final part of the assignment statement is to save the result of the evaluation of the right hand side expression, into the variable on the stack ('quotient') (5d)"
+      "The final part of the assignment statement is to <span class='boldunderline'>store</span> the result of evaluating the expression on the right hand side into the variable on the left hand side ('quotient') (5d)."
     ]
   },
   {
@@ -253,7 +252,8 @@ export const sliderImagesAssignDouble = [
     altText: "the CPU increments the program counter ready for the next instruction",
     tipStart: 6,
     tips: [
-      "Once the assignment is done, the CPU increments the program counter ready for the next instruction."
+      "Once the assignment is done, the CPU increments the program counter ready for the next instruction.",
+      "This is the same as the previous example."
     ]
   }
 ];

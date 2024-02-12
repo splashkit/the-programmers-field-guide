@@ -2,7 +2,7 @@
 title: Fly Catch Events
 ---
 
-The following code is our start to the fly catch game. As with the other walkthroughs, try to build this yourself and use this to help if you get stuck.
+The following code is our start to the fly catch game. As with the other walkthroughs, try to build this yourself and only use this to help if you get stuck.
 
 ```csharp
 using SplashKitSDK;
@@ -21,20 +21,18 @@ OpenWindow("Flay Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
 // The event loop
 while (!QuitRequested())
 {
-  // Draw the game
-  ClearScreen(ColorWhite());
-  // Draw the spider
-  FillCircle(ColorBlack(), spiderX, spiderY, SPIDER_RADIUS);
-  // Show it to  the user
-  RefreshScreen();
+    // Draw the game
+    ClearScreen(ColorWhite());
+    // Draw the spider
+    FillCircle(ColorBlack(), spiderX, spiderY, SPIDER_RADIUS);
+    // Show it to  the user
+    RefreshScreen();
 
-  // Get any new user interactions
-  ProcessEvents();
+    // Get any new user interactions
+    ProcessEvents();
 }
 ```
 
-:::tip
-
+:::note
 See how the comments and line spacing helps you see the different parts of the code.
-
 :::

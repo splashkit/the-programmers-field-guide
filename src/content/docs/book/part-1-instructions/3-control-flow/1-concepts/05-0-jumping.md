@@ -3,19 +3,16 @@ title: "Jumping"
 ---
 
 The jump statements allow you to alter the sequence of instructions in the code, getting the computer to jump to another instruction.
+You have already seen jumping in action in [branching](../03-0-branching) and [looping](../04-0-looping), but many programming languages also provide explicit jumping instructions, visualised in the image below.
 
-<a id="FigureJumping"></a>
+![Jump Statements cause control to jump to another location in the code](./images/jumping.png "Jump Statements cause control to jump to another location in the code")
+<!-- TODO: add paper dot background to image -->
 
-![Figure x.y: Jump Statements cause control to jump to another location in the code](./images/jumping.png "Jump Statements cause control to jump to another location in the code")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Jump Statements cause control to jump to another location in the code</div><br/>
+There are two kinds of jumping statements: **structured** and **unstructured**.
 
-:::note
+**Structured** jumping statements like [break](../05-1-break) and [continue](../05-2-continue) only allow you to jump to specific points in your code.
+When you use these, take care that you do not complicate the overall sequence of your code unnecessarily.
+**Unstructured** jumping statements like [goto](../05-3-goto) allow you to jump to any instruction within the code.
+You need to be aware that these statements exist, but they should not be used.
 
-- The jump statements are **instructions**, they allow you to alter the standard sequence of the instructions and have the computer jump to another location in the instructions.
-- **Structured Programming** was proposed as a means of providing order and structure to the control flow through the code. These jump statements complicate this sequential flow, so you should take care with some of these.
-- Structured jump statements allow you to control the sequence of actions related to a [looping](../03-looping) statement.
-- Unstructured jump statements allow you to jump to any instruction within the code. You need to be aware that these statements exist, but they should not be used.
-
-:::
-
-The three jump statements we will look at now include [break](../05-1-break), [continue](../05-2-continue), and the infamous [goto](../05-3-goto).
+We'll explore each of these jumping statements in detail now.

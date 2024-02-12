@@ -1,13 +1,39 @@
 ---
-import { LinkCard } from "@astrojs/starlight/components";
+import { Icon } from "@astrojs/starlight/components";
+import { Image } from "astro:assets";
 
-const { name, url } = Astro.props;
+const { name, url, avatar_url } = Astro.props;
 ---
 
 <style>
   p {
     font-family: "antique-olive", cursive, sans-serif;
   }
+
+  .contributor-link {
+    display: flex;
+    flex-direction: row;
+    border-radius: 4px;
+    border: 1px solid #eaeaea;
+    margin-bottom: 16px;
+    padding: 10px;
+    justify-content: start;
+    align-items: center;
+    color: black;
+
+    img {
+      margin: 0;
+      margin-right: 16px;
+    }
+  }
 </style>
 
-<LinkCard title={name} href={url} />
+<a href={url} class="contributor-link">
+  <Image src={avatar_url} alt={name} width={50} height={50} />
+  <span style=""></span>
+  <p>{name}</p>
+
+  <span style="flex-grow: 1"></span>
+
+  <Icon name="right-arrow" color="goldenrod" size="2rem" />
+</a>

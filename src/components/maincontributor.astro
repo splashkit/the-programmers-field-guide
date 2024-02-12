@@ -6,29 +6,30 @@ const { name, affiliation, desc, imgUrl, tag, twitter, website } = Astro.props;
 ---
 
 <style>
-
-  
   p {
     font-family: "antique-olive", cursive, sans-serif;
-    margin-bottom: -20px;
-    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    line-height: normal;
   }
 
   .tag {
     font-family: "antique-olive", cursive, sans-serif;
     color: #247f00;
     font-style: bold;
+    margin-top: -10px;
+    margin-bottom: -10px;
   }
 </style>
 
 <Card title={name}>
-  <p style="margin-top: -10px; margin-bottom: -10px" class="tag">{tag}</p>
-  <p style="margin-top: 0; margin-bottom: 0">{desc}</p>
+  <p class="tag">{tag}</p>
   <Image
     width={200}
     src={import(`../assets/illustrations/${imgUrl}.png`)}
     alt={"Illustration of " + name}
   />
+  <p>{desc}</p>
   { website ? <LinkCard title="Website" href={website} /> : null }
   { twitter ? <LinkCard title="Twitter" href={twitter} /> : null }
 </Card>

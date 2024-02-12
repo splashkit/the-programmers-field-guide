@@ -9,7 +9,12 @@ import Contributor from "./contributor.astro";
 
 import { CardGrid } from "@astrojs/starlight/components";
 
-const dont_include = ["macite", "jakerenzella", "charlottepierce"];
+const dont_include = [
+  "macite",
+  "jakerenzella",
+  "charlottepierce",
+  "dependabot[bot]",
+];
 ---
 
 <CardGrid>
@@ -18,12 +23,12 @@ const dont_include = ["macite", "jakerenzella", "charlottepierce"];
     affiliation="Deakin University"
     imgUrl="andrew_hike_img"
     tag="Co-Creator"
-    desc="Andrew is a legend"
+    desc="Professor Andrew Cain is the lead author of The Programmer's Field Guide. He is a Professor in the School of IT at Deakin University, and is an educational leader and innovator, driven to make big changes in the way education works. He has been able to transform education practice at school, course, and subject levels with a focus on using innovative approaches to assessment to engage students in effective learning."
   />
 
   <MainContributor
     name="Charlotte Pierce"
-    desc="Charlotte is a legend"
+    desc="Dr. Charlotte Pierce is the lead editor of The Programmer's Field Guide. She is a Lecturer at Monash University in the Faculty of IT, and has been teaching at universities for over a decade. Charlotte loves teaching, and particularly enjoys the challenges of introductory units. In her spare time Charlotte engages in the appropriately nerdy hobbies of reading and video games, but also plays classical music and performs with a heavy metal band. She has the world's fluffiest dog."
     affiliation="Monash University"
     imgUrl="charlotte_hike_img"
     tag="Co-Creator"
@@ -33,23 +38,28 @@ const dont_include = ["macite", "jakerenzella", "charlottepierce"];
     affiliation="UNSW, Sydney"
     imgUrl="jake_hike"
     tag="Co-Creator"
-    desc="Jake is a legend"
+    desc="Dr Jake Renzella is the lead website developer for The Programmer's Field Guide. He is a Lecturer at the University of New South Wales in the School of Computer Science and Engineering. Jake is the Co-Head of the Computing and Education research group, teaching courses like Programming Fundamentals, and Software Engineering Fundamentals 👨achieving university-leading myExperience results."
     twitter="https://twitter.com/jakerenzella"
     website="https://jakerenzella.com/"
   />
 </CardGrid>
 
-<p style="text-align: center; font-family: 'antique-olive';">
+<p style="text-align: center; font-family: 'antique-olive'; margin-bottom: 16px; margin-top: 16px">
   Artwork by ..., and a whole bunch of other people who contributed to the
   project:
 </p>
 
 {
   users.map
-    ? users.map((data: { login: string; html_url: string }) =>
-        dont_include.includes(data.login) ? null : (
-          <Contributor name={data.login} url={data.html_url} />
-        )
+    ? users.map(
+        (data: { login: string; html_url: string; avatar_url: string }) =>
+          dont_include.includes(data.login) ? null : (
+            <Contributor
+              name={data.login}
+              url={data.html_url}
+              avatar_url={data.avatar_url}
+            />
+          )
       )
     : null
 }

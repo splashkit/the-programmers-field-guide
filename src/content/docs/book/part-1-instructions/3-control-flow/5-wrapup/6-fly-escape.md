@@ -1,7 +1,7 @@
 ---
 title: Fly Catch the Escape
 sidebar:
-    label: " - fly escape"
+    label: " - Fly Escape"
 ---
 
 This step adds the code to get the fly to escape.
@@ -37,60 +37,58 @@ StartTimer(GAME_TIMER);
 // The event loop
 while (!QuitRequested())
 {
-  // Handle Input
-  if (KeyDown(KeyCode.RightKey) && spiderX + SPIDER_RADIUS < SCREEN_WIDTH)
-  {
-    spiderX += SPIDER_SPEED;
-  }
+    // Handle Input
+    if (KeyDown(KeyCode.RightKey) && spiderX + SPIDER_RADIUS < SCREEN_WIDTH)
+    {
+        spiderX += SPIDER_SPEED;
+    }
 
-  if (KeyDown(KeyCode.LeftKey) && spiderX - SPIDER_RADIUS > 0)
-  {
-    spiderX -= SPIDER_SPEED;
-  }
+    if (KeyDown(KeyCode.LeftKey) && spiderX - SPIDER_RADIUS > 0)
+    {
+        spiderX -= SPIDER_SPEED;
+    }
 
-  // Update the Game
-  // Check if the fly should appear
-  if (! flyAppeared && TimerTicks(GAME_TIMER) > appearAtTime)
-  {
-    // Make the fly appear
-    flyAppeared = true;
+    // Update the Game
+    // Check if the fly should appear
+    if (!flyAppeared && TimerTicks(GAME_TIMER) > appearAtTime)
+    {
+        // Make the fly appear
+        flyAppeared = true;
 
-    // Give it a new random position
-    flyX = Rnd(SCREEN_WIDTH);
-    flyY = Rnd(SCREEN_HEIGHT);
+        // Give it a new random position
+        flyX = Rnd(SCREEN_WIDTH);
+        flyY = Rnd(SCREEN_HEIGHT);
 
-    // Set its escape time
-    escapeAtTime = TimerTicks(GAME_TIMER) + 2000 + Rnd(5000);
-  }
-  else if (flyAppeared && TimerTicks(GAME_TIMER) > escapeAtTime)
-  {
-    flyAppeared = false;
-    appearAtTime = TimerTicks(GAME_TIMER) + 1000 + Rnd(2000);
-  }
+        // Set its escape time
+        escapeAtTime = TimerTicks(GAME_TIMER) + 2000 + Rnd(5000);
+    }
+    else if (flyAppeared && TimerTicks(GAME_TIMER) > escapeAtTime)
+    {
+        flyAppeared = false;
+        appearAtTime = TimerTicks(GAME_TIMER) + 1000 + Rnd(2000);
+    }
 
-  // Draw the game
-  ClearScreen(ColorWhite());
-  // Draw the spider
-  FillCircle(ColorBlack(), spiderX, spiderY, SPIDER_RADIUS);
+    // Draw the game
+    ClearScreen(ColorWhite());
+    // Draw the spider
+    FillCircle(ColorBlack(), spiderX, spiderY, SPIDER_RADIUS);
 
-  if (flyAppeared)
-  {
-    // Draw the fly
-    FillCircle(ColorDarkGreen(), flyX, flyY, FLY_RADIUS);
-  }
+    if (flyAppeared)
+    {
+        // Draw the fly
+        FillCircle(ColorDarkGreen(), flyX, flyY, FLY_RADIUS);
+    }
 
-  // Show it to  the user
-  RefreshScreen(60);
+    // Show it to  the user
+    RefreshScreen(60);
 
-  // Get any new user interactions
-  ProcessEvents();
+    // Get any new user interactions
+    ProcessEvents();
 }
 ```
 
 :::note
+Try to be able to focus your attention on different parts of the code one at a time. It's a valuable skill to be able to understand how everything fits together at a high level, and then in individual parts.
 
-Try to be able to focus your attention on different parts of the code one at a time. Understanding how it all fits together at a high level, and then in individual parts.
-
-When you have it working, you can then focus on how the new features code into the existing flow. Don't try to keep all the code in your mind at one time - break it down and work piece by piece.
-
+When you have it working, you can then focus on how the new features fit into the existing flow. Don't try to keep all the code in your mind at one time -- break it down and work piece by piece.
 :::

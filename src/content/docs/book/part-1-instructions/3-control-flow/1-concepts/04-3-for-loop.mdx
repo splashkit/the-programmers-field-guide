@@ -6,55 +6,270 @@ sidebar:
 
 import MySwiper from '../../../../../../components/react/myswiper.jsx'
 
-import forLoopSlide01 from './images/control-flow-statements-in-depth/control-flow-for-loop-01.png';
-import forLoopSlide02 from './images/control-flow-statements-in-depth/control-flow-for-loop-02.png';
-import forLoopSlide03 from './images/control-flow-statements-in-depth/control-flow-for-loop-03.png';
-import forLoopSlide04 from './images/control-flow-statements-in-depth/control-flow-for-loop-04.png';
-import forLoopSlide05 from './images/control-flow-statements-in-depth/control-flow-for-loop-05.png';
-import forLoopSlide06 from './images/control-flow-statements-in-depth/control-flow-for-loop-06.png';
-import forLoopSlide07 from './images/control-flow-statements-in-depth/control-flow-for-loop-07.png';
-import forLoopSlide08 from './images/control-flow-statements-in-depth/control-flow-for-loop-08.png';
-import forLoopSlide09 from './images/control-flow-statements-in-depth/control-flow-for-loop-09.png';
-import forLoopSlide10 from './images/control-flow-statements-in-depth/control-flow-for-loop-10.png';
+import forLoopSlide01 from './images/control-flow-statements-in-depth/control-flow-for-loop/Slide1.png';
+import forLoopSlide02 from './images/control-flow-statements-in-depth/control-flow-for-loop/Slide2.png';
+import forLoopSlide03 from './images/control-flow-statements-in-depth/control-flow-for-loop/Slide3.png';
+import forLoopSlide04 from './images/control-flow-statements-in-depth/control-flow-for-loop/Slide4.png';
+import forLoopSlide05 from './images/control-flow-statements-in-depth/control-flow-for-loop/Slide5.png';
+import forLoopSlide06 from './images/control-flow-statements-in-depth/control-flow-for-loop/Slide6.png';
+import forLoopSlide07 from './images/control-flow-statements-in-depth/control-flow-for-loop/Slide7.png';
+import forLoopSlide08 from './images/control-flow-statements-in-depth/control-flow-for-loop/Slide8.png';
+import forLoopSlide09 from './images/control-flow-statements-in-depth/control-flow-for-loop/Slide9.png';
+import forLoopSlide10 from './images/control-flow-statements-in-depth/control-flow-for-loop/Slide10.png';
 
+export const sliderImagesForLoop = [
+  {
+    src: forLoopSlide01.src,
+    altText: "Lines 1-3 prompt the user for input, which is retrieved, converted to an integer, and stored in the variable 'target' on the stack",
+    tipStart: 1,
+    tips: [
+      "Lines 1 - 3 prompt the user for input, which is converted to an integer and stored in the variable 'target' on the stack.",
+      "The program counter is increased to line 4."
+    ]
+  },
+  {
+    src: forLoopSlide02.src,
+    altText: "The for loop begins and as step 4a, the variable 'i' is allocated space on the stack and initialized to 0...",
+    tipStart: 2,
+    tips: [
+      "Line 4 begins the for loop.",
+      "The first step (4a), is the (optional) declaration and initialization.",
+      "In this case, the variable 'i' is allocated space on the stack and initialized to 0.",
+      "Control then passes to step 4b..."
+    ]
+  },
+  {
+    src: forLoopSlide03.src,
+    altText: "Step 4b performs the comparison which evaluates to true",
+    tipStart: 3,
+    tips: [
+      "Step 4b is the (optional) condition.",
+      "Since 0 is less than 10, the expression evaluates to <span class='booleanTrue'>true</span>.",
+      "The program counter then moves to line 5 (start of the for block), then to line 6 (the first line of the block)."
+    ]
+  },
+  {
+    src: forLoopSlide04.src,
+    altText: "Line 6 writes the current value of 'i' (0) to the terminal",
+    tipStart: 4,
+    tips: [
+      "Line 6 writes the current value of 'i' (0) to the terminal.",
+      "Control passes from line 7 (end of the for block) back to step 4c..."
+    ]
+  },
+  {
+    src: forLoopSlide05.src,
+    altText: "Step 4c increments the value of 'i' by one, before passing control back to step 4b (the comparison)",
+    tipStart: 5,
+    tips: [
+      "Step 4c is the (optional) post-loop increment.",
+      "In this case, the value of 'i' is incremented by 1 (from 0 to 1).",
+      "Control then passes back to step 4b (the condition)."
+    ]
+  },
+  {
+    src: forLoopSlide06.src,
+    altText: "Since 1 is less than 10, the comparison evaluates to true, control passes back to line 6",
+    tipStart: 6,
+    tips: [
+      "Since 1 is less than 10, the expression evaluates to <span class='booleanTrue'>true</span>.",
+      "The program counter then increments again through line 5 to line 6."
+    ]
+  },
+  {
+    src: forLoopSlide07.src,
+    altText: "Line 6 writes the current value of 'i' (1) to the terminal",
+    tipStart: 7,
+    tips: [
+      "Line 6 writes the current value of 'i' (1) to the terminal.",
+      "Control passes from line 7 (end of the for block) back up to step 4c."
+    ]
+  },
+  {
+    src: forLoopSlide08.src,
+    altText: "Let's jump ahead to where the number 9 has been printed and i increments to 10",
+    tipStart: 8,
+    tips: [
+      "Let's jump ahead a few more iterations to where 9 has just been printed to the terminal.",
+      "Now back at step 4c, 'i' is again incremented by 1 (from 9 to 10).",
+      "Control passes back to step 4b, the condition."
+    ]
+  },
+  {
+    src: forLoopSlide09.src,
+    altText: "Now the comparison evaluates to false (10 is not less than 10), and the for loop ends",
+    tipStart: 9,
+    tips: [
+      "Now the expression evaluates to <span class='booleanFalse'>false</span>, since 10 is not less than 10.",
+      "This signals the end of the for loop, and control passes to the first line after the closing brace of the loop - line 8."
+    ]
+  },
+  {
+    src: forLoopSlide10.src,
+    altText: "Line 8 prints 'Bye...' to the terminal and the program ends",
+    tipStart: 10,
+    tips: [
+      "Line 8 prints 'Bye...' to the terminal.",
+      "Then the program ends."
+    ]
+  }
+];
 
-import reversedForLoopSlide01 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-01.png';
-import reversedForLoopSlide02 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-02.png';
-import reversedForLoopSlide03 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-03.png';
-import reversedForLoopSlide04 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-04.png';
-import reversedForLoopSlide05 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-05.png';
-import reversedForLoopSlide06 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-06.png';
-import reversedForLoopSlide07 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-07.png';
-import reversedForLoopSlide08 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-08.png';
-import reversedForLoopSlide09 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-09.png';
-import reversedForLoopSlide10 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed-10.png';
+import reversedForLoopSlide01 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed/Slide1.png';
+import reversedForLoopSlide02 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed/Slide2.png';
+import reversedForLoopSlide03 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed/Slide3.png';
+import reversedForLoopSlide04 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed/Slide4.png';
+import reversedForLoopSlide05 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed/Slide5.png';
+import reversedForLoopSlide06 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed/Slide6.png';
+import reversedForLoopSlide07 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed/Slide7.png';
+import reversedForLoopSlide08 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed/Slide8.png';
+import reversedForLoopSlide09 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed/Slide9.png';
+import reversedForLoopSlide10 from './images/control-flow-statements-in-depth/control-flow-for-loop-reversed/Slide10.png';
+
+export const sliderImagesReversedForLoop = [
+  {
+    src: reversedForLoopSlide01.src,
+    altText: "Lines 1-2 declare an integer variable (max) then prompt the user for input",
+    tipStart: 1,
+    tips: [
+      "Lines 1 - 2 declare an integer variable ('max') then prompt the user for input.",
+      "The program counter is increased to line 3."
+    ]
+  },
+  {
+    src: reversedForLoopSlide02.src,
+    altText: "Lines 3 begins the for loop: The first step (3a) is the initialization: This initialization code reads the user's input ('10'), converts it to an integer, and stores it in the variable max on the stack.",
+    tipStart: 2,
+    tips: [
+      "Line 3 begins the for loop.",
+      "The first step is initialization (step 3a): this code reads the user's input ('10'), converts it to an integer, and stores it in the variable 'max' on the stack.",
+      "Control then moves to step 3b."
+    ]
+  },
+  {
+    src: reversedForLoopSlide03.src,
+    altText: "Step 3b is the comparison which evaluates to true",
+    tipStart: 3,
+    tips: [
+      "Step 3b is the comparison.",
+      "Since 'max' (10) is greater than 0, this condition evaluates to <span class='booleanTrue'>true</span>.",
+      "Control moves through line 4 (the opening of the loop block) to line 5, the first line of code in the loop block."
+    ]
+  },
+  {
+    src: reversedForLoopSlide04.src,
+    altText: "Line 5 writes the value of the variable max (10) to the terminal",
+    tipStart: 4,
+    tips: [
+      "Line 5 writes the value of the variable 'max' (10) to the terminal.",
+      "Control then moves back to line 3 (step 3c)."
+    ]
+  },
+  {
+    src: reversedForLoopSlide05.src,
+    altText: "Step 3c decrements the value of the variable max by 1 (from 10 to 9), and stores the result back in the same variable",
+    tipStart: 5,
+    tips: [
+      "Step 3c decrements the value of the variable max by 1 (from 10 to 9), and stores the result back in the same variable.",
+      "Control then moves to step 3b."
+    ]
+  },
+  {
+    src: reversedForLoopSlide06.src,
+    altText: "Step 3c decrements the value of the variable max by 1 (from 10 to 9), and stores the result back in the same variable",
+    tipStart: 6,
+    tips: [
+      "Step 3b evaluates the condition to <span class='booleanTrue'>true</span> again, since 9 is still greater than 0.",
+      "Control then moves to the first line of code in the loop block (line 4, then 5)."
+    ]
+  },
+  {
+    src: reversedForLoopSlide07.src,
+    altText: "Line 5 writes the value of the variable max (9) to the terminal",
+    tipStart: 7,
+    tips: [
+      "Line 5 writes the value of the variable 'max' (9) to the terminal.",
+      "Control then moves back to line 3 (step 3c)."
+    ]
+  },
+  {
+    src: reversedForLoopSlide08.src,
+    altText: "Let's jump ahead to where the number 1 has been printed and max decrements from 1 to 0",
+    tipStart: 8,
+    tips: [
+      "Let's jump ahead a few iterations, to where the number 1 has just been printed to the terminal.",
+      "Now back at step 3c, 'max' is decremented by 1 (from 1 to 0).",
+      "Control passes back to step 3b, the comparison."
+    ]
+  },
+  {
+    src: reversedForLoopSlide09.src,
+    altText: "This time the comparison at step 3b evaluates to false, and the for loop ends",
+    tipStart: 9,
+    tips: [
+      "This time the expression at step 3b evaluates to <span class='booleanFalse'>false</span>, since 0 is not greater than 0.",
+      "Because the condition is false, the for loop ends.",
+      "Control passes through line 7 (the terminating brace of the loop block) to the next line of code at line 8."
+    ]
+  },
+  {
+    src: reversedForLoopSlide10.src,
+    altText: "Line 8 prints 'Blast off !' to the terminal, and the program ends",
+    tipStart: 10,
+    tips: [
+      "Line 8 prints 'Blast off !' to the terminal.",
+      "Then the program ends."
+    ]
+  }
+];
 
 There is one other loop that we need to look at: the **for loop**.
 
-The for loop is a pre-test loop, basically a specialised version of the while loop. It can do many things in C#, but it is mainly used to repeat a block of code a set number of times. You can think of it like a counting loop, with it counting from a start value to an end value. The for loop has a **control variable** that has the number of times the loop has currently run, which the loop can use to test when it is looking to see if it should end.
+The for loop is another pre-test loop.
+It is basically a specialised version of the [while](../04-1-while-loop) loop, and is mainly used to repeat a block of code a set number of times. You can think of it like a counting loop, with it counting from a start value to an end value. The for loop has a **control variable** that stores the number of times the loop has currently run, which the loop uses to see if it should end.
+
+{/* TODO: concept image for this? */}
+
+## `For` -- when, why, and how
+
+The for loop itself is controlled by three aspects: an initialiser, condition, and post-loop increment.
+
+- The **initialiser** appears first in the parenthesis after the `for` keyword. This is used to set the initial value for the control variable (usually
+`i` as we have [noted before](../04-1-while-loop#counting-with-while)). If you were using a while loop, this code would appear before the start of the loop.
+- The **condition** is the expression used to determine if the body of the loop should run. This would be the same as the condition in an equivalent while loop.
+- The **post-loop increment** updates the control variable. This code runs **after** the body of the loop. In an equivalent while loop, this would be the increment of the control variable at the end of the body in the while loop.
+
+Any time you have some code that you want to repeat a set number of times, a for loop is most likely what you want to use. It provides you with the mechanics you need to achieve this in a more compact and clear format than a while loop.
 
 ## In C#
 
-The for loop itself is controlled by three aspects: the initialiser, condition, and increment. 
+{/* TODO: syntax diagram for this? */}
 
-- The **initialiser** appears first in the parenthesis after the `for` keyword. This is used to set the initial value for the control variable (usually
-`i` as we have noted before). If you were using a while loop, this code would appear before the start of the loop.
-- The **condition** is the expression used to determine if the body of the loop should run. This would be the same as the condition in an equivalent while loop.
-- The last code in the parenthesis is the **post-loop increment**, this updates the control variable and runs **after** the body of the loop. In an equivalent while loop, this would be the increment of the control variable at the end of the body in the while loop.
+The standard format of a for loop is: `for (i = 0; i < size; i++) {...}`. This can be read in parts as:
 
-## For - Why, When, and How
+- for `i`, starting at 0 (the initialiser)
+- while `i` is less than `size`, do the body of the loop (the condition)
+- then increment `i` (using `i++`) (the post-loop increment)
 
-The standard format of a for loop is: `for(i = 0; i < size; i++)\{...\}`. This can be read in parts as:
+This will then give you a loop that runs `size` times.
 
-- for `i`, starting at 0
-- while `i` is less than `size`, do the body of the loop
-- then increment `i` (using `i++`).
+The example above (`for (i = 0; i < size; i++) {...}`) assumes that the variable `i` has already been declared.
+Many languages, including C#, allow you to declare loop's control variable within the loop itself, not just initialise it.
+This is the most common way control variables are created, and neatly packages all of the loop's data within the loop structure.
+Using this approach, our previous example would become `for (int i = 0; i < size; i++) {...}`.
 
-This will then give you a loop that runs `size` times - with i going from 0 to `size` where it terminates the loop.
+You can tweak all three elements of a `for` loop.
+For example, there is no restriction on what value the control variable can be initialised to (assuming it's a valid value for the variable's data type).
+Similarly, the condition of a `for` loop can be any valid expression.
+Lastly, the post-loop increment can be any assignment statement.
+For example, you can count backwards, or in increments of 2.
 
-Any time you have a loop where you want to repeat a set number of times, the for loop is the statement you are most likely to want to use. It provides you with the mechanics you need to achieve this, and the standard format for the loop is usually what you are after. You can also tweak aspects to do things like count backwards or loop from a value other than 0.
+It is even possible to skip the condition and increment elements of a `for` loop entirely!
+This is not done often, but the flexibility can be useful.
 
-## How does for work?
+## How does `for` work?
+
+### Simple `for` loop
 
 The example we used for the [while loop](../04-1-while-loop) was a counting loop, so it is perfect to transform to a for loop. The looping part of this example is shown below, with comments pointing out the three aspects we need to code into the for loop.
 
@@ -63,12 +278,12 @@ int i =  0; // initialiser
 
 while (i < target) // condition
 {
-  WriteLine(i);
-  i++; // increment
+    WriteLine(i);
+    i++; // increment
 }
 ```
 
-The following code shows the example using a for loop instead of a while loop. Notice that you can match up the initialiser, condition, and increment with the code in the while loop. This will run in the same way as the while loop did, it just brings these three parts together more clearly.
+The following code shows the example translated to use a for loop instead of a while loop. Notice that you can match up the initialiser, condition, and increment with the code in the while loop. This will run in the same way as the while loop did, it just brings these three parts together more clearly.
 
 ```csharp
 using static System.Console;
@@ -81,7 +296,7 @@ target = ToInt32(ReadLine());
 
 for(int i =  0; i < target; i++)
 {
-  WriteLine(i);
+   WriteLine(i);
 }
 ```
 
@@ -89,216 +304,15 @@ Use the following images to see how this works.
 
 <MySwiper client:only height="" images={sliderImagesForLoop}></MySwiper>
 
+:::note[Attention]
+Notice that the `while` and `for` loops are basically the same. The `for` loop just helps you clearly show how the control variable is being initialised, checked, and adjusted.
+:::
 
-export const sliderImagesForLoop = [
-  {
-    src: forLoopSlide01.src,
-    altText: "Lines 1-3 prompt the user for input, which is retrieved, converted to an integer, and stored in the variable 'target' on the stack",
-    tipStart: 1,
-    tips: [
-      "Lines 1-3 prompt the user for input, which is retrieved, converted to an integer, and stored in the variable 'target' on the stack",
-      "The program counter is increased from line 3 to line 4"
-    ]
-  },
-  {
-    src: forLoopSlide02.src,
-    altText: "The for loop begins and as step 4a, the variable 'i' is allocated space on the stack and initialized to 0...",
-    tipStart: 2,
-    tips: [
-      "Line 4 begins the for loop",
-      "The first step (4a), is the (optional) declaration and initialization",
-      "In this case, the variable 'i' is allocated space on the stack and initialized to 0",
-      "Control then passes to step 4b..."
-    ]
-  },
-  {
-    src: forLoopSlide03.src,
-    altText: "Step 4b performs the comparison which evaluates to true",
-    tipStart: 3,
-    tips: [
-      "Step 4b is the (optional) comparison",
-      "Since 0 is less than 10, the comparison evaluates to <span class='booleanTrue'>true</span>",
-      "The program counter then moves from line 5 (start of the for block) to line 6 (the first line of the block)"
-    ]
-  },
-  {
-    src: forLoopSlide04.src,
-    altText: "Line 6 writes the current value of 'i' (0) to the terminal",
-    tipStart: 4,
-    tips: [
-      "Line 6 writes the current value of 'i' (0) to the terminal",
-      "Control passes from line 7 (end of the for block) back to step 4c..."
-    ]
-  },
-  {
-    src: forLoopSlide05.src,
-    altText: "Step 4c increments the value of 'i' by one, before passing control back to step 4b (the comparison)",
-    tipStart: 5,
-    tips: [
-      "Step 4c is the (optional) increment or decrement statement",
-      "In this case the value of 'i' is incremented by 1 (from 0 to 1)",
-      "Control then passes back to step 4b (the comparison)"
-    ]
-  },
-  {
-    src: forLoopSlide06.src,
-    altText: "Since 1 is less than 10, the comparison evaluates to true, control passes back to line 6",
-    tipStart: 6,
-    tips: [
-      "Since 1 is less than 10, the comparison evaluates to <span class='booleanTrue'>true</span>",
-      "The program counter then increments again through line 5 to line 6"
-    ]
-  },
-  {
-    src: forLoopSlide07.src,
-    altText: "Line 6 writes the current value of 'i' (1) to the terminal",
-    tipStart: 7,
-    tips: [
-      "Line 6 writes the current value of 'i' (1) to the terminal",
-      "Control passes from line 7 (end of the for block) back up to step 4c"
-    ]
-  },
-  {
-    src: forLoopSlide08.src,
-    altText: "Let's jump ahead to where the number 9 has been printed and i increments to 10",
-    tipStart: 8,
-    tips: [
-      "The program loops through like this printing numbers",
-      "Let's jump ahead to where the number 9 has just been printed to the screen (rather than the number 1 as on the previous slide)",
-      "Now at step 4c, i is incremented by 1 (from 9 to 10)",
-      "Control passes back to step 4b, the comparison"
-    ]
-  },
-  {
-    src: forLoopSlide09.src,
-    altText: "Now the comparison evaluates to false (10 is not less than 10), and the for loop ends",
-    tipStart: 9,
-    tips: [
-      "Now the comparison evaluates to <span class='booleanFalse'>false</span> (since 10 is not less than 10)",
-      "This signals the end of the for loop, and control passes to the first line after the closing brace of the for loop - line 8"
-    ]
-  },
-  {
-    src: forLoopSlide10.src,
-    altText: "Line 8 prints 'Bye...' to the terminal and the program ends",
-    tipStart: 10,
-    tips: [
-      "Line 8 prints 'Bye...' to the terminal",
-      "Then the program ends"
-    ]
-  }
-];
+### Reversed `for` loop
 
+Compare the `for` loop shown above with that below, which moves in a numerically reverse order.
 
-#### Reversed for loop
-
-Compare the for loop shown above, with that below, which moves in a numerically reverse order. Take note of the use of a single variable to store the result for comparison this time, as well as the initialization, which has shifted the reading of the user input (along with the initialization of the max variable), from outside the for loop, to inside.
+In this case the post-loop increment element subtracts 1 from the control variable, (incrementing it by a negative number).
+We have also changed the initialisation to ask for input from the user, rather than being a hard-coded value.
 
 <MySwiper client:only height="" images={sliderImagesReversedForLoop}></MySwiper>
-
-
-export const sliderImagesReversedForLoop = [
-  {
-    src: reversedForLoopSlide01.src,
-    altText: "Lines 1-2 declare an integer variable (max) then prompt the user for input",
-    tipStart: 1,
-    tips: [
-      "Lines 1-2 declare an integer variable (max) then prompt the user for input",
-      "The program counter is increased from line 2 to line 3"
-    ]
-  },
-  {
-    src: reversedForLoopSlide02.src,
-    altText: "Lines 3 begins the for loop: The first step (3a) is the initialization: This initialization code reads the user's input ('10'), converts it to an integer, and stores it in the variable max on the stack.",
-    tipStart: 2,
-    tips: [
-      "Line 3 begins the for loop",
-      "The first step is the initialization (step 3a): This code reads the user's input ('10'), converts it to an integer, and stores it in the variable max on the stack",
-      "Control then moves to step 3b"
-    ]
-  },
-  {
-    src: reversedForLoopSlide03.src,
-    altText: "Step 3b is the comparison which evaluates to true",
-    tipStart: 3,
-    tips: [
-      "Step 3b is the comparison",
-      "Since max (10) is greater than 0, it evaluates to <span class='booleanTrue'>true</span>",
-      "Control then moves through line 4 (the opening of the main for loop block) to line 5, the first line of code in the main for loop block)"
-    ]
-  },
-  {
-    src: reversedForLoopSlide04.src,
-    altText: "Line 5 writes the value of the variable max (10) to the terminal",
-    tipStart: 4,
-    tips: [
-      "Line 5 writes the value of the variable max (10) to the terminal",
-      "Control then moves back to line 3 (step 3c)"
-    ]
-  },
-  {
-    src: reversedForLoopSlide05.src,
-    altText: "Step 3c decrements the value of the variable max by 1 (from 10 to 9), and stores the result back in the same variable",
-    tipStart: 5,
-    tips: [
-      "Step 3c decrements the value of the variable max by 1 (from 10 to 9), and stores the result back in the same variable",
-      "Control then moves to step 3b"
-    ]
-  },
-  {
-    src: reversedForLoopSlide06.src,
-    altText: "Step 3c decrements the value of the variable max by 1 (from 10 to 9), and stores the result back in the same variable",
-    tipStart: 6,
-    tips: [
-      "Step 3b evaluates to <span class='booleanTrue'>true</span> again, since 9 is still greater than 0",
-      "Control then moves to the first line of code in the main for loop (lines 4,5)"
-    ]
-  },
-  {
-    src: reversedForLoopSlide07.src,
-    altText: "Line 5 writes the value of the variable max (9) to the terminal",
-    tipStart: 7,
-    tips: [
-      "Line 5 writes the value of the variable max (9) to the terminal",
-      "Control then moves back to line 3 (step 3c)"
-    ]
-  },
-  {
-    src: reversedForLoopSlide08.src,
-    altText: "Let's jump ahead to where the number 1 has been printed and max decrements from 1 to 0",
-    tipStart: 8,
-    tips: [
-      "The program loops through like this, printing numbers",
-      "Let's jump ahead to where the number 1 has just been printed to the screen (rather than the number 9 as on the previous slide)",
-      "Now at step 3c, max is decremented by 1 (from 1 to 0)",
-      "Control passes back to step 3b, the comparison"
-    ]
-  },
-  {
-    src: reversedForLoopSlide09.src,
-    altText: "This time the comparison at step 3b evaluates to false, and the for loop ends",
-    tipStart: 9,
-    tips: [
-      "This time the comparison at step 3b evaluates to <span class='booleanFalse'>false</span>, since 0 is not greater than 0",
-      "The for loop ends",
-      "Control passes through line 7 (the terminating brace of the main for loop block) to the next line of code at line 8"
-    ]
-  },
-  {
-    src: reversedForLoopSlide10.src,
-    altText: "Line 8 prints 'Blast off !' to the terminal, and the program ends",
-    tipStart: 10,
-    tips: [
-      "Line 8 prints 'Blast off !' to the terminal",
-      "Then the program ends"
-    ]
-  }
-];
-
-
-
-:::tip[Attention]
-
-Notice that the while and for are basically the same. The for loop just helps you clearly show how the control variable is being initialised, checked, and adjusted in each loop.
-
-:::

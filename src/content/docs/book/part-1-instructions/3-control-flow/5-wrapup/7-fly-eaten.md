@@ -1,7 +1,7 @@
 ---
-title: Fly Catch the Escape
+title: Fly Catch Eaten
 sidebar:
-    label: " - fly escape"
+    label: " - Fly Eaten"
 ---
 
 Our last step shows how to check for the spider catching the fly.
@@ -37,64 +37,64 @@ StartTimer(GAME_TIMER);
 // The event loop
 while (!QuitRequested())
 {
-  // Handle Input
-  if (KeyDown(KeyCode.RightKey) && spiderX + SPIDER_RADIUS < SCREEN_WIDTH)
-  {
-    spiderX += SPIDER_SPEED;
-  }
-  if (KeyDown(KeyCode.LeftKey) && spiderX - SPIDER_RADIUS > 0)
-  {
-    spiderX -= SPIDER_SPEED;
-  }
+    // Handle Input
+    if (KeyDown(KeyCode.RightKey) && spiderX + SPIDER_RADIUS < SCREEN_WIDTH)
+    {
+        spiderX += SPIDER_SPEED;
+    }
+    if (KeyDown(KeyCode.LeftKey) && spiderX - SPIDER_RADIUS > 0)
+    {
+        spiderX -= SPIDER_SPEED;
+    }
 
-  // Update the Game
-  // Check if the fly should appear
-  if (! flyAppeared && TimerTicks(GAME_TIMER) > appearAtTime)
-  {
-    // Make the fly appear
-    flyAppeared = true;
+    // Update the Game
+    // Check if the fly should appear
+    if (!flyAppeared && TimerTicks(GAME_TIMER) > appearAtTime)
+    {
+        // Make the fly appear
+        flyAppeared = true;
 
-    // Give it a new random position
-    flyX = Rnd(SCREEN_WIDTH);
-    flyY = Rnd(SCREEN_HEIGHT);
-    
-    // Set its escape time
-    escapeAtTime = TimerTicks(GAME_TIMER) + 2000 + Rnd(5000);
-  }
-  else if (flyAppeared && TimerTicks(GAME_TIMER) > escapeAtTime)
-  {
-    flyAppeared = false;
-    appearAtTime = TimerTicks(GAME_TIMER) + 1000 + Rnd(2000);
-  }
+        // Give it a new random position
+        flyX = Rnd(SCREEN_WIDTH);
+        flyY = Rnd(SCREEN_HEIGHT);
+        
+        // Set its escape time
+        escapeAtTime = TimerTicks(GAME_TIMER) + 2000 + Rnd(5000);
+    }
+    else if (flyAppeared && TimerTicks(GAME_TIMER) > escapeAtTime)
+    {
+        flyAppeared = false;
+        appearAtTime = TimerTicks(GAME_TIMER) + 1000 + Rnd(2000);
+    }
 
-  // Test if the spider and fly are touching
-  if (CirclesIntersect(spiderX, spiderY, SPIDER_RADIUS, flyX, flyY, FLY_RADIUS))
-  {
-    flyAppeared = false;
-    appearAtTime = TimerTicks(GAME_TIMER) + 1000 + Rnd(2000);
-  }
+    // Test if the spider and fly are touching
+    if (CirclesIntersect(spiderX, spiderY, SPIDER_RADIUS, flyX, flyY, FLY_RADIUS))
+    {
+        flyAppeared = false;
+        appearAtTime = TimerTicks(GAME_TIMER) + 1000 + Rnd(2000);
+    }
 
-  // Draw the game
-  ClearScreen(ColorWhite());
-  // Draw the spider
-  FillCircle(ColorBlack(), spiderX, spiderY, SPIDER_RADIUS);
+    // Draw the game
+    ClearScreen(ColorWhite());
+    // Draw the spider
+    FillCircle(ColorBlack(), spiderX, spiderY, SPIDER_RADIUS);
 
-  if (flyAppeared)
-  {
-    // Draw the fly
-    FillCircle(ColorDarkGreen(), flyX, flyY, FLY_RADIUS);
-  }
+    if (flyAppeared)
+    {
+        // Draw the fly
+        FillCircle(ColorDarkGreen(), flyX, flyY, FLY_RADIUS);
+    }
 
-  // Show it to  the user
-  RefreshScreen(60);
+    // Show it to  the user
+    RefreshScreen(60);
 
-  // Get any new user interactions
-  ProcessEvents();
+    // Get any new user interactions
+    ProcessEvents();
 }
 ```
 
 :::caution
+Wow, this is **a lot of code** to write directly within the program! Generally we would have brought in the code organisation features of the language to help make this easier for me, but we haven't covered those yet. The good thing is, once you master these concepts and can create code like this...it is all just going to get easier from here. 
 
-Wow, this is **a lot of code** to write directly within the program, even for me! Generally I would have brought in the code organisation features of the language to help make this easier for me, but we haven't covered those yet. The good thing is - once you master these concepts and can create code like this... it is all just going to get easier from here. In Part 2 we will see some tools we can bring to help us better manage this code. Then writing huge chunks of code like this will be a thing of the past. You will still use control flow, but you will have need tools you can use to divide the code up into clearer sections so you can more easily think through how those parts work.
-
+In Part 2 we will see some tools we can use to help us better manage this code and make writing huge chunks of code like this a thing of the past. You will still use control flow, but you be able to divide the code up into clearer sections so you can more easily think through how each section works.
 :::
