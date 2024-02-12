@@ -8,24 +8,20 @@ sidebar:
 
 In this guide, we will walk through the steps to install the necessary applications and tools on **WSL** (**W**indows **S**ubsystem for **L**inux) with Ubuntu. This will enable you to code in C# and C++ with SplashKit.
 
-<!-- Is this part below needed here? -->
-Ensure that you have WSL installed and configured on your Windows machine.
-
 Now, let's get started!
 
 To set up WSL and install SplashKit and other coding tools on Windows, follow the steps outlined below:
 
 ## 1. Install Windows Subsystem for Linux (WSL)
+<!-- TODO: Update install instructions to be a bit clearer -->
 
 Windows Subsystem for Linux (WSL) is a feature of Windows that allows you to run a Linux environment on your Windows machine, without the need for a separate virtual machine or dual booting.
 
-<!-- TODO: Update install instructions to be a bit clearer -->
-To install WSL on your Windows computer, follow the instructions provided in the official Microsoft documentation: [Install Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+Ensure that you have WSL installed and configured on your Windows machine.
 
-<!-- TODO: Check if this Gif is needed -->
 ![Gif showing WSL being installed from Microsoft store](/gifs/setup-windows/install-wsl.gif)
 
-Make sure to choose the WSL version that suits your needs (WSL 1 or WSL 2) and follow the instructions provided.
+To install WSL on your Windows computer, follow the instructions provided in the official Microsoft documentation: [Install Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
 <!-- Possible alternative to above - need to make things less vague -->
 <!-- :::tip[Two versions of WSL available]
@@ -34,8 +30,9 @@ You can read [this article](https://learn.microsoft.com/en-us/windows/wsl/compar
 If you're still unsure, choose WSL 2.
 ::: -->
 
-<!-- TODO: Update Gif to be clearer -->
 ![Gif showing WSL terminal running setup commands](/gifs/setup-windows/wsl-terminal.gif)
+
+Make sure to choose the WSL version that suits your needs (WSL 1 or WSL 2) and follow the instructions provided.
 
 ## 2. Install Command Line Tools
 
@@ -108,7 +105,6 @@ skm global install
 
 ![Gif showing skm installing globally in WSL Terminal](/gifs/setup-windows/wsl-install-global.gif)
 
-<!-- Check if directories are the same -->
 :::note[What does this command do specifically?]
 The command above will add the **SplashKit libraries** into the `/usr/local/lib/` folder, and the required **SplashKit library include files** into the `/usr/local/include` folder.
 :::
@@ -127,6 +123,8 @@ Download and run the installer from: [code.visualstudio.com/Download](https://co
 
 :::tip[Open Code from Terminal]
 You can open Visual Studio Code from the Terminal by typing `code` and pressing enter. `code .` will open the current folder in Visual Studio Code.
+
+*You will need to close and reopen your terminal after installing VS Code for the above commands to work.*
 :::
 
 ### Recommended Extensions

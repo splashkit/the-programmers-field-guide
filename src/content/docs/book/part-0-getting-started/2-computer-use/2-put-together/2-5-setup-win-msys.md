@@ -26,14 +26,23 @@ Download the installer (32-bit or 64-bit) from the official MSYS2 website: [www.
 
 ![Gif showing MSYS download](/gifs/setup-windows/install-msys.gif)
 
-To install: double-click the downloaded executable file, and follow the on-screen instructions.  
+To install MSYS2, double-click the downloaded executable file, and follow the on-screen instructions.  
 *It is recommended to use the default install path, but you can customise the other installation options as needed.*
 
-<!-- TODO: Possibly add Gif of installation steps? or an image -->
+:::note[Which Terminal?]
+MSYS2 comes with a variety of terminal environments. The **MINGW64** terminal environment is recommended (or MINGW32 for 32-bit machines), as it has been found to support the C# and C++ terminal commands you will use.
 
-:::note[MSYS vs MINGW64]
-<!-- TODO: Update this, with screenshot and how to pin to task bar -->
-You should use the MINGW64 terminal.
+Therefore, you should use the **MSYS2 MINGW64** terminal, which you can find by searching "Mingw64" in the Windows Start menu and selecting the **MSYS2 MINGW64** App.
+:::
+
+:::tip[Pin it!]
+To make it easier to open each time, you can pin your terminal to the Taskbar.
+
+- Open the MSYS2 MINGW64 App.
+- Right-click on the MSYS2 App icon in the taskbar (shown in the orange box in the image below).
+- Select "Pin to taskbar" (shown in the pink box):
+
+![Image showing MSYS2 MINGW64 App pinning to taskbar](./images/setup-windows/mingw64-pin-to-taskbar.png)
 :::
 
 ## 2. Install git Command Line Tool
@@ -49,10 +58,8 @@ pacman -S git --noconfirm --disable-download-timeout
 :::caution[Paste commands into MINGW64 Terminal]
 Unfortunately, you won't be able to use `Ctrl` + `V` to paste.
 
-Instead, right click and then select **Paste**.
+Instead, right-click anywhere in the terminal window and then select **Paste**.
 :::
-
-<!-- TODO: Check if Gif is needed here -->
 
 ## 3. Install SplashKit SDK
 
@@ -70,7 +77,8 @@ Copy and paste the following command into your MSYS2 MINGW64 Terminal to downloa
 bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)
 ```
 
-<!-- TODO: Redo this command in the mingw64 terminal -->
+*For this step*, you can use any of the terminal environments provided by MSYS2, such as the **MSYS** terminal shown here:
+
 ![MSYS SKM Install](/gifs/setup-windows/msys-skm-install.gif)
 
 :::danger[My install command is not working. Help!]
@@ -99,7 +107,6 @@ skm global install
 
 ![MSYS Global Install](/gifs/setup-windows/msys-global-install.gif)
 
-<!-- Check if directories are the same -->
 :::note[What does this command do specifically?]
 The command above will add the **SplashKit libraries** into the `/usr/local/lib/` folder, and the required **SplashKit library include files** into the `/usr/local/include` folder.
 :::
@@ -117,7 +124,9 @@ Download and run the installer from: [code.visualstudio.com/Download](https://co
 ![Gif showing Visual Studio Code installation](/gifs/setup-windows/install-vscode.gif)
 
 :::tip[Open Code from Terminal]
-You can open Visual Studio Code from the Terminal by typing `code` and pressing enter. `code .` will open the current folder in Visual Studio Code.
+You can open Visual Studio Code from the MSYS2 MINGW64 Terminal by typing `code` and pressing enter. `code .` will open the current folder in Visual Studio Code.
+
+*You will need to close and reopen your terminal after installing VS Code for the above commands to work.*
 :::
 
 ### Recommended Extensions
