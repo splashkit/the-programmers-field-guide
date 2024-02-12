@@ -112,14 +112,13 @@ Visual Studio Code, also commonly known as *VS Code* or just *Code*, is a powerf
 Once you have your code project set up, Visual Studio Code will be the main program you will use to write, build, run and debug your code.
 :::
 
-First you will need to download the installer from: [code.visualstudio.com/Download](https://code.visualstudio.com/Download)
+Download and run the installer from: [code.visualstudio.com/Download](https://code.visualstudio.com/Download).
 
 ![Gif showing Visual Studio Code installation](/gifs/setup-windows/install-vscode.gif)
 
-To install: Open the downloaded executable file, and follow the on-screen instructions.  
-*You can customise the installation options as needed.*
-
-<!-- TODO: Possibly add Gif of installation steps? or an image -->
+:::tip[Open Code from Terminal]
+You can open Visual Studio Code from the Terminal by typing `code` and pressing enter. `code .` will open the current folder in Visual Studio Code.
+:::
 
 ### Recommended Extensions
 
