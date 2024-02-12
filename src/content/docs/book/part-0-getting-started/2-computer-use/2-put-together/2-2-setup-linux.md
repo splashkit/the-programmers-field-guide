@@ -14,7 +14,7 @@ This section will go through all the steps to install the required Applications 
 To open the Terminal on Debian, click activities in the top left of the screen and type "Terminal" in the search bar, then click on the Terminal icon.
 ![Gift showing how to open the Terminal](/gifs/setup-linux/OpenTerminal.gif)
 
-_Using a **Raspberry Pi**? Click the Terminal icon in the taskbar (shown in the Red Box below), or press `Ctrl + Alt + T`_
+*Using a **Raspberry Pi**? Click the Terminal icon in the taskbar (shown in the Red Box below), or press `Ctrl + Alt + T`*
 
 ![Image Showing the Terminal Icon](./images/setup-linux/1-2-setup-pi-Terminal_Icon.png)
 :::
@@ -22,11 +22,11 @@ _Using a **Raspberry Pi**? Click the Terminal icon in the taskbar (shown in the 
 :::tip[Do you sudo?]
 `sudo` is a command that allows you to run a program with superuser privileges and is often required for installing software. Debian does not add the main user to the sudoers file by default.
 
-_On a **Raspberry Pi** the main user is added to the sudoers file, so this step is not required_
+*On a **Raspberry Pi** the main user is added to the sudoers file, so this step is not required*
 
 The following commands will let you check if your user is in the suders group and add it if required. To take effect, you must reboot your computer after adding your user to the sudoers group.
 
-_You will need to know your root user password_ (_replace `username` with your username_):
+*You will need to know your root user password* (*replace `username` with your username*):
 
 ```bash
 groups username
@@ -60,16 +60,16 @@ sudo apt install curl git -y
 
 This script will install the following applications and tools:
 
--   Visual Studio Code
-    -   C/C++ Extension
-    -   C# Extension
--   .NET SDK
--   SplashKit
-    -   SplashKit Global
--   wget
--   git
--   curl
--   clang
+- Visual Studio Code
+  - C/C++ Extension
+  - C# Extension
+- .NET SDK
+- SplashKit
+  - SplashKit Global
+- wget
+- git
+- curl
+- clang
 
 Open the Terminal and run the following command:
 
@@ -110,26 +110,23 @@ The **SplashKit SDK** is installed using the `skm-install.sh` shell script which
 It will also add the required paths to your PATH environment variable.
 :::
 
-Copy and paste the following command into your Terminal window:
+Copy and paste the following command into your Terminal window to download and run the SplashKit installer:
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)
 ```
 
 :::danger[My install command is not working. Help!]
+If the command above does not produce any response, ensure that your computer is connected to the internet and try disabling your firewall.
 
-What if the command above does nothing? (as shown in the image below)
-![A Terminal window showing no response to bash install command](./images/setup-linux/SplashKitCommandFailed.png)
+***Still no luck?***  
+If you still encounter issues, you can download the install script locally by right-clicking on [this link](https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh) and selecting "Save Link As".
 
-Make sure your computer is connected to the internet.
+To run the downloaded shell script, open the Terminal and navigate to the folder where you saved the file. Then run the following command:
 
-**_Still no luck?_**  
-Download the install script locally by right-clicking on [this link](https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh) and selecting "Save Link As".
-
-To run the downloaded shell script, open the Terminal, navigate to the folder where you saved the file, and then use the command `bash skm-install.sh`.  
-For example, if the file is in your _Downloads_ folder:
-
-![A Terminal window running local install script file](./images/setup-linux/splashKitManualInstall.png)
+```bash
+bash skm-install.sh
+```
 
 :::
 
@@ -151,9 +148,7 @@ This may take a while (approx. 10 mins).
 
 Finally, you will need to install the SplashKit Global Libraries. This will install the SplashKit libraries and library include files into the system's default global locations so that the compiler can find these files when building (compiling) programs created with SplashKit.
 
-To install SplashKit globally on your machine:
-
-Copy and paste the following command into your Terminal window:
+To install SplashKit globally, copy and paste the following command into your Terminal window:
 
 ```bash
 skm global install
@@ -165,7 +160,7 @@ The command above will add the **SplashKit libraries** into the `/usr/local/lib/
 
 ### 3. Install Visual Studio Code
 
-Visual Studio Code, also commonly known as _VS Code_ or just _Code_, is a powerful and versatile code editor that enables efficient coding, debugging, and collaboration for your SplashKit projects!
+Visual Studio Code, also commonly known as *VS Code* or just *Code*, is a powerful and versatile code editor that enables efficient coding, debugging, and collaboration for your SplashKit projects!
 
 :::note[VS Code has it all!]
 Once you have your code project set up, Visual Studio Code will be the main program you will use to write, build, run, and debug your code.
@@ -196,7 +191,7 @@ You can open Visual Studio Code from the Terminal by typing `code` and pressing 
 
 ### Recommended Extensions
 
-Visual Studio Code has an extensive library of _Extensions_ that let you add improved functionality for languages, debuggers, and tools to support your development workflow.  
+Visual Studio Code has an extensive library of *Extensions* that let you add improved functionality for languages, debuggers, and tools to support your development workflow.  
 Using extensions in VS Code will make it easier and faster to code with whatever language or tools you are using.
 
 #### C# Language Extensions
@@ -209,7 +204,8 @@ For the **C#** code, we recommend installing the `C#`, `C# Dev Kit`, and `Intell
 2. Type "C#" in the Search bar at the top (shown in the blue box).
 3. Click "Install" for each of the extensions listed (shown in the green box).
 
-![Visual Studio Code window showing recommended extensions for C#](./images/setup-macos/vs-code-csharp-extensions.png)
+![Visual Studio Code window showing recommended extensions for C#](./images/vscode-extensions/vs-code-csharp-extensions.png)
+
 :::
 
 #### C++ Language Extensions
@@ -225,7 +221,7 @@ You can also install the `C/C++ Extension Pack` extension, which includes multip
 3. Click "Install" for the "C/C++" extensions (shown in the green box).
 4. (Optional) Click "Install" for any other extensions you want to install (shown in the orange box).
 
-![Visual Studio Code window showing recommended extensions for C++](./images/setup-macos/vs-code-cpp-extensions.png)
+![Visual Studio Code window showing recommended extensions for C++](./images/vscode-extensions/vs-code-cpp-extensions.png)
 :::
 
 ### 4. Install Language Specific Tools
@@ -235,17 +231,15 @@ As you will be coding in C# and C++ in this book, let's look at the tools needed
 
 ### C# Tools
 
-For coding in C#, you will need to install the `.NET` framework, also commonly called _dotnet_.  
-You will use this to create, build, and run your C# project code.
+For coding in C#, you will need to install the `.NET` SDK which will allow you to use the *dotnet* terminal command to create, build, and run your C# project code.
 
-:::tip[Which version should I use?]
-We recommend using **.NET 8.0**, which you can install with the following command:
+Download the latest version of the .NET SDK using the following command:
 
 ```bash
 curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin
 ```
 
-You will also need to add .dot to your PATH environment variable.
+You will also need to add .dotnet to your PATH environment variable.
 
 ```bash
 echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
@@ -254,15 +248,18 @@ source ~/.bashrc
 ```
 
 Test dotnet is installed correctly by running `dotnet --version` in the Terminal.
+
 For more details on the process, refer to this article [Deploy .NET apps on ARM single-board computers](https://docs.microsoft.com/en-us/dotnet/iot/deployment)
 
 :::
 
 ### C++ Tools
 
-For coding in C++, you will need to have a C++ compiler installed to build your C++ code into a file you can use to run your program.  
-Commonly used compilers are `g++` and `clang++`.
-`g++` is installed by default on the Raspberry Pi to install `clang++` run the following command:
+For coding in C++, you will need to have a C++ compiler installed to build your C++ code into a file you can use to run your program. Commonly used compilers are `g++` and `clang++`.
+
+`g++` is installed by default on the Raspberry Pi.
+
+To install `clang++` run the following command:
 
 ```bash
 sudo apt install clang -y
@@ -274,7 +271,7 @@ sudo apt install clang -y
 
 When using the terminal, you are actually interacting with a shell, where the default for the Raspberry Pi is **bash**, but other shells are available.
 
-Here, we will install **_zsh_** and **_oh-my-zsh_** to customise the terminal. These will give you a more user-friendly terminal experience with themes and plugin support.
+Here, we will install ***zsh*** and ***oh-my-zsh*** to customise the terminal. These will give you a more user-friendly terminal experience with themes and plugin support.
 
 **To install zsh**, run the following command in your Terminal:
 
@@ -309,10 +306,10 @@ source ~/.zshrc
 :::tip[What is nano?]
 Nano is a command line text editor that is already installed on Debian. As a quick start, these are the most important commands
 
--   To edit a file in nano use `nano [filename]`
--   navigate the cursor using the arrow keys
--   `Ctrl + O` to save the file
--   `Ctrl + X` to exit the editor
+- To edit a file in nano use `nano [filename]`
+- navigate the cursor using the arrow keys
+- `Ctrl + O` to save the file
+- `Ctrl + X` to exit the editor
 
 :::
 
@@ -353,7 +350,7 @@ source ~/.zshrc
 
 ### Add Shortcut for the Programmers Field Guide
 
-To add the Programmers Field Guide to the menu, run the following commands in the Terminal **_On the Raspberry Pi it will appear under programming in the menu_**
+To add the Programmers Field Guide to the menu, run the following commands in the Terminal ***On the Raspberry Pi it will appear under programming in the menu***
 
 ```bash
     echo "Adding Programers Feild guide to Menu"

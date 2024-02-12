@@ -6,9 +6,7 @@ sidebar:
   label: " - macOS"
 ---
 
-*Let's get your macOS computer ready to start coding!*
-
-In this guide, we will go through all the steps to install the required Applications and Tools that you will need to code in C# and C++ with SplashKit.  
+In this guide, we will walk through the steps to install the necessary Applications and Tools that you will need to code in C# and C++ with SplashKit.  
 We will be using the **Terminal** app, with the **zsh** shell. You can also use the **bash** shell if you prefer.
 
 :::note[Already have SplashKit installed?]
@@ -19,16 +17,13 @@ If you have previously installed SplashKit (before 2024):
 
 :::
 
-Now, to get SplashKit and other coding tools installed on macOS, follow the steps outlined below:
+Now, let's get started!
 
-## 1. Install Xcode Command Line Tools
+To get SplashKit and other coding tools installed on macOS, follow the steps outlined below:
 
-The Command Line Tools provided by Xcode provide a large amount of developer tools required to compile and develop applications.
+## 1. Install Command Line Tools
 
-:::tip[Why Xcode Command Line Tools?]
-By installing Xcode Command Line Tools, you will effectively install a large variety of tools (terminal commands you can use) all at once.  
-Most importantly for these installation steps, you will need the **git** tool (used for *Step 2*) and the **C++ compilers** (mentioned in *Step 4*).
-:::
+The *Xcode* Command Line Tools Package is a small self-contained package, available for download separately from *Xcode*, that allows you to do command line development in macOS. It consists of the macOS SDK and command-line tools such as `clang`, which are installed in the `/Library/Developer/CommandLineTools` directory.
 
 To install these tools, copy the command below:
 
@@ -38,7 +33,7 @@ xcode-select --install
 
 Then, open your **Terminal** app and paste the copied text.
 
-![Gif showing Spotlight Search to open Terminal and pasting Xcode install command](/public/gifs/setup-macos/terminal-xcode-install.gif)
+![Gif showing Spotlight Search to open Terminal and pasting Xcode install command](/gifs/setup-macos/terminal-xcode-install.gif)
 
 :::note[How do I find the Terminal on my Mac?]
 
@@ -54,55 +49,49 @@ Then, open your **Terminal** app and paste the copied text.
 
 That means you've already installed Xcode, and are ready to move to the next step!
 
-## 2. Install the SplashKit SDK
+## 2. Install SplashKit SDK
 
 SplashKit is a beginner's all-purpose software toolkit that will allow you to create fun and exciting programs more easily, especially for Graphical User Interface (GUI) programs.
 
 :::tip[Curious to know more?]
 The **SplashKit SDK** is installed using the `skm-install.sh` shell script which is stored in the [**skm**](https://github.com/splashkit/skm) GitHub repository (in the **install-scripts** folder).
 
-This install script uses the `git` command (**that we installed with Xcode in Step 1!**) to access and download the contents of the GitHub repository.  
 It will also add the required paths to your PATH environment variable.
 :::
 
-Copy and paste the following command into your Terminal window:
+Copy and paste the following command into your Terminal window to download and run the SplashKit installer:
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)
 ```
 
-![Gif showing skm installing in Terminal](/public/gifs/setup-macos/skm-install.gif)
+![Gif showing skm installing in Terminal](/gifs/setup-macos/skm-install.gif)
 
 :::danger[My install command is not working. Help!]
-What if the command above does nothing? (as shown in the image below)
-
-![A Terminal window showing no response to bash install command](./images/setup-macos/skm-install-no-response.png)
-
-Make sure your computer is connected to the internet and try disabling your firewall.
+If the command above does not produce any response, ensure that your computer is connected to the internet and try disabling your firewall.
 
 ***Still no luck?***  
-Download the install script locally by right-clicking on [this link](https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh) and selecting "Save Link As".  
+If you still encounter issues, you can download the install script locally by right-clicking on [this link](https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh) and selecting "Save Link As".
 
-To run the downloaded shell script, open the Terminal and navigate to the folder where you saved the file and then use the command: `bash skm-install.sh`.  
-For example, if the file is in your *Downloads* folder:
+To run the downloaded shell script, open the Terminal and navigate to the folder where you saved the file. Then run the following command:
 
-![A Terminal window running local install script file](./images/setup-macos/local-bash-skm-install.png)
+```bash
+bash skm-install.sh
+```
 
 :::
 
 ## 3. Install SplashKit Globally
 
-Now we need to install the SplashKit libraries and library include files into the system default global locations so that when building (compiling) programs created with SplashKit, the compiler can find these files automatically.
+Finally, you will need to install the SplashKit Global Libraries. This will install the SplashKit libraries and library include files into the system's default global locations so that the compiler can find these files when building (compiling) programs created with SplashKit.
 
-To install SplashKit globally on your machine:
-
-Copy and paste the following command into your Terminal window:
+To install SplashKit globally, copy and paste the following command into your Terminal window:
 
 ```bash
 skm global install
 ```
 
-![Gif showing skm installing globally in Terminal](/public/gifs/setup-macos/skm-global-install.gif)
+![Gif showing skm installing globally in Terminal](/gifs/setup-macos/skm-global-install.gif)
 
 :::note[What does this command do specifically?]
 The command above will add the **SplashKit libraries** into the `/usr/local/lib/` folder, and the required **SplashKit library include files** into the `/usr/local/include` folder.
@@ -118,15 +107,15 @@ Once you have your code project set up, Visual Studio Code will be the main prog
 
 First you will need to download the zip file from: [code.visualstudio.com/Download](https://code.visualstudio.com/Download)
 
-To install: double-click the zip file, then click and drag the **Visual Studio Code** Application file into the ***Applications*** folder:
+To install: double-click the downloaded zip file, then click and drag the **Visual Studio Code** Application file into the ***Applications*** folder.
 
-![Gif showing Visual Studio installation in Finder](/public/gifs/setup-macos/vs-code-install.gif)
+![Gif showing Visual Studio installation in Finder](/gifs/setup-macos/vs-code-install.gif)
 
 ### Add 'code' command to PATH
 
 You can install the `code` command to allow you to open any file or folder in a new Visual Studio Code window, right from your Terminal!
 
-Follow the steps in the [Visual Studio Code on macOS](https://code.visualstudio.com/docs/setup/mac) article on the Visual Studio Code website to install this command.
+Follow the steps in the [**Launching from the command line**](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) section of the *Visual Studio Code on macOS* article to install this command.
 
 :::caution['zsh: command not found: code']
 If you are having issues with the `code` command not working after following the steps above, you can run the following command (adapted from the [Alternative Manual Instructions](https://code.visualstudio.com/docs/setup/mac#_alternative-manual-instructions) section).
@@ -150,11 +139,11 @@ For **C#** code, we recommended that you install the `C#`, `C# Dev Kit` and `Int
 
 :::tip[How do I install the C# extensions?]
 
-1. Open Visual Studio Code and click on the icon in the left panel (shown in the purple box in the image below).
+1. Open Visual Studio Code and click on the *Extensions* tab in the left panel (shown in the purple box in the image below).
 2. Type "C#" in the Search bar at the top (shown in the blue box).
 3. Click "Install" for each of the extensions listed (shown in the green box).
 
-![Visual Studio Code window showing recommended extensions for C#](./images/setup-macos/vs-code-csharp-extensions.png)
+![Visual Studio Code window showing recommended extensions for C#](./images/vscode-extensions/vs-code-csharp-extensions.png)
 :::
 
 #### C++ Language Extensions
@@ -165,12 +154,12 @@ You can also install the `C/C++ Extension Pack` extension which includes multipl
 
 :::tip[How do I install the C++ extensions?]
 
-1. Open Visual Studio Code and click on the icon in the left panel (shown in the purple box in the image below).
+1. Open Visual Studio Code and click on the *Extensions* tab in the left panel (shown in the purple box in the image below).
 2. Type "C++" in the Search bar at the top (shown in the blue box).
 3. Click "Install" for the "C/C++" extensions (shown in the green box).
 4. (Optional) Click "Install" for any other extensions you want to install (shown in the orange box).
 
-![Visual Studio Code window showing recommended extensions for C++](./images/setup-macos/vs-code-cpp-extensions.png)
+![Visual Studio Code window showing recommended extensions for C++](./images/vscode-extensions/vs-code-cpp-extensions.png)
 :::
 
 ## 5. Install Language Specific Tools
@@ -180,18 +169,20 @@ As you will be coding in C# and C++ in this book, let's look at the tools needed
 
 ### C# Tools
 
-For coding in C#, you will need to install the `.NET` framework, also commonly called *dotnet*.  
-You will use this to create, build, and run your C# project code.
+For coding in C#, you will need to install the `.NET` SDK which will allow you to use the *dotnet* terminal command to create, build, and run your C# project code.
 
-:::tip[Which version should I use?]
-We recommend using **.NET 8.0**, which you can download from:  
-[dotnet.microsoft.com/en-us/download](https://dotnet.microsoft.com/en-us/download)
+Download the latest version of the .NET SDK for macOS from the official .NET website: [dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+
+:::note[No SplashKit Global Install?]
+If you have had issues installing the SplashKit global libraries, or you are using an older version of SplashKit, you will need to use **.NET 8.0**, as this is the version used with the `skm` commands mentioned in the [No SplashKit Global Install](../3-0-troubleshooting-install/#no-splashkit-global-install) troubleshooting guide.
 :::
 
-### C++ Tools
+Run the downloaded installer and follow on-screen instructions.
 
-For coding in C++, you will need to have a C++ compiler installed to build your C++ code into a file you can use to run your program.  
-Commonly used compilers are `g++` and `clang++`.
+### C/C++ Tools
+
+<!-- TODO: Check about gdb for macos, and update -->
+For coding in C++, you will need to have a C++ compiler installed to build your C++ code into a file you can use to run your program. Commonly used C++ compilers are `g++` and `clang++`.
 
 :::note
 If you installed Xcode Command Line Tools successfully in Step 1, then you will already have the necessary compilers installed and ready for coding in C++!
@@ -236,7 +227,7 @@ Once you're finished, press ***Control*** (^) + ***X*** to exit **nano** and fol
 
 For example, if the last line was missing:
 
-![Gif showing .zshrc file being edited using nano command](/public/gifs/setup-macos/nano-edit-zshrc.gif)
+![Gif showing .zshrc file being edited using nano command](/gifs/setup-macos/nano-edit-zshrc.gif)
 
 ### Using 'code' to open .zshrc file in Visual Studio Code
 
@@ -248,4 +239,4 @@ To do this, copy and paste the following command in your Terminal:
 code ~/.zshrc
 ```
 
-![Gif showing 'code ~/.zshrc' command opening file in VS Code](/public/gifs/setup-macos/code-zshrc-open.gif)
+![Gif showing 'code ~/.zshrc' command opening file in VS Code](/gifs/setup-macos/code-zshrc-open.gif)
