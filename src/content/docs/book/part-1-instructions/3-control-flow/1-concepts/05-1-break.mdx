@@ -7,15 +7,15 @@ import { YouTube } from 'astro-embed';
 
 import MySwiper from '../../../../../../components/react/myswiper.jsx'
 
-import breakStatementSlide01 from './images/control-flow-statements-in-depth/control-flow-break-01.png';
-import breakStatementSlide02 from './images/control-flow-statements-in-depth/control-flow-break-02.png';
-import breakStatementSlide03 from './images/control-flow-statements-in-depth/control-flow-break-03.png';
-import breakStatementSlide04 from './images/control-flow-statements-in-depth/control-flow-break-04.png';
-import breakStatementSlide05 from './images/control-flow-statements-in-depth/control-flow-break-05.png';
-import breakStatementSlide06 from './images/control-flow-statements-in-depth/control-flow-break-06.png';
-import breakStatementSlide07 from './images/control-flow-statements-in-depth/control-flow-break-07.png';
-import breakStatementSlide08 from './images/control-flow-statements-in-depth/control-flow-break-08.png';
-import breakStatementSlide09 from './images/control-flow-statements-in-depth/control-flow-break-09.png';
+import breakStatementSlide01 from './images/control-flow-statements-in-depth/control-flow-break/Slide1.png';
+import breakStatementSlide02 from './images/control-flow-statements-in-depth/control-flow-break/Slide2.png';
+import breakStatementSlide03 from './images/control-flow-statements-in-depth/control-flow-break/Slide3.png';
+import breakStatementSlide04 from './images/control-flow-statements-in-depth/control-flow-break/Slide4.png';
+import breakStatementSlide05 from './images/control-flow-statements-in-depth/control-flow-break/Slide5.png';
+import breakStatementSlide06 from './images/control-flow-statements-in-depth/control-flow-break/Slide6.png';
+import breakStatementSlide07 from './images/control-flow-statements-in-depth/control-flow-break/Slide7.png';
+import breakStatementSlide08 from './images/control-flow-statements-in-depth/control-flow-break/Slide8.png';
+import breakStatementSlide09 from './images/control-flow-statements-in-depth/control-flow-break/Slide9.png';
 
 export const sliderImagesBreakStatement = [
   {
@@ -23,8 +23,8 @@ export const sliderImagesBreakStatement = [
     altText: "Lines 1-3 use the SplashKit SDK to create a new window",
     tipStart: 1,
     tips: [
-      "Lines 1-3 use the SplashKit SDK to create a new window with dimensions 400 x 400 px, and set its background color to white",
-      "The program counter is increased from line 3 to line 4"
+      "Lines 1 - 3 use SplashKit to create a new window with dimensions 400x400px, and set its background color to white.",
+      "The program counter is increased to line 4."
     ]
   },
   {
@@ -32,10 +32,10 @@ export const sliderImagesBreakStatement = [
     altText: "The while loop condition is tested (let's assume it's true) so processing proceeds into the body of the loop",
     tipStart: 2,
     tips: [
-      "The while loop begins by testing the condition between the braces",
-      "The condition uses the SDK to check if the user asked for the program to quit (for example, the user might click the 'close window' button)",
-      "Let's assume the user has not intervened, and so this evaluates to true",
-      "The program counter increases to execute the body of the while loop" 
+      "The while loop begins by testing the condition between the parentheses.",
+      "The condition SplashKit to check if the user asked for the program to quit.",
+      "Let's assume the user has not intervened, and so this evaluates to <span class='booleanTrue'>true</span>.",
+      "The program counter increments through lines 5, 6, 7, and 8 to execute the body of the loop."
     ]
   },
   {
@@ -43,10 +43,10 @@ export const sliderImagesBreakStatement = [
     altText: "Lines 6-8 draws a circle with a random color, position and radius in the window, then listens for events",
     tipStart: 3,
     tips: [
-      "Line 6 draws a circle with a random color, position and radius in the window",
-      "Line 7 refreshes the screen to show the circle",
-      "Line 8 uses the SplashKit SDK event handler to listen for (user) events",
-      "The program counter increments to line 9"
+      "Line 6 draws a circle with a random color, position, and radius to the window.",
+      "Line 7 refreshes the screen to show the new circle.",
+      "Line 8 uses SplashKit to listen for user events.",
+      "The program counter increments to line 9."
     ]
   },
   {
@@ -54,10 +54,9 @@ export const sliderImagesBreakStatement = [
     altText: "Let's assume the user hasn't pressed the 'Escape' key, and so the 'if' condition is false. Processing moves back to the start of the while loop.",
     tipStart: 4,
     tips: [
-      "Next, the if statement condition is checked",
-      "If the user has pressed the 'Escape' key, the condition will evaluate to true, and the body of the if statement will be processed",
-      "Let's assume the user hasn't pressed the 'Escape' key this time around",
-      "The counter increments from lines 10 to 12 and back up to the start of the while loop at line 4"
+      "At line 9 the if statement condition is checked.",
+      "Let's assume the user hasn't pressed the 'escape' key this time around, so the condition evaluates to <span class='booleanFalse'>false</span>.",
+      "The counter increments to the end of the if statement (line 12), then jumps back up to the start of the while loop (line 4)."
     ]
   },
   {
@@ -65,9 +64,9 @@ export const sliderImagesBreakStatement = [
     altText: "The while loop condition is tested (let's assume it's true) so processing proceeds into the body of the loop",
     tipStart: 5,
     tips: [
-      "The while loop condition is tested once more",
-      "Again let's assume that the user hasn't asked for the program to quit",
-      "The program counter increments to execute the body of the while loop again"
+      "The while loop condition is tested once more.",
+      "Again let's assume that the user hasn't asked for the program to quit.",
+      "The program counter increments through lines 5, 6, 7, and 8 to execute the body of the loop again."
     ]
   },
   {
@@ -75,8 +74,8 @@ export const sliderImagesBreakStatement = [
     altText: "Lines 6-8 draw another random circle to the window, and listen for user events",
     tipStart: 6,
     tips: [
-      "Lines 6-8 draw another random circle to the window, and listen for user events",
-      "The program counter increments to line 9"
+      "Lines 6 - 8 draw another random circle to the window, and listen for user events.",
+      "The program counter increments to line 9."
     ]
   },
   {
@@ -84,9 +83,9 @@ export const sliderImagesBreakStatement = [
     altText: "This time the user presses the 'Escape' key and execution moves.",
     tipStart: 7,
     tips: [
-      "The if statement condition is checked once more",
-      "This time let's assume the user has pressed the 'Escape' key, and so the condition evaluates to <span class='booleanTrue'>true</span>",
-      "The counter increments from lines 10 to 11 to begin executing the body of the 'if' statement"
+      "The if statement condition is checked once more.",
+      "This time let's assume the user has pressed the 'escape' key, and so the condition evaluates to <span class='booleanTrue'>true</span>.",
+      "The counter increments to line 10, then line 11."
     ]
   },
   {
@@ -94,9 +93,9 @@ export const sliderImagesBreakStatement = [
     altText: "The break statement instructs the CPU to terminate the while loop by jumping to the first line of code outside of the while loop. The counter increments from lines 11 to 14.",
     tipStart: 8,
     tips: [
-      "The body of the 'if' statement is executed, which in this case contains a single <code>break</code> statement",
-      "The <code>break</code> statement instructs the CPU to <strong>terminate</strong> the <strong>while loop</strong> by jumping to the first line of code outside of the while loop",
-      "The counter increments from lines 11 to 14"
+      "The body of the 'if' statement is executed, which in this case contains a single <code>break</code> statement.",
+      "The <code>break</code> statement instructs the CPU to terminate the while loop by <strong>jumping</strong> to the first line of code after it.",
+      "The counter increments from line 11 to 14."
     ]
   },
   {
@@ -104,21 +103,21 @@ export const sliderImagesBreakStatement = [
     altText: "The WriteLine() function executes and prints 'Bye' to the terminal. The program counter increments and the program ends",
     tipStart: 9,
     tips: [
-      "The <strong>WriteLine()</strong> function executes and prints 'Bye' to the terminal",
-      "The program counter increments and the program ends"
+      "The WriteLine method executes, printing 'Bye' to the terminal.",
+      "The program counter increments and the program ends."
     ]
   }
 ];
 
-import infiniteLoopSlide01 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-01.png';
-import infiniteLoopSlide02 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-02.png';
-import infiniteLoopSlide03 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-03.png';
-import infiniteLoopSlide04 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-04.png';
-import infiniteLoopSlide05 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-05.png';
-import infiniteLoopSlide06 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-06.png';
-import infiniteLoopSlide07 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-07.png';
-import infiniteLoopSlide08 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-08.png';
-import infiniteLoopSlide09 from './images/control-flow-statements-in-depth/control-flow-infinite-loop-09.png';
+import infiniteLoopSlide01 from './images/control-flow-statements-in-depth/control-flow-infinite-loop/Slide1.png';
+import infiniteLoopSlide02 from './images/control-flow-statements-in-depth/control-flow-infinite-loop/Slide2.png';
+import infiniteLoopSlide03 from './images/control-flow-statements-in-depth/control-flow-infinite-loop/Slide3.png';
+import infiniteLoopSlide04 from './images/control-flow-statements-in-depth/control-flow-infinite-loop/Slide4.png';
+import infiniteLoopSlide05 from './images/control-flow-statements-in-depth/control-flow-infinite-loop/Slide5.png';
+import infiniteLoopSlide06 from './images/control-flow-statements-in-depth/control-flow-infinite-loop/Slide6.png';
+import infiniteLoopSlide07 from './images/control-flow-statements-in-depth/control-flow-infinite-loop/Slide7.png';
+import infiniteLoopSlide08 from './images/control-flow-statements-in-depth/control-flow-infinite-loop/Slide8.png';
+import infiniteLoopSlide09 from './images/control-flow-statements-in-depth/control-flow-infinite-loop/Slide9.png';
 
 export const sliderImagesInfiniteLoop = [
   {
@@ -126,8 +125,8 @@ export const sliderImagesInfiniteLoop = [
     altText: "Lines 1-6 print some text to the terminal",
     tipStart: 1,
     tips: [
-      "Lines 1-6 print some text to the terminal",
-      "The program counter is increased from line 6 to line 7"
+      "Lines 1 - 6 print some introductory text to the terminal.",
+      "The program counter is increased to line 7."
     ]
   },
   {
@@ -135,8 +134,8 @@ export const sliderImagesInfiniteLoop = [
     altText: "The condition in the while loop always evaluates to true and moves the program counter into the body of the loop",
     tipStart: 2,
     tips: [
-      "The while loop on line 7 contains the boolean <span class='booleanTrue'>true</span> as the condition, meaning it will always proceed into the body of the loop",
-      "The program counter moves from lines 8 to 9 and 10"
+      "The while loop on line 7 contains the boolean <span class='booleanTrue'>true</span> as the condition, meaning it will always proceed into the body of the loop.",
+      "The program counter moves through lines 8, 9, and 10."
     ]
   },
   {
@@ -144,8 +143,8 @@ export const sliderImagesInfiniteLoop = [
     altText: "Lines 9 and 10 write a text prompt to the terminal",
     tipStart: 3,
     tips: [
-      "Lines 9 and 10 write a text prompt to the terminal",
-      "The program counter moves to line 11"
+      "Lines 9 and 10 write a text prompt to the terminal.",
+      "The program counter moves to line 11."
     ]
   },
   {
@@ -153,9 +152,9 @@ export const sliderImagesInfiniteLoop = [
     altText: "The condition in the 'if' statement reads in user input ('n'), and compares it to the literal string 'y'. It evaluates to 'false' and moves to the next iteration of the while loop.",
     tipStart: 4,
     tips: [
-      "The condition in the 'if' statement reads in user input, and compares it to the literal string 'y'",
-      "Let's assume the user enters 'n' so that the condition evaluates <span class='booleanFalse'>false</span>",
-      "The program counter moves to the next iteration of the while loop (from lines 12 -> 14 -> 7)"
+      "The condition in the 'if' statement reads in user input and compares it to the literal string 'y'.",
+      "Let's say the user enters 'n', so the condition evaluates to <span class='booleanFalse'>false</span>.",
+      "The program counter jumps to the end of the if statement (line 14), then back up to the start of the while loop (line 7)."
     ]
   },
   {
@@ -163,8 +162,8 @@ export const sliderImagesInfiniteLoop = [
     altText: "The condition in the while loop always evaluates to true and moves the program counter into the body of the loop",
     tipStart: 5,
     tips: [
-      "The condition of the while statement evaluates <span class='booleanTrue'>true</span> again",
-      "The program counter moves from lines 8 to 9 and 10"
+      "The condition of the while statement evaluates <span class='booleanTrue'>true</span> again.",
+      "The program counter moves through lines 8, 9, and 10."
     ]
   },
   {
@@ -172,8 +171,8 @@ export const sliderImagesInfiniteLoop = [
     altText: "Lines 9 and 10 write further text prompts to the terminal",
     tipStart: 6,
     tips: [
-      "Lines 9 and 10 Write a further text prompts to the terminal",
-      "The program counter moves to line 11"
+      "Lines 9 and 10 write a text prompt to the terminal.",
+      "The program counter moves to line 11."
     ]
   },
   {
@@ -181,9 +180,9 @@ export const sliderImagesInfiniteLoop = [
     altText: "The condition in the 'if' statement reads in user input ('y'), which in this case evaluates to true, so the program counter moves to the first line in the body of the 'if' statement",
     tipStart: 7,
     tips: [
-      "The condition in the 'if' statement reads in user input (this time 'y')",
-      "Now the condition evaluates to <span class='booleanFalse'>true</span> meaning the body of the 'if' statement will be run",
-      "The program counter moves to lines 12 and 13"
+      "The condition in the 'if' statement reads in user input and compares it to the literal string 'y'.",
+      "This time, let's say the user enters 'y', so the condition evaluates to <span class='booleanFalse'>true</span>.",
+      "The program counter moves to line 12, then line 13."
     ]
   },
   {
@@ -191,9 +190,9 @@ export const sliderImagesInfiniteLoop = [
     altText: "The break statement instructs the CPU to terminate the while loop by jumping to the first line of code outside of the while loop",
     tipStart: 8,
     tips: [
-      "The body of the 'if' statement is executed, which in this case contains a single <code>break</code> statement",
-      "The <code>break</code> statement instructs the CPU to <strong>terminate</strong> the <strong>while loop</strong> by jumping to the first line outside of the while loop",
-      "The program counter skips from lines 14 and 15 to line 16"
+      "Line 13 contains a single <code>break</code> statement.",
+      "The <code>break</code> statement instructs the CPU to terminate the while loop by <strong>jumping</strong> to the first line of code after it.",
+      "The program counter jumps to line 16."
     ]
   },
   {
@@ -201,8 +200,8 @@ export const sliderImagesInfiniteLoop = [
     altText: "Line 16 writes some text to the terminal. The program counter increments, and the program ends.",
     tipStart: 9,
     tips: [
-      "Line 16 writes some text to the terminal",
-      "The program counter increments, and the program ends."
+      "Line 16 writes some text to the terminal.",
+      "The program counter increments and the program ends."
     ]
   }
 ];
