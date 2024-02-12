@@ -32,21 +32,21 @@ do
 {
     Write("Cost of item in cents: ");
     line = ReadLine();
-    while ( ! IsInteger(line) )
+    while (!IsInteger(line))
     {
-      WriteLine("Please enter a whole number.");
-      Write("Cost of item in cents: ");
-      line = ReadLine();
+        WriteLine("Please enter a whole number.");
+        Write("Cost of item in cents: ");
+        line = ReadLine();
     }
     int costOfItem = ToInt32(line);
 
     Write("Payment in cents: ");
     line = ReadLine();
-    while ( ! IsInteger(line) )
+    while (!IsInteger(line))
     {
-      WriteLine("Please enter a whole number.");
-      Write("Payment in cents: ");
-      line = ReadLine();
+        WriteLine("Please enter a whole number.");
+        Write("Payment in cents: ");
+        line = ReadLine();
     }
     
     int amountPaid = ToInt32(line);
@@ -114,9 +114,7 @@ do
 ```
 
 :::note
-
 See how the indentation helps you see the structure of the program. The cases are indented within the switch, the switch within the for, which is within the if in the do while.
 
 Indentation is really important to help you see and work with your code.
-
 :::

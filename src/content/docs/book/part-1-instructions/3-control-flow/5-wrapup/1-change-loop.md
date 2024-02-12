@@ -2,11 +2,14 @@
 title: Change Calculator loop
 ---
 
-The code for the change calculator, with the loop to allow the user to run this again is shown below.
+The code for the change calculator, with the loop to allow the user to calculate change again is shown below.
 
-This is provided here in case you get stuck implementing this yourself. Make sure to have a go at it yourself, and if you get stuck have a look at how it works here. Then go back to your code and see if you can spot where you are going wrong.
+This is provided here in case you get stuck. Make sure to have a go at implementing it yourself first, and only look here if you really are stuck. If you do use this code, go back to your work and see if you can spot where you are going wrong.
 
+:::tip
 Typing in the code yourself will help reinforce your understanding.
+If you do need help, avoid the temptation to copy and paste!
+:::
 
 ```csharp
 /*
@@ -74,13 +77,13 @@ do
 
     // End the line...
     WriteLine();
-} while ( again != "n" && again != "N");
+} while (again != "n" && again != "N");
 ```
 
 :::note
 
-- Remember getting this to work is not the goal, focus on ensuring you understand how this was created and how it works.
-- See how the code is indented within the [do while loop](../../1-concepts/04-2-do-while).
+- Remember that getting this to work is not the goal. Focus on ensuring you understand *how* this was created and how it works.
+- Notice how the code is indented within the [do while loop](../../1-concepts/04-2-do-while).
 - This requires the user to enter "n" or "N" to exit the loop.
 
 :::
