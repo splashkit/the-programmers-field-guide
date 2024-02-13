@@ -6,7 +6,7 @@ sidebar:
   label: " - Windows (WSL)"
 ---
 
-In this guide, we will walk through the steps to install the necessary applications and tools on **WSL** (**W**indows **S**ubsystem for **L**inux) with Ubuntu. This will enable you to code in C# and C++ with SplashKit.
+In this guide, we will walk through the steps to install the necessary Applications and Tools on **WSL** (**W**indows **S**ubsystem for **L**inux) with Ubuntu. This will enable you to code in C# and C++ with SplashKit.
 
 Now, let's get started!
 

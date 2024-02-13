@@ -6,7 +6,7 @@ sidebar:
   label: " - Windows (MSYS)"
 ---
 
-In this guide, we will walk through the steps to install the necessary applications and tools using **MSYS** (**M**inimal **SYS**tem) on Windows. This will enable you to code in C# and C++ with SplashKit.
+In this guide, we will walk through the steps to install the necessary Applications and Tools using **MSYS** (**M**inimal **SYS**tem) on Windows. This will enable you to code in C# and C++ with SplashKit.
 
 :::note[Already have SplashKit installed?]
 If you have previously installed SplashKit (before 2024):

@@ -8,11 +8,12 @@ sidebar:
 
 Linux is an open-source operating system that is widely used for programming and development. Being open-source, there are several versions available called distributions (distros); this guide will focus on Debian, which is the base for many popular distros such as Ubuntu and Raspberry Pi OS. If you use a different Linux distro, the steps may differ slightly.
 
-This section will go through all the steps to install the required Applications and Tools that you will need to code in C# and C++ with SplashKit. To simplify things, we have an automated script for fresh installs that will install all the required tools and applications for you, or you can follow the manual steps.
+In this guide, we will walk through the steps to install the necessary Applications and Tools that you will need to code in C# and C++ with SplashKit. To simplify things, we have an automated script for fresh installs that will install all the required tools and applications for you, or you can follow the manual steps.
 
 :::note[How do I open the Terminal?]
 To open the Terminal on Debian, click activities in the top left of the screen and type "Terminal" in the search bar, then click on the Terminal icon.
-![Gift showing how to open the Terminal](/gifs/setup-linux/OpenTerminal.gif)
+
+![Gif showing how to open the Terminal](/gifs/setup-linux/OpenTerminal.gif)
 
 *Using a **Raspberry Pi**? Click the Terminal icon in the taskbar (shown in the Red Box below), or press `Ctrl + Alt + T`*
 
@@ -371,6 +372,7 @@ To add the Programmers Field Guide to the menu, run the following commands in th
 
 To customise the desktop background, right-click anywhere on the desktop and select Change Background (**Properties on the Raspberry Pi**).
 Then, select the image or theme you want to use as your background.
+
 ![image showing the appearance menu](./images/setup-linux/AppearanceMenu.png)
 
 Debian also has Light/Dark mode; you can toggle dark mode by clicking on the icon in the top right of the screen and selecting the mode you want to use.
