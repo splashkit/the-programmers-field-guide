@@ -47,7 +47,11 @@ export default defineConfig({
           items: [
             {
               label: "0. Introduction",
-              link: "book/part-0-getting-started/00-introduction",
+              link: "book/part-0-getting-started/00-0-introduction",
+            },
+            {
+              label: " - Reading the Guide",
+              link: "book/part-0-getting-started/00-1-how-to-read",
             },
             {
               label: "1. Digital Realities",
