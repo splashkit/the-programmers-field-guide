@@ -127,6 +127,10 @@ html[data-theme="dark"] a.multitool:after {
   border: 1px solid black;
 }
 
+html[data-theme="dark"] a.pi:after {
+  border: 1px solid black;
+}
+
 a.pi:after {
   font-family: "FontAwesomeBrands";
   content: "\f7bb";
