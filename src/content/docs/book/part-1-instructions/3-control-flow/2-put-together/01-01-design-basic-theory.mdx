@@ -4,52 +4,44 @@ sidebar:
   label: " - Flowcharts + Control Flow"
 ---
 
-Before examining the control flows within the Change Calculator, let us have a look at a means of visually representing the flow of instructions within code. A common means of doing this is to use a **flowchart**. This is a diagram that depicts a sequence of actions, and can be used to represent the sequence of instructions that occur within your code.
+Before examining the use of control flow within the change calculator, let's have a look at a way of visually representing the flow of instructions within code. A common way of doing this is to use a **flowchart**. A flowchart is a diagram used to represent a sequence of actions, so it's perfect for representing a sequence of instructions (i.e., some code).
 
-The flowchart has four basic symbols as shown in [Figure x.y](#FigureGuessThatNumberFlowChartSymbols).
+There are four basic flowchart symbols, shown in the figure below:
 
-- **Start/Stop**: This represents the start and end of the process. Typically, the start node can have text to indicate the part of the code that is being visualised.
-- **Flow**: The arrows between nodes represent control flow, indicating which action is to be performed next in the code.
-- **Process**: This node represents a task being performed. In our case this will map to one, or more, simple statements (assignment statements or method calls). The text in the process node should indicate what is being performed at this stage. Each process can only have a single flow coming from it, as these processes are performed in sequence.
-- **Decision**: This represents a point where the code needs to make a decision. This represents a location where we have a [branching](../../1-concepts/03-0-branching) or [looping](../../1-concepts/04-0-looping) statement. The text in the decision represents the condition that will determine which path is taken. A decision **must** have more than one flow coming out of it, and each flow should indicate the condition that triggers that path.
+- **Start/Stop**: represents the start and end of the process. Typically, the start node has text to indicate the part of the code that is being visualised.
+- **Flow**: point from one symbol to another to represent which action is to be performed next.
+- **Process**: represents a task being performed. In our case this will be one or more simple statements (assignment statements or method calls). Each process can only have a single flow leaving it, as processes are performed in sequence, and should have text indicating what task is being performed.
+- **Decision**: represents a point where the code needs to make a decision. This represents a location where we have a [branching](../../1-concepts/03-0-branching) or [looping](../../1-concepts/04-0-looping) statement. The text in the decision represents the condition that will determine which path is taken. A decision **must** have more than one flow coming out of it, and each flow should indicate the condition that triggers that path.
 
 import guessThatNumberFlowChartSymbols from './images/guess-that-number-flowchart-symbols.png';
 
-<a id="FigureGuessThatNumberFlowChartSymbols"></a>
 <img src={guessThatNumberFlowChartSymbols.src} alt="Flowchart symbols" width="50%" />
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Flowchart symbols</div><br/>
-
 
 ## Structured Programming and Flowcharts
 
-Flowcharts can be used to represent *any* sequence of actions, but not all sequences of actions will be easy to code. [Figure x.y](#FigureUnstructuredFlowChart) is an example of a flowchart that captures a joke about changing things. This flowchart is **not** one that can be coded using the structured statements covered in this chapter. Notice that the paths in this flowchart are interwoven. There are some steps that appear in multiple paths, making it impossible to code this using the structured programming principles.
+Flowcharts can be used to represent *any* sequence of actions, but not all sequences of actions will be easy to code. For example, the image below is a flowchart that captures a joke about changing things. This flowchart is **not** one that can be coded using the structured statements covered in this chapter. The reason for this is that there are some steps that appear in multiple paths. This makies it impossible to code using the structured programming principles.
 
-<a id="FigureUnstructuredFlowChart"></a>
+![Unstructured Flowchart](./images/guess-that-number-unstructured-flowchart.png "Unstructured Flowchart")
 
-![Figure x.y Unstructured Flowchart](./images/guess-that-number-unstructured-flowchart.png "Unstructured Flowchart")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Unstructured Flowchart</div><br/>
-
-:::tip
+:::note
 Taking responsibility for your actions is always the best policy, but that doesn't make as interesting a joke.
 :::
 
-[Figure x.y](#FigureStructuredFlowChart) shows a structured version of this same algorithm. Notice that in this version there are identifiable blocks, each having a single entry and a single exit. This structure could easily be converted to code using structured statements.
+The image below shows a **structured** version of the same flow chart. Notice that in this version there are identifiable blocks, each having a single entry and a single exit. This structure could easily be converted to code using structured statements.
 
-<a id="FigureStructuredFlowChart"></a>
+![Structured Flowchart](./images/guess-that-number-structured-flowchart.png "Structured Flowchart")
 
-![Figure x.y Structured Flowchart](./images/guess-that-number-structured-flowchart.png "Structured Flowchart")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Structured Flowchart</div><br/>
+The structured programming principles indicate that code within our programs should be organised into **blocks**.
+These blocks match to the structured statements in modern programming languages: [branching](../../1-concepts/03-0-branching) and [looping](../../1-concepts/04-0-looping) statements.
+Each block has a **single entry point** and a **single exit point**, allowing them to be combined in a way that is easy to follow in the code.
+The addition of [jumping](../../1-concepts/05-0-jumping) statements to the language allows the blocks to have **multiple exit points**: one at the end of the block's code, another at a break or continue statement.
+This provides extra flexibility, but still works within the general goals of the structured programming principles to help create readable code.
 
-Looking at these two flowcharts, the structured flowchart involves more processes, but allows us to organise these so that each block has a single entry and single exist. This reflects the fact that in some cases the structured version may be more involved, but is also an indication that this process may be better broken down in other ways as we will see soon.
-
-The structured programming principles indicate that code within our programs should be organised into **blocks**. These blocks match to the structured statements in modern programming languages: the [branching](../../1-concepts/03-0-branching) and [looping](../../1-concepts/04-0-looping) statements. Each of these blocks has a **single entry point** and a **single exit point**, allowing them to be combined in a way that is easy to follow in the code.
-
-The addition of [jumping](../../1-concepts/05-0-jumping) statements to the language allows the blocks to have **multiple exit points**; one at the end of the block's code, the other at a break or continue statement. These statements give you extra flexibility, but still work within the general goals of the structured programming principles to help create readable code.
+Hopefully you can see these principles as you compare the two flowcharts.
+Although the structured version does involve more processes, it also made it possible to organise them processes so that each block has a single entry and exit.
 
 :::note
-
-Prior to the structured programming, programs had two control flow mechanisms: `if` and `goto`. Control flow was not easy to picture or understand. Programs written in this way are now known as **spaghetti code**, as understanding this code is much like trying to untangle a bowl of spaghetti, though not nearly as tasty.
-
+Prior to structured programming, programs had two control flow mechanisms: `if` and `goto`. Control flow was not easy to picture or understand. Programs written in this way are now known as **spaghetti code**, as understanding this code is much like trying to untangle a bowl of spaghetti (though not nearly as tasty).
 :::
 
 ## Designing blocks to achieve goals
@@ -58,22 +50,24 @@ In structured programming there are three kinds of blocks:
 
 - **Sequence**: one instruction follows the next in a sequence.
 - **Selection**: the ability to branch the sequence.
-- **Repetition**: repeat a block a number of times.
+- **Repetition**: the ability to repeat a block a number of times.
 
-The flowchart snippets in the section on branching and looping showed how the flows work for *selection* and *repetition*. [Figure x.y](#FigureGuessThatNumberSequenceBlocks) shows the three alternatives for selection blocks, [Figure x.y](#FigureGuessThatNumberSelectionBlocks) shows the two alternatives for repetition blocks, and [Figure x.y](#FigureGuessThatNumberRepetitionBlocks) shows the standard sequence flow. The design of any program's logic is a task in combining these blocks together to perform the desired effect.
+Designing a program's logic is all about figuring out how to combine these blocks to achieve the desired behaviour from your code.
+
+You have already seen flowcharts for two of the blocks -- the pages on [branching](../../1-concepts/03-0-branching) showed selection via the [if](../../1-concepts/03-1-if) and [case](../../1-concepts/03-2-case) statements, and the pages on [looping](../../1-concepts/04-0-looping) showed repetition via the [while](../../1-concepts/04-1-while-loop), [do while](../../1-concepts/04-2-do-while), and [for](../../1-concepts/04-3-for-loop) loop statements.
+
+The flow chart snippet below shows what **sequence** looks like in a flowchart.
 
 import seqblock from './images/guess-that-number-flows-sequence-blocks.png';
 
-<a id="FigureGuessThatNumberSequenceBlocks"></a>
 <img src={seqblock.src} alt="Flows for Sequence Blocks" width="33%" />
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Flows for Sequence Blocks</div><br/>
 
-<a id="FigureGuessThatNumberSelectionBlocks"></a>
+To recap, a flow chart showing **selection** will look like one of the following three blocks...
 
-![Figure x.y Flows for Selection Blocks](./images/guess-that-number-flows-selection-blocks.png "Flows for Selection Blocks")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Flows for Selection Blocks</div><br/>
+![Flows for Selection Blocks](./images/guess-that-number-flows-selection-blocks.png "Flows for Selection Blocks")
 
-<a id="FigureGuessThatNumberRepetitionBlocks"></a>
+...and a flow chart showing **repetition** will look like one of these two blocks, depending on when the loop's condition is evaluated.
 
 ![Figure x.y Flows for Repetition Blocks](./images/guess-that-number-flows-repetition-blocks.png "Flows for Repetition Blocks")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Flows for Repetition Blocks</div><br/>
+
+Now that we have a tool for visualising a program's instructions, let's apply it to our change calculator.

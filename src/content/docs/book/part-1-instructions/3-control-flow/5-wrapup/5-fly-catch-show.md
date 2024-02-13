@@ -1,7 +1,7 @@
 ---
 title: Fly Catch Show Fly
 sidebar:
-    label: " - show fly"
+    label: " - Show Fly"
 ---
 
 Here we have added the code to show the fly.
@@ -36,51 +36,49 @@ StartTimer(GAME_TIMER);
 // The event loop
 while (!QuitRequested())
 {
-  // Handle Input
-  if (KeyDown(KeyCode.RightKey) && spiderX + SPIDER_RADIUS < SCREEN_WIDTH)
-  {
-    spiderX += SPIDER_SPEED;
-  }
+    // Handle Input
+    if (KeyDown(KeyCode.RightKey) && spiderX + SPIDER_RADIUS < SCREEN_WIDTH)
+    {
+        spiderX += SPIDER_SPEED;
+    }
 
-  if (KeyDown(KeyCode.LeftKey) && spiderX - SPIDER_RADIUS > 0)
-  {
-    spiderX -= SPIDER_SPEED;
-  }
+    if (KeyDown(KeyCode.LeftKey) && spiderX - SPIDER_RADIUS > 0)
+    {
+        spiderX -= SPIDER_SPEED;
+    }
 
-  // Update the Game
-  // Check if the fly should appear
-  if (! flyAppeared && TimerTicks(GAME_TIMER) > appearAtTime)
-  {
-    // Make the fly appear
-    flyAppeared = true;
+    // Update the Game
+    // Check if the fly should appear
+    if (!flyAppeared && TimerTicks(GAME_TIMER) > appearAtTime)
+    {
+        // Make the fly appear
+        flyAppeared = true;
 
-    // Give it a new random position
-    flyX = Rnd(SCREEN_WIDTH);
-    flyY = Rnd(SCREEN_HEIGHT);
-  }
+        // Give it a new random position
+        flyX = Rnd(SCREEN_WIDTH);
+        flyY = Rnd(SCREEN_HEIGHT);
+    }
 
 
-  // Draw the game
-  ClearScreen(ColorWhite());
-  // Draw the spider
-  FillCircle(ColorBlack(), spiderX, spiderY, SPIDER_RADIUS);
+    // Draw the game
+    ClearScreen(ColorWhite());
+    // Draw the spider
+    FillCircle(ColorBlack(), spiderX, spiderY, SPIDER_RADIUS);
 
-  if (flyAppeared)
-  {
-    // Draw the fly
-    FillCircle(ColorDarkGreen(), flyX, flyY, FLY_RADIUS);
-  }
+    if (flyAppeared)
+    {
+        // Draw the fly
+        FillCircle(ColorDarkGreen(), flyX, flyY, FLY_RADIUS);
+    }
 
-  // Show it to  the user
-  RefreshScreen(60);
+    // Show it to  the user
+    RefreshScreen(60);
 
-  // Get any new user interactions
-  ProcessEvents();
+    // Get any new user interactions
+    ProcessEvents();
 }
 ```
 
 :::note
-
-See how we can use boolean variables to remember if things have happened, and we can use this within control flow statements.
-
+See how we can use boolean variables to remember if things have happened, and then in conditions within control flow statements.
 :::

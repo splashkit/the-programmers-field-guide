@@ -3,14 +3,14 @@ title: Set up my Raspberry Pi
 sidebar:
     attrs:
         class: pi
-    label: " - Raspberry Pi"
+    label: " - Raspberry Pi Software"
 ---
 
 This guide will go through how to set up the software on your Raspberry Pi, including how to:
 
--   Download and burn Raspberry Pi OS to an SD card.
--   Install Raspberry Pi Operating System (OS).
--   Install programs and tools used in the next chapters (continued on next page).
+- Download and burn Raspberry Pi OS to an SD card.
+- Install Raspberry Pi Operating System (OS).
+- Install programs and tools used in the next chapters (continued on next page).
 
 ## 1. Download Raspberry Pi OS
 

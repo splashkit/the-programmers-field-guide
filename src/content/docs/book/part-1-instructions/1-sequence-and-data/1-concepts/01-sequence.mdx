@@ -82,7 +82,13 @@ At a low level, the computer executes each of its machine code instructions one 
 
 The computer's processor maintains a **program counter** that is used to keep track of the instruction the computer is currently performing. Once it finishes the current instruction, the computer adds one to the program counter, moving it to the **next instruction** in the program. Some instructions will let you control which instruction is next, but this just lets you adjust the sequence -- at its core, the computer is still performing one step and then the next.
 
-Keeping this simple idea in mind will be important throughout your programming journey and beyond. The computer is unintelligent and will follow the sequence of actions that you define. It will not interpret, adapt, or otherwise deviate from what you tell it to do.
+The image below shows a visualisation of how the computer executes instructions in sequence.
+Instructions flow through the CPU in order, one at a time, similar to a [data stream](../../../../part-0-getting-started/2-computer-use/1-concepts/07-streams).
+Each instruction is *very* small, but the power of computing is that the CPU can execute *millions* of them each second.
+
+![Instructions flow through the computer in sequence](./images/sequence-concept.png)
+
+Keeping the simple idea of **sequence** in mind will be important throughout your programming journey and beyond. The computer is unintelligent and will follow the sequence of actions that you define. It will not interpret, adapt, or otherwise deviate from what you tell it to do.
 
 ## Sequence -- when, why, and how
 
