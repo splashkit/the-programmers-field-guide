@@ -24,6 +24,13 @@ This is how you avoid [tutorial hell](https://www.reddit.com/r/learnprogramming/
 These activities ask you to build something using the concepts that were covered in the chapter.
 Only an overall description of a program is given, and from there it is up to you.
 
+## Using this site
+
+* Bookmark your current page, so you can easily return to it later and pick up from where you left off!
+* Use the search bar! Our search is quite powerful, and can help you find information on specific topics, or help you find that page you were reading earlier.
+* Use the table of contents to navigate to different parts of the guide.
+* Find something that's not quite right? That's entirely possible! Use the "Edit this page" link at the bottom of each page to suggest changes to the content.
+
 ## Map Markers
 
 Throughout your journey we might feel it's necessary to highlight some information.
