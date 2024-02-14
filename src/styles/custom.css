@@ -43,8 +43,6 @@
   font-family: "antique-olive", sans-serif;
 }
 
-
-
 [data-has-hero] .page {
   /* simple, light dots repeating */
   --dot-bg: white;
@@ -74,17 +72,16 @@
 }
 [data-has-hero][data-theme="dark"] .page {
   /* simple, light dots repeating */
-  --dot-bg: black;
-  --dot-color: rgba(212, 212, 212, 0.449);
+  --dot-bg: #258100;
+  --dot-color: #cccccc(9, 8, 8, 0.449);
   --dot-size: 1.5px;
   --dot-space: 12px;
   img {
-    filter: invert(1);
     opacity: 0.9;
   }
-  background: linear-gradient(215deg, #000000, transparent 20%),
-    linear-gradient(125deg, #000000, transparent 20%),
-    linear-gradient(15deg, #000000, transparent 20%),
+  background: linear-gradient(215deg, #82907f, transparent 20%),
+    linear-gradient(125deg, #82907f, transparent 20%),
+    linear-gradient(15deg, #82907f, transparent 20%),
     /* radial-gradient(#b3c4b6, transparent 40%) no-repeat -60vw -40vh / 105vw
       200vh,
     radial-gradient(#b3c4b6, transparent 65%) no-repeat 50% calc(100% + 20rem) /
