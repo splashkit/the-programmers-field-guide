@@ -94,4 +94,24 @@ Our new value will be `1`, because we only keep the bits that are `1` in the mas
 
 ### When is bit masking useful?
 
-<!-- TODO -->
+Very simply, bit shifting is useful when we want to describe which bits we care about in a subset of bits. For example, if I just want to retrieve the value of the right-most bit, I could use a mask of `00000001`. If I want to retrieve the value of the left-most bit, I could use a mask of `10000000`.
+
+### Bit masking in C
+
+In C, we can use the `&` operator to perform a bitwise AND operation, which is the basis of bit masking that we've discussed so far. For example, to use the mask `00010001` to set the right-most bit of the number `11`, we would write:
+
+```c
+#include <stdio.h>
+
+int main()
+{
+  int number = 11; // 00001011 in binary
+  int mask = 17; // 00010001 in binary
+  int masked_number = number & mask;
+  printf("The number %d masked with %d is %d\n", number, mask, masked_number);
+
+  return 0;
+}
+```
+
+There are other forms of bit masking, such as using the `|` operator to perform a bitwise OR operation, and the `^` operator to perform a bitwise XOR operation. The same concepts apply, except with the or operator, the resulting bit position is set if either the original value or the mask has a `1` in that position, and with the xor operator, the resulting bit position is set if the original value and the mask have different values in that position.

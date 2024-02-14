@@ -50,7 +50,7 @@ export default defineConfig({
               link: "book/part-0-getting-started/00-0-introduction",
             },
             {
-              label: " - Reading the Guide",
+              label: "Reading the Guide",
               link: "book/part-0-getting-started/00-1-how-to-read",
             },
             {
