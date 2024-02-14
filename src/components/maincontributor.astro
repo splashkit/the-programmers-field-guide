@@ -29,7 +29,7 @@ const { name, affiliation, desc, imgUrl, tag, twitter, website } = Astro.props;
 <Card title={name}>
   <p class="tag">{tag}</p>
   <Image
-    width={200}
+    height="200"
     src={import(`../assets/illustrations/${imgUrl}.png`)}
     alt={"Illustration of " + name}
   />
