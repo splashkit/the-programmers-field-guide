@@ -38,10 +38,6 @@ export default defineConfig({
       plugins: [starlightLinksValidator({ errorOnRelativeLinks: false })],
       sidebar: [
         {
-          label: "Home",
-          link: "/",
-        },
-        {
           label: "Part 0: First Steps",
           collapsed: true,
           items: [

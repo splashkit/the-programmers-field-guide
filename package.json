@@ -1,7 +1,7 @@
 {
   "name": "programmers.guide",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.9",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -21,7 +21,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "squoosh": "^0.0.0",
-    "starlight-links-validator": "^0.5.2",
+    "starlight-links-validator": "^0.5.3",
     "swiper": "^11.0"
   }
 }
