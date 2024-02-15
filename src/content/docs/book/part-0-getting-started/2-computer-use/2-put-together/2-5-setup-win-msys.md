@@ -1,12 +1,12 @@
 ---
-title: Set up my Windows (with MSYS)
+title: Set up my Windows (with MSYS2)
 sidebar:
   attrs:
     class: windows
-  label: " - Windows (MSYS)"
+  label: " - Windows (MSYS2)"
 ---
 
-In this guide, we will walk through the steps to install the necessary Applications and Tools using **MSYS** (**M**inimal **SYS**tem) on Windows. This will enable you to code in C# and C++ with SplashKit.
+In this guide, we will walk through the steps to install the necessary Applications and Tools using **MSYS2** (**M**inimal **SYS**tem) on Windows. This will enable you to code in C# and C++ with SplashKit.
 
 :::note[Already have SplashKit installed?]
 If you have previously installed SplashKit (before 2024):
@@ -18,19 +18,19 @@ If you have previously installed SplashKit (before 2024):
 
 Now, let's get started!
 
-To get SplashKit and other coding tools installed on Windows, using MSYS, follow the steps outlined below:
+To get SplashKit and other coding tools installed on Windows, using MSYS2, follow the steps outlined below:
 
-## 1. Install MSYS (MSYS2)
+## 1. Install MSYS2
 
 Download the installer (32-bit or 64-bit) from the official MSYS2 website: [www.msys2.org](https://www.msys2.org/)
 
-![Gif showing MSYS download](/gifs/setup-windows/install-msys.gif)
+![Gif showing MSYS2 download](/gifs/setup-windows/install-msys.gif)
 
 To install MSYS2, double-click the downloaded executable file, and follow the on-screen instructions.  
 *It is recommended to use the default install path, but you can customise the other installation options as needed.*
 
 :::note[Which Terminal?]
-MSYS2 comes with a variety of terminal environments. The **MINGW64** terminal environment is recommended (or MINGW32 for 32-bit machines), as it has been found to support the C# and C++ terminal commands you will use.
+MSYS2 comes with a variety of terminal environments. The **MINGW64** terminal environment is recommended for 64-bit computers (MINGW32 for 32-bit) as it has been found to support the C# and C++ terminal commands you will use.
 
 Therefore, you should use the **MSYS2 MINGW64** terminal, which you can find by searching "Mingw64" in the Windows Start menu and selecting the **MSYS2 MINGW64** App.
 :::
@@ -227,4 +227,4 @@ pacman -S mingw-w64-x86_64-gdb --noconfirm --disable-download-timeout
 
 These commands will install the necessary C/C++ compilers and debuggers for your development environment.
 
-<!-- Now, your Windows machine is set up with MSYS, Visual Studio Code, and SplashKit, ready for C# and C++ development. Happy coding! -->
+Your Windows machine is now set up with MSYS2, Visual Studio Code, and SplashKit, ready for C# and C++ development. Happy coding!

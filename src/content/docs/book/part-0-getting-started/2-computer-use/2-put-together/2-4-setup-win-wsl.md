@@ -6,33 +6,84 @@ sidebar:
   label: " - Windows (WSL)"
 ---
 
-In this guide, we will walk through the steps to install the necessary Applications and Tools on **WSL** (**W**indows **S**ubsystem for **L**inux) with Ubuntu. This will enable you to code in C# and C++ with SplashKit.
+In this guide, we will walk through the steps to install the necessary Applications and Tools on **WSL** (**W**indows **S**ubsystem for **L**inux) *with Ubuntu*. This will enable you to code in C# and C++ with SplashKit.
 
 Now, let's get started!
 
 To set up WSL and install SplashKit and other coding tools on Windows, follow the steps outlined below:
 
 ## 1. Install Windows Subsystem for Linux (WSL)
-<!-- TODO: Update install instructions to be a bit clearer -->
 
 Windows Subsystem for Linux (WSL) is a feature of Windows that allows you to run a Linux environment on your Windows machine, without the need for a separate virtual machine or dual booting.
 
-Ensure that you have WSL installed and configured on your Windows machine.
+:::note[WSL 1 vs WSL 2]
+*WSL 2 (recommended) is the default version, but you can look at [this article](https://learn.microsoft.com/en-us/windows/wsl/install-manual) if you have issues, or if you are using an older Windows 10 version.*
+:::
+
+### Method 1: Microsoft Store
+
+You can install WSL (and Ubuntu) directly from the Microsoft Store if you have this on your Windows computer.
+
+To do this, search "WSL" in the Microsoft Store app (as shown below), or [click this link](https://apps.microsoft.com/store/detail/9P9TQF7MRM4R).
 
 ![Gif showing WSL being installed from Microsoft store](/gifs/setup-windows/install-wsl.gif)
 
-To install WSL on your Windows computer, follow the instructions provided in the official Microsoft documentation: [Install Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+You will also need to download **Ubuntu** from the Microsoft Store. Search "Ubuntu" in the Microsoft Store app, or [click this link](https://apps.microsoft.com/store/detail/9PDXGNCFSCZV).
 
-<!-- Possible alternative to above - need to make things less vague -->
-<!-- :::tip[Two versions of WSL available]
-You can read [this article](https://learn.microsoft.com/en-us/windows/wsl/compare-versions) to compare the two versions of WSL and choose the one that best suits your needs.
+### Method 2: Command Line
 
-If you're still unsure, choose WSL 2.
-::: -->
+Alternatively, you can install both WSL and Ubuntu from the command-line with the following steps adapted from the instructions provided in the official Microsoft documentation: [Install Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install).
 
-![Gif showing WSL terminal running setup commands](/gifs/setup-windows/wsl-terminal.gif)
+Open PowerShell or Windows Command Prompt in *administrator mode* by right-clicking and selecting "Run as administrator", then copy and paste the following command to install WSL and Ubuntu:
 
-Make sure to choose the WSL version that suits your needs (WSL 1 or WSL 2) and follow the instructions provided.
+```bash
+wsl --install
+```
+
+![Gif showing WSL terminal running wsl --instal commands](/gifs/setup-windows/wsl-terminal.gif)
+
+### Create Ubuntu User Account
+
+Firstly, you need to **Restart** your computer if you haven't done so already.
+
+A PowerShell Terminal window installing Ubuntu should pop up automatically, otherwise open the WSL app for this window to open.
+
+When prompted, enter your new UNIX username and password.  
+For example, with the username "**default-user**", your terminal would look like this:
+
+![Image showing WSL terminal with ubuntu user account set up](./images/setup-windows/terminal-ubuntu-user-account.png)
+
+You can see in the image above where the "**default-user**" username was first entered (shown in the pink box), and the same username being used with the terminal prompt (shown in the orange box).
+
+### Configure WSL Terminal
+
+You can open your WSL Terminal by searching for "WSL" in the Windows Start menu and then select the Linux distribution you installed. *e.g. "Install RELEASE (Ubuntu)"*
+
+You can also use the Windows **Terminal** app (if available), and then update the settings to use **Ubuntu** as the default Terminal.
+
+:::note[How to change the default profile in Windows Terminal]
+Open the Terminal app, and click the drop-down arrow at the top of the window (shown in the green box in the image below), then click on "Settings" (shown in the orange box):
+
+![Image showing Terminal App with how to open settings](./images/setup-windows/windows-terminal-settings.png)
+
+Click on the drop-down menu within the *Default profile* section and select the **Ubuntu** profile with the Linux penquin icon (shown in the pink box):
+
+![Image showing Terminal App with how to change default profile in settings](./images/setup-windows/windows-terminal-default-profile.png)
+
+Then click Save.
+:::
+
+:::tip[Pin it!]
+To make it easier to open each time, you scan pin your Terminal to the Taskbar.
+
+- Open the Terminal App.
+- Right-click on the Terminal App icon in the taskbar (shown in the orange box in the image below).
+- Select "Pin to taskbar" (shown in the pink box):
+
+![Image showing Terminal App pinning to taskbar](./images/setup-windows/terminal-pin-taskbar.png)
+:::
+
+WSL with Ubuntu is now setup and ready to use!
 
 ## 2. Install Command Line Tools
 
@@ -44,15 +95,7 @@ Update the package lists by running the following command in your **WSL Terminal
 sudo apt update
 ```
 
-This ensures that you have the latest information about available packages.
-
-:::note[Where is the WSL Terminal?]
-You can open your WSL Terminal by searching for "WSL" in the Windows Start menu and selecting the appropriate WSL distribution.
-:::
-
-As mentioned above, `git` and `curl` are required to download the SplashKit installer.
-
-Install these tools by running the following command:
+Next, nstall the `git` and `curl` tools by running the following command:
 
 ```bash
 sudo apt install git curl
@@ -92,14 +135,27 @@ bash skm-install.sh
 
 :::
 
+Close and reopen the WSL Terminal, then run the command below to build SplashKit:
+
+```bash
+skm linux install
+```
+
+:::note
+If prompted, enter your password, type `y`, and press enter to confirm the installation.
+
+This may take a while (approx. 10 mins).
+
+Command above being run in WSL terminal is shown in the next section below.
+:::
+
 ## 4. Install SplashKit Globally
 
 Finally, you will need to install the SplashKit Global Libraries. This will install the SplashKit libraries and library include files into the system's default global locations so that the compiler can find these files when building (compiling) programs created with SplashKit.
 
-To install SplashKit globally on your WSL, copy and paste the following commands into your WSL Terminal window:
+To install SplashKit globally on your WSL, copy and paste the following command into your WSL Terminal window:
 
 ```bash
-skm linux install
 skm global install
 ```
 
@@ -145,6 +201,7 @@ As you will be coding in C# and C++ in this book, let's look at the tools needed
 For coding in C#, you will need to install the `.NET` SDK which will allow you to use the *dotnet* terminal command to create, build, and run your C# project code.
 
 <!-- TODO: Need some clarification from Aditya here -->
+
 1. Download the latest version of the .NET SDK for Linux from the official .NET website: [dotnet.microsoft.com/download](https://learn.microsoft.com/en-us/dotnet/core/install/linux)
 2. Open your WSL Terminal and navigate to the folder where you downloaded the SDK.
 3. Install the SDK by running the following commands:
@@ -173,15 +230,24 @@ Replace `<version>` with the actual version you wish to download.
 
 ### C/C++ Tools
 
-For coding in C++, you will need a C++ compiler and debugger. WSL comes with GCC (GNU Compiler Collection) and GDB (GNU Debugger) by default. Ensure they are installed by running the following commands:
+For coding in C++, you will need a C++ compiler and debugger. WSL comes with GCC (GNU Compiler Collection) and GDB (GNU Debugger) by default.
 
-<!-- TODO: Check about clang++ for the below commands -->
+Ensure they are installed by running the following commands:
+
+```bash
+apt list g++
+apt list clang
+apt list gdb
+```
+
+If they are not already installed, or there are additional versions, you can use the following commands to install these tools:
 
 ```bash
 sudo apt-get install g++
+sudo apt-get install clang
 sudo apt-get install gdb
 ```
 
-These commands will install the necessary C/C++ compilers and debuggers for your development environment.
+These commands will install the necessary C/C++ compilers and debuggers for your development environment if they haven't been installed already.
 
-<!-- Now, your Windows machine is set up with WSL, Visual Studio Code, and SplashKit, ready for C# and C++ development. Happy coding! -->
+Your Windows machine is now set up with WSL, Visual Studio Code, and SplashKit, ready for C# and C++ development. Happy coding!

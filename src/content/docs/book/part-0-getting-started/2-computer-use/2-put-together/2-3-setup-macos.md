@@ -155,7 +155,6 @@ Run the downloaded installer and follow on-screen instructions.
 
 ### C/C++ Tools
 
-<!-- TODO: Check about gdb for macos, and update -->
 For coding in C++, you will need to have a C++ compiler installed to build your C++ code into a file you can use to run your program. Commonly used C++ compilers are `g++` and `clang++`.
 
 :::note
