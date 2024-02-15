@@ -6,19 +6,16 @@ sidebar:
 
 The while and do while loops are used in the same way in C/C++ as they are in C#.
 
-:::tip[In C/C++]
+:::note[Syntax]
+Notice that the syntax for while and do while are the same in C/C++ as they are in C#.
+As with C#, you can also use `continue` and `break` within loops to jump back to the condition or to exit the loop.
 
 ![The while and do while loop syntax](./images/while-loop.png)
-
-Notice that the syntax for while and do while are the same in C/C++ as they are in C#.
-
-As with C#, you can use `continue` and `break` within loops to jump back to the condition, or to exit the loop.
-
 :::
 
 ## Example
 
-Here is the example event loop from the [while loop](../../../../part-1-instructions/3-control-flow/1-concepts/04-1-while-loop) page.
+Here is the example SplashKit event loop from the [while loop](../../../../part-1-instructions/3-control-flow/1-concepts/04-1-while-loop#keeping-graphical-programs-running) page.
 
 ```cpp
 #include "splashkit.h"
@@ -38,7 +35,7 @@ int main()
 }
 ```
 
-Here is the c/c++ version of the [do while loop](../../../../part-1-instructions/3-control-flow/1-concepts/04-2-do-while) example.
+Here is the C/C++ version of the [do while loop](../../../../part-1-instructions/3-control-flow/1-concepts/04-2-do-while#how-does-do-while-work) example.
 
 ```cpp
 #include "splashkit.h"
