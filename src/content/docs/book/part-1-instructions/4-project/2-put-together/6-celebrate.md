@@ -2,9 +2,8 @@
 title: Celebrate the Wins
 ---
 
-Computers are unintelligent. So it is a great achievement when you get something working. So when do you get it going make sure to show it off.
+Computers are unintelligent, so it is a great achievement when you get something working. When do you get it going make sure to show it off!
 
-At this point you want to understand how it achieves what it does, and be able to explain that to others. If you can achieve that at this point you are well on the way, and the next set of tools you will see will all just help make this easier for you.
+At this point you want to understand how your program achieves what it does, and be able to explain that to others. If you can do that at this point you are well on the way, and the next part of the journey will just be about exploring tools that help make this easier for you.
 
-If you are still struggling to see how it all works, then spending some more time asking questions, stepping through the code, and hand executing things will really help. The next set of tools look to help structure the way we put the program together, which builds on top of these ideas. So make sure you feel confident that you have these concepts mastered before you go on.
-
+If you are still struggling to see how it all works, then spending some more time asking questions, stepping through code, and hand executing things will really help. The next set of concepts are all about structuring the way we put a program together. These build on top of what we have already seen, so make sure you feel confident with the concepts you have seen so far before you go on.
