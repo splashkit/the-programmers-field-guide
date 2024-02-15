@@ -4,63 +4,22 @@ title: Building a C/C++ Program
 
 C/C++ are **compiled** languages. Unlike C#, they do not need a runtime environment. This means that you compile and then directly run the resulting program.
 
-To get started, let's build a Hello World program. This will use the SplashKit library to handle user input and output, which we will use for now. When we get to [Chapter 2.7](../../../9-low-level-programming/0-overview), you will understand the concepts needed to use the C input and output functions, as they are very primitive.
+To get started, let's build a Hello World program.
+For now, we will use the SplashKit library to handle user input and output, as they are a bit easier to work with.
+[Later on](../../../9-low-level-programming/0-overview) you will understand the concepts needed to use the native C input and output functions, which are very primitive.
 
-The following steps go through the necessary actions to build and run programs using C/C++. We will recap some steps that you can skip if you have already installed SplashKit for C#.
-
-1. Make sure you have a C++ compiler installed.
-2. Enter the code for a minimal "Hello World"
-3. Compile and run
-4. Configure vscode
-
-These steps are outlined in detail below.
-
-## C++ compiler
-
-You can test if you have a C++ compiler installed using the [which](https://man.cx/Which) command. Test if you have **clang++** or **g++**, using the commands shown below. The clang++ compiler is a newer c++ compiler, which generally gives nicer error messages. We will aim to use clang++ where possible.
-
-```zsh
-which clang++
-which g++
-```
-
-To install the c++ compiler you can use the following shell commands:
-
-- Raspberry PI, Linux, and Windows (WSL)
-  
-  ```zsh
-  sudo apt-get install clang
-  ```
-
-- macOS
-  
-  ```zsh
-  xcode-select --install
-  ```
-
-- Windows (MSys2)
-  
-  ```zsh
-  pacman --disable-download-timeout -S mingw-w64-{x86_64,i686}-gcc mingw-w64-{i686,x86_64}-gdb
-  ```
-
-To make use of the SplashKit library, which we need, you also need to make sure that this is installed globally. You can follow the instructions in the [Installation Guide](https://splashkit.io/articles/installation/). The easy way to make SplashKit available to the compiler is to install it in the system default locations. This will require admin access to your computer, so we will try to make sure to also show you how to do this without it being in the global system locations. If you can, the following `skm` action will set up SplashKit for easy access.
-
-```zsh
-skm global install
-```
-
-This script adds the SplashKit libraries to **/usr/local/lib/** folder, and the required library include files into **/usr/local/include**. These are the standard locations for these files, and will help make it easier for the compiler to find these files as you are developing.
+The following steps go through the necessary actions to build and run programs using C/C++.
+These steps assume that you have followed the [instructions from part 0](http://127.0.0.1:3001/book/part-0-getting-started/2-computer-use/2-put-together/1-0-set-up-my/) on setting up the C/C++ tools for your operating system.
 
 ## Hello World in C/C++
 
-Now for some C/C++ code to test our compiler set up.
+To get started, we need to:
 
-1. Create a new folder for your project
-2. Open the folder in vscode
-3. Create a new **program.cpp** file
+1. Create a new folder for the project.
+2. Open the folder in VS Code.
+3. Create a new **program.cpp** file.
 
-The following shell commands should achieve this:
+The following shell commands should achieve this, assuming your code is stored in the `~/Documents/Code` path:
 
 ```zsh
 cd ~/Documents/Code
@@ -71,12 +30,10 @@ code .
 ```
 
 :::tip[File extensions]
-
 Source code is written in text files, but we use different extension for these files to help indicate which language we are using. The **.cs** extension indicated a C# code file, whereas now we use the **.cpp** extension to indicate that this is a C++ source code file.
-
 :::
 
-Open the **program.cpp** file, and enter the following code:
+In VS Code, open the **program.cpp** file, and enter the following code:
 
 ```cpp
 #include "splashkit.h"
@@ -230,7 +187,7 @@ Folders that start with a `.` are hidden in unix. They do not appear in `ls` com
 
 :::
 
-These settings tell vscode how to build a selected C++ file. With your program.cpp file selected, you can build the program using the **ctrl-shift-b** (**cmd-shift-b** on macOS) or selecting the **Tasks: Run Build Task** from the [command palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
+These settings tell VS Code how to build a selected C++ file. With your program.cpp file selected, you can build the program using the **ctrl-shift-b** (**cmd-shift-b** on macOS) or selecting the **Tasks: Run Build Task** from the [command palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
 
 In the Terminal window you should see the output from this, as shown below. Make sure that you can see that this ran successfully. You should be able to see the actual command line call within this.
 

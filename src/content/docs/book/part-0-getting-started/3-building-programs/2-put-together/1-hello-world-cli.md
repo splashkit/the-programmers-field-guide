@@ -65,7 +65,7 @@ If the `code .` command does not work on your computer, you can open Visual Stud
 
 You will notice that shortly after opening the project, a **bin** folder and a **.sln** file will be added automatically:
 
-![A vscode window showing the files in the Explorer tab.](./images/vscode-explorer-program-file.png)
+![A VS Code window showing the files in the Explorer tab.](./images/vscode-explorer-program-file.png)
 
 Open `Program.cs` file (shown above in Green box) by double-clicking the file in the Explorer tab (shown above in Orange box):
 
@@ -95,6 +95,6 @@ To avoid having to switch back and forth between your apps, you can open a Termi
 
 Here is what the result will look like:
 
-![A vscode window showing the program being run in the terminal.](./images/vscode-cli-hello-world-output.png)
+![A VS Code window showing the program being run in the terminal.](./images/vscode-cli-hello-world-output.png)
 
 Next, we are going to create a **Graphical** *Hello World* program!

@@ -11,17 +11,17 @@ At this point in our journey, we can use the debugger to step through our progra
 
 <!-- **TODO: 1 - Highlight debugger link in sidebar, 2 - breakpoint, 3 - play button** -->
 
-![A vscode window shown with a breakpoint added to line 3](./images/debugger-new.png)
+![A VS Code window shown with a breakpoint added to line 3](./images/debugger-new.png)
 
-The image above shows the debugger selected in vscode, with a breakpoint on line 3. The key features are:
+The image above shows the debugger selected in VS Code, with a breakpoint on line 3. The key features are:
 
 1. This link in the sidebar allows you to **access the debugger**.
 2. Clicking in the area to the left of the line numbers will **set a breakpoint** on that line. When you add a breakpoint a red dot is added to the left-hand side of the line. The debugger will then **break** (stop) execution at that point and give control to you.
-3. The **play button** gets vscode to run the command line tools needed to start this, and for it to hook up to the debugging process.
+3. The **play button** gets VS Code to run the command line tools needed to start this, and for it to hook up to the debugging process.
 
 Make sure you have at least two lines of code, then try launching the debugger. You should see several commands run in the terminal area, and then the window will switch to the **Debug Console** tab. The program will stop and you will see a new set of control buttons appear, as shown below.
 
-![A vscode window with the debugger waiting on line 3. The control buttons appear at the top of the window.](./images/debugger-running-new.png)
+![A VS Code window with the debugger waiting on line 3. The control buttons appear at the top of the window.](./images/debugger-running-new.png)
 
 <!-- **TODO: Highlight the things below in the image above** -->
 

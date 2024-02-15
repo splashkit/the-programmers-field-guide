@@ -18,10 +18,10 @@ A few of the key components that we love are:
 
 There is also a handy cheat-sheet to help you get started learning the various shortcuts.
 
-![A cheat sheet with a list of shortcuts for vscode](https://code.visualstudio.com/assets/docs/getstarted/tips-and-tricks/KeyboardReferenceSheet.png)
+![A cheat sheet with a list of shortcuts for VS Code](https://code.visualstudio.com/assets/docs/getstarted/tips-and-tricks/KeyboardReferenceSheet.png)
 <div class="caption">Image from <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">visualstudio.com</a></div>
 
-Explore the [VSCode Getting Started site](https://code.visualstudio.com/docs/getstarted/introvideos), and take your editing to the next level.
+Explore the [VS Code Getting Started site](https://code.visualstudio.com/docs/getstarted/introvideos), and take your editing to the next level.
 
 :::tip
 Many of these features and extensions are backed by small command line utilities. In VS Code, the "Output Panel" in the [user interface](https://code.visualstudio.com/docs/getstarted/userinterface) lets you see the output they write to the standard out and standard error streams. This can help you debug issues that you may encounter with any of these tools.

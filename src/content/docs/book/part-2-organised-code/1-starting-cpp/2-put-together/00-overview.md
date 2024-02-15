@@ -19,5 +19,5 @@ This process can be fairly mechanical:
 
 <!-- possibly move this tip into hello-world file -->
 :::tip
-Right-click on the variables you want to rename and choose **Rename Symbol** - vscode will then search and replace this within your project!
+Right-click on the variables you want to rename and choose **Rename Symbol** - VS Code will then search and replace this within your project!
 :::
