@@ -32,13 +32,13 @@ To install MSYS2, double-click the downloaded executable file, and follow the on
 :::note[Which Terminal?]
 MSYS2 comes with a variety of terminal environments. The **MINGW64** terminal environment is recommended for 64-bit computers (MINGW32 for 32-bit) as it has been found to support the C# and C++ terminal commands you will use.
 
-Therefore, you should use the **MSYS2 MINGW64** terminal, which you can find by searching "Mingw64" in the Windows Start menu and selecting the **MSYS2 MINGW64** App.
+Therefore, you should use the **MINGW64** (MSYS2 MINGW64) terminal, which you can find by searching "mingw64" in the Windows Start menu and selecting the **MSYS2 MINGW64** App.
 :::
 
 :::tip[Pin it!]
 To make it easier to open each time, you can pin your terminal to the Taskbar.
 
-- Open the MSYS2 MINGW64 App.
+- Open MINGW64 terminal.
 - Right-click on the MSYS2 App icon in the taskbar (shown in the orange box in the image below).
 - Select "Pin to taskbar" (shown in the pink box):
 
@@ -49,7 +49,7 @@ To make it easier to open each time, you can pin your terminal to the Taskbar.
 
 To install SplashKit, you will firstly need to install **Git**.
 
-Copy and paste the following command into your **MSYS2 MINGW64** Terminal window to install the `git` command-line tool:
+Copy and paste the following command into your **MINGW64** terminal window to install the `git` command-line tool:
 
 ```bash
 pacman -S git --noconfirm --disable-download-timeout
@@ -71,7 +71,7 @@ The **SplashKit SDK** is installed using the `skm-install.sh` shell script which
 It will also add the required paths to your PATH environment variable.
 :::
 
-Copy and paste the following command into your MSYS2 MINGW64 Terminal to download and run the SplashKit installer:
+Copy and paste the following command into your MINGW64 terminal to download and run the SplashKit installer:
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)
@@ -87,7 +87,7 @@ If the command above does not produce any response, ensure that your computer is
 ***Still no luck?***  
 If you still encounter issues, you can download the install script locally by right-clicking on [this link](https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh) and selecting "Save Link As".  
 
-To run the downloaded shell script, open the **MSYS2 MINGW64** Terminal and navigate to the folder where you saved the file. Then run the following command:
+To run the downloaded shell script, open the MINGW64 terminal and navigate to the folder where you saved the file. Then run the following command:
 
 ```bash
 bash skm-install.sh
@@ -99,7 +99,7 @@ bash skm-install.sh
 
 Finally, you will need to install the SplashKit Global Libraries. This will install the SplashKit libraries and library include files into the system's default global locations so that the compiler can find these files when building (compiling) programs created with SplashKit.
 
-To install SplashKit globally, open the MSYS2 MINGW64 terminal as an **administrator**. Then run the following command in the terminal window:
+To install SplashKit globally, open the MINGW64 terminal as an **administrator**. Then run the following command in the terminal window:
 
 ```bash
 skm global install
@@ -124,14 +124,14 @@ Download and run the installer from: [code.visualstudio.com/Download](https://co
 ![Gif showing Visual Studio Code installation](/gifs/setup-windows/install-vscode.gif)
 
 :::tip[Open Code from Terminal]
-You can open Visual Studio Code from the MSYS2 MINGW64 Terminal by typing `code` and pressing enter. `code .` will open the current folder in Visual Studio Code.
+You can open Visual Studio Code from the MINGW64 terminal by typing `code` and pressing enter. `code .` will open the current folder in Visual Studio Code.
 
 *You will need to close and reopen any currently open terminal windows after installing VS Code for the above commands to work.*
 :::
 
 ### Setup VS Code Terminal
 
-Visual Studio Code has a built-in Terminal that you can use instead of needing to switch back and forth between VS Code and your MSYS2 MINGW64 terminal window. You will need to update some settings to get this working with your MSYS2 MINGW64 terminal.
+Visual Studio Code has a built-in Terminal that you can use instead of needing to switch back and forth between VS Code and your MINGW64 terminal window. You will need to update some settings to get this working with your MINGW64 terminal.
 
 Open Visual Studio Code, then press `Ctrl` + `Shift` + `P` to open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
 
@@ -181,7 +181,7 @@ Create a new line just before the last closing curly brace `}` at the end of the
 
 - If you already have some settings included in this file, you will need to add a comma `,` after the closing curly brace `}` on the line above your new line.
 - If you already see code that looks similar to the code above, you may need to copy only small parts to match the code above.
-- The last line of the code above will set your default profile, so that it will automatically use the MSYS2 MINGW64 terminal. You can also read this [article](https://code.visualstudio.com/docs/terminal/profiles) to see other ways to set the default terminal.
+- The last line of the code above will set your default profile, so that it will automatically use the MSYS2 (MINGW64) terminal. You can also read this [article](https://code.visualstudio.com/docs/terminal/profiles) to see other ways to set the default terminal.
 
 :::
 
@@ -218,7 +218,7 @@ For coding in C++, you will need to have a C++ compiler installed to build your 
 
 You will also need to install **GDB** (**G**NU **D**e**b**ugger), which you can use when debugging C++ programs.
 
-To install GCC and GDB, copy and paste the following commands into your MSYS2 MINGW64 terminal window:
+To install GCC and GDB, copy and paste the following commands into your MINGW64 terminal window:
 
 ```bash
 pacman -S mingw-w64-x86_64-gcc --noconfirm --disable-download-timeout

@@ -20,9 +20,21 @@ Windows Subsystem for Linux (WSL) is a feature of Windows that allows you to run
 *WSL 2 (recommended) is the default version, but you can look at [this article](https://learn.microsoft.com/en-us/windows/wsl/install-manual) if you have issues, or if you are using an older Windows 10 version.*
 :::
 
-### Method 1: Microsoft Store
+### Method 1: Command Line
 
-You can install WSL (and Ubuntu) directly from the Microsoft Store if you have this on your Windows computer.
+You can install both WSL and Ubuntu from the command-line using the following steps that have been adapted from the instructions provided in the official Microsoft documentation: [Install Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install). This is the recommended method.
+
+Open Terminal, PowerShell or Windows Command Prompt in *administrator mode* by right-clicking and selecting "Run as administrator", then copy and paste the following command to install WSL and Ubuntu:
+
+```bash
+wsl --install
+```
+
+![Gif showing WSL terminal running wsl --install commands](/gifs/setup-windows/wsl-terminal.gif)
+
+### Method 2: Microsoft Store
+
+Alternatively, you can install WSL (and Ubuntu) directly from the Microsoft Store if you have this on your Windows computer.
 
 To do this, search "WSL" in the Microsoft Store app (as shown below), or [click this link](https://apps.microsoft.com/store/detail/9P9TQF7MRM4R).
 
@@ -30,23 +42,11 @@ To do this, search "WSL" in the Microsoft Store app (as shown below), or [click 
 
 You will also need to download **Ubuntu** from the Microsoft Store. Search "Ubuntu" in the Microsoft Store app, or [click this link](https://apps.microsoft.com/store/detail/9PDXGNCFSCZV).
 
-### Method 2: Command Line
-
-Alternatively, you can install both WSL and Ubuntu from the command-line with the following steps adapted from the instructions provided in the official Microsoft documentation: [Install Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install).
-
-Open PowerShell or Windows Command Prompt in *administrator mode* by right-clicking and selecting "Run as administrator", then copy and paste the following command to install WSL and Ubuntu:
-
-```bash
-wsl --install
-```
-
-![Gif showing WSL terminal running wsl --instal commands](/gifs/setup-windows/wsl-terminal.gif)
-
 ### Create Ubuntu User Account
 
 Firstly, you need to **Restart** your computer if you haven't done so already.
 
-A PowerShell Terminal window installing Ubuntu should pop up automatically, otherwise open the WSL app for this window to open.
+A terminal window installing Ubuntu should pop up automatically, otherwise open the WSL or Ubuntu app for this window to open.
 
 When prompted, enter your new UNIX username and password.  
 For example, with the username "**default-user**", your terminal would look like this:
@@ -55,26 +55,32 @@ For example, with the username "**default-user**", your terminal would look like
 
 You can see in the image above where the "**default-user**" username was first entered (shown in the pink box), and the same username being used with the terminal prompt (shown in the orange box).
 
-### Configure WSL Terminal
+WSL is now setup and ready to use!
 
-You can open your WSL Terminal by searching for "WSL" in the Windows Start menu and then select the Linux distribution you installed. *e.g. "Install RELEASE (Ubuntu)"*
+### Configure 'Windows Terminal'
 
-You can also use the Windows **Terminal** app (if available), and then update the settings to use **Ubuntu** as the default Terminal.
+Note: This step is *optional*.
 
-:::note[How to change the default profile in Windows Terminal]
-Open the Terminal app, and click the drop-down arrow at the top of the window (shown in the green box in the image below), then click on "Settings" (shown in the orange box):
+If you want to be able to have your 'Windows **Terminal**' app automatically open with WSL, you can change the *Default profile* to use WSL (with Ubuntu) using the steps below:
+
+Firstly, open the Terminal app, and click the drop-down arrow at the top of the window (shown in the green box in the image below), then click on "Settings" (shown in the orange box):
 
 ![Image showing Terminal App with how to open settings](./images/setup-windows/windows-terminal-settings.png)
 
-Click on the drop-down menu within the *Default profile* section and select the **Ubuntu** profile with the Linux penquin icon (shown in the pink box):
+Next, click on the drop-down menu within the *Default profile* section and select either of the **Ubuntu** profiles. *If you're unsure, select the one with the Linux penguin icon* (shown in the pink box):
 
 ![Image showing Terminal App with how to change default profile in settings](./images/setup-windows/windows-terminal-default-profile.png)
 
-Then click Save.
+Click **Save**. (Don't forget this!)
+
+Now your Terminal app will automatically use the WSL/Ubuntu command line when you open it.
+
+:::note
+Don't worry if you have different profiles in your Settings, as long as you can see at least one profile that has "Ubuntu" in the name (if you are using the default setup from [step 1](#1-install-windows-subsystem-for-linux-wsl)).
 :::
 
 :::tip[Pin it!]
-To make it easier to open each time, you scan pin your Terminal to the Taskbar.
+To make it easier to open each time, you can pin your Terminal to the Taskbar.
 
 - Open the Terminal App.
 - Right-click on the Terminal App icon in the taskbar (shown in the orange box in the image below).
@@ -83,11 +89,11 @@ To make it easier to open each time, you scan pin your Terminal to the Taskbar.
 ![Image showing Terminal App pinning to taskbar](./images/setup-windows/terminal-pin-taskbar.png)
 :::
 
-WSL with Ubuntu is now setup and ready to use!
-
 ## 2. Install Command Line Tools
 
 To install SplashKit on WSL, you will firstly need to install the `git` and `curl` tools using the `apt` command, which works with Ubuntu's **A**dvanced **P**ackaging **T**ool.
+
+Firstly, open your WSL Terminal by searching for "WSL" in the Windows Start menu and then select the **WSL** App. You can also use the app for the Linux distribution you installed, such as **Ubuntu**, which is installed by default. Or you can use the Windows Terminal app if you followed the steps above.
 
 Update the package lists by running the following command in your **WSL Terminal**:
 
@@ -95,7 +101,7 @@ Update the package lists by running the following command in your **WSL Terminal
 sudo apt update
 ```
 
-Next, nstall the `git` and `curl` tools by running the following command:
+Next, install the `git` and `curl` tools by running the following command:
 
 ```bash
 sudo apt install git curl
@@ -200,13 +206,21 @@ As you will be coding in C# and C++ in this book, let's look at the tools needed
 
 For coding in C#, you will need to install the `.NET` SDK which will allow you to use the *dotnet* terminal command to create, build, and run your C# project code.
 
-<!-- TODO: Need some clarification from Aditya here -->
+#### Method 1
 
-1. Download the latest version of the .NET SDK for Linux from the official .NET website: [dotnet.microsoft.com/download](https://learn.microsoft.com/en-us/dotnet/core/install/linux)
-2. Open your WSL Terminal and navigate to the folder where you downloaded the SDK.
-3. Install the SDK by running the following commands:
+Download the latest version of the .NET SDK for Linux using the instructions in the official [Install .NET on Linux](https://learn.microsoft.com/en-us/dotnet/core/install/linux) guide.
 
-```bash title="Dotnet Installation script"
+:::note[Which SDK version?]
+We recommend using *.NET 8.0*, but you can use *.NET 7.0*, or *.NET 6.0* if you have issues with .NET 8.0.
+:::
+
+#### Method 2
+
+If you are confused by the steps in the link above, you can install the *.NET SDK* with the script we have created.
+
+To do this, open your WSL terminal and run the following commands:
+
+```bash
 # Get Ubuntu version
 declare repo_version=$(if command -v lsb_release &> /dev/null; then lsb_release -r -s; else grep -oP '(?<=^VERSION_ID=).+' /etc/os-release | tr -d '"'; fi)
 
@@ -222,11 +236,18 @@ rm packages-microsoft-prod.deb
 # Update packages
 sudo apt update
 
-sudo apt-get install dotnet-sdk-<version>
+# Install .NET 8.0
+sudo apt-get install dotnet-sdk-8.0
 ```
 
-Replace `<version>` with the actual version you wish to download.  
-*For example:* `sudo apt install dotnet-sdk-8.0`
+The script above will install .NET 8.0, but if you want to install an earlier version, you can update the last line with your preferred version.  
+*For example*, if you want to use .NET 7.0: `sudo apt install dotnet-sdk-7.0`
+
+:::note
+If prompted, enter your password, type `y`, and press enter to confirm the installation.
+
+This may take a while (approx. 10 mins).
+:::
 
 ### C/C++ Tools
 
