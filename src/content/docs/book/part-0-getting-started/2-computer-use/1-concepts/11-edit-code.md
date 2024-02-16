@@ -1,8 +1,8 @@
 ---
-title: Editing code
+title: Launching an editor from the terminal
+sidebar:
+    label: Editing code
 ---
-
-## Launching an editor from the terminal
 
 From the terminal you can use all of the commands we have already seen as well as launch graphical programs.
 
@@ -19,3 +19,5 @@ cd ~/Documents/Code/HelloWorld
 code .
 # launch VS Code with the HelloWorld folder open
 ```
+
+We will explore how to get this all setup and ready to go in the next section.

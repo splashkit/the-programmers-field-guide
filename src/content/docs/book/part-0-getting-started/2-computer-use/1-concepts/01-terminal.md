@@ -4,15 +4,15 @@ title: The Terminal
 
 Once upon a time, computers were rare, large, and shared between many users. Each computer (picture a whole room, not something in your pocket) had a number of connected monitors and keyboards to allow people to access it. These monitors and keyboards were built into a single box called a **terminal**. To use the computer, you would go to the terminal and respond to the prompts the computer provided you with.
 
-The terminal gave you access to the low-level workings of the computer.
+The terminal gave you access to the low-level workings of the computer. These terminals looked like the following image, which is a [DEC VT52 terminal](https://en.wikipedia.org/wiki/Computer_terminal#Video_display_units_(VDUs)) (image from Wikipedia).
 
-<!-- **TODO: ADD IMAGE - terminal machine** -->
+![Picture of a DEC VT52 terminal](https://upload.wikimedia.org/wikipedia/commons/1/1c/Terminal-dec-vt52.jpg)
 
 ## Modern Terminals
 
 Now, computers are everywhere, but we still need a way of accessing them at a lower level. The name "terminal" has stuck, but now the **terminal** is a **program** that gives you command line access to the computer. With command line access the computer will give you a prompt to enter commands. You can type text, and hit *enter* (or *return*) to have the computer run that command. Programs you run at the terminal output details back to the terminal for you to read, and interactive programs can receive input from you through this same terminal.
 
- <!-- **TODO: ADD IMAGE - terminal window** -->
+![Terminal Window](./images/terminal-window.png)
 
 Being able to interact with programs via the terminal will give you access to an entirely new world of computing. There are utilities and tools for many useful tasks that can only be used through the terminal. Because they can be run through the terminal, these utilities and tools can be combined and built into programs. This kind of programming is called **scripting**, and it will help you analyse data, set up servers, automate repetitive tasks, and understand errors or issues in getting complex programs to work.
 
@@ -34,5 +34,3 @@ The challenge with command line applications is that while you can do more, with
 Without a convenient graphical interface you need to remember the commands yourself.
 As we introduce different tools and their commands, think about strategies you could use to remember them.
 One idea might be to create a cheat sheet you can refer to.
-
-<!-- **TODO: ADD SOMETHING ON MEMORISATION** -->

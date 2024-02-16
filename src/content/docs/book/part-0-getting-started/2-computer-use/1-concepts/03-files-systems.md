@@ -27,7 +27,7 @@ The difference usually does not matter, but they are actually different things.
 
 In addition to containing files, folders can also contain other folders. This gives you directories of files, that can contain sub-directories. This simple concept allows you to create large file systems, with folders and files organised in complex ways. For example, in your home folder you can have folders for documents, downloads, pictures, music, etc. In your documents folder you can have more folders to divide your documents between different projects, or organise your files in any other way you like.
 
-**TODO Add image to show folders**
+![Folders can contain files and other folders](./images/files-folders.png)
 
 ## Tree Metaphor
 

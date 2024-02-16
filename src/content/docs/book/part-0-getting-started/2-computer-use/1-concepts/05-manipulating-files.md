@@ -78,7 +78,11 @@ Alternatively, you can use **ctrl-o** to save changes to the file you are editin
 Once you have exited nano, check the updated contents of the file using `cat ReadMe.md`.
 This should output the current contents of ReadMe.md to the terminal.
 
-**TODO: Add call out here to experience with first CLI editors and how we still use them today.**
+:::tip[Are these still used?]
+
+Terminal based editors still have a place, even now in a world dominated by graphical user interfaces. Why? When you are working with remote devices or servers you will often access these via a terminal. When you are there, if you want to edit a file you don't need to work out how to connect a fancy graphical interface, you can just fire up `nano` and get the job done there in the terminal!
+
+:::
 
 ## Copying, Moving, and Deleting Files
 
