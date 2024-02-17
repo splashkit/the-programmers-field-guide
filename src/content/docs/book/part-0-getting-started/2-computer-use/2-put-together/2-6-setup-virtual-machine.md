@@ -6,6 +6,14 @@ sidebar:
 
 If you cannot get SplashKit working natively, you can use *Virtual Machine (VM) hypervisor software* to create a local Linux (*Debian*) environment that you can use to code with SplashKit.
 
+:::tip[Want a pre-built Virtual Machine? Use these links]
+The following steps get you to create and set up your own Virtual Machine. We recommend that you do that, but we also provide pre-built virtual machines that you can consider using.
+
+- Intel x64 ova for VMWare or Virtual Box: [FieldGuideDebianImage.x64.v1.0.ova](https://drive.google.com/file/d/1hSvuqXy0Tae4XvDsEE2EMyE-C-0GCarR/view?usp=share_link)
+- Arm64 VMWare Fusion image: [FieldGuideDebianVMWareImage.v1.0.7z](https://drive.google.com/file/d/1z9VU9yoe82wjI-J-Pl_H0ObVq03rRnli/view?usp=share_link) - unzip to use.
+
+:::
+
 ## 1. Download Virtual Machine Software
 
 There are many VM software options available. We have provided some suggestions below, but you can use any VM software that supports hosting [*Debian*](https://www.debian.org/distrib/).
