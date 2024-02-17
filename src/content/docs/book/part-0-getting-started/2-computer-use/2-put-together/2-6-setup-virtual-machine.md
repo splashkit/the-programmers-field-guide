@@ -1,8 +1,6 @@
 ---
 title: Set up my Virtual Machine
 sidebar:
-    attrs:
-        class: vm-box
     label: " - Virtual Machine"
 ---
 

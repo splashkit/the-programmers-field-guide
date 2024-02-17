@@ -1,9 +1,7 @@
 ---
 title: Set up my VS Code Extensions
 sidebar:
-  attrs:
-    class: vscode
-  label: " - VS Code Extensions"
+  label: "VS Code Extensions"
 ---
 
 Visual Studio Code has an extensive library of *Extensions* that let you add improved functionality for languages, debuggers, and tools to support your development workflow.  
