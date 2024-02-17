@@ -118,7 +118,7 @@ Steps:
 Try coding this and test that the spider now only moves when you press the right arrow key.
 
 :::note[Key Codes]
-SplashKit provides a list of key codes in a `KeyCode` type, which provides a list of values you can choose from. You should be able to see these in vscode using its IntelliSense.
+SplashKit provides a list of key codes in a `KeyCode` type, which provides a list of values you can choose from. You should be able to see these in VS Code using its IntelliSense.
 
 The main options include:
 

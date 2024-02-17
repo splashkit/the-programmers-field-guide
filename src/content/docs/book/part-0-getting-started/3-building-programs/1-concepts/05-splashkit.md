@@ -26,7 +26,7 @@ code .
 
 These commands create a new project and add the SplashKitSDK package. An SDK is a **Software Development Kit** - a tool kit for developers to use.
 
-Now you can use the features of [SplashKit](https://splashkit.io) in your code. Open **Program.cs** in vscode and update it to appear as shown here.
+Now you can use the features of [SplashKit](https://splashkit.io) in your code. Open **Program.cs** in VS Code and update it to appear as shown here.
 
 ```cs
 using static SplashKitSDK.SplashKit;

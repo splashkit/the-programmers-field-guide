@@ -10,7 +10,7 @@ Many programming languages include the ability to add specifically formatted com
 
 Documentation comments in C/C++ use the comment block syntax that starts with a `/**` and ends with a `*/`. Within this block, you start by providing a summary of the function or procedure that follows, and then outline the parameters using the format `@param name description`. For functions, you end with a comment that is formatted `@returns description`, to describe what the function returns.
 
-If you add these comments to your code in the header file, or above the declaration where ever it is, this will be picked up by vscode and shown to you through the IntelliSense.
+If you add these comments to your code in the header file, or above the declaration where ever it is, this will be picked up by VS Code and shown to you through the IntelliSense.
 
 The following examples show how to comment a function and a procedure.
 

@@ -133,13 +133,13 @@ bash skm-install.sh
 
 Close and reopen the Terminal, then run the command below to build SplashKit:
 
-If prompted, enter your password, type `y`, and press enter to confirm the installation.
-
 ```bash
 skm linux install
 ```
 
 :::note
+If prompted, enter your password, type `y`, and press enter to confirm the installation.
+
 This may take a while (approx. 10 mins).
 :::
 
@@ -192,38 +192,11 @@ You can open Visual Studio Code from the Terminal by typing `code` and pressing 
 
 ### Recommended Extensions
 
-Visual Studio Code has an extensive library of *Extensions* that let you add improved functionality for languages, debuggers, and tools to support your development workflow.  
-Using extensions in VS Code will make it easier and faster to code with whatever language or tools you are using.
+The final step to complete the setup of VS Code is to install a few *Extensions* in VS Code:
 
-#### C# Language Extensions
+[**Set up my VS Code Extensions**](../2-7-setup-vscode)
 
-For the **C#** code, we recommend installing the `C#`, `C# Dev Kit`, and `IntelliCode for C# Dev Kit` extensions.
-
-:::tip[How do I install the C# extensions?]
-
-1. Open Visual Studio Code and click on the icon in the left panel (shown in the purple box in the image below).
-2. Type "C#" in the Search bar at the top (shown in the blue box).
-3. Click "Install" for each of the extensions listed (shown in the green box).
-
-![Visual Studio Code window showing recommended extensions for C#](./images/vscode-extensions/vs-code-csharp-extensions.png)
-
-:::
-
-#### C++ Language Extensions
-
-For **C++** code, we recommend installing the `C/C++` extension.
-
-You can also install the `C/C++ Extension Pack` extension, which includes multiple bundled extensions. If you have issues with syntax highlighting, the `Better C++ Syntax` extension is one of the best for this.
-
-:::tip[How do I install the C++ extensions?]
-
-1. Open Visual Studio Code and click on the icon in the left panel (shown in the purple box in the image below).
-2. Type "C++" in the Search bar at the top (shown in the blue box).
-3. Click "Install" for the "C/C++" extensions (shown in the green box).
-4. (Optional) Click "Install" for any other extensions you want to install (shown in the orange box).
-
-![Visual Studio Code window showing recommended extensions for C++](./images/vscode-extensions/vs-code-cpp-extensions.png)
-:::
+Go to the page linked above, follow the steps to install both the C# and C/C++ recommended extensions, and then come back here and continue to the next step. *You can use the "Back button" in your browser to return to this page.*
 
 ### 4. Install Language Specific Tools
 

@@ -23,6 +23,7 @@
   --sl-color-gray-6: #1f2a1c;
   --sl-color-black: #151a13;
 }
+
 /* Light mode colors. */
 :root[data-theme="light"] {
   --sl-color-accent-low: #c0e2b8;
@@ -43,8 +44,6 @@
   font-family: "antique-olive", sans-serif;
 }
 
-
-
 [data-has-hero] .page {
   /* simple, light dots repeating */
   --dot-bg: white;
@@ -59,48 +58,38 @@
       200vh,
     radial-gradient(#b3c4b6, transparent 65%) no-repeat 50% calc(100% + 20rem) /
       60rem 30rem */
-      linear-gradient(
-        90deg,
-        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-        transparent 1%
-      )
-      center / var(--dot-space) var(--dot-space),
-    linear-gradient(
-        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-        transparent 1%
-      )
-      center / var(--dot-space) var(--dot-space),
+    linear-gradient(90deg,
+      var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+      transparent 1%) center / var(--dot-space) var(--dot-space),
+    linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+      transparent 1%) center / var(--dot-space) var(--dot-space),
     var(--dot-color);
 }
+
 [data-has-hero][data-theme="dark"] .page {
   /* simple, light dots repeating */
-  --dot-bg: black;
-  --dot-color: rgba(212, 212, 212, 0.449);
+  --dot-bg: #258100;
+  --dot-color: #cccccc(9, 8, 8, 0.449);
   --dot-size: 1.5px;
   --dot-space: 12px;
+
   img {
-    filter: invert(1);
     opacity: 0.9;
   }
-  background: linear-gradient(215deg, #000000, transparent 20%),
-    linear-gradient(125deg, #000000, transparent 20%),
-    linear-gradient(15deg, #000000, transparent 20%),
-    /* radial-gradient(#b3c4b6, transparent 40%) no-repeat -60vw -40vh / 105vw
+
+  background: linear-gradient(215deg, #82907f, transparent 20%),
+  linear-gradient(125deg, #82907f, transparent 20%),
+  linear-gradient(15deg, #82907f, transparent 20%),
+  /* radial-gradient(#b3c4b6, transparent 40%) no-repeat -60vw -40vh / 105vw
       200vh,
     radial-gradient(#b3c4b6, transparent 65%) no-repeat 50% calc(100% + 20rem) /
       60rem 30rem */
-      linear-gradient(
-        90deg,
-        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-        transparent 1%
-      )
-      center / var(--dot-space) var(--dot-space),
-    linear-gradient(
-        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-        transparent 1%
-      )
-      center / var(--dot-space) var(--dot-space),
-    var(--dot-color);
+  linear-gradient(90deg,
+    var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+    transparent 1%) center / var(--dot-space) var(--dot-space),
+  linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+    transparent 1%) center / var(--dot-space) var(--dot-space),
+  var(--dot-color);
 }
 
 [data-has-hero] header {
@@ -113,6 +102,14 @@
 @font-face {
   font-family: "FontAwesomeBrands";
   src: url("/src/fonts/fa-brands-400.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "codicon";
+  src: url("/src/fonts/codicon.ttf") format("ttf");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -179,6 +176,32 @@ a.linux:after {
   padding: 0px 5px 0px 5px;
 }
 
+html[data-theme="dark"] a.vscode:after {
+  border: 1px solid black;
+}
+
+a.vscode:after {
+  font-family: "codicon";
+  content: "\ec29";
+  float: right;
+  border-radius: 5px;
+  border: 1px solid white;
+  padding: 0px 5px 0px 5px;
+}
+
+html[data-theme="dark"] a.vm-box:after {
+  border: 1px solid black;
+}
+
+a.vm-box:after {
+  font-family: "codicon";
+  content: "\ea8c";
+  float: right;
+  border-radius: 5px;
+  border: 1px solid white;
+  padding: 0px 5px 0px 5px;
+}
+
 img {
   display: block;
   margin-left: auto;
@@ -210,6 +233,7 @@ img {
   font-size: 0.8em;
   margin-top: 4px;
 }
+
 /* --- END: Footnotes ------*/
 
 /* --- START: Figure, Table and Listing captions ------*/
@@ -221,12 +245,14 @@ img {
 .main-pane div.caption span.caption-figure-nbr {
   font-weight: 800;
 }
+
 /* --- END:   Figure, Table and Listing captions ------*/
 
 /* --- START: Review changes: Delete style contents once done reviewing ------*/
 .review {
   color: firebrick;
 }
+
 /* --- END:   Review changes: Delete style contents once done reviewing ------*/
 
 /* --- START: Syntax Box ------*/
@@ -264,6 +290,7 @@ html[data-theme="dark"] aside[aria-label="Syntax"] .starlight-aside__title {
   color: #a7c1ef;
   font-weight: 800;
 }
+
 /* --- END:   Syntax Box ------*/
 
 /* --- START: Summary Box ------*/
@@ -301,6 +328,7 @@ html[data-theme="dark"] aside[aria-label="Summary"] .starlight-aside__title {
   color: #b2ebe5;
   font-weight: 800;
 }
+
 /* --- END:   Summary Box ------*/
 
 /* --- START: C# Box ------*/
@@ -338,6 +366,7 @@ html[data-theme="dark"] aside[aria-label="C#"] .starlight-aside__title {
   color: #debbc7;
   font-weight: 800;
 }
+
 /* --- END:   C# Box ------*/
 
 /* --- START: How does this work? Box ------*/
@@ -363,152 +392,200 @@ aside[aria-label="How does this work?"] p.starlight-aside__title {
 aside[aria-label="How does this work?"] ol.counterStart2 {
   counter-reset: step-counter 1;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart3 {
   counter-reset: step-counter 2;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart4 {
   counter-reset: step-counter 3;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart5 {
   counter-reset: step-counter 4;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart6 {
   counter-reset: step-counter 5;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart7 {
   counter-reset: step-counter 6;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart8 {
   counter-reset: step-counter 7;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart9 {
   counter-reset: step-counter 8;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart10 {
   counter-reset: step-counter 9;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart11 {
   counter-reset: step-counter 10;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart12 {
   counter-reset: step-counter 11;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart13 {
   counter-reset: step-counter 12;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart14 {
   counter-reset: step-counter 13;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart15 {
   counter-reset: step-counter 14;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart16 {
   counter-reset: step-counter 15;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart17 {
   counter-reset: step-counter 16;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart18 {
   counter-reset: step-counter 17;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart19 {
   counter-reset: step-counter 18;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart20 {
   counter-reset: step-counter 19;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart21 {
   counter-reset: step-counter 20;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart22 {
   counter-reset: step-counter 21;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart23 {
   counter-reset: step-counter 22;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart24 {
   counter-reset: step-counter 23;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart25 {
   counter-reset: step-counter 24;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart26 {
   counter-reset: step-counter 25;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart27 {
   counter-reset: step-counter 26;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart28 {
   counter-reset: step-counter 27;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart29 {
   counter-reset: step-counter 28;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart30 {
   counter-reset: step-counter 29;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart31 {
   counter-reset: step-counter 30;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart32 {
   counter-reset: step-counter 31;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart33 {
   counter-reset: step-counter 32;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart34 {
   counter-reset: step-counter 33;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart35 {
   counter-reset: step-counter 34;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart36 {
   counter-reset: step-counter 35;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart37 {
   counter-reset: step-counter 36;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart38 {
   counter-reset: step-counter 37;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart39 {
   counter-reset: step-counter 38;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart40 {
   counter-reset: step-counter 39;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart41 {
   counter-reset: step-counter 40;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart42 {
   counter-reset: step-counter 41;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart43 {
   counter-reset: step-counter 42;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart44 {
   counter-reset: step-counter 43;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart45 {
   counter-reset: step-counter 44;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart46 {
   counter-reset: step-counter 45;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart47 {
   counter-reset: step-counter 46;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart48 {
   counter-reset: step-counter 47;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart49 {
   counter-reset: step-counter 48;
 }
+
 aside[aria-label="How does this work?"] ol.counterStart50 {
   counter-reset: step-counter 49;
 }
 
-aside[aria-label="How does this work?"] ol > li {
+aside[aria-label="How does this work?"] ol>li {
   counter-increment: step-counter;
   margin-bottom: 10px;
   margin: 0;
@@ -522,7 +599,7 @@ aside[aria-label="How does this work?"] ol > li {
   margin-right: 10px;
 }
 
-aside[aria-label="How does this work?"] ol > li::before {
+aside[aria-label="How does this work?"] ol>li::before {
   content: counter(step-counter);
   /* Negative left margin makes the number appear outside of the list.
      It's like setting list-style-position: outside */
@@ -545,8 +622,8 @@ aside[aria-label="How does this work?"] ol > li::before {
   border-bottom-right-radius: 225px 15px;
   border-bottom-left-radius: 15px 255px;
 }
-html[data-theme="dark"] aside[aria-label="How does this work?"] {
-}
+
+html[data-theme="dark"] aside[aria-label="How does this work?"] {}
 
 aside[aria-label="How does this work?"] {
   border-inline-start: inherit;
@@ -589,7 +666,7 @@ aside[aria-label="How does this work?"] ul {
   margin-top: 4px;
 }
 
-aside[aria-label="How does this work?"] ul > li::before {
+aside[aria-label="How does this work?"] ul>li::before {
   content: "";
   display: inline-block;
   height: 14px;
@@ -602,11 +679,11 @@ aside[aria-label="How does this work?"] ul > li::before {
   vertical-align: middle;
 }
 
-aside[aria-label="How does this work?"] ul > li ul {
+aside[aria-label="How does this work?"] ul>li ul {
   list-style-type: none;
 }
 
-aside[aria-label="How does this work?"] ul > li ul li::before {
+aside[aria-label="How does this work?"] ul>li ul li::before {
   content: "";
   display: inline-block;
   height: 12px;
@@ -619,11 +696,11 @@ aside[aria-label="How does this work?"] ul > li ul li::before {
   vertical-align: middle;
 }
 
-aside[aria-label="How does this work?"] ul > li ul li ul {
+aside[aria-label="How does this work?"] ul>li ul li ul {
   list-style-type: none;
 }
 
-aside[aria-label="How does this work?"] ul > li ul li ul li::before {
+aside[aria-label="How does this work?"] ul>li ul li ul li::before {
   content: "";
   display: inline-block;
   height: 10px;
@@ -642,7 +719,8 @@ aside[aria-label="How does this work?"] ul > li ul li ul li::before {
 /* From: https://css-tricks.com/fluid-width-video/ */
 .main-pane .content .videoProgrammersGuideContainer {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%;
+  /* 16:9 */
   height: 0;
 }
 
@@ -653,6 +731,7 @@ aside[aria-label="How does this work?"] ul > li ul li ul li::before {
   width: 100%;
   height: 100%;
 }
+
 /* --- END:   Fluid Videos ------*/
 
 .textImageIconInline {
@@ -696,14 +775,17 @@ aside[aria-label="How does this work?"] ul > li ul li ul li::before {
   color: firebrick;
   font-weight: 800;
 }
+
 .starlight-aside,
 .card {
   border-radius: 0.5rem;
 }
+
 .expressive-code {
   border-radius: 0.6rem;
   box-shadow: var(--sl-shadow-md);
 }
+
 /* ------------------------------------------- */
 /* END:   CUSTOM STYLES                        */
 /* - Don't delete this section                 */

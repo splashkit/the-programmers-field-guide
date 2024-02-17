@@ -1,7 +1,7 @@
 {
   "name": "programmers.guide",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.9",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -12,16 +12,16 @@
   "dependencies": {
     "@astrojs/react": "^3.0.10",
     "@astrojs/sitemap": "^3.0.5",
-    "@astrojs/starlight": "^0.17.4",
+    "@astrojs/starlight": "^0.18.0",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
-    "astro": "^4.3.5",
+    "astro": "^4.3.7",
     "astro-embed": "^0.6.1",
     "astro-icon": "^0.8.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "squoosh": "^0.0.0",
-    "starlight-links-validator": "^0.5.2",
+    "starlight-links-validator": "^0.5.3",
     "swiper": "^11.0"
   }
 }
