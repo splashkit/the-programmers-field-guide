@@ -12,7 +12,7 @@ The **terminal** program provides a text environment, allowing text input and ou
 
 This comes from an analogy relating to nuts. In the real world, the shell of a nut is a thin wrapper around its kernel or core. In a computer, the shell is the command interpreter that gives you access to the core of the operating system. Continuing the analogy, the operating system is also known as a **kernel**, the same as the inside of a nut. The kernel provides tools which abstract away many of the lower-level details of interacting with the computer's hardware. All other programs *grow* out of the kernel, just like plants grow out of the kernel of a nut or seed.
 
-**TODO:** `ADD IMAGE - application <--> kernel <--> CPU, Memory, etc... see wikipedia`
+![Shows the command from the terminal to the shell](./images/terminal-shell.png)
 
 ## Terminal and Shell
 
@@ -27,84 +27,4 @@ Understanding the difference between the terminal and the shell can be challengi
 
 The quick summary is that the **terminal** allows you to input commands and view output.
 The **shell** has the actual *logic* to interpret and execute your commands.
-:::
-
-## Accessing the Shell
-
-Ok, enough talk. We need to get our hands dirty and start playing with the Terminal.
-
-** TODO make sure this works **
-
-import { Tabs, TabItem } from '@astrojs/starlight/components';
-
-<Tabs>
-  <TabItem label="Raspberry Pi">
-    * If you dont have a multitool SD card, then you will need to setup an SD card first. Download the Multitool image, and use the [Pi Imager](https://www.raspberrypi.com/software/) software to install this on an SD card.
-    * Get your miltitool SD card and plug that into your pi.
-    * Connect your display to the hdmi port of your pi
-    * Connect a keyboard
-    * Plug your pi and display into power
-    * Watch it start… this will start at the terminal!
-  </TabItem>
-  <TabItem label="Linux">
-    Linux variants are all based on Unix, so you will have a terminal and shell built into your operating system.
-    If you don't know how to access the terminal, you should be able to find it within your application launcher.
-  </TabItem>
-  <TabItem label="macOS">
-    The macOS operating system is based on Unix, so you will have a terminal and shell built into your operating system.
-    To access the terminal, use Spotlight to search for “Terminal” and run the utility that it finds for you.
-  </TabItem>
-  <TabItem label="Windows">
-    Unix is the most prevalent operating system in the world, and offers an elegant and effective terminal and shell experience. If you are using a Windows machine, you won't have a terminal or shell by default.
-    So, we need to install the Unix tools somehow.
-
-    There are two ways you can do this: use a virtual machine, or use MSys2.
-    The easiest way is to download the Multitool virtual machine image. You can then launch this within VirtualBox to get access to a virtual version of the multitool environment.
-    
-    A slightly more difficult option is to install MSys2, which emulates the Unix environment on top of your Windows operating system. To do this follow the steps in the [SplashKit installer](https://splashkit.io/articles/installation/windows/). The **Msys2 Shell** is then the equivalent of the terminal on the other operating systems. You can find the MSys Shell by searching for it in the Windows start menu or in the **MSys2** folder in **Program Files**.
-  </TabItem>
-</Tabs>
-
-**TODO ADD IMAGE(s) maybe above**
-
-## Give it a try!
-
-At this point, you should see a “prompt” within the terminal. This is the **shell** asking you to give it an instruction. You type commands, and press the Enter or Return key on your keyboard to get the shell to do what you have asked.
-
-Try the following:
-
-```sh
-echo "Hello `whoami`"
-```
-
-This command should output a message that says “Hello” followed by your username.
-
-If you are using the multitool setup, then plug in a speaker and give this a try:
-
-```sh
-espeak "Hello `whoami`, welcome to the command line!"
-```
-
-This should get your pi to speak to you.
-
-:::caution[Make sure to use backticks]
-
-For these commands to work, make sure you are using double quotes (") around the text and backticks (\`) not single quotes (') around the `whoami`. We will look at why soon.
-
-:::
-
-**TODO ADD curl example - check BoM data?**
-
-## Run as admin (`sudo`)
-
-Operating systems restrict some actions to admin users, particularly when the actions will change the behaviour of the system. In Unix, you can use the `sudo` shell command to get the **superuser** to **do** something. You follow the `sudo` command with the details of the command you want to do.
-
-:::tip
-If you have lots of things you want to run as the superuser, you can use `sudo` to run a new shell. When you are finished, you can close that shell using **ctrl-d**.
-
-```sh
-sudo zsh
-# You are now in a shell as the super user
-```
-
 :::

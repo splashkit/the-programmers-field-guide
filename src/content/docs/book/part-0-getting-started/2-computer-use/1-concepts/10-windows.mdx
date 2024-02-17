@@ -2,13 +2,10 @@
 title: Using X Windows
 sidebar:
     attrs:
-      class: pi
-banner:
-  content: |
-    This page is for the Multitool!
+        class: linux
 ---
 
-If you have been working through this on the multitool Raspberry Pi image, you will have only had access to the terminal interface. Now it is time to fire up the graphical user interface.
+When you are using Linux you can boot directly into the terminal, and launch the graphical user interface as a separate action. This can be interesting to play around with, though you will often just want to boot into the graphical user interface if you are working on a personal computer. When you are setting up a server though, there is no need to have anything other the terminal.
 
 ## Launch the graphical interface
 
@@ -26,31 +23,11 @@ One of the cool things with X Windows is that you can choose between different *
 
 ### Open a graphical terminal
 
-Once you are in a graphical environment you can open a terminal
-
-import { Tabs, TabItem } from '@astrojs/starlight/components';
-
-<Tabs>
-  <TabItem label="Raspberry Pi">
-    To open the terminal, click the applications...
-  </TabItem>
-  <TabItem label="Linux">
-    This will depend on your window manager. Generally you should be able to find a link to the terminal application within the programs menu. Search in utilities, or similarly named menus.
-  </TabItem>
-  <TabItem label="macOS">
-    The easiest way to find the terminal is to search for it in Spotlight. It should be in the Utilities folder within Applications.
-  </TabItem>
-  <TabItem label="Windows">
-    To open the terminal....
-  </TabItem>
-  
-</Tabs>
-
-**TODO: Add images and instructions above**
+Once you are in a graphical environment you can still access the Terminal via a program. The following section will go through how to access this in each operating system.
 
 ## Changing the default start environment
 
-The Raspberry Pi can be configured to boot into either a terminal or graphical mode. Terminal is great if you want to set the Pi up as a server or other processing node that does not need user interaction. As we will be developing code on our Pi, we should switch it to boot into X Windows.
+If you are working on the Raspberry Pi, it can be configured to boot into either a terminal or graphical mode. Terminal is great if you want to set the Pi up as a server or other processing node that does not need direct user interaction (you probably interact with it over the network, for example). As we will be developing code on our Pi, we should switch it to boot into X Windows.
 To change that setting we will need a couple of new shell commands.
 
 | **Action**                | **Command**    | **Description**                                         |
@@ -68,9 +45,13 @@ sudo raspi-config
 
 This will open the following display within the terminal. Choose **3 Boot Options** to change the way the Pi starts up. Choose **B1 Desktop / CLI**, and then choose either **B3 Desktop** or **B4 Desktop Autologin**. If you choose the autologin option, the system will automatically log in as the indicated user.
 
-**TODO Add image of rasp-config**
+![The raspi-config screen](https://www.raspberrypi.com/documentation/computers/images/raspi-config.png)
 
 When you select the required option it will take you back to the main menu. Choose **Finish** and then select to **Reboot** the Pi. When it restarts, X Windows will have been started and the desktop will have loaded.
+
+:::tip[raspi-config documentation]
+You can access the full documentation for raspi-config on the [Raspberry Pi documentation website](https://www.raspberrypi.com/documentation/computers/configuration.html).
+:::
 
 ## Accessing other terminals
 

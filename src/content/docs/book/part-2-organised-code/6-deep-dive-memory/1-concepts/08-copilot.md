@@ -9,7 +9,7 @@ At this stage you should have enough coding experience that you will be able to 
 As a student you will have free access to GitHub Copilot, once you go through the process of verifying your student status. To get started:
 
 - Follow the Step-by-Step guide on [Setting Up GitHub Student and GitHub Copilot as an Authenticated Student Developer](https://techcommunity.microsoft.com/t5/educator-developer-blog/step-by-step-setting-up-github-student-and-github-copilot-as-an/ba-p/3736279)
-- [Set up vscode](https://code.visualstudio.com/docs/editor/github-copilot)
+- [Set up VSC ode](https://code.visualstudio.com/docs/editor/github-copilot)
 - Install the [GitHub Copilot Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot).
 
 :::caution
@@ -22,7 +22,7 @@ You want to avoid using Copilot too early in your programming education. Make su
 
 The AI engine needs prompts to know what to generate. The easiest way to do this is by adding comments to your code. The AI can then use these comments to work out what comes next. This is where providing descriptive comments will be really important, the more descriptive you can be the more likely the AI is to generate something close to what you want.
 
-In vscode, once you have provided the prompt move to the next line where the code is to go, and wait a little. Code will magically appear, and you can press the tab key to insert it in your code. If it is not quite right, either update the comment, ignore the suggestion, or toggle through the suggestions it provides (Alt + ] / Option + ]).
+In VS Code, once you have provided the prompt move to the next line where the code is to go, and wait a little. Code will magically appear, and you can press the tab key to insert it in your code. If it is not quite right, either update the comment, ignore the suggestion, or toggle through the suggestions it provides (Alt + ] / Option + ]).
 
 Once you have the code, you will probably need to edit what it created. You can remove sections, add new comments and have it regenerate parts as you go. Alternatively, you can just make the fixes yourself. In the end you will be responsible for what happens, so make sure that you get the code the way you want before moving on.
 

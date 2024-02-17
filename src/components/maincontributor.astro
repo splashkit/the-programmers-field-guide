@@ -20,12 +20,16 @@ const { name, affiliation, desc, imgUrl, tag, twitter, website } = Astro.props;
     margin-top: -10px;
     margin-bottom: -10px;
   }
+
+  html[data-theme="dark"] img {
+    filter: invert(1);
+  }
 </style>
 
 <Card title={name}>
   <p class="tag">{tag}</p>
   <Image
-    width={200}
+    height="200"
     src={import(`../assets/illustrations/${imgUrl}.png`)}
     alt={"Illustration of " + name}
   />

@@ -8,11 +8,12 @@ sidebar:
 
 Linux is an open-source operating system that is widely used for programming and development. Being open-source, there are several versions available called distributions (distros); this guide will focus on Debian, which is the base for many popular distros such as Ubuntu and Raspberry Pi OS. If you use a different Linux distro, the steps may differ slightly.
 
-This section will go through all the steps to install the required Applications and Tools that you will need to code in C# and C++ with SplashKit. To simplify things, we have an automated script for fresh installs that will install all the required tools and applications for you, or you can follow the manual steps.
+In this guide, we will walk through the steps to install the necessary Applications and Tools that you will need to code in C# and C++ with SplashKit. To simplify things, we have an automated script for fresh installs that will install all the required tools and applications for you, or you can follow the manual steps.
 
 :::note[How do I open the Terminal?]
 To open the Terminal on Debian, click activities in the top left of the screen and type "Terminal" in the search bar, then click on the Terminal icon.
-![Gift showing how to open the Terminal](/gifs/setup-linux/OpenTerminal.gif)
+
+![Gif showing how to open the Terminal](/gifs/setup-linux/OpenTerminal.gif)
 
 *Using a **Raspberry Pi**? Click the Terminal icon in the taskbar (shown in the Red Box below), or press `Ctrl + Alt + T`*
 
@@ -132,13 +133,13 @@ bash skm-install.sh
 
 Close and reopen the Terminal, then run the command below to build SplashKit:
 
-If prompted, enter your password, type `y`, and press enter to confirm the installation.
-
 ```bash
 skm linux install
 ```
 
 :::note
+If prompted, enter your password, type `y`, and press enter to confirm the installation.
+
 This may take a while (approx. 10 mins).
 :::
 
@@ -191,38 +192,11 @@ You can open Visual Studio Code from the Terminal by typing `code` and pressing 
 
 ### Recommended Extensions
 
-Visual Studio Code has an extensive library of *Extensions* that let you add improved functionality for languages, debuggers, and tools to support your development workflow.  
-Using extensions in VS Code will make it easier and faster to code with whatever language or tools you are using.
+The final step to complete the setup of VS Code is to install a few *Extensions* in VS Code:
 
-#### C# Language Extensions
+[**Set up my VS Code Extensions**](../2-7-setup-vscode)
 
-For the **C#** code, we recommend installing the `C#`, `C# Dev Kit`, and `IntelliCode for C# Dev Kit` extensions.
-
-:::tip[How do I install the C# extensions?]
-
-1. Open Visual Studio Code and click on the icon in the left panel (shown in the purple box in the image below).
-2. Type "C#" in the Search bar at the top (shown in the blue box).
-3. Click "Install" for each of the extensions listed (shown in the green box).
-
-![Visual Studio Code window showing recommended extensions for C#](./images/vscode-extensions/vs-code-csharp-extensions.png)
-
-:::
-
-#### C++ Language Extensions
-
-For **C++** code, we recommend installing the `C/C++` extension.
-
-You can also install the `C/C++ Extension Pack` extension, which includes multiple bundled extensions. If you have issues with syntax highlighting, the `Better C++ Syntax` extension is one of the best for this.
-
-:::tip[How do I install the C++ extensions?]
-
-1. Open Visual Studio Code and click on the icon in the left panel (shown in the purple box in the image below).
-2. Type "C++" in the Search bar at the top (shown in the blue box).
-3. Click "Install" for the "C/C++" extensions (shown in the green box).
-4. (Optional) Click "Install" for any other extensions you want to install (shown in the orange box).
-
-![Visual Studio Code window showing recommended extensions for C++](./images/vscode-extensions/vs-code-cpp-extensions.png)
-:::
+Go to the page linked above, follow the steps to install both the C# and C/C++ recommended extensions, and then come back here and continue to the next step. *You can use the "Back button" in your browser to return to this page.*
 
 ### 4. Install Language Specific Tools
 
@@ -371,6 +345,7 @@ To add the Programmers Field Guide to the menu, run the following commands in th
 
 To customise the desktop background, right-click anywhere on the desktop and select Change Background (**Properties on the Raspberry Pi**).
 Then, select the image or theme you want to use as your background.
+
 ![image showing the appearance menu](./images/setup-linux/AppearanceMenu.png)
 
 Debian also has Light/Dark mode; you can toggle dark mode by clicking on the icon in the top right of the screen and selecting the mode you want to use.

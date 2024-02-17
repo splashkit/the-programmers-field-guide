@@ -7,7 +7,7 @@ We need a [compiler or interpreter](../../../1-digital-realities/1-concepts/6-so
 Dotnet uses a combination of both, with your source code being compiled into an intermediate code that is then run within a "just in time" (JIT) compiler at runtime.
 Luckily, all of this is detail abstracted away for us by the `dotnet` tool.
 
-To build and run we need a terminal -- to help you there is one built into vscode! Press **Ctrl-~** and a terminal should open at the bottom of your window. You can also access this using **Ctrl-Shift-P** (or **Cmd-Shift-P** on macOS), typing **terminal**, and selecting **Terminal: Create New Terminal** from the options shown.
+To build and run we need a terminal -- to help you there is one built into VS Code! Press **Ctrl-~** and a terminal should open at the bottom of your window. You can also access this using **Ctrl-Shift-P** (or **Cmd-Shift-P** on macOS), typing **terminal**, and selecting **Terminal: Create New Terminal** from the options shown.
 
 :::tip
 Learn the shortcuts - these will help save you time. With programming tools, most things can be done from the keyboard without needing to use your mouse or touch screen.

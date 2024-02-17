@@ -38,16 +38,16 @@ export default defineConfig({
       plugins: [starlightLinksValidator({ errorOnRelativeLinks: false })],
       sidebar: [
         {
-          label: "Home",
-          link: "/",
-        },
-        {
           label: "Part 0: First Steps",
           collapsed: true,
           items: [
             {
               label: "0. Introduction",
-              link: "book/part-0-getting-started/00-introduction",
+              link: "book/part-0-getting-started/00-0-introduction",
+            },
+            {
+              label: "Reading the Guide",
+              link: "book/part-0-getting-started/00-1-how-to-read",
             },
             {
               label: "1. Digital Realities",

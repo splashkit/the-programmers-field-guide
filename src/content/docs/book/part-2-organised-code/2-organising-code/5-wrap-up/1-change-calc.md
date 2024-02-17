@@ -2,6 +2,8 @@
 title: Change Calculator
 ---
 
+The following code shows our convention of the change calculator. As you can see, most of the changes are just to match the different coding convention.
+
 ```cpp
 /*
  * Program: Simple Change

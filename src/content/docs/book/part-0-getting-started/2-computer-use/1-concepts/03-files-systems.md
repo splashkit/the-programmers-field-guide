@@ -27,7 +27,7 @@ The difference usually does not matter, but they are actually different things.
 
 In addition to containing files, folders can also contain other folders. This gives you directories of files, that can contain sub-directories. This simple concept allows you to create large file systems, with folders and files organised in complex ways. For example, in your home folder you can have folders for documents, downloads, pictures, music, etc. In your documents folder you can have more folders to divide your documents between different projects, or organise your files in any other way you like.
 
-**TODO Add image to show folders**
+![Folders can contain files and other folders](./images/files-folders.png)
 
 ## Tree Metaphor
 
@@ -35,7 +35,7 @@ This organisation results in files and folders creating a tree structure, much l
 
 You can picture this as a hierarchy. The file system starts with a folder we call the **root** of the file system. It is the one folder that does not have a parent. The name "root" comes from the tree analogy, as the root folder is the point from which all other folders "grow".
 
-**TODO Add image showing labeling root, parent and child -- mention that we draw trees top-down, not bottom up**
+![Shows relative paths](./images/parent-child.png)
 
 As a user, you need a way of indicating which file you want to use. This means that each file must be uniquely identifiable. To achieve this, files and folders must have a unique name within their parent folder. If you move a file into a folder that already contains a file with the same name, the file you moved will replace the existing file and you will lose all the data associated with the file that has been replaced. You have probably already encountered this during your normal computer use.
 

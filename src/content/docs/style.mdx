@@ -19,7 +19,7 @@ This document will highlight, with examples and reasons, our own style guide whi
 <Tabs>
   <TabItem label="Rule">Place braces on the line following the declaration.</TabItem>
   <TabItem label="Explanation">In C-style languages, braces `{` and `}` are used to open and close code blocks or scopes. Some style guides determine that braces should be on the same line as the definition of the block, while others suggest that braces should be on the next line. Benefits of the former are reduced line counts. We place braces on the next line as we think it makes it easier to pair associated braces at a glance.</TabItem>
-  <TabItem label="C/C++/C#">
+  <TabItem label="Example">
     ```c
     int main()
     {
@@ -59,17 +59,14 @@ This document will highlight, with examples and reasons, our own style guide whi
 
 <Card>
 <Tabs>
-  <TabItem label="Suggestion">Naming your identifiers is one of the most important things you can do to make your code readable. As the famous quote goes, "There are only two hard things in Computer Science: cache invalidation and naming things." We suggest you use descriptive names for your identifiers, and avoid abbreviations where possible.</TabItem>
-  <TabItem label="C">
+  <TabItem label="Rule">Naming your identifiers is one of the most important things you can do to make your code readable. As the famous quote goes, "There are only two hard things in Computer Science: cache invalidation and naming things." We suggest you use descriptive names for your identifiers, and avoid abbreviations where possible.</TabItem>
+  <TabItem label="Example">
     ```c
-    int main()
-    {
-      // this is a good variable name
-      int users_age = read_age();
+    // this is a good variable name
+    int users_age = read_age();
 
-      // this is a bad variable name
-      int data = read_age();
-    }
+    // this is a bad variable name
+    int data = read_age();
     ```
   </TabItem>
 </Tabs>
@@ -95,7 +92,7 @@ This document will highlight, with examples and reasons, our own style guide whi
     int main()
     {
       const int MIN_AGE = 15;
-    }∂=
+    }
     ```
   </TabItem>
     <TabItem label="C#">
@@ -120,7 +117,33 @@ This document will highlight, with examples and reasons, our own style guide whi
 
 <Card>
 <Tabs>
-  <TabItem label="Rule">Use 4 space characters between any new pair of braces `{`,`}`.</TabItem>
+  <TabItem label="Rule">Between any new pair of brackes (`{`, `}`), write your code 4 further spaces in from the left.</TabItem>
+  <TabItem label="Explanation">Indentation is incredibly helpful for improving the readability of your code. It shows, at a glance, where different blocks of code are, and where different scopes begin and end. It is important to be consistent with indentation within a project (e.g., don't mix tabs and spaces, use a consistent indentation for each new block) to further improve readability.</TabItem>
+  <TabItem label="Example">
+    Do:
+    ```c#
+    if (condition)
+    {
+        statement;
+        if (condition)
+        {
+            statement;
+        }
+    }
+    ```
+
+    Don't do:
+    ```c#
+    if (condition)
+    {
+    statement;
+    if (condition)
+    {
+    statement;
+    }
+    }
+    ```
+  </TabItem>
   <TabItem label="Tip">You can configure your code editor to follow and enforce your indentation settings.</TabItem>
 </Tabs>
 </Card>
@@ -132,13 +155,13 @@ This document will highlight, with examples and reasons, our own style guide whi
   <TabItem label="Rule">You should only have one statement per line.</TabItem>
   <TabItem label="Explanation">Having multiple statements on a single line (seperated by a `;`) is hard to read.</TabItem>
   <TabItem label="Example">
-  ```c
-    int main()
-    {
-      int x = 0;
-      int y = 0;
-    }
-  ```
+    ```c
+      int main()
+      {
+        int x = 0;
+        int y = 0;
+      }
+    ```
     Don't do:
     ```c
     int main()
@@ -150,11 +173,8 @@ This document will highlight, with examples and reasons, our own style guide whi
 </Tabs>
 </Card>
 
-## Avoid these language features
+## Be careful of these language features
 
-The following low-level control flow features should be avoided, as they can lead to bugs and make code difficult to read.
-
-* `goto`: can make it difficult to track the flow of a program, and can lead to bugs.
 * `break`: can make it difficult to track the flow of a program, and can lead to bugs. There may be occasions where `break` statements are necessary, but they should be avoided where possible.
 * `continue`: can make it difficult to track the flow of a program, and can lead to bugs. There may be occasions where `continue` statements are necessary, but they should be avoided where possible.
 
@@ -162,3 +182,9 @@ The following low-level control flow features should be avoided, as they can lea
 
 * `switch` statements without a `default` case.
 * `switch` statements without a `break` statement.
+
+## Avoid these language features
+
+The following low-level control flow features should be avoided, as they can lead to bugs and make code difficult to read.
+
+* `goto`: can make it difficult to track the flow of a program, and can lead to bugs. Never use it.

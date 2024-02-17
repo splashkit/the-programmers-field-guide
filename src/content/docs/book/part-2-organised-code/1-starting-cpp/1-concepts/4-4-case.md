@@ -4,19 +4,17 @@ sidebar:
     label: " - Case Statements"
 ---
 
-The case statement is the one statement where there is a difference in C/C++. The syntax is very similar, but there are limitations on the kind of data you can use in the expression. C/C++ can only use ordinal types in the switch statement, meaning we are limited to integer values.
+The case statement is the one statement where there is a difference in C/C++ compared to C#. The syntax is very similar, but there are limitations on the kind of data you can use in the expression. C/C++ can only use ordinal types in the switch statement, meaning we are limited to integer values.
 
-:::tip[In C/C++]
-
-The syntax is consistent with the C# code, but with the limitation on the kind of value you can use.
+:::note[Syntax]
+The syntax is consistent with the C# code, but with a limitation on the kind of value you can use.
 
 ![Syntax for the case statement in C/C++](./images/case-statement.png)
-
 :::
 
 ## Example
 
-Here is an updated version of the [case statement](../../../../part-1-instructions/3-control-flow/1-concepts/03-2-case) example. This uses a simple menu to change the options, and then switch based on the value entered.
+Here is an updated version of the [case statement](../../../../part-1-instructions/3-control-flow/1-concepts/03-2-case#how-does-case-work) example. As our case statement is restricted to comparing integers, we use a simple menu to select between options instead of comparing strings.
 
 ```cpp
 #include "splashkit.h"
@@ -56,7 +54,5 @@ int main()
 ```
 
 :::tip
-
-Again, notice the logic is the same. You think the same as you develop and debug this code. This is a powerful thing to understand, as this should help demonstrate that switching programming languages isn't as larger a challenge as it may seem.
-
+Again, notice that the logic is the same. You **think** the same as you develop and debug this code, even though the language is different. This is a powerful thing to understand, and should help demonstrate that switching programming languages isn't as large a challenge as it may seem.
 :::

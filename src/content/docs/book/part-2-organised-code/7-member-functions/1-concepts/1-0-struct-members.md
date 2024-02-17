@@ -2,7 +2,7 @@
 title: Struct Members
 ---
 
-C++ introduced the idea of embedding functions and procedures into structs. We will look at the basics of this idea here, and then more full explore this in [Part 3](../../../../part-3-programs-as-concepts/00-part-3-programs-as-concepts).
+C++ introduced the idea of embedding functions and procedures into structs. We will look at the basics of this idea here, with a focus on how this is used to organise our code. In [Part 3](../../../../part-3-programs-as-concepts/00-part-3-programs-as-concepts) we will look at how this changes the way we think about our software.
 
 Let's consider simple example of a contact, where each contact has a name and phone number and can be printed. The following image shows the two different ways we can conceive of this solution. First we can see the struct as only having the data, alongside which we need to have functions and procedures that work on this data. On the other side, we have the struct with the functions and data declared within it. This makes a more complete package, were you have the data and the things that work on it all in the one place.
 
@@ -117,7 +117,7 @@ The difference is small, and relatively simple. We have just embedded functional
 
 The mechanics of this is a simple compiler translation, where it includes the struct along with the other parameters when the method is called. In general, you don't need to think about this most of the time. You can instead, think about the code being within the struct itself.
 
-When you use a struct in this way, you can initialise it by calling a constructor when the value is created, and you can then access its fields and methods as you need. You can access the fields as you did before, to read and change values within the struct value, but you can also call its methods.
+When you use a struct in this way, you can initialise it by calling a constructor when the value is created, and you can then access its fields and methods as you need. You can access the fields as you did before, to read and change values within the object, but you can also call its methods.
 
 ## In C++
 

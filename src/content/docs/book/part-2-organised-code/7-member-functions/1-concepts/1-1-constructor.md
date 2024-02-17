@@ -4,9 +4,9 @@ sidebar:
     label: " - Constructors"
 ---
 
-The constructors are probably the trickiest of the members to consider, but let's start with them anyway as we need to see how struct values are initialised before we start to perform other actions on them.
+The constructors are probably the trickiest of the members to consider, but let's start with them anyway as we need to see how objects (struct values) are initialised before we start to perform other actions on them.
 
-A constructor is a special method that is used to initialise an object created from the struct when it is created. This is called in one of two ways:
+A constructor is a special method that is used to initialise an object created from the struct. This is called in one of two ways:
 
 1. When a struct variable is declared.
 2. When the **new** keyword is used to create an object on the heap.
@@ -41,7 +41,7 @@ Constructors are coded in the struct as a special looking function. It does not 
 
 ### The new and delete keywords
 
-C++ also include a **new** keyword that can be used to create an object (allocate memory for it on the heap) and **delete** to remove the object (free that memory). `new` is given the name of the type of object to create, and will allocate space on the heap for that object, and call the matching constructor to ensure it is initialised. You can then free the memory using the `delete` keyword, and passing in a reference to the object.
+C++ also include a **new** keyword that can be used to create an object (allocate memory for it on the heap) and **delete** to remove the object (free that memory). `new` is given the name of the type of object to create, and will allocate space on the heap for that object, and call the matching constructor to ensure it is initialised. You can then use the object to perform the tasks you need. When you are finished, you free the memory using the `delete` keyword, and passing in a reference to the object.
 
 :::tip[Syntax]
 
@@ -96,7 +96,7 @@ struct stock
     void adjust_value(int diff)
     {
         // We can update the value of the struct
-        // methods are always run on the stock itself...
+        // methods are always run on the stock object itself...
         value += diff;
     }
 

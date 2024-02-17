@@ -3,16 +3,22 @@ title: Set up my Raspberry Pi
 sidebar:
     attrs:
         class: pi
-    label: " - Raspberry Pi"
+    label: " - Raspberry Pi Software"
 ---
 
 This guide will go through how to set up the software on your Raspberry Pi, including how to:
 
--   Download and burn Raspberry Pi OS to an SD card.
--   Install Raspberry Pi Operating System (OS).
--   Install programs and tools used in the next chapters (continued on next page).
+- Download and burn Raspberry Pi OS to an SD card.
+- Install Raspberry Pi Operating System (OS).
+- Install programs and tools used in the next chapters (continued on next page).
 
 ## 1. Download Raspberry Pi OS
+
+:::tip[Want a pre-built image?]
+
+The following steps get you to set up the software yourself. We recommend that you do this. However, if you need to, we also provide an image with everything already set up. Download the [FieldGuidePiImage.v1.0.img.gz](https://drive.google.com/file/d/1ieeTv6dVV7zv5vittwb82crd_wih2DPj/view?usp=share_link). Unzip it, and use this as the image you copy to the SD card in the steps below. There is a **student** user with password **student** on this Image. Please make sure to change the password.
+
+:::
 
 Follow the steps below to download the recommended Raspberry Pi OS:
 
@@ -30,6 +36,11 @@ Follow the steps below to download the recommended Raspberry Pi OS:
 5. Select Raspberry Pi OS (64b-bit)
 
     ![Image Showing the Raspberry Pi Imager select OS screen](./images/setup-pi/1-2-setup-pi-SelectOS.png)
+
+    :::tip
+    If you are using the prebuilt image, choose **Use custom** at this point and select the **FieldGuidePiImage.v1.0.img** file you downloaded. When this finishes copying onto the SD card you are all done. Just plug it into your Pi and get going.
+    :::
+
 
 6. Click storage and select the micro SD card and click next.
 
