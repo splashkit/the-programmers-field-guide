@@ -12,14 +12,13 @@ For
 
 Your program should:
 
-- Add more Products (let's say up to 5 for now)
-- Add more Staff (again, up to 5 for now)
-- Modify existing functionality to account for multiple Products and Staff
-- Add a new "Check Stock" screen which:
-  - Displays all of the Product's name and stock in order of greatest stock to fewest stock
-  - For Products with stock 5 or fewer, have a warning message before this stock is displayed
-- Add a new "Check Sales" screen which:
-  - Displays all of the Staff's sale counts in order of greatest stock to fewest stock
+- Have a Products array with up to 10 products allowed
+  - Modify your StorePOS struct to use an Array for Products instead
+- Have an "Add Product" screen which allows users to add a product to the system
+- Have a "Delete Product" screen which allows users to list all products
+  - Users can then select a product from this list to delete from the system
+- Have a "View Products" screen which allows users to list all products
+  - Users can then select a product from this list which they can then alter, delete, or view details of
 
 ### Adding Favourite Songs
 
@@ -29,20 +28,13 @@ For
 
 Your program should:
 
-- Allow the user to add more than one Song and Artist to the application (let's say up to 10 for now)
-- Modify existing functionality to allow for multiple Songs and Artists
-- Add an Account struct with their:
-  - Name
-  - Account creation date
-  - Top 5 Favourite Songs
-  - Favourite music genre
-- Have a new "Add Favourite" screen which:
-  - Lists all songs
-  - Allows the User to select one and add it to their Account's favourite songs
-- Have a new "Play Favourites" screen which:
-  - Randomly shuffles the order of the user Account's favourite songs
-  - Play each of the favourite songs
-  - Allow the user to skip any of the songs at any point
+- Have a Songs array with up to 10 songs allowed
+  - Modify your Dotifin struct to use an Array for Songs instead
+- Have an "Add Song" screen which allows users to add a song to Dotifin
+- Have a "Delete Song" screen which allows users to list all songs
+  - Users can then select a song from this list to delete from Dotifin
+- Have a "View Songs" screen which allows users to list all songs
+  - Users can then select a song from this list to listen to, alter, or delete
 
 ### Adding Multiple NPCs
 
@@ -50,9 +42,15 @@ We can finally bring our game to life by adding multiple NPCs which can all move
 
 For
 
+TO ADD HERE: Have NPCs die off over time, going close to them resets their duration, have them multiply if they get near each other.
+
 Your program should:
 
-- Spawn in 3 NPCs at different places throughout the screen
-- Modify movement functionality from last task to all three of the NPCs
-- Modify colliion functionality from last task to all three of the NPCs and add:
-  - NPCs should avoid collisions with each other by turning around and moving in the opposite direction if they enter the "smaller" circle collision test
+- Have a NPCs array with up to 100 NPCs allowed
+- Create a "Spawn NPC" function which spawns an NPC somewhere random on the screen
+- Spawn in 3 NPCs at the beginning of the game
+- Modify your render function to use this new NPCs array
+- Modify your movement functionality from last task to all of the NPCs
+- Modify collision functionality from last task to all of the NPCs and add:
+  - If two NPCs enter "smaller" collision, then they should create a new NPC somewhere random on the screen
+    - NPCs can only create other new NPCs after a 10 second cooldown after they just created a new NPC

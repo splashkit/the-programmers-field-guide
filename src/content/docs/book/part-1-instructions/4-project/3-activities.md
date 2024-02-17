@@ -45,7 +45,7 @@ Create a graphical application that gets the user to indicate the midpoint betwe
 
 ### Advanced Unit Converter & Calculator
 
-In this project, you will need to develop a mixture between a unit converter and a calculator. Your program will need to prompt the user to enter two values, with each of them asking if the user would like to use meters or feet, and ensure that both of these values are valid. Your program should then perform the following operations using each of the values, and output them to the terminal: Multiply, Divide, Add, and Subtract. These outputs should be in both meters and feet. The program should then ask the user if they would like to perform more calculations, to which the program should either repeat or quit.
+In this project, you will need to develop a mixture between a unit converter and a calculator. Your program will need to prompt the user to enter two values, with each of them asking if the user would like to use meters or feet, and ensure that both of these values are valid. Your program should then ask the user which one of the following operations and output the result to the terminal: Multiply, Divide, Add, and Subtract. These outputs should be in both meters and feet. The program should then ask the user if they would like to perform more calculations, to which the program should either repeat or quit.
 
 For your reference:
 
@@ -53,9 +53,10 @@ For your reference:
 
 Your program needs to:
 
-- Prompt the user to enter two values, ensuring they are numeric
+- Prompt the user to enter two values
   - Each prompt should ask the user if they would like to enter feet or meters
-- Perform the following four operations, and then output them to the terminal in both feet and meters:
+  - Make sure to ensure that the values entered are numeric and the feet/meter input is valid too!
+- Ask the user which one of the following operations they would like to perform, and then output the result (A operator B) to the terminal in both feet and meters:
   - Multiply
   - Divide
   - Add

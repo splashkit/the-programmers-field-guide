@@ -8,7 +8,7 @@ title: Activities
 
 Here we will be creating some useful information based on petrol prices that the user enters.
 
-In this task, it is up to you to create a program asks the user for how much they paid per litre l the last time they purchased petrol, and then update some useful statistics based on all of the previous prices entered by the user.
+In this task, it is up to you to create a program asks the user for how much they paid per litre the last time they purchased petrol, and then update some useful statistics based on all of the previous prices entered by the user.
 
 Your program should:
 
@@ -26,13 +26,13 @@ Validation:
 
 Here we will be expanding upon what we did in the previous activity, and make it so that we can re-enter sound information instead of having the program only work once.
 
-In this task, it is up to you to create a program which will will ask the user the filename of a sound file as well as the name they would like to refer to it as. You will then play sound until either it reaches the end of the clip, or the user decides to end it early. On top of this, once the song has finished playing, it should ask if the user wants to either repeat the same song, or re-enter different song information.
+In this task, it is up to you to create a program which will ask the user the filename of a sound file as well as the name they would like to refer to it as. You will then play sound until either it reaches the end of the clip, or the user decides to end it early. On top of this, once the song has finished playing, it should ask if the user wants to either repeat the same song, or re-enter different song information.
 
 You might need the following functions:
 
 - MusicPlaying()
 - HasMusic()
-- Console.In.Peek()
+- TerminalHasInput()
 
 Your program should:
 

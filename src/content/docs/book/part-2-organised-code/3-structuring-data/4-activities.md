@@ -19,8 +19,13 @@ Your program should:
   - Name
   - Position (One of: Salesperson, Manager, Owner)
   - Sale count (How many Products they've sold)
+- Have a StorePOS struct with:
+  - A Product
+  - A Staff
 - Have a Staff
 - Have a Product
+- Have a StorePOS
+- Modify your existing code to make use of these new structs
 - Introduce a "View Product" screen which:
   - Shows a Product's Name
   - Shows a Product's Description
@@ -45,7 +50,11 @@ Your program should:
   - Name
   - Genre (one of Pop, Rock, RnB)
   - Runtime
+- Have a Dotifin struct with:
+  - An Artist
+  - A Song
 - Have an Artist
+- Modify your existing code to make use of these new structs
 - Introduce an "Add Song" screen which allows the user to:
   - Specify a file name for that song
   - Specify a name for that song
@@ -62,16 +71,27 @@ Now that we can move around the screen and "interact" with NPCs, let's actually 
 
 Your program should:
 
-- Have an Actor struct with their:
+- Have a Player struct with their:
+  - X position
+  - Y position
+  - Radius
+  - Move speed
+  - Colour
+- Have a NPC struct with their:
   - Name
   - X position
   - Y position
   - Radius
   - Move speed
-- Have a Player Actor
-- Have a NPC Actor
-- Modify your existing functionality to make use of the new Actors
-- Modify your collision check function to instead:
-  - If the NPC/Player are in the smaller circle radius, change the colour of the NPC
-  - If the NPC/Player are colliding, make sure they don't overlap
-    - Then, push the NPC away from the player by an appropriate distance
+  - Alive status
+  - Close status
+  - Normal Colour
+  - Close Colour
+- Have a Game struct with:
+  - A Player
+  - A NPC
+- Have a Player
+- Have a NPC
+- Have a Game
+- Modify your existing functionality to make use of the new structs
+  - This includes modifying your Render function to make use of the Game struct!

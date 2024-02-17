@@ -4,30 +4,23 @@ title: Activities
 
 ## Test Your Knowledge
 
-### Breaking Down our POS System
+### Altering Products & Staff
 
-We can now pass by reference! This means we can separate our code and move things outside of the main input loop to tidy things up!
+We can now pass by reference! This means we can finally edit existing data, like our product and staff member!
 
 Your program should:
 
-- Be separated into separte functions for:
-  - Handling input
-  - Changing the screen
-  - Selling a product
-  - Changing the stock
-- - Introduce a "Sell Product" screen which allows the user to:
-  - Select which Staff is responsible for the sale
-  - Select which Product has been sold
-  - Select how many of the Product has been sold
-  - Reduces the stock of the Product and increases the sale count of the Staff
-- Introduce an "Alter Stock" screen which is only accessible by Managers and Owners, and allows the user to:
-  - Select a Product to restock
-  - Input a number (either positive or negative) to change the stock by
-  - Change the stock of the Product by that amount
-
-Validation:
-
-- Ensure that the current stock of an item cannot go below 0
+- Introduce an "Alter Product" screen which allows the user to:
+  - Alter a Product's Name
+  - Alter a Product's Description
+  - Alter a Product's Price
+  - Alter a Product's Current Stock
+  - (For now, just alter your existing product)
+- Introduce an "Alter Staff" screen which allows the user to:
+  - Alter a Staff's Name
+  - Alter a Staff's Position
+  - (For now, just alter your existing staff)
+- Modify your existing code to make use of indirect access
 
 ### Breaking Down Dotifin
 
@@ -35,10 +28,17 @@ Now that we can pass by reference, we can tidy up our main input loop a lot and 
 
 Your program should:
 
-- Be separated into separate functions for:
-  - Handling input
-  - Changing the screen
-  - Adding a Song
+- Introduce an "Alter Song" screen which allows the user to:
+  - Alter a Song's File Name
+  - Alter a Song's Name
+  - Alter a Song's Genre (one of Pop, Rock, RnB)
+  - Alter a Song's Runtime
+  - (For now, just alter your existing Song)
+- Introduce an "Alter Artist" screen which allows the user to:
+  - Alter a Staff's Name
+  - Alter a Staff's Bio
+  - (For now, just alter your existing Artist)
+- Modify your existing code to make use of indirect access
 
 ### Breaking Down our RPG
 
@@ -46,10 +46,17 @@ Now that we know how to pass by reference, our game will look much tidier once w
 
 Your program should:
 
-- Be separated into separate functions for:
-  - Movement
-  - Collision
-  - Rendering/Drawing to screen
-- Add the functionality to have the NPC:
-  - Move back and forth
-  - Wait at random points in their move cycle
+- Introduce an "Alter Player Colour" screen which allows the user to:
+  - Change a Player's Colour
+- Introduce an "Alter NPC Colour" function which allows the user to:
+  - Change an NPC's Colour
+- Add a Target Struct which has an:
+  - X Pos
+  - Y Pos
+- Add this Target Struct to your NPC Struct
+- Introduce a "New Target" function which creates a random location within a certain radius of an NPC and assigns it as its target
+- Make it so your NPC will always move towards its target until it gets near it, where it will generate a new target
+- Modify your collision check function to instead:
+  - If the NPC/Player are in the smaller circle radius, change the colour of the NPC
+  - If the NPC/Player are colliding, make sure they don't overlap
+    - Then, push the NPC away from the player by an appropriate distance

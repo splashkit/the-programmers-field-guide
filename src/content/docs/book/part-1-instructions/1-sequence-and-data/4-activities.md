@@ -42,7 +42,6 @@ Your program should:
 
 - Ask the user the file path of the folder the song is located in (e.g: C:/Users/Desktop/Songs/).
 - Ask the user the file name of the song.
-- Ask the user what timestamp they would like the song to start at (e.g: 00:45 for 45 seconds into the song).
 - Ask the user how long they would like the song to play for in seconds.
 - Play the section of the song the user asked for.
 
