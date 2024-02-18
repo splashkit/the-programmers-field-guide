@@ -1,6 +1,7 @@
 ---
 title: Activities
 ---
+import { YouTube } from 'astro-embed';
 
 Now it is time to build something yourself. Use the concepts and processes that we have described throughout Part 1 to design and implement at least one of these programs.
 
@@ -8,11 +9,62 @@ If you have access to others learning to program, this can be a great time to ta
 
 If you have access to others with more experience, explain your programs to them and use them to help you when your rubber ducky debugging doesn't help you find the solution to your current problem. Don't let them give you the answer, get them to ask you questions to help you find the answer yourself. After all, you want to master these skills to help ensure you understand how computers works and how to make effective use of them.
 
-## Projects
+## Test Your Knowledge
+
+### Advanced Unit Converter & Calculator
+
+<div class="not-content">
+  <YouTube id="zL8mmOsim9s" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+In this project, you will need to develop a mixture between a unit converter and a calculator. Your program will need to prompt the user to enter two values, with each of them asking if the user would like to use meters or feet, and ensure that both of these values are valid. Your program should then ask the user which one of the following operations and output the result to the terminal: Multiply, Divide, Add, and Subtract. These outputs should be in both meters and feet. The program should then ask the user if they would like to perform more calculations, to which the program should either repeat or quit.
+
+For your reference:
+
+- One foot is equal to 0.3048 meters
+
+Your program needs to:
+
+- Prompt the user to enter two values
+  - Each prompt should ask the user if they would like to enter feet or meters
+  - Make sure to ensure that the values entered are numeric and the feet/meter input is valid too!
+- Ask the user which one of the following operations they would like to perform, and then output the result (A operator B) to the terminal in both feet and meters:
+  - Multiply
+  - Divide
+  - Add
+  - Subtract
+- Ask if the user would like to perform more calculations
+  - If yes, repeat the application
+  - If no, quit the application
+
+### Creating a Key Collection Game
+
+<div class="not-content">
+  <YouTube id="yEgApwFySTk" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+In this project, you will need to develop a simple puzzle game where the player needs to move a character around a window and collect 3 randomly placed keys in the correct order based on their colour. Once each of the keys have been collected, the game should check if you have collected it in the correct order and if not; all keys should be deleted and 3 new keys should be placed in the level in random locations. Once all keys have been collected in the correct colour order, you should stop taking movement input and write "WIN" on the window.
+
+Some SplashKit functions you might need:
+
+- Rnd()
+- KeyDown()
+- BitmapCollision()
+
+Your program needs to:
+
+- Spawn the character bitmap in the center of the window
+- Spawn three key bitmaps of different colours at random locations throughout the window, making sure to not initially overlap with the character
+- Allow the player to move their character around with WASD
+- If the player moves to the edge of the window, they should wrap around to the other side of the window
+- Allow the player to collect a key once their character has overlapped with the key
+- Check to see if keys have been collected in the correct colour order
+  - If so, stop taking input and display "WIN" on the window
+  - If not, spawn the keys in different random locations again with the same colours, making sure to not initially overlap with the character
+
+## Other Projects
 
 Here are some project ideas to get you going.
-
-**TODO: Add activities**
 
 ### Reaction Time
 
@@ -40,48 +92,3 @@ Create a graphical application that gets the user to indicate the midpoint betwe
 - Draw two random circles (of fixed size)
 - Get the coordinate the user clicks, and output how far off they were for both the x and y coordinate in the test. Keep a sum of these two differences so that you can output a summary at the end.
 - Print the average x and y offsets at the end of the program, after the indicated number of tests. 
-
-## Test Your Knowledge
-
-### Advanced Unit Converter & Calculator
-
-In this project, you will need to develop a mixture between a unit converter and a calculator. Your program will need to prompt the user to enter two values, with each of them asking if the user would like to use meters or feet, and ensure that both of these values are valid. Your program should then ask the user which one of the following operations and output the result to the terminal: Multiply, Divide, Add, and Subtract. These outputs should be in both meters and feet. The program should then ask the user if they would like to perform more calculations, to which the program should either repeat or quit.
-
-For your reference:
-
-- One foot is equal to 0.3048 meters
-
-Your program needs to:
-
-- Prompt the user to enter two values
-  - Each prompt should ask the user if they would like to enter feet or meters
-  - Make sure to ensure that the values entered are numeric and the feet/meter input is valid too!
-- Ask the user which one of the following operations they would like to perform, and then output the result (A operator B) to the terminal in both feet and meters:
-  - Multiply
-  - Divide
-  - Add
-  - Subtract
-- Ask if the user would like to perform more calculations
-  - If yes, repeat the application
-  - If no, quit the application
-
-### Creating a Key Collection Game
-
-In this project, you will need to develop a simple puzzle game where the player needs to move a character around a window and collect 3 randomly placed keys in the correct order based on their colour. Once each of the keys have been collected, the game should check if you have collected it in the correct order and if not; all keys should be deleted and 3 new keys should be placed in the level in random locations. Once all keys have been collected in the correct colour order, you should stop taking movement input and write "WIN" on the window.
-
-Some SplashKit functions you might need:
-
-- Rnd()
-- KeyDown()
-- BitmapCollision()
-
-Your program needs to:
-
-- Spawn the character bitmap in the center of the window
-- Spawn three key bitmaps of different colours at random locations throughout the window, making sure to not initially overlap with the character
-- Allow the player to move their character around with WASD
-- If the player moves to the edge of the window, they should wrap around to the other side of the window
-- Allow the player to collect a key once their character has overlapped with the key
-- Check to see if keys have been collected in the correct colour order
-  - If so, stop taking input and display "WIN" on the window
-  - If not, spawn the keys in different random locations again with the same colours, making sure to not initially overlap with the character
