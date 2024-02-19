@@ -2,7 +2,7 @@
 title: "Procedures"
 ---
 
-Procedures contain code that define the steps to **do something**. When a procedure is called the computer executes its instructions in sequence. Whatever the procedure changes when executed the procedure's **side effect**. For example, a common side effect is to print something to the terminal.
+Procedures contain code that define the steps to **do something**. When a procedure is called the computer executes its instructions in sequence. Whatever the procedure changes when executed is the procedure's **side effect**. For example, a common side effect is to print something to the terminal.
 
 In your programs you can define your own procedures, allowing you to divide a program's tasks into separate steps.
 

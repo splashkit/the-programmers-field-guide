@@ -144,6 +144,8 @@ Think about the different functions and procedure we have been calling already. 
 
 ## Example
 
+### Procedures with parameters
+
 See [Listing 5.x](#ListingParameters) below for an example of a procedure with parameters.
 
 <a id="ListingParameters"></a>
@@ -173,6 +175,42 @@ You can also look at the example code in the [functions page](../04-function-dec
 The great thing about parameters is that it really helps you generalise what your function can do. By accepting a value parameter, the `square` function can be used to square any `double` value. Similarly, by accepting parameters for the point and circle, the `point_in_circle` function can work for any point in any circle.
 
 <MySwiper client:only height="" images={sliderParameter}></MySwiper>
+
+### Functions with parameters
+
+```cpp
+#include "splashkit.h"
+
+using std::to_string;
+
+double square(double val) 
+{
+    return val * val;
+}
+
+bool pount_in_circle(double pt_x, double pt_y, double c_x, double c_y, double c_radius)
+{
+    double distance = sqrt(square(pt_x - c_x) + square(pt_y - c_y));
+    return distance <= c_radius;
+}
+
+int main()
+{
+    write_line("5 squared is " + to_string(square(5)));
+
+    write_line("A point at 1, 3 is in a circle at 0, 0, with radius 4" + to_string(point_in_circle(1, 3, 0, 0, 4)) );
+
+    return 0;
+}
+```
+
+There are three function declarations in this code: `square`, `point_in_circle`, and `main`. Each of these performs a number of steps and returns a value. 
+
+- The `square` function accepts a `val` parameter, and returns the square of this. This is achieved with a single line of code, but helps make the other code more readable.
+- In `point_in_circle`, we accept parameters for the point (`pt_x` and `pt_y`) and the circle (`c_x`, `c_y`, and `c_radius`) and return a boolean value indicating if the point is within the circle. To achieve this, we can get the distance from the point to the center of the circle, which we store in a local variable called `distance`, and then compare this with the circle's radius to get the result;
+- The `main` function exists in all C/C++ programs. It is the entry point, and returns a value that indicates if the program completed successfully or not. Returning 0 at the end indicates the program succeeded, with any other value is treated as an error code.
+
+Notice we can use the `square` function in the calculation for the `point_in_circle`. Once you have a function that calculates something, you can call it any time you need that value. Here we can use the Pythagorean theorem to determine the distance between the points. This requires us to get the square of the distance from each dimension (x and y), and then calculate the square root of this. For this we can then use the [sqrt](https://en.cppreference.com/w/c/numeric/math/sqrt) function from the math standard library in C.
 
 :::note[Summary]
 
