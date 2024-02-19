@@ -45,13 +45,40 @@ In C++, a function without a return statement results in [undefined behaviour](h
 
 ### Procedures as void functions
 
-C/C++ does not have a strong distinction between functions and procedures. Technically, in C/C++ a procedure is just a function that returns a special `void` type. However, although there isn't really a difference in syntax between functions and procedures, it is still important to understand the conceptual difference between the them.
+C/C++ does not have a strong distinction between functions and procedures. Technically, in C/C++ a procedure is just a function that returns a special `void` type. However, although there isn't really a difference in syntax between functions and procedures, it is still important to understand the conceptual difference between them.
 
 ## Examples
 
-```cpp
+The code below shows an example of a simple function.
+It is called `seconds_in_hour`, and returns an `int` value.
+In this example we are showing you the syntax of a function declaration in practice, but we are also highlighting the concept of **scope**.
+Notice that both `seconds_in_hour` and `main` have variables called `total`.
+This is valid, and causes no conflicts, because each `total` variable is limited to the scope of their respective function.
+They are entirely separate variables, with different locations in memory.
 
+```cpp
+#include "splashkit.h"
+
+using std::to_string;
+
+int seconds_in_hour()
+{
+    total = 60 * 60;
+    return total;
+}
+
+void main()
+{
+    total = seconds_in_hour();
+    write_line("There are " + to_string(total) + " seconds in an hour");
+
+    return 0;
+}
 ```
+
+This example function is pretty trivial, and probably isn't something you would ever actually use -- a constant would be much more appropriate given all the values involved are unchanging literals.
+Functions are much more useful when you can give them some data to work with.
+We will explore how to do that next.
 
 :::note[Summary]
 
