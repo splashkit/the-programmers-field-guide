@@ -5,17 +5,17 @@ title: "Parameter"
 
 import MySwiper from '../../../../../../components/react/myswiper.jsx'
 
-import sliderParameter01 from './images/slider-parameter/slider-parameter-01.png';
-import sliderParameter02 from './images/slider-parameter/slider-parameter-02.png';
-import sliderParameter03 from './images/slider-parameter/slider-parameter-03.png';
-import sliderParameter04 from './images/slider-parameter/slider-parameter-04.png';
-import sliderParameter05 from './images/slider-parameter/slider-parameter-05.png';
-import sliderParameter06 from './images/slider-parameter/slider-parameter-06.png';
-import sliderParameter07 from './images/slider-parameter/slider-parameter-07.png';
-import sliderParameter08 from './images/slider-parameter/slider-parameter-08.png';
-import sliderParameter09 from './images/slider-parameter/slider-parameter-09.png';
-import sliderParameter10 from './images/slider-parameter/slider-parameter-10.png';
-import sliderParameter11 from './images/slider-parameter/slider-parameter-11.png';
+import sliderParameter01 from './images/slider-parameter/Slide1.png';
+import sliderParameter02 from './images/slider-parameter/Slide2.png';
+import sliderParameter03 from './images/slider-parameter/Slide3.png';
+import sliderParameter04 from './images/slider-parameter/Slide4.png';
+import sliderParameter05 from './images/slider-parameter/Slide5.png';
+import sliderParameter06 from './images/slider-parameter/Slide6.png';
+import sliderParameter07 from './images/slider-parameter/Slide7.png';
+import sliderParameter08 from './images/slider-parameter/Slide8.png';
+import sliderParameter09 from './images/slider-parameter/Slide9.png';
+import sliderParameter10 from './images/slider-parameter/Slide10.png';
+import sliderParameter11 from './images/slider-parameter/Slide11.png';
 
 export const sliderParameter = [
   {
@@ -23,8 +23,9 @@ export const sliderParameter = [
     altText: "The program starts at the main() function and the print_equation() function is called with parameters 2, 5.1 and 3",
     tipStart: 1,
     tips: [
-      "The program starts at the <code>main()</code> function",
-      "The <code>print_equation()</code> function is called with parameters <code>2</code>, <code>5.1</code> and <code>3</code>"
+      "The program starts at the <code>main()</code> function.",
+      "<code>print_equation()</code> is called with arguments <code>2</code>, <code>5.1</code> and <code>3</code>.",
+      "The program counter jumps to line 7, the start of the <code>print_equation()</code> procedure."
     ]
   },
   {
@@ -32,7 +33,10 @@ export const sliderParameter = [
     altText: "The parameter values from the caller are passed into the print_equation() function, and as a new block is allocated on the stack for the function, the values are stored in their respective variables",
     tipStart: 2,
     tips: [
-      "The parameter values from the caller are passed into the <code>print_equation()</code> function, and as a new block is allocated on the stack for the function, the values are stored in their respective variables"
+      "A new block is allocated on the stack for the procedure, with memory for each parameter.",
+      "The argument values from the caller are passed into <code>print_equation()</code>.",
+      "The values that were passed in are stored in their respective variables.",
+      "The program counter moves to line 8, then to line 9."
     ]
   },
   {
@@ -40,15 +44,16 @@ export const sliderParameter = [
     altText: "The solution variable is allocated space on the stack, then evaluated using the values of the parameters passed into the function",
     tipStart: 3,
     tips: [
-      "The <code>solution</code> variable is allocated space on the stack, then evaluated using the values of the parameters passed into the function"
+      "The <code>solution</code> variable is allocated space on the stack.",
+      "The expression in the assignment statement is evaluated, and the result stored."
     ]
   },
   {
     src: sliderParameter04.src,
-    altText: "The write_line function executes and prints a string of the equation (using the values of the stack variables) to the terminal",
+    altText: "The write_line procedure executes and prints a string of the equation (using the values of the stack variables) to the terminal",
     tipStart: 4,
     tips: [
-      "The <code>write_line</code> function executes and prints a string of the equation (using the values of the stack variables) to the terminal"
+      "The <code>write_line</code> procedure executes and prints a string of the equation (using the values of the stack variables) to the terminal."
     ]
   },
   {
@@ -56,7 +61,8 @@ export const sliderParameter = [
     altText: "The print_equation function block ends, and it's variables are removed from the stack",
     tipStart: 5,
     tips: [
-      "The <code>print_equation</code> function block ends, and it's variables are removed from the stack"
+      "The <code>print_equation</code> procedure block ends, so its variables are removed from the stack.",
+      "The program counter returns to the caller (line 3), and increments to line 4."
     ]
   },
   {
@@ -64,7 +70,8 @@ export const sliderParameter = [
     altText: "Execution returns to the next line of the main() function, which contains another call to print_equation, but this time with different parameter values",
     tipStart: 6,
     tips: [
-      "Execution returns to the next line of the <code>main()</code> function, which contains another call to <code>print_equation</code>, but this time with different parameter values"
+      "Execution returns to the next line of the <code>main()</code> function, which contains another call to <code>print_equation</code>, but this time with different parameter values.",
+      "The program counter again jumps to line 7, the procedure declaration."
     ]
   },
   {
@@ -72,7 +79,10 @@ export const sliderParameter = [
     altText: "The parameter values from the caller are passed into the print_equation() function once again, and as a new block is allocated on the stack for the function, the values are stored in their respective variables",
     tipStart: 7,
     tips: [
-      "The parameter values from the caller are passed into the <code>print_equation()</code> function once again, and as a new block is allocated on the stack for the function, the values are stored in their respective variables"
+      "A new block is allocated on the stack for the procedure, with memory for each parameter.",
+      "The argument values from the caller are passed into <code>print_equation()</code>.",
+      "The values that were passed in are stored in their respective variables.",
+      "The program counter moves to line 8, then to line 9."
     ]
   },
   {
@@ -80,15 +90,16 @@ export const sliderParameter = [
     altText: "The solution variable is allocated space on the stack, then evaluated using the values of the parameters passed into the function",
     tipStart: 8,
     tips: [
-      "The <code>solution</code> variable is allocated space on the stack, then evaluated using the values of the parameters passed into the function"
+      "The <code>solution</code> variable is allocated space on the stack.",
+      "The expression in the assignment statement is evaluated, and the result stored."
     ]
   },
   {
     src: sliderParameter09.src,
-    altText: "The write_line function executes and prints a string of the equation (using the values of the stack variables) to the terminal",
+    altText: "The write_line procedure executes and prints a string of the equation (using the values of the stack variables) to the terminal",
     tipStart: 9,
     tips: [
-      "The <code>write_line</code> function executes and prints a string of the equation (using the values of the stack variables) to the terminal"
+      "The <code>write_line</code> procedure executes and prints a string of the equation (using the values of the stack variables) to the terminal."
     ]
   },
   {
@@ -96,7 +107,8 @@ export const sliderParameter = [
     altText: "The print_equation function block ends, and it's variables are removed from the stack",
     tipStart: 10,
     tips: [
-      "The <code>print_equation</code> function block ends, and it's variables are removed from the stack"
+      "The <code>print_equation</code> procedure block ends, so its variables are removed from the stack.",
+      "The program counter returns to the caller (line 4), and increments to line 5."
     ]
   },
   {
@@ -104,84 +116,86 @@ export const sliderParameter = [
     altText: "Execution returns to the next line of the main() function, which contains a return statement that returns control to the program caller, with an exit value of 0, ending the program's execution",
     tipStart: 11,
     tips: [
-      "Execution returns to the next line of the <code>main()</code> function, which contains a return statement", "This returns control to the program caller, with an exit value of 0, thus ending the program's execution"
+      "Execution returns to the next line of the <code>main()</code> function, which contains a <code>return</code> statement.",
+      "This returns control to the program caller with an exit value of 0, thus ending the program's execution."
     ]
   }
 ];
 
+Procedures and functions are useful for grouping code, but in most cases the instructions they contain need to be given values to work with.
+These values can be passed to the function or procedure using **parameters**. A parameter is a [variable](../../../../part-1-instructions/1-sequence-and-data/1-concepts/07-variable) that has its value set by an [argument](../../../../part-1-instructions/1-sequence-and-data/1-concepts/02-method#arguments) in the procedure call.
+You have already seen how to provide values to functions and procedures when calling them, but now we will explore how to add and use parameters in our own functions and procedures.
 
+{/* TODO: add concept map diagram */}
 
-The instructions within a [procedure](../01-procedures) define the actions that occur when that procedure is called. In most cases, these instructions need to be given values to work with. These values can be passed to the procedure using **parameters**. A parameter is a [variable](../../../../part-1-instructions/1-sequence-and-data/1-concepts/07-variable) that has its value set by an [argument](../../../../part-1-instructions/1-sequence-and-data/1-concepts/02-method#arguments) in the procedure call.
+## Parameters - when, why, and how
 
-<a id="FigureParameter"></a>
+In most cases your functions and procedures will need to know things in order to perform their actions. Perhaps the easiest way to think about this is as if you were asked to do the task. If you were asked to put something in the bin, you would need to be told what to dispose of. In a program, this could be coded as a `dispose` procedure, where the *thing* to dispose would be the parameter.
 
-![Figure 5.16 Parameters allow data to be passed to Procedures](./images/procedure-decl-with-params.png "Parameters allow data to be passed to Procedures")
+As you start to create a function or procedure, think about what it will need to be told in order to perform its actions. Code these as parameters, and you can then pass the actual values to use as arguments.
 
-<div class="caption"><span class="caption-figure-nbr">Figure 5.16: </span> Parameters allow data to be passed to functions and procedures</div> <br/>
-
-## Parameters - Why, When, How
-
-In most cases your functions and procedures will need to know things in order to perform their actions. Perhaps the easiest way to think about this is as if you were asked to do the task. If I asked you to bin something, you would need me to tell you want to dispose of. In a program, this could be coded as a `dispose` procedure, where the *thing* to dispose would be the parameter.
-
-As you start to create a procedure, think about what it will need to be told in order to perform its actions. Code these as parameters, and you can then pass the actual values to use as arguments.
-
-Think about the different functions and procedure we have been calling already. When you call `open_window` you passed its arguments for the title, width, and height of the window. This means there are three parameters in this procedure, the first accepting the value for the title, the second the width, and the third the height. The `open_window` code uses these values when it creates the window you see appear on the screen.
+Think about the different functions and procedure we have been calling already. When you call `open_window` you passed in arguments for the title, width, and height of the window. This means there are three parameters in this procedure, the first accepting the value for the title, the second the width, and the third the height. The `open_window` code uses these values when it creates the window you see appear on the screen.
 
 ## In C/C++
 
 :::tip[Syntax]
+The C/C++ syntax for a procedure declaration with parameters is shown in the following diagram:
 
-- In C/C++, parameters can be declared in any [function or procedure](../00-functions-and-procedures)
-- The syntax in [Figure 5.x](#FigureParameterSyntax) shows the C/C++ code for declaring parameters within a procedure.
-- Parameters in C/C++ are declared like other [variables](../../../../part-1-instructions/1-sequence-and-data/1-concepts/07-variable), with the [type](../../../../part-1-instructions/1-sequence-and-data/1-concepts/06-type) followed by the parameter’s name.
+![C/C++ syntax for a procedure declaration with parameters](./images/procedure-decl-with-params.png "C/C++ Syntax for a procedure declaration with parameters")
 
-<a id="FigureParameterSyntax"></a>
+For completeness here is the diagram for a function declaration, but it is the same except for the type name at the start instead of `void`:
 
-![Figure 5.x C/C++ syntax for a procedure declaration with parameters](./images/procedure-decl-with-params.png "C/C++ Syntax for a procedure declaration with parameters")
-<div class="caption"><span class="caption-figure-nbr">Figure 5.x: </span>C/C++ syntax for a procedure declaration with parameters</div><br/>
-
+![C/C++ syntax for a function declaration with parameters](./images/function-decl-with-params.png "C/C++ Syntax for a function declaration with parameters")
 :::
 
-## Example
+Parameters are an optional addition to any function or procedure declaration.
+The syntax in both cases is the same -- in between the declarations parentheses you write [variable declarations](../../../1-starting-cpp/1-concepts/4-1-variable) (without initialisation), separated by commas.
+Each variable is a single parameter.
+
+## Examples
 
 ### Procedures with parameters
 
-See [Listing 5.x](#ListingParameters) below for an example of a procedure with parameters.
-
-<a id="ListingParameters"></a>
+The following code shows an example of a procedure with parameters.
 
 ```cpp
-/* Program: Print an equation with its solution */
-
-void print_equation(int m, double x, int c) 
-{
-  double solution = m * x + c;
-  write_line( to_string(m) + " x " + to_string(x) + " + " + to_string(c) + " = " + to_string(solution));
-}
+using std::to_string;
 
 int main() 
 {
-  print_equation(2, 5.1, 3);
-  print_equation(7, 2.74, -8);
-  return 0;
+    print_equation(2, 5.1, 3);
+    print_equation(7, 2.74, -8);
+    return 0;
+}
+
+void print_equation(int m, double x, int c) 
+{
+    double solution = m * x + c;
+    write_line( to_string(m) + " x " + to_string(x) + " + " + to_string(c) + " = " + to_string(solution));
 }
 ```
-<div class="caption"><span class="caption-figure-nbr">Listing 5.x: </span>Parameter Tests</div>
 
 The `print_equation` procedure accepts three parameters: `m`, `x`, and `c`. This means that when `print_equation` is called, it must be passed three argument value. The first value will be passed to the `m` parameter, the second to `x`, and the third to `c`.
 
-You can also look at the example code in the [functions page](../04-function-decl). Both the `square` and `point_in_circle` functions accept parameters in order to achieve their tasks. The `square` function needs to be told the value you want to square, while the `point_in_circle` needs to know the location of the point (`pt_x` and `pt_y`) and the location and size of the circle (`c_x`, `c_y`, `c_radius`). 
-
-The great thing about parameters is that it really helps you generalise what your function can do. By accepting a value parameter, the `square` function can be used to square any `double` value. Similarly, by accepting parameters for the point and circle, the `point_in_circle` function can work for any point in any circle.
+The swiper below explores how this code works.
 
 <MySwiper client:only height="" images={sliderParameter}></MySwiper>
 
 ### Functions with parameters
 
+Now let's look at an example of a function with parameters.
+There are three function declarations in the code below: `square`, `point_in_circle`, and `main`.
+Each of these performs a number of steps and returns a value.
+
+- The `square` function accepts a `val` parameter, and returns the square of this. This is achieved with a single line of code, but helps make the other code more readable.
+- In `point_in_circle`, we accept parameters for the point (`pt_x` and `pt_y`) and the circle (`c_x`, `c_y`, and `c_radius`) and return a boolean value indicating if the point is within the circle. To achieve this, we can get the distance from the point to the center of the circle using the [Pythagorean theorem](https://en.wikipedia.org/wiki/Pythagorean_theorem), which we store in a local variable called `distance`, and then compare this with the circle's radius to get the result.
+- The `main` function is the entry point, and returns a value that indicates if the program completed successfully or not. Returning 0 at the end indicates the program succeeded. Any other value is treated as an error code.
+
 ```cpp
 #include "splashkit.h"
 
 using std::to_string;
+using std::sqrt;
 
 double square(double val) 
 {
@@ -204,13 +218,15 @@ int main()
 }
 ```
 
-There are three function declarations in this code: `square`, `point_in_circle`, and `main`. Each of these performs a number of steps and returns a value. 
+:::tip
+To get the distance between the point and the center of the circle we are also using the [sqrt](https://en.cppreference.com/w/c/numeric/math/sqrt) function from the math standard library in C.
+Don't worry if the maths here doesn't make sense -- it is not the point of the example!
+Focus on how the function parameters are used.
+:::
 
-- The `square` function accepts a `val` parameter, and returns the square of this. This is achieved with a single line of code, but helps make the other code more readable.
-- In `point_in_circle`, we accept parameters for the point (`pt_x` and `pt_y`) and the circle (`c_x`, `c_y`, and `c_radius`) and return a boolean value indicating if the point is within the circle. To achieve this, we can get the distance from the point to the center of the circle, which we store in a local variable called `distance`, and then compare this with the circle's radius to get the result;
-- The `main` function exists in all C/C++ programs. It is the entry point, and returns a value that indicates if the program completed successfully or not. Returning 0 at the end indicates the program succeeded, with any other value is treated as an error code.
+Notice we can use the `square` function in the calculation in `point_in_circle`. Once you have a function that calculates something, you can call it any time you need that value. 
 
-Notice we can use the `square` function in the calculation for the `point_in_circle`. Once you have a function that calculates something, you can call it any time you need that value. Here we can use the Pythagorean theorem to determine the distance between the points. This requires us to get the square of the distance from each dimension (x and y), and then calculate the square root of this. For this we can then use the [sqrt](https://en.cppreference.com/w/c/numeric/math/sqrt) function from the math standard library in C.
+The great thing about parameters is that it really helps you generalise what your functions and procedures can do. By accepting a value parameter, the `square` function can be used to square any `double` value. Similarly, by accepting parameters for the point and circle, the `point_in_circle` function can work for any point in any circle.
 
 :::note[Summary]
 
