@@ -7,7 +7,7 @@ title: Activities
 
 Over the next few activities, we're going to be creating a store's POS database to manage transactions and stock. Here we're going to set up the main input loop into separate functions, similarly to what we did in the earlier parts for our calculator.
 
-As a start for our store POS database, we're going to have to start with the backbone of the application, which will handle printing "screens" to the terminal, handling user input for numbers, as well as changing screens based on those input numbers. Your program should ensure whatever input taken by the user is valid. At any input point, the user should be able to return to the main screen or quit the application. Make sure you're splitting up your code into functions!
+As a start for our store POS database, we're going to have to start with the backbone of the application, which will handle printing "screens" to the terminal, handling user input for numbers, as well as changing screens based on those input numbers. Your program should ensure whatever input taken by the user is valid. One last thing to include is a print staff screen which allows users to input staff details, and then prints them out. Make sure you're splitting up your code into functions!
 
 Your program should:
 
@@ -24,10 +24,11 @@ Your program should:
 Validation:
 
 - Ensure that the user input int your program takes matches the options of your "screens/functionality"
+- Ensure that Staff Sale Count is a valid int
 
 Functions you should have:
 
-- read_int_range(string, outputMessage, int inputInt) - Prints a message to prompt user for input, reads an integer from user input, ensures it is in a specific range, then returns it
+- read_int_range(string prompt, int min, int max) - Prints a message to prompt user for input, reads an integer from user input, ensures it is in a specific range, then returns it
 - process_int_input(int inputInt) - Performs different operations, like changing "screens" based on the integer input
 - print_staff_details() - Asks the user for input for staff details, then outputs them
 
@@ -47,12 +48,12 @@ Your program should:
 
 Validation:
 
-- Ensure that whatever user input your program takes matches the options
+- Ensure that whatever user input your program takes matches the options presented
 - Ensure any songs loaded are valid (hint: use music_valid(music musicToCheck))
 
 Functions you should have:
 
-- read_integer_range(string outputString, int inputInt) - Prints a message to prompt user for input, reads an integer from user input, ensures it is in a specific range, then returns it
+- read_int_range(string prompt, int min, int max) - Prints a message to prompt user for input, reads an integer from user input, ensures it is in a specific range, then returns it
 - process_int_input() - Performs different operations, like changing "screens" based on the integer input
 - load_song() - Asks the User for a File name and name for their music, loads it, then returns it (You can take this from your earlier tasks and adapt it for C++!)
 - play_song() - Takes in a song and plays it
@@ -83,6 +84,3 @@ Functions you should have:
 - draw_NPC(int npcX, int npcY) - Draws the NPC from their coordinates
 - collision_radius(float radius, int originX, int originY, int destinationX, int destinationY) - Checks to see if point (desintationX, destinationY) is in circle of size radius at (originX, originY)
 - has_NPC_player_collided(int playerX, int playerY, int npcX, int npcY) - Checks three different collision tests and returns true if all three succeed
-
-REMOVE LATER IF NOT NEEDED
-- CollisionRadius - Takes two points and a radius and checks if the second point is in a circle around the first point of distance radius
