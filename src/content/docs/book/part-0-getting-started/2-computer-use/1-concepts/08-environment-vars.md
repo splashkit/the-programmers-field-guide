@@ -1,5 +1,10 @@
 ---
 title: Environment Variables
+sidebar:
+    label: " - Environment Variables"
+banner:
+    content: |
+        This is an optional concept in this chapter. Review it when you are on top of the other ideas.
 ---
 
 Computer operating systems use **environment variables** to store information that is relevant to a variety of programs running on that computer.

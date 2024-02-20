@@ -3,27 +3,13 @@ title: Using X Windows
 sidebar:
     attrs:
         class: linux
+    label: " - Using X Windows"
+banner:
+    content: |
+        This is an optional concept in this chapter. Review it when you are on top of the other ideas.
 ---
 
 When you are using Linux you can boot directly into the terminal, and launch the graphical user interface as a separate action. This can be interesting to play around with, though you will often just want to boot into the graphical user interface if you are working on a personal computer. When you are setting up a server though, there is no need to have anything other the terminal.
-
-## Launch the graphical interface
-
-The graphical environment is just like everything else -- a program that we can run on the computer. In Unix, the graphical interface is known as **X Windows**. To start this running you can use the `startx` command.
-
-| **Action**                 | **Command** | **Description**                    |
-| -------------------------- | ----------- | ---------------------------------- |
-| Open graphical environment | `startx`    | Open the graphical user interface. |
-
-This is really simple to use. Just run the `startx` command in the terminal. You will see the environment change, and you can now use your mouse and interact with the computer as you are used to.
-
-:::tip
-One of the cool things with X Windows is that you can choose between different **window managers**. Each window manager will give you a different look and feel. This is something to jot down now and play with in the future.
-:::
-
-### Open a graphical terminal
-
-Once you are in a graphical environment you can still access the Terminal via a program. The following section will go through how to access this in each operating system.
 
 ## Changing the default start environment
 
@@ -51,6 +37,20 @@ When you select the required option it will take you back to the main menu. Choo
 
 :::tip[raspi-config documentation]
 You can access the full documentation for raspi-config on the [Raspberry Pi documentation website](https://www.raspberrypi.com/documentation/computers/configuration.html).
+:::
+
+## Launch the graphical interface
+
+The graphical environment is just like everything else -- a program that we can run on the computer. In Unix, the graphical interface is known as **X Windows**. To start this running you can use the `startx` command.
+
+| **Action**                 | **Command** | **Description**                    |
+| -------------------------- | ----------- | ---------------------------------- |
+| Open graphical environment | `startx`    | Open the graphical user interface. |
+
+This is really simple to use. Just run the `startx` command in the terminal. You will see the environment change, and you can now use your mouse and interact with the computer as you are used to.
+
+:::tip
+One of the cool things with X Windows is that you can choose between different **window managers**. Each window manager will give you a different look and feel. This is something to jot down now and play with in the future.
 :::
 
 ## Accessing other terminals

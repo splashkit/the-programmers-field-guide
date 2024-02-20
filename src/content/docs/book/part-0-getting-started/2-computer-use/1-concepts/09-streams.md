@@ -1,5 +1,10 @@
 ---
 title: Streams
+sidebar:
+    label: " - Streams"
+banner:
+    content: |
+        This is an optional concept in this chapter. Review it when you are on top of the other ideas.
 ---
 
 Operating systems, like all programs, need to create digital realities for us to work with. We have seen how this is applied to data, which we can store and organise in files and folders.

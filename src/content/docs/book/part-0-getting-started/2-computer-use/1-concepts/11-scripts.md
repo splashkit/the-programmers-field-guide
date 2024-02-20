@@ -1,5 +1,10 @@
 ---
 title: Scripts and Permissions
+sidebar:
+    label: " - Scripts and Permissions"
+banner:
+    content: |
+        This is an optional concept in this chapter. Review it when you are on top of the other ideas.
 ---
 
 Manually entering commands is great, but sometimes you want to do the same thing again and again. Rather than having to type the commands every time, you can save your commands in a file and run that.

@@ -1,5 +1,7 @@
 ---
 title: Navigating File Systems using the Shell
+sidebar:
+    label: Navigating File Systems
 ---
 
 Files store the data you need to work with, so the shell needs to provide you with convenient ways of accessing and interacting with both your files and the folders that organise them. To achieve this, the shell has a **working directory**. This represents the folder that you are working with. You can execute shell commands to list the files within the working directory, move to new directories, and perform other operations on your files.
