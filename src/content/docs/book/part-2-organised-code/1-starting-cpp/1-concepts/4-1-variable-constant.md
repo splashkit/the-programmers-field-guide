@@ -1,14 +1,19 @@
 ---
-title: Variable Declarations
+title: Variable and Constant Declarations
 sidebar:
-    label: " - Variables"
+    label: " - Variables and Constants"
 ---
 
 Variables are the same in C/C++ as in C#. They are used to store a value that you can change as the program runs.
+Constants are also the same -- they are used to store a value that can not be changed
 
 :::note[Syntax]
 Variable declaration in C/C++ is the same as in C#. You specify the name of the type first, and follow this with a comma separated list of names for the variables you want created.
 You can optionally initialise a variable with a value as well as declare it.
+
+Constant declaration is also the same -- identical to declaring a variable, just with the word `const` at the start, and you must initialise it at the same time as delcaring it.
+
+The diagram below shows the syntax for both.
 
 ![Variable declaration syntax in C/C++](./images/variable-decl.png)
 :::
