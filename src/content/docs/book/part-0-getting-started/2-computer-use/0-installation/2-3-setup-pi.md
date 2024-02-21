@@ -171,7 +171,7 @@ It will also add the required paths to your PATH environment variable.
 bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)
 ```
 
-2. close and reopen the Terminal.
+2. Close and reopen the Terminal.
 3. Run this command to build SplashKit on the Pi _(This will take a while approx. 10 mins)_
 
 ```bash

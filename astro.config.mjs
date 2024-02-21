@@ -85,6 +85,15 @@ export default defineConfig({
                   link: "book/part-0-getting-started/2-computer-use/0-overview",
                 },
                 {
+                  label: "Installation",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-0-getting-started/2-computer-use/0-installation",
+                    collapsed: true,
+                  },
+                },
+                {
                   label: "Concepts",
                   collapsed: true,
                   autogenerate: {
