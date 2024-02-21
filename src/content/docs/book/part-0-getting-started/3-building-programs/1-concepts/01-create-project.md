@@ -22,7 +22,6 @@ With C#, you will use the `dotnet` program in the Terminal to perform actions li
 | ------------------- | ----------- | --------------------------------------------------- |
 | Create a project | `dotnet new console`      | Creates a C# project in the current folder. |
 
-
 The `dotnet` program sets up a C# project using the dotnet framework. The `new` argument indicates we want it to create a new project, and `console` indicates the type of program. In this context, "console" is a synonym for the terminal, and tells the `dotnet` tool we would like to write a program that is connected to the terminal with the [standard streams](../../../2-computer-use/1-concepts/09-streams/) for input, output, and error messages.
 
 :::tip
