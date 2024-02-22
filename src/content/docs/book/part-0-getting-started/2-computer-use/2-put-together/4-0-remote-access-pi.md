@@ -75,7 +75,7 @@ When this connects, you can use the following commands to quickly and easily tra
 
 The above image shows connecting to a Pi using `sftp` and getting all the files from the `Pictures` folder on the remote machine.
 
-## Connecting to the Server in VS Code
+## Accessing your Pi from VS Code
 
 VS Code includes the ability to do [remote development using ssh](https://code.visualstudio.com/docs/remote/ssh). To do this you need to install the [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension. If you have ssh working, you can play around with editing your code from your computer, while the files and terminal commands are actually run on the Raspberry Pi!
 
