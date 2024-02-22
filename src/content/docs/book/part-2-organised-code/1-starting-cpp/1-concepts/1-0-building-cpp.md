@@ -9,7 +9,7 @@ For now, we will use the SplashKit library to handle user input and output, as t
 [Later on](../../../9-low-level-programming/0-overview) you will understand the concepts needed to use the native C input and output functions, which are very primitive.
 
 The following steps go through the necessary actions to build and run programs using C/C++.
-These steps assume that you have followed the [instructions from part 0](http://127.0.0.1:3001/book/part-0-getting-started/2-computer-use/2-put-together/1-0-set-up-my/) on setting up the C/C++ tools for your operating system.
+These steps assume that you have followed the [Installation instructions from part 0](../../../../part-0-getting-started/2-computer-use/0-installation/0-overview) on setting up the C/C++ tools for your operating system.
 
 ## Hello World in C/C++
 
