@@ -41,7 +41,6 @@ Follow the steps below to download the recommended Raspberry Pi OS:
     If you are using the prebuilt image, choose **Use custom** at this point and select the **FieldGuidePiImage.v1.0.img** file you downloaded. When this finishes copying onto the SD card you are all done. Just plug it into your Pi and get going.
     :::
 
-
 6. Click storage and select the micro SD card and click next.
 
     :::danger[Which Device should I select?]
@@ -71,7 +70,7 @@ Follow the steps below to install the Raspberry Pi OS on the micro SD card:
 3. Set your country, language and time zone and click next.
 
     :::note[Important!]
-    For the correct keyboard layout that is used for most Australian-produced keyboards (and the Raspberry Pi Keyboard that we are using), make sure to **_tick_** the option: "**Use US keyboard**", as shown in the image below.
+    For the correct keyboard layout that is used for most Australian-produced keyboards (and the Raspberry Pi Keyboard that we are using), make sure to ***tick*** the option: "**Use US keyboard**", as shown in the image below.
     :::
 
     ![Image showing the Raspberry Pi Set country, language and time zone screen](./images/setup-pi/1-2-setup-pi-SetCountry.png)
@@ -110,13 +109,13 @@ Follow the steps below to install the Raspberry Pi OS on the micro SD card:
 
 ## 3. Setup Raspberry Pi OS
 
-_Let's get your Raspberry Pi ready to start coding_
+*Let's get your Raspberry Pi ready to start coding*.
 
 This section will go through all the steps to install the required Applications and Tools that you will need to code in C# and C++ with SplashKit.
 To make things easier we have an automated script for fresh installs that will install all the required tools and applications for you or you can follow the manual steps below.
 
 :::note[How do I open the Terminal on my Pi?]
-_Click the Terminal icon in the task bar or press `Ctrl + Alt + T`_ ![Image Showing the Terminal Icon](./images/setup-pi/1-2-setup-pi-Terminal_Icon.png)
+*Click the Terminal icon in the task bar or press `Ctrl + Alt + T`* ![Image Showing the Terminal Icon](./images/setup-pi/1-2-setup-pi-Terminal_Icon.png)
 :::
 
 ### Automated Setup
@@ -134,18 +133,25 @@ This script will install the following applications and tools:
 - curl
 - clang
 
-1. Open the Terminal.
-2. Run the following command. The scrip will take a while to run (approx. 12-15 mins)
+Open the Terminal and run the following command:
 
 ```bash
 curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/part-0-getting-started/2-computer-use/2-put-together/scripts/_Linux_Pi_InstallScript.sh" | bash /dev/stdin
 ```
 
-3. Close and Reopen the Terminal. Type `skm` to check SplashKit is installed correctly.
+:::note
+This script will take a while to run (approx. 12-15 mins).
+:::
+
+Once the automated script has finished running, close and reopen the Terminal.
+
+Run the command `skm` to check SplashKit is installed correctly.
 
 :::tip[Using options with the script]
-The linux_pi_install script supports a number of options that can be used to customise the installation.
-They can be added to the end of the command. The example below will display the help menu which lists the available options.
+The linux_pi_install script supports a number of options that can be used to customise the installation.  
+They can be added to the end of the command.
+
+The example below will display the help menu which lists the available options (scroll the command across to see the end):
 
 ```bash
 curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/part-0-getting-started/2-computer-use/2-put-together/scripts/_Linux_Pi_InstallScript.sh"| bash /dev/stdin --help
@@ -153,36 +159,45 @@ curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide
 
 :::
 
-### Manual Setup
+### Manual Setup Steps
 
-#### 1. Install the SplashKit SDK
+If you choose not to use the automated set up above, or are experiencing issues with this, you can follow these steps below:
 
-SplashKit is a beginner's all-purpose software toolkit that will allow you to create fun and exciting programs more easily, especially for Graphical User Interface (GUI) programs.
+### 1. Install the SplashKit SDK
 
-:::tip[Curious to know more?]
-The **SplashKit SDK** is installed using the `skm-install.sh` shell script which is stored in the [**skm**](https://github.com/splashkit/skm) GitHub repository (in the **install-scripts** folder).
+[SplashKit](https://splashkit.io) is a beginner's all-purpose software toolkit that will allow you to create fun and exciting programs more easily, especially for Graphical User Interface (GUI) programs.
 
-It will also add the required paths to your PATH environment variable.
-:::
-
-1. Copy and paste the following command into your Terminal window:
+Copy and paste the following command into your Terminal window to download and run the SplashKit installer:
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)
 ```
 
-2. Close and reopen the Terminal.
-3. Run this command to build SplashKit on the Pi _(This will take a while approx. 10 mins)_
+:::tip[Troubleshooting tip:]
+If you have issues installing the SplashKit SDK, go to the [No response when running SplashKit installation command](../3-0-troubleshooting-install/#no-response-when-running-splashkit-installation-command) section in the Installation Troubleshooting page for an alternative installation process.
+:::
+
+Close and reopen the Terminal, then run the command below to build SplashKit on the Pi:
 
 ```bash
 skm linux install
 ```
 
-Type `y` and press enter to confirm the installation.
+When prompted, type `y` and press enter to confirm the installation.
 
 ![Gif showing skm installing in Terminal](/gifs/setup-pi/1-2-setup-pi-SplashkitInstall.gif)
 
-Finally, Install the SplashKit Global Libraries. This will install the SplashKit libraries and library include files into the system default global locations so that when building (compiling) programs created with SplashKit, the compiler can find these files automatically.
+:::note
+This may take a while (approx. 10 mins).
+:::
+
+### 2. Install SplashKit Globally
+
+Finally, you will need to install the SplashKit Global Libraries. This will install the SplashKit libraries and library include files into the system default global locations so that when building (compiling) programs created with SplashKit, the compiler can find these files automatically.
+
+To install SplashKit globally on your machine:
+
+Copy and paste the following command into your Terminal window:
 
 ```bash
 skm global install
@@ -192,24 +207,9 @@ skm global install
 The command above will add the **SplashKit libraries** into the `/usr/local/lib/` folder, and the required **SplashKit library include files** into the `/usr/local/include` folder.
 :::
 
-:::danger[My install command is not working. Help!]
-What if the command above does nothing? (as shown in the image below)
+### 3. Install Visual Studio Code
 
-![A Terminal window showing no response to bash install command](./images/setup-pi/1-2-setup-pi-SplashKitCommandFailed.png)
-
-Make sure your computer is connected to the internet.
-
-**_Still no luck?_**  
-Download the install script locally by right-clicking on [this link](https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh) and selecting "Save Link As".
-
-To run the downloaded shell script, open the Terminal and navigate to the folder where you saved the file and then use the command: `bash skm-install.sh`.  
-For example, if the file is in your _Downloads_ folder:
-![A Terminal window running local install script file](./images/setup-pi/1-2-setup-pi-SplashKitManualInstall.png)
-:::
-
-#### 2. Install Visual Studio Code
-
-Visual Studio Code, also commonly known as _VS Code_ or just _Code_, is a powerful and versatile code editor that enables efficient coding, debugging, and collaboration for your SplashKit projects!
+Visual Studio Code, also commonly known as *VS Code* or just *Code*, is a powerful and versatile code editor that enables efficient coding, debugging, and collaboration for your SplashKit projects!
 
 :::note[VS Code has it all!]
 Once you have your code project set up, Visual Studio Code will be the main program you will use to write, build, run and debug your code.
@@ -228,53 +228,31 @@ You can open Visual Studio Code from the Terminal by typing `code` and pressing 
 `code .` Will open the current folder in Visual Studio Code.
 :::
 
-##### C# Language Extensions
+### Recommended Extensions
 
-For **C#** code, we recommended that you install the `C#`, `C# Dev Kit` and `IntelliCode for C# Dev Kit` extensions.
+The final step to complete the setup of VS Code is to install a few *Extensions* in VS Code:
 
-:::tip[How do I install the C# extensions?]
+[**Set up my VS Code Extensions**](../2-7-setup-vscode)
 
-1. Open Visual Studio Code and click on the icon in the left panel (shown in the purple box in the image below).
-2. Type "C#" in the Search bar at the top (shown in the blue box).
-3. Click "Install" for each of the extensions listed (shown in the green box).
+Go to the page linked above, follow the steps to install both the C# and C/C++ recommended extensions, and then come back here and continue to the next step. *You can use the "Back button" in your browser to return to this page.*
 
-![Visual Studio Code window showing recommended extensions for C#](./images/vscode-extensions/vs-code-csharp-extensions.png)
-:::
-
-##### C++ Language Extensions
-
-For **C++** code, we recommended that you install the `C/C++` extension.
-
-You can also install the `C/C++ Extension Pack` extension which includes multiple extensions bundled together. If you have issues with syntax highlighting, the `Better C++ Syntax` extension is one of the best for this.
-
-:::tip[How do I install the C++ extensions?]
-
-1. Open Visual Studio Code and click on the icon in the left panel (shown in the purple box in the image below).
-2. Type "C++" in the Search bar at the top (shown in the blue box).
-3. Click "Install" for the "C/C++" extensions (shown in the green box).
-4. (Optional) Click "Install" for any other extensions you want to install (shown in the orange box).
-
-![Visual Studio Code window showing recommended extensions for C++](./images/vscode-extensions/vs-code-cpp-extensions.png)
-:::
-
-#### 4. Install Language Specific Tools
+### 4. Install Language Specific Tools
 
 Some coding languages require specific tools/frameworks to be installed to be able to build and run your code files.  
 As you will be coding in C# and C++ in this book, let's look at the tools needed for these languages:
 
-##### C# Tools
+### C# Tools
 
-For coding in C#, you will need to install the `.NET` framework, also commonly called _dotnet_.  
+For coding in C#, you will need to install the `.NET` framework, also commonly called *dotnet*.  
 You will use this to create, build, and run your C# project code.
 
-:::tip[Which version should I use?]
-We recommend using **.NET 8.0**, which you can be installed with the following command:
+Download the latest version of the .NET SDK using the following command:
 
 ```bash
 curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin
 ```
 
-You will also need to add .dot to your PATH environment variable.
+You will also need to add the *.dotnet* folder to your PATH environment variable with the following commands:
 
 ```bash
 echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
@@ -283,21 +261,23 @@ source ~/.bashrc
 ```
 
 Test dotnet is installed correctly by running `dotnet --version` in the Terminal.
-For more details on the process refer to this article [Deploy .NET apps on ARM single-board computers](https://docs.microsoft.com/en-us/dotnet/iot/deployment)
 
-:::
+For more details on the process, refer to this article [Deploy .NET apps on ARM single-board computers](https://docs.microsoft.com/en-us/dotnet/iot/deployment)
 
-##### C++ Tools
+### C++ Tools
 
 For coding in C++, you will need to have a C++ compiler installed to build your C++ code into a file you can use to run your program.  
 Commonly used compilers are `g++` and `clang++`.
-`g++` is installed by default on the Raspberry Pi to install `clang++` run the following command:
+
+`g++` is installed by default on the Raspberry Pi.
+
+To install `clang++` run the following command:
 
 ```bash
 sudo apt install clang -y
 ```
 
-### Optional Steps
+### 5. Optional Steps
 
 :::tip[What is nano?]
 Nano is a command line text editor that is installed by default on the Raspberry Pi. It has a number of features but as a quick start these are the most important commands
@@ -306,20 +286,22 @@ Nano is a command line text editor that is installed by default on the Raspberry
 - navigate the cursor using the arrow keys
 - `Ctrl + O` to save the file
 - `Ctrl + X` to exit the editor
+
   :::
 
-#### Setup zhs shell
+### Setup zhs shell
 
-When using the terminal you are actually interacting with a shell the default for the Raspberry Pi is bash, but there are other shells available.
-Here we will install zsh and oh-my-zsh to customise the terminal. These will give you a more user-friendly terminal experience with themes and plugin support.
+When using the terminal you are actually interacting with a shell, where the default for the Raspberry Pi is **bash**, but there are other shells available.
 
-Install zsh
+Here we will install ***zsh*** and ***oh-my-zsh*** to customise the terminal. These will give you a more user-friendly terminal experience with themes and plugin support.
+
+**To install zsh**, run the following command in your Terminal:
 
 ```bash
 sudo apt install zsh -y
 ```
 
-Install oh-my-zsh
+**To install oh-my-zsh**, run the following command in your Terminal:
 
 ![gif showing the install of oh=my=zsh](/gifs/setup-pi/1-2-setup-pi-OMZ-Install.gif)
 
@@ -329,7 +311,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 Answer `y` to the question `Do you want to change your default shell to zsh?`
 
-Add SplashKit and dotnet to the PATHs to zhs
+Add SplashKit and dotnet to the PATHs to zsh:
 
 ```bash
 echo "export PATH=$PATH:$HOME/.dotnet" >> ~/.zshrc
@@ -338,18 +320,21 @@ echo "export PATH=$PATH:$HOME/.splashkit" >> ~/.zshrc
 source ~/.zshrc
 ```
 
-:::note[You may need to restart the PI for the terminal to update]
+:::note[You may need to restart the Pi for the terminal to update]
 :::
 
-##### Plugins
+### Plugins
 
-There are a number of plugins available for oh-my-zsh to add additional functionality to the terminal. To install a plugin you need to add it to the plugins list in the `~/.zshrc` file.
+There are a number of plugins available for **oh-my-zsh** that add additional functionality to the terminal.  
+[This article](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins) has a list of pre-installed plugins, although there are others available as well.
 
-(https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins) has a list of pre-installed plugins although there are others are available.
+To install a plugin you need to add it to the plugins list in the `~/.zshrc` file.
+
+Using `autojump` as an example:
 
 ![gif showing the installation of autojump](/gifs/setup-pi/1-2-setup-pi-AutoJump.gif)
 
-For example to use autojump first install it with:
+First you will install it with:
 
 ```bash
 sudo apt install autojump -y
@@ -361,9 +346,79 @@ Then add it to the plugins list in `~/.zshrc`
 nano ~/.zshrc
 ```
 
-Navigate to the plugins line and add `autojump` to the list git will be listed already, use a space to separate the plugins.
+Navigate to the plugins line and add `autojump` to the list. `git` will be listed already.  
+Use a space to separate the plugins as shown below:
 
 ```bash
 plugins=(git autojump)
 ```
 
+Save and close the file.
+Then run the following command to update the terminal:
+
+```bash
+source ~/.zshrc
+```
+
+### Add Shortcut for the Programmers Field Guide
+
+To add the Programmers Field Guide to the menu, run the following commands in the Terminal ***On the Raspberry Pi it will appear under programming in the menu***
+
+```bash
+    echo "Adding Programers Feild guide to Menu"
+    sudo curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/public/favicon.svg" -o /usr/share/pixmaps/feildguide.svg
+
+    touch ~/programmers-field-guide.desktop
+    echo "[Desktop Entry]" >> ~/programmers-field-guide.desktop
+    echo "Type=Application" >> ~/programmers-field-guide.desktop
+    echo "Name=Programmers Field Guide" >> ~/programmers-field-guide.desktop
+    echo "TryExec=/usr/bin/x-www-browser" >> ~/programmers-field-guide.desktop
+    echo "Exec=/usr/bin/x-www-browser https://programmers.guide/" >> ~/programmers-field-guide.desktop
+    echo "Icon=/usr/share/pixmaps/feildguide.svg" >> ~/programmers-field-guide.desktop
+    echo "Categories=Development;" >> ~/programmers-field-guide.desktop
+    sudo mv ~/programmers-field-guide.desktop /usr/share/applications/programmers-field-guide.desktop
+```
+
+### Desktop Background
+
+To customise the desktop background, right-click anywhere on the desktop and select Change Background (**Properties on the Raspberry Pi**).  
+Then, select the image or theme you want to use as your background.
+
+![image showing the appearance menu](./images/setup-linux/AppearanceMenu.png)
+
+You can toggle dark mode by clicking on the icon in the top right of the screen and selecting the mode you want to use.
+
+![image showing quick setting with dark mode selected](./images/setup-linux/QuickSettingMenu.png)
+
+#### Set Deakin Desktop Background
+
+For the Raspberry Pi, run the following command in the Terminal to download the Deakin background images and pick which one you want to use:
+
+```bash
+    sudo curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/part-0-getting-started/2-computer-use/2-put-together/images/setup-pi/Deakin-Backgound-1920x1080-outline-dark.jpg" -o /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-dark.jpg
+    sudo curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/part-0-getting-started/2-computer-use/2-put-together/images/setup-pi/Deakin-Backgound-1920x1080-outline-light.jpg" -o /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-light.jpg
+```
+
+For the light image, run the following command:
+
+```bash
+    pcmanfm --set-wallpaper /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-light.jpg
+```
+
+For the dark image, run the following command:
+
+```bash
+    pcmanfm --set-wallpaper /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-dark.jpg
+```
+
+### Raspberry Pi Set Fan Control
+
+If you are using a fan on your Raspberry Pi with GPIO control, you can configure it to turn on when the CPU reaches a specific temperature.
+Click the menu, select `Preferences`, then `Raspberry Pi Configuration`, and select the `Performance` tab.
+
+![image showing the Pi Configuration menu](./images/setup-linux/PiMenu.png)
+
+Toggle the fan on, select the GPIO pin you are using, and set the temperature the fan will turn on when reached.
+If you follow our Pi setup guide, you will use GPIO 14, and we recommend setting the fan to turn on at 60 degrees.
+
+![image showing the performance menu ](./images/setup-linux/PiPerformanceSettings.png)

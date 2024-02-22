@@ -21,21 +21,19 @@ Now, let's get started!
 
 To get SplashKit and other coding tools installed on macOS, follow the steps outlined below:
 
-## 1. Install Command Line Tools
+## 1. Install XCode Command Line Tools
 
-The *Xcode* Command Line Tools Package is a small self-contained package, available for download separately from *Xcode*, that allows you to do command line development in macOS. It consists of the macOS SDK and command-line tools such as `clang`, which are installed in the `/Library/Developer/CommandLineTools` directory.
+**Xcode Command Line Tools** is a package of tools provided by Apple for developers to enable command-line development and building of software on macOS, using your **Terminal** app. *It includes tools you will need for installing SplashKit and coding in the next chapters.*
 
-To install these tools, copy the command below:
+To install these tools, run the command below in your *Terminal* app:
 
 ```bash
 xcode-select --install
 ```
 
-Then, open your **Terminal** app and paste the copied text.
-
 ![Gif showing Spotlight Search to open Terminal and pasting Xcode install command](/gifs/setup-macos/terminal-xcode-install.gif)
 
-:::note[How do I find the Terminal on my Mac?]
+:::tip[How do I find the Terminal on my Mac?]
 
 1. Press ***Command*** (⌘) + ***Space bar*** to open the Spotlight Search.  
 2. Start typing "Terminal".  
@@ -51,13 +49,7 @@ That means you've already installed Xcode, and are ready to move to the next ste
 
 ## 2. Install SplashKit SDK
 
-SplashKit is a beginner's all-purpose software toolkit that will allow you to create fun and exciting programs more easily, especially for Graphical User Interface (GUI) programs.
-
-:::tip[Curious to know more?]
-The **SplashKit SDK** is installed using the `skm-install.sh` shell script which is stored in the [**skm**](https://github.com/splashkit/skm) GitHub repository (in the **install-scripts** folder).
-
-It will also add the required paths to your PATH environment variable.
-:::
+[SplashKit](https://splashkit.io) is a beginner's all-purpose software toolkit that will allow you to create fun and exciting programs more easily, especially for Graphical User Interface (GUI) programs.
 
 Copy and paste the following command into your Terminal window to download and run the SplashKit installer:
 
@@ -67,18 +59,8 @@ bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-sc
 
 ![Gif showing skm installing in Terminal](/gifs/setup-macos/skm-install.gif)
 
-:::danger[My install command is not working. Help!]
-If the command above does not produce any response, ensure that your computer is connected to the internet and try disabling your firewall.
-
-***Still no luck?***  
-If you still encounter issues, you can download the install script locally by right-clicking on [this link](https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh) and selecting "Save Link As".
-
-To run the downloaded shell script, open the Terminal and navigate to the folder where you saved the file. Then run the following command:
-
-```bash
-bash skm-install.sh
-```
-
+:::tip[Troubleshooting tip:]
+If you have issues installing the SplashKit SDK, go to the [No response when running SplashKit installation command](../3-0-troubleshooting-install/#no-response-when-running-splashkit-installation-command) section in the Installation Troubleshooting page for an alternative installation process.
 :::
 
 ## 3. Install SplashKit Globally
@@ -117,17 +99,11 @@ You can install the `code` command to allow you to open any file or folder in a 
 
 Follow the steps in the [**Launching from the command line**](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) section of the *Visual Studio Code on macOS* article to install this command.
 
-:::caution['zsh: command not found: code']
-If you are having issues with the `code` command not working after following the steps above, you can run the following command (adapted from the [Alternative Manual Instructions](https://code.visualstudio.com/docs/setup/mac#_alternative-manual-instructions) section).
-
-```zsh
-cat << EOF >> ~/.zshrc
-export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-EOF
-```
-
+:::tip[Troubleshooting tip:]
+If you are having issues with the `code` command not working after following the steps above, go to the ['zsh: command not found: code'](../3-0-troubleshooting-install/#zsh-command-not-found-code) section in the Installation Troubleshooting page for to use an alternative installation process.
 :::
 
+<!-- TODO: Maybe update heading to "Install VS Code Extensions -->
 ### Recommended Extensions
 
 The final step to complete the setup of VS Code is to install a few *Extensions* in VS Code:
@@ -147,10 +123,6 @@ For coding in C#, you will need to install the `.NET` SDK which will allow you t
 
 Download the latest version of the .NET SDK for macOS from the official .NET website: [dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
 
-:::note[No SplashKit Global Install?]
-If you have had issues installing the SplashKit global libraries, or you are using an older version of SplashKit, you will need to use **.NET 8.0**, as this is the version used with the `skm` commands mentioned in the [No SplashKit Global Install](../3-0-troubleshooting-install/#no-splashkit-global-install) troubleshooting guide.
-:::
-
 Run the downloaded installer and follow on-screen instructions.
 
 ### C/C++ Tools
@@ -161,7 +133,9 @@ For coding in C++, you will need to have a C++ compiler installed to build your 
 If you installed Xcode Command Line Tools successfully in Step 1, then you will already have the necessary compilers installed and ready for coding in C++!
 :::
 
-## 6. Check Environment Variables
+## 6. Optional Steps
+
+### Check Environment Variables
 
 Through this installation process, some steps *should* have edited your computer's environment variables, or your "Shell Profile" file.
 

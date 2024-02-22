@@ -127,18 +127,8 @@ bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-sc
 
 ![Gif showing skm installing in WSL Terminal](/gifs/setup-windows/wsl-skm-install.gif)
 
-:::danger[My install command is not working. Help!]
-If the command above does not produce any response, ensure that your computer is connected to the internet and try disabling your firewall.
-
-***Still no luck?***  
-If you still encounter issues, you can download the install script locally by right-clicking on [this link](https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh) and selecting "Save Link As".
-
-To run the downloaded shell script, open the **Git Bash** Terminal and navigate to the folder where you saved the file. Then run the following command:
-
-```bash
-bash skm-install.sh
-```
-
+:::tip[Troubleshooting tip:]
+If you have issues installing the SplashKit SDK, go to the [No response when running SplashKit installation command](../3-0-troubleshooting-install/#no-response-when-running-splashkit-installation-command) section in the Installation Troubleshooting page for an alternative installation process.
 :::
 
 Close and reopen the WSL Terminal, then run the command below to build SplashKit:

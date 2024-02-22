@@ -35,3 +35,7 @@ You can also install the `C/C++ Extension Pack` extension which includes multipl
 
 ![Visual Studio Code window showing recommended extensions for C++](./images/vscode-extensions/vs-code-cpp-extensions.png)
 :::
+
+## Using WSL on Windows
+
+If you are using the Windows (WSL) setup guide, you will also need to install the **WSL** extension.

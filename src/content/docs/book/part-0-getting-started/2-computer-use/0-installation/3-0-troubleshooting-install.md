@@ -2,7 +2,7 @@
 title: Installation Troubleshooting
 ---
 
-As you go through the **"Set up my ..."** installation guide for your operating system, you may encounter errors or issues that prevent you from completing a particular step.
+As you go through the installation guide for your operating system, you may encounter errors or issues that prevent you from completing a particular step.
 
 Troubleshooting these issues to find a solution that works can be difficult and discouraging if you're just getting started with programming. We hope to make things a little easier for you by sharing our troubleshooting tips and tricks!
 
@@ -117,6 +117,29 @@ Restart your computer, and then try the troublesome installation step again.
 ## Specific Issues
 
 Here are some specific solutions to known issues.
+
+### No response when running SplashKit installation command
+
+If the `bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)` command does not produce any response, ensure that your computer is connected to the internet and try disabling your firewall.
+
+***Still no luck?***  
+If you still encounter issues, you can download the install script locally by right-clicking on [this link](https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh) and selecting "Save Link As".
+
+To run the downloaded shell script, open the Terminal and navigate to the folder where you saved the file. Then run the following command:
+
+```bash
+bash skm-install.sh
+```
+
+### 'zsh: command not found: code'
+
+If you are having issues getting the `code` command to work, an alternative method you can try is to run the following command (adapted from the [Alternative Manual Instructions](https://code.visualstudio.com/docs/setup/mac#_alternative-manual-instructions) section).
+
+```zsh
+cat << EOF >> ~/.zshrc
+export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+EOF
+```
 
 ### macOS version pre-12.0
 
