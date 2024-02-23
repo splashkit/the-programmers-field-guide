@@ -6,7 +6,7 @@ As in C/C++, C# includes arrays though it also includes classes to help you mana
 
 Arrays are fixed size, but do include member functions that allow you to query the array for its [Length](https://learn.microsoft.com/en-us/dotnet/api/system.array.length?view=net-8.0) amongst other things.
 
-The [List<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-8.0) class from the `System.Collections.Generics` namespace is the equivalent of the dynamic array we created in the [member functions](../../../../part-2-organised-code/7-member-functions/2-put-together/2-dynamic-array) chapter.
+The [List<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-8.0) class from the `System.Collections.Generic` namespace is the equivalent of the dynamic array we created in the [member functions](../../../../part-2-organised-code/7-member-functions/2-put-together/2-dynamic-array) chapter.
 
 ## In C#
 

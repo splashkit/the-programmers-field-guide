@@ -6,7 +6,7 @@ Each class has a unique name that contains its namespace and class names. For ex
 
 The `using` directive allows you to add a number of namespaces for the compiler to search when you use classes in the code. This means you can add a `using` directive to access the `System.Collections.Generic` namespace, then you can just type `List` and the compiler will be able to find this for you.
 
-## Using Why, When, How?
+## Using -- why, when, and how
 
 You are going to need to make use of classes coded within other namespaces in almost every class you create. As a result, you are likely to start every C# file with some `using` directives that will give you easy access to these classes in your code.
 
