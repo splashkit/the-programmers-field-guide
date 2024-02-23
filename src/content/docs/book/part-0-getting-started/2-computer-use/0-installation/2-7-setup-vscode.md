@@ -38,4 +38,13 @@ You can also install the `C/C++ Extension Pack` extension which includes multipl
 
 ## Using WSL on Windows
 
-If you are using the Windows (WSL) setup guide, you will also need to install the **WSL** extension.
+If you are using the **Windows (WSL)** setup guide, you will also need to install the `WSL` extension.
+
+:::tip[How do I install the WSL extension?]
+
+1. Open Visual Studio Code and click on the *Extensions* tab in the left panel (shown in the purple box in the image below).
+2. Type "WSL" in the Search bar at the top (shown in the blue box).
+3. Click "Install" for the "WSL" extension (shown in the yellow box).
+
+![Visual Studio Code window showing recommended extensions for WSL](./images/vscode-extensions/vscode-wsl-extension.png)
+:::
