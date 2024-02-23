@@ -806,10 +806,6 @@ export default defineConfig({
                   link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/2-put-together",
                 },
                 {
-                  label: "Other Languages",
-                  link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/3-other-languages",
-                },
-                {
                   label: "Activities",
                   link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/4-activities",
                 },
