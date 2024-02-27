@@ -57,44 +57,45 @@ Compiling in C/C++ is a little more involved. This is because the C# and dotnet 
 
 As the C/C++ compiler works differently on each platform, we will need slightly different shell instructions for each of them. In general, you need to provide the following options:
 
-- `-l` is used to link with an external library. We need to link to **SplashKit** and **SplashKitCPP**.
+- `-l` is used to link with an external library. We need to link to the **SplashKit** library.
 - `-o` will indicate the name of the executable file to create. By default, the compiler will create an `a.out` file. Usually you want a different name, so you can use this option to specify one. For our hello world program we will name the file **program**.
-- `-Wl,-rpath,` is used to indicate where to find the library files. The `rpath` is the path that the computer will search at runtime, when it is loading libraries. You need to tell this where you have installed the SplashKit library.
 
-Review the details for your computer below.
+#### Compiling using Global SplashKit
 
-#### Raspberry Pi, macOS, Linux, or Windows (WSL)
-
-On the Raspberry Pi, macOS, Linux, or Windows (WSL) you compile with the following command (enter it all on line one):
+If you have SplashKit installed globally it will be installed in paths that the compiler should search automatically. Given this, you should be able to compile your program using the following command:
 
 ```zsh
-clang++ program.cpp -l SplashKitCPP -l SplashKit -Wl,-rpath,/usr/local/lib -o program
-```
-
-#### Windows (MSys2)
-
-**TODO: Test this!**
-
-For Windows (MSys2), you need to use g++. This will create a program you can run from the MSys terminal window.
-
-```zsh
-g++ program.cpp -I /usr/local/include -L /usr/local/lib -l SplashKitCPP -l SplashKit -o program
-```
-
-This has a few additional options. The reason for this is that most unix systems automatically search the `/usr/local/include` path for library header files and the `/usr/local/lib` path for library code. In MSys2, you have to tell the compiler about these paths manually. The `-I /usr/local/include` tells MSys2 to add this folder to the paths it searches for header files (like "splashkit.h"). Similarly, the `-L /usr/local/lib` adds this folder to the paths MSys2 searches for libraries you have linked (in this case `SplashKitCPP` and `SplashKit`). You can use `ls` to check that these files are in the expected paths. For example, `ls /usr/local/include` should show you `splashkit.h` and `ls /usr/local/lib` should show you the `SplashKitCPP` and `SplashKit` library files.
-
-There are a few more options that you can also include if you want to be able to run the program by double-clicking it in the Windows explorer instead of only from within MSys2:
-
-```zsh
-g++ program.cpp -I /usr/local/include -L /usr/local/lib -Wl,--as-needed -static-libstdc++ -static-libgcc -lSplashKit -Wl,-Bstatic -lstdc++ -lpthread -lSplashKitCPP -o program
+clang++ program.cpp -l SplashKit -o program
 ```
 
 #### Using skm
 
-On all platforms, you can use the **skm** tool to wrap these commands for you. This will allow you to leave out the options for linking in the library, as the skm tool will do so for you.
+If you haven't installed SplashKit globally, you can use `skm` to compile your program and this will add in the necessary compiler options for you.
 
 ```zsh
 skm clang++ program.cpp -o program
+```
+
+#### Compiling with explicit folders
+
+Alternatively, you can pass in command line options:
+
+- `-I <path>` lets you add a folder to search for header files. For SplashKit you use `-I ~/.splashkit/clang++/include`.
+- `-L <path>` lets you add a folder to search for libraries. For SplashKit you use `-L ~/.splashkit/lib/linux`, `-L ~/.splashkit/lib/macos`, or `-L ~/.splashkit/lib/win64`.
+- `-Wl,-rpath,` is used to indicate where to find the library files. The `rpath` is the path that the computer will search at runtime, when it is loading libraries. You need to tell this where you have installed the SplashKit library. (MacOS and Linux only)
+
+For example, you can use:
+
+```zsh
+skm clang++ program.cpp -I ~/.splashkit/clang++/include -L ~/.splashkit/lib/linux -l SplashKit -o program
+```
+
+#### Additional Windows Options
+
+There are a few more options that you can also include if you want to be able to run the program by double-clicking it in the Windows explorer instead of only from within MSys2:
+
+```zsh
+g++ program.cpp -Wl,--as-needed -static-libstdc++ -static-libgcc -lSplashKit -Wl,-Bstatic -lstdc++ -lpthread -o program
 ```
 
 ### Run your program
@@ -102,7 +103,7 @@ skm clang++ program.cpp -o program
 When the compiler runs successfully it will output an executable file: the program. With the above commands, we used the `-o` option to indicate the name of the file to create. So, when you compile your code you should see a **program** file appear. This is the machine code for the program all ready to go, so you can run this directly from the terminal. For example, the following shell commands would build and run out hello world program on the Raspberry Pi.
 
 ```zsh
-clang++ program.cpp -l SplashKitCPP -l SplashKit -Wl,-rpath,/usr/local/lib -o program
+clang++ program.cpp -l SplashKit -o program
 ls -lha
 # Notice the program file
 ./program
@@ -135,7 +136,7 @@ This will create two files in a **.vscode** folder:
 
 ### Configuring the Build Task
 
-The **tasks.json** file contains various settings related to compiling the program. We need to provide this with the additional options we provided to the compiler when we compiled our program through the terminal. The **args** setting is a list of the values to pass as arguments to the compiler. You need to extend this with extra options to link the SplashKit and SplashKitCPP libraries, and set the rpath as shown below.
+The **tasks.json** file contains various settings related to compiling the program. We need to provide this with the additional options we provided to the compiler when we compiled our program through the terminal. The **args** setting is a list of the values to pass as arguments to the compiler. You need to extend this with extra options to link the SplashKit library, and set the rpath as shown below.
 
 ```json
 {
@@ -152,10 +153,7 @@ The **tasks.json** file contains various settings related to compiling the progr
         "-o",
         "${fileDirname}/${fileBasenameNoExtension}",
         "-l",
-        "SplashKit",
-        "-l",
-        "SplashKitCPP",
-        "-Wl,-rpath,/usr/local/lib"
+        "SplashKit"
       ],
       "options": {
         "cwd": "${fileDirname}"
@@ -176,10 +174,7 @@ So, we added the following lines to our **tasks.json**:
 
 ```json
         "-l",
-        "SplashKit",
-        "-l",
-        "SplashKitCPP",
-        "-Wl,-rpath,/usr/local/lib"
+        "SplashKit"
 ```
 
 :::tip[Hidden Folders]
@@ -194,7 +189,7 @@ In the terminal window in VS Code you should see the output from this, as shown 
  *  Executing task: C/C++: clang++ build active file 
 
 Starting build...
-/usr/bin/clang++ -std=gnu++14 -fcolor-diagnostics -fansi-escape-codes -g /Users/acain/Documents/Code/Test2/main.cpp -o /Users/acain/Documents/Code/Test2/main -l SplashKitCPP -l SplashKit -Wl,-rpath,/usr/local/lib
+/usr/bin/clang++ -std=gnu++14 -fcolor-diagnostics -fansi-escape-codes -g /Users/acain/Documents/Code/Test2/main.cpp -o /Users/acain/Documents/Code/Test2/main -l SplashKit
 
 Build finished successfully.
  *  Terminal will be reused by tasks, press any key to close it. 
