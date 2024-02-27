@@ -315,4 +315,19 @@ Compare the `for` loop shown above with that below, which moves in a numerically
 In this case the post-loop increment element subtracts 1 from the control variable, (incrementing it by a negative number).
 We have also changed the initialisation to ask for input from the user, rather than being a hard-coded value.
 
+```csharp
+using static System.Console;
+using static System.Convert;
+
+int target;
+
+Write("Count down from: ");
+target = ToInt32(ReadLine());
+
+for(int i = target; i > 0; i--)
+{
+   WriteLine(i);
+}
+```
+
 <MySwiper client:only height="" images={sliderImagesReversedForLoop}></MySwiper>
