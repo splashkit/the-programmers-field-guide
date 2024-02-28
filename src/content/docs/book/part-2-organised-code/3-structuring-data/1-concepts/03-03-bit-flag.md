@@ -6,6 +6,8 @@ sidebar:
 
 With enumerations, you can also take advantage of the underlying type to allow a variable to store multiple flags (options that can be set on or off). In these cases you need to give each option a value that is a power of 2 (first at `1`, then `2`, `4`, `8`, `16`, and so on). In this way, you can add the flags together and have one value that indicates which are turned on and which are off.
 
+![Shows bit flags used for the accessories type](./images/custom-type-bit-flag.png)
+
 By using powers of 2, each value represents an individual bit within the integer. This means that a 64bit integer could store up to 64 flag values. The following text shows the value for a 4bit unsigned integer. Notice how each of the powers of 2 is represented as a unique bit within the binary number.
 
 ```
