@@ -42,4 +42,6 @@ sudo zsh
 # You are now in a shell as the super user
 ```
 
+Please note that this won't work in the MSys as it does not have the capacity to escalate you to admin in the Windows operating system. Most of the setup in MSys will not need admin access, as you can install and work with MSys components as a standard user. If you do ever really need admin access you have to run the MSys terminal as the admin user.
+
 :::
