@@ -38,17 +38,17 @@ groups username
 <!-- TODO: check which callout/aside to use here (from "reading the guide") or update to be a step for "Install Command Line tools" -->
 :::danger[Do you have git and curl installed?]
 
-A number of the commands in the setup require `git` and `curl` to be installed to function correctly. To check if they are installed on your system, type `curl`, then `git` into the terminal and press enter after each.
+A number of the commands in the setup require `git`, `curl`, and `clang` to be installed to function correctly. To check if they are installed on your system, type `curl`, `clang++`, then `git` into the terminal and press enter after each.
 
 If you see the following error messages you will need to install the missing programs.
 
 ![image showing curl and git command not found error](./images/setup-linux/curlGitNotFound.png)
 
-To install curl and git run the following commands in the Terminal (if only one is required, you can delete the other from the command):
+To install curl, git, and clang run the following commands in the Terminal (if only one is required, you can delete the other from the command):
 
 ```bash
 sudo apt update
-sudo apt install curl git -y
+sudo apt install curl git clang -y
 ```
 
 :::
@@ -71,7 +71,7 @@ This script will install the following applications and tools:
 Open the Terminal and run the following command:
 
 ```bash
-curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/part-0-getting-started/2-computer-use/2-put-together/scripts/_Linux_Pi_InstallScript.sh" | bash /dev/stdin
+curl -s "https://programmers.guide/resources/Linux_Pi_InstallScript.sh" | bash /dev/stdin
 ```
 
 :::note
@@ -88,7 +88,7 @@ The linux_pi_install script supports several options that can be used to customi
 The example below will display the help menu, which lists the available options (scroll the command across to see the end):
 
 ```bash
-curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/part-0-getting-started/2-computer-use/2-put-together/scripts/_Linux_Pi_InstallScript.sh"| bash /dev/stdin --help
+curl -s "https://programmers.guide/resources/Linux_Pi_InstallScript.sh"| bash /dev/stdin --help
 ```
 
 :::
@@ -312,7 +312,6 @@ To add the Programmers Field Guide to the menu, run the following commands in th
 
 ### Desktop Background
 
-<!-- TODO: Update line below for Debian -->
 To customise the desktop background, right-click anywhere on the desktop and select Change Background (**Properties on the Raspberry Pi**).
 Then, select the image or theme you want to use as your background.
 

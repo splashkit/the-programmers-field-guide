@@ -45,14 +45,14 @@ To make it easier to open each time, you can pin your terminal to the Taskbar.
 ![Image showing MSYS2 MINGW64 App pinning to taskbar](./images/setup-windows/mingw64-pin-to-taskbar.png)
 :::
 
-## 2. Install git Command Line Tool
+## 2. Install git and clang Command Line Tools
 
-To install SplashKit, you will firstly need to install **Git**.
+To install SplashKit, you will firstly need to install **Git** and a compiler which is used to test the install.
 
-Copy and paste the following command into your **MINGW64** terminal window to install the `git` command-line tool:
+Copy and paste the following command into your **MINGW64** terminal window to install the `git` and `clang` command-line tool:
 
 ```bash
-pacman -S git --noconfirm --disable-download-timeout
+pacman -S git mingw-w64-{x86_64,i686}-clang --noconfirm --disable-download-timeout
 ```
 
 :::caution[Paste commands into MINGW64 Terminal]

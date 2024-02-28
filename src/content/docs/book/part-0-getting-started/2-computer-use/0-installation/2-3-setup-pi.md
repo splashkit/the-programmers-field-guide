@@ -136,7 +136,7 @@ This script will install the following applications and tools:
 Open the Terminal and run the following command:
 
 ```bash
-curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/part-0-getting-started/2-computer-use/2-put-together/scripts/_Linux_Pi_InstallScript.sh" | bash /dev/stdin
+curl -s "https://programmers.guide/resources/Linux_Pi_InstallScript.sh" | bash /dev/stdin
 ```
 
 :::note
@@ -154,7 +154,7 @@ They can be added to the end of the command.
 The example below will display the help menu which lists the available options (scroll the command across to see the end):
 
 ```bash
-curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/part-0-getting-started/2-computer-use/2-put-together/scripts/_Linux_Pi_InstallScript.sh"| bash /dev/stdin --help
+curl -s "https://programmers.guide/resources/Linux_Pi_InstallScript.sh"| bash /dev/stdin --help
 ```
 
 :::
