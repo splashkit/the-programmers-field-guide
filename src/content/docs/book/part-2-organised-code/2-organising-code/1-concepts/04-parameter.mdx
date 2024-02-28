@@ -126,7 +126,13 @@ Procedures and functions are useful for grouping code, but in most cases the ins
 These values can be passed to the function or procedure using **parameters**. A parameter is a [variable](../../../../part-1-instructions/1-sequence-and-data/1-concepts/07-variable) that has its value set by an [argument](../../../../part-1-instructions/1-sequence-and-data/1-concepts/02-method#arguments) in the procedure call.
 You have already seen how to provide values to functions and procedures when calling them, but now we will explore how to add and use parameters in our own functions and procedures.
 
-{/* TODO: add concept map diagram */}
+As shown in the following image, you can picture parameters as variables that sit on the boundary of the function or procedure. Each parameter is a variable, which can be accessed in the function or procedure's instructions.
+
+![Functions and Procedures can accept parameters](./images/parameter-concept.png "A function or procedure can accept values via parameters")
+
+When a procedure is called, the arguments provide the values for the parameters. This allows the caller to give data to the function or procedure. The example below demonstrates this for with the `fill_circle` procedure. This has parameters for the color, position (x and y values), and radius for the circle. These are used in the procedure to draw the shape. During the call, you provide the values for these in the arguments, allowing the one function/procedure to draw any number of circles.
+
+![Arguments provide the value for the parameter when the function or procedure is called](./images/arguments-concepts.png)
 
 ## Parameters - when, why, and how
 
@@ -161,17 +167,17 @@ The following code shows an example of a procedure with parameters.
 ```cpp
 using std::to_string;
 
+void print_equation(int m, double x, int c) 
+{
+    double solution = m * x + c;
+    write_line( to_string(m) + " x " + to_string(x) + " + " + to_string(c) + " = " + to_string(solution));
+}
+
 int main() 
 {
     print_equation(2, 5.1, 3);
     print_equation(7, 2.74, -8);
     return 0;
-}
-
-void print_equation(int m, double x, int c) 
-{
-    double solution = m * x + c;
-    write_line( to_string(m) + " x " + to_string(x) + " + " + to_string(c) + " = " + to_string(solution));
 }
 ```
 

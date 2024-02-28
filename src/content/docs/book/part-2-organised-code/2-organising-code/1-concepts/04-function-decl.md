@@ -4,8 +4,7 @@ title: "Functions"
 
 Functions are used to **calculate values**. They are almost identical to procedures -- they have a name, contain instructions, and can be called to perform their actions. The *only* difference is what happens at the end. When a function ends, it [returns](../05-return) a value to the caller, whereas a procedure just ends. This means that procedures are called within [statements](../../../../part-1-instructions/2-communicating-syntax/1-concepts/02-statement), whereas functions can be called within [expressions](../../../../part-1-instructions/2-communicating-syntax/1-concepts/03-expression).
 
-![A function is just like a method, except it calculates and returns a value](./images/storing-and-using-data/function.png "A function is just like a method, except it calculates and returns a value")
-<!-- TODO: add dotted paper background -->
+![A function is just like a method, except it calculates and returns a value](./images/function-concept.png "A function is just like a method, except it calculates and returns a value")
 
 ## Functions -- when, why, and how
 

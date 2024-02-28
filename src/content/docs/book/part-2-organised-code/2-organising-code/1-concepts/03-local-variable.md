@@ -6,8 +6,7 @@ Functions and procedures create new spaces within our code. These blocks of code
 
 These are now several places where [variables](../../../../part-1-instructions/1-sequence-and-data/1-concepts/07-variable) can be declared in your code. Variables declared within a function or procedure are called **local variables**, because they are **local** to function or procedure they are declared in. Moving forward, most of the variables in your code will be local variables.
 
-![Variables declared within a procedure are local variables](./images/storing-and-using-data/variable-local.png "Variables declared within a procedure are Local Variables")
-<!-- TODO: add dotted paper background -->
+![Variables declared within a procedure are local variables](./images/local-var-concepts.png "Variables declared within a procedure are Local Variables")
 
 As shown above, you can picture each procedure as containing a number of local variables. These variables are accessible within the procedure's instructions. That is, the procedure's block defines the [scope](../../../../part-1-instructions/3-control-flow/1-concepts/02-1-scope) where these variables are accessible.
 The same applies to functions.

@@ -6,8 +6,7 @@ Procedures contain code that define the steps to **do something**. When a proced
 
 In your programs you can define your own procedures, allowing you to divide a program's tasks into separate steps.
 
-![A procedure contains instructions](./images/program-creation/MethodDeclaration.png "Procedures")
-<!-- TODO: add dotted paper background -->
+![A procedure contains instructions](./images/procedure-concept.png "Procedures")
 
 ## Procedures -- when, why, and how
 
