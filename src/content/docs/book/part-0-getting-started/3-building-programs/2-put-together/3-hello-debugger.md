@@ -6,7 +6,7 @@ As you continue learning new coding concepts, you will inevitably come across er
 
 ## Setting up your C# project
 
-In this guide, we will be using the **HelloWorld** project from the [previous page](../1-hello-world-gui), but with some simpler code, so that we can focus on the VS Code debugger more easily.
+In this guide, we will be using the **HelloWorld** project from the [previous page](../2-hello-world-gui), but with some simpler code, so that we can focus on the VS Code debugger more easily.
 
 Copy the following example code and paste it into your Program.cs file (replacing existing code) and then run your program using `dotnet run` in your VS Code terminal to test it:
 
