@@ -4,6 +4,9 @@ sidebar:
     label: " - Segmentation Fault"
 ---
 
+![XKCD comic strip on segmentation faults https://xkcd.com/371/](https://imgs.xkcd.com/comics/compiler_complaint.png)
+XKCD comic strip on [segmentation faults](https://xkcd.com/371/)
+
 If you attempt to dereference a pointer and perform an action that is not permitted at that location in memory, this will result in a **segmentation fault**. This all relates to memory protection, and the safeguards that the operating system puts in place to protect memory access.
 
 Programs should only access their own area of memory. This is not something that is inherent to digital systems. In fact, there is no reason why any part of memory cannot be interacted with at any time.

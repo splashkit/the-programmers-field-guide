@@ -4,4 +4,8 @@ title: Hand Execution
 
 Hand execution can be a great tool to help you understand and visualise what is happening when you run code that includes pointers.
 
-<!-- TODO: expand this with images -->
+The following picture shows how you can represent pointers on paper (your memory as you run through the program). Notice that the pointer variable exists, and that the value we put in it is an arrow. You can cross out the arrow when the value in the pointer changes, so you can see what it pointed to as the code ran.
+
+![Illustration of hand executing some pointer code](./images/hand-exec-ptr.png)
+
+Drawing out values in memory is very useful when you are working with pointers. You can use this to help you think through the code you are creating. Before coding up your solution, you can sit down and work out the steps needed for your algorithm. Using a piece of paper and drawing up what will happen in memory as the steps of your algorithm execute.
