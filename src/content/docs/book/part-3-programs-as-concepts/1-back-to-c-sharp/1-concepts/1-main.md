@@ -1,5 +1,5 @@
 ---
-title: The main method
+title: Main Method
 ---
 
 When we were programming with C# in Part 1 we were using a language feature called [Top Level Statements](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/program-structure/top-level-statements). This feature lets you program instructions without needing to explicitly create a Main method - the C# equivalent of [main](.././../../../part-2-organised-code/1-starting-cpp/1-concepts/2-main-function) in C/C++.
