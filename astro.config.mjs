@@ -85,6 +85,15 @@ export default defineConfig({
                   link: "book/part-0-getting-started/2-computer-use/0-overview",
                 },
                 {
+                  label: "Installation",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-0-getting-started/2-computer-use/0-installation",
+                    collapsed: true,
+                  },
+                },
+                {
                   label: "Concepts",
                   collapsed: true,
                   autogenerate: {
@@ -795,10 +804,6 @@ export default defineConfig({
                 {
                   label: "Putting it Together",
                   link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/2-put-together",
-                },
-                {
-                  label: "Other Languages",
-                  link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/3-other-languages",
                 },
                 {
                   label: "Activities",

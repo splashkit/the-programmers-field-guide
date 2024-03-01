@@ -24,7 +24,7 @@ A **constant** is similar to a variable, in that they have a name and a data typ
 
 ![Constants have a value that cannot be changed](./images/constant-concept.png "Constants have a value that cannot be changed")
 
-## Constants -- why, when, and how
+## Constants -- Why, When, and How
 
 *Literals are values that are fixed within the code, so why do we need constants?*
 

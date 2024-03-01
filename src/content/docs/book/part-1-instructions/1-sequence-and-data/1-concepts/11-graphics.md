@@ -229,6 +229,12 @@ PlaySoundEffect("hello", 2, 0.2f); // Play it twice, quietly
 Delay(2500);
 ```
 
+:::note
+You will need to provide your own sound effect and music files to test out these procedures. You can record something yourself or download something from the internet and convert it using [Audacity](https://www.audacityteam.org). Try [https://freesound.org/](https://freesound.org/) for audio you could use.
+
+You could download the [hello world](https://programmers.guide/resources/code-examples/part-0/hello-world-snippet-saddle-club.ogg) audio from the examples in this chapter and use that as a start if you want. This would work for both sound effects and music. If you use this file then remember to change the code to match the filename.
+:::
+
 ### Playing music
 
 Music is designed to work with long playing background audio. Unlike sound effects, you can only play one music track at a time. This means you can have one music track playing and several sound effects.

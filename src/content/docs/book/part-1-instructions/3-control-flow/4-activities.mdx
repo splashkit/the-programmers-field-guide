@@ -1,0 +1,83 @@
+---
+title: Activities
+---
+import { YouTube } from 'astro-embed';
+
+## Test Your Knowledge
+
+### Petrol Price Information
+
+<div class="not-content">
+  <YouTube id="GwUgW0EKN5w" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+Here we will be creating a program that prints out some useful information based on petrol prices.
+
+In this task, it is up to you to create a program asks the user for how much they paid per litre the last time they purchased petrol, and then print out some useful statistics based on the previous prices entered by the user.
+
+Your program should:
+
+- Ask the user how much they paid per litre (in cents) the last time they purchased petrol.
+- Ask the user how many litres they purchased in the same transaction.
+- Output the average petrol price that the user has paid for petrol ever (in cents).
+- Output the total amount the user has ever paid for petrol (in dollars and cents).
+- Repeat all of this until the user quits the application.
+
+Validation:
+
+- Ensure that your petrol price and petrol litres are positive numerical values.
+
+### Sound Player - Changing the Sound
+
+<div class="not-content">
+  <YouTube id="cLL__hy7iiM" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+Here we will be expanding upon what we did in the [previous activity](../1-sequence-and-data/4-activities#sound-player), adding the ability to play different sounds.
+
+In this task, it is up to you to create a program which allows the user to play different sound files one after the other.
+
+The following SplashKit methods might be useful for this program:
+
+- `MusicPlaying()`
+- `HasMusic()`
+- `TerminalHasInput()`
+
+Your program should:
+
+- Ask the user for the path to a sound file.
+- Ask the user what they would like to name the sound.
+- Play the sound, either until it finishes or the user decides to finish it early.
+- Ask the user whether they would like to replay the same sound, or enter information for a new sound file.
+
+Validation:
+
+- Ensure that the sound clip the user attempts to enter is valid.
+
+### Flicking Ball Game
+
+<div class="not-content">
+  <YouTube id="cQQZgORGUPI" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+Here we will be making a game where we can "flick" a ball across the screen towards a goal.
+
+In this task, it is up to you to create a game where the player must get a ball into a goal.
+The ball is 'fired' by the player clicking on the screen, and moves faster the further away from the ball the player clicked.
+To make things more interesting, the ball should also be affected by "gravity", and constantly fall towards the ground.
+
+The following SplashKit methods might be useful for this program:
+
+- `ProcessEvents()`
+- `MouseDown()`
+- `TriangleRectangleIntersect()`
+
+Your program should:
+
+- Place a ball (square) somewhere on the window.
+- Place a goal (triangle) somewhere else on the window.
+- "Fire" the ball in the direction that the player clicks on the window
+  - The ball should move faster the further the click is away from the ball.
+  - Once the ball is moving, it should be affected by "gravity" (i.e., some downwards force).
+  - If the ball hits the edge of the screen, place the ball back at its initial position and let the player fire again.
+- Clear the screen once the ball overlaps with the goal and tell the player they have won.

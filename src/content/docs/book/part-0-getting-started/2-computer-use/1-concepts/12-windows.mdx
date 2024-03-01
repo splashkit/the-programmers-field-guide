@@ -1,0 +1,73 @@
+---
+title: Using X Windows
+sidebar:
+    attrs:
+        class: linux
+    label: " - Using X Windows"
+banner:
+    content: |
+        This is an optional concept in this chapter. Review it when you are on top of the other ideas.
+---
+
+When you are using Linux you can boot directly into the terminal, and launch the graphical user interface as a separate action. This can be interesting to play around with, though you will often just want to boot into the graphical user interface if you are working on a personal computer. When you are setting up a server though, there is no need to have anything other the terminal.
+
+## Changing the default start environment
+
+If you are working on the Raspberry Pi, it can be configured to boot into either a terminal or graphical mode. Terminal is great if you want to set the Pi up as a server or other processing node that does not need direct user interaction (you probably interact with it over the network, for example). As we will be developing code on our Pi, we should switch it to boot into X Windows.
+To change that setting we will need a couple of new shell commands.
+
+| **Action**                | **Command**    | **Description**                                         |
+| ------------------------- | -------------- | ------------------------------------------------------- |
+| Run as superuser.         | `sudo`         | Run a program as the superuser -- used for admin tasks. |
+| Change Pi config options. | `raspi-config` | Change Raspberry Pi configuration options.              |
+
+### Adjust Raspberry Pi Configuration (`raspi-config`)
+
+The `raspi-config` command will give you access to system configuration options for your Raspberry Pi. As this impacts the system, you need to run it as the superuser.
+
+```sh
+sudo raspi-config
+```
+
+This will open the following display within the terminal. Choose **3 Boot Options** to change the way the Pi starts up. Choose **B1 Desktop / CLI**, and then choose either **B3 Desktop** or **B4 Desktop Autologin**. If you choose the autologin option, the system will automatically log in as the indicated user.
+
+![The raspi-config screen](https://www.raspberrypi.com/documentation/computers/images/raspi-config.png)
+
+When you select the required option it will take you back to the main menu. Choose **Finish** and then select to **Reboot** the Pi. When it restarts, X Windows will have been started and the desktop will have loaded.
+
+:::tip[raspi-config documentation]
+You can access the full documentation for raspi-config on the [Raspberry Pi documentation website](https://www.raspberrypi.com/documentation/computers/configuration.html).
+:::
+
+## Launch the graphical interface
+
+The graphical environment is just like everything else -- a program that we can run on the computer. In Unix, the graphical interface is known as **X Windows**. To start this running you can use the `startx` command.
+
+| **Action**                 | **Command** | **Description**                    |
+| -------------------------- | ----------- | ---------------------------------- |
+| Open graphical environment | `startx`    | Open the graphical user interface. |
+
+This is really simple to use. Just run the `startx` command in the terminal. You will see the environment change, and you can now use your mouse and interact with the computer as you are used to.
+
+:::tip
+One of the cool things with X Windows is that you can choose between different **window managers**. Each window manager will give you a different look and feel. This is something to jot down now and play with in the future.
+:::
+
+## Accessing other terminals
+
+| **Action**            | **Command**                     | **Description**                    |
+| --------------------- | ------------------------------- | ---------------------------------- |
+| Switch terminal.      | **Ctrl-Alt** + **F1** to **F6** | Switch to virtual terminal 1 to 6. |
+| See who is logged in. | `w`                             | List the active terminals.         |
+
+Unix was designed to handle multiple users connected to the system from separate terminals at the same time. Modern Unix operating systems simulate this with multiple virtual terminals available. If you want to switch from the graphical desktop to a terminal (not just a terminal window) you can do this using the shortcut keys **Ctrl-Alt** followed by one of the first six function keys: **F1** to **F6**. This will switch to the associated virtual terminal.
+
+To return to your graphical desktop you use **Alt-** and the function key corresponding to the display's terminal. The exact terminal differs between different Linux version. You can check which virtual terminals are in use, and identify which has your graphical desktop, using the `w` command. This will print a table of the users connected and their terminals (in the TTY column). You want to locate the terminal that has *from* as **:0**. For example **tty7 :0** would mean that your desktop is on terminal 7, so **ALT-F7** would switch to it.
+
+:::tip
+You can have more than one desktop running at the same time as well. Each must have a unique **DISPLAY**. The default DISPLAY is **:0**, but you can also start x with display set to **:1**.
+
+```sh
+startx -- :1
+```
+:::
