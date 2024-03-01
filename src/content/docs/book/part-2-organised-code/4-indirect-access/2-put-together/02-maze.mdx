@@ -2,6 +2,84 @@
 title: Maze Game
 ---
 
+
+import MySwiper from '../../../../../../components/react/myswiper.jsx'
+
+import sliderMazeRoomsPaths01 from './images/slider-maze-rooms-paths/Slide1.png';
+import sliderMazeRoomsPaths02 from './images/slider-maze-rooms-paths/Slide2.png';
+import sliderMazeRoomsPaths03 from './images/slider-maze-rooms-paths/Slide3.png';
+import sliderMazeRoomsPaths04 from './images/slider-maze-rooms-paths/Slide4.png';
+import sliderMazeRoomsPaths05 from './images/slider-maze-rooms-paths/Slide5.png';
+import sliderMazeRoomsPaths06 from './images/slider-maze-rooms-paths/Slide6.png';
+import sliderMazeRoomsPaths07 from './images/slider-maze-rooms-paths/Slide7.png';
+
+export const sliderMazeRoomsPaths = [
+  {
+    src: sliderMazeRoomsPaths01.src,
+    altText: "At line 1, we create a new variable r1 of type room_data by calling the new_room method to create and initialize the fields of the room_data object. The variable is placed on the stack",
+    tipStart: 1,
+    tips: [
+      "At line 1, we create a new variable <strong>r1</strong> of type <strong>room_data</strong> by calling the <strong>new_room</strong> method to create and initialize the fields of our <strong>room_data</strong> object",
+      "The variable is placed on the stack"
+    ]
+  },
+  {
+    src: sliderMazeRoomsPaths02.src,
+    altText: "Next we create another room_data variable (r2) in a similar way...",
+    tipStart: 2,
+    tips: [
+      "Next we create another <strong>room_data</strong> variable (<strong>r2</strong>) in a similar way..."
+    ]
+  },
+  {
+    src: sliderMazeRoomsPaths03.src,
+    altText: "... At line 3 our final room_data variable r3 is created on the stack. You'll notice that each variable r1 to r3 has it's own unique address in memory on the stack.",
+    tipStart: 3,
+    tips: [
+      "... At line 3 our final <strong>room_data</strong> variable <strong>r3</strong> is created on the stack",
+      "You'll notice that each variable r1 to r3 has it's own unique address in memory on the stack."
+    ]
+  },
+  {
+    src: sliderMazeRoomsPaths04.src,
+    altText: "At line 4 we create a new variable p1 of type path_data by calling the new_path method to create and initialize the fields of the path_data object. The variable is also placed on the stack. You'll notice that the 'destination' field of the p1 path_data object is initialized with a pointer to r2.",
+    tipStart: 4,
+    tips: [
+      "At line 4 we create a new variable <strong>p1</strong> of type <strong>path_data</strong> by calling the <strong>new_path</strong> method to create and initialize the fields of the <strong>path_data</strong> object",
+      "The variable is also placed on the stack",
+      "You'll notice that the '<strong>destination</strong>' field of the <strong>p1 path_data</strong> object is initialized with a pointer to <strong>r2</strong>"
+    ]
+  },
+  {
+    src: sliderMazeRoomsPaths05.src,
+    altText: "At line 5 we create another path_data variable p2 in a similar manner. It's destination field is initialized with a pointer to r3",
+    tipStart: 5,
+    tips: [
+      "At line 5 we create another <strong>path_data</strong> variable <strong>p2</strong>",
+      "It's destination field is initialized with a pointer to <strong>r3</strong>"
+    ]
+  },
+  {
+    src: sliderMazeRoomsPaths06.src,
+    altText: "Now at line 6 we declare a variable current_room of type room_ptr and initialize it to point to r1",
+    tipStart: 6,
+    tips: [
+      "Now at line 6 we declare a variable <strong>current_room</strong> of type <strong>room_ptr</strong> and initialize it to point to <strong>r1</strong>"
+    ]
+  },
+  {
+    src: sliderMazeRoomsPaths07.src,
+    altText: "Finally, at line 7 we assign a new value to current_room, setting it to the value of the destination field of our p1 path_data object. This value is a pointer to the r2 room_data object. Our code then ends.",
+    tipStart: 7,
+    tips: [
+      "Finally, at line 7 we assign a new value to <strong>current_room</strong>, setting it to the value of the <strong>destination</strong> field of our <strong>p1 path_data</strong> object",
+      "This value is a pointer to the <strong>r2 room_data</strong> object",
+      "Our code then ends"
+    ]
+  },
+
+];
+
 Text based adventure games have a player move through a number of virtual rooms within the program. This code requires us to set up rooms and paths that move between them.
 
 If you think about the game you will see that we need pointers to implement this. Each path needs to know the room it goes to. This cannot be a copy of the room - as circular paths would become impossible.
@@ -175,8 +253,10 @@ This may take some time to picture, but when you get it you will know that you a
  */
 //...
 ```
-
-**TODO: add slider**
+<br/>
+Let's take a closer look at how we might create our paths and rooms:
+<br/>
+<MySwiper client:only height="" images={sliderMazeRoomsPaths}></MySwiper>
 
 #### Main
 
