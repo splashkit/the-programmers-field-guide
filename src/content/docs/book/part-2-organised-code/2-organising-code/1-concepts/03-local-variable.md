@@ -39,6 +39,7 @@ The following code creates a local variable called `name`. This variable is decl
 
 void say_hello()
 {
+    string name;
     name = read_line();
     write_line("Hello " + name);
 }
