@@ -4,56 +4,40 @@ title: Activities
 
 ## Test Your Knowledge
 
-### Creating Stock and Salespeople
+### Creating Products
 
-Now that we've got the backbone of the store POS, we need to actually add some functionality and things to fill it up! Here we're going to be creating some Stock and Salespeople objects and introducing some basic functionality.
+Now that we've got the backbone of the store POS, we need to actually add some functionality and things to fill it up! Here we're going to be creating some Stock objects and introducing some basic functionality.
 
 Your program should:
 
 - Have a Product struct with its:
   - Name
-  - Description
-  - Price
+  - Brand
+  - Category (One of: Dairy, Bakery, Snack, Frozen)
   - Current stock
-- Have a Staff struct with their:
-  - Name
-  - Position (One of: Salesperson, Manager, Owner)
-  - Sale count (How many Products they've sold)
 - Have a StorePOS struct with:
   - A Product
-  - A Staff
-- Have a Staff
+  - Salecount
 - Have a Product
 - Have a StorePOS
 - Modify your existing code to make use of these new structs
-- Introduce a "View Product" screen which:
-  - Shows a Product's Name
-  - Shows a Product's Description
-  - Shows a Product's Price
-  - Shows a Product's Current Stock
-- Introduce a "View Staff" screen which:
-  - Shows a Staff's Name
-  - Shows a Staff's Position
-  - Shows a Staff's Sale Count
+  - This includes modifying your print_product function from last task to now only printing out product information
+- Introduce an "Add Product" screen which allows the user to enter all of the a new product's details, then returns the product
 
 ### Creating Songs and Artists
 
-Now that we actually are able to accept and validate input, we actually need some Song and Artist information to store to make this feel more like a music application!
+Now that we actually are able to accept and validate input, we actually need some Song information to store to make this feel more like a music application!
 
 Your program should:
 
-- Have an Artist struct with their:
-  - Name
-  - About (bio)
 - Have a Song struct with its:
   - File Name
   - Name
   - Genre (one of Pop, Rock, RnB)
-  - Runtime
+  - Number of Listens
 - Have a Dotifin struct with:
-  - An Artist
   - A Song
-- Have an Artist
+  - Total Listens
 - Modify your existing code to make use of these new structs
 - Introduce an "Add Song" screen which allows the user to:
   - Specify a file name for that song
@@ -61,9 +45,7 @@ Your program should:
   - Specify a genre for that song
   - Create a Song
   - Play that Song
-- Introduce a "Show Artist Details" screen which:
-  - Shows the About section for an Artist
-  - Shows the Bio section for an Artist
+- Introduce a "Print Song" screen which outputs all of a song's details
 
 ### Creating the Player and NPCs
 
@@ -90,8 +72,11 @@ Your program should:
 - Have a Game struct with:
   - A Player
   - A NPC
+  - A Game State (One of: Running, Won, Lost)
 - Have a Player
 - Have a NPC
 - Have a Game
-- Modify your existing functionality to make use of the new structs
+- Modify your draw_npc() function to colour the NPC different colours depending on whether or not the player is close
+  - You'll also need to modify your collision check to get this working!
+- Modify your other existing functionality to make use of the new structs
   - This includes modifying your Render function to make use of the Game struct!
