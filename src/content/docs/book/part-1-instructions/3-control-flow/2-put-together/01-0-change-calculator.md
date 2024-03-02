@@ -41,7 +41,7 @@ Steps:
     Give change
         Give $2 coins
             Calculate the number of $2 coins to give
-                (toGive = changeValue / 200)
+                (toGive = changeValue / TWO_DOLLARS)
             Update the amount of change remaining to give
                 (changeValue = changeValue - toGive * TWO_DOLLARS;)
             Output the number of $2 coins to give - using Write

@@ -107,11 +107,14 @@ Steps:
     Get the details from the user.
         Get the cost (store in costOfItem)
         Get the amount paid (store in amountPaid)
-    Calculate the amount of change to provide  (changeValue = amountPaid - costOfItem)
+    Calculate the amount of change to provide
+        (changeValue = amountPaid - costOfItem)
     Give change
         Give $2 coins
-            Calculate the number of $2 coins to give (toGive = changeValue / 200)
-            Update the amount of change remaining to give (changeValue = changeValue - toGive * TWO_DOLLARS)
+            Calculate the number of $2 coins to give
+                (toGive = changeValue / TWO_DOLLARS)
+            Update the amount of change remaining to give
+                (changeValue = changeValue - toGive * TWO_DOLLARS)
             Output the number of $2 coins to give - using Write
 
         Give $1 coins (as with $2 above but with ONE_DOLLAR)

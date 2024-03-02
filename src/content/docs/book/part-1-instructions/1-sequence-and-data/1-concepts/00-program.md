@@ -20,6 +20,12 @@ Each program will contain other building blocks to achieve its goals.
 As you continue your journey, you will pick up more tools to expand what you can create in your programs.
 For now, a program is simply a list of instructions that are followed when the program runs.
 
+:::tip[Memorising syntax]
+
+To master these concepts you will need to memorise the syntax so that you can start to use these concepts in programs of your own design. As you read through these, make sure to keep notes and create small test programs so that you can practice using these ideas and memorise the langauge syntax as you go. This is an important part of the process of learning to program. 
+
+:::
+
 ## In C#
 
 :::tip[Syntax]
