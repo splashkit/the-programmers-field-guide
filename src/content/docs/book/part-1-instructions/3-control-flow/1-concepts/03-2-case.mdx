@@ -173,7 +173,6 @@ So, `language` goes in parentheses right after the `switch` keyword.
  Within the body of the case statement you then have the separate cases you want to match.
 
 Notice that we have used the [break](../05-1-break) statement at the end of the "C#" and "C++" branches to indicate the end of the instructions for these individual cases. Also notice how we intentionally do not use a break statement in the "C" case. This means that when the "C" path is matched, the control will flow through into the same set of statements that exist for the "C++" branch, and we have avoided needing to repeat the same code in both branches.
-Finally, notice that there is no break statement in the `default` case, because there is no code for the computer to "drop through" into.
 
 ```csharp
 using static System.Console;
@@ -194,6 +193,7 @@ switch (language)
         break;
     default:
         WriteLine("Well... good luck with that!");
+        break;
 }
 
 WriteLine("Great chat!");
