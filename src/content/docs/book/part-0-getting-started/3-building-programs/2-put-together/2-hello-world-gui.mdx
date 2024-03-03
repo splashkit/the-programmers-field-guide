@@ -153,6 +153,10 @@ The code for this part will be using SplashKit functionality to draw images, pla
 You're not expected to understand how the following code works at this point. It has been created for fun, so you can just copy and paste - and enjoy another "Hello World!" GUI program!
 :::
 
+:::caution[MSys download issues]
+Currently the SplashKit download functions will not function if you are using MSys on Windows. If you want to run these programs, you need to download the images and sound effects manually, save them in the folder with your program, and change the code to use the "Load" version of the methods. For example, `LoadSoundEffect("Hello World", "hello-world-snippet-saddle-club.ogg");`.
+:::
+
 Copy the following code and paste it into your Program.cs file (replacing existing code) and then run your program using `dotnet run`:
 
 ```cs

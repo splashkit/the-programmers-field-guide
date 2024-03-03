@@ -74,6 +74,14 @@ WriteLine();
 WriteLine("Hello " + name);
 ```
 
+:::tip[Getting a warning about null types?]
+
+When you run this you are likely to get the following message: **warning CS8600: Converting null literal or possible null value to non-nullable type.**
+
+You can ignore this, or better yet edit your .csproj file and change the “Nullable” property to “disable”. This will remove these warnings.
+
+:::
+
 ### Example using multiple variables
 
 The next example will help us calculate the volume of our water bottles, assuming they are cylinders. To achieve this, we need the following variables:
