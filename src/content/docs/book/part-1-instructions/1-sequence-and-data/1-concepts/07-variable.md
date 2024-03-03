@@ -66,7 +66,7 @@ string name;
 
 WriteLine("Welcome to The Greeting");
 WriteLine();
-WriteLine("What is your name?")
+WriteLine("What is your name?");
 Write("name: ");
 name = ReadLine();
 
