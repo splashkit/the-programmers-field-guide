@@ -1,38 +1,45 @@
 ---
 title: Activities
 ---
+
+import { YouTube } from 'astro-embed';
+
 ## Test Your Knowledge
 
 ### Store POS Input System
 
-Over the next few activities, we're going to be creating a store's POS database to manage transactions and stock. Here we're going to set up the main input loop into separate functions, similarly to what we did in the earlier parts for our calculator.
+<div class="not-content">
+  <YouTube id="tdjOmYDT15k" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
 
-As a start for our store POS database, we're going to have to start with the backbone of the application, which will handle printing "screens" to the terminal, handling user input for numbers, as well as changing screens based on those input numbers. Your program should ensure whatever input taken by the user is valid. Your program should also be able to ask the user for product information and then output that product information. Make sure you're splitting up your code into functions!
+Over the next few activities, we're going to be creating a store's point of sale (POS) database to manage transactions and stock. Here we're going to set up the main input loop into separate functions and procedures, similar to what we did [earlier](./2-put-together/01-00-change-calculator) for our calculator.
+
+To start, we're going to create the backbone of the application. This will handle printing "screens" to the terminal, getting the user's input, and changing "screens" based on that input. Make sure you're splitting up your code into functions!
 
 Your program should:
 
-- Ask the user which "screen/functionality" they would like to choose
-  - This should ask the user to input an int which is displayed next to a "screen/functionality"
-- Add a "screen/functionality" which prompts the user for product details and then outputs them including:
+- Print a list of "screens" and ask the user to choose one.
+- Wait for user input, then change the "screen" based on what they chose.
+- Have a "screen" which prompts the user to enter some product details and then outputs them. Product details should include:
   - Product Name
   - Product Brand
-  - Product Category (eg: Dairy, Bakery, Snack, Frozen, etc)
+  - Product Category (e.g., Dairy, Bakery, Snack, Frozen, etc.)
   - Product Stock
-- Wait for user input, then change the "screen/functionality" based on what they chose
-  - For now just include welcome messages for each other "screen"
+- Print a basic welcome message to the terminal for all other "screens".
 
 Validation:
 
-- Ensure that the user input int your program takes matches the options of your "screens/functionality"
-- Ensure that the user input for Product Stock is valid, that is, both not negative and also not insanely high
+- Ensure that the user's selection of screen matches one of the options.
+- Ensure that the user inputs a valid amount of product stock -- it should not be negative or unreasonably high.
 
-Functions you should have:
+To make this program, you will need to implement the following functions and procedures:
 
-- read_integer(string outputMessage, int min, int max) - Prints a message to prompt user for input, reads an integer from user input and ensures it is an integer, then returns it
-- read_integer_range(string outputMessage, int inputInt) - Prints a message to prompt user for input, reads an integer from user input, ensures it is in an integer and in a specific range, then returns it
-- process_integer_input(int inputInt) - Performs different operations, like changing "screens" based on the integer input
-- print_menu() - Outputs menu information
-- print_product_details() - Asks the user for input for product details, then outputs them
+| <div style='width:185px'>Name</div> | Parameters | Purpose | Returns |
+|------|------------|---------|---------|
+| `read_integer` | a string prompt | repeats printing a prompt to the terminal and asking the user for input until they enter a valid integer | the value the user entered converted to an integer |
+| `read_integer_range` | a string prompt, minimum and maximum integers | repeats printing a prompt and reading an integer from the user until they enter a value within the specified range | the integer value the user entered |
+| `print_menu` | | prints a list of menu options to the terminal | |
+| `read_and_print_product` | | asks the user to enter the details of a product, then prints them to the terminal | |
 
 ### Dotifin Input System
 
