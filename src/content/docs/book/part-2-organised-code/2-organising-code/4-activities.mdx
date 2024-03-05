@@ -1,0 +1,106 @@
+---
+title: Activities
+---
+
+import { YouTube } from 'astro-embed';
+
+## Test Your Knowledge
+
+### Store POS -- Input System
+
+<div class="not-content">
+  <YouTube id="tdjOmYDT15k" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+Over the next few activities, we're going to be creating a store's point of sale (POS) database to manage transactions and stock. Here we're going to set up the main input loop into separate functions and procedures, similar to what we did [earlier](./2-put-together/01-00-change-calculator) for our calculator.
+
+To start, we're going to create the backbone of the application. This will handle printing "screens" to the terminal, getting the user's input, and changing "screens" based on that input. As you work on this task, make sure you're splitting up your code into functions and procedures!
+
+Your program should:
+
+- Print a list of "screens" and ask the user to choose one.
+- Wait for user input, then change the "screen" based on what they chose.
+- Have a "screen" which prompts the user to enter some product details and then outputs them. Product details should include:
+  - a name
+  - a brand
+  - a category (e.g., Dairy, Bakery, Snack, Frozen, etc.)
+  - a stock level
+- Print a basic welcome message to the terminal for all other "screens".
+
+Validation:
+
+- Ensure that the user's selection of screen matches one of the options.
+- Ensure that the user inputs a valid amount of product stock -- it should not be negative or unreasonably high.
+
+To make this program, you will need to implement the following functions and procedures:
+
+| <div style='width:185px'>Name</div> | Parameters | Purpose | Returns |
+|------|------------|---------|---------|
+| `read_integer` | a string prompt | repeats printing a prompt to the terminal and asking the user for input until they enter a valid integer | the value the user entered converted to an integer |
+| `read_integer_range` | a string prompt, minimum and maximum integers | repeats printing a prompt and reading an integer from the user until they enter a value within the specified range | the integer value the user entered |
+| `print_menu` | | prints a list of menu options to the terminal | |
+| `read_and_print_product` | | asks the user to enter the details of a product, then prints them to the terminal | |
+
+### Dotifin -- Input System
+
+<div class="not-content">
+  <YouTube id="mZaNc068i7w" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+Over the next few activities, we're going to be creating our own music application "Dotifin"! This application will allow us to play music, browse artists, search for our favourite songs, and more. Here we're going to be setting up the main input loop into separate functions and procedures.
+
+To start, we're going to create the backbone of the application. This will handle printing "screens" to the terminal, getting the user's input, changing screens based on that input. We will also keep the music playing functionality from the [last music player task](../../part-1-instructions/3-control-flow/4-activities#sound-player---changing-the-sound). As you work on this task, make sure you're splitting up your code into functions and procedures!
+
+Your program should:
+
+- Print a list of "screens" and ask the user to choose one.
+- Wait for user input, then change the "screen" based on what they chose.
+- Have a "screen" that asks the user for a music file's path, a name for the music file, and plays that music file.
+- Have a stop song "screen" which stops any music that is playing.
+
+Validation:
+
+- Ensure that the user's selection of screen matches one of the options.
+- Ensure that the file path entered by the user represents a valid song (hint: after loading the music, use [`music_valid`](https://splashkit.io/api/audio/#music-valid) to check that what was loaded is a valid music file).
+
+To make this program, you will need to implement the following functions and procedures:
+
+| <div style='width:155px'>Name</div> | Parameters | Purpose | Returns |
+|------|------------|---------|---------|
+| `read_integer` | a string prompt | repeats printing a prompt to the terminal and asking the user for input until they enter a valid integer | the value the user entered converted to an integer |
+| `read_integer_range` | a string prompt, minimum and maximum integers | repeats printing a prompt and reading an integer from the user until they enter a value within the specified range | the integer value the user entered |
+| `print_menu` | | prints a list of menu options to the terminal | |
+| `read_and_load_song` | | asks the user for a path and a name for a music file, and loads that music. Checks that the music loaded is valid music. Repeats these steps until the music loaded is valid music. | the name of the music that was loaded |
+| `play_song` | the name of a loaded music file | plays the music file | |
+| `stop_song` | | stops playback of whatever music is currently playing | |
+
+### RPG -- Game Loop and Collision Tests
+
+<div class="not-content">
+  <YouTube id="ppoJ1lbJXYM" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+Over the next few activities, we're going to be creating a role playing game (RPG) in SplashKit! This game will allow us to walk around, interact with non-player characters (NPCs), pick up and use items, and more! Here we're going to be setting up the main game loop, as well as create some more efficient collision tests.
+
+To start, we're going to create a game loop. Your program should spawn (draw) a player character and an NPC to the screen. The user should be able to move the player character around the screen with the "W", "A", "S", and "D" keys on their keyboard, not allowing them to move past the edges of the screen. For now the NPC will not move. Once you have the player character moving add a basic collision test -- if the player character collides with the NPC, stop drawing the NPC; otherwise, keep drawing the NPC as normal. As you work on this task, make sure you're splitting up your code into functions and procedures!
+
+Your program should:
+
+- Draw the player character, starting it at the center of the screen (just use a rectangle for now).
+- Draw a NPC to the screen somewhere away from the character (just a triangle for now).
+- Allow the player to move their character around the screen with the "W", "A", "S", and "D" keys, but don't let the player's character move beyond the edges of the screen.
+- Perform a series of collision checks between the player character and the NPC:
+  1. First, see if the NPC is within a relatively large circle centered on the player character.
+  2. If the NPC is within this large circle, then check if the NPC is within a smaller circle centered on the player character. Make sure this smaller circle is still bigger than the player character.
+  3. If the NPC is within this smaller circle, check to see if the NPC (triangle) is colliding with the player character (rectangle) (hint: use [`triangle_rectangle_intersect`](https://splashkit.io/api/geometry/#triangle-rectangle-intersect)).
+  4. If there is a collision, don't draw the NPC. If there is **not** a collision, draw the NPC.
+  
+To make this program, you will need to implement the following functions and procedures:
+
+| <div style='width:200px'>Name</div> | Parameters | Purpose | Returns |
+|------|------------|---------|---------|
+| `render` | the player character's X and Y position, the NPC's X and Y position, and whether the NPC is currently dead | Draw the player and the NPC (if the NPC is alive) | |
+| `draw_player` | the player character's X and Y position | draw a rectangle representing the player | |
+| `draw_NPC` | the NPC's X and Y position | draw a triangle representing the NPC | |
+| `collision_in_radius` | a radius and center point (X and Y) for the collision circle, and a second point (X and Y) | check if a point is within the collision circle | true if the point specified by the second (X, Y) is within the collision circle, otherwise false |
+| `have_characters_collided` | the position of two characters in the game (for now you'll pass in the player and NPC positions) | check if two characters in the game have collided | true if the two characters have collided, otherwise false |
