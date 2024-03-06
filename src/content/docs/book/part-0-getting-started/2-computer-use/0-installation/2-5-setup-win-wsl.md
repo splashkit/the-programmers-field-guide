@@ -55,6 +55,10 @@ For example, with the username "**default-user**", your terminal would look like
 
 You can see in the image above where the "**default-user**" username was first entered (shown in the pink box), and the same username being used with the terminal prompt (shown in the orange box).
 
+:::tip[Troubleshooting tip:]
+If you have issues installing the WSL with Ubuntu, go to the [Issues creating Ubuntu user account](../3-0-troubleshooting-install/#issues-creating-ubuntu-user-account) section in the Installation Troubleshooting page for a way to reset the Ubuntu installation and user account setup.
+:::
+
 WSL is now setup and ready to use!
 
 ### Configure 'Windows Terminal'
