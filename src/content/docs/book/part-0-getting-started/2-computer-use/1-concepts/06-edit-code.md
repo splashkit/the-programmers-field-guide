@@ -21,3 +21,13 @@ code .
 ```
 
 We will explore how to get this all setup and ready to go in the next section.
+
+
+:::caution[Paths in Windows MSYS2]
+Remember to adjust the path to your Documents' folder if you are using MSYS2 on Windows. For me, the first step of the above will become:
+
+```sh
+cd /c/Users/andrew/Documents/Code/HelloWorld
+```
+
+:::

@@ -25,6 +25,17 @@ dotnet build
 dotnet run
 ```
 
+:::caution[Paths in Windows MSYS2]
+Remember to adjust the path to your Documents' folder if you are using MSYS2 on Windows. You will need to change `~/Documents/Code` to be something line `/c/Users/andrew/Documents/Code` - where you need to change `andrew` to match your username. In each case you will need to change `~` to be `/c/Users/<username>`.
+
+For me, the first step of the above will become:
+
+```sh
+cd /c/Users/andrew/Documents/Code
+# Everything else remains the same
+```
+:::
+
 You can also run this in the debugger, which will let you step through the program, seeing each instruction in action.
 
 We will go through the steps above in more detail on the next pages.
