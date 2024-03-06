@@ -15,51 +15,18 @@ Include idea of static.
 
 ## The elements of a class
 
-Figure X shows a sketch of the **class** concept.
-A class describes a group of **responsibilities**, which can either be **knowing** something, or **doing** something.
-Just like a [program](<../../../../part-1-instructions-1-sequence-and-data/1-concepts/00-program>), a class may use methods and data from one or more libraries.
-A class may also use methods and data from one or more other classes.
-We will explore this further in [Part 3, Chapter 3](<../../../../part-3-programs-as-concepts/3-collaboration-encapsulation/0-overview>) with the concept of **collaboration**.
 
-![Figure X](./images/class-concept.png)
-<div class="caption"><span class="caption-figure-nbr">Figure X: </span>A class describes an entity that knows things and can do things</div><br/>
-<!-- TODO: remake concept diagram properly -->
 
-A class can have a lot of responsibilities, but each one will relate to either knowing something, or doing something.
-Let's explore the kinds of knowing and doing responsibilities a class can have.
 
 ### Knowing responsibilities
 
 #### Every class has a name
 
-The first thing a class needs to know about is its name or **identifier**.
-As with the other kinds of identifiers we've encountered, a class's name needs to be unique, meaningful, and concise.
 
-We use a class's name in a few ways.
-The first use is when organising the code files on our computer.
-Typically, the syntax for a class is in its own file, and that file is named with the class's identifier.
-This makes it easy to find the code for our class definitions when we need it.
-
-The second way we use a class's name is in our code.
-Because a class is only a blueprint that describes responsibilities, we need a way to use that blueprint to create entities.
-We do this through a special method called a **constructor**, which has the same identifier as the class it constructs.
-As construction is a doing responsibility, this concept will be explained in the next section.
-
-The last way we use a class's name is also in our code.
-A class is a custom data type, so its identifier can be used in the same ways as any other data type identifiers, such as when declaring variables or defining method parameters.
 
 #### Classes can know about data
 
-A class stores data in **fields**.
-Fields are also called **class variables**, because they have a lot of similarities with the concept of a [variable](<../../../../part-1-instructions/1-sequence-and-data/1-concepts/07-variable/>).
-Just like a variable, every field has a data type, an identifier, and a value.
-Most fields are **variable**, meaning their value can be changed.
-It is also possible for a field to be **constant**, in which case the value can only be set once.
 
-The key difference that makes fields a new concept is their scope.
-Fields are accessible anywhere within the class where they are defined.
-That means a field can be accessed and modified (assuming it is not constant) within any of the methods in the same class.
-This is one of the concepts that makes classes powerful, as it allows us to share data between methods without needing parameters.
 
 ### Doing responsibilities
 
@@ -104,52 +71,7 @@ There are principles and best practices to help make these decisions, which we w
 
 ### Class structure
 
-:::tip[Syntax]
-The syntax for a C# class declaration is shown in Figure X. The syntax for declaring each of the elements of a class are shown in other diagrams below.
 
-If you are wondering what a property is because you are seeing that term for the first time in this diagram, don't worry!
-Properties are specific to the C# programming language, so we have not included them in our explanation of standard class elements.
-We'll explain what they are below.
-
-![Figure X](./images/class-syntax-diagram.png)
-<div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for class declarations</div><br/>
-:::
-
-A class declaration starts with the word `class`.
-This tells the compiler that the following code defines a class.
-The **class name** is an identifier, which can be any valid C# identifier that has not be used for any other classes in the same scope.
-
-The **class block** contains all of the declarations for the class's fields, constructors, methods, and properties.
-Each declaration defines a **class member**, and starts with an **access modifier**.
-For now, an access modifier can be either `public` or `private`, and we'll expore other access modifiers in Part 3.
-
-There are no limitations in the C# syntax to force you to declare the different members of your class in a specific order.
-However, there are some general conventions that C# programmers typically follow:
-
-* Fields are declared first, with constant fields before variable fields.
-* Constructors are declared after fields.
-* Other methods are declared after constructors.
-
-:::note
-These general conventions obviously don't cover every possible case.
-Defining a standard ordering is the subject of much debate amongst programmers, and as you write and read more code you will form strong opinions of your own!
-:::
-
-### Field Declarations
-
-:::tip[Syntax]
-The syntax for a field declaration in a C# class is shown in Figure X.
-
-![Figure X](./images/field-syntax-diagram.png)
-<div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for field declarations</div><br/>
-:::
-
-Hopefully the syntax for declaring a field looks familiar, because it is the same as the syntax for declaring a variable. <!-- TODO: link to variable concept -->
-Typically, we declare our fields at the top of our class definition, and then initialise their values inside the class's constructor.
-
-:::caution[Reminder]
-Remember that **fields** are also called **class variables** -- there is no difference between the two concepts.
-:::
 
 ### Method Declarations
 

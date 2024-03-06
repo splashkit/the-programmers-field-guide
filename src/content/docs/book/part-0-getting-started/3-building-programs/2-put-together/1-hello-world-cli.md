@@ -28,6 +28,27 @@ mkdir HelloWorld
 cd HelloWorld
 ```
 
+:::note
+If using **WSL/Ubuntu**:
+
+- You might need to create a "Documents" folder/directory in your base directory.
+- You can find your base directory in File Explorer by going to the **Linux** drive that has been created alongside your C drive, then go into the "**home**" folder, then you will see a folder with the username you created in the setup steps. This is your base directory in WSL/Ubuntu.
+    <!-- TODO: may need to include image showing this (and double check these steps -->
+
+If using **MSYS2 MINGW64**:
+
+- You will need to adjust the `cd` command slightly from what is shown in the command above, which will look similar to this:
+
+    ```bash
+    cd /c/Users/<your_username>/Documents/Code
+    ```
+
+    where you would replace **<your_username>** with your own username.
+- To check your username, you can use the `whoami` command in your terminal.
+- Shortcut: You can also type `cd ` ("cd", then space), then click and drag a folder from File Explorer into your MSYS2 MINGW64 terminal window.
+
+:::
+
 :::caution[Project Folders]
 
 - For all new programs, you will need to create a new project folder.  

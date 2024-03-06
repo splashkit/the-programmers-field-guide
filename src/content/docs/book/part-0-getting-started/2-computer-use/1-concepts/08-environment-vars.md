@@ -193,7 +193,7 @@ Bash will read the hidden **.bashrc** file from your home directory, while Zsh r
 The *rc* in this case stands for **read command**.
 A terminal's *rc* file is read when you open a new terminal, and the commands within the file are run.
 
-You can edit your terminla's rc file to include any commands you want run when you open a new terminal.
+You can edit your terminal's rc file to include any commands you want run when you open a new terminal.
 
 ```sh
 cd ~
@@ -211,4 +211,8 @@ nano .bashrc # use this line if your shell is Bash
 :::tip
 Try editing your rc file to add a custom message to yourself with the `echo` command.
 Open a new terminal, and you should see your message appear!
+:::
+
+:::caution[Paths in Windows MSYS2]
+While we usually adjust the `~` path for MSYS when finding *our* files. The rc files will be read from your MSYS home, so `~` is correct here.
 :::

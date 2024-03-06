@@ -8,7 +8,10 @@ While this process may differ slightly between languages, the idea is always the
 At this stage, you will be using the C# language, which is part of the open-source [.NET framework](https://dotnet.microsoft.com/en-us/) produced by Microsoft. These tools are free, work cross-platform, and provide us with a great language that we can use to explore programming.
 
 :::note
-You need somewhere to save your projects. In this book, we will assume you are saving things in your **~/Documents/Code** folder. If you are saving your code elsewhere then make sure to adjust paths as needed.
+You need somewhere to save your projects. In this book, we will assume you are saving things in your **~/Documents/Code** folder.  
+If you are saving your code elsewhere then make sure to adjust paths as needed.  
+If you are using **WSL (with Ubuntu)**, you might need to also create a "**Documents**" folder in your base directory, as it isn't created by default.
+
 
 If you haven't created a **Code** folder in your documents, then you will need to do this first.
 Review the `mkdir` command from [manipulating files](../../../2-computer-use/1-concepts/05-manipulating-files/#making-a-directory-mkdir) to do this using the shell.
