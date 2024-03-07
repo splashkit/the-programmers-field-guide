@@ -17,10 +17,9 @@ It is always a good idea to provide a constructor for your classes. You can use 
 ## In C#
 
 :::tip[Syntax]
-The syntax for declaring a constructor in a C# class is shown in Figure X.
+The syntax for declaring a constructor in a C# class is shown below.
 
-![Figure X](./images/constructor-syntax-diagram.png)
-<div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for constructor declarations</div><br/>
+![Syntax for a constructor in C#](./images/constructor-syntax-diagram.png)
 :::
 
 The first thing you might notice is that the syntax is practically identical!
@@ -48,8 +47,8 @@ class Greeting
     private string _message;
 
     /// <summary>
-    /// When constructed, the Greeting needs to be told its initial message. This message can then be
-    /// used to provide greetings at the terminal.
+    /// When constructed, the Greeting needs to be told its initial message.
+    /// This message can then be used to provide greetings at the terminal.
     /// </summary>
     /// <param name="message">the initial version of the message</param>
     public Greeting(string message)
@@ -62,7 +61,7 @@ class Greeting
         WriteLine(_message);
     }
 
-    public void Print(string name)
+    public void Greet(string name)
     {
         WriteLine($"Hello {name}! {_message}");
     }

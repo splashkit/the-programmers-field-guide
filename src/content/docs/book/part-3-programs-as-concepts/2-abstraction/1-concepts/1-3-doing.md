@@ -31,7 +31,7 @@ The syntax for declaring a method in a C# class is shown below. If you look, you
 
 ## Example
 
-We can revisit our `Greeting` class again. Each `Greeting` object will have two `Print` methods, one that just prints the greeting and another version that personalises this with the name of the person it is delivered to. The code for this is highlighted within the class shown below.
+We can revisit our `Greeting` class again. Each `Greeting` object will have a `Print` and a `Greet` method, one that just prints the greeting and another version that personalises this with the name of the person it is delivered to. The code for this is highlighted within the class shown below.
 
 ```cs
 using static System.Console;
@@ -54,11 +54,11 @@ class Greeting
     }
 
     /// <summary>
-    /// The print method outputs the Greeting's message to the Terminal. This version accepts a 
+    /// The Greet method outputs the Greeting's message to the Terminal. This version accepts a 
     /// name parameter that is used to customise the message output.
     /// </summary>
     /// <param name="name">the name of the person receiving the greeting</param>
-    public void Print(string name)
+    public void Greet(string name)
     {
         WriteLine($"Hello {name}! {_message}");
     }

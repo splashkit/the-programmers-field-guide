@@ -9,28 +9,8 @@ Focus on idea that object has an identity
 "new" concept, creating objects but not constructors
 -->
 
-## What is an object?
-
-
-
-<hr class="footnote">
-<div id="FootnoteEntities" class="footnote"><sup>1</sup>In reality there is a little more to it, but we are ✨abstracting✨!</div>
-
 ## Creating objects
 
-You can create an object by calling the relevant class's **constructor**.
-The constructor is a method that does three things:
-
-1. Assigns space in memory for the object.
-2. Executes its instructions.
-3. Returns a reference to the new object's location in memory. <!-- TODO: link to section on reference/value types, and/or pointers? -->
-
-The job of the constructor is to set the object's **initial state**.
-That is, it should make sure that all of the object's fields have a sensible value.
-It can do this by using literal values, values passed in through a parameter, calling constructors (i.e., if the field is of a class type), calling other methods (including methods from the class it is constructing), or a combination.
-
-A constructor is often called as the right hand side of an assignment statement, so that the returned value can be stored in a variable.
-We can then use that variable to ask the object about things it knows, and to do things it can do.
 
 ## Using an object
 
@@ -44,14 +24,6 @@ Any fields accessed through an object act like normal variables, and any methods
 
 ### Calling a constructor
 
-:::tip[Syntax]
-The syntax for calling a constructor in C# is shown in Figure X.
-
-![Figure X](./images/constructor-call-syntax-diagram.png)
-<div class="caption"><span class="caption-figure-nbr">Figure X: </span>The syntax for calling a constructor</div><br/>
-:::
-
-In C# every object is created using the keyword `new`, followed by the class name, then any arguments expected by the class's constructor.
 
 ### Accessing a class field
 

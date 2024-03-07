@@ -61,7 +61,7 @@ class Greeting
         WriteLine(_message);
     }
 
-    public void Print(string name)
+    public void Greet(string name)
     {
         WriteLine($"Hello {name}! {_message}");
     }
