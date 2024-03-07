@@ -27,3 +27,15 @@ Because a class is only a blueprint that describes responsibilities, and the var
 :::tip
 At the moment, the main thing to get from this is that each class has a defined purpose. It is a clearly identifiable *thing* in your digital reality. You should be able to picture these *objects* existing, and their responsibilities should be coherent with the abstraction you are trying to create.
 :::
+
+## Example
+
+In our updated Hello World program, we have identified the need for an object to play the role of a "Greeting". The "Greeting" objects will have a few responsibilities, which can be captured in a Greeting class.
+
+Greeting objects will have responsibilities to:
+
+* ...know a message (a string).
+* ...be constructed with an initial value for its message.
+* ...print their message.
+* ...print a personalised version of the greeting that contains the text "Hello", a name (passed in as an argument) and the value of message.
+* ...provide access to read and change the value of their message.

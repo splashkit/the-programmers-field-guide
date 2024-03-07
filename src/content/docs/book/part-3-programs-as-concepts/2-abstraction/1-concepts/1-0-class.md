@@ -53,3 +53,54 @@ However, there are some general conventions that C# programmers typically follow
 These general conventions obviously don't cover every possible case.
 Defining a standard ordering is the subject of much debate amongst programmers, and as you write and read more code you will form strong opinions of your own!
 :::
+
+## Example
+
+The following code declares a `Greeting` class that will let us build a more object-oriented version of the "Hello World" program. This class is responsible for knowing a greeting, and being able to deliver that to the user via the Terminal.
+
+```cs
+using static System.Console;
+
+/// <summary>
+/// A Greeting captures a message that can be delivered to a recipient in the Terminal.
+/// </summary>
+class Greeting
+{
+    private string _message;
+
+    public Greeting(string message)
+    {
+        _message = message;
+    }
+
+    public void Print()
+    {
+        WriteLine(_message);
+    }
+
+    public void Print(string name)
+    {
+        WriteLine($"Hello {name}! {_message}");
+    }
+
+    public string Message
+    {
+        get
+        {
+            return _message;
+        }
+        set
+        {
+            _message = value;
+        }
+    }
+}
+```
+
+:::note
+We can see a few C# conventions in this example:
+
+* Class names are written in PascalCase
+
+:::
+

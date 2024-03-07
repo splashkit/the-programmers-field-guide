@@ -15,9 +15,11 @@ As we saw with [member functions](../../../../part-2-organised-code/7-member-fun
 That means a field can be accessed and modified (assuming it is not constant) within any of the methods in the same class.
 This is one of the concepts that makes classes powerful, as it allows us to share data between methods without needing to see these as parameters.
 
-## Knowing Responsibilities: Why, When, and How
+## Knowing: Why, When, and How
 
 When you think of a role, objects that play this role will need to know things in order to fulfil their responsibilities. These are your knowing responsibilities for the role and define the fields you would create within the class.
+
+For example, an object-oriented version of the Fly Catch game would have Fly objects. These will know if they are on the web at the moment, where they are on the screen, when they appeared, and when they should escape. This knowledge will let the fly behave in a way that we want.
 
 ## In C#
 
@@ -34,3 +36,55 @@ Typically, we declare our fields at the top of our class definition, and then in
 :::caution[Reminder]
 Remember that **fields** are also called **instance variables** -- there is no difference between the two concepts.
 :::
+
+## Example
+
+If we revisit our `Greeting` class, we can see that it has one `_message` field. This is coded as a `string` field within the class as shown below.
+
+```cs
+using static System.Console;
+
+class Greeting
+{
+    /// <summary>
+    /// Each Greeting knows its message, and can use this when it prints the greeting.
+    /// </summary>
+    private string _message;
+
+    public Greeting(string message)
+    {
+        _message = message;
+    }
+
+    public void Print()
+    {
+        WriteLine(_message);
+    }
+
+    public void Print(string name)
+    {
+        WriteLine($"Hello {name}! {_message}");
+    }
+
+    public string Message
+    {
+        get
+        {
+            return _message;
+        }
+        set
+        {
+            _message = value;
+        }
+    }
+}
+```
+
+:::note
+We can see a few C# conventions in this example:
+
+* Private field names start with an underscore.
+* Each class member is separated by a blank line.
+
+:::
+
