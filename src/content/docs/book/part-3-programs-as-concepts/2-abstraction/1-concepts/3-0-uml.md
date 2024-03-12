@@ -14,4 +14,6 @@ Within the diagram you can add annotations using stereotypes - the text within `
 
 ## UML Class Diagram: Why, When, and How
 
+Class diagrams are a great way to think about and communicate the abstractions you are building within your program. When you start a new project you can quickly capture ideas and flesh out the design of your program using these diagrams. They provide enough detail that you can start to see how the classes work, but take much less time than writing up the code. This means you can check that your design works, rapidly changing the structure and allocation of responsibilities as you test different design options.
 
+Once you have a design chosen, you then have the diagrams to help guide the code writing activities. This is where you get into looking at the lower level programming details we covered in Parts 1 and 2.
