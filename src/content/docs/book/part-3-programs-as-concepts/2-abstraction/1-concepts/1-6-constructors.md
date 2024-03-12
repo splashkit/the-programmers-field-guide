@@ -14,6 +14,8 @@ We briefly explored the idea of [constructors](../../../../part-2-organised-code
 
 It is always a good idea to provide a constructor for your classes. You can use this to initialise all the fields to reasonable values. You can also add parameters to your constructor, allowing the caller to provide values into the constructor when the object is created.
 
+A constructor with no parameters is known as the **default constructor** as this constructor is called when no arguments are passed in to the respective `new` call.
+
 ## In C#
 
 :::tip[Syntax]
