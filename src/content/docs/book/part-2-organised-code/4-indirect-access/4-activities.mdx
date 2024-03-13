@@ -1,0 +1,59 @@
+---
+title: Activities
+---
+
+import { YouTube } from 'astro-embed';
+
+## Test Your Knowledge
+
+### Store POS -- Altering Products
+
+<div class="not-content">
+  <YouTube id="gaENQy7QFBc" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+Now that we can pass by reference we are able to edit existing data. Here we will use this tool to allow users to update a product's details.
+
+For this iteration, your program should:
+
+- Have an "Alter Product" screen which allows the user to re-enter the details of the last entered product.
+
+### Dotifin -- Altering Songs
+
+<div class="not-content">
+  <YouTube id="E9rxNCU_Etc" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+Now that we can pass by reference we can add some functionality to Dotifin to let users edit existing data. Here we will allow users to edit the currently loaded song, and update the listen counts.
+
+For this iteration, your program should:
+
+- Have an "Alter Song" screen which allows the user to edit the details of the currently loaded song.
+- Allow users to change the number of listens for a song, and total number of listens in `Dotifin`.
+
+### RPG -- Moving the NPC
+
+<div class="not-content">
+  <YouTube id="1xUip_MlD5g" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+Now that we know how to pass by reference, we can break up the main function in our game code. We can also add some more functionality to our NPC.
+
+For this iteration, your program should:
+
+- Have a `Target` struct which has:
+  - a position (X and Y)
+- Include new data in the `NPC` struct:
+  - a `Target` (can initially be set to (0, 0))
+  - a movement speed
+- Move the NPC towards a randomly selected target location on the screen.
+- Give the NPC a new random target location when it reaches its current target.
+- Have a simplified main function which calls other procedures and functions instead of directly containing many lines of logic.
+
+To make these changes, you will need to implement the following procedures:
+
+| <div style='width:180px'>Name</div> | <div style='width:170px'>Parameters</div> | Purpose |
+|------|------------|---------|
+| `set_new_random_target` | a reference to a `NPC` | change the location of the NPC's `Target` to a random position on the screen |
+| `move_npc` | a reference to a `NPC` | move the NPC towards its current target. If the target is reached, set a new random target location |
+| `tick` | a reference to a `Game` | run a single iteration of the game loop |
