@@ -32,7 +32,7 @@ The logic for this looks like this:
 
 For this we are using a [while](../../1-concepts/04-1-while-loop) loop, as we have different messages based on valid and invalid data entry. The loop will need to test if the line entered by the user is **not** an integer, and repeat the code when that is true.
 
-In order to do this, we will need to use the `IsInteger` method from SplashKit. The method that C# uses is a little more involved, so we will come back to that later. For now, the SplashKit method will meet our needs. As both SplashKit and Console provide ReadLine and WriteLine methods, we should switch the using statement in our program to use the `SwinGameSDK.SwinGame` library.
+In order to do this, we will need to use the `IsInteger` method from SplashKit. The method that C# uses is a little more involved, so we will come back to that later. For now, the SplashKit method will meet our needs. As both SplashKit and Console provide ReadLine and WriteLine methods, we should switch the using statement in our program to use the `SplashKitSDK.SplashKit` library.
 
 The pseudocode for this logic would be:
 
@@ -55,7 +55,7 @@ Remember to using the `using` directives at the top of your program so you have 
 
 ```csharp
 // using static System.Console;
-using static SwinGameSDK.SwinGame;
+using static SplashKitSDK.SplashKit;
 using static System.Convert;
 ```
 
