@@ -2,7 +2,7 @@
 title: Light Simulator
 ---
 
-Below is my version of the code for the light simulator.
+Below is my version of the code for the light simulator. I have used [Auto-Implemented Properties](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/auto-implemented-properties) for X and Y as we do not need special control over these fields.
 
 ```cs
 using SplashKitSDK;
