@@ -23,7 +23,7 @@ Related to these are some other shell commands:
 | Read input        |`read`       | Read user input into the `$REPLY` environment variable. |
 | List jobs         |`jobs`       | List the programs that are currently suspended or running in the background. |
 | Run in background |`bg`         | Move a program to run in the background. Specify the program with an argument, or by default the last suspended program will be used. |
-| Run in foreground |`fg`         | Move a program to run in the background. Specify the program with an argument, or by default the last suspended program will be used. |
+| Run in foreground |`fg`         | Move a program to run in the foreground. Specify the program with an argument, or by default the last suspended program will be used. |
 
 ## Killing a program (`ctrl-c`)
 
