@@ -830,7 +830,12 @@ export default defineConfig({
                 },
                 {
                   label: "Putting it Together",
-                  link: "book/part-3-programs-as-concepts/2-abstraction/2-put-together",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/2-abstraction/2-put-together",
+                    collapsed: true,
+                  },
                 },
                 {
                   label: "Other Languages",
@@ -839,6 +844,15 @@ export default defineConfig({
                 {
                   label: "Activities",
                   link: "book/part-3-programs-as-concepts/2-abstraction/4-activities",
+                },
+                {
+                  label: "Wrap Up",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/2-abstraction/5-wrap-up",
+                    collapsed: true,
+                  },
                 },
               ],
             },

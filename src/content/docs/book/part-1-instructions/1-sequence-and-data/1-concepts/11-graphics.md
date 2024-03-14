@@ -137,7 +137,7 @@ SplashKit organises these files in a **Resources** folder containing sub-folders
 To draw an image:
 
 1. Copy the image into the **Resources/images** folder.
-2. Load the image in your code using `LoadImage`.
+2. Load the image in your code using `LoadBitmap`.
 3. Draw the image using its name in `DrawBitmap`.
 
 The following code shows how you might follow these steps in a simple program.

@@ -152,6 +152,10 @@ pwd
 # This will output > /home/multitool (if you are using the username multitool)
 ```
 
+:::caution[Paths in Windows MSYS2]
+Remember that in MSYS2 the `~` shortcut will refer to your *home* folder in MSYS, not your Windows home folder. Unfortunately in MSYS2 you will need to use `/c/Users/<username>` anywhere you see `~` being used in shell commands.
+:::
+
 ### Parent Folders (`..`)
 
 *How can you move to the parent of the current?*

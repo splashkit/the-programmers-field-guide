@@ -141,6 +141,35 @@ export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/
 EOF
 ```
 
+And make sure you have put the **Visual Studio Code** app into the Applications folder.
+
+### Issues creating Ubuntu user account
+
+If you have issues with the WSL (with **Ubuntu**) installation, such as:
+
+- No window pops up after restarting your computer (after running the `wsl --install` command)
+- You accidentally closed the Ubuntu window before it finished
+- You made a mistake when creating your username or password
+- You get an error that might look similar to this:
+
+    ![Image showing WSL terminal with ubuntu user account set up error](./images/setup-windows/unbuntu-wsl-reinstall-issue.png)
+
+Then you can reset the Ubuntu user account with the following steps:
+
+1. Open a **Powershell** Terminal window.
+2. Run the following command to reset the Ubuntu setup:
+
+    ```bash
+    wsl --unregister Ubuntu
+    ```
+
+3. Close any Terminal/Powershell windows.
+4. Open the Ubuntu app (search in the start menu)
+
+This should then open a Terminal window that will start ***Installing Ubuntu*** again, and then you can set up your username and password again.
+
+If you still have issues, try uninstalling Ubuntu and WSL and then run the `wsl --install` command again.
+
 ### macOS version pre-12.0
 
 If you are using an older macOS version (pre version 12.0), you will likely encounter issues when trying to compile and run SplashKit programs.

@@ -34,6 +34,19 @@ cd ./HelloWorld
 
 You can pass `mkdir` a number of folders to create, and there is a `-p` option to automate the creation of parent folders.
 
+
+:::caution[Paths in Windows MSYS2]
+Remember to adjust the path to your Documents' folder if you are using MSYS2 on Windows. You will need to change `~/Documents/Code` to be something line `/c/Users/andrew/Documents/Code` - where you need to change `andrew` to match your username. In each case you will need to change `~` to be `/c/Users/<username>`.
+
+For me, the first steps of the above will become:
+
+```sh
+mkdir /c/Users/andrew/Documents/Code
+cd /c/Users/andrew/Documents/Code
+```
+
+:::
+
 :::tip[Call?]
 **Call** is the term we use to describe running a command. So we can describe `mkdir HelloWorld` as **calling mkdir**.
 :::
