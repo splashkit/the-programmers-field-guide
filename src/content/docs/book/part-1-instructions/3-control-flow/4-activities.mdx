@@ -39,9 +39,9 @@ In this task, it is up to you to create a program which allows the user to play 
 
 The following SplashKit methods might be useful for this program:
 
-- `MusicPlaying()`
-- `HasMusic()`
-- `TerminalHasInput()`
+- [MusicPlaying()](https://splashkit.io/api/audio/#music-playing)
+- [HasMusic()](https://splashkit.io/api/audio/#has-music)
+- [TerminalHasInput()](https://splashkit.io/api/terminal/#terminal-has-input)
 
 Your program should:
 
@@ -68,9 +68,9 @@ To make things more interesting, the ball should also be affected by "gravity", 
 
 The following SplashKit methods might be useful for this program:
 
-- `ProcessEvents()`
-- `MouseDown()`
-- `TriangleRectangleIntersect()`
+- [ProcessEvents()](https://splashkit.io/api/input/#process-events)
+- [MouseDown()](https://splashkit.io/api/input/#mouse-down)
+- [TriangleRectangleIntersect()](https://splashkit.io/api/geometry/#triangle-rectangle-intersect)
 
 Your program should:
 
@@ -81,3 +81,9 @@ Your program should:
   - Once the ball is moving, it should be affected by "gravity" (i.e., some downwards force).
   - If the ball hits the edge of the screen, place the ball back at its initial position and let the player fire again.
 - Clear the screen once the ball overlaps with the goal and tell the player they have won.
+
+Hints:
+
+- To calculate which direction you want to fire the ball in, find the difference between the Target positions and the Ball Positions. You can use the [Line From](https://splashkit.io/api/geometry/#line-from--4) function!
+- To increase the power based on how far the mouse click is away from the ball, take the magnitude (length) of this line using [Line Length](https://splashkit.io/api/geometry/#line-length) function!
+- To have the ball affected by gravity, you should subtract some gravity value (9.81f) from the Ball's Y Speed every loop.
