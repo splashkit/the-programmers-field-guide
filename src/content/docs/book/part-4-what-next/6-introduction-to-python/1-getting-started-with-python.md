@@ -6,7 +6,7 @@ Python stands out for its simplicity and readability, making it an excellent sta
 
 To begin writing Python code, you'll need to install Python, set up your development environment, and run your first Python script.
 
-# Install Python
+## Install Python
 
 Python installation is straightforward. While macOS and Linux usually come with Python pre-installed, Windows will require manual installation unless you've done so previously. No matter what operating system you use, it's a good habit to ensure you're using the latest version:
 
@@ -14,7 +14,7 @@ Python installation is straightforward. While macOS and Linux usually come with 
 1. Run the installer. If you're on Windows, make sure to select the "Add Python to PATH" checkbox to make Python accessible from the command line.
 1. Verify the installation by opening a command prompt or terminal and typing `python --version`.
 
-## Install Python Extensions in VS Code
+### Install Python Extensions in VS Code
 
 To enhance your Python development experience, you can install Python extensions in Visual Studio Code (VS Code). These extensions provide additional features and tools for writing, debugging, and testing Python code.
 
@@ -143,7 +143,7 @@ print(f"Sum: {sum}, Diff: {diff}, Result: {result}")
 
 This is just a basic overview to get you started, we will go more in depth later on.
 
-# Create and Test Functions
+## Create and Test Functions
 
 Start with basic functions to get a feel for Python syntax and functionality:
 
@@ -158,7 +158,7 @@ print(f"The result is {result}")
 >>> The result is 7
 ```
 
-# Running Your Application
+## Running Your Application
 
 Execute your Python script in VS Code by right-clicking the editor and selecting `Run Python File` or using the shortcut `Ctrl+F5` (Windows/Linux) or `Cmd+F5` (macOS). The output will appear in the integrated terminal, marking your first successful Python code execution in VS Code.
 
