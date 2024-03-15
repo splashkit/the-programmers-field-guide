@@ -45,4 +45,4 @@ WriteLine($"After count += 5... count is now {count}");
 // v v
 count++;
 
-WriteLine($"After count += 5... count is now {count}");
+WriteLine($"After count++ 5... count is now {count}");
