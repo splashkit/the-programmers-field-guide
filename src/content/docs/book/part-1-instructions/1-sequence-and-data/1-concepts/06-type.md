@@ -109,26 +109,47 @@ You can use mathematical operators to work with values in your code. The followi
 | Real Numbers     | `( ) + - / *`        |  
 | Text             | `( ) +`              |
 
+### Type Conversions
+
+You will occasionally need to convert data between different data types. A common example of this is how we will handle user input. When the user enters data at the terminal it will come into the program as text. So if the user enters 3 and then 2, it will come into the program as "32" - a string. This makes sense as the user can type any characters at the terminal. But what if you want that as an integer?
+
+To help achieve this programming languages provide utility methods that will allow you to convert between different types. In C#, `System.Convert` provides many methods you can use (see details on the [.net site](https://learn.microsoft.com/en-us/dotnet/api/system.convert?view=net-8.0#methods)). The main ones that we will use are:
+
+- `ToInt32` - this can convert a `string` to an `int`.
+- `ToDouble` - this can convert a `string` to a `double`.
+
+For example, `ToInt32("73")` will give you the integer 73 as its result. Similarly, `ToDouble("73")` would give you the double `73.0`. Note that these will cause the program to crash if the data is not in the right format, we will look later at how to deal with this. For the moment, make sure you enter the data in the expected format.
+
+SplashKit also provides convenient helper methods for this:
+
+- [ConvertToInteger](https://splashkit.io/api/utilities/#convert-to-integer) - can be used to convert a string to an integer.
+- [ConvertToDouble](https://splashkit.io/api/utilities/#convert-to-double) - can be used to convert a string to a double.
+
+For simple conversions, mostly between different number formats, languages usually also provide an alternate option called **type casting**. With this you can ask the language to reinterpret data in a new format. This is achieved by placing the type within brackets (parenthesis) before the value to be converted. For example, `(int)73.5` will give you the integer 70.
+
 ## Example
 
 Let's revisit our table of example expressions, this time adding another column to show what data type each expression is.
 
 | **Example Expression**    | **Value**                               | **Type** |
 |---------------------------|-----------------------------------------|----------|
-| 73                        | 73                                      |  int     |
-| 2.1                       | 2.1                                     |  double  |
-| "Hello World"             | "Hello World"                           |  string  |
-| "Fred"                    | "Fred"                                  |  string  |
-| 3 * 2                     | 6                                       |  int     |
-| 1 + 3 * 2                 | 7                                       |  int     |
-| (1 + 3) * 2               | 8                                       |  int     |
-| 7 - 3 + 1                 | 5                                       |  int     |
-| 3 / 2                     | 1                                       |  int     |
-| 3.0 / 2.0                 | 1.5                                     |  double  |
-| 3 % 2                     | 1                                       |  int     |
-| 11 % 3                    | 2                                       |  int     |
-| 3 / 2.0                   | 1.5                                     |  double  |
-| 1 + (3 / 2.0) + 6 * 2 - 8 | 6.5                                     |  double  |
+| `73`                        | 73                                      |  int     |
+| `2.1`                       | 2.1                                     |  double  |
+| `"Hello World"`             | "Hello World"                           |  string  |
+| `"Fred"`                    | "Fred"                                  |  string  |
+| `3 * 2`                     | 6                                       |  int     |
+| `1 + 3 * 2`                 | 7                                       |  int     |
+| `(1 + 3) * 2`               | 8                                       |  int     |
+| `7 - 3 + 1`                 | 5                                       |  int     |
+| `3 / 2`                     | 1                                       |  int     |
+| `3.0 / 2.0`                 | 1.5                                     |  double  |
+| `3 % 2`                     | 1                                       |  int     |
+| `11 % 3`                    | 2                                       |  int     |
+| `3 / 2.0`                   | 1.5                                     |  double  |
+| `1 + (3 / 2.0) + 6 * 2 - 8` | 6.5                                     |  double  |
+| `ToInt32("81")` | 81                                     |  int  |
+| `ToDouble("27.5")` | 27.5                                     |  double  |
+| `(int)27.5` | 27                                     |  int  |
 
 ## Activities
 
