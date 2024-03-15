@@ -1288,6 +1288,22 @@ export default defineConfig({
                 },
               ],
             },
+            {
+              label: "6. Introduction To Python",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-4-what-next/6-introduction-to-python/0-overview",
+                },
+                {
+                  label: "Getting Started",
+                  collapsed: true,
+                  link:
+                    "book/part-4-what-next/6-introduction-to-python/1-getting-started",
+                },
+              ],
+            },
           ],
         },
       ],
