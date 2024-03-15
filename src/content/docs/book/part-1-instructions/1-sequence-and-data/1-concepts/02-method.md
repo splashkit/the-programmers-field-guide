@@ -50,6 +50,7 @@ We can make use of the following methods to interact with the user in the termin
 | <div style="width:85px">**Method**</div> | **Required Arguments** | **Description** | <div style="width:130px">**Library Location**</div> |
 |------------|------------------------|-----------------|----------------------|
 |`WriteLine`| data to output | Writes a line of data to the terminal via standard out. | `System.Console` or `SplashKitSDK.SplashKit` |
+|`Write`| data to output | Writes data to the terminal via standard out - this does not add a new line at the end. The cursor will stay on the same line and the next data out put will appear there. | `System.Console` or `SplashKitSDK.SplashKit` |
 |`ReadLine`| none | Reads a line of data from standard input and returns it for you to use. | `System.Console` or `SplashKitSDK.SplashKit` |
 
 The following are some example methods from the SplashKit library. All of these are available in `SplashKitSDK.SplashKit`.
