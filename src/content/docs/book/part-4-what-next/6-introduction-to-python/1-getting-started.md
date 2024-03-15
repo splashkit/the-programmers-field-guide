@@ -2,7 +2,7 @@
 title: Getting Started
 ---
 
-Python stands out for its simplicity and readability, making it an excellent starting point for those new to programming and a powerful tool for experienced developers. With its vast community support and popularity across various fields, Python is particularly well-suited for applications in web development, data science, artificial intelligence, and, importantly for this course, networking. Its straightforward syntax and the availability of powerful libraries like `socket` and `requests` simplify network programming tasks.
+Python stands out for its simplicity and readability, making it an excellent starting point for those new to programming and a powerful tool for experienced developers. With its vast community support and popularity across various fields, Python is particularly well-suited for applications in web development, data science, artificial intelligence and networking.
 
 To begin writing Python code, you'll need to install Python, set up your development environment, and run your first Python script.
 
