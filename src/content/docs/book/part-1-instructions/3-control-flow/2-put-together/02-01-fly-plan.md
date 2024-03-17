@@ -13,7 +13,7 @@ The other features we can work out along the way.
 
 ## Feature Plan
 
-The key features are the spider, fly, event loop, and timer.
+The key features are the spider, fly, event loop, and time.
 
 ### The Spider
 

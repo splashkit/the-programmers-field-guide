@@ -309,7 +309,7 @@ When planning to use a while loop, you first need to determine the condition tha
 You then want to make sure that something in the loop will change the condition so that there is a definite end to the loop. This could be reading a value from the user, or re-checking which events have occurred.
 
 :::caution
-At some point you will end up with an unexpected infinite loop. In these cases, you need to remember the details on how to [signal](../../../../part-0-getting-started/2-computer-use/1-concepts/08-signals) the operating system. You can use the ctrl-c to [kill](../../../../part-0-getting-started/2-computer-use/1-concepts/08-signals#killing-a-program-ctrl-c) the program.
+At some point you will end up with an unexpected infinite loop. In these cases, you need to remember the details on how to [signal](../../../../part-0-getting-started/2-computer-use/1-concepts/10-signals) the operating system. You can use the ctrl-c to [kill](../../../../part-0-getting-started/2-computer-use/1-concepts/10-signals#killing-a-program-ctrl-c) the program.
 :::
 
 At a lower level, the while loop is achieved using two jump statements:
@@ -376,7 +376,7 @@ Use the following images to see how this runs.
 
 Now let's look at how we can use a while loop to keep a window open in SplashKit. In this case, we can use the `QuitRequested` method from SplashKit to find out if the user has asked to quit the program by closing the SplashKit window on their screen. `QuitRequested` will return `false` if the user has not asked to quit, so we need to loop **while** quit is **not** requested. Remember, in C# we use `!` for "not", giving us a condition `!QuitRequested()` for our loop.
 
-Within the loop, we need to tell SplashKit to respond to any events the user has performed. This is achieved with the `ProcessEvents()` method. It reads things like key presses, mouse movements, and window closes, and retains this information so that you can access it using other methods. In this case, it will record if the user has asked to quit, and we're accessing this information when we call `QuitRequested` in the condition. If you forget to add the call to `ProcessEvents` then you will not be able to close the window. In these cases, switch to the terminal and kill the program with [ctrl-c](../../../../part-0-getting-started/2-computer-use/1-concepts/08-signals).
+Within the loop, we need to tell SplashKit to respond to any events the user has performed. This is achieved with the `ProcessEvents()` method. It reads things like key presses, mouse movements, and window closes, and retains this information so that you can access it using other methods. In this case, it will record if the user has asked to quit, and we're accessing this information when we call `QuitRequested` in the condition. If you forget to add the call to `ProcessEvents` then you will not be able to close the window. In these cases, switch to the terminal and kill the program with [ctrl-c](../../../../part-0-getting-started/2-computer-use/1-concepts/10-signals).
 
 ```csharp
 using static SplashKitSDK.SplashKit;
