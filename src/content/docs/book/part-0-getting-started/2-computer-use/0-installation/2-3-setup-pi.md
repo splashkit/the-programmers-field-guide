@@ -65,7 +65,7 @@ Follow the steps below to download the recommended Raspberry Pi OS:
 
 Follow the steps below to install the Raspberry Pi OS on the micro SD card:
 
-1. Insert the micro SD card into the Raspberry Pi and power on. (See [Build my Raspberry Pi](./1-0-pi-computer.md) for setup instructions)
+1. Insert the micro SD card into the Raspberry Pi and power on. (See [Build my Raspberry Pi](../2-2-pi-computer) for setup instructions)
 2. On the Welcome screen click next.
 3. Set your country, language and time zone and click next.
 
