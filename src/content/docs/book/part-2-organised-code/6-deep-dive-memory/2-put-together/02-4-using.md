@@ -8,7 +8,7 @@ Now that we have the dynamic array we can start to use it within our projects. I
 
 ## Moving it to a header
 
-In the [structuring code](../../2-organising-code/0-overview) chapter we saw how to use [header files](../../../2-organising-code/1-concepts/04-function-decl/#header-files) to share code we have created. The dynamic array is the perfect example of something that can be shared. If we put this in a header file, then we can include that header in our statistics calculator code and our fly catch code.
+In the [structuring code](../../../2-organising-code/0-overview) chapter we saw how to use [header files](../../../2-organising-code/1-concepts/04-function-decl/#header-files) to share code we have created. The dynamic array is the perfect example of something that can be shared. If we put this in a header file, then we can include that header in our statistics calculator code and our fly catch code.
 
 As this is C++ code, and it won't work in C, we can put this in a file with a **.hpp** extension. This helps indicate that it is C++.
 

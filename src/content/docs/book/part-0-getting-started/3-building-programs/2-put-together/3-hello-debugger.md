@@ -104,7 +104,7 @@ Explore using the step-over button again with the next lines.
 
 :::note
 
-- You might notice some weird things happening with these next lines. Don't worry, it's not a bug! You will learn more about how the SplashKit graphics code works in the [Multimedia Primer](../../../../part-1-instructions/1-sequence-and-data/1-concepts/11-graphics) page in the next part.
+- You might notice some weird things happening with these next lines. Don't worry, it's not a bug! You will learn more about how the SplashKit graphics code works in the [Multimedia Primer](../../../../part-1-instructions/1-sequence-and-data/1-concepts/11-2-graphics) page in the next part.
 - The **step-into** and **step-out** buttons won't perform properly with this code, so you can ignore these buttons till you get to [Part 2](../../../../part-2-organised-code/00-part-2-programs-as-organised-code/).
 
 :::

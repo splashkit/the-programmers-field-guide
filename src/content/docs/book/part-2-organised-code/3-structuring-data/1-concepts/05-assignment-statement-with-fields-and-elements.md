@@ -55,12 +55,12 @@ value, with the different fields giving you different interpretations of that da
 :::note
 
 - The four examples from [Figure x.y](#FigureAssignmentUnion) show the following:
-  1. You can assign a value to the fields of a [Union](../03-type-declaration#union). This overrides any value currently
+  1. You can assign a value to the fields of a [Union](../03-05-union). This overrides any value currently
 stored in the Variable.
   2. It is possible to copy an entire Union value in the assignment.
-  3. This works in the same way with arrays, you can write a value to a [Union](../03-type-declaration#union). 
+  3. This works in the same way with arrays, you can write a value to a [Union](../03-05-union).
   4. You can also copy an existing union value into an element.
-- When accessing the data in a Union you are responsible for ensuring you read back the value you stored as it does not remember the kind of value you stored in the union.- 
+- When accessing the data in a Union you are responsible for ensuring you read back the value you stored as it does not remember the kind of value you stored in the union.
 
 :::
 

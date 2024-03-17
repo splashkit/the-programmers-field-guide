@@ -92,4 +92,4 @@ Our own *Programmer's Field Guide* setup guide coming soon...
 
 ## 3. Setup Debian OS
 
-Once you have set up your virtual machine with Debian, you can follow the installation steps on the [Set up my Linux Box](../2-2-setup-linux) page to finish setting up your virtual machine.
+Once you have set up your virtual machine with Debian, you can follow the installation steps on the [Set up my Linux Box](../2-0-setup-linux) page to finish setting up your virtual machine.

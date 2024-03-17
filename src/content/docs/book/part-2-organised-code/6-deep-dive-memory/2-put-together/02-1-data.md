@@ -20,13 +20,13 @@ Before we can write any functionality we need to get the data structure in place
 
 The `@tparam` indicates that you will have a type parameter named `T`. Headerdoc doesn't actually contain tags for fields, but we can still use these to indicate the elements that we need in the struct.
 
-Once you add this in, wait for the suggestion and check to make sure that it looks right. 
+Once you add this in, wait for the suggestion and check to make sure that it looks right.
 
 :::tip
 
 You want to make sure you have:
 
-- A template that declares `T` as a `typename`. See [generics](../../1-concepts/06-generics).
+- A template that declares `T` as a `typename`. See [generics](../../1-concepts/07-generics).
 - A `struct` called `dynamic_array`.
 - The required three fields
 
