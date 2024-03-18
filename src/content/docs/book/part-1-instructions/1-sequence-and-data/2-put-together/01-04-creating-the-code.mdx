@@ -3,10 +3,15 @@ title: Writing the Code
 sidebar:
   label: " - Writing the Code"
 ---
+import { YouTube } from 'astro-embed';
 
 :::note
 Your goal in this stage is to convert your ideas (in this case the pseudocode we have provided) into C# code. This is the coding side of programming.
 :::
+
+<div class="not-content">
+  <YouTube id="aBBO5mpbhHM" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
 
 The pseudocode shows the instructions we need to get this program working. At this stage these instructions need to be translated into source code, so that they can be compiled and the resulting program tested.
 
@@ -22,6 +27,66 @@ The next chapter, [Communicating Syntax](../../../2-communicating-syntax/0-overv
 5. Look up any related rules that are not explained on this rule's page.
 
 :::
+
+## The Pseudocode Plan
+
+Over the last few pages we have worked through fleshing out our plan for the program, and we have captured it in the following pseudocode. In this page we can now turn this plan into code.
+
+```txt
+Constants:
+    TWO_DOLLARS = 200;
+    ONE_DOLLAR = 100;
+    FIFTY_CENTS = 50;
+    TWENTY_CENTS = 20;
+    TEN_CENTS = 10;
+    FIVE_CENTS = 5;
+
+Variables:
+    costOfItem - integer
+    amountPaid - integer
+    changeValue - integer
+    toGive - integer
+
+Steps:
+    Get the details from the user.
+        Get the cost (store in costOfItem)
+        Get the amount paid (store in amountPaid)
+    Calculate the amount of change to provide
+        (changeValue = amountPaid - costOfItem)
+    Give change
+        Give $2 coins
+            Calculate the number of $2 coins to give
+                (toGive = changeValue / TWO_DOLLARS)
+            Update the amount of change remaining to give
+                (changeValue = changeValue - toGive * TWO_DOLLARS)
+            Output the number of $2 coins to give - using Write
+
+        Give $1 coins (as with $2 above but with ONE_DOLLAR)
+            Calculate the number of $1 coins to give
+            Update the amount of change remaining to give
+            Output the number of $1 coins to give - using Write
+
+        Give 50c coins (...)
+            Calculate the number of 50c coins to give
+            Update the amount of change remaining to give
+            Output the number of 50c coins to give - using Write
+
+        Give 20c coins
+            Calculate the number of 20c coins to give
+            Update the amount of change remaining to give
+            Output the number of 20c coins to give - using Write
+
+        Give 10c coins
+            Calculate the number of 10c coins to give
+            Update the amount of change remaining to give
+            Output the number of 10c coins to give - using Write
+
+        Give 5c coins
+            Calculate the number of 5c coins to give
+            Update the amount of change remaining to give
+            Output the number of 5c coins to give - using Write
+```
+
 
 ## Start your project
 

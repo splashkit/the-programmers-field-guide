@@ -36,9 +36,11 @@ The game will run on an event loop. This loop can check for events like user int
 - Is it time for the fly to appear? Show the fly.
 - Is it time for the fly to escape? Hide the fly.
 
+Have a look at the details on how to code the event loop on the [while loop page](/book/part-1-instructions/3-control-flow/1-concepts/04-1-while-loop/#event-loops---dynamic-graphical-programs).
+
 ### Time
 
-We will need code to track how much time has elapsed. You can get the current time (an integer) using the `CurrentTime` method in SplashKit.
+We will need code to track how much time has elapsed. You get the number of milliseconds (as a `long` - which is a 64bit integer) that have passed since the program started using the `CurrentTicks` method in SplashKit.
 
 We can use an `appearAt` variable to track the time when the fly should appear. This can start as the current time plus a random amount of time. When the current time is larger than the `appearAt` time, we toggle the `appeared` variable and give the fly a random location on the screen.
 

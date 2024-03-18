@@ -64,7 +64,7 @@ The following flowchart illustrates where the **handle input** step would go in 
 
 This can be represented in the pseudocode as follows:
 
-```
+```txt
 Constants:
     SCREEN_WIDTH = 800
     SCREEN_HEIGHT =  600
@@ -116,34 +116,6 @@ Steps:
 ```
 
 Try coding this and test that the spider now only moves when you press the right arrow key.
-
-:::note[Key Codes]
-SplashKit provides a list of key codes in a `KeyCode` type, which provides a list of values you can choose from. You should be able to see these in VS Code using its IntelliSense.
-
-The main options include:
-
-||||||
-|--|--|--|--|--|
-| BackspaceKey | TabKey | ReturnKey | EscapeKey | SpaceKey |
-| Num0Key | Num1Key | Num2Key | Num3Key | Num4Key |
-| Num5Key | Num6Key | Num7Key | Num8Key | Num9Key |
-| ColonKey | SemiColonKey | AKey | BKey | CKey |
-| DKey | EKey | FKey | GKey | HKey |
-| IKey | JKey | KKey | LKey | MKey |
-| NKey | OKey | PKey | QKey | RKey |
-| SKey | TKey | UKey | VKey | WKey |
-| XKey | YKey | ZKey | DeleteKey | Keypad0 |
-| Keypad1 | Keypad2 | Keypad3 | Keypad4 | Keypad5 |
-| Keypad6 | Keypad7 | Keypad8 | Keypad9 | KeypadPeriod |
-| KeypadDivide | KeypadMultiply | KeypadMinus | KeypadPlus | KeypadEnter |
-| KeypadEquals | UpKey | DownKey | RightKey | LeftKey |
-| InsertKey | HomeKey | EndKey | PageUpKey | PageDownKey |
-| F1Key | F2Key | F3Key | F4Key | F5Key |
-| F6Key | F7Key | F8Key | F9Key | F10Key |
-| F11Key | F12Key | F13Key | F14Key | F15Key |
-| RightShiftKey | LeftShiftKey | RightCtrlKey | LeftCtrlKey | RightAltKey |
-| LeftAltKey | LeftSuperKey | RightSuperKey | | |
-:::
 
 ### Controlling Speed
 

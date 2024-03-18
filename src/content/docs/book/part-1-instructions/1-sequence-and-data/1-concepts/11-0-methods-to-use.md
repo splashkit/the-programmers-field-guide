@@ -21,7 +21,7 @@ The above image helps show the components of a method declaration. The key parts
 
 The following code snippets show example method declarations.
 
-In the  details of the [Console code](https://learn.microsoft.com/en-us/dotnet/api/system.console.writeline?view=net-8.0#system-console-writeline(system-string)) in the .NET documentation, there is the following documentation to show one of the `WriteLine` methods.
+In the details of the [Console code](https://learn.microsoft.com/en-us/dotnet/api/system.console.writeline?view=net-8.0#system-console-writeline(system-string)) in the .NET documentation, there is the following documentation to show one of the `WriteLine` methods.
 
 ```cs
 public static void WriteLine (string? value);
