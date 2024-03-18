@@ -24,7 +24,7 @@ namespace MyProject
 Let's have a look at this line by line:
 
 - `namespace MyProject`: C# programs have their code organised into [namespaces](../2-namespace). This code creates a namespace called `MyProject` that can be used to contain the code for the project. The following block (`{...}`) defines the scope of the namespace.
-- `public class MyProgram`: This declares a class within the `MyProject` namespace. We will look at [classes](../../../2-abstraction/1-concepts/1-classes-and-responsibilities) in the next chapter.
+- `public class MyProgram`: This declares a class within the `MyProject` namespace. We will look at [classes](../../../2-abstraction/1-concepts/1-0-class) in the next chapter.
 - `public static void Main()`: This declares a method named `Main`. This will be the entry point for the program, like the main function in C/C++. You cannot code methods outside of classes in C#.
 - `Console.WriteLine("Hello World");`: This calls the `WriteLine` method on the `Console` class, and outputs the message `Hello World` to the terminal.
 

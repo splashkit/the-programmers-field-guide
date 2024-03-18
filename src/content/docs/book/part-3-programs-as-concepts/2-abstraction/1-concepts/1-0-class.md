@@ -11,14 +11,14 @@ This can be a big shift, so we need to spend time focusing on both the syntax an
 The following image captures a visualisation of the **class** concept. The key aspects include:
 
 - A class describes the **responsibilities**, which can either be **knowing** something or **doing** something, for the objects we create from the class.
-- Just like a [program](<../../../../part-1-instructions-1-sequence-and-data/1-concepts/00-program>), a class may use methods and data from one or more libraries.
-- Objects created from the class may also use methods and data from other objects they know. We will explore this further in [Part 3, Chapter 3](<../../../../part-3-programs-as-concepts/3-collaboration-encapsulation/0-overview>) with the concept of **collaboration**.
+- Just like a [program](../../../../part-1-instructions/1-sequence-and-data/1-concepts/00-program), a class may use methods and data from one or more libraries.
+- Objects created from the class may also use methods and data from other objects they know. We will explore this further in [Part 3, Chapter 3](../../../5-collaboration-encapsulation/0-overview) with the concept of **collaboration**.
 
 ![Visualiation of a class as a template used to create objects.](./images/class-concept.png)
 
 ## Classes: Why, When, and How
 
-The key thing to remember is that you are declaring a type, which means you can declare variables and values of this new type. In C#, the variables are always [references](../../../../part-2-organised-code/4-indirect-access/1-concepts/02-02-pointers-ref) to objects that are always on the [heap](../../../../part-2-organised-code/6-deep-dive-memory/1-concepts/01-heap). This means that you need to create the values (objects) on the heap using the [new](../../1-concepts/2-1-construction) keyword.
+The key thing to remember is that you are declaring a type, which means you can declare variables and values of this new type. In C#, the variables are always [references](../../../../part-2-organised-code/4-indirect-access/1-concepts/02-02-pointers-ref) to objects that are always on the [heap](../../../../part-2-organised-code/6-deep-dive-memory/1-concepts/01-heap). This means that you need to create the values (objects) on the heap using the [new](../../1-concepts/2-2-new) keyword.
 
 In an object-oriented program, we need a way to define what the objects in the solution know and can do. This is where the class comes in.
 

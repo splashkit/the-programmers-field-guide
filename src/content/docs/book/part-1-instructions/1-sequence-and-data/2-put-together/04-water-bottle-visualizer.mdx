@@ -7,7 +7,7 @@ This will help you practice how to think through algorithms to draw shapes.
 
 ## The Algorithm
 
-Drawing something to the screen needs us to think through the algorithm in the same way as we did for the change calculator and the airspeed programs. In the [multimedia primer](../../1-concepts/11-graphics) there is a list of different methods that we can call to perform the drawing for us, so we just need to work out what values we need to provide these methods.
+Drawing something to the screen needs us to think through the algorithm in the same way as we did for the change calculator and the airspeed programs. In the [multimedia primer](../../1-concepts/11-2-graphics) there is a list of different methods that we can call to perform the drawing for us, so we just need to work out what values we need to provide these methods.
 
 We can start by planning out the algorithm at a high level, and then work out the details. The plan we came up within involves the following steps:
 
@@ -43,29 +43,34 @@ The main logic will come in the drawing of the water bottle. Drawing up a visual
 This gives us something like the following for the pseudocode for the program:
 
 ```txt
+Screen size:
+ - Window width = 600
+ - Window height = 600
 Determine bottle dimensions
- - radius of the circles = a set value... experiment
- - height of the bottle = a set value... experiment
+ - radius of the circles = 80
+ - height of the bottle = 400
  - diameter of the bottle = twice the radius
- - center x of the bottle = half window width maybe?
+ - center x of the bottle = half window width
  - left x of the bottle = centre x - the radius
  - right x of the bottle = centre x + the radius
- - base of the bottle = a set value... experiment
- - top of the bottle = base - height (remember top is at 0)
+ - base of the bottle = Window height - radius - 5;
+ - top of the bottle = bottle base - bottle height (remember top is at 0)
 
 Show the program details
 
 Get the percent fill
 Calculate the height of the water = bottle height * percent full / 100
 
-Open the window - experiment with sizes
+Calculate the y value for the top of the water. water Y = bottle base - water height
+
+Open the window, "Water Bottle Visualiser!", 600 wide, 600 high
 Clear the screen white
 
-Fill the Circle at the top of the water
+Fill the Circle at the top of the water - using the center of the bottle, the water Y, and bottle radius
 
-Fill and Draw the Circle at the bottom of the bottle
+Fill and Draw the Circle at the bottom of the bottle - using the center of the bottle, the base of the bottle, and the bottle radius
 
-Draw the body of the water as a rectangle
+Draw the body of the water as a rectangle - this will use the left x of the bottle, the water y, bottle diameter, and water height
 
 Draw the outline of the bottle
   Draw the two lines, one on the left one on the right
@@ -156,6 +161,8 @@ Have a go at coding this plan up yourself! Here are the steps that we suggest fo
 Here's a screenshot of our implementation running to show you what you're aiming for:
 
 ![The water bottle filled to 37% of its capacity.](../images/water-exec.png)
+
+Remember you can have a look at our version of the code if you get stuck with any of these steps. The code is in the [wrap up](/book/part-1-instructions/1-sequence-and-data/5-wrap-up/3-water-bottle) section.
 
 :::tip
 Hopefully you get a buzz out of getting these things working. The compiler is not forgiving, and programming can be challenging. Work on your persistence and attention to detail -- these qualities will help you get through challenges. Make sure to celebrate the successes along the way!

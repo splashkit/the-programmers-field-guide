@@ -31,7 +31,7 @@ In C# every object is created using the keyword `new`, followed by the class nam
 
 ## Example
 
-For this example we will use the Greeting class from the [classes concept](./1-0-class). To add this class to your C# project, copy the class code into a file called "Greeting.cs" within a console project.
+For this example we will use the Greeting class from the [classes concept](../1-0-class). To add this class to your C# project, copy the class code into a file called "Greeting.cs" within a console project.
 We can now write a program that uses this class.
 
 :::note
@@ -67,4 +67,3 @@ public class Program
 Remember that you can only interact with an object through its **interface**.
 That is, you can only access fields and properties or call methods that are **public**.
 :::
-

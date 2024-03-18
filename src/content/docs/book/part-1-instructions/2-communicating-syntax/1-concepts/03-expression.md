@@ -2,7 +2,7 @@
 title: Expression
 ---
 
-[Expressions](../../1-sequence-and-data/1-concepts/04-expression) were covered in the previous chapter, so this is just a quick recap as expressions are a key component of programming language syntax.
+[Expressions](../../../1-sequence-and-data/1-concepts/04-expression) were covered in the previous chapter, so this is just a quick recap as expressions are a key component of programming language syntax.
 
 ## Expressions -- when, why, and how
 

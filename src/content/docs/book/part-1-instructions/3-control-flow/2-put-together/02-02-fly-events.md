@@ -53,7 +53,7 @@ With the basic details drawn, we can now place this within an [event loop](../..
 
 ![The flow chart showing the event loop for the fly catch game](./images/fly-catch-events.png)
 
-Notice how this will keep the program running. While nothing may be changing on the screen, the computer is looping over and over to check if the user has done anything. The logic is captured in the following pseudocode.
+If you follow the flowchart, you should be able to see how this will keep the program running. While nothing may be changing on the screen, the computer is looping over and over to check if the user has done anything. The logic is captured in the following pseudocode.
 
 ```txt
 Constants:
@@ -79,6 +79,13 @@ Steps:
 Notice how we put the drawing code **inside** the loop. Code this then run it and **think** about what is going on. The computer is running through that loop as fast as it can. Each loop it draws the game, clearing the screen, drawing the spider, and showing that to you. You see a static picture, but that is because nothing is changing...yet.
 
 Create a new project for this, and code the program's instructions using the above pseudocode as your guide. You want to make sure you have this working before continuing. When it works, you should see the "spider" (a black circle) in the center of the screen. The window should stay open until you close it.
+
+We will need to use the following SplashKit methods to get this working:
+
+- [QuitRequested](https://splashkit.io/api/input/#quit-requested) - This returns true when the user has asked to close the program. You can use this in the loop 
+
+
+Remember you can check our version of the code in the [wrap up](../../5-wrapup/3-fly-catch-events) section.
 
 :::tip[Where is the game?]
 Start to think about where the game really is occurring. You will see it on the screen, but the game actually exists within the data that we have created within this program. Try to picture the spider when you read the code -- it is a little hard to see at the moment as we only have individual variables.

@@ -149,7 +149,7 @@ To build this we are going to need to be able to convert a tile kind to a color 
 
 ### Color for tile kind
 
-This function will accept a tile kind, and return the color to be used for that kind of tile. We can use a [case statement](../../../part-1-instructions/3-control-flow/1-concepts/03-2-case.mdx) to implement this. It can switch based on the passed in kind, and return a color for each of our different tile kinds. I used the following colors:
+This function will accept a tile kind, and return the color to be used for that kind of tile. We can use a [case statement](../../../../part-1-instructions/3-control-flow/1-concepts/03-2-case) to implement this. It can switch based on the passed in kind, and return a color for each of our different tile kinds. I used the following colors:
 
 - WATER_TILE, `color_blue()`
 - GRASS_TILE: `color_lawn_green()`
@@ -177,4 +177,3 @@ color color_for_tile_kind(tile_kind kind)
 This should be enough to get a first iteration going. Build and run your version of this. Make sure to focus on the use of multiple loops when you interact with the array of tiles within the map.
 
 When you run this you should see... a green screen? The problem at the moment is that all the tiles are the same. So we cannot see the map grid yet. We can fix that next.
-

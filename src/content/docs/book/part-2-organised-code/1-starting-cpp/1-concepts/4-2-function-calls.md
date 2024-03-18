@@ -15,7 +15,7 @@ Function calls use the same syntax as we have been using for calling C# methods.
 
 ## Example
 
-The code below matches the [previous example](../../../../part-1-instructions/1-sequence-and-data/1-concepts/03-method-cal#example-using-resultl) for calling methods in SplashKit.
+The code below matches the [previous example](../../../../part-1-instructions/1-sequence-and-data/1-concepts/03-method-call/#example-using-result) for calling methods in SplashKit.
 Notice that there are no changes in logic.
 As we are using the same library, we can call the same function calls, in the same order.
 Just the identifiers for those functions have changed.
