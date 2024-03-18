@@ -68,7 +68,7 @@ A pointer value is the same as any other value. It can be stored in [local varia
 ## In C/C++
 
 :::tip[Syntax]
-
+<!-- TODO: Fix dead link -->
 This syntax allows you to declare your own [pointer](../02-pointer) variables in C and C++.
 
 ![Pointer variable declaration](./images/pointer-decl.png)

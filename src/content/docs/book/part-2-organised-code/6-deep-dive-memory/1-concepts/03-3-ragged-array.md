@@ -20,7 +20,7 @@ While we picture this with 2-dimensional arrays, the same applies to any number 
 
 You can use ragged arrays when you want to work with each dimension individually. The values will not be in memory in a contiguous block, but you will be able to use the indexes to access values as before.
 
-To implement this you need to create an array of pointers, then each pointer can be allocated its own space with its own size. As C/C++ does not keep any data for you on the size of these arrays/allocations, you are best to use structs, where each struct has a pointer to the data, and knows the number of elements that are stored there. We will look at how to build this in the put together section on [dynamic arrays](../../2-put-together/02-dynamic-array). You can make a multidimensional array with these by having a dynamic array that contains a dynamic array (and so on until you get to your actual data values).
+To implement this you need to create an array of pointers, then each pointer can be allocated its own space with its own size. As C/C++ does not keep any data for you on the size of these arrays/allocations, you are best to use structs, where each struct has a pointer to the data, and knows the number of elements that are stored there. We will look at how to build this in the put together section on [dynamic arrays](../../2-put-together/02-0-dynamic-array). You can make a multidimensional array with these by having a dynamic array that contains a dynamic array (and so on until you get to your actual data values).
 
 ## In C/C++
 

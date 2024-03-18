@@ -2,9 +2,9 @@
 title: Building Abstractions
 ---
 
-In Part 2 we saw how you can embed data and functionality, using fields and methods, as [members within a struct](../../../../part-2-organised-code/7-member-functions/0-overview). While we can focus on organising the logic of our code into [functions and procedures](<../../../2-organising-code/0-overview/>), and our data into [custom data types](<../../../3-structuring-data/0-overview/>) we can create more powerful abstractions by taking advantage of the languages' ability to combine these and thereby create larger entities to work with.
+In Part 2 we saw how you can embed data and functionality, using fields and methods, as [members within a struct](../../../../part-2-organised-code/7-member-functions/0-overview). While we can focus on organising the logic of our code into [functions and procedures](../../../../part-2-organised-code/2-organising-code/0-overview), and our data into [custom data types](../../../../part-2-organised-code/3-structuring-data/0-overview) we can create more powerful abstractions by taking advantage of the languages' ability to combine these and thereby create larger entities to work with.
 
-In this style of programming we create [objects](../../../../part-2-organised-code/7-member-functions/1-concepts/1-0-struct-members#referring-to-struct-values-as-objects) that **know** and **can do** things. Objects are created from a [class](../1-class) type, which provides the template like the [struct](../../../../part-2-organised-code/7-member-functions/1-concepts/1-0-struct-members) did in C/C++.
+In this style of programming we create [objects](../../../../part-2-organised-code/7-member-functions/1-concepts/1-0-struct-members#referring-to-struct-values-as-objects) that **know** and **can do** things. Objects are created from a [class](../1-0-class) type, which provides the template like the [struct](../../../../part-2-organised-code/7-member-functions/1-concepts/1-0-struct-members) did in C/C++.
 
 ## Building Abstractions: Why, When, and How?
 

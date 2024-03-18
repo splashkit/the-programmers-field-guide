@@ -2,7 +2,7 @@
 title: "Heap"
 ---
 
-When your program is executed, it is allocated memory to work with. To help ensure system security, this memory is divided into different areas based on the different kinds of values that need to be stored in memory. Previously, our programs' data was housed on the [stack](../../2-organising-code/1-concepts/01-1-the-stack) which is reserved for local variables and the data needed to keep track of function and procedure calls.
+When your program is executed, it is allocated memory to work with. To help ensure system security, this memory is divided into different areas based on the different kinds of values that need to be stored in memory. Previously, our programs' data was housed on the [stack](../../../2-organising-code/1-concepts/01-1-the-stack) which is reserved for local variables and the data needed to keep track of function and procedure calls.
 
 The stack is an essential part of every program. The fact that it is managed by the compiler means that you do not need to think too much about memory allocation for these variables.
 
