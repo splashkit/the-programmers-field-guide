@@ -27,6 +27,10 @@ Validation:
 
 - Ensure that your petrol price and petrol litres are positive numerical values.
 
+:::tip
+Make sure to read the terminal methods' section in [Methods to Use](/book/part-1-instructions/3-control-flow/1-concepts/09-00-methods).
+:::
+
 ### Sound Player - Changing the Sound
 
 <div class="not-content">
@@ -39,9 +43,21 @@ In this task, it is up to you to create a program which allows the user to play 
 
 The following SplashKit methods might be useful for this program:
 
-- `MusicPlaying()`
-- `HasMusic()`
-- `TerminalHasInput()`
+- [Music Playing](https://splashkit.io/api/audio/#music-playing) - to check if music is currently playing.
+- [Has Music](https://splashkit.io/api/audio/#has-music) - to check if the song is loaded.
+- [Terminal Has Input](https://splashkit.io/api/terminal/#terminal-has-input) - to check if the user has typed anything at the terminal.
+
+```cs
+// These needs...
+// using static SplashKitSDK.SplashKit;
+
+// Music control
+public static bool SplashKit.MusicPlaying();
+public static bool SplashKit.HasMusic(string name);
+
+// Terminal checks
+public static bool SplashKit.TerminalHasInput();
+```
 
 Your program should:
 
@@ -81,3 +97,15 @@ Your program should:
   - Once the ball is moving, it should be affected by "gravity" (i.e., some downwards force).
   - If the ball hits the edge of the screen, place the ball back at its initial position and let the player fire again.
 - Clear the screen once the ball overlaps with the goal and tell the player they have won.
+
+:::tip
+Make sure to read the multimedia methods' section in [Methods to Use](/book/part-1-instructions/3-control-flow/1-concepts/09-00-methods). The following code should help to test if the triangle and square intersect (the player hit the target):
+
+```cs
+  TriangleRectangleIntersect(
+    TriangleFrom(goalX1, goalYBottom, goalX2, goalYBottom, goalX3, goalYTop), 
+    RectangleFrom(ballX, ballY, ballSize, ballSize)
+  )
+```
+
+:::

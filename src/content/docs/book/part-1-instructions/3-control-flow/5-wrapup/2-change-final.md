@@ -90,7 +90,7 @@ do
                     coinText = "5c";
                     break;
                 default:
-                    coinValue = 0;
+                    coinValue = 1;
                     coinText = "ERROR";
                     break;
             }

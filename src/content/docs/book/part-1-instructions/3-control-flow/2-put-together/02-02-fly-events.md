@@ -82,10 +82,20 @@ Create a new project for this, and code the program's instructions using the abo
 
 We will need to use the following SplashKit methods to get this working:
 
-- [QuitRequested](https://splashkit.io/api/input/#quit-requested) - This returns true when the user has asked to close the program. You can use this in the loop 
+- [Quit Requested](https://splashkit.io/api/input/#quit-requested) - This returns true when the user has asked to close the program. You can use this in the loop 
+- [Process Events](https://splashkit.io/api/input/#process-events) - This listens to events such as keystrokes, mouse clicks, quit, etc.
 
+These methods have the following signatures:
 
-Remember you can check our version of the code in the [wrap up](../../5-wrapup/3-fly-catch-events) section.
+```cs
+// These need:
+// using static SplashKitSDK.SplashKit;
+
+public static bool QuitRequested();
+public static void ProcessEvents();
+```
+
+There is an example of this logic on the [while loop page](/book/part-1-instructions/3-control-flow/1-concepts/04-1-while-loop/#event-loops---dynamic-graphical-programs), and remember you can check our version of the code in the [wrap up](../../5-wrapup/3-fly-catch-events) section if you get stuck.
 
 :::tip[Where is the game?]
 Start to think about where the game really is occurring. You will see it on the screen, but the game actually exists within the data that we have created within this program. Try to picture the spider when you read the code -- it is a little hard to see at the moment as we only have individual variables.

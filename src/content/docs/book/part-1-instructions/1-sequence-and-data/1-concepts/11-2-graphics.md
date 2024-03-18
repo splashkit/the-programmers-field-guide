@@ -36,8 +36,11 @@ To draw, you need something to draw onto. The base interactive component in Spla
 These methods have the following declarations.
 
 ```cs
-public static Window SplashKit.OpenWindow(string caption, int width, int height);
-public static void SplashKit.ClearScreen();
+// These need:
+// using static SplashKitSDK.SplashKit;
+
+public static Window OpenWindow(string caption, int width, int height);
+public static void ClearScreen();
 ```
 
 The `OpenWindow` method can be called to create a new window for the user to interact with, and for your code to draw upon. This method requires three arguments: the window’s title, its width and its height. For example, `OpenWindow("House Drawing", 800, 600);` will open a window that is 800 pixels wide and 600 pixels high with the title "House Drawing", as shown in the following image. Please note that the house and hill are drawn by additional code.
@@ -96,7 +99,10 @@ It then waits for a command to display that surface to the user. With SplashKit,
 | [Refresh Screen](https://splashkit.io/api/graphics/#refresh-screen) | none | Present what has been drawn to the user. |
 
 ```cs
-public static void SplashKit.RefreshScreen();
+// These need:
+// using static SplashKitSDK.SplashKit;
+
+public static void RefreshScreen();
 ```
 
 ### Drawing to a Window
@@ -117,20 +123,23 @@ These methods typically require arguments that allow you to control where the sh
 These methods have the following declarations:
 
 ```cs
-public static Color SplashKit.ColorWhite();
-public static Color SplashKit.ColorBlue();
+// These need:
+// using static SplashKitSDK.SplashKit;
+
+public static Color ColorWhite();
+public static Color ColorBlue();
 // and many others...
 
-public static void SplashKit.FillRectangle(Color clr, double x, double y, double width, double height);
-public static void SplashKit.DrawRectangle(Color clr, double x, double y, double width, double height);
+public static void FillRectangle(Color clr, double x, double y, double width, double height);
+public static void DrawRectangle(Color clr, double x, double y, double width, double height);
 
-public static void SplashKit.FillEllipse(Color clr, double x, double y, double width, double height);
-public static void SplashKit.DrawEllipse(Color clr, double x, double y, double width, double height);
+public static void FillEllipse(Color clr, double x, double y, double width, double height);
+public static void DrawEllipse(Color clr, double x, double y, double width, double height);
 
-public static void SplashKit.FillTriangle(Color clr, double x1, double y1, double x2, double y2, double x3, double y3);
-public static void SplashKit.DrawTriangle(Color clr, double x1, double y1, double x2, double y2, double x3, double y3);
+public static void FillTriangle(Color clr, double x1, double y1, double x2, double y2, double x3, double y3);
+public static void DrawTriangle(Color clr, double x1, double y1, double x2, double y2, double x3, double y3);
 
-public static void SplashKit.DrawLine(Color clr, double x1, double y1, double x2, double y2);
+public static void DrawLine(Color clr, double x1, double y1, double x2, double y2);
 ```
 
 The following code draws a house on a hill using some basic shapes in SplashKit.  
@@ -172,8 +181,11 @@ SplashKit organises these files in a **Resources** folder containing sub-folders
 These methods have the following declarations:
 
 ```cs
-public static Bitmap SplashKit.LoadBitmap(string name, string filename);
-public static void SplashKit.DrawBitmap(string name, double x, double y);
+// These need:
+// using static SplashKitSDK.SplashKit;
+
+public static Bitmap LoadBitmap(string name, string filename);
+public static void DrawBitmap(string name, double x, double y);
 ```
 
 To draw an image:
@@ -212,9 +224,12 @@ You might want to be able to draw text to the screen to display messages to the 
 These methods have the following declarations:
 
 ```cs
-public static void SplashKit.DrawText(string text, Color clr, double x, double y);
-public static void SplashKit.DrawText(string text, Color clr, string fnt, int fontSize, double x, double y);
-public static Font SplashKit.LoadFont(string name, string filename);
+// These need:
+// using static SplashKitSDK.SplashKit;
+
+public static void DrawText(string text, Color clr, double x, double y);
+public static void DrawText(string text, Color clr, string fnt, int fontSize, double x, double y);
+public static Font LoadFont(string name, string filename);
 ```
 
 Several online sites provide free fonts for personal projects. The [Google Fonts](https://fonts.google.com) site is a good option. The font files should be **true type fonts**, which usually have a **ttf** file extension. Find the font you want to draw with and download it into your **Resources/fonts** folder. Load the font, and use the drawing methods to render text to your window.
@@ -261,9 +276,12 @@ SplashKit can handle several file formats for sound effects, but the best and mo
 These methods have the following declaration:
 
 ```cs
-public static SoundEffect SplashKit.LoadSoundEffect(string name, string filename);
-public static void SplashKit.PlaySoundEffect(string name);
-public static void SplashKit.StopSoundEffect(string name);
+// These need:
+// using static SplashKitSDK.SplashKit;
+
+public static SoundEffect LoadSoundEffect(string name, string filename);
+public static void PlaySoundEffect(string name);
+public static void StopSoundEffect(string name);
 ```
 
 Find a sound effect you like and try out this program:
@@ -312,18 +330,21 @@ As with sound effects, The Ogg Vorbis format works best with SplashKit for music
 These have the following declarations in C#:
 
 ```cs
-public static Music SplashKit.LoadMusic(string name, string filename);
+// These need:
+// using static SplashKitSDK.SplashKit;
 
-public static void SplashKit.PlayMusic(string name);
-public static void SplashKit.PlayMusic(string name, int times);
+public static Music LoadMusic(string name, string filename);
 
-public static void SplashKit.FadeMusicIn(string name, int ms);
+public static void PlayMusic(string name);
+public static void PlayMusic(string name, int times);
 
-public static void SplashKit.FadeMusicOut(int ms);
+public static void FadeMusicIn(string name, int ms);
 
-public static void SplashKit.SetMusicVolume(float volume);
+public static void FadeMusicOut(int ms);
 
-public static void SplashKit.StopMusic();
+public static void SetMusicVolume(float volume);
+
+public static void StopMusic();
 ```
 
 Try out playing some music using SplashKit with the following code:

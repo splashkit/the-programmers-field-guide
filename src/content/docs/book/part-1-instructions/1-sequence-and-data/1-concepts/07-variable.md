@@ -62,12 +62,20 @@ In this program, we want to capture the user's name and greet them using it. We 
 ```csharp
 using static System.Console;
 
+// Create a variable called name
+// it can store a string
 string name;
 
-WriteLine("Welcome to The Greeting");
+// Create a constant called message
+const string MESSAGE = "Welcome to The Greeting";
+
+// Output the message
+WriteLine(MESSAGE);
 WriteLine();
 WriteLine("What is your name?");
 Write("name: ");
+
+// Read user input and store it in the name variable
 name = ReadLine();
 
 WriteLine();
@@ -95,7 +103,10 @@ The next example will help us calculate the volume of our water bottles, assumin
 using static System.Console;
 using static System.Convert;
 
+// Create a const called PI
 const double PI = 3.1415;
+
+// Create variables radius, height, line, bottleVolume, and litres
 double radius, height;
 string line;
 double bottleVolume, litres;

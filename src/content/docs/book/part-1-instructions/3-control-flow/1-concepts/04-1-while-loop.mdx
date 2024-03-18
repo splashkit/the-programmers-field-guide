@@ -372,7 +372,7 @@ Use the following images to see how this runs.
 
 <MySwiper client:only height="" images={sliderImagesWhileLoop}></MySwiper>
 
-### Keeping graphical programs running
+### Event Loops - Dynamic graphical programs
 
 Now let's look at how we can use a while loop to keep a window open in SplashKit. In this case, we can use the `QuitRequested` method from SplashKit to find out if the user has asked to quit the program by closing the SplashKit window on their screen. `QuitRequested` will return `false` if the user has not asked to quit, so we need to loop **while** quit is **not** requested. Remember, in C# we use `!` for "not", giving us a condition `!QuitRequested()` for our loop.
 

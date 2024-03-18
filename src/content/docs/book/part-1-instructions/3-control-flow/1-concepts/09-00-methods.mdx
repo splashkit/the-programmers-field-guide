@@ -1,0 +1,138 @@
+---
+title: Methods to Use
+---
+import { YouTube } from 'astro-embed';
+
+In Sequence and Data, we were able to use a number of methods from the .NET System libraries and SplashKit in order to produce outputs and read values from the user. Now that we have control flow, there are a number of additional methods that you can use to help with your projects.
+
+## Terminal Methods
+
+<div class="not-content">
+  <YouTube id="ozp3oUHEidg" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+In addition to `WriteLine`, `Write`, `ReadLine`, and the convert methods we will now need ways to check if data provided has the right format. The .NET library doesn't have the best 
+
+```cs
+public static bool SplashKit.IsDouble(string text);
+public static bool SplashKit.IsInteger(string text);
+```
+
+These methods will allow you to test if a string can be converted to an integer or a double. You can use these to perform simple validations, by using this as the condition in a loop. For example, the following validates the entry of a double value.
+
+```cs
+using static SplashKitSDK.SplashKit;
+using static System.Convert;
+
+string line;
+double value;
+
+Write("Please enter a number: ");
+line = ReadLine();
+while (!IsDouble(line))
+{
+  WriteLine($"Sorry, I cannot convert {line} to a number.");
+  Write("Please enter a number: ");
+  line = ReadLine();
+}
+value = ToDouble(line);
+
+WriteLine($"Thanks you I got {value}");
+```
+
+:::caution
+Both SplashKit and Console provide `WriteLine`, `Write`, and `ReadLine` methods. To avoid getting the compiler confused just have `using static SplashKitSDK.SplashKit;` and do not add the code to use `System.Console`.
+:::
+
+## Multimedia Methods
+
+<div class="not-content">
+  <YouTube id="Vye2OGN2iI0" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+With the more interactive programs using SplashKit there are now a whole range of methods that we can use to check for user inputs, and to help test different aspect of our game (such as time passing, and detecting collisions).
+
+The methods we will need in this chapter include:
+
+- Event loop methods:
+  - [Process Events](https://splashkit.io/api/input/#process-events) - listens for actions that the user has performed such as keystrokes, mouse clicks, quitting, etc.
+  - [Quit Requested](https://splashkit.io/api/input/#quit-requested) - returns true when the user has asked to close the program.
+
+- Key input methods:
+  - [Key Down](https://splashkit.io/api/input/#key-down) - allows you to test if a key is held down.
+
+- Random number methods:
+  - [Rnd](https://splashkit.io/api/utilities/#rnd) - Generate a random number.
+
+- Time management methods:
+  - [Create Timer](https://splashkit.io/api/timers/#create-timer) - create a timer to keep track of time.
+  - [Start Timer](https://splashkit.io/api/timers/#start-timer) - start a timer ticking. You can then query it for how long has passed since it was started.
+  - [Timer Ticks](https://splashkit.io/api/timers/#timer-ticks) - tells you how long has passed since the timer was started.
+
+- Collision detection methods:
+  - [Circles Intersect](https://splashkit.io/api/geometry/#circles-intersect-2) - test if two circles intersect.
+  - [Triangle Rectangle Intersect](https://splashkit.io/api/geometry/#triangle-rectangle-intersect) - test if a triangle and rectangle intersect.
+  - [Rectangle From](https://splashkit.io/api/geometry/#rectangle-from-3) - create a rectangle from a given point, width, and height.
+  - [Triangle From](https://splashkit.io/api/geometry/#triangle-from-2) - create a triangle from a given set of points.
+
+These methods have the following declarations:
+
+```cs
+// These needs...
+// using static SplashKitSDK.SplashKit;
+
+// Event loop
+public static void ProcessEvents();
+public static bool QuitRequested();
+
+// Key input
+// This also requiers... to get access to the KeyCode details.
+// using SplashKitSDK;
+public static bool KeyDown(KeyCode key);
+
+// Random numbers
+public static float Rnd(); // 0 to 1
+public static int Rnd(int ubound); // 0 to ubound - 1
+public static int Rnd(int min, int max); // min to max
+
+
+// Time tracking
+public static Timer CreateTimer(string name);
+public static void StartTimer(string name);
+public static uint TimerTicks(string name);
+
+// Collision detection
+public static bool CirclesIntersect(double c1X, double c1Y, double c1Radius, double c2X, double c2Y, double c2Radius);
+public static bool TriangleRectangleIntersect(Triangle tri, Rectangle rect);
+public static Rectangle RectangleFrom(double x, double y, double width, double height);
+public static Triangle TriangleFrom(double x1, double y1, double x2, double y2, double x3, double y3);
+```
+
+### Key Codes
+
+For the `KeyDown` method, you need to tell it which key you are wanting to check. SplashKit provides a list of key codes in a `KeyCode` type, which provides a list of values you can choose from. You should be able to see these in VS Code using its IntelliSense, just make sure you have `using SplashKitSDK;` so that you can see the `KeyCode`.
+
+The main options include:
+
+||||||
+|--|--|--|--|--|
+| BackspaceKey | TabKey | ReturnKey | EscapeKey | SpaceKey |
+| Num0Key | Num1Key | Num2Key | Num3Key | Num4Key |
+| Num5Key | Num6Key | Num7Key | Num8Key | Num9Key |
+| ColonKey | SemiColonKey | AKey | BKey | CKey |
+| DKey | EKey | FKey | GKey | HKey |
+| IKey | JKey | KKey | LKey | MKey |
+| NKey | OKey | PKey | QKey | RKey |
+| SKey | TKey | UKey | VKey | WKey |
+| XKey | YKey | ZKey | DeleteKey | Keypad0 |
+| Keypad1 | Keypad2 | Keypad3 | Keypad4 | Keypad5 |
+| Keypad6 | Keypad7 | Keypad8 | Keypad9 | KeypadPeriod |
+| KeypadDivide | KeypadMultiply | KeypadMinus | KeypadPlus | KeypadEnter |
+| KeypadEquals | UpKey | DownKey | RightKey | LeftKey |
+| InsertKey | HomeKey | EndKey | PageUpKey | PageDownKey |
+| F1Key | F2Key | F3Key | F4Key | F5Key |
+| F6Key | F7Key | F8Key | F9Key | F10Key |
+| F11Key | F12Key | F13Key | F14Key | F15Key |
+| RightShiftKey | LeftShiftKey | RightCtrlKey | LeftCtrlKey | RightAltKey |
+| LeftAltKey | LeftSuperKey | RightSuperKey | | |
+:::

@@ -179,7 +179,17 @@ All of the arguments in this code are using literal values.
 
 ### Example using result
 
-Some methods return data, which you can use within any calculated value ([expression](../04-expression)) within your code. The following code demonstrates the use of the values returned by the `RandomColor` and `Rnd` methods.
+Some methods return data, which you can use within any calculated value ([expression](../04-expression)) within your code. The following code demonstrates the use of this with the ReadLine method. The result of this is being stored in a variable and then used to output a message.
+
+```cs
+string name;
+Write("Please enter your name: ");
+name = ReadLine();
+
+WriteLine($"Hello {name}!");
+```
+
+The following code demonstrates the use of the values returned by the `RandomColor` and `Rnd` methods.
 
 ```csharp
 using static SplashKitSDK.SplashKit;
