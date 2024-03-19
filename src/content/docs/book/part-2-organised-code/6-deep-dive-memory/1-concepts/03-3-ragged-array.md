@@ -71,7 +71,7 @@ int main()
 
 Running the above program will output:
 
-```
+```text
 0,1,2,3,
 10,11,
 20,21,22,
@@ -81,5 +81,5 @@ In this example we are using the idea of **parallel arrays**. This refers to the
 
 :::tip
 
-The neater alternative is probably to have a struct that maintains the size and the pointer, but we will leave that for the coming put together section on [dynamic arrays](../../2-put-together/02-dynamic-array).
+The neater alternative is probably to have a struct that maintains the size and the pointer, but we will leave that for the coming put together section on [dynamic arrays](../../2-put-together/02-0-dynamic-array).
 :::

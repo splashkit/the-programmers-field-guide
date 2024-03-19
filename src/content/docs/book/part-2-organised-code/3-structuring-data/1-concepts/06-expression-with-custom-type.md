@@ -22,7 +22,7 @@ The types you define allow you to specify how data values can be formatted, allo
 
 ## Reading Structs In Expressions
 
-A [struct](../03-type-declaration#record) is a type that contains a number of fields. When using a struct value, you can read either an individual field from the struct, or read all the fields. In the illustration, you can access the struct via `mouse`, or you can access one of the fields (`x` for example) using the dot operator.
+A [struct](../03-01-struct) is a type that contains a number of fields. When using a struct value, you can read either an individual field from the struct, or read all the fields. In the illustration, you can access the struct via `mouse`, or you can access one of the fields (`x` for example) using the dot operator.
 
 <a id="FigureRecordExpression"></a>
 

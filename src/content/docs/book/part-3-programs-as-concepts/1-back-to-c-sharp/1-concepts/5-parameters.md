@@ -38,5 +38,5 @@ class MyProgram
 ```
 
 :::note
-While you can pass parameters by reference, you will not use this as often as in C/C++. C# uses [reference types](../../../2-abstraction/1-concepts/0-value-and-reference-types) for objects, which means you do not need to pass these by reference. We will revisit this in the next chapter.
+While you can pass parameters by reference, you will not use this as often as in C/C++. C# uses [reference types](../../../2-abstraction/1-concepts/2-1-value-and-reference-types) for objects, which means you do not need to pass these by reference. We will revisit this in the next chapter.
 :::

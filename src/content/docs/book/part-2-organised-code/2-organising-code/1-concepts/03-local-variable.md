@@ -22,7 +22,7 @@ One of the key things that makes decomposition work is the ability to tackle eac
 ## In C/C++
 
 :::tip[Syntax]
-The syntax for a variable declaration in C/C++ was covered [earlier](../../../1-starting-cpp/1-concepts/4-1-variable), but we will include it again here for convenience.
+The syntax for a variable declaration in C/C++ was covered [earlier](../../../1-starting-cpp/1-concepts/4-1-variable-constant), but we will include it again here for convenience.
 
 ![The syntax for a variable declaration in C/C++](./images/variable-decl.png)
 :::
