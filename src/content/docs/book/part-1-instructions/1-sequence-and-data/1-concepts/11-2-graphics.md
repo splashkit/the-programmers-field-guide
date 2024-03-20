@@ -385,7 +385,7 @@ With the methods and programming tools you have now, you can create short animat
 
 Try to use as many of the methods we have introduced here to make your own animation.
 
-**TODO: Add details on how to share a recording of their scene - something we can link here to see what others have done.**
+<!-- **TODO: Add details on how to share a recording of their scene - something we can link here to see what others have done.** -->
 
 :::tip[Summary]
 
