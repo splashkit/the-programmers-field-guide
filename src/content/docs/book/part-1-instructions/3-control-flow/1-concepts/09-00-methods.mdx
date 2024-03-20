@@ -137,3 +137,152 @@ The main options include:
 | LeftAltKey | LeftSuperKey | RightSuperKey | | |
 
 :::
+
+You access these using `KeyCode.` and then the specific key value. For example, `KeyCode.AKey` for the "a" key or `KeyCode.LeftKey` for the left arrow. See the example code below for how to use this.
+
+### Mouse Buttons and Methods
+
+SplashKit also includes a number of methods for working with the mouse. These include the following:
+
+```cs
+// These methods need
+// using static SplashKitSDK.SplashKit;
+
+// Was a given button on the mouse clicked?
+public static bool MouseClicked(MouseButton button);
+// Is a given button in the mouse current held down?
+public static bool MouseDown(MouseButton button);
+
+// Where is the mouse - relative to the left side of the window?
+public static float MouseX();
+// Where is the mouse - relative to the top of the window?
+public static float MouseY();
+```
+
+For these you will need to use the `MouseButton` data. As with the `KeyCode` data, make sure you have `using SplashKitSDK;` so that you can see the `MouseButton` type.
+
+There are the following mouse button values:
+
+- `LeftButton` for the left mouse button
+- `MiddleButton` for the middle mouse button
+- `RightButton` for the right mouse button
+- `MouseX1Button` for the x1 mouse button
+- `MouseX2Button` for the x2 mouse button
+
+As with the `KeyCode` data, you access this using `MouseButton.` and the button name, `MouseButton.LeftButton` for example. See the example code below to see how this may work.
+
+### Example Multimedia Code
+
+Here is some example multimedia code that creates a program where the user is able to move a shape around on the screen.
+
+```cs
+using static SplashKitSDK.SplashKit;
+using SplashKitSDK;
+
+const int MOVE_SPEED = 3;
+
+OpenWindow("Movement", 800, 600);
+
+// Event loop
+double x = 400;
+Color clr = ColorBlack();
+
+while( !QuitRequested() )
+{
+  ProcessEvents();
+
+  if (KeyDown(KeyCode.RightKey))
+  {
+    x += MOVE_SPEED;
+  }
+
+  if (KeyDown(KeyCode.LeftKey))
+  {
+    x -= MOVE_SPEED;
+  }
+
+  if (KeyTyped(KeyCode.SpaceKey))
+  {
+    clr = RandomColor();
+  }
+
+  ClearScreen(ColorWhite());
+  FillCircle(clr, x, 300, 50);
+  RefreshScreen(60);
+}
+```
+
+The following code shows an example of using the mouse, and its position as part of a program. This uses the distance from the player to the mouse to set the direction of a ball which is thrown when the mouse is clicked.
+
+```cs
+using static SplashKitSDK.SplashKit;
+using SplashKitSDK;
+
+const int BALL_RADIUS = 5;
+const int PLAYER_RADIUS = 20;
+
+// Used to calculate distance from player - mouse for
+// Ball speed. speed = distance / DIST_TO_SPEED_RATIO.
+const double DIST_TO_SPEED_RATIO = 30;
+// as above for the line drawn to show direction of shot
+const double DIST_LINE_RATIO = 10;
+
+OpenWindow("Ball Throw", 800, 600);
+
+bool ballFired = false;
+
+double playerX = 400, playerY = 300;
+double ballX = playerX;
+double ballY = playerY;
+double ballXSpeed = 0;
+double ballYSpeed = 0;
+
+while (!QuitRequested())
+{
+  ProcessEvents();
+
+  if (MouseClicked(MouseButton.LeftButton) && !ballFired)
+  {
+    ballFired = true;
+
+    // calculate velocity for the BALL
+    ballXSpeed = (MouseX() - playerX) / DIST_TO_SPEED_RATIO;
+    ballYSpeed = (MouseY() - playerY) / DIST_TO_SPEED_RATIO;
+  }
+
+  if (ballFired)
+  {
+    // Move the projective by its x and y speed
+    ballX += ballXSpeed;
+    ballY += ballYSpeed;
+
+    // check if off screen
+    if (ballX + BALL_RADIUS < 0 || // off left
+        ballX - BALL_RADIUS > ScreenWidth() || // off right
+        ballY + BALL_RADIUS < 0 || // off top
+        ballY - BALL_RADIUS > ScreenHeight()
+        ) // off bottom
+    {
+      ballFired = false;
+      ballX = playerX;
+      ballY = playerY;
+    }
+  }
+
+  ClearScreen(ColorWhite());
+  FillCircle(ColorLightGreen(), playerX, playerY, PLAYER_RADIUS);
+  FillCircle(ColorBlack(), ballX, ballY, BALL_RADIUS);
+
+  if ( ! ballFired )
+  {
+    // Show direction of travel
+    DrawLine(ColorBlack(), 
+      playerX, playerY, 
+      playerX + (MouseX() - playerX) / DIST_LINE_RATIO,
+      playerY + (MouseY() - playerY) / DIST_LINE_RATIO
+    );
+  }
+
+  RefreshScreen(60);
+}
+```
