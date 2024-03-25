@@ -84,8 +84,10 @@ To make things more interesting, the ball should also be affected by "gravity", 
 
 The following SplashKit methods might be useful for this program:
 
+- [ProcessEvents()](https://splashkit.io/api/input/#process-events)
 - [Mouse Clicked](https://splashkit.io/api/input/#mouse-clicked)
-- [Triangle Rectangle Intersect](https://splashkit.io/api/geometry/#triangle-rectangle-intersect)
+- [MouseDown()](https://splashkit.io/api/input/#mouse-down)
+- [TriangleRectangleIntersect()](https://splashkit.io/api/geometry/#triangle-rectangle-intersect)
 
 Your program should:
 
@@ -98,7 +100,7 @@ Your program should:
 - Clear the screen once the ball overlaps with the goal and tell the player they have won.
 
 :::tip
-Make sure to read the multimedia methods' section in [Methods to Use](/book/part-1-instructions/3-control-flow/1-concepts/09-00-methods). The example with using the mouse shows how to code use of mouse buttons and to use the mouse position.
+To calculate the direction and speed of the ball, make sure to read the multimedia methods' section in [Methods to Use](/book/part-1-instructions/3-control-flow/1-concepts/09-00-methods). The example with using the mouse shows how to code use of mouse buttons and to use the mouse position.
 
 For gravity, you can add a constant value to the ball's y speed each update. By increasing the speed you can slowly accelerate the ball in a downward direction.
 
@@ -111,4 +113,5 @@ The following code should help to test if the triangle and square intersect (the
   )
 ```
 
+To have the ball affected by gravity, you should subtract some gravity value (9.81) from the Ball's Y Speed every loop.
 :::
