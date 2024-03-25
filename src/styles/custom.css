@@ -128,6 +128,14 @@ html[data-theme="dark"] a.pi:after {
   border: 1px solid black;
 }
 
+.swiper-slide code {
+  border-radius: 3px;
+}
+
+html[data-theme="dark"] .swiper-slide code {
+  background-color: rgb(220, 220, 220);
+}
+
 a.pi:after {
   font-family: "FontAwesomeBrands";
   content: "\f7bb";

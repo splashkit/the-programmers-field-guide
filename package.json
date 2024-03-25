@@ -10,12 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^3.0.10",
-    "@astrojs/sitemap": "^3.0.5",
-    "@astrojs/starlight": "^0.18.0",
+    "@astrojs/react": "^3.1.0",
+    "@astrojs/sitemap": "^3.1.1",
+    "@astrojs/starlight": "^0.21.2",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
-    "astro": "^4.3.7",
+    "astro": "^4.5.9",
     "astro-embed": "^0.6.1",
     "astro-icon": "^0.8.2",
     "react": "^18.2.0",
