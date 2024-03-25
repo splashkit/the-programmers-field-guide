@@ -169,6 +169,24 @@ The **tasks.json** file contains various settings related to compiling the progr
 }
 ```
 
+:::note[MSys?]
+For MSys, you will need to change the command to be the path to the clang++.exe or g++.exe in your msys64, mingw64 folder as shown below:
+
+```json
+{
+  "tasks": [
+    {
+      // as before
+      "command": "C:\\msys64\\mingw64\\bin\\clang++.exe",
+      // as before
+    }
+  ],
+  "version": "2.0.0"
+}
+```
+
+:::
+
 Each argument is added as a separate string within quotes, separated by commas.
 So, we added the following lines to our **tasks.json**:
 
@@ -226,6 +244,45 @@ Configuring VS Code to run your C/C++ program is much simpler than configuring t
     "version": "2.0.0"
 }
 ```
+
+:::note[MSys changes]
+With MSys2, you need to adjust the program path, but also the MIMode and provide some additional instructions to configure gdb to work with VS Code. The following setting should work.
+
+```json
+{
+  "configurations": [
+    {
+      "name": "C/C++: clang++ build and debug active file",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "C:\\msys64\\mingw64\\bin\\gdb.exe",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "C/C++: clang++ build active file"
+    }
+  ],
+  "version": "2.0.0"
+}
+```
+
+:::
 
 To run your code in the debugger, use the "run and debug" icon in the debugger pane as you did with C#. You should be able to add breakpoints and step through the code as before.
 
