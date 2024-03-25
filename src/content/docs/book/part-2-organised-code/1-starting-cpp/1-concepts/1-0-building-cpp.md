@@ -125,7 +125,7 @@ The extension you need to install is called the [C/C++ Extension Pack](https://m
 
 ![Visual Studio Code with extensions showing the C/C++ extension to install](./images/vscode-extension.png)
 
-With the extension installed, you now need to add some files to configure this to work with your code. The extension will have added a quick configure button that will help get you started. With your **program.cpp** file selected, click the **cog** icon near the top right of the window as highlighted in the following image. This will open a prompt where you can select the version with your preferred compiler. We have selected the **clang++** version in the image below.
+With the extension installed, you now need to add some files to configure this to work with your code. The extension will have added a quick configure button that will help get you started. With your **program.cpp** file selected, click the **cog** icon near the top right of the window as highlighted in the following image. This will open a prompt where you can select the version with your preferred compiler. We have selected the **clang++** version in the image below, you may need to select **g++** if clang is not available. Either compiler should work fine.
 
 ![The settings icon to add the C++ build task](./images/vscode-build-task.png)
 
