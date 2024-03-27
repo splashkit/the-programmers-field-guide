@@ -9,25 +9,25 @@ In the change calculator, we need to read in the cost of the item and the amount
 The code for this looks like this:
 
 ```cpp
-    Write("Cost of item in cents: ");
-    line = ReadLine();
-    while ( ! IsInteger(line) )
+    write("Cost of item in cents: ");
+    line = read_line();
+    while ( ! is_integer(line) )
     {
-      WriteLine("Please enter a whole number.");
-      Write("Cost of item in cents: ");
-      line = ReadLine();
+      write_line("Please enter a whole number.");
+      write("Cost of item in cents: ");
+      line = read_line();
     }
-    int costOfItem = ToInt32(line);
+    int cost_of_item = stoi(line);
 
-    Write("Payment in cents: ");
-    line = ReadLine();
-    while ( ! IsInteger(line) )
+    write("Payment in cents: ");
+    line = read_line();
+    while ( ! is_integer(line) )
     {
-      WriteLine("Please enter a whole number.");
-      Write("Payment in cents: ");
-      line = ReadLine();
+      write_line("Please enter a whole number.");
+      write("Payment in cents: ");
+      line = read_line();
     }    
-    int amountPaid = ToInt32(line);
+    int amount_paid = stoi(line);
 ```
 
 What changes? In order to code this up, we will need ways to address these differences.
@@ -36,8 +36,8 @@ What changes? In order to code this up, we will need ways to address these diffe
   - `"Cost of item in cents: "`
   - `"Payment in cents: "`
 - The result is stored in different variables:
-  - `int costOfItem = ToInt32(line);`
-  - `int amountPaid = ToInt32(line);`
+  - `int cost_of_item = stoi(line);`
+  - `int amount_paid = stoi(line);`
 
 Other than this, the code is the same.
 
@@ -61,10 +61,10 @@ The first difference we identified is different prompt messages. This will be so
 
 ## What is the logic?
 
-The logic is already captured in the code. We can now think of this in the context of the read integer function. 
+The logic is already captured in the code. We can now think of this in the context of the read integer function.
 
 ```
-Function: Read Integer
+Function: Read Integer (read_integer)
 Parameters:
   prompt: a string with the message to show the user
 Local Variables:
@@ -88,8 +88,8 @@ At the end of the code we convert the line to a number. This can use C's [stoi](
 Once you have created the `read_integer` function in your code, you can now call it. So the above block of code is replaced with the following:
 
 ```cpp
-    int costOfItem = read_integer("Cost of item in cents: ");
-    int amountPaid = read_integer("Payment in cents: ");
+    int cost_of_item = read_integer("Cost of item in cents: ");
+    int amount_paid = read_integer("Payment in cents: ");
 ```
 
 How nice is this!

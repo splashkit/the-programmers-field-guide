@@ -103,7 +103,7 @@ void move_player(room_ptr &current_room, const path_data &path)
  * @param prompt the prompt message to display to the user
  * @return int the integer value entered by the user
  */
-int read_int(const string &prompt)
+int read_integer(const string &prompt)
 {
   int result = 0;
   
@@ -125,12 +125,12 @@ void explore(room_ptr &room)
 
   print_room(room);
 
-  option = read_int("Which path do you want to take? ");
+  option = read_integer("Which path do you want to take? ");
 
   while(option < 0 || option > room->paths.size - 1)
   {
     printf("Choose a value between 0 and %d\n", room->paths.size - 1);
-    option = read_int("Option: ");
+    option = read_integer("Option: ");
   }
 
   move_player(room, room->paths[option]);

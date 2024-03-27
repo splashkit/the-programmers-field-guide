@@ -177,7 +177,7 @@ This will read up to the newline character, so you need to make sure the remaini
 You can use this to read an integer as shown below.
 
 ```c
-int read_int(const string &prompt)
+int read_integer(const string &prompt)
 {
   int result = 0;
   

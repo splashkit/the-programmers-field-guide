@@ -80,6 +80,7 @@ extern int x;
 extern string message_text;
 
 void my_procedure();
+#endif
 ```
 
 Which can then be coded into **logic.cpp**. The compiler will not care what the filename is called, but this will help us link the two together as we go forward.

@@ -46,16 +46,16 @@ The code inside main can now focus on the overall process: get the details from 
 
 ```plaintext
 Variables:
-  costOfItem - integer
-  amountPaid - integer
+  cost of item - integer
+  amount paid - integer
   again - string (initialise to "")
 
 Steps:
 
   Do
-    Get the details from the user.
+    Get the details from the user - cost of item and amount paid
     
-    If Payment >= Cost Of Item
+    If amount paid >= cost of Item
         Give change
     Else
         Output an error message
@@ -69,6 +69,8 @@ Have a go at adjusting this code yourself. Move the change calculating code out 
 
 :::tip[Summary]
 
-Moving the code into a separate procedure helps to make it and the remaining code in main clearer. Main in particular is much easier now. The code in give change is still a bit complex, and we can return to this later to see if we can refine it further.
+Moving the code into a separate procedure helps to make it, and the remaining code in main, clearer. Main in particular is much simpler now. The code in give change is still a bit complex, and we can return to this later to see if we can refine it further.
 
 :::
+
+Remember you can check out our version of the code in the [wrap up](/book/part-2-organised-code/2-organising-code/5-wrap-up/1-change-calc).

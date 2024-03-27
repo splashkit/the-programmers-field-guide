@@ -55,7 +55,7 @@ C++ has made things a little easier, avoiding the need to use `typedef` in most 
 The following C code shows an example that creates an `integer` type that is an alias of `int`. We can use this anywhere we would have used `int` previously. Generally you would not do this, but it does show how this syntax works.
 
 ```c
-// Access our utilities like read_int
+// Access our utilities like read_integer
 #include "utilities.h"
 
 // Create an integer type, that is an alias of int
@@ -65,16 +65,20 @@ integer main()
 {
   integer x;
 
-  x = read_int("");
+  x = read_integer("");
   return 0;
 }
 
 ```
 
+:::note
+This code assumes you have created the utilities header and code file as described in the [shared utilities](/book/part-2-organised-code/2-organising-code/2-put-together/04-00-utilities) section. If not, you will need to remove the `#include` and copy in an implementation of the `read_integer` function for the example to work.
+:::
+
 In C++ we can achieve the same thing with `using` to create an alias.
 
 ```cpp
-// Access our utilities like read_int
+// Access our utilities like read_integer
 #include "utilities.h"
 
 // Create an integer type, that is an alias of int
@@ -84,7 +88,7 @@ integer main()
 {
   integer x;
 
-  x = read_int("");
+  x = read_integer("");
   return 0;
 }
 
