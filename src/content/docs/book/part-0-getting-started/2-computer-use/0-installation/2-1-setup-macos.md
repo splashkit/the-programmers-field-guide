@@ -59,8 +59,11 @@ bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-sc
 
 ![Gif showing skm installing in Terminal](/gifs/setup-macos/skm-install.gif)
 
-:::tip[Troubleshooting tip:]
-If you have issues installing the SplashKit SDK, go to the [No response when running SplashKit installation command](../3-0-troubleshooting-install/#no-response-when-running-splashkit-installation-command) section in the Installation Troubleshooting page for an alternative installation process.
+:::tip[Troubleshooting tips!:]
+
+1. If the command above **does nothing**, go to the [No response when running SplashKit installation command](../3-0-troubleshooting-install/#no-response-when-running-splashkit-installation-command) section in the Installation Troubleshooting page for an alternative installation process.
+2. If you see a message about "**permission denied**" or "**Operation not permitted**", go to the [Permission issue when running SplashKit installation command](../3-0-troubleshooting-install/#permission-issue-when-running-splashkit-installation-command) section in the Installation Troubleshooting page for steps to follow to resolve this issue.
+
 :::
 
 ## 3. Install SplashKit Globally
