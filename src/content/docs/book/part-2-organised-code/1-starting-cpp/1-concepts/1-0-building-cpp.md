@@ -53,14 +53,12 @@ You should be able to connect the `#include` with C#'s `using`, and the call to 
 
 Compiling in C/C++ is a little more involved. This is because the C# and dotnet tools include features that take care of many small details for us, whereas the C/C++ compiler gives you a lot more control.
 
-### Compile on your platform
+### Compile your program
 
 As the C/C++ compiler works differently on each platform, we will need slightly different shell instructions for each of them. In general, you need to provide the following options:
 
 - `-l` is used to link with an external library. We need to link to the **SplashKit** library.
 - `-o` will indicate the name of the executable file to create. By default, the compiler will create an `a.out` file. Usually you want a different name, so you can use this option to specify one. For our hello world program we will name the file **program**.
-
-#### Compiling using Global SplashKit
 
 If you have SplashKit installed globally it will be installed in paths that the compiler should search automatically. Given this, you should be able to compile your program using the following command:
 
@@ -68,35 +66,31 @@ If you have SplashKit installed globally it will be installed in paths that the 
 clang++ program.cpp -l SplashKit -o program
 ```
 
-#### Using skm
+If you do not have the library installed globally, then you will need to tell the compiler where to find the different files you are referring to. This can be achieved using the following command line options: 
 
-If you haven't installed SplashKit globally, you can use `skm` to compile your program and this will add in the necessary compiler options for you.
+- `-I <path>` lets you add a folder to search for header files you have included (such as with `#include "splashkit.h"`). For SplashKit you use `-I ~/.splashkit/clang++/include`.
+- `-L <path>` lets you add a folder to search for libraries. For SplashKit you use `-L ~/.splashkit/lib/linux`, `-L ~/.splashkit/lib/macos`, or `-L ~/.splashkit/lib/win64`.
+- `-Wl,-rpath,` is used to indicate where to find the library files. The `rpath` is the path that the computer will search at runtime, when it is loading libraries. You need to tell this where you have installed the SplashKit library. (Linux, macOS, and WSL only)
+
+```zsh
+# Exampl of compiling on Linux
+clang++ program.cpp -I ~/.splashkit/clang++/include -L ~/.splashkit/lib/linux -l SplashKit -Wl,-rpath,~/.splashkit/lib/linux -o program
+```
+
+If you are using MSys2, there are a few more options that you can also include if you want to be able to run the program by double-clicking it in the Windows explorer instead of only from within MSys2. These settings ensure that the program will embed aspects of MSys2 needed to run it independently.
+
+```zsh
+clang++ program.cpp -Wl,--as-needed -static-libstdc++ -static-libgcc -lSplashKit -Wl,-Bstatic -lstdc++ -lpthread -o program
+```
+
+:::tip[When all else fails...]
+When you install splashkit it includes `skm` a set of scripts to help compile and run programs. If you get stuck, you can use `skm` to compile your program and this will add in the necessary compiler options for you.
 
 ```zsh
 skm clang++ program.cpp -o program
 ```
 
-#### Compiling with explicit folders
-
-Alternatively, you can pass in command line options:
-
-- `-I <path>` lets you add a folder to search for header files. For SplashKit you use `-I ~/.splashkit/clang++/include`.
-- `-L <path>` lets you add a folder to search for libraries. For SplashKit you use `-L ~/.splashkit/lib/linux`, `-L ~/.splashkit/lib/macos`, or `-L ~/.splashkit/lib/win64`.
-- `-Wl,-rpath,` is used to indicate where to find the library files. The `rpath` is the path that the computer will search at runtime, when it is loading libraries. You need to tell this where you have installed the SplashKit library. (MacOS and Linux only)
-
-For example, you can use:
-
-```zsh
-skm clang++ program.cpp -I ~/.splashkit/clang++/include -L ~/.splashkit/lib/linux -l SplashKit -o program
-```
-
-#### Additional Windows Options
-
-There are a few more options that you can also include if you want to be able to run the program by double-clicking it in the Windows explorer instead of only from within MSys2:
-
-```zsh
-g++ program.cpp -Wl,--as-needed -static-libstdc++ -static-libgcc -lSplashKit -Wl,-Bstatic -lstdc++ -lpthread -o program
-```
+:::
 
 ### Run your program
 
@@ -115,177 +109,8 @@ When you want to run the program, you need to specify the path to it even though
 
 Once this is working, you have everything set up and ready to go. Getting this to work can be a bit finicky, as the C/C++ tools were designed for a professional audience and do not include much to make this a user-friendly process. If you have others you are studying with, make sure to ask for help if you get stuck.
 
-## Configuring Visual Studio Code
+:::caution
+Remember to make sure you save, compile, and then run your program as you make changes. If you forget to save the file, or you forget to compile it then you will be running the old version of the program and not what you have coded.
 
-Getting the program compiling and running in the terminal will mean that you now know the steps an editor like Visual Studio Code would need to automate for us.
-
-Visual Studio Code uses [extensions](https://code.visualstudio.com/docs/editor/extension-marketplace) to extend its capabilities to support developers working in a range of languages. To get support with C/C++ we need to install the associated extensions and then configure their settings to get them to link in the required libraries.
-
-The extension you need to install is called the [C/C++ Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack) by Microsoft. Visual Studio Code should automatically show you this in the extensions' pane if you have the program.cpp file open. Click the **install** button to install this extension in your editor.
-
-![Visual Studio Code with extensions showing the C/C++ extension to install](./images/vscode-extension.png)
-
-With the extension installed, you now need to add some files to configure this to work with your code. The extension will have added a quick configure button that will help get you started. With your **program.cpp** file selected, click the **cog** icon near the top right of the window as highlighted in the following image. This will open a prompt where you can select the version with your preferred compiler. We have selected the **clang++** version in the image below, you may need to select **g++** if clang is not available. Either compiler should work fine.
-
-![The settings icon to add the C++ build task](./images/vscode-build-task.png)
-
-This will create two files in a **.vscode** folder:
-
-- **launch.json**: contains details on how to run the program in the debugger.
-- **tasks.json**: contains details on how to compile the program.
-
-### Configuring the Build Task
-
-The **tasks.json** file contains various settings related to compiling the program. We need to provide this with the additional options we provided to the compiler when we compiled our program through the terminal. The **args** setting is a list of the values to pass as arguments to the compiler. You need to extend this with extra options to link the SplashKit library, and set the rpath as shown below.
-
-```json
-{
-  "tasks": [
-    {
-      "type": "cppbuild",
-      "label": "C/C++: clang++ build active file",
-      "command": "/usr/bin/clang++",
-      "args": [
-        "-fcolor-diagnostics",
-        "-fansi-escape-codes",
-        "-g",
-        "${file}",
-        "-o",
-        "${fileDirname}/${fileBasenameNoExtension}",
-        "-l",
-        "SplashKit"
-      ],
-      "options": {
-        "cwd": "${fileDirname}"
-      },
-      "problemMatcher": [
-        "$gcc"
-      ],
-      "group": "build",
-      "detail": "Task generated by Debugger."
-    }
-  ],
-  "version": "2.0.0"
-}
-```
-
-:::note[MSys?]
-For MSys, you will need to change the command to be the path to the clang++.exe or g++.exe in your msys64, mingw64 folder as shown below:
-
-```json
-{
-  "tasks": [
-    {
-      // as before
-      "command": "C:\\msys64\\mingw64\\bin\\clang++.exe",
-      // as before
-    }
-  ],
-  "version": "2.0.0"
-}
-```
-
+Remember: **save**, **compile**, and then **run**.
 :::
-
-Each argument is added as a separate string within quotes, separated by commas.
-So, we added the following lines to our **tasks.json**:
-
-```json
-        "-l",
-        "SplashKit"
-```
-
-:::tip[Hidden Folders]
-Remember that folders that start with a `.` are hidden in unix. They do not appear in `ls` commands unless you add the `-a` option.
-:::
-
-These settings tell VS Code how to build a selected C++ file that uses the SplashKit library. With your program.cpp file selected, you can build the program using **ctrl-shift-b** (**cmd-shift-b** on macOS) or selecting **Tasks: Run Build Task** from the [command palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
-
-In the terminal window in VS Code you should see the output from this, as shown below. Make sure that you can see that this ran successfully.
-
-```zsh
- *  Executing task: C/C++: clang++ build active file 
-
-Starting build...
-/usr/bin/clang++ -std=gnu++14 -fcolor-diagnostics -fansi-escape-codes -g /Users/acain/Documents/Code/Test2/main.cpp -o /Users/acain/Documents/Code/Test2/main -l SplashKit
-
-Build finished successfully.
- *  Terminal will be reused by tasks, press any key to close it. 
-```
-
-At this point, you have Visual Studio Code set up to build the currently selected file into a program.
-
-Going forward, you can edit the tasks.json to compile multiple files. To do this you need to change the argument that passes in what to compile, and the output option in the following ways:
-
-- Change **"${file}"** to **"*.cpp"**. This will then compile all cpp files.
-- The **"-o"** argument is followed by the name of the program to create. This is **"${fileDirname}/${fileBasenameNoExtension}"** which names the program after the selected file. When building multiple files you can provide a fixed value here like **"program"**. This will then always build the same output regardless of which source file is selected.
-
-### Configuring Launch
-
-Configuring VS Code to run your C/C++ program is much simpler than configuring the settings needed for compiling. The defaults in **launch.json** do not need changing if you have not changed the "-o" option in the tasks.json file. They should appear as shown below.
-
-```json
-{
-    "configurations": [
-        {
-            "name": "C/C++: clang++ build and debug active file",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb",
-            "preLaunchTask": "C/C++: clang++ build active file"
-        }
-    ],
-    "version": "2.0.0"
-}
-```
-
-:::note[MSys changes]
-With MSys2, you need to adjust the program path, but also the MIMode and provide some additional instructions to configure gdb to work with VS Code. The following setting should work.
-
-```json
-{
-  "configurations": [
-    {
-      "name": "C/C++: clang++ build and debug active file",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${fileDirname}",
-      "environment": [],
-      "externalConsole": false,
-      "MIMode": "gdb",
-      "miDebuggerPath": "C:\\msys64\\mingw64\\bin\\gdb.exe",
-      "setupCommands": [
-        {
-          "description": "Enable pretty-printing for gdb",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        },
-        {
-          "description": "Set Disassembly Flavor to Intel",
-          "text": "-gdb-set disassembly-flavor intel",
-          "ignoreFailures": true
-        }
-      ],
-      "preLaunchTask": "C/C++: clang++ build active file"
-    }
-  ],
-  "version": "2.0.0"
-}
-```
-
-:::
-
-To run your code in the debugger, use the "run and debug" icon in the debugger pane as you did with C#. You should be able to add breakpoints and step through the code as before.
-
-Notice that unlike with C#, the output does not go into the terminal window. To include terminal input and output, you need to change the "externalConsole" setting to `false`. When you run the debugger now, it will open the default terminal program and allow you to use it for input and output.
-
-If you change the "-o" setting in tasks.json, you will also need to change it in **launch.json**. In this case the **"program"** value indicates the name of the program to run. The default **"${fileDirname}/${fileBasenameNoExtension}"** can be changed to something like **"program"** if you update this in the tasks file.
