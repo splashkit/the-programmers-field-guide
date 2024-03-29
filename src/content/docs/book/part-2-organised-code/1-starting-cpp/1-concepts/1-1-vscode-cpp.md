@@ -24,7 +24,9 @@ The image below shows the options on macOS. This lists both the clang++ and g++ 
 
 ![The settings icon to add the C++ build task](./images/vscode-build-task.png)
 
-This will create a **tasks.json** files in a hidden **.vscode** folder, and will then attempt to build your program. At the moment, this will fail as we need to tell the compiler to link in the SplashKit library. Let's have a look at how to do that next.
+This will create a **tasks.json** files in a hidden **.vscode** folder, and will then *attempt* to build your program. At the moment, this will fail as we need to tell the compiler to link in the SplashKit library. You should get an error as shown in the image below. Click the **Abort** or the **Show Errors** button, and then you can adjust the settings to get this to compile. You should be able to see the error message in the Terminal, so you can check what went wrong there.
+
+![Error message shown when you try to run](./images/build-error.png)
 
 :::tip[Hidden Folders]
 Remember that folders that start with a `.` are hidden in unix. They do not appear in `ls` commands unless you add the `-a` option.
@@ -45,8 +47,8 @@ The **tasks.json** file contains various settings related to compiling the progr
         "-fdiagnostics-color=always",
         "-g",
         "${file}",
-        "-l",
-        "SplashKit"
+        "-l", // add the -l switch
+        "SplashKit", // followed by the SplashKit library
         "-o",
         "${fileDirname}/${fileBasenameNoExtension}"
       ],
@@ -72,11 +74,11 @@ So, we added the following lines to our **tasks.json**:
 
 ```json
         "-l",
-        "SplashKit"
+        "SplashKit",
 ```
 
 :::note[MSys?]
-For MSys, you will need to change the command to be the path to the g++.exe in your msys64, mingw64 folder as shown below:
+For MSys, you will need to change the path in the command attribute to the use the Windows path to your g++.exe program. This will be in your msys64, mingw64 folder. The snippet below shows the path to where this is installed by default:
 
 ```json
 {
@@ -93,15 +95,15 @@ For MSys, you will need to change the command to be the path to the g++.exe in y
 
 :::
 
-These settings tell VS Code how to build a selected C++ file that uses the SplashKit library. With your *program.cpp* file selected, you can build the program using **ctrl-shift-b** (**cmd-shift-b** on macOS) or selecting **Tasks: Run Build Task** from the [command palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
+These settings tell VS Code how to build a selected C++ file that uses the SplashKit library. With your *program.cpp* file selected (i.e. open and with the cursor in it) you can build the program using **ctrl-shift-b** (**cmd-shift-b** on macOS) or selecting **Tasks: Run Build Task** from the [command palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
 
 In the terminal window in VS Code you should see the output from this, as shown below. Make sure that you can see that this ran successfully.
 
 ```zsh
- *  Executing task: C/C++: clang++ build active file 
+ *  Executing task: C/C++: g++ build active file 
 
 Starting build...
-/usr/bin/clang++ -std=gnu++14 -fcolor-diagnostics -fansi-escape-codes -g /Users/acain/Documents/Code/Test2/main.cpp -o /Users/acain/Documents/Code/Test2/main -l SplashKit
+/usr/bin/g++ -std=gnu++14 -fcolor-diagnostics -fansi-escape-codes -g /Users/acain/Documents/Code/Test2/program.cpp -o /Users/acain/Documents/Code/Test2/program -l SplashKit
 
 Build finished successfully.
  *  Terminal will be reused by tasks, press any key to close it. 
@@ -116,39 +118,25 @@ Going forward, you can edit the tasks.json to compile multiple files. To do this
 
 ### Configuring Launch
 
-If you have your computer setup correctly, you should be able to 
+If you have your computer setup correctly, you should **_not_** need to configure the way VS Code launches the debugger. However, should you need to adjust any of these settings you can. You can create the file manually in the *.vscode* folder, or click the **cog** next to the *debug/play* button and select the compiler you selected previously. Using the cog button will create an empty **launch.json** file (and will also create *tasks.json* if that does not exist). You use the *launch.json* file to configure how to run your program.
 
-Configuring VS Code to run your C/C++ program is much simpler than configuring the settings needed for compiling. The defaults in **launch.json** do not need changing if you have not changed the "-o" option in the tasks.json file. They should appear as shown below.
+:::caution
 
-```json
-{
-    "configurations": [
-        {
-            "name": "C/C++: clang++ build and debug active file",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb",
-            "preLaunchTask": "C/C++: clang++ build active file"
-        }
-    ],
-    "version": "2.0.0"
-}
-```
+If you use the cog icon to create the *launch.json* file, it may reset *tasks.json*. If you try to run and it fails to build, check *tasks.json* to see that the libraries are still being linked.
 
-:::note[MSys changes]
-With MSys2, you need to adjust the program path, but also the MIMode and provide some additional instructions to configure gdb to work with VS Code. The following setting should work.
+:::
+
+Configuring VS Code to run your C/C++ program is much simpler than configuring the settings needed for compiling. When you open the *launch.json* it may have defaults already included, which are likely to be ok. If not, you click the **Add Configuration** button and select the appropriate C/C++ option to launch the program using the debugger. In the image below we have selected to launch with *lldb*, but you shuld choose *gdb* if you are using Windows and Linux.
+
+![Adding a configuration to launch.json](./images/launch-json.png)
+
+We have an example configuration using *gdb* below. The important settings to check are the **program** setting - which should have the same details as you set in the output option of the compiler.
 
 ```json
 {
   "configurations": [
     {
-      "name": "C/C++: clang++ build and debug active file",
+      "name": "C/C++: g++ build and debug active file",
       "type": "cppdbg",
       "request": "launch",
       "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
@@ -178,10 +166,36 @@ With MSys2, you need to adjust the program path, but also the MIMode and provide
 }
 ```
 
+:::note[macOS and lldb]
+If you are using lldb on macOS, then the *launch.json* is a little simpler. An example is shown below. As with the gdb settings, the main thing to pay attention to is the *program* setting.
+
+```json
+{
+    "configurations": [
+        {
+            "name": "C/C++: clang++ build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "C/C++: clang++ build active file"
+        }
+    ],
+    "version": "2.0.0"
+}
+```
+
 :::
 
-To run your code in the debugger, use the "run and debug" icon in the debugger pane as you did with C#. You should be able to add breakpoints and step through the code as before.
+## Running in the Debugger
 
-Notice that unlike with C#, the output does not go into the terminal window. To include terminal input and output, you need to change the "externalConsole" setting to `false`. When you run the debugger now, it will open the default terminal program and allow you to use it for input and output.
+To run your code in the debugger, use the "debug/play" or click the "Run and Debug" icon in the debugger pane. You should be able to add breakpoints and step through the code as before.
 
-If you change the "-o" setting in tasks.json, you will also need to change it in **launch.json**. In this case the **"program"** value indicates the name of the program to run. The default **"${fileDirname}/${fileBasenameNoExtension}"** can be changed to something like **"program"** if you update this in the tasks file.
+Notice that unlike C#, the output does not go into the terminal window. To include terminal input and output, you need to change the "externalConsole" setting to `false`. When you run the debugger now, it will open the default terminal program and allow you to use it for input and output.
+
+Remember, if you change the "-o" setting in *tasks.json*, you will also need to change it in *launch.json*.
