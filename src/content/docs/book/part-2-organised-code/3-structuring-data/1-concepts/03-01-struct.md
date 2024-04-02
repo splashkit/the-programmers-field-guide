@@ -26,7 +26,7 @@ In your code, structs can be used to model data associated with the *things*, th
 
 Structs are your go-to tool for modelling the **things** (entities) within your digital reality. You can now put together all the data related to that entity in the one type. Then, when you want one of these entities in your code, you use your type. This can be in a local variable, or in parameters. Anywhere you have data can now be used to work with your entities.
 
-Each struct should be model an identifiable entity in your digital reality. These are one of your key building blocks, allowing you to clearly show the things associated with your program. As you think about the program, these entities should clearly relate to the program. For example, in a banking system you would expect to see accounts, and transactions. These are clearly entities associated with this domain.
+Each struct should model an identifiable entity in your digital reality. These are one of your key building blocks, allowing you to clearly show the things associated with your program. As you think about the program, these entities should clearly relate to the program. For example, in a banking system you would expect to see accounts, and transactions. These are clearly entities associated with this domain.
 
 As you build up these structs, think about the data associated with the entity. This can be simple data like the numbers and text, but can also be other structures or enumerations. For example, a bank account would have a name (text) and a number. A customer struct may then have an account as one of its fields.
 
@@ -73,7 +73,7 @@ using std::to_string;
 struct person_struct
 {
     string name;
-    int    age;
+    int age;
 };
 
 /**
@@ -91,42 +91,42 @@ typedef struct person_struct person;
  */
 void print_person(person p)
 {
-  write_line(p.name + " (aged " + to_string(p.age) + ")");
+    write_line(p.name + " (aged " + to_string(p.age) + ")");
 }
 
 /**
- * Read in the details of 
+ * Read in the details of
  *
- * @param prompt a message to show the user when they start 
+ * @param prompt a message to show the user when they start
  *               to enter the user's name
  * @return a person populated with the data the user provided
  */
 person read_person(string prompt)
 {
-  person result = { "", 0 };
-  
-  write_line(prompt);
-  
-  result.name = read_string("Enter name: ");
-  result.age = read_integer("Enter age: ");
-  
-  return result;
+    person result = {"", 0};
+
+    write_line(prompt);
+
+    result.name = read_string("Enter name: ");
+    result.age = read_integer("Enter age: ");
+
+    return result;
 }
 
 int main()
 {
-  person me = {"Fred Smith", 20};
-  person friend_0;
-  person friend_1;
-  
-  friends_0 = get_person("Enter details for a friend.");
-  friends_1 = get_person("Enter details for another friend.");
-  
-  print_person(me);
-  print_person(friends_0);
-  print_person(friends_1);
-  
-  return 0;
+    person me = {"Fred Smith", 20};
+    person friend_0;
+    person friend_1;
+
+    friend_0 = read_person("Enter details for a friend.");
+    friend_1 = read_person("Enter details for another friend.");
+
+    print_person(me);
+    print_person(friend_0);
+    print_person(friend_1);
+
+    return 0;
 }
 ```
 
