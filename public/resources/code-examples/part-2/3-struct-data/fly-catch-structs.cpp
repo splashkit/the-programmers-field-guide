@@ -72,7 +72,10 @@ void draw_spider(spider_data spider)
 void draw_fly(fly_data fly)
 {
   // Exit if the fly has not appeared
-  if (!fly.appeared) return;
+  if (!fly.appeared)
+  {
+    return;
+  }
 
   // Draw the fly
   fill_circle(color_dark_green(), fly.x, fly.y, FLY_RADIUS);
