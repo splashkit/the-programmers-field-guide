@@ -21,12 +21,12 @@ using std::to_string;
 typedef enum
 {
   NO_COIN = -1,
-  FIVE_CENTS,
-  TEN_CENTS,
-  TWENTY_CENTS,
-  FIFTY_CENTS,
-  ONE_DOLLAR,
   TWO_DOLLARS
+  ONE_DOLLAR,
+  FIFTY_CENTS,
+  TWENTY_CENTS,
+  TEN_CENTS,
+  FIVE_CENTS,
 } coin_kind;
 
 /**

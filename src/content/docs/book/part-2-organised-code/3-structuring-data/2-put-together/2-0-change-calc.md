@@ -12,12 +12,12 @@ In the code, we are looping through all the different coins, using the index to 
 Enum: Coin Kind
 Options:
   NO_COIN = -1,
-  FIVE_CENTS,
-  TEN_CENTS,
-  TWENTY_CENTS,
-  FIFTY_CENTS,
-  ONE_DOLLAR,
   TWO_DOLLARS
+  ONE_DOLLAR,
+  FIFTY_CENTS,
+  TWENTY_CENTS,
+  TEN_CENTS,
+  FIVE_CENTS,
 ```
 
 When you make this change in the code, you should see that the compiler warns you if you try to assign a coin value variable anything other than one of the coin value options.
