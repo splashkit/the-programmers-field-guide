@@ -8,7 +8,7 @@ In C#, we had picked up a number of methods that we could use to achieve differe
 
 The following declarations provide the functions and procedures you use to interact with the user via the terminal. These match with the C# methods `WriteLine`, `Write`, and `ReadLine`.
 
-```cs
+```cpp
 // These need..
 // #include "splashkit.h"
 
@@ -17,7 +17,7 @@ void write(...);
 string read_line();
 ```
 
-There are also the data type testing and conversion functions you will need to convert data to and from strings. 
+There are also the data type testing and conversion functions you will need to convert data to and from strings.
 
 ```cpp
 // These need...
@@ -72,7 +72,7 @@ int main()
     line = read_line();
   }
 
-  age = stoi(read_line());
+  age = stoi(line);
 
   write_line("You are " + to_string(age) + "!");
 
