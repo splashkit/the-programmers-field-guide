@@ -17,8 +17,8 @@ The only way to avoid these access violations is to **take care** with your poin
 
 <a id="FigurePointerCartoon"></a>
 
-![Figure x.y: To avoid access violation, take care with your pointers. From http://xkcd.com/371/](./images/pointers-cartoon-strip.png "To avoid access violation, take care with your pointers. From http://xkcd.com/371/")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>To avoid access violation, take care with your pointers. From <a href="http://xkcd.com/371/" target="_blank">http://xkcd.com/371/</a></div><br/>
+![XKCD comic 371](./images/pointers-cartoon-strip.png "To avoid access violation, take care with your pointers. From http://xkcd.com/371/")
+<div class="caption">Image from <a href="http://xkcd.com/371" target="_blank">XKCD</a>, licensed under <a href="https://creativecommons.org/licenses/by-nc/2.5/">Creative Commons Attribution-NonCommercial 2.5</a> (CC-BY-NC 2.5)</div>
 
 :::note
 

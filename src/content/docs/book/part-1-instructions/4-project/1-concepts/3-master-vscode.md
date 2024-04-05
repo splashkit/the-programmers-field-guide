@@ -19,7 +19,7 @@ A few of the key components that we love are:
 There is also a handy cheat-sheet to help you get started learning the various shortcuts.
 
 ![A cheat sheet with a list of shortcuts for VS Code](https://code.visualstudio.com/assets/docs/getstarted/tips-and-tricks/KeyboardReferenceSheet.png)
-<div class="caption">Image from <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">visualstudio.com</a></div>
+<div class="caption">Image from <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">visualstudio.com</a>, © Microsoft</div>
 
 Explore the [VS Code Getting Started site](https://code.visualstudio.com/docs/getstarted/introvideos), and take your editing to the next level.
 

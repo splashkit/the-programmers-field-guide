@@ -9,7 +9,7 @@ sidebar:
 In this guide, we will walk through the steps to install the necessary Applications and Tools using **MSYS2** (**M**inimal **SYS**tem) on Windows. This will enable you to code in C# and C++ with SplashKit.
 
 :::note[Already have SplashKit installed?]
-If you have previously installed SplashKit (before 2024):
+If you have previously installed SplashKit:
 
 - Update SplashKit using your "MSYS2 MINGW64" terminal with the command: `skm update`
 - Then you can skip to Step [4: Install SplashKit Globally](#4-install-splashkit-globally).
@@ -25,6 +25,7 @@ To get SplashKit and other coding tools installed on Windows, using MSYS2, follo
 Download the installer (32-bit or 64-bit) from the official MSYS2 website: [www.msys2.org](https://www.msys2.org/)
 
 ![Gif showing MSYS2 download](/gifs/setup-windows/install-msys.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 To install MSYS2, double-click the downloaded executable file, and follow the on-screen instructions.  
 *It is recommended to use the default install path, but you can customise the other installation options as needed.*
@@ -43,6 +44,7 @@ To make it easier to open each time, you can pin your terminal to the Taskbar.
 - Select "Pin to taskbar" (shown in the pink box):
 
 ![Image showing MSYS2 MINGW64 App pinning to taskbar](./images/setup-windows/mingw64-pin-to-taskbar.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 :::
 
 ## 2. Install git and clang Command Line Tools
@@ -80,6 +82,7 @@ bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-sc
 *For this step*, you can use any of the terminal environments provided by MSYS2, such as the **MSYS** terminal shown here:
 
 ![MSYS SKM Install](/gifs/setup-windows/msys-skm-install.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 :::tip[Troubleshooting tip:]
 If you have issues installing the SplashKit SDK, go to the [No response when running SplashKit installation command](../3-0-troubleshooting-install/#no-response-when-running-splashkit-installation-command) section in the Installation Troubleshooting page for an alternative installation process.
@@ -96,6 +99,7 @@ skm global install
 ```
 
 ![MSYS Global Install](/gifs/setup-windows/msys-global-install.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 :::note[What does this command do specifically?]
 The command above will add the **SplashKit libraries** into the `/usr/local/lib/` folder, and the required **SplashKit library include files** into the `/usr/local/include` folder.
@@ -112,6 +116,7 @@ Once you have your code project set up, Visual Studio Code will be the main prog
 Download and run the installer from: [code.visualstudio.com/Download](https://code.visualstudio.com/Download).
 
 ![Gif showing Visual Studio Code installation](/gifs/setup-windows/install-vscode.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 :::tip[Open Code from Terminal]
 You can open Visual Studio Code from the MINGW64 terminal by typing `code` and pressing enter. `code .` will open the current folder in Visual Studio Code.
@@ -128,6 +133,7 @@ Open Visual Studio Code, then press `Ctrl` + `Shift` + `P` to open the [Command 
 Start typing "Open user..." and then select **Open User Settings (JSON)** (shown in the orange box in the image below):
 
 ![Image showing Command palette use to open User Setting (JSON) in VS Code window](./images/setup-windows/vscode-open-user-settings-json.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 This will open the **settings.json** file that you can now edit.
 
@@ -180,6 +186,7 @@ Save the file for these changes to take effect.
 Now you can open a new Terminal in VS Code with: ***Terminal* > *New Terminal*** (as shown below):
 
 ![Image showing opening a new terminal in VS Code window](./images/setup-windows/new-terminal-vscode.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 ### Recommended Extensions
 

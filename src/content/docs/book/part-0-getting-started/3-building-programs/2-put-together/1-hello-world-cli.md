@@ -69,6 +69,7 @@ dotnet new console
 If you run `ls -lha` in the terminal after the commands above, it should look similar to this:
 
 ![A terminal window showing the above commands being used.](./images/hello-world-cli-set-up.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 Now you are ready to start coding your first program!
 
@@ -87,6 +88,7 @@ If the `code .` command does not work on your computer, you can open Visual Stud
 You will notice that shortly after opening the project, a **bin** folder and a **.sln** file will be added automatically:
 
 ![A VS Code window showing the files in the Explorer tab.](./images/vscode-explorer-program-file.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 Open `Program.cs` file (shown above in Green box) by double-clicking the file in the Explorer tab (shown above in Orange box):
 
@@ -117,5 +119,6 @@ To avoid having to switch back and forth between your apps, you can open a Termi
 Here is what the result will look like:
 
 ![A VS Code window showing the program being run in the terminal.](./images/vscode-cli-hello-world-output.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 Next, we are going to create a **Graphical** *Hello World* program!

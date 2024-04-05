@@ -31,6 +31,7 @@ wsl --install
 ```
 
 ![Gif showing WSL terminal running wsl --install commands](/gifs/setup-windows/wsl-terminal.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 ### Method 2: Microsoft Store
 
@@ -39,6 +40,7 @@ Alternatively, you can install WSL (and Ubuntu) directly from the Microsoft Stor
 To do this, search "WSL" in the Microsoft Store app (as shown below), or [click this link](https://apps.microsoft.com/store/detail/9P9TQF7MRM4R).
 
 ![Gif showing WSL being installed from Microsoft store](/gifs/setup-windows/install-wsl.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 You will also need to download **Ubuntu** from the Microsoft Store. Search "Ubuntu" in the Microsoft Store app, or [click this link](https://apps.microsoft.com/store/detail/9PDXGNCFSCZV).
 
@@ -52,6 +54,7 @@ When prompted, enter your new UNIX username and password.
 For example, with the username "**default-user**", your terminal would look like this:
 
 ![Image showing WSL terminal with ubuntu user account set up](./images/setup-windows/terminal-ubuntu-user-account.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 You can see in the image above where the "**default-user**" username was first entered (shown in the pink box), and the same username being used with the terminal prompt (shown in the orange box).
 
@@ -70,10 +73,12 @@ If you want to be able to have your 'Windows **Terminal**' app automatically ope
 Firstly, open the Terminal app, and click the drop-down arrow at the top of the window (shown in the green box in the image below), then click on "Settings" (shown in the orange box):
 
 ![Image showing Terminal App with how to open settings](./images/setup-windows/windows-terminal-settings.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 Next, click on the drop-down menu within the *Default profile* section and select either of the **Ubuntu** profiles. *If you're unsure, select the one with the Linux penguin icon* (shown in the pink box):
 
 ![Image showing Terminal App with how to change default profile in settings](./images/setup-windows/windows-terminal-default-profile.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 Click **Save**. (Don't forget this!)
 
@@ -91,6 +96,7 @@ To make it easier to open each time, you can pin your Terminal to the Taskbar.
 - Select "Pin to taskbar" (shown in the pink box):
 
 ![Image showing Terminal App pinning to taskbar](./images/setup-windows/terminal-pin-taskbar.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 :::
 
 ## 2. Install Command Line Tools
@@ -112,6 +118,7 @@ sudo apt install git curl clang
 ```
 
 ![Gif showing command above being run in WSL Terminal](/gifs/setup-windows/wsl-git-curl.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 ## 3. Install SplashKit SDK
 
@@ -130,6 +137,7 @@ bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-sc
 ```
 
 ![Gif showing skm installing in WSL Terminal](/gifs/setup-windows/wsl-skm-install.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 :::tip[Troubleshooting tip:]
 If you have issues installing the SplashKit SDK, go to the [No response when running SplashKit installation command](../3-0-troubleshooting-install/#no-response-when-running-splashkit-installation-command) section in the Installation Troubleshooting page for an alternative installation process.
@@ -160,6 +168,7 @@ skm global install
 ```
 
 ![Gif showing skm installing globally in WSL Terminal](/gifs/setup-windows/wsl-install-global.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 :::note[What does this command do specifically?]
 The command above will add the **SplashKit libraries** into the `/usr/local/lib/` folder, and the required **SplashKit library include files** into the `/usr/local/include` folder.
@@ -176,6 +185,7 @@ Once you have your code project set up, Visual Studio Code will be the main prog
 Download and run the installer from: [code.visualstudio.com/Download](https://code.visualstudio.com/Download).
 
 ![Gif showing Visual Studio Code installation](/gifs/setup-windows/install-vscode.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 :::tip[Open Code from Terminal]
 You can open Visual Studio Code from the Terminal by typing `code` and pressing enter. `code .` will open the current folder in Visual Studio Code.

@@ -21,6 +21,7 @@ The Raspberry Pi comes with an ssh server built it, but it is switched off by de
 4. Accept the changes, and close the configuration tool.
 
 ![Shows enabling ssh in the graphical configuration.](./images/pi-remote-access.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 ## Access your Pi via SSH
 
@@ -47,6 +48,7 @@ You won't see your password echoed to the Terminal as you type it. So you don't 
 :::
 
 ![Shows running ssh to access the remote Pi](./images/ssh-to-pi.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 If this succeeds, your Terminal will now have access to the shell on your Pi! You can use any of your Unix commands to access things on the Pi.
 
@@ -72,6 +74,7 @@ When this connects, you can use the following commands to quickly and easily tra
 - `put` will copy a file from the local machine to the remote machine (computer to Pi)
 
 ![Shows using sftp to transfer some files](./images/sftp.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 The above image shows connecting to a Pi using `sftp` and getting all the files from the `Pictures` folder on the remote machine.
 
@@ -80,5 +83,6 @@ The above image shows connecting to a Pi using `sftp` and getting all the files 
 VS Code includes the ability to do [remote development using ssh](https://code.visualstudio.com/docs/remote/ssh). To do this you need to install the [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension. If you have ssh working, you can play around with editing your code from your computer, while the files and terminal commands are actually run on the Raspberry Pi!
 
 ![Shows remote editing in VS Code](./images/remote-vscode.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 To get this working, follow the steps in the [remote development using ssh](https://code.visualstudio.com/docs/remote/ssh) guide.

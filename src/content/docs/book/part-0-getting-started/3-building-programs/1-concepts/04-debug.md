@@ -10,6 +10,7 @@ One of the most important tools we will use is the **debugger**.
 You can use the debugger to step through your program line by line.
 
 ![A VS Code window shown with a breakpoint added to line 3](./images/debugger-new.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 The image above shows the debugger selected in VS Code, with a breakpoint on line 3. The key features are:
 
@@ -20,11 +21,13 @@ The image above shows the debugger selected in VS Code, with a breakpoint on lin
 When the debugger runs, VS Code will give you a control panel you can use to step through the program.
 
 ![A VS Code window with the debugger waiting on line 3. The control buttons appear at the top of the window.](./images/debugger-running-new.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 1. The yellow marker around the breakpoint indicates the current line of code running.
 2. A new control panel has appeared at the top of the screen with buttons to control execution.
 
 ![The control panel with buttons described below](./images/debugger-controls.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 This control panel gives you the power to step through the program as it runs.
 

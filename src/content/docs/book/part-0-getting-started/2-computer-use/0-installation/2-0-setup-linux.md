@@ -14,6 +14,7 @@ In this guide, we will walk through the steps to install the necessary Applicati
 To open the Terminal on Debian, click activities in the top left of the screen and type "Terminal" in the search bar, then click on the Terminal icon.
 
 ![Gif showing how to open the Terminal](/gifs/setup-linux/OpenTerminal.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 :::
 
@@ -33,16 +34,17 @@ groups username
 ```
 
 ![Image showing the above commands run in the terminal](./images/setup-linux/Setup_sudo.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 :::
 
-<!-- TODO: check which callout/aside to use here (from "reading the guide") or update to be a step for "Install Command Line tools" -->
-:::danger[Do you have git and curl installed?]
+:::caution[Do you have git and curl installed?]
 
 A number of the commands in the setup require `git`, `curl`, and `clang` to be installed to function correctly. To check if they are installed on your system, type `curl`, `clang++`, then `git` into the terminal and press enter after each.
 
 If you see the following error messages you will need to install the missing programs.
 
 ![image showing curl and git command not found error](./images/setup-linux/curlGitNotFound.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 To install curl, git, and clang run the following commands in the Terminal (if only one is required, you can delete the other from the command):
 
@@ -124,6 +126,7 @@ This may take a while (approx. 10 mins).
 :::
 
 ![GIF showing skm installation in Terminal](/gifs/setup-linux/SkmLinuxInstall.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 ### 2. Install SplashKit Globally
 
@@ -229,6 +232,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ```
 
 ![gif showing the installation of oh=my=zsh](/gifs/setup-pi/1-2-setup-pi-OMZ-Install.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 Answer `y` to the question `Do you want to change your default shell to zsh?`
 
@@ -264,6 +268,7 @@ To install a plugin, add it to the plugin list in the `~/.zshrc` file.
 Using `autojump` as an example:
 
 ![gif showing the installation of autojump](/gifs/setup-pi/1-2-setup-pi-AutoJump.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 First, you will install it with:
 
@@ -316,20 +321,9 @@ To customise the desktop background, right-click anywhere on the desktop and sel
 Then, select the image or theme you want to use as your background.
 
 ![image showing the appearance menu](./images/setup-linux/AppearanceMenu.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 You can toggle dark mode by clicking on the icon in the top right of the screen and selecting the mode you want to use.
 
 ![image showing quick setting with dark mode selected](./images/setup-linux/QuickSettingMenu.png)
-
-#### Set Deakin Desktop Background
-
-For Debian, run the following command in the Terminal to download the Deakin background images and set them for dark and light mode:
-
-```bash
- curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/part-0-getting-started/2-computer-use/2-put-together/images/setup-pi/Deakin-Backgound-1920x1080-outline-dark.jpg" -o ~/.local/share/backgrounds/Deakin-Backgound-1920x1080-outline-dark.jpg
- curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/part-0-getting-started/2-computer-use/2-put-together/images/setup-pi/Deakin-Backgound-1920x1080-outline-light.jpg" -o ~/.local/share/backgrounds/Deakin-Backgound-1920x1080-outline-light.jpg
-
-gsettings set org.gnome.desktop.background picture-uri file://$HOME/.local/share/backgrounds/Deakin-Backgound-1920x1080-outline-light.jpg
-gsettings set org.gnome.desktop.background picture-uri-dark file://$HOME/.local/share/backgrounds/Deakin-Backgound-1920x1080-outline-dark.jpg
-
-```
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
