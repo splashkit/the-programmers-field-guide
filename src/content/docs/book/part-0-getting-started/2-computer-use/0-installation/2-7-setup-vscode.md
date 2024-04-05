@@ -18,6 +18,7 @@ For **C#** code, we recommended that you install the `C#`, `C# Dev Kit` and `Int
 3. Click "Install" for each of the extensions listed (shown in the green box).
 
 ![Visual Studio Code window showing recommended extensions for C#](./images/vscode-extensions/vs-code-csharp-extensions.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 :::
 
 ## C++ Language Extensions
@@ -34,6 +35,7 @@ You can also install the `C/C++ Extension Pack` extension which includes multipl
 4. (Optional) Click "Install" for any other extensions you want to install (shown in the orange box).
 
 ![Visual Studio Code window showing recommended extensions for C++](./images/vscode-extensions/vs-code-cpp-extensions.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 :::
 
 ## Using WSL on Windows
@@ -47,4 +49,5 @@ If you are using the **Windows (WSL)** setup guide, you will also need to instal
 3. Click "Install" for the "WSL" extension (shown in the yellow box).
 
 ![Visual Studio Code window showing recommended extensions for WSL](./images/vscode-extensions/vscode-wsl-extension.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 :::

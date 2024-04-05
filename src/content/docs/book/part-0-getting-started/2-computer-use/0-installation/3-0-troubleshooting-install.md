@@ -136,8 +136,10 @@ bash skm-install.sh
 If the `bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)` command shows an error message near the end that looks similar to either of the following images:
 
 ![Terminal window showing permission denied for .zshrc file](./images/macos-troubleshooting/permission-issue.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 ![Terminal window showing Operation not permitted for .zshrc file](./images/macos-troubleshooting/file-locked.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 Then, you can update the file permissions with the following steps:
 
@@ -145,20 +147,24 @@ Then, you can update the file permissions with the following steps:
 2. Click on "Go" at the top of the screen, then "Home":
 
     ![Finder window showing how to get to Home folder](./images/macos-troubleshooting/finder-go-to-home.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 3. Click into the **Macintosh HD** (or similar) folder, then the **Users** folder, and finally, click into the folder with your computer's username.
 4. Show the hidden files with the shortcut: `Shift` + `Command` + `.` and you should be able to scroll down to see the file mentioned in the terminal error.  
     Here is an example to show the hidden `.zshrc` file mentioned in the screenshots above:
 
     ![Finder window showing folder steps to .zshrc file](./images/macos-troubleshooting/finder-hidden-files-zshrc.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
     :::note
     If the error message mentions a different file such as `.bash_profile`, then you will edit that file instead of the `.zshrc` file used in this example.
     :::
+
 5. Right-click on the file and then select "**Get Info**".  
     You will see something that looks similar to this:
 
     ![Get info window for .zshrc file](./images/macos-troubleshooting/get-info-zshrc.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 6. Check the information in the orange boxes shown in the image above:
 
@@ -175,6 +181,7 @@ Then, you can update the file permissions with the following steps:
 9. If you get a message the SplashKit is already installed, copy the text to uninstall (highlighted in the image below - yours will have a different username):
 
     ![Terminal window showing splashkit already installed](./images/macos-troubleshooting/skm-already-installed.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 10. Paste and run the command to uninstall SplashKit.
 11. Close and re-open the Terminal and run the SplashKit installation script command again.
@@ -202,6 +209,7 @@ If you have issues with the WSL (with **Ubuntu**) installation, such as:
 - You get an error that might look similar to this:
 
     ![Image showing WSL terminal with ubuntu user account set up error](./images/setup-windows/unbuntu-wsl-reinstall-issue.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 Then you can reset the Ubuntu user account with the following steps:
 

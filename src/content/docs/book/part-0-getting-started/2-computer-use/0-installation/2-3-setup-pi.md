@@ -32,10 +32,12 @@ Follow the steps below to download the recommended Raspberry Pi OS:
 4. Click CHOOSE OS.
 
     ![Image of Raspberry Pi Imager](./images/setup-pi/1-2-setup-pi-RaspberryPiImager.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 5. Select Raspberry Pi OS (64b-bit)
 
     ![Image Showing the Raspberry Pi Imager select OS screen](./images/setup-pi/1-2-setup-pi-SelectOS.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
     :::tip
     If you are using the prebuilt image, choose **Use custom** at this point and select the **FieldGuidePiImage.v1.0.img** file you downloaded. When this finishes copying onto the SD card you are all done. Just plug it into your Pi and get going.
@@ -49,6 +51,7 @@ Follow the steps below to download the recommended Raspberry Pi OS:
     In the image below we are using a 32 GB micro SD card connected via a USB SD card reader:
 
     ![Image Showing the Raspberry Pi Imager select storage screen](./images/setup-pi/1-2-setup-pi-SelectStorage.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
     :::
 
@@ -60,6 +63,7 @@ Follow the steps below to download the recommended Raspberry Pi OS:
 10. Click continue and remove the micro SD card from your computer.
 
     ![Image showing the Raspberry Pi Imager has completed writing to the SD card](./images/setup-pi/1-2-setup-pi-Complete.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 ## 2. Install Raspberry Pi OS
 
@@ -74,19 +78,23 @@ Follow the steps below to install the Raspberry Pi OS on the micro SD card:
     :::
 
     ![Image showing the Raspberry Pi Set country, language and time zone screen](./images/setup-pi/1-2-setup-pi-SetCountry.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 4. Set your username and password, click next.
 
     ![Image showing the Raspberry Pi Set username and password screen](./images/setup-pi/1-2-setup-pi-CreateUser.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 5. \*\*Optional\*\*  
    Select Wi-Fi network and enter password, click next.
 
     ![Image showing the Raspberry Pi Set Wi-Fi screen](./images/setup-pi/1-2-setup-pi-SetWiFi.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 6. Select your preferred browser: Chromium or Firefox, Click next.
 
     ![Image showing the Raspberry Pi Set browser screen](./images/setup-pi/1-2-setup-pi-SetBrowser.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 7. \*\*Optional\*\*  
    Update Software, Click next.
@@ -98,12 +106,14 @@ Follow the steps below to install the Raspberry Pi OS on the micro SD card:
     :::
 
     ![Image showing the Raspberry Pi Update Software screen](./images/setup-pi/1-2-setup-pi-UpdateSoftware.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 8. Click restart.
 
 9. After the reboot you will be presented with the Raspberry Pi Desktop:
 
     ![Image showing the Raspberry Pi Desktop](./images/setup-pi/1-2-setup-pi-Desktop.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 10. Raspberry Pi OS Install Complete!
 
@@ -115,7 +125,10 @@ This section will go through all the steps to install the required Applications 
 To make things easier we have an automated script for fresh installs that will install all the required tools and applications for you or you can follow the manual steps below.
 
 :::note[How do I open the Terminal on my Pi?]
-*Click the Terminal icon in the task bar or press `Ctrl + Alt + T`* ![Image Showing the Terminal Icon](./images/setup-pi/1-2-setup-pi-Terminal_Icon.png)
+Click the Terminal icon in the task bar or press `Ctrl + Alt + T`.
+
+![Image Showing the Terminal Icon](./images/setup-pi/1-2-setup-pi-Terminal_Icon.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 :::
 
 ### Automated Setup
@@ -186,6 +199,7 @@ skm linux install
 When prompted, type `y` and press enter to confirm the installation.
 
 ![Gif showing skm installing in Terminal](/gifs/setup-pi/1-2-setup-pi-SplashkitInstall.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 :::note
 This may take a while (approx. 10 mins).
@@ -222,6 +236,7 @@ sudo apt install code
 ```
 
 ![Image showing Visual Studio installation command](./images/setup-pi/1-2-setup-pi-VSCodeInstall.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 :::tip[Open Code from Terminal]
 You can open Visual Studio Code from the Terminal by typing `code` and pressing enter.
@@ -304,6 +319,7 @@ sudo apt install zsh -y
 **To install oh-my-zsh**, run the following command in your Terminal:
 
 ![gif showing the install of oh=my=zsh](/gifs/setup-pi/1-2-setup-pi-OMZ-Install.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -333,6 +349,7 @@ To install a plugin you need to add it to the plugins list in the `~/.zshrc` fil
 Using `autojump` as an example:
 
 ![gif showing the installation of autojump](/gifs/setup-pi/1-2-setup-pi-AutoJump.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 First you will install it with:
 
@@ -362,7 +379,8 @@ source ~/.zshrc
 
 ### Add Shortcut for the Programmers Field Guide
 
-To add the Programmers Field Guide to the menu, run the following commands in the Terminal ***On the Raspberry Pi it will appear under programming in the menu***
+To add the Programmers Field Guide to the menu, run the following commands in the terminal.
+On the Raspberry Pi it will appear under "Programming" in the menu.
 
 ```bash
     echo "Adding Programers Feild guide to Menu"
@@ -385,31 +403,12 @@ To customise the desktop background, right-click anywhere on the desktop and sel
 Then, select the image or theme you want to use as your background.
 
 ![image showing the appearance menu](./images/setup-linux/AppearanceMenu.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 You can toggle dark mode by clicking on the icon in the top right of the screen and selecting the mode you want to use.
 
 ![image showing quick setting with dark mode selected](./images/setup-linux/QuickSettingMenu.png)
-
-#### Set Deakin Desktop Background
-
-For the Raspberry Pi, run the following command in the Terminal to download the Deakin background images and pick which one you want to use:
-
-```bash
-    sudo curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/part-0-getting-started/2-computer-use/2-put-together/images/setup-pi/Deakin-Backgound-1920x1080-outline-dark.jpg" -o /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-dark.jpg
-    sudo curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/part-0-getting-started/2-computer-use/2-put-together/images/setup-pi/Deakin-Backgound-1920x1080-outline-light.jpg" -o /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-light.jpg
-```
-
-For the light image, run the following command:
-
-```bash
-    pcmanfm --set-wallpaper /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-light.jpg
-```
-
-For the dark image, run the following command:
-
-```bash
-    pcmanfm --set-wallpaper /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-dark.jpg
-```
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 ### Raspberry Pi Set Fan Control
 
@@ -417,8 +416,10 @@ If you are using a fan on your Raspberry Pi with GPIO control, you can configure
 Click the menu, select `Preferences`, then `Raspberry Pi Configuration`, and select the `Performance` tab.
 
 ![image showing the Pi Configuration menu](./images/setup-linux/PiMenu.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 Toggle the fan on, select the GPIO pin you are using, and set the temperature the fan will turn on when reached.
 If you follow our Pi setup guide, you will use GPIO 14, and we recommend setting the fan to turn on at 60 degrees.
 
 ![image showing the performance menu ](./images/setup-linux/PiPerformanceSettings.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>

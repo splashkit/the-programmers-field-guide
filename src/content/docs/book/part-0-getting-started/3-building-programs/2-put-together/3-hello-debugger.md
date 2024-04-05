@@ -51,16 +51,19 @@ To set up the VS Code debugger's *'Run and Debug'* launch configuration for C#, 
 Open the debugger and click on the blue **Run and Debug** button (shown in the green box in the image below), then select the **C#** debugger (shown in the orange box):
 
 ![A window showing the vscode debugger steps](./images/hello-debugger/select-csharp-debugger.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 Next, select the **C#: HelloWorld** launch configuration(shown in the yellow box in the image below):
 
 ![A window showing the vscode debugger steps](./images/hello-debugger/select-launch-config.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 This will run the program in mostly the same way as it would by using `dotnet run` in the terminal.
 
 Here is an example of what this would look like:
 
 ![A window showing the vscode debugger and GUI output](./images/hello-debugger/run-with-debugger.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 In the image above, you can see:
 
@@ -75,12 +78,14 @@ Let's have a look at how you can utilise **breakpoints** to analyse specific sec
 As shown in the image below, add a breakpoint on line **8** of the code (the first WriteLine) and add another breakpoint on line **12** (OpenWindow line):
 
 ![A window showing the breakpoints on line 8 and 12 in vscode](./images/hello-debugger/breakpoints-vscode.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 Run the debugger using the **play button**.
 
 You should now see the yellow marker around the breakpoint on line 8 (yellow arrow pointing to it in the image below), as well as the debugging control panel near the top of the window (shown in the orange box):
 
 ![A window showing the vscode debugger paused at first breakpoint](./images/hello-debugger/run-with-breakpoint-line-8.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 ### Control Panel buttons
 
@@ -89,6 +94,7 @@ Let's test out using the first and second control panel buttons: **continue** an
 Click on the first button in the control panel to **continue** to the next breakpoint.
 
 ![A window showing the vscode debugger paused at second breakpoint](./images/hello-debugger/run-with-breakpoint-line-12.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 You will see that the yellow marker has moved down to the next breakpoint on line 12 (yellow arrow pointing to it in the image above) and the text from lines 8 and 9 has been outputted in the Debug Console (as shown in the pink box).
 
@@ -97,6 +103,7 @@ Now click on the second button in the control panel to **step-over** the current
 You should see the SplashKit Window pop up, but it might seem like it has disappeared a moment later. It is still there, but you might need to move the window to an area next to your VS Code window like this:
 
 ![A window showing the vscode debugger paused at line 13](./images/hello-debugger/run-with-breakpoint-line-13.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 As you can see above, the yellow marker will move to show you the current line that will be executed next.
 

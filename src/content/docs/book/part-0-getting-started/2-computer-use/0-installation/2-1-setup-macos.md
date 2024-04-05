@@ -32,6 +32,7 @@ xcode-select --install
 ```
 
 ![Gif showing Spotlight Search to open Terminal and pasting Xcode install command](/gifs/setup-macos/terminal-xcode-install.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 :::tip[How do I find the Terminal on my Mac?]
 
@@ -44,6 +45,7 @@ xcode-select --install
 **Note:** After running the command above, if you get something like this:
 
 ![A Terminal window showing message that 'Command Line Tools' are already installed](./images/setup-macos/xcode-install.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 That means you've already installed Xcode, and are ready to move to the next step!
 
@@ -58,6 +60,7 @@ bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-sc
 ```
 
 ![Gif showing skm installing in Terminal](/gifs/setup-macos/skm-install.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 :::tip[Troubleshooting tips!:]
 
@@ -77,6 +80,7 @@ skm global install
 ```
 
 ![Gif showing skm installing globally in Terminal](/gifs/setup-macos/skm-global-install.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 :::note[What does this command do specifically?]
 The command above will add the **SplashKit libraries** into the `/usr/local/lib/` folder, and the required **SplashKit library include files** into the `/usr/local/include` folder.
@@ -95,6 +99,7 @@ First you will need to download the zip file from: [code.visualstudio.com/Downlo
 To install: double-click the downloaded zip file, then click and drag the **Visual Studio Code** Application file into the ***Applications*** folder.
 
 ![Gif showing Visual Studio installation in Finder](/gifs/setup-macos/vs-code-install.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 ### Add 'code' command to PATH
 
@@ -171,6 +176,7 @@ nano .zshrc
 The result of the command above will look similar to this:
 
 ![Terminal window showing nano opening .zshrc file](./images/setup-macos/nano-zshrc.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 Now, to edit the file directly inside the **nano** terminal window, you can just move the cursor down to the last line and paste the missing command.  
 Once you're finished, press ***Control*** (^) + ***X*** to exit **nano** and follow the prompts to save the changes.
@@ -178,6 +184,7 @@ Once you're finished, press ***Control*** (^) + ***X*** to exit **nano** and fol
 For example, if the last line was missing:
 
 ![Gif showing .zshrc file being edited using nano command](/gifs/setup-macos/nano-edit-zshrc.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 ### Using 'code' to open .zshrc file in Visual Studio Code
 
@@ -190,3 +197,4 @@ code ~/.zshrc
 ```
 
 ![Gif showing 'code ~/.zshrc' command opening file in VS Code](/gifs/setup-macos/code-zshrc-open.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>

@@ -248,6 +248,7 @@ img {
 .main-pane div.caption {
   text-align: center;
   margin-top: 5px;
+  font-size: smaller;
 }
 
 .main-pane div.caption span.caption-figure-nbr {
