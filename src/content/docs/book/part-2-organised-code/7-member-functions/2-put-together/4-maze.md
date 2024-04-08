@@ -103,6 +103,24 @@ move_player(current_room, current_room->paths[option]);
 
 Notice here we get the paths from the `current_room`. This will mean the user only has access to the room they are currently in. When they move to a new room, they will only have access to the paths in that room.
 
+## The main logic
+
+In main, make sure you have a few rooms to play with. Set the current room, and then let the user keep exploring while there are exists in the current room. When they do reach the end, you can print a farewell message and show the details of the final room.
+
+I achieved this with the following code.
+
+```cpp
+  while(current_room->paths.size > 0)
+  {
+    explore(current_room);
+  }
+
+  printf("You have reached the end of the maze!\n");
+  print_room(current_room);
+```
+
+Compile and run the program, and you should be able to explore your maze. Make sure you have a room with no paths, that is reachable via paths from other rooms. Explore your maze and make sure it works as expected.
+
 ## Graphs
 
 Have you noticed how the structure of the maze is similar to a [linked list](../../../6-deep-dive-memory/2-put-together/03-0-linked-list)?
