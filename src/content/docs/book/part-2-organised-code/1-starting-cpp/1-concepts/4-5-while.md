@@ -27,7 +27,7 @@ int main()
 
     while ( !quit_requested())
     {
-        fill_circle(random_color(), rnd(screen_width()), Rnd(screen_height()), rnd(50));
+        fill_circle(random_color(), rnd(screen_width()), rnd(screen_height()), rnd(50));
         refresh_screen();
 
         process_events();
