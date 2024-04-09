@@ -229,7 +229,7 @@ rm packages-microsoft-prod.deb
 sudo apt update
 
 # Install .NET 8.0
-sudo apt-get install dotnet-sdk-8.0
+sudo apt-get install dotnet-sdk-8.0 dotnet-runtime-8.0
 ```
 
 :::caution
