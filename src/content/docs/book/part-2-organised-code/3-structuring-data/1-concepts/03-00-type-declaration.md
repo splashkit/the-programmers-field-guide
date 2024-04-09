@@ -65,7 +65,7 @@ integer main()
 {
   integer x;
 
-  x = read_integer("");
+  x = read_integer("Enter a whole number: ");
   return 0;
 }
 

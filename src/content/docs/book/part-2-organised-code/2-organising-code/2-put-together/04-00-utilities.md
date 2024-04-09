@@ -69,7 +69,7 @@ string read_string(string prompt)
 
 int read_integer(string prompt)
 {
-  string line = read_string(promot);
+  string line = read_string(prompt);
   while (!is_integer(line))
   {
     write_line("Please enter a whole number.");
