@@ -379,6 +379,15 @@ export default defineConfig({
                   link: "book/part-2-organised-code/2-organising-code/0-overview",
                 },
                 {
+                  label: "Panorama",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/2-organising-code/0-panorama",
+                    collapsed: true,
+                  },
+                },
+                {
                   label: "Concepts",
                   collapsed: true,
                   autogenerate: {
