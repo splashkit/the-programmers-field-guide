@@ -2,17 +2,16 @@
 title: "Program"
 ---
 
-A program can contain [functions and procedures](./01-0-functions-and-procedures), and constants and variables. These allow the program's code to be organised into smaller functional blocks.
+A program can contain functions, procedures, constants and variables. These allow the program's code to be organised into smaller functional blocks.
 
-![A program can contain functions, procedures, constants, and global variables](../1-concepts/images/program-idea.png "A program can contain functions, procedures, constants, and global variables")
+![Annotated program code with two functions and a procedure](./images/program-pano.png)
 
-:::note
-A program:
+:::note[A program:]
 
+- Must have a *main* function, which is the entry point for the program
 - Can have a number of functions and procedures
 - Can have global constants
 - Should *not* have global variable
-- Must have a *main* function, which is the entry point for the program
 
 :::
 

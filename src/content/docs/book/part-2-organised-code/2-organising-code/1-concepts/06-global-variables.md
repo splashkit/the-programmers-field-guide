@@ -26,6 +26,9 @@ All that changes is where the declaration is -- for the variable or constant to 
 
 using std::to_string;
 
+// Declare a global constant
+const int INCREMENT_AMOUNT = 10;
+
 // Declare (unnecessary) global variables
 int x;
 string message_text = "Hello world";
@@ -37,7 +40,7 @@ void my_procedure()
     message_text = "Hello Jupiter";
     write_line("Value of global variable x = " + to_string(x));
 
-    x = x + 1;
+    x = x + INCREMENT_AMOUNT;
     write_line("Value of global variable message = " + message_text);
     
     write_line("Ending my procedure");
@@ -75,11 +78,11 @@ Reading through the above code, look at **main**, and try to answer the followin
   Value of global variable x = 3
   Value of global variable message = Hello Jupiter
   Ending my procedure
-  Value of global variable x = 4
+  Value of global variable x = 13
   Value of global variable message = Hello Jupiter
   ```
 
-2. Value of `x` at program completion: 4.
+2. Value of `x` at program completion: 13.
 </details>
 </span>
 

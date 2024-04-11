@@ -4,18 +4,18 @@ title: "Procedures"
 
 A procedure is a group of instructions that **do something**. In your program, you can define your own procedures, allowing you to divide a program's tasks into separate steps.
 
-![A procedure contains instructions](../1-concepts/images/procedure-concept.png "Procedures")
+![Annotated sample code showing a procedure declaration](./images/procedure-pano.png "Procedures")
 
-:::note
+:::note[A procedure:]
 
-- A procedure is a **building block** that you can create and use in your code.
-- Each procedure contains code to perform a certain task. When you want the task performed, you call the procedure.
-- Each procedure has a name that is the identifier used to call the procedure.
-- A procedure may have a number of parameters that allow you to pass values to it.
-- Procedures have a **side effect**, meaning that a procedure changes something when it is executed.
-- Each procedure's instructions are **isolated** from the other code in your program.
-- A procedure must be coded within the program - not within other functions or procedures.
-- You code it by starting with `void`, then the *name* of the procedure, and a list of parameters in parentheses. This is then followed by the block of code to run when it is called.
+- Is a **building block** that you can create and use in your code.
+- Contains code to perform a certain task. When you want the task performed, you call the procedure.
+- Has a name that is the identifier used to call the procedure.
+- May have a number of parameters that allow you to pass values to it.
+- Will have a **side effect** when it runs. This means that a procedure changes something when it is executed.
+- Has instructions which are are **isolated** from the other code in your program.
+- Must be coded within the program - not within other functions or procedures.
+- Starts with `void`, then the *name* of the procedure, and a list of parameters in parentheses. This is followed by the block of code to run when the procedure is called.
 
 :::
 

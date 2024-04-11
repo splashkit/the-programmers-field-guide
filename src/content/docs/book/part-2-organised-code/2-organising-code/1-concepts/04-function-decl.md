@@ -62,12 +62,14 @@ using std::to_string;
 
 int seconds_in_hour()
 {
+    int total;
     total = 60 * 60;
     return total;
 }
 
-void main()
+int main()
 {
+    int total;
     total = seconds_in_hour();
     write_line("There are " + to_string(total) + " seconds in an hour");
 
