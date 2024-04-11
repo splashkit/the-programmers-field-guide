@@ -89,8 +89,9 @@ Although it can be frustrating and tedious, going through the process of trouble
 Sometimes an issue can feel like it is defeating you in your battle to learn to code, which can be quite overwhelming and make it actually harder to solve the problem.
 If you feel like you're spinning around in circles with no results, it is often helpful to change what you are doing.
 
-<img src="https://y.yarn.co/5fb0bbbb-3698-46fd-8833-01b30eb30991_text.gif" alt="Gif of scene from 10 things I hate about you with caption: Oh, Goody. Something new and different for us.">
-<div class="caption">Image from <a href="https://y.yarn.co/5fb0bbbb-3698-46fd-8833-01b30eb30991_text.gif">Yarn</a></div>
+<!-- Link below currently broken -->
+<!-- <img src="https://y.yarn.co/5fb0bbbb-3698-46fd-8833-01b30eb30991_text.gif" alt="Gif of scene from 10 things I hate about you with caption: Oh, Goody. Something new and different for us.">
+<div class="caption">Image from <a href="https://y.yarn.co/5fb0bbbb-3698-46fd-8833-01b30eb30991_text.gif">Yarn</a></div> -->
 
 In the context of going through the installation/set up guide, you can move to the next step in the guide that doesn't rely on a previous step.
 Completing other steps may improve your understanding and skills, which you can then use when you come back to the step you had issues with.
