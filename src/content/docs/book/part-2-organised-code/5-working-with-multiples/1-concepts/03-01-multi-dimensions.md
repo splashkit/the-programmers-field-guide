@@ -68,7 +68,7 @@ for(int y = 0; y < YEARS; y++)
 
 Notice how the month remains set here, with the loop giving us access to each year index.
 
-### Looping over a both dimension
+### Looping over both dimensions
 
 If you want to access all values, then you need to use **nested loops**. A nested loop refers to a loop that appears within another loop. In this way, the inner loop is repeated multiple times, going through all of its iterations each time the outer loop repeats.
 

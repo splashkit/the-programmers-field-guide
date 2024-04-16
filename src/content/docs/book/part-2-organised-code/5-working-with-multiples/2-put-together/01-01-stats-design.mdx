@@ -4,9 +4,7 @@ sidebar:
   label: " - Design Overview"
 ---
 
-In understanding these concepts we have uncovered some functions that will be included in the program’s design.
-
-With the calculations thought through, the design seems to be coming together. So far we have the steps needed to calculate the output, but we have not thought about how these values will be read into the program, and we need to work out how they will be structured in the code.
+Before we think about the calculations, let's put the infrastructure in place to get the numbers that we will work on within our program. We can think through how we will organise the data within the program, and think through the different functions and procedures we will use.
 
 ## Data Structure
 
@@ -76,7 +74,7 @@ The last question to remain is where will the data be stored? The array is a kin
 
 ## Overview of Statistic Calculator's design
 
-That completes the logic needed to implement the statistics calculator program. The final structure is shown in
+That completes the plan needed to implement the statistics calculator program. The final structure is shown in
 [Figure x.y](#FigureStructureChartStatisticsCalculator) as a Structure Chart. Notice the double-headed arrow on `data` in the call from `Main` to `Populate Array`. This indicates that the data parameter is passing the values into, and getting values out of the `Populate Array` procedure. This is a way of indicating that the parameter is passed by reference. Also see how the `data` value is passed from `Main` into the functions that calculate the statistics. In these cases we can still use pass-by-reference, but we can use the `const` modifier to ensure that the values are not changed.
 
 <br/>
