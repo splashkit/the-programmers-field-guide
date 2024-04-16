@@ -108,7 +108,7 @@ void play_game()
 
   if (!got_it)
   {
-    write_line("You ran out of guesses... the number was " + to_string(MAX_NUMBER) + "\n");
+    write_line("You ran out of guesses... the number was " + to_string(my_number) + "\n");
   }
 }
 
