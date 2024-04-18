@@ -153,9 +153,6 @@ Create a new line just before the last closing curly brace `}` at the end of the
             "args": [],
             "icon": "terminal-cmd"
         },
-        "Git Bash": {
-            "source": "Git Bash"
-        },
         "MSYS2": {
             "path": "C:\\msys64\\usr\\bin\\bash.exe",
             "args": [
@@ -168,9 +165,11 @@ Create a new line just before the last closing curly brace `}` at the end of the
             }
         }
     },
-    // You can use the line below to set the default profile
-    // or you can remove it if you don't want this set automatically
     "terminal.integrated.defaultProfile.windows": "MSYS2",
+    "terminal.integrated.env.windows": {
+        "MSYSTEM": "MINGW64",
+        "CHERE_INVOKING": "1"
+    },
 ```
 
 :::note
