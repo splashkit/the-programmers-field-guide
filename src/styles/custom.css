@@ -795,6 +795,21 @@ aside[aria-label="How does this work?"] ul>li ul li ul li::before {
   box-shadow: var(--sl-shadow-md);
 }
 
+body .accordion__item {
+  button {
+    background-color: var(--sl-color-black);
+
+    &:hover
+    &:focus {
+      background-color: var(--sl-color-accent-high);
+    }
+  }
+
+  &.is-active button {
+    background-color: var(--sl-color-black);
+  }
+}
+
 /* ------------------------------------------- */
 /* END:   CUSTOM STYLES                        */
 /* - Don't delete this section                 */
