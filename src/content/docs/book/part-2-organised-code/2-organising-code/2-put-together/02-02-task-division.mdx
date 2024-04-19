@@ -1,10 +1,11 @@
 ---
-title: Task Division
+title: Task Division - give change
 sidebar:
-  label: " - Task Division"
+  label: " - Give change"
 ---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
 
-Other than the `read_integer` function, the code in the change calculator really only has two main actions. We have the overall process of reading the cost and amount paid, and we have giving change. So we can split the code into these two parts. It will help more clearly show these parts, and will allow us to work within a smaller procedure.
+Other than the `read_integer` function, the code in the change calculator has two main actions. We have the overall process of reading the cost and amount paid, and we have giving change. So we can split the code into these two parts. It will help more clearly show these parts, and will allow us to work within a smaller procedure.
 
 ## Give Change
 
@@ -12,7 +13,7 @@ The give change logic is coded within an if statement in main at the moment. Thi
 
 This procedure can now take care of giving change, when change needs to be given. This means we do not have all the other code here, just the code to give change, The code for the "again" loop, the code to read in the details, and the test to see if change needs to be given remain in main. Now both main and give change have a clear, and more specific, purpose.
 
-```
+```text
 Procedure: Give Change
 Parameters:
     Change Value: an integer with the amount of change to give
@@ -39,6 +40,84 @@ Steps:
         Update the amount of change remaing
         Output the number of coins with the coinText
 ```
+
+Have a go at separating this out from the other code.
+
+<Accordion>
+  <AccordionItem
+    header="Code for give change"
+  >
+
+```cpp
+/**
+ * Give the user change of the indicated amount.
+ * 
+ * @param change_value the amount of change to give
+*/
+void give_change(int change_value)
+{
+  const int NUM_COIN_TYPES = 6;
+
+  const int TWO_DOLLARS = 200;
+  const int ONE_DOLLAR = 100;
+  const int FIFTY_CENTS = 50;
+  const int TWENTY_CENTS = 20;
+  const int TEN_CENTS = 10;
+  const int FIVE_CENTS = 5;
+
+  int to_give;
+
+  write("Change: ");
+
+  int coin_value;
+  string coin_text;
+
+  for (int i = 0; i < NUM_COIN_TYPES; i++)
+  {
+    switch (i)
+    {
+    case 0:
+      coin_value = TWO_DOLLARS;
+      coin_text = "$2, ";
+      break;
+    case 1:
+      coin_value = ONE_DOLLAR;
+      coin_text = "$1, ";
+      break;
+    case 2:
+      coin_value = FIFTY_CENTS;
+      coin_text = "50c, ";
+      break;
+    case 3:
+      coin_value = TWENTY_CENTS;
+      coin_text = "20c, ";
+      break;
+    case 4:
+      coin_value = TEN_CENTS;
+      coin_text = "10c, ";
+      break;
+    case 5:
+      coin_value = FIVE_CENTS;
+      coin_text = "5c";
+      break;
+    default:
+      coin_value = 0;
+      coin_text = "ERROR";
+      break;
+    }
+
+    // Give Change
+    to_give = change_value / coin_value;
+    change_value = change_value - to_give * coin_value;
+    write(to_string(to_give) + " x " + coin_text);
+  }
+
+  write_line();
+}
+```
+
+  </AccordionItem>
+</Accordion>
 
 ## Main Code
 
@@ -72,5 +151,39 @@ Have a go at adjusting this code yourself. Move the change calculating code out 
 Moving the code into a separate procedure helps to make it, and the remaining code in main, clearer. Main in particular is much simpler now. The code in give change is still a bit complex, and we can return to this later to see if we can refine it further.
 
 :::
+
+<Accordion>
+  <AccordionItem
+    header="Code for main"
+  >
+
+```cpp
+int main()
+{
+  string again = ""; // used to check if the user want to run again
+  string line;
+
+  do
+  {
+    int cost_of_item = read_integer("Cost of item in cents: ");
+    int amount_paid = read_integer("Payment in cents: ");
+
+    if (amount_paid >= cost_of_item)
+    {
+      give_change(amount_paid - cost_of_item);
+    }
+    else
+    {
+      write_line("Insufficient payment");
+    }
+
+    write("Run again: ");
+    again = read_line();
+  } while (again != "n" && again != "N");
+}
+```
+
+  </AccordionItem>
+</Accordion>
 
 Remember you can check out our version of the code in the [wrap up](/book/part-2-organised-code/2-organising-code/5-wrap-up/1-change-calc).
