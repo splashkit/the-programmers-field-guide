@@ -433,6 +433,15 @@ export default defineConfig({
                   link: "book/part-2-organised-code/3-structuring-data/0-overview",
                 },
                 {
+                  label: "Panorama",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/3-structuring-data/0-panorama",
+                    collapsed: true,
+                  },
+                },
+                {
                   label: "Concepts",
                   collapsed: true,
                   autogenerate: {
