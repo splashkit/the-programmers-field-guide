@@ -23,5 +23,8 @@
     "squoosh": "^0.0.0",
     "starlight-links-validator": "^0.5.3",
     "swiper": "^11.0"
+  },
+  "devDependencies": {
+    "accessible-astro-components": "^2.3.5"
   }
 }
