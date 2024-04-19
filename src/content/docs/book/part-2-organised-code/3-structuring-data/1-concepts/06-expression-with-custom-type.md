@@ -7,7 +7,7 @@ The types you define allow you to specify how data values can be formatted, allo
 <a id="FigureExpressionWithCustomTypes"></a>
 
 ![Figure x.y: An expression can read the value of a struct’s field, a union’s field, and from an enumeration](./images/expression-with-custom-types.png "An expression can read the value of a struct’s field, a union’s field, and from an enumeration")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>An expression can read the value of a struct’s field, a union’s field, and from an enumeration</div><br/>
+<div class="caption">An expression can read the value of a struct’s field, a union’s field, and from an enumeration</div><br/>
 
 :::note
 
@@ -27,7 +27,7 @@ A [struct](../03-01-struct) is a type that contains a number of fields. When usi
 <a id="FigureRecordExpression"></a>
 
 ![Figure x.y: A field of a struct can be used, or the struct can be used in its entirety](./images/expression-record.png "A field of a struct can be used, or the struct can be used in its entirety")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>A field of a struct can be used, or the struct can be used in its entirety</div><br/>
+<div class="caption">A field of a struct can be used, or the struct can be used in its entirety</div><br/>
 
 :::note
 
@@ -45,7 +45,7 @@ A **Union** has multiple fields that all give access to the same piece of memory
 <a id="FigureUnionExpression"></a>
 
 ![Figure x.y: A field of a union can be used, or the union can be used in its entirety](./images/expression-union.png "A field of a union can be used, or the union can be used in its entirety")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>A field of a union can be used, or the union can be used in its entirety</div><br/>
+<div class="caption">A field of a union can be used, or the union can be used in its entirety</div><br/>
 
 :::note
 
@@ -64,7 +64,7 @@ The [enumeration](../03-type-declaration#enumeration) is the simplest of the cus
 <a id="FigureEnumerationExpression"></a>
 
 ![Figure x.y: You interact with an enumeration just like other simple data types (Integers, and Doubles for example)](./images/expression-enum.png "You interact with an enumeration just like other simple data types (Integers, and Doubles for example)")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>You interact with an enumeration just like other simple data types (Integers, and Doubles for example)</div><br/>
+<div class="caption">You interact with an enumeration just like other simple data types (Integers, and Doubles for example)</div><br/>
 
 :::note
 

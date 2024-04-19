@@ -7,7 +7,7 @@ Pointers and dynamic memory allocation make it possible to store values in new a
 <a id="FigureLinkedList"></a>
 
 ![Figure x.y: Illustration of a linked list in memory](./images/linked-list.png "Illustration of a linked list in memory")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Illustration of a linked list in memory</div><br/>
+<div class="caption">Illustration of a linked list in memory</div><br/>
 
 :::note
 

@@ -17,7 +17,7 @@ The solution, once again, is to **take care** with pointers.
 <a id="FigureAccessingReleasedMemory"></a>
 
 ![Figure x.y: You can still read values from memory even when they are unallocated...](./images/accessing-released-memory.png "You can still read values from memory even when they are unallocated...")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>You can still read values from memory even when they are unallocated...</div><br/>
+<div class="caption">You can still read values from memory even when they are unallocated...</div><br/>
 
 :::note
 

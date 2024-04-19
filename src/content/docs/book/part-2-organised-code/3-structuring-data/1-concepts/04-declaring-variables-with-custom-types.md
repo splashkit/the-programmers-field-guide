@@ -7,7 +7,7 @@ The custom types allow you to specify new data formats. To make use of this form
 <a id="FigureDeclaringVariablesWithCustomTypes"></a>
 
 ![Figure x.y: Some examples of how you can use your types to declare the kind of data stored in variables](./images/custom-type-declaring-variables.png "Some examples of how you can use your types to declare the kind of data stored in variables")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Some examples of how you can use your types to declare the kind of data stored in variables</div><br/>
+<div class="caption">Some examples of how you can use your types to declare the kind of data stored in variables</div><br/>
 
 :::note
 

@@ -19,7 +19,7 @@ If you think about this, notice that each pointer has two values: the pointer's 
 <a id="FigurePointerDefinition"></a>
 
 ![Figure x.y: A Pointer Value is the address of a value, in effect it points to a value](./images/pointer-what-is-it.png "A Pointer Value is the address of a value, in effect it points to a value")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>A Pointer Value is the address of a value, in effect it <em>points</em> to a value</div><br/>
+<div class="caption">A Pointer Value is the address of a value, in effect it <em>points</em> to a value</div><br/>
 
 :::note
 
@@ -46,7 +46,7 @@ Pointers store a value that is an address of the value that it points to. This m
 <a id="FigurePointerAccessHeap"></a>
 
 ![Figure x.y: A pointer can point to any value, at any location in memory](./images/pointers-what-can-they-point-to.png "A pointer can point to any value, at any location in memory")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>A pointer can point to any value, at any location in memory</div><br/>
+<div class="caption">A pointer can point to any value, at any location in memory</div><br/>
 
 :::note
 

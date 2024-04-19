@@ -11,7 +11,7 @@ In your code you can access variables, the local variables and global variables 
 <a id="FigurePointerStore"></a>
 
 ![Figure x.y: Pointers can be stored anywhere a value can be stored](./images/pointers-where-can-they-be-stored.png "Pointers can be stored anywhere a value can be stored")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Pointers can be stored anywhere a value can be stored</div><br/>
+<div class="caption">Pointers can be stored anywhere a value can be stored</div><br/>
 
 ## Using pointer to access the heap
 
@@ -20,7 +20,7 @@ Pointers can be used to point to locations in the heap. When you ask the operati
 <a id="FigurePointerAccessHeap"></a>
 
 ![Figure x.y: You can use pointers to access values on the heap](./images/pointers-to-access-the-heap.png "You can use pointers to access values on the heap")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>You can use pointers to access values on the heap</div><br/>
+<div class="caption">You can use pointers to access values on the heap</div><br/>
 
 :::note
 

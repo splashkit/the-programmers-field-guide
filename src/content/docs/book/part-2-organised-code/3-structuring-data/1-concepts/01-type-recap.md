@@ -7,7 +7,7 @@ This chapter is all about **types**, so its is important to have a good understa
 <a id="FigureTypeRecap"></a>
 
 ![Figure x.y: Type defines the size and interpretation if values in your code](./images/type-recap.png "Type defines the size and interpretation if values in your code")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Type defines the size and interpretation if values in your code</div><br/>
+<div class="caption">Type defines the size and interpretation if values in your code</div><br/>
 
 :::note
 

@@ -9,7 +9,7 @@ The program remains our overarching building block, containing the code that def
 <a id="FigureProgramWithTypeDeclarations"></a>
 
 ![Figure x.y: A Program can contain Type Declarations](./images/program-with-type-declarations.png "A Program can contain Type Declarations")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>A Program can contain Type Declarations</div><br/>
+<div class="caption">A Program can contain Type Declarations</div><br/>
 
 ## Program - Why, When, and How
 

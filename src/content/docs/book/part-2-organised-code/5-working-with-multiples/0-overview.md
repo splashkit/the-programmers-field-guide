@@ -62,4 +62,4 @@ Variance:   9.17
 Max:        10.00
 $
 ```
-<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Statistics Calculator run from the terminal</div>
+<div class="caption">Statistics Calculator run from the terminal</div>

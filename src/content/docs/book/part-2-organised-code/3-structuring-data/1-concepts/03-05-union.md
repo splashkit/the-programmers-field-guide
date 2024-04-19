@@ -13,7 +13,7 @@ A union works best when it is accompanied by a **tag** value. This value then re
 <a id="FigureCustomTypeUnion"></a>
 
 ![Figure x.y: A Union is one type that can store one of a range of other types](./images/custom-type-union.png "A Union is one type that can store one of a range of other types")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>A Union is one type that can store one of a range of other types</div><br/>
+<div class="caption">A Union is one type that can store one of a range of other types</div><br/>
 
 :::note
 

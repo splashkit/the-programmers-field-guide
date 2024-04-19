@@ -10,5 +10,5 @@ With C, there were no such niceties. In C, you have to create your own strings u
 
 <a id="FigureArrayStrings"></a>
 ![Strings are textual data, stores as an array of characters](./images/mmv-array-strings.png)
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Strings are textual data, stores as an array of characters</div><br/>
+<div class="caption">Strings are textual data, stores as an array of characters</div><br/>
 

@@ -15,7 +15,7 @@ To work with the heap you will need to learn how to allocation, access, and free
 <a id="FigureTheHeap"></a>
 
 ![Figure x.y: The Heap is used to store all dynamically allocated values](./images/the-heap.png "The Heap is used to store all dynamically allocated values")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>The Heap is used to store all dynamically allocated values</div><br/>
+<div class="caption">The Heap is used to store all dynamically allocated values</div><br/>
 
 :::note
 
@@ -44,7 +44,7 @@ These are the two basic actions that exist for performing dynamic memory managem
 <a id="FigureAllocateHeapMemory"></a>
 
 ![Figure x.y: You can ask for space, and return the space you were allocated](./images/allocating-memory-on-the-heap.png "You can ask for space, and return the space you were allocated")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>You can ask for space, and return the space you were allocated</div><br/>
+<div class="caption">You can ask for space, and return the space you were allocated</div><br/>
 
 :::note
 
@@ -69,7 +69,7 @@ The answer to this is via [pointers](../../../4-indirect-access/1-concepts/02-00
 <a id="FigureAccessingMemory"></a>
 
 ![Figure x.y: How can you access these dynamically allocated values?](./images/accessing-dynamically-allocated-memory.png "How can you access these dynamically allocated values?")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>How can you access these dynamically allocated values?</div><br/>
+<div class="caption">How can you access these dynamically allocated values?</div><br/>
 
 ## The Heap - Why, When, and How
 

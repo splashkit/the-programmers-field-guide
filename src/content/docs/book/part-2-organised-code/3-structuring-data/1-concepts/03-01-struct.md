@@ -11,7 +11,7 @@ In your code, structs can be used to model data associated with the *things*, th
 <a id="FigureCustomTypeRecord"></a>
 
 ![Figure x.y: A Record or Structure contains Fields](./images/custom-type-record.png "A Record or Structure contains Fields")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>A Record or Structure contains Fields</div><br/>
+<div class="caption">A Record or Structure contains Fields</div><br/>
 
 :::note
 

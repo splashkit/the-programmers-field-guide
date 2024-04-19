@@ -16,7 +16,7 @@ To read back binary data you need to use `fread`. This reads back a block of dat
 | **Returns** | `int`: The number of elements read from the`destination` by `fprintf`. If this does not equal the `count` parameter it indicates an error occurred reading the data to the file. |
 | **Parameter** | `ptr`: A pointer to the location to store the loaded data. This must be large enough to store the values loaded.<br/><br/>`size`: The size of each element to be loaded<br/><br/>`count`: The number of elements to be loaded from the file.<br/><br/>`destination`: The `FILE` to read data from<br/><br/>|
 
-<div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Parameters that must be passed to `fread`</div><br/>
+<div class="caption">Parameters that must be passed to `fread`</div><br/>
 
 :::note
 - The file must be opened with read permissions. 
@@ -56,4 +56,4 @@ int main()
 
     return 0;
 ```
-<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>Example code that reads an array of double values from a binary file.</div>
+<div class="caption">Example code that reads an array of double values from a binary file.</div>

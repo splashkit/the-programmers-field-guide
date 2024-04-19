@@ -10,7 +10,7 @@ Some languages allow you to copy the entire contents of an array into another ar
 
 <a id="FigureArrayCopy"></a>
 ![Elements of an array can be copied across in the assignment statement](./images/mmv-array-copy.png)
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>All of the elements of an array can be copied across in the assignment statement</div><br/>
+<div class="caption">All of the elements of an array can be copied across in the assignment statement</div><br/>
 
 You **cannot** use the assignment statement to copy arrays in C/C++. Instead, this can be achieved by manually copying the array yourself or by using the `memcpy` function.
 

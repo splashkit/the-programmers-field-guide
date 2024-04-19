@@ -13,7 +13,7 @@ The only way to avoid these access violations is to **take care** with your poin
 <a id="FigurePointerRuntimeError"></a>
 
 ![Figure x.y: Trying to follow a pointer that goes nowhere is a runtime error](./images/pointer-runtime-error.png "Trying to follow a pointer that goes nowhere is a runtime error")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>Trying to follow a pointer that goes nowhere is a runtime error</div><br/>
+<div class="caption">Trying to follow a pointer that goes nowhere is a runtime error</div><br/>
 
 <a id="FigurePointerCartoon"></a>
 

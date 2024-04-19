@@ -13,7 +13,7 @@ Once again, the only way to avoid these issues is to **take care** with your poi
 <a id="FigureMemoryLeak"></a>
 
 ![Figure x.y: If you forget a piece of allocated memory, it can never be freed!](./images/memory-leaks.png "If you forget a piece of allocated memory, it can never be freed!")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>If you <em>forget</em> a piece of allocated memory, it can never be freed!</div><br/>
+<div class="caption">If you <em>forget</em> a piece of allocated memory, it can never be freed!</div><br/>
 
 :::note
 

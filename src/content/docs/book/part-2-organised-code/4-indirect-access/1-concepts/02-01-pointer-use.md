@@ -14,7 +14,7 @@ You need to be able to perform certain actions to make pointers useful. These in
 <a id="FigurePointerUsage"></a>
 
 ![Figure x.y: You can get pointers to values, and you can follow pointers to values](./images/pointers-usage.png "You can get pointers to values, and you can follow pointers to values")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>You can get pointers to values, and you can follow pointers to values</div><br/>
+<div class="caption">You can get pointers to values, and you can follow pointers to values</div><br/>
 
 :::note
 
@@ -39,7 +39,7 @@ C and C++ have a feature called **pointer arithmetic**. When you add, or subtrac
 <a id="FigurePointerValue"></a>
 
 ![Figure x.y: The pointer value is the address of the value it points to](./images/pointer-as-an-address-value.png "The pointer value is the address of the value it points to")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>The pointer value is the <em>address</em> of the value it points to</div><br/>
+<div class="caption">The pointer value is the <em>address</em> of the value it points to</div><br/>
 
 :::note
 
@@ -61,7 +61,7 @@ C and C++ provides a number of pointer operators that allow you to get and use p
   | Dereference | `*` | `*ptr` | Follow the pointer, and read the value it points to.| 
   |             | `->` | `ptr -> field_name` | Follow a pointer to a struct or union, and read a field value. | 
 
-<div class="caption"><span class="caption-figure-nbr">Table x.y: </span>C/C++ pointer Operators</div>
+<div class="caption">C/C++ pointer Operators</div>
 
 You can get a pointer to a value using the ampersand operator (`&`). This operator lets you get the address of a variable, field, etc.
 
@@ -105,7 +105,7 @@ int main()
 
 ```
 
-<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>C code showing pointer operator usage</div>
+<div class="caption">C code showing pointer operator usage</div>
 
 :::note
 
@@ -145,7 +145,7 @@ int main()
 }
 ```
 
-<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>C code showing pointer notation</div>
+<div class="caption">C code showing pointer notation</div>
 
 The ``*pointer1`` and ``*pointer2`` notation looks exactly the same in lines 6 and 7 (``int *pointer1`` and ``int *pointer2``) as it is in line 10 (``val = *pointer1 * *pointer2;``). However, the former are declarations of integer pointer variables, and the latter are the dereferencing of these two variables. Further complicating matters, is that the ``*`` is also used as a multiplication operator in the ``val = *pointer1 * *pointer2;`` statement.
 
@@ -173,7 +173,7 @@ int main()
 }
 ```
 
-<div class="caption"><span class="caption-figure-nbr">Listing x.y: </span>C code showing pointer notation</div>
+<div class="caption">C code showing pointer notation</div>
 
 The output of the code in both cases is:
 

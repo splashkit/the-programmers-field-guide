@@ -16,7 +16,7 @@ Before you can interact with a file the first step will be to open the file. Thi
 | **Returns** | `FILE *`: If successful, this returns a pointer to the file stream opened, otherwise it returns `NULL` |
 | **Parameters** | `filename`: The name of the file to open. This can include a relative or absolute path to the file.<br/><br/>`mode`: Indicates the kind of operations that can be performed on the file. Mode should be one of the following:<br/> <ul><li><strong>"r"</strong>: Open the existing file for reading. The file must exist.</li><li><strong>"w"</strong>: Open the file for writing. This will create a new file, or replace an existing file.</li><li><strong>"a"</strong>: Open the file for appending data. This will append data to an existing file, or create a new file if it does not exist.</li><li><strong>"r+"</strong>: Open the file for reading, and writing. The file must exist.</li><li><strong>"w+"</strong>: Open the file for writing, and reading. This will create a new file, replacing any existing files.</li><li><strong>"a+"</strong>: Open the file for appending, and reading. This ensures that all write operations are always performed at the end of the file.</li></ul> |
 
-<div class="caption"><span class="caption-figure-nbr">Table x.y: </span>Details of the <code>fopen</code> function</div><br/>
+<div class="caption">Details of the <code>fopen</code> function</div><br/>
 
 :::note
 

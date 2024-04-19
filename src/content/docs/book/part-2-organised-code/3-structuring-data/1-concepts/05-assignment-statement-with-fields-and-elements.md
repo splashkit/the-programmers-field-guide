@@ -9,7 +9,7 @@ With the addition of the custom types you can now also store values in **fields*
 <a id="FigureAssignmentStatementWithFieldsAndElements"></a>
 
 ![Figure x.y: You can assign values to a struct or union’s fields](./images/assignment-statement-with-fields-and-elements.png "You can assign values to a struct or union’s fields")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>You can assign values to a struct or union’s fields</div><br/>
+<div class="caption">You can assign values to a struct or union’s fields</div><br/>
 
 :::note
 
@@ -25,7 +25,7 @@ With the addition of the custom types you can now also store values in **fields*
 The assignment statement can be used to assign a value to a struct's fields, or to copy all fields from an existing struct's value.
 
 ![Figure x.y: You can assign an individual field or the entire struct in one assignment statement](./images/assignment-record.png "You can assign an individual field or the entire struct in one assignment statement")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>You can assign an individual field or the entire struct in one assignment statement</div><br/>
+<div class="caption">You can assign an individual field or the entire struct in one assignment statement</div><br/>
 
 :::note
 
@@ -50,7 +50,7 @@ value, with the different fields giving you different interpretations of that da
 <a id="FigureAssignmentUnion"></a>
 
 ![Figure x.y: You can assign an individual field or the entire union in one assignment statement](./images/assignment-union.png "You can assign an individual field or the entire union in one assignment statement")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>You can assign an individual field or the entire union in one assignment statement</div><br/>
+<div class="caption">You can assign an individual field or the entire union in one assignment statement</div><br/>
 
 :::note
 

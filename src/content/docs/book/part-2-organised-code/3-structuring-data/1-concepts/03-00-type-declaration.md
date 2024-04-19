@@ -7,7 +7,7 @@ Type declarations allow you to create types. Programming languages offer a range
 <a id="FigureCustomTypeDeclaration"></a>
 
 ![Figure x.y: You can declare your own Data Types](./images/custom-type-declaration.png "You can declare your own Data Types")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>You can declare your own Data Types</div><br/>
+<div class="caption">You can declare your own Data Types</div><br/>
 
 ## Type - Why, When, and How
 

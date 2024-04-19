@@ -7,7 +7,7 @@ Dynamic memory allocation requires that you manage the memory you are allocated 
 <a id="FigurePointerFreeing"></a>
 
 ![Figure x.y: You can ask to be allocated enough space to store one value](./images/pointer-freeing.png "You can ask to be allocated enough space to store one value")
-<div class="caption"><span class="caption-figure-nbr">Figure x.y: </span>You can ask to be allocated enough space to store one value</div><br/>
+<div class="caption">You can ask to be allocated enough space to store one value</div><br/>
 
 ## Free - Why, When, and How
 
