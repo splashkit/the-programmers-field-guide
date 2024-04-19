@@ -1,0 +1,21 @@
+---
+title: Designing in General
+sidebar:
+  label: " - Design in General"
+---
+
+When you are designing a program you need to think about each function or procedure, and determine if it requires data to be given to it to enable it to perform its action. Any data it requires must then be passed to it using [parameters](../../1-concepts/04-parameter). The key to understanding parameters is to remember that each function/procedure is its own isolated domain. It can have its own data, using [local variables](../../1-concepts/03-local-variable), and has its own instructions. In most cases these instructions will need to be given some starting data, some information upon which to act.
+
+One strategy you can use is to put yourself in the place of the function or procedure. For example, what would you need to be told in order to give change? You can not work out the answer without being told the value of the change to be given. With this information, you now have enough to calculate the required output.
+
+## Modelling and Abstraction
+
+One of the main keys to understanding programs, and to creating good designs, is to see how each building block you create models something from the problem. The procedures that you create model the **processes**, performing actions that relate to the task at hand. The functions model **calculations** that need to be performed, such as determining how many coins should be given. In the same way the variables that you create will store values related to the problem. Each variable **represents** something, some information related to your program. The *thing* it represents should be reflected in the name given to the variable. Similarly, we name functions and procedures to reflect what they calculate or do.
+
+The act of trying to model the problem in software involves **abstraction**. It is the process of determining the features of the problem that are essential to the solution, and capturing these in a way that models reality but keeps only the details we care about. The ability to create your own model is a skill that you learn with experience, taking a lot of practice to really master.
+
+:::note
+
+A good design will closely model the program's domain. Others should be able to relate the building blocks you are creating with things associated with the program.
+
+:::

@@ -59,16 +59,16 @@ void print_line(int len)
  * outputs a message, and then returns true if the got it otherwise it returns
  * false.
  *
- * @param num_guess the sequence number of the guess, this should start at 1
+ * @param guess_number the sequence number of the guess, this should start at 1
  * @param target the number the user is aiming to guess
  *
  * @return true if the user guesses the number, otherwise false.
  */
-bool perform_guess(int num_guess, int target)
+bool perform_guess(int guess_number, int target)
 {
   int guess;
 
-  guess = read_integer("Guess " + to_string(num_guess) + ": ");
+  guess = read_integer("Guess " + to_string(guess_number) + ": ");
 
   if (target < guess)
   {
@@ -92,19 +92,19 @@ bool perform_guess(int num_guess, int target)
  */
 void play_game()
 {
-  int my_number, num_guess;
+  int my_number, guess_number;
   bool got_it;
 
   my_number = rnd(MAX_NUMBER) + 1;
-  num_guess = 0; // Keep track of the number of guesses
+  guess_number = 0; // Keep track of the number of guesses
 
   write_line("I am thinking of a number between 1 and " + to_string(MAX_NUMBER) + "\n");
 
   do
   {
-    num_guess++;
-    got_it = perform_guess(num_guess, my_number);
-  } while (num_guess < MAX_GUESSES && !got_it);
+    guess_number++;
+    got_it = perform_guess(guess_number, my_number);
+  } while (guess_number < MAX_GUESSES && !got_it);
 
   if (!got_it)
   {

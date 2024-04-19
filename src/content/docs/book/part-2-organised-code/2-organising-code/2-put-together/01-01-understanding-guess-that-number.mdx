@@ -1,0 +1,49 @@
+---
+title: Understanding Guess that Number
+sidebar:
+  label: " - Analysis"
+---
+
+Guess that Number is a relatively common game involving one player choosing a number, and the other trying to guess it. Each guess is followed by an indication of whether the guess was less than or larger than the target number. The game continues until the player guesses the target number.
+
+An example of how we want the program to run executing is shown in below:
+
+<br/>
+<a id="ListingGuessingGame"></a>
+
+```bash
+$ ./GuessThatNumber
+I am thinking of a number between 1 and 100
+
+Guess 1: 73
+The number is less than 73
+Guess 2: 10
+The number is larger than 10
+Guess 3: 52
+The number is larger than 52
+Guess 4: 60
+The number is less than 60
+Guess 5: 57
+The number is less than 57
+Guess 6: 54
+The numbar is larger than 54
+Guess 7: 56
+The number is less than 56
+You ran out of guesses... the number was 55
+
+Do you want to play again [Y/n]? n
+
+Bye
+```
+
+<div class="caption">Desired output from the guessing game</div>
+
+The data for this program will be relatively simple. The code will need to keep track of the current **target number** which will be an integer. The player will be able to enter a **guess**, also an integer. These two numbers represent the data model for the game. It is a game that involves a *target number* and *guess*.
+
+The actions within the program involve **playing the game**, and **performing a guess**. Playing the game is the process of performing guesses until the player finally guesses the target number.
+
+Our version of the game will only allow the player to have seven guesses, so we will need data to keep track of this and end after seven guesses.
+
+The process of performing a guess will involve getting the user's guess, and giving them feedback indicating if they guessed the target number, of if they were larger than, or less than the target.
+
+Now that we have an understanding of the problem, we can start to think about the design of our solution.
