@@ -26,7 +26,7 @@ typedef enum
   FIFTY_CENTS,
   TWENTY_CENTS,
   TEN_CENTS,
-  FIVE_CENTS,
+  FIVE_CENTS
 } coin_kind;
 
 /**
