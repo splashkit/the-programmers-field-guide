@@ -35,7 +35,7 @@ export default defineConfig({
         baseUrl:
           "https://github.com/splashkit/the-programmers-field-guide/edit/main/",
       },
-      plugins: [starlightLinksValidator({ errorOnRelativeLinks: false })],
+      plugins: [starlightLinksValidator({ errorOnRelativeLinks: true })],
       sidebar: [
         {
           label: "Part 0: First Steps",
