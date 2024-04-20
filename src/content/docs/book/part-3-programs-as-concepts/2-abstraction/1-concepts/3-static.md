@@ -2,7 +2,7 @@
 title: Static Members
 ---
 
-We explored the idea of static members in the [Back to C# chapter](../../../1-back-to-c-sharp/1-concepts/4-static-methods), and so we should touch back on this again here.
+We explored the idea of static members in the [Back to C# chapter](/book/part-3-programs-as-concepts/1-back-to-c-sharp/1-concepts/4-static-methods), and so we should touch back on this again here.
 
 Most members in a class should be instance members, as we described in this chapter. However, in some cases you can include static members that are available on the class itself. 
 

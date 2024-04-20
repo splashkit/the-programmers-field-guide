@@ -76,7 +76,7 @@ Take the time to try to *understand* what you are reading, especially related to
 
 Understanding a bit about the software or context of your issue can drastically improve your skills in searching for issues online or understanding the suggested solutions enough to know if it could work for your situation.
 
-It might be helpful to go back and revise the content in the "Concepts" pages in [1: Digital Realities](../../../1-digital-realities/1-concepts/1-programs) and [2: Computer Use](../../1-concepts/01-terminal) now that you have more context for how to interpret the information on those pages.
+It might be helpful to go back and revise the content in the "Concepts" pages in [1: Digital Realities](/book/part-0-getting-started/1-digital-realities/1-concepts/1-programs) and [2: Computer Use](/book/part-0-getting-started/2-computer-use/1-concepts/01-terminal) now that you have more context for how to interpret the information on those pages.
 
 :::tip[Learning from errors]
 Troubleshooting errors/issues can be a fantastic opportunity to learn more about how your computer works, or clarify your understanding of related concepts!
@@ -264,7 +264,7 @@ Therefore, you will need to use the commands mentioned in the [section below](#n
 
 If you have had issues installing the SplashKit global libraries, or you are using an older version of SplashKit, you will need to use `skm` at the start of any compiling/building commands, or when running C# programs.
 
-For example, you will need to use the following versions of the terminal commands mentioned at the end of the [Build and Run](../../../3-building-programs/1-concepts/03-build-and-run) page:
+For example, you will need to use the following versions of the terminal commands mentioned at the end of the [Build and Run](/book/part-0-getting-started/3-building-programs/1-concepts/03-build-and-run) page:
 
 - `skm dotnet new console`: create a new C# terminal project in the current working directory.
 - `skm dotnet build`: compile the project in the current working directory.

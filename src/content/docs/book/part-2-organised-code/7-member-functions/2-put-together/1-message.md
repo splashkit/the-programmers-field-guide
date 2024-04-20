@@ -28,9 +28,9 @@ If you use SplashKit for this, it has a `message` type used in its networking co
 
 To start this program, you will need to declare the struct, and code within this the two fields as you would have before. You now have the struct and its data, which we can extend with the two constructors and the print method.
 
-We will provide two [constructors](../../1-concepts/1-1-constructor) in the struct, one that will accept parameters for the text and sender and initialise these values within the struct and a default constructor that will initialise both the text and sender to empty strings. When implementing these remember that the constructor is a special method that has the same name as the struct.
+We will provide two [constructors](/book/part-2-organised-code/7-member-functions/1-concepts/1-1-constructor) in the struct, one that will accept parameters for the text and sender and initialise these values within the struct and a default constructor that will initialise both the text and sender to empty strings. When implementing these remember that the constructor is a special method that has the same name as the struct.
 
-Lastly, add the `print` [method](../../1-concepts/1-2-methods). This should output the message in any format you desire, as long as it shows the sender and the text. As this is coded within the method, it will have access to sender and text which are also coded within the struct.
+Lastly, add the `print` [method](/book/part-2-organised-code/7-member-functions/1-concepts/1-2-methods). This should output the message in any format you desire, as long as it shows the sender and the text. As this is coded within the method, it will have access to sender and text which are also coded within the struct.
 
 ## Testing your struct
 

@@ -5,7 +5,7 @@ title: "Literal"
 Programs are instructions and data, so we need a way to capture data within our code.
 
 The most direct way of achieving this is to type the value you want within the code itself. This is called a **literal**, as the value you put in is *literally* used in the instruction.
-This can be either a **number value** or **text value** written directly in the code, and can be a whole, or part of, an [expression](../04-expression).
+This can be either a **number value** or **text value** written directly in the code, and can be a whole, or part of, an [expression](/book/part-1-instructions/1-sequence-and-data/1-concepts/04-expression).
 
 The concept map below shows the concepts related to literals.
 
@@ -13,7 +13,7 @@ The concept map below shows the concepts related to literals.
 
 ## Literals -- when, why, and how
 
-Your instructions need data, and one way you can provide it is by literally typing data into the code itself. A literal on its own is a valid expression (though you may also want to look at using [constants](../07-variable/#constants) to make this clearer), but literals can also be combined with values from variables to help you calculate new values. Literals can also be used in expressions just with other literals if you want.
+Your instructions need data, and one way you can provide it is by literally typing data into the code itself. A literal on its own is a valid expression (though you may also want to look at using [constants](/book/part-1-instructions/1-sequence-and-data/1-concepts/07-variable/#constants) to make this clearer), but literals can also be combined with values from variables to help you calculate new values. Literals can also be used in expressions just with other literals if you want.
 
 ## In C#
 
@@ -65,7 +65,7 @@ For each of the follow, identify if the value listed or used in an instruction i
 :::note[Summary]
 
 * A literal is a number or text value entered directly into a program's source code.
-* A literal can be part or all of an [expression](../04-expression).
+* A literal can be part or all of an [expression](/book/part-1-instructions/1-sequence-and-data/1-concepts/04-expression).
 * Literal values are **hard-coded** into a program, meaning they do not change when it is run.
 * The backslash character `\` in C# is used to indicate that the character that directly follows it has a special meaning.
 

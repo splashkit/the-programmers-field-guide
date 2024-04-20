@@ -23,7 +23,7 @@ Any time you see duplicated code this is an opportunity for *refactoring*. In th
 - The handling of user input.
 - The calculation for giving each coin.
 
-Our code for handling user input uses the same process, but stores the data in different variables and has different messages that are being provided. Control flow statements alone aren't going to be sufficient for us to consolidate the way this works, so we will have to leave this for the moment and come back to it in another chapter where we look at how we can [organise our code](../../../../part-2-organised-code/2-organising-code/0-overview).
+Our code for handling user input uses the same process, but stores the data in different variables and has different messages that are being provided. Control flow statements alone aren't going to be sufficient for us to consolidate the way this works, so we will have to leave this for the moment and come back to it in another chapter where we look at how we can [organise our code](/book/part-2-organised-code/2-organising-code/0-overview).
 
 Calculating and outputting the coins, however, looks like something that we could refactor with the current tools we have. The objective of this is not to reduce the amount of code, but to consolidate the calculations and to empower the data to help drive what happens.
 
@@ -90,7 +90,7 @@ Write($"{toGive} x {coinText}");
 
 Notice this has moved away from mentioning any specific coin or literal value, and allows us to work with any coin value by using `coinValue` and `coinText` variables.
 
-Now we can **repeat** this once for each coin, which will require us to think about this logic. We can use a [for loop](../../1-concepts/04-3-for-loop) to achieve this, as there is a set number of coins that we need to iterate through. This gives us the following pseudocode:
+Now we can **repeat** this once for each coin, which will require us to think about this logic. We can use a [for loop](/book/part-1-instructions/3-control-flow/1-concepts/04-3-for-loop) to achieve this, as there is a set number of coins that we need to iterate through. This gives us the following pseudocode:
 
 ```txt
   for each kind of coin
@@ -120,7 +120,7 @@ for i = 0; **while** i < NUM_COIN_TYPE; **then** i++
 
 Within the loop, we need to set the values for `coinValue` and `coinText`. For the moment, we can use the control variable `i` to determine which values to use. When `i` is 0, we need to use $2, when it is 1 we need to use $1, and so on.
 
-This is a great example of where we can use a [case statement](../../1-concepts/03-2-case). The following pseudocode shows how this might look:
+This is a great example of where we can use a [case statement](/book/part-1-instructions/3-control-flow/1-concepts/03-2-case). The following pseudocode shows how this might look:
 
 ```txt
 for each kind of coin (i loops 0 < 6)
@@ -209,10 +209,10 @@ Steps:
     While (again != "N" and again != "n")
 ```
 
-Adjust your code to incorporate the new structure. Then test it with different amounts of change to make sure it works as expected. Run it through the [debugger](../../../../part-0-getting-started/3-building-programs/1-concepts/04-debug) to help consolidate your understanding of how it works. Remember you can also use this to help fix any logic issues you have once you sort out any syntax errors.
+Adjust your code to incorporate the new structure. Then test it with different amounts of change to make sure it works as expected. Run it through the [debugger](/book/part-0-getting-started/3-building-programs/1-concepts/04-debug) to help consolidate your understanding of how it works. Remember you can also use this to help fix any logic issues you have once you sort out any syntax errors.
 
 What we have created ends up being more code, but it is much more flexible.
-There is still duplication in this, but with some more programming tools we can improve it further. We are now getting to a point where the amount of code is getting too much to manage in this way, and we need more effective means of managing data within the program. This will be the focus of [Part 2](../../../../part-2-organised-code/00-part-2-programs-as-organised-code), where we will look at [structuring code](../../../../part-2-organised-code/2-organising-code/0-overview), [structuring data](../../../../part-2-organised-code/3-structuring-data/0-overview), and [managing multiples](../../../../part-2-organised-code/5-working-with-multiples/0-overview).
+There is still duplication in this, but with some more programming tools we can improve it further. We are now getting to a point where the amount of code is getting too much to manage in this way, and we need more effective means of managing data within the program. This will be the focus of [Part 2](/book/part-2-organised-code/00-part-2-programs-as-organised-code), where we will look at [structuring code](/book/part-2-organised-code/2-organising-code/0-overview), [structuring data](/book/part-2-organised-code/3-structuring-data/0-overview), and [managing multiples](/book/part-2-organised-code/5-working-with-multiples/0-overview).
 
 :::tip
 Make sure that you understand how this works before progressing. The upcoming concepts will help you manage your code, but you still need to be able to work with the logic as we are here.

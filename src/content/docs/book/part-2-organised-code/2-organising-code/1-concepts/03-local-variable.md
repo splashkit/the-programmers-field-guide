@@ -2,13 +2,13 @@
 title: "Local Variable"
 ---
 
-Functions and procedures create new spaces within our code. These blocks of code are isolated from each other. This means that anything created within a function or procedure only exists while that function or procedure is running, much like we saw with the idea of [scope](../../../../part-1-instructions/3-control-flow/1-concepts/02-1-scope) within compound statements.
+Functions and procedures create new spaces within our code. These blocks of code are isolated from each other. This means that anything created within a function or procedure only exists while that function or procedure is running, much like we saw with the idea of [scope](/book/part-1-instructions/3-control-flow/1-concepts/02-1-scope) within compound statements.
 
-These are now several places where [variables](../../../../part-1-instructions/1-sequence-and-data/1-concepts/07-variable) can be declared in your code. Variables declared within a function or procedure are called **local variables**, because they are **local** to function or procedure they are declared in. Moving forward, most of the variables in your code will be local variables.
+These are now several places where [variables](/book/part-1-instructions/1-sequence-and-data/1-concepts/07-variable) can be declared in your code. Variables declared within a function or procedure are called **local variables**, because they are **local** to function or procedure they are declared in. Moving forward, most of the variables in your code will be local variables.
 
 ![Variables declared within a procedure are local variables](./images/local-var-concepts.png "Variables declared within a procedure are Local Variables")
 
-As shown above, you can picture each procedure as containing a number of local variables. These variables are accessible within the procedure's instructions. That is, the procedure's block defines the [scope](../../../../part-1-instructions/3-control-flow/1-concepts/02-1-scope) where these variables are accessible.
+As shown above, you can picture each procedure as containing a number of local variables. These variables are accessible within the procedure's instructions. That is, the procedure's block defines the [scope](/book/part-1-instructions/3-control-flow/1-concepts/02-1-scope) where these variables are accessible.
 The same applies to functions.
 
 ## Local Variables -- when, why, and how
@@ -22,7 +22,7 @@ One of the key things that makes decomposition work is the ability to tackle eac
 ## In C/C++
 
 :::tip[Syntax]
-The syntax for a variable declaration in C/C++ was covered [earlier](../../../1-starting-cpp/1-concepts/4-1-variable-constant), but we will include it again here for convenience.
+The syntax for a variable declaration in C/C++ was covered [earlier](/book/part-2-organised-code/1-starting-cpp/1-concepts/4-1-variable-constant), but we will include it again here for convenience.
 
 ![The syntax for a variable declaration in C/C++](./images/variable-decl.png)
 :::

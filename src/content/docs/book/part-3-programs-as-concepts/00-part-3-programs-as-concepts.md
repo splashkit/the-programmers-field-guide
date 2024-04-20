@@ -4,7 +4,7 @@ title: Introducing Concept Modelling
 
 Our programming journey started by considering programs as instructions. At this level, we focused on each instruction and how it worked within the computer. Once we had mastered control flow, we raised the level of our focus to view programs as organised code. Through these chapters we looked at structuring our code and our data in ways that allowed us to build larger and more complex programs. Having mastered these concepts, we are now ready to raise the level again to consider how we can reimagine programs more directly as digital realities - using conceptual modelling.
 
-In this part of your journey, we will explore new ways of **thinking** about our programs that grow out of the ability to have [member functions](../../part-2-organised-code/7-member-functions/0-overview) alongside the data within our entities. The introduction of these language features gave rise to a new programming paradigm - the **object-oriented paradigm**.
+In this part of your journey, we will explore new ways of **thinking** about our programs that grow out of the ability to have [member functions](/book/part-2-organised-code/7-member-functions/0-overview) alongside the data within our entities. The introduction of these language features gave rise to a new programming paradigm - the **object-oriented paradigm**.
 
 The focus of this part will be on the change of mindset needed to take advantage of this style of programming. This means that much of the discussion will be at a design rather than a code level. It is the way we put these things together, and the way we think about them that changes. The code itself is all very much based on the things we have seen so far.
 

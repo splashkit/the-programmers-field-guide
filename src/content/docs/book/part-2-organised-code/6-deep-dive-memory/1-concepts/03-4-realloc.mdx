@@ -378,7 +378,7 @@ Navigate the slide-show below to understand how realloc works when the memory re
 
 ## Reallocating multidimensional arrays
 
-If you need to change the allocation of a multidimensional array, the implications will depend on how this is implemented. If you have a [ragged array](../03-3-ragged-array), then you can reallocate each of the points, giving you the ability to resize different parts of the array as you go. With a rectangular array, you can resize associated memory and then move values from their old positions to their new positions. When you do this, you need to make sure you do this from the end of the old array back to the start.
+If you need to change the allocation of a multidimensional array, the implications will depend on how this is implemented. If you have a [ragged array](/book/part-2-organised-code/6-deep-dive-memory/1-concepts/03-3-ragged-array), then you can reallocate each of the points, giving you the ability to resize different parts of the array as you go. With a rectangular array, you can resize associated memory and then move values from their old positions to their new positions. When you do this, you need to make sure you do this from the end of the old array back to the start.
 
 :::note
 

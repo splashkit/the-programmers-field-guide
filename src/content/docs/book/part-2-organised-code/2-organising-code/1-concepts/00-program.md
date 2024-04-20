@@ -40,7 +40,7 @@ This is similar to the `using` statements you used in your C# code.
 
 ### Using directives
 
-One of the challenges in programming is uniquely naming things we create. To help manage this, programming languages have come up with a mechanism to create **namespaces**, which allow you to define the [scope](../../../../part-1-instructions/3-control-flow/1-concepts/02-1-scope) in which a name must be unique. The `using` directive gives you easier access to particular items within another namespace.
+One of the challenges in programming is uniquely naming things we create. To help manage this, programming languages have come up with a mechanism to create **namespaces**, which allow you to define the [scope](/book/part-1-instructions/3-control-flow/1-concepts/02-1-scope) in which a name must be unique. The `using` directive gives you easier access to particular items within another namespace.
 
 In C/C++ the standard name space (which has the identifier `std`) contains some useful functions. You can access these anywhere using the full name of the function, which is defined by the namespace, two colons, then the function identifier. For example, the `to_string` function in the standard namespace can be accessed using `std::to_string`. This will always work, but means you have to type `std::` before `to_string` each time. The `using` statement lets you avoid this. By adding `using std::to_string;` at the top of the code, you can now just use `to_string` everywhere and the compiler will not complain, as you have told it you are "using" `std::to_string`.
 
@@ -50,7 +50,7 @@ Here is the code of a program with functions.
 We have added comments to help you identify different parts of the syntax.
 Don't worry if you don't understand all of this -- we still need to explore most of these concepts.
 For now, focus on what looks different and what looks similar, and try to match the different sections with the syntax diagram above.
-Also take note of `int main()`, which defines the [entry point](../../../1-starting-cpp/1-concepts/2-main-function) of the program.
+Also take note of `int main()`, which defines the [entry point](/book/part-2-organised-code/1-starting-cpp/1-concepts/2-main-function) of the program.
 
 ```cpp
 // includes and using statements

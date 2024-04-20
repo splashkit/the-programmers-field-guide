@@ -4,7 +4,7 @@ sidebar:
     label: " - Dangling Pointers"
 ---
 
-We previously discussed the issue of [dangling pointers](../../../4-indirect-access/1-concepts/02-05-scope) in the section on scope when we looked at pointers originally. The issue is compounded when you start to manage memory yourself, as now you can dynamically allocate and free memory.
+We previously discussed the issue of [dangling pointers](/book/part-2-organised-code/4-indirect-access/1-concepts/02-05-scope) in the section on scope when we looked at pointers originally. The issue is compounded when you start to manage memory yourself, as now you can dynamically allocate and free memory.
 
 A dangling pointer occurs when you access a value via a pointer that does not refer to a location in memory that is allocated to your program.
 

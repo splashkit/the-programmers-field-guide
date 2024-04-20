@@ -56,7 +56,7 @@ Having the spider move off the screen is fun, but we want the user to be in cont
 
 **If** only there was a way to say *when* we want this code to run, rather than *always* increasing or decreasing these values. We could then change the values *only* when the user is holding down a certain key on the keyboard.
 
-This is where we can use a [branching](../../1-concepts/03-0-branching) statement. For example, we can increase `spiderX` if the user is holding down the right arrow key. In general, we could call this step **handle input**, as it will check for external events and use these to update things within the program (within the digital reality).
+This is where we can use a [branching](/book/part-1-instructions/3-control-flow/1-concepts/03-0-branching) statement. For example, we can increase `spiderX` if the user is holding down the right arrow key. In general, we could call this step **handle input**, as it will check for external events and use these to update things within the program (within the digital reality).
 
 The following flowchart illustrates where the **handle input** step would go in our processing. A good place for this logic is at the start of the event loop before, we draw the screen. It would work anywhere in the loop, but it made more sense to us to have it at the start. That way we update where things are before we draw the current scene.
 
@@ -86,7 +86,7 @@ Steps:
 
 ### Going right and left
 
-To move right, we can add an [if statement](../../1-concepts/03-1-if) that contains the code to increase the value of `spiderX`. This is captured in the following pseudocode, where we are starting to expand out the steps within the handle input section of the code.
+To move right, we can add an [if statement](/book/part-1-instructions/3-control-flow/1-concepts/03-1-if) that contains the code to increase the value of `spiderX`. This is captured in the following pseudocode, where we are starting to expand out the steps within the handle input section of the code.
 
 ```txt
 Constants:

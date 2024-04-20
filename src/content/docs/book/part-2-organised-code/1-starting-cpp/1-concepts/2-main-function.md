@@ -19,4 +19,4 @@ int main()
 }
 ```
 
-We will go into details on how this works in the [next chapter](../../../2-organising-code/0-overview). For now, you will just need to enter this code as is, and make sure any instructions you want to run occur between the starting `{` and the `return 0; }` command that appears at the end. 
+We will go into details on how this works in the [next chapter](/book/part-2-organised-code/2-organising-code/0-overview). For now, you will just need to enter this code as is, and make sure any instructions you want to run occur between the starting `{` and the `return 0; }` command that appears at the end. 

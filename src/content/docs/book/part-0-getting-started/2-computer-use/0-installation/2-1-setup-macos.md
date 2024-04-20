@@ -64,8 +64,8 @@ bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-sc
 
 :::tip[Troubleshooting tips!:]
 
-1. If the command above **does nothing**, go to the [No response when running SplashKit installation command](../3-0-troubleshooting-install/#no-response-when-running-splashkit-installation-command) section in the Installation Troubleshooting page for an alternative installation process.
-2. If you see a message about "**permission denied**" or "**Operation not permitted**", go to the [Permission issue when running SplashKit installation command](../3-0-troubleshooting-install/#permission-issue-when-running-splashkit-installation-command) section in the Installation Troubleshooting page for steps to follow to resolve this issue.
+1. If the command above **does nothing**, go to the [No response when running SplashKit installation command](/book/part-0-getting-started/2-computer-use/0-installation/3-0-troubleshooting-install/#no-response-when-running-splashkit-installation-command) section in the Installation Troubleshooting page for an alternative installation process.
+2. If you see a message about "**permission denied**" or "**Operation not permitted**", go to the [Permission issue when running SplashKit installation command](/book/part-0-getting-started/2-computer-use/0-installation/3-0-troubleshooting-install/#permission-issue-when-running-splashkit-installation-command) section in the Installation Troubleshooting page for steps to follow to resolve this issue.
 
 :::
 
@@ -108,7 +108,7 @@ You can install the `code` command to allow you to open any file or folder in a 
 Follow the steps in the [**Launching from the command line**](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) section of the *Visual Studio Code on macOS* article to install this command.
 
 :::tip[Troubleshooting tip:]
-If you are having issues with the `code` command not working after following the steps above, go to the ['zsh: command not found: code'](../3-0-troubleshooting-install/#zsh-command-not-found-code) section in the Installation Troubleshooting page for to use an alternative installation process.
+If you are having issues with the `code` command not working after following the steps above, go to the ['zsh: command not found: code'](/book/part-0-getting-started/2-computer-use/0-installation/3-0-troubleshooting-install/#zsh-command-not-found-code) section in the Installation Troubleshooting page for to use an alternative installation process.
 :::
 
 <!-- TODO: Maybe update heading to "Install VS Code Extensions -->
@@ -116,7 +116,7 @@ If you are having issues with the `code` command not working after following the
 
 The final step to complete the setup of VS Code is to install a few *Extensions* in VS Code:
 
-[**Set up my VS Code Extensions**](../2-7-setup-vscode)
+[**Set up my VS Code Extensions**](/book/part-0-getting-started/2-computer-use/0-installation/2-7-setup-vscode)
 
 Go to the page linked above, follow the steps to install both the C# and C/C++ recommended extensions, and then come back here and continue to the next step. *You can use the "Back button" in your browser to return to this page.*
 

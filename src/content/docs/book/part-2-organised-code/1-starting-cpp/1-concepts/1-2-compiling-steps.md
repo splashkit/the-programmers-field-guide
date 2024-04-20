@@ -22,7 +22,7 @@ The C/C++ compilers work four stages:
     code you have used from the programming libraries. This then outputs
     an executable program.
 
-We talked briefly about compiling and assembling in [Part 0](../../../../part-0-getting-started/1-digital-realities/1-concepts/6-source-code) so lets just quickly look over the two steps new with C/C++ compared to C#.
+We talked briefly about compiling and assembling in [Part 0](/book/part-0-getting-started/1-digital-realities/1-concepts/6-source-code) so lets just quickly look over the two steps new with C/C++ compared to C#.
 
 ### Pre-processing
 

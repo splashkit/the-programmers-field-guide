@@ -14,7 +14,7 @@ If you are using **WSL (with Ubuntu)**, you might need to also create a "**Docum
 
 
 If you haven't created a **Code** folder in your documents, then you will need to do this first.
-Review the `mkdir` command from [manipulating files](../../../2-computer-use/1-concepts/05-manipulating-files/#making-a-directory-mkdir) to do this using the shell.
+Review the `mkdir` command from [manipulating files](/book/part-0-getting-started/2-computer-use/1-concepts/05-manipulating-files/#making-a-directory-mkdir) to do this using the shell.
 :::
 
 ## The `dotnet` program
@@ -25,7 +25,7 @@ With C#, you will use the `dotnet` program in the Terminal to perform actions li
 | ------------------- | ----------- | --------------------------------------------------- |
 | Create a project | `dotnet new console`      | Creates a C# project in the current folder. |
 
-The `dotnet` program sets up a C# project using the dotnet framework. The `new` argument indicates we want it to create a new project, and `console` indicates the type of program. In this context, "console" is a synonym for the terminal, and tells the `dotnet` tool we would like to write a program that is connected to the terminal with the [standard streams](../../../2-computer-use/1-concepts/09-streams/) for input, output, and error messages.
+The `dotnet` program sets up a C# project using the dotnet framework. The `new` argument indicates we want it to create a new project, and `console` indicates the type of program. In this context, "console" is a synonym for the terminal, and tells the `dotnet` tool we would like to write a program that is connected to the terminal with the [standard streams](/book/part-0-getting-started/2-computer-use/1-concepts/09-streams/) for input, output, and error messages.
 
 :::tip
 The key thing to remember from this is the command **`dotnet new console`**.

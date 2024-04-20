@@ -299,7 +299,7 @@ The while loop is a common feature of most programming languages. It is a pre-te
 
 The while loop is a flexible way to have code repeated and will be used a lot in your programs. It should be your first thought when you want something to be repeated.
 
-As with [branching](../03-0-branching), a while loop is a form of control flow because it literally controls the flow of instructions to the CPU.
+As with [branching](/book/part-1-instructions/3-control-flow/1-concepts/03-0-branching), a while loop is a form of control flow because it literally controls the flow of instructions to the CPU.
 See the image below for a visualisation of this.
 Overall, the instructions are still being processed in sequence -- there are just two paths to choose from (repeating or ending the loop).
 
@@ -309,7 +309,7 @@ When planning to use a while loop, you first need to determine the condition tha
 You then want to make sure that something in the loop will change the condition so that there is a definite end to the loop. This could be reading a value from the user, or re-checking which events have occurred.
 
 :::caution
-At some point you will end up with an unexpected infinite loop. In these cases, you need to remember the details on how to [signal](../../../../part-0-getting-started/2-computer-use/1-concepts/10-signals) the operating system. You can use the ctrl-c to [kill](../../../../part-0-getting-started/2-computer-use/1-concepts/10-signals#killing-a-program-ctrl-c) the program.
+At some point you will end up with an unexpected infinite loop. In these cases, you need to remember the details on how to [signal](/book/part-0-getting-started/2-computer-use/1-concepts/10-signals) the operating system. You can use the ctrl-c to [kill](/book/part-0-getting-started/2-computer-use/1-concepts/10-signals#killing-a-program-ctrl-c) the program.
 :::
 
 At a lower level, the while loop is achieved using two jump statements:
@@ -331,7 +331,7 @@ The following diagram shows the C# syntax for a while loop.
 ![While loop syntax.](./images/while-loop.png)
 :::
 
-In C# the while loop starts with the `while` keyword followed by the condition within parenthesis. The statement to be repeated follows this, which in almost all cases will be a [compound statement](../02-0-compound-statement).
+In C# the while loop starts with the `while` keyword followed by the condition within parenthesis. The statement to be repeated follows this, which in almost all cases will be a [compound statement](/book/part-1-instructions/3-control-flow/1-concepts/02-0-compound-statement).
 
 ## How does `while` work?
 
@@ -344,7 +344,7 @@ The following code provides a simple example of how to work with a while loop. I
 These steps are coded into the program below.
 The user is asked to enter a number, which we store in the `target` variable, and we create a second variable (`i`) that we use to count the number of times the loop runs. Before the loop, `i` is set to 0 as we generally count from 0 in our code.
 
-The while loop runs **while** `i` is less than the `target`. Within the loop, we use the `i++` [assignment statement](../../../1-sequence-and-data/1-concepts/08-assignment-statement) to increase the value of `i`. This means that the value of `i` will eventually be larger than or equal to the `target`, thereby ensuring the loop will end.
+The while loop runs **while** `i` is less than the `target`. Within the loop, we use the `i++` [assignment statement](/book/part-1-instructions/1-sequence-and-data/1-concepts/08-assignment-statement) to increase the value of `i`. This means that the value of `i` will eventually be larger than or equal to the `target`, thereby ensuring the loop will end.
 
 ```csharp
 using static System.Console;
@@ -376,7 +376,7 @@ Use the following images to see how this runs.
 
 Now let's look at how we can use a while loop to keep a window open in SplashKit. In this case, we can use the `QuitRequested` method from SplashKit to find out if the user has asked to quit the program by closing the SplashKit window on their screen. `QuitRequested` will return `false` if the user has not asked to quit, so we need to loop **while** quit is **not** requested. Remember, in C# we use `!` for "not", giving us a condition `!QuitRequested()` for our loop.
 
-Within the loop, we need to tell SplashKit to respond to any events the user has performed. This is achieved with the `ProcessEvents()` method. It reads things like key presses, mouse movements, and window closes, and retains this information so that you can access it using other methods. In this case, it will record if the user has asked to quit, and we're accessing this information when we call `QuitRequested` in the condition. If you forget to add the call to `ProcessEvents` then you will not be able to close the window. In these cases, switch to the terminal and kill the program with [ctrl-c](../../../../part-0-getting-started/2-computer-use/1-concepts/10-signals).
+Within the loop, we need to tell SplashKit to respond to any events the user has performed. This is achieved with the `ProcessEvents()` method. It reads things like key presses, mouse movements, and window closes, and retains this information so that you can access it using other methods. In this case, it will record if the user has asked to quit, and we're accessing this information when we call `QuitRequested` in the condition. If you forget to add the call to `ProcessEvents` then you will not be able to close the window. In these cases, switch to the terminal and kill the program with [ctrl-c](/book/part-0-getting-started/2-computer-use/1-concepts/10-signals).
 
 ```csharp
 using static SplashKitSDK.SplashKit;

@@ -69,7 +69,7 @@ Follow the steps below to download the recommended Raspberry Pi OS:
 
 Follow the steps below to install the Raspberry Pi OS on the micro SD card:
 
-1. Insert the micro SD card into the Raspberry Pi and power on. (See [Build my Raspberry Pi](../2-2-pi-computer) for setup instructions)
+1. Insert the micro SD card into the Raspberry Pi and power on. (See [Build my Raspberry Pi](/book/part-0-getting-started/2-computer-use/0-installation/2-2-pi-computer) for setup instructions)
 2. On the Welcome screen click next.
 3. Set your country, language and time zone and click next.
 
@@ -187,7 +187,7 @@ bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-sc
 ```
 
 :::tip[Troubleshooting tip:]
-If you have issues installing the SplashKit SDK, go to the [No response when running SplashKit installation command](../3-0-troubleshooting-install/#no-response-when-running-splashkit-installation-command) section in the Installation Troubleshooting page for an alternative installation process.
+If you have issues installing the SplashKit SDK, go to the [No response when running SplashKit installation command](/book/part-0-getting-started/2-computer-use/0-installation/3-0-troubleshooting-install/#no-response-when-running-splashkit-installation-command) section in the Installation Troubleshooting page for an alternative installation process.
 :::
 
 Close and reopen the Terminal, then run the command below to build SplashKit on the Pi:
@@ -247,7 +247,7 @@ You can open Visual Studio Code from the Terminal by typing `code` and pressing 
 
 The final step to complete the setup of VS Code is to install a few *Extensions* in VS Code:
 
-[**Set up my VS Code Extensions**](../2-7-setup-vscode)
+[**Set up my VS Code Extensions**](/book/part-0-getting-started/2-computer-use/0-installation/2-7-setup-vscode)
 
 Go to the page linked above, follow the steps to install both the C# and C/C++ recommended extensions, and then come back here and continue to the next step. *You can use the "Back button" in your browser to return to this page.*
 

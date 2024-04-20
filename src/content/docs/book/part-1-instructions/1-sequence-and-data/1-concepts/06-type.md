@@ -3,7 +3,7 @@ title: "Type"
 ---
 
 In order to build programs, we need ways of making sense of data within the computer. 
-Looking back to the chapter on [Digital Realities](../../../../part-0-getting-started/1-digital-realities/0-overview), remember that computers are electronic devices and that everything else on top of that is an **abstraction** that we build. So, how do the tools we have allow us to use different kinds of data within our programs?
+Looking back to the chapter on [Digital Realities](/book/part-0-getting-started/1-digital-realities/0-overview), remember that computers are electronic devices and that everything else on top of that is an **abstraction** that we build. So, how do the tools we have allow us to use different kinds of data within our programs?
 
 The answer is that programming languages provide us with a mechanism to assign a **type** to different pieces of data.
 All values within a program have a type. The type indicates how the data stored in the computer's memory should be interpreted by the program, and how it can be used.
@@ -41,7 +41,7 @@ A data type will have a size in memory and, in the case of numbers, a range of v
 There are two main text types in C#.
 You will use `string` most often, as it describes a sequence of zero or more alphanumeric characters.
 `char`, on the other hand, describes a single alphanumeric character.
-As we learned in [literals](../05-literal), a literal string value is enclosed in double quotes (`"`), and a character value is enclosed in single quotes (`'`).
+As we learned in [literals](/book/part-1-instructions/1-sequence-and-data/1-concepts/05-literal), a literal string value is enclosed in double quotes (`"`), and a character value is enclosed in single quotes (`'`).
 This difference in representation helps us to quickly identify what kind of text data a literal value is.
 
 | **Name**  | **Size**                                   |

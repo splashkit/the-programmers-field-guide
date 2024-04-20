@@ -4,7 +4,7 @@ title: Generics
 
 Ok, generics is not really related to memory management, but this is going to be really useful to know about as we start to build our own dynamic arrays to help handle memory efficiently.
 
-In the [dynamic arrays](../../2-put-together/02-dynamic-array) task we will look at building our own structure to help manage arrays that can grow and shrink their allocations. Using the current tools we have, we would have to build this same code for each type. Giving us an `dynamic_int_array`, a `dynamic_double_array`, a `dynamic_user_array`, a `dynamic_currency_array`, and so on and so on. Each of these dynamic arrays would have *almost identical* code! The only difference would be the type of data that we store in the array.
+In the [dynamic arrays](/book/part-2-organised-code/6-deep-dive-memory/2-put-together/02-0-dynamic-array) task we will look at building our own structure to help manage arrays that can grow and shrink their allocations. Using the current tools we have, we would have to build this same code for each type. Giving us an `dynamic_int_array`, a `dynamic_double_array`, a `dynamic_user_array`, a `dynamic_currency_array`, and so on and so on. Each of these dynamic arrays would have *almost identical* code! The only difference would be the type of data that we store in the array.
 
 When we have dealt with these kinds of similarities before we were able to abstract our code further by introducing things like variables, and loops, etc. If you think about this problem, what needs to change in this case?
 
@@ -16,7 +16,7 @@ Programming languages that let you support generics do allow you to have variabl
 
 Most of the time you will use code that includes generics. Standard libraries that come with languages will have data structures that need to allow you to store any kind of data within these, and therefore they use generics to give you that capability.
 
-However, if you need to build your own data structures to efficiently manage your data, then you can start to build code that uses generics to allow others to provide the type. We will touch on this a little here, and we will use it more in [Part 3](../../../../part-3-programs-as-concepts/00-part-3-programs-as-concepts) when we use the C# class libraries. But for now, let's look at how to build our own generic code.
+However, if you need to build your own data structures to efficiently manage your data, then you can start to build code that uses generics to allow others to provide the type. We will touch on this a little here, and we will use it more in [Part 3](/book/part-3-programs-as-concepts/00-part-3-programs-as-concepts) when we use the C# class libraries. But for now, let's look at how to build our own generic code.
 
 When creating a generic struct of function, you do not need to worry about which type will be used. You create a placeholder, and then use that consistently in your code. The programmer who uses the generic type of function will indicate which type they want. This limits what you can do with the type, as you do not know what it is, but in general you can easily do things like store and retrieve these values - and that is mostly what we are after when we create a data structure.
 

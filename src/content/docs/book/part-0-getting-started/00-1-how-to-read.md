@@ -5,7 +5,7 @@ title: How to Read the Guide
 ## A Map for the Journey Ahead
 
 Our goal with this guide is to help you on your journey to learn programming.
-As we have [already mentioned](../00-0-introduction#what-language-will-i-learn), our focus is not on teaching you to master a specific programming language.
+As we have [already mentioned](/book/part-0-getting-started/00-0-introduction#what-language-will-i-learn), our focus is not on teaching you to master a specific programming language.
 Instead, we want to help you learn the **concepts that underpin all programming languages**, so that you acquire the tools to pick up any language you might need.
 This means you will be much better equipped to adapt to the changing landscape of computing than someone who has just focused on learning whatever language is currently popular.
 

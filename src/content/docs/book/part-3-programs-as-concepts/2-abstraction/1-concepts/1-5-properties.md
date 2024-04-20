@@ -10,7 +10,7 @@ C# provides a convenient feature called **Properties** that we can use to give c
 
 ## Properties: Why, When, and How
 
-When coding [knowing responsibilities](../1-2-knowing) in a class you will add fields for any data that you will capture within the objects. As you do this, you can think about whether this knowledge needs to be shared with others outside the class. If you do want to share this knowledge, you can create a property to achieve this.
+When coding [knowing responsibilities](/book/part-3-programs-as-concepts/2-abstraction/1-concepts/1-2-knowing) in a class you will add fields for any data that you will capture within the objects. As you do this, you can think about whether this knowledge needs to be shared with others outside the class. If you do want to share this knowledge, you can create a property to achieve this.
 
 Properties also give you the ability to make these values read or write only outside the class. Each property will define instructions to be performed when you read and instructions to be performed when you write to the property. If you provide both of these you have a property that can be read and written to. If you only provide one, then the property will be read or write only depending on which part you code.
 

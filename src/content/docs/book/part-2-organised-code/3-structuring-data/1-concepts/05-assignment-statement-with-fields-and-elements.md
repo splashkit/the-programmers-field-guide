@@ -14,7 +14,7 @@ With the addition of the custom types you can now also store values in **fields*
 :::note
 
 - The assignment statement is an **instruction**, you can command the computer to store a value in a variable, record’s field, or union’s field.
-- Enumeration values store a single value, so they work in the same way as described in the original [assignment statement](../../../../part-1-instructions/1-sequence-and-data/1-concepts/08-assignment-statement).
+- Enumeration values store a single value, so they work in the same way as described in the original [assignment statement](/book/part-1-instructions/1-sequence-and-data/1-concepts/08-assignment-statement).
 - With a struct, you can assign values to its fields individually, or you can assign all the values from another matching struct.
 - A union can have its value set via its fields, or you can copy the value from another matching union.
 
@@ -55,10 +55,10 @@ value, with the different fields giving you different interpretations of that da
 :::note
 
 - The four examples from [Figure x.y](#FigureAssignmentUnion) show the following:
-  1. You can assign a value to the fields of a [Union](../03-05-union). This overrides any value currently
+  1. You can assign a value to the fields of a [Union](/book/part-2-organised-code/3-structuring-data/1-concepts/03-05-union). This overrides any value currently
 stored in the Variable.
   2. It is possible to copy an entire Union value in the assignment.
-  3. This works in the same way with arrays, you can write a value to a [Union](../03-05-union).
+  3. This works in the same way with arrays, you can write a value to a [Union](/book/part-2-organised-code/3-structuring-data/1-concepts/03-05-union).
   4. You can also copy an existing union value into an element.
 - When accessing the data in a Union you are responsible for ensuring you read back the value you stored as it does not remember the kind of value you stored in the union.
 

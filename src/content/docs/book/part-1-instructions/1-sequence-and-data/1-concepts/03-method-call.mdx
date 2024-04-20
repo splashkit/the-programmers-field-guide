@@ -89,13 +89,13 @@ export const sliderImages = [
   },
 ]
 
-A method call is an instruction that gets the computer to run the code in a [method](../02-method). You use the name of the method to identify which method you want to run. Some methods require data, which you must pass as **arguments** to the method as part of the method call.
+A method call is an instruction that gets the computer to run the code in a [method](/book/part-1-instructions/1-sequence-and-data/1-concepts/02-method). You use the name of the method to identify which method you want to run. Some methods require data, which you must pass as **arguments** to the method as part of the method call.
 
 ![A method calls runs a method, passing in values for the method to use](./images/method-call-concept.png "A method calls runs a method, passing in values for the method to use")
 
 ## Method Call -- when, why, and how
 
-As you have seen, [methods](../02-method) are building blocks that contain instructions that do a task -- sort of like mini-programs. A large part of your code will be calling methods to get them to do things you need done, in the order you need them done.
+As you have seen, [methods](/book/part-1-instructions/1-sequence-and-data/1-concepts/02-method) are building blocks that contain instructions that do a task -- sort of like mini-programs. A large part of your code will be calling methods to get them to do things you need done, in the order you need them done.
 
 When you are thinking about calling a method, you need to know what it does, what to give it, and what it will give you back. Writing the code to call a method is then simple: you just provide the name, and a list of values for arguments.
 
@@ -111,7 +111,7 @@ The name of a method should help you know what that method does, and the method'
 
 ### Arguments
 
-When you call a Method, you need to pass a value for each argument. This value can be a [literal](../05-literal) or calculated value known as an [expression](../04-expression).
+When you call a Method, you need to pass a value for each argument. This value can be a [literal](/book/part-1-instructions/1-sequence-and-data/1-concepts/05-literal) or calculated value known as an [expression](/book/part-1-instructions/1-sequence-and-data/1-concepts/04-expression).
 
 ### Overloading
 
@@ -125,7 +125,7 @@ Method calls are one instruction that gives you control of the **program counter
 
 ## In C#
 
-A method call allows you to run the code in a [method](../02-method), getting its instructions to run before control returns to the point where the method was called.
+A method call allows you to run the code in a [method](/book/part-1-instructions/1-sequence-and-data/1-concepts/02-method), getting its instructions to run before control returns to the point where the method was called.
 
 :::tip[Syntax]
 A method call looks like a single instruction in your source code.
@@ -146,8 +146,8 @@ The method call starts with the method's name that indicates the method to be ca
 Following the identifier is a list of values within parenthesis.
 These are the arguments passed to the method for it to use.
 
-As the `WriteLine` method comes from the C# library `System.Console`, this example program starts with a [using directive](../00-program/#in-c) to tell the compiler to look in the `System.Console` library for any methods that are called.
-Remember that programs run in [sequence](../01-sequence), so we need to provide this directive *before* writing any code that calls a method from this library.
+As the `WriteLine` method comes from the C# library `System.Console`, this example program starts with a [using directive](/book/part-1-instructions/1-sequence-and-data/1-concepts/00-program/#in-c) to tell the compiler to look in the `System.Console` library for any methods that are called.
+Remember that programs run in [sequence](/book/part-1-instructions/1-sequence-and-data/1-concepts/01-sequence), so we need to provide this directive *before* writing any code that calls a method from this library.
 This is why it is convention to put using directives at the start of a program's source code.
 
 :::caution
@@ -165,7 +165,7 @@ WriteLine(0);
 
 ### SplashKit Example
 
-The following code uses three different methods from the [SplashKit](https://splashkit.io) library. You can see the details for these on the [methods page](../02-method#examples), but the names should give you a good idea of what this does.
+The following code uses three different methods from the [SplashKit](https://splashkit.io) library. You can see the details for these on the [methods page](/book/part-1-instructions/1-sequence-and-data/1-concepts/02-method#examples), but the names should give you a good idea of what this does.
 
 ```csharp
 using static SplashKitSDK.SplashKit;
@@ -179,7 +179,7 @@ All of the arguments in this code are using literal values.
 
 ### Example using result
 
-Some methods return data, which you can use within any calculated value ([expression](../04-expression)) within your code. The following code demonstrates the use of this with the ReadLine method. The result of this is being stored in a variable and then used to output a message.
+Some methods return data, which you can use within any calculated value ([expression](/book/part-1-instructions/1-sequence-and-data/1-concepts/04-expression)) within your code. The following code demonstrates the use of this with the ReadLine method. The result of this is being stored in a variable and then used to output a message.
 
 ```cs
 string name;

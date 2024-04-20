@@ -10,7 +10,7 @@ The algorithm needed to find the maximum value in an array needs to perform an a
 
 The key is similar to the logic from the `Sum` function. You need to keep a *running* maximum. This will store the *current* maximum from the array as you loop through *each element* of the array. Like the sum this value can be updated within the loop.
 
-The pseudocode for this is in [Listing x.y](#ListingMaximum). Notice that its basic layout if the same as the `Sum` function in [Listing x.y](../01-01-calculating-sum#ListingSum). It initialises the `max` value and then loops through the array performing an action for each value. In this case the action is to check if the *i<sup> th</sup>* value of the array is larger than the running maximum in the `max` variable. When this is the case a new maximum has been found and is stored in the `max` variable.
+The pseudocode for this is in [Listing x.y](#ListingMaximum). Notice that its basic layout if the same as the `Sum` function in [Listing x.y](/book/part-2-organised-code/5-working-with-multiples/2-put-together/01-03-calculating-sum). It initialises the `max` value and then loops through the array performing an action for each value. In this case the action is to check if the *i<sup> th</sup>* value of the array is larger than the running maximum in the `max` variable. When this is the case a new maximum has been found and is stored in the `max` variable.
 
 One of the important differences between `Maximum` and `Sum` is the initialisation of the `max` value. In `Maximum` this cannot be initialised to 0. Can you think of a case where initialising this to 0 would fail?
 

@@ -2,7 +2,7 @@
 title: Revised Change Calculator
 ---
 
-For our first project, lets revisit and enhance the change calculator. The [original version](../../../1-sequence-and-data/2-put-together/01-00-change-calculator) used sequence and data, but did not take advantage of control flow. Hopefully your testing identified some issues with this program's code -- control flow can help us address these now.
+For our first project, lets revisit and enhance the change calculator. The [original version](/book/part-1-instructions/1-sequence-and-data/2-put-together/01-00-change-calculator) used sequence and data, but did not take advantage of control flow. Hopefully your testing identified some issues with this program's code -- control flow can help us address these now.
 
 New requirements:
 

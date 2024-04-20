@@ -11,7 +11,7 @@ All the details you need, and more, are in the Raspberry Pi documentation on [Re
 
 ## Enable SSH
 
-The best way to connect to your Raspberry Pi is via a **secure shell** (ssh). This is the same [shell](../../1-concepts/02-shell) we introduced earlier, but accessed over the network.
+The best way to connect to your Raspberry Pi is via a **secure shell** (ssh). This is the same [shell](/book/part-0-getting-started/2-computer-use/1-concepts/02-shell) we introduced earlier, but accessed over the network.
 
 The Raspberry Pi comes with an ssh server built it, but it is switched off by default. In the [Remote Access](https://www.raspberrypi.com/documentation/computers/remote-access.html) documentation, the instruction are in the [Enabling the Server](https://www.raspberrypi.com/documentation/computers/remote-access.html#enabling-the-server) section. Basically you need to:
 

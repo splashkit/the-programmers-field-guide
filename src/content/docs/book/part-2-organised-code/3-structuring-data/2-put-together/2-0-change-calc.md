@@ -2,7 +2,7 @@
 title: Change Calculator
 ---
 
-The change calculator is at a reasonable place where we left it in the [structuring code](../../../2-organising-code/0-overview) chapter. However, we can think through the code to see where we can make some improvements by incorporating structs and enums.
+The change calculator is at a reasonable place where we left it in the [structuring code](/book/part-2-organised-code/2-organising-code/0-overview) chapter. However, we can think through the code to see where we can make some improvements by incorporating structs and enums.
 
 ## Coin Kind
 

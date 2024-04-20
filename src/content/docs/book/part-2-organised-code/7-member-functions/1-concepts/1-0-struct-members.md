@@ -2,7 +2,7 @@
 title: Struct Members
 ---
 
-C++ introduced the idea of embedding functions and procedures into structs. We will look at the basics of this idea here, with a focus on how this is used to organise our code. In [Part 3](../../../../part-3-programs-as-concepts/00-part-3-programs-as-concepts) we will look at how this changes the way we think about our software.
+C++ introduced the idea of embedding functions and procedures into structs. We will look at the basics of this idea here, with a focus on how this is used to organise our code. In [Part 3](/book/part-3-programs-as-concepts/00-part-3-programs-as-concepts) we will look at how this changes the way we think about our software.
 
 Let's consider simple example of a contact, where each contact has a name and phone number and can be printed. The following image shows the two different ways we can conceive of this solution. First we can see the struct as only having the data, alongside which we need to have functions and procedures that work on this data. On the other side, we have the struct with the functions and data declared within it. This makes a more complete package, were you have the data and the things that work on it all in the one place.
 
@@ -55,7 +55,7 @@ With C++ you can combine this by embedding the functions and procedures within t
 
 :::note
 
-Remember back in [Part 1](../../../../part-1-instructions/00-part-1-programs-as-instructions) we introduced the idea of [methods](../../../../part-1-instructions/1-sequence-and-data/1-concepts/02-method) in C#. This is because, in C# you cannot write your functions and procedures outside a struct or class. So you have to organise your code in C# using methods.
+Remember back in [Part 1](/book/part-1-instructions/00-part-1-programs-as-instructions) we introduced the idea of [methods](/book/part-1-instructions/1-sequence-and-data/1-concepts/02-method) in C#. This is because, in C# you cannot write your functions and procedures outside a struct or class. So you have to organise your code in C# using methods.
 
 :::
 
@@ -103,17 +103,17 @@ int main()
 
 ### Referring to struct values as objects
 
-When you start programming in this way, you will quickly encounter the need to talk about values created from a struct type. In the past, this was just data, whereas now these are becoming larger entities that embody the concepts associated with our programs. The term we use to refer to these values is **object**, as in "*C1 refers to a contact object*". The object is the memory allocated for the fields of the struct, along with the functionality we embedded within it. This term, and the fact that this style of programming leads to new ways of thinking about our code, lead to the term **object-oriented programming**. For now, we will focus on the mechanics of this while in [Part 3](../../../../part-3-programs-as-concepts/00-part-3-programs-as-concepts) we will look how to approach developing programs using this mentality.
+When you start programming in this way, you will quickly encounter the need to talk about values created from a struct type. In the past, this was just data, whereas now these are becoming larger entities that embody the concepts associated with our programs. The term we use to refer to these values is **object**, as in "*C1 refers to a contact object*". The object is the memory allocated for the fields of the struct, along with the functionality we embedded within it. This term, and the fact that this style of programming leads to new ways of thinking about our code, lead to the term **object-oriented programming**. For now, we will focus on the mechanics of this while in [Part 3](/book/part-3-programs-as-concepts/00-part-3-programs-as-concepts) we will look how to approach developing programs using this mentality.
 
 :::tip[Classes?]
 
-We will explore the role of classes in [Part 3](../../../../part-3-programs-as-concepts/00-part-3-programs-as-concepts). Generally, object-oriented programs involve creating classes which capture similar aspects to what we are looking at with structs here. For now, as we focus on the mechanics of this we will use structs and when we fully transition to object-oriented programming we will switch to C# and classes. In C++, structs and classes are very similar so what you are learning now will help you transition when we make the jump.
+We will explore the role of classes in [Part 3](/book/part-3-programs-as-concepts/00-part-3-programs-as-concepts). Generally, object-oriented programs involve creating classes which capture similar aspects to what we are looking at with structs here. For now, as we focus on the mechanics of this we will use structs and when we fully transition to object-oriented programming we will switch to C# and classes. In C++, structs and classes are very similar so what you are learning now will help you transition when we make the jump.
 
 :::
 
 ## Struct Members - Why, When, and How
 
-The difference is small, and relatively simple. We have just embedded functionality within the struct, but this can change how we think about our code. We can now more clearly start to see the entities in our digital reality, and we can picture the things that these entities know and the things they can do. This is the focus of [Part 3](../../../../part-3-programs-as-concepts/00-part-3-programs-as-concepts), so for now we can focus on the mechanics of how this works before we review how to use these ideas to start designing and building larger more complex programs.
+The difference is small, and relatively simple. We have just embedded functionality within the struct, but this can change how we think about our code. We can now more clearly start to see the entities in our digital reality, and we can picture the things that these entities know and the things they can do. This is the focus of [Part 3](/book/part-3-programs-as-concepts/00-part-3-programs-as-concepts), so for now we can focus on the mechanics of how this works before we review how to use these ideas to start designing and building larger more complex programs.
 
 The mechanics of this is a simple compiler translation, where it includes the struct along with the other parameters when the method is called. In general, you don't need to think about this most of the time. You can instead, think about the code being within the struct itself.
 

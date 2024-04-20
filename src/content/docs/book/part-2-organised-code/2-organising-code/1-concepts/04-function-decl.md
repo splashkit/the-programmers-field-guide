@@ -2,7 +2,7 @@
 title: "Functions"
 ---
 
-Functions are used to **calculate values**. They are almost identical to procedures -- they have a name, contain instructions, and can be called to perform their actions. The *only* difference is what happens at the end. When a function ends, it [returns](../05-return) a value to the caller, whereas a procedure just ends. This means that procedures are called within [statements](../../../../part-1-instructions/2-communicating-syntax/1-concepts/02-statement), whereas functions can be called within [expressions](../../../../part-1-instructions/2-communicating-syntax/1-concepts/03-expression).
+Functions are used to **calculate values**. They are almost identical to procedures -- they have a name, contain instructions, and can be called to perform their actions. The *only* difference is what happens at the end. When a function ends, it [returns](/book/part-2-organised-code/2-organising-code/1-concepts/05-return) a value to the caller, whereas a procedure just ends. This means that procedures are called within [statements](/book/part-1-instructions/2-communicating-syntax/1-concepts/02-statement), whereas functions can be called within [expressions](/book/part-1-instructions/2-communicating-syntax/1-concepts/03-expression).
 
 ![A function is just like a method, except it calculates and returns a value](./images/function-concept.png "A function is just like a method, except it calculates and returns a value")
 
@@ -32,11 +32,11 @@ The following diagram shows the syntax for a function delcaration in C/C++.
 ![Syntax for a C/C++ function declaration](./images/function-decl.png)
 :::
 
-The syntax for a function declaration is very similar to the [syntax for a procedure declaration](../02-procedures#in-cc).
+The syntax for a function declaration is very similar to the [syntax for a procedure declaration](/book/part-2-organised-code/2-organising-code/1-concepts/02-procedures#in-cc).
 There are only two differences:
 
 1. The function declaration starts with a data type name rather than `void`.
-2. Most functions include a [return statement](../05-return) in the block to specify what value will be returned.
+2. Most functions include a [return statement](/book/part-2-organised-code/2-organising-code/1-concepts/05-return) in the block to specify what value will be returned.
 
 :::tip[What if there's no return?]
 In C++, a function without a return statement results in [undefined behaviour](https://en.wikipedia.org/wiki/Undefined_behavior). This means that there is no standard for how the scenario will be handled. Your compiler by default will not warn you when your program has undefined behaviour.
@@ -87,7 +87,7 @@ We will explore how to do that next.
 - A function contains code to calculate a value. When you want this value, you call the function.
 - Functions should generally not have side effects.
 - A function is defined by its **name**, the **steps** it performs, and its **return type**.
-- The syntax for a function is just like a [procedure](../02-procedures), with a data type instead of `void`.
+- The syntax for a function is just like a [procedure](/book/part-2-organised-code/2-organising-code/1-concepts/02-procedures), with a data type instead of `void`.
 - Each function's instructions are **isolated** from the other code in your program.
 
 :::

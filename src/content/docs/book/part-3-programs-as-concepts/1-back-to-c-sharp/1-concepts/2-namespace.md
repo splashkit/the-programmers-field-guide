@@ -2,7 +2,7 @@
 title: Namespace
 ---
 
-Naming things is one of the challenges with programming. This problem grows as you start to make larger programs and use libraries. The challenge is that the compiler needs unique names for everything so that it knows exactly what you are referring to at all times. This is where [scope](../../../../part-1-instructions/3-control-flow/1-concepts/02-1-scope) comes in handy, as things like local variables only exist within a confined space.
+Naming things is one of the challenges with programming. This problem grows as you start to make larger programs and use libraries. The challenge is that the compiler needs unique names for everything so that it knows exactly what you are referring to at all times. This is where [scope](/book/part-1-instructions/3-control-flow/1-concepts/02-1-scope) comes in handy, as things like local variables only exist within a confined space.
 
 Namespaces provide a way of scoping class names, with each class having to be uniquely named within its namespace. Similarly, methods must be uniquely named within their classes.
 

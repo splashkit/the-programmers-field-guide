@@ -2,11 +2,11 @@
 title: Debugging Your First Program
 ---
 
-As you continue learning new coding concepts, you will inevitably come across errors (bugs) in your code. Don't be discouraged though! Even the most skilled programmers run into bugs in their programs. You will get better and faster at [Debugging](../../1-concepts/04-debug) the more you practice.
+As you continue learning new coding concepts, you will inevitably come across errors (bugs) in your code. Don't be discouraged though! Even the most skilled programmers run into bugs in their programs. You will get better and faster at [Debugging](/book/part-0-getting-started/3-building-programs/1-concepts/04-debug) the more you practice.
 
 ## Setting up your C# project
 
-In this guide, we will be using the **HelloWorld** project from the [previous page](../2-hello-world-gui), but with some simpler code, so that we can focus on the VS Code debugger more easily.
+In this guide, we will be using the **HelloWorld** project from the [previous page](/book/part-0-getting-started/3-building-programs/2-put-together/2-hello-world-gui), but with some simpler code, so that we can focus on the VS Code debugger more easily.
 
 Copy the following example code and paste it into your Program.cs file (replacing existing code) and then run your program using `dotnet run` in your VS Code terminal to test it:
 
@@ -111,8 +111,8 @@ Explore using the step-over button again with the next lines.
 
 :::note
 
-- You might notice some weird things happening with these next lines. Don't worry, it's not a bug! You will learn more about how the SplashKit graphics code works in the [Multimedia Primer](../../../../part-1-instructions/1-sequence-and-data/1-concepts/11-2-graphics) page in the next part.
-- The **step-into** and **step-out** buttons won't perform properly with this code, so you can ignore these buttons till you get to [Part 2](../../../../part-2-organised-code/00-part-2-programs-as-organised-code/).
+- You might notice some weird things happening with these next lines. Don't worry, it's not a bug! You will learn more about how the SplashKit graphics code works in the [Multimedia Primer](/book/part-1-instructions/1-sequence-and-data/1-concepts/11-2-graphics) page in the next part.
+- The **step-into** and **step-out** buttons won't perform properly with this code, so you can ignore these buttons till you get to [Part 2](/book/part-2-organised-code/00-part-2-programs-as-organised-code/).
 
 :::
 

@@ -5,7 +5,7 @@ sidebar:
 ---
 
 :::note
-Your goal in this stage is to come up with an idea for the [sequence](../../1-concepts/01-sequence) of instructions needed to achieve our goal.
+Your goal in this stage is to come up with an idea for the [sequence](/book/part-1-instructions/1-sequence-and-data/1-concepts/01-sequence) of instructions needed to achieve our goal.
 :::
 
 Put yourself in the place of the computer. You (as the computer) need to calculate and output these change values. Remember the computer is **unintelligent**. You cannot rely upon your knowledge, or remember anything that is not stored in a variable or constant. Try to think about the information you are using and the steps you are performing to make sure you can capture what needs to be done in your code.
@@ -73,7 +73,7 @@ We can capture the above as the initial **pseudocode** for the change calculator
 To keep things simple, we will keep all of our calculations in cents.
 
 :::caution[Integer Division]
-Remember that [when you do division between two integers, you get an integer](../../../1-sequence-and-data/1-concepts/06-type#example). So 650 / 200 is 3.
+Remember that [when you do division between two integers, you get an integer](/book/part-1-instructions/1-sequence-and-data/1-concepts/06-type#example). So 650 / 200 is 3.
 This "trick" is what makes our change calculator work.
 If you used the `double` data type, then you will get fractions of coins which will not help.
 :::

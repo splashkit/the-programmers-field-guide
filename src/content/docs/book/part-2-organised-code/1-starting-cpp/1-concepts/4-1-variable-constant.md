@@ -28,7 +28,7 @@ The names of the basic types are also the same in C/C++ as they were in C#:
 
 ## Example
 
-Here is the example from the [variables page](../../../../part-1-instructions/1-sequence-and-data/1-concepts/07-variable#example-using-multiple-variables) rewritten in C/C++. Notice that the **logic** is exactly the same, and that the code is only superficially different. Have a read through and compare it with the original code.
+Here is the example from the [variables page](/book/part-1-instructions/1-sequence-and-data/1-concepts/07-variable#example-using-multiple-variables) rewritten in C/C++. Notice that the **logic** is exactly the same, and that the code is only superficially different. Have a read through and compare it with the original code.
 
 ```cpp
 #include "splashkit.h"

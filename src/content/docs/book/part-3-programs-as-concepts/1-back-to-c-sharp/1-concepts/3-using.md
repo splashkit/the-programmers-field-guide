@@ -10,7 +10,7 @@ The `using` directive allows you to add a number of namespaces for the compiler 
 
 You are going to need to make use of classes coded within other namespaces in almost every class you create. As a result, you are likely to start every C# file with some `using` directives that will give you easy access to these classes in your code.
 
-A version of the `using` directive can give you access to the [static methods](../4-static-methods) within a class. We used this in Part 1 when we were calling methods.
+A version of the `using` directive can give you access to the [static methods](/book/part-3-programs-as-concepts/1-back-to-c-sharp/1-concepts/4-static-methods) within a class. We used this in Part 1 when we were calling methods.
 
 ## In C#
 

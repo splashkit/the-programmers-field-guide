@@ -8,7 +8,7 @@ Constructors are the last thing we need to look at in terms of the code in our c
 
 A **constructor** is a special method that is called when an object is created. It is used to initialise the fields and perform any actions we need performed when the object is created, and before it is available for others to use.
 You can think of a constructor as a kind of doing responsibility.
-We briefly explored the idea of [constructors](../../../../part-2-organised-code/7-member-functions/1-concepts/1-1-constructor) in the member functions chapter.
+We briefly explored the idea of [constructors](/book/part-2-organised-code/7-member-functions/1-concepts/1-1-constructor) in the member functions chapter.
 
 ## Constructor: Why, When, and How
 
@@ -35,7 +35,7 @@ The reason that a constructor declaration does not need to include a return type
 Therefore, its return type is implied and does not need to be explicitly stated.
 
 Aside from these two differences, a constructor declaration is the same as a method declaration.
-The syntax for a method declaration is hopefully looking familiar, because it is the same as the syntax for [declaring methods](../1-3-doing) you have already seen.
+The syntax for a method declaration is hopefully looking familiar, because it is the same as the syntax for [declaring methods](/book/part-3-programs-as-concepts/2-abstraction/1-concepts/1-3-doing) you have already seen.
 
 ## Example
 

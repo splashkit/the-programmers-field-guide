@@ -14,7 +14,7 @@ While global **variables** should be avoided, constants **should** be declared g
 ## In C/C++
 
 :::tip[Syntax]
-The syntax is the same for any [variable or constant](../../../1-starting-cpp/1-concepts/4-1-variable-constant), whether it is global or not.
+The syntax is the same for any [variable or constant](/book/part-2-organised-code/1-starting-cpp/1-concepts/4-1-variable-constant), whether it is global or not.
 <!-- TODO: make "constant" a link to the page in P2C1 when the concept has been added -->
 All that changes is where the declaration is -- for the variable or constant to be global it must be declared **outside** a function or procedure.
 :::
@@ -96,6 +96,6 @@ This is an issue that only gets worse as the size and complexity of a program in
 - Global variable is the **term** given to a variable that is declared within a program but outside any function or procedure.
 - Global variables can be accessed by any instructions within a program.
 - You should **avoid** using global variables. They can be accessed anywhere within a program, making it difficult to locate errors.
-- [Constants](../../../../part-1-instructions/1-sequence-and-data/1-concepts/07-variable#constants) **should** be declared globally, and used to give meaning to values that are entered into your code.
+- [Constants](/book/part-1-instructions/1-sequence-and-data/1-concepts/07-variable#constants) **should** be declared globally, and used to give meaning to values that are entered into your code.
 
 :::

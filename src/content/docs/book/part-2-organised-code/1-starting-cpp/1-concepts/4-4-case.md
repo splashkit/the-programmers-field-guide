@@ -14,7 +14,7 @@ The syntax is consistent with the C# code, but with a limitation on the kind of 
 
 ## Example
 
-Here is an updated version of the [case statement](../../../../part-1-instructions/3-control-flow/1-concepts/03-2-case#how-does-case-work) example. As our case statement is restricted to comparing integers, we use a simple menu to select between options instead of comparing strings.
+Here is an updated version of the [case statement](/book/part-1-instructions/3-control-flow/1-concepts/03-2-case#how-does-case-work) example. As our case statement is restricted to comparing integers, we use a simple menu to select between options instead of comparing strings.
 
 ```cpp
 #include "splashkit.h"

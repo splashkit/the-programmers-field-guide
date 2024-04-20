@@ -6,7 +6,7 @@ sidebar:
 
 In order to understand objects in C#, we need to know that there are two different kinds of types in C#: **value types** and **reference types**. These impact what is stored in the variables of these types.
 
-In Part 2 we looked at the idea of [pointers and references](../../../../part-2-organised-code/4-indirect-access/1-concepts/02-02-pointers-ref) and using these to indirectly access values. This idea is very powerful, but working manually with memory and memory management is very challenging.
+In Part 2 we looked at the idea of [pointers and references](/book/part-2-organised-code/4-indirect-access/1-concepts/02-02-pointers-ref) and using these to indirectly access values. This idea is very powerful, but working manually with memory and memory management is very challenging.
 
 To get around this, languages like C# give you a safer environment in which to work by focusing on references. C# does not have pointers, but instead distinguishes between two different kinds of type, being **value types** and **reference types** as noted above.
 
@@ -23,7 +23,7 @@ A variable of a value type will store a value directly - just like variables in 
 | Parameters  | `void Method(int x) { }` | The value is copied from y and stored in x. There are two values in memory.  |
 | | `Method(y);` | |
 
-Value types in C# include the primitive types such as `int`, `double`, and `boolean` but also include [structs](../../../../part-2-organised-code/3-structuring-data/1-concepts/03-01-struct) which you can define.
+Value types in C# include the primitive types such as `int`, `double`, and `boolean` but also include [structs](/book/part-2-organised-code/3-structuring-data/1-concepts/03-01-struct) which you can define.
 
 :::caution
 
@@ -33,7 +33,7 @@ You do not generally see the use of structs in most C# programs. These should be
 
 ## Reference Types
 
-A reference type variable stores a reference to a value on the heap, equivalent to a pointer variable in C/C++. When you declare the variable, you are getting space to store a reference (pointer). Reading the variable gets a copy of the reference. To create a value of the reference type you need to use the `new` keyword. This creates the [object](../../../../part-2-organised-code/7-member-functions/1-concepts/1-0-struct-members#referring-to-struct-values-as-objects) and returns a reference.
+A reference type variable stores a reference to a value on the heap, equivalent to a pointer variable in C/C++. When you declare the variable, you are getting space to store a reference (pointer). Reading the variable gets a copy of the reference. To create a value of the reference type you need to use the `new` keyword. This creates the [object](/book/part-2-organised-code/7-member-functions/1-concepts/1-0-struct-members#referring-to-struct-values-as-objects) and returns a reference.
 
 ![Illustration of reference types](./images/ref-type-concept.png)
 

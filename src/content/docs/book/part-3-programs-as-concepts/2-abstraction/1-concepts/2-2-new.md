@@ -5,9 +5,9 @@ sidebar:
 ---
 
 You create an object using the `new` operator.
-This is much the same as we discussed in [member functions](../../../../part-2-organised-code/7-member-functions/1-concepts/1-1-constructor) in that it will do three things:
+This is much the same as we discussed in [member functions](/book/part-2-organised-code/7-member-functions/1-concepts/1-1-constructor) in that it will do three things:
 
-1. Assigns space in memory for the object on the [heap](../../../../part-2-organised-code/6-deep-dive-memory/1-concepts/01-heap).
+1. Assigns space in memory for the object on the [heap](/book/part-2-organised-code/6-deep-dive-memory/1-concepts/01-heap).
 2. Executes the constructor.
 3. Returns a reference to the new object's location in memory.
 
@@ -31,7 +31,7 @@ In C# every object is created using the keyword `new`, followed by the class nam
 
 ## Example
 
-For this example we will use the Greeting class from the [classes concept](../1-0-class). To add this class to your C# project, copy the class code into a file called "Greeting.cs" within a console project.
+For this example we will use the Greeting class from the [classes concept](/book/part-3-programs-as-concepts/2-abstraction/1-concepts/1-0-class). To add this class to your C# project, copy the class code into a file called "Greeting.cs" within a console project.
 We can now write a program that uses this class.
 
 :::note

@@ -33,7 +33,7 @@ This control panel gives you the power to step through the program as it runs.
 
 * The first play button will **continue** the execution, only stopping again if another breakpoint is encountered.
 * The second button will **step-over** the current line and move to the next line shown.
-* The next two buttons are **step-into** and **step-out**, both of which we will explore in [Part 2](../../../../part-2-organised-code/00-part-2-programs-as-organised-code/).
+* The next two buttons are **step-into** and **step-out**, both of which we will explore in [Part 2](/book/part-2-organised-code/00-part-2-programs-as-organised-code/).
 * The fifth button is used to **restart** the program.
 * Finally, the last button will **stop** the program.
 

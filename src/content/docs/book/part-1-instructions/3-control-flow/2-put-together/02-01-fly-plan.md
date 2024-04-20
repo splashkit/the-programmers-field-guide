@@ -23,7 +23,7 @@ To test when the spider is over the fly we can give the spider and the fly a bou
 
 ### The Fly
 
-Like the spider, the fly needs a location and a bounding circle. We also need to know if the fly has appeared. This can be a [boolean](../../1-concepts/01-0-boolean-data) variable that we can toggle when it appears, escapes, or is eaten.
+Like the spider, the fly needs a location and a bounding circle. We also need to know if the fly has appeared. This can be a [boolean](/book/part-1-instructions/3-control-flow/1-concepts/01-0-boolean-data) variable that we can toggle when it appears, escapes, or is eaten.
 
 When the fly appears, we can set its location. We should only draw the fly when it has appeared. In this way it won't be drawn for the user to see until we toggle the appeared value.
 

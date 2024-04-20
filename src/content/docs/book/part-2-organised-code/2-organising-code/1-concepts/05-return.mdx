@@ -96,7 +96,7 @@ export const sliderReturn = [
   }
 ];
 
-The return statement is a kind of [jump statement](../../../../part-1-instructions/3-control-flow/1-concepts/05-0-jumping) that ends the current [function](../04-function-decl) or [procedure](../02-procedures). This is useful for skipping the rest of function or procedure's block, and returning early to the calling code. In a function, you also use the return statement to provide the value that is sent back to the caller.
+The return statement is a kind of [jump statement](/book/part-1-instructions/3-control-flow/1-concepts/05-0-jumping) that ends the current [function](/book/part-2-organised-code/2-organising-code/1-concepts/04-function-decl) or [procedure](/book/part-2-organised-code/2-organising-code/1-concepts/02-procedures). This is useful for skipping the rest of function or procedure's block, and returning early to the calling code. In a function, you also use the return statement to provide the value that is sent back to the caller.
 
 ![Return ends the current function or procedure](./images/statement-exit.png "Return ends the current function or procedure")
 {/* TODO: add dotted paper background */}
@@ -105,7 +105,7 @@ The return statement is a kind of [jump statement](../../../../part-1-instructio
 
 There are a couple of reasons why you may want to add a return statement to exit out of the current function or procedure. This includes providing a value from a function, which is the most common use, but can also be used to exit early under certain conditions.
 
-When you use a return statement to exit a function or procedure early, you need something like an [if statement](../../../../part-1-instructions/3-control-flow/1-concepts/03-1-if) that checks if you should exit, and then put the return statement within the body of the if. This can be used when you know that the procedure or functions only works in certain circumstances. For example, in the [change calculator](../../../1-starting-cpp/2-put-together/02-change-calculator) we could exit early if the user has not paid enough for the item, or if they have provided the exact right amount.
+When you use a return statement to exit a function or procedure early, you need something like an [if statement](/book/part-1-instructions/3-control-flow/1-concepts/03-1-if) that checks if you should exit, and then put the return statement within the body of the if. This can be used when you know that the procedure or functions only works in certain circumstances. For example, in the [change calculator](/book/part-2-organised-code/1-starting-cpp/2-put-together/02-change-calculator) we could exit early if the user has not paid enough for the item, or if they have provided the exact right amount.
 
 ## In C/C++
 
@@ -155,13 +155,13 @@ Let's explore how this code works.
 
 <MySwiper client:only height="" images={sliderReturn}></MySwiper>
 
-For other examples, have a look back at the [example using parameters](../04-parameter#functions-with-parameters). The `square` function uses the return statement to return the squared value, while `point_in_circle` returns the value from the comparison to indicate if the point is within the circle.
+For other examples, have a look back at the [example using parameters](/book/part-2-organised-code/2-organising-code/1-concepts/04-parameter#functions-with-parameters). The `square` function uses the return statement to return the squared value, while `point_in_circle` returns the value from the comparison to indicate if the point is within the circle.
 
 :::note[Summary]
 
 - Return is an **instruction** allowing you to jump out of the current function or procedure and back to the calling code.
 - Return also allows you to specify the value to give back to the calling code from a function.
-- Return statements should be combined with [branching](../../../../part-1-instructions/3-control-flow/1-concepts/03-0-branching) statements to make sure the function or procedure is ended only when necessary.
+- Return statements should be combined with [branching](/book/part-1-instructions/3-control-flow/1-concepts/03-0-branching) statements to make sure the function or procedure is ended only when necessary.
 - In a function, a return statement **must** have an expression.
 - In a procedure, a return statement **must not** have an expression.
 

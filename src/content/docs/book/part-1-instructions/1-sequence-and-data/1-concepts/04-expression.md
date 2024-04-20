@@ -10,7 +10,7 @@ The concepts related to expressions are shown below.
 
 ## Expressions -- when, why, and how
 
-Whenever an instruction needs data, an expression is needed to provide it. This lets you put whatever data you want in that instruction. Data can be hard-coded as a [literal](../05-literal), use [variables](../07-variable), and contain mathematical operators to calculate a value.
+Whenever an instruction needs data, an expression is needed to provide it. This lets you put whatever data you want in that instruction. Data can be hard-coded as a [literal](/book/part-1-instructions/1-sequence-and-data/1-concepts/05-literal), use [variables](/book/part-1-instructions/1-sequence-and-data/1-concepts/07-variable), and contain mathematical operators to calculate a value.
 
 When you code an expression, you need to think about the value you need and how you can get it. You could provide a fixed value using a literal, read a value stored in a variable, or combine values with standard mathematical operators. If you are unsure, draw out the details you have on paper and think through how you can calculate the value you need.
 

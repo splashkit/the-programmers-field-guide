@@ -68,7 +68,7 @@ Any time you are using something like `i + 1` or `i - 1` to access an array elem
 
 ## Option 3 - using memory copy functions
 
-In C/C++, the standard library provides a `memcpy` function. We can use this to copy the memory used in the array for all the elements after the removed element, and copy them over the elements starting at the element being removed. This is the same idea as option 2, just using the memory copy function we saw in [copying arrays](../../1-concepts/00-04-clone-array), where in this case we only copy part of the array.
+In C/C++, the standard library provides a `memcpy` function. We can use this to copy the memory used in the array for all the elements after the removed element, and copy them over the elements starting at the element being removed. This is the same idea as option 2, just using the memory copy function we saw in [copying arrays](/book/part-2-organised-code/5-working-with-multiples/1-concepts/00-04-clone-array), where in this case we only copy part of the array.
 
 ```
 Procedure: Remove Element

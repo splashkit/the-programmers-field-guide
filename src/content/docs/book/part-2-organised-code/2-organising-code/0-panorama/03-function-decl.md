@@ -2,7 +2,7 @@
 title: "Functions"
 ---
 
-Functions are used to **calculate values**. They are almost identical to procedures -- they have a name, contain instructions, and can be called to perform their actions. The *only* difference is what happens at the end. When a function ends, it [returns](../05-return) a value to the caller, meaning you should call it within an expression where you want the result to be used.
+Functions are used to **calculate values**. They are almost identical to procedures -- they have a name, contain instructions, and can be called to perform their actions. The *only* difference is what happens at the end. When a function ends, it [returns](/book/part-2-organised-code/2-organising-code/1-concepts/05-return) a value to the caller, meaning you should call it within an expression where you want the result to be used.
 
 ![Annotated code of a function](./images/function-pano.png)
 
@@ -11,7 +11,7 @@ Functions are used to **calculate values**. They are almost identical to procedu
 - Is a **building block** that you can create and use in your code.
 - Contains code to calculate a value. When you want this value, you call the function.
 - Generally does not have a side effect - you can call it multiple times and get the same response for the game parameter values.
-- Syntax is just like a [procedure](./01-procedures), with a data type instead of `void`.
+- Syntax is just like a [procedure](/book/part-2-organised-code/2-organising-code/0-panorama/01-procedures), with a data type instead of `void`.
 - Are self-contained, with its instructions isolated from the other code in your program.
 
 :::

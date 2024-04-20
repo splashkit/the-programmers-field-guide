@@ -118,7 +118,7 @@ For example, at the start of the program the map is showing column 0 on the left
 
 *So what is being accessed?*
 
-Array access in C/C++ is based on the distance from the first element. If you access a negative index, then the compiler does not stop you (what were they thinking!) it just accesses data that appears in memory before the array declaration. This may result in a [segmentation fault](../../../4-indirect-access/1-concepts/02-04-segfault) if you access data you shouldn't, but otherwise... it works.
+Array access in C/C++ is based on the distance from the first element. If you access a negative index, then the compiler does not stop you (what were they thinking!) it just accesses data that appears in memory before the array declaration. This may result in a [segmentation fault](/book/part-2-organised-code/4-indirect-access/1-concepts/02-04-segfault) if you access data you shouldn't, but otherwise... it works.
 
 :::caution
 
