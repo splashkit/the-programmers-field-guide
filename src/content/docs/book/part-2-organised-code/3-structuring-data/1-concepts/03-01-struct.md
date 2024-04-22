@@ -53,6 +53,12 @@ This is the syntax for declaring your own custom struct in C/C++.
 
 The following code shows an example of a struct in C/C++. The `person` struct contains a `name`, and an integer called `age`. Remember that the type declaration is creating a new type. After declaring the struct, you can now create variables of the person_struct type.
 
+:::note
+The contents of the `utilities.h` file mentioned in the code below (and accompanying `utilities.cpp` file) were given in the previous chapter, on the [Shared Utilities](../../../2-organising-code/2-put-together/04-00-utilities) page.
+
+If you have created these files already, you can copy and paste them into any new project folder where you want to use them.
+:::
+
 ```cpp
 /* Program: test-struct.cpp */
 #include "splashkit.h"
