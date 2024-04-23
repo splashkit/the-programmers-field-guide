@@ -6,3 +6,76 @@ sidebar:
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 
+Structs are a great way of being able to capture all the data for something (an entity) related to your program. Let's explore how to create an use a struct within a small graphical program.
+
+In this program we are going to show a target on the screen and record the time the user takes to "hit" this target with the mouse. We can report accuracy and average time to the user as the program runs.
+
+## Target struct
+
+When starting to build this program, the first thing we should think about are the *entities* (things) we will want to work with inside the program.
+
+For this program, the main *thing* that I can see is the need for a *target*. Each target will need to know where it is on the screen (x and y) as well as its size. When I think of a target I imagine it will be a circle, so the size in this case can be a radius for the target. That gives us:
+
+| **Struct**  |   |
+|---|---|
+| **Name** | *target_data* |
+| **Fields** | `x`: Distance from the left of the window |
+|            | `y`: Distance from the top of the window |
+|            | `radius`: Size of the target |
+
+This is enough to get started building this. Here is a start to `main` that we can add the target to.
+
+```cpp
+#include "splashkit.h"
+
+const int MIN_TARGET_RADIUS = 10;
+const int MAX_TARGET_RADIUS = 100;
+
+struct target_data
+{
+  double x;
+  double y;
+  double radius;
+};
+
+target_data new_target(double x, double y, double radius)
+{
+  target_data result;
+  result.x = x;
+  result.y = y;
+  result.radius = radius;
+  return result;
+}
+
+target_data random_target()
+{
+  return new_target(
+    rnd(screen_width() - MAX_TARGET_RADIUS), 
+    rnd(screen_height() - MAX_TARGET_RADIUS), 
+    rnd(MAX_TARGET_RADIUS - MIN_TARGET_RADIUS) + MIN_TARGET_RADIUS
+  );
+}
+
+void draw_target(const target_data& t)
+{
+  fill_circle(COLOR_LIGHT_BLUE, t.x, t.y, t.radius);
+}
+
+int main()
+{
+  open_window("Reaction Timer", 800, 600);
+
+  target_data target = random_target();
+  
+  while (!quit_requested())
+  {
+    process_events();
+    
+    clear_screen(COLOR_WHITE);
+    draw_target(target);
+    refresh_screen();
+  }
+  
+  return 0;
+}
+```
