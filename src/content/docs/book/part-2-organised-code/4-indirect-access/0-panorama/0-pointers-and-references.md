@@ -7,7 +7,7 @@ This chapter is all about indirectly accessing values. This is achieved by havin
 Here is an illustration of how this works:
 
 
-Indirect access in C++ is achieved using references or pointers. 
+Indirect access in C++ is achieved using **references** or **pointers**. A pointer is very flexible, and allows you to change what it points to as well as allowing you to use the pointer to access the value it refers to. This makes pointers very powerful, but also very dangerous. References are safer, but less flexible. 
 
 :::note
 
