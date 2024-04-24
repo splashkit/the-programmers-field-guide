@@ -487,6 +487,15 @@ export default defineConfig({
                   link: "book/part-2-organised-code/4-indirect-access/0-overview",
                 },
                 {
+                  label: "Panorama",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/4-indirect-access/0-panorama",
+                    collapsed: true,
+                  },
+                },
+                {
                   label: "Concepts",
                   collapsed: true,
                   autogenerate: {
