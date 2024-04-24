@@ -1,7 +1,0 @@
-SplashKit
-organises
-heatsink
-IntelliSense
-Initialise
-initialise
-initialisation
