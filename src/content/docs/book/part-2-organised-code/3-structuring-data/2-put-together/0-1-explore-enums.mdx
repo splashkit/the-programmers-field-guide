@@ -94,7 +94,7 @@ int main()
     today = WEDNESDAY;
 
     // Print the value of today
-    write_line("Today is day number " + to_string(today));
+    write_line("Today is " + to_string(today));
 
     return 0;
 }
@@ -185,7 +185,7 @@ int main()
     today = read_day("What day is it today? ");
 
     // Print the value of today
-    write_line("Today is day number " + to_string(today));
+    write_line("Today is " + to_string(today));
 
     return 0;
 }
@@ -228,3 +228,7 @@ day read_day(string prompt)
 </Accordion>
 
 With these functions implemented you have seen the different ways of working with enumeration values. These provide convenient types for cases where a value should be selected from a list of options.
+
+## Test it out
+
+Enumerations are fairly simple types, but they can be useful in helping make your code more readable. At this stage you could have a quick look at the [mouse_input.h](https://github.com/splashkit/splashkit-core/blob/develop/coresdk/src/coresdk/mouse_input.h) file that is part of the SplashKit library. Near the top of this code you will find the `mouse_button` enumeration. Notice how this helps document the different buttons that are supported by the SplashKit library.
