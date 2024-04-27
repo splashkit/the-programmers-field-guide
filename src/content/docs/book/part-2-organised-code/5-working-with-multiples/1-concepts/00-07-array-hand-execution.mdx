@@ -1,0 +1,26 @@
+---
+title: Array Hand Execution
+sidebar:
+  label: " - Hand Execution"
+---
+import { YouTube } from 'astro-embed';
+
+<div class="not-content">
+  <YouTube id="GxU87cPuzPA" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+As with indirection, hand execution provides a great way to see how the steps in our code work with an array to achieve its goals. When hand executing an array, you use the same process we explored previously. The only difference is the new ability to have a variable that contains multiple boxes to represent an array.
+
+## Hand execution of arrays
+
+![Demonstration of hand execution of arrays with primitive data](./images/hand-exec-0.png)
+
+When hand executing arrays with primitive data, the main thing to show are the elements within your arrays and to indicate which index is used to access that element. You can then use these as you step through the code. Use the value of the array index, together with the array name, to determine which value to read when using the array.
+
+## Arrays with structs
+
+![Demonstration of hand execution of arrays with structs](./images/hand-exec-1.png)
+
+The same applies when hand executing arrays with structs. In this case you also use the field name to identify where in memory (i.e. on your paper) the value needs to be written to or read from. For example, `points[0]` refers to the first element in the array, so the first box of the `points` array on your page. Then `points[0].x` refers to the `x` value within that box.
+
+Overall the process is the same. Step through the code and perform the actions one at a time. Use the data you have written on the page to determine the values for your expressions as you go.
