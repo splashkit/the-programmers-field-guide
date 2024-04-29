@@ -541,6 +541,15 @@ export default defineConfig({
                   link: "book/part-2-organised-code/5-working-with-multiples/0-overview",
                 },
                 {
+                  label: "Panorama",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/5-working-with-multiples/0-panorama",
+                    collapsed: true,
+                  },
+                },
+                {
                   label: "Concepts",
                   collapsed: true,
                   autogenerate: {
