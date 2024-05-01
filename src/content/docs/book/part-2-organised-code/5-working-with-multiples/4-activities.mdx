@@ -51,11 +51,11 @@ For this iteration, your program should:
 - Start with 20 NPCs.
 - Have a `create_random_npc` function which creates a new NPC at a random location on the screen and returns it.
 - Have an `add_npc` procedure which adds a new random NPC to the game.
-- Add a new randomly positioned NPC to the game whenever two NPCs are within a relatively small distance of each other.
+- Add a new randomly positioned NPC to the game at random intervals (a few each second) - (extension) add NPCs when two NPCs are within a relatively small distance of each other.
 - Include a "time to live" value in `NPC`. This value:
-  - starts at 60
+  - starts at 100
   - gets reduced by one each game loop
-  - gets reset to 60 whenever the player character is close
-- Check every game loop whether any NPCs have died (i.e., the NPC's "time to live" is equal to or less than 0). If so, the dead NPC farthest away from the player character should be removed from the game.
+  - gets reset to 100 whenever the player character is close
+- Check every game loop whether any NPCs have died (i.e., the NPC's "time to live" is equal to or less than 0). (extension) If so, the dead NPC farthest away from the player character should be removed from the game.
 - End and indicate that the player has lost the game if all of the NPCs die.
 - End and indicate that the player has won the game if the game contains three times the initial number of NPCs.
