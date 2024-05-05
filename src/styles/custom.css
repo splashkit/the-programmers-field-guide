@@ -136,6 +136,17 @@ html[data-theme="dark"] .swiper-slide code {
   background-color: rgb(220, 220, 220);
 }
 
+/* stops accordian code from being copyable */
+.accordion__panel {
+  .copy {
+    display: none !important;
+  }
+
+  .expressive-code *{
+    user-select: none;
+  }
+}
+
 a.pi:after {
   font-family: "FontAwesomeBrands";
   content: "\f7bb";
