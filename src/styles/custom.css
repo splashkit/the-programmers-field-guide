@@ -58,11 +58,17 @@
       200vh,
     radial-gradient(#b3c4b6, transparent 65%) no-repeat 50% calc(100% + 20rem) /
       60rem 30rem */
-    linear-gradient(90deg,
-      var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-      transparent 1%) center / var(--dot-space) var(--dot-space),
-    linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-      transparent 1%) center / var(--dot-space) var(--dot-space),
+      linear-gradient(
+        90deg,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
     var(--dot-color);
 }
 
@@ -78,18 +84,24 @@
   }
 
   background: linear-gradient(215deg, #82907f, transparent 20%),
-  linear-gradient(125deg, #82907f, transparent 20%),
-  linear-gradient(15deg, #82907f, transparent 20%),
-  /* radial-gradient(#b3c4b6, transparent 40%) no-repeat -60vw -40vh / 105vw
+    linear-gradient(125deg, #82907f, transparent 20%),
+    linear-gradient(15deg, #82907f, transparent 20%),
+    /* radial-gradient(#b3c4b6, transparent 40%) no-repeat -60vw -40vh / 105vw
       200vh,
     radial-gradient(#b3c4b6, transparent 65%) no-repeat 50% calc(100% + 20rem) /
       60rem 30rem */
-  linear-gradient(90deg,
-    var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-    transparent 1%) center / var(--dot-space) var(--dot-space),
-  linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-    transparent 1%) center / var(--dot-space) var(--dot-space),
-  var(--dot-color);
+      linear-gradient(
+        90deg,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
 }
 
 [data-has-hero] header {
@@ -136,13 +148,27 @@ html[data-theme="dark"] .swiper-slide code {
   background-color: rgb(220, 220, 220);
 }
 
-/* stops accordian code from being copyable */
+.accordion__header {
+  cursor: pointer;
+
+  .header__toggle-indicator {
+    margin-top: 6px;
+  }
+
+  border-radius: 0.5rem;
+}
+
 .accordion__panel {
+  border: none !important;
   .copy {
     display: none !important;
   }
 
-  .expressive-code *{
+  .panel__inner {
+    padding-top: 0;
+  }
+
+  .expressive-code * {
     user-select: none;
   }
 }
@@ -605,7 +631,7 @@ aside[aria-label="How does this work?"] ol.counterStart50 {
   counter-reset: step-counter 49;
 }
 
-aside[aria-label="How does this work?"] ol>li {
+aside[aria-label="How does this work?"] ol > li {
   counter-increment: step-counter;
   margin-bottom: 10px;
   margin: 0;
@@ -619,7 +645,7 @@ aside[aria-label="How does this work?"] ol>li {
   margin-right: 10px;
 }
 
-aside[aria-label="How does this work?"] ol>li::before {
+aside[aria-label="How does this work?"] ol > li::before {
   content: counter(step-counter);
   /* Negative left margin makes the number appear outside of the list.
      It's like setting list-style-position: outside */
@@ -643,7 +669,8 @@ aside[aria-label="How does this work?"] ol>li::before {
   border-bottom-left-radius: 15px 255px;
 }
 
-html[data-theme="dark"] aside[aria-label="How does this work?"] {}
+html[data-theme="dark"] aside[aria-label="How does this work?"] {
+}
 
 aside[aria-label="How does this work?"] {
   border-inline-start: inherit;
@@ -686,7 +713,7 @@ aside[aria-label="How does this work?"] ul {
   margin-top: 4px;
 }
 
-aside[aria-label="How does this work?"] ul>li::before {
+aside[aria-label="How does this work?"] ul > li::before {
   content: "";
   display: inline-block;
   height: 14px;
@@ -699,11 +726,11 @@ aside[aria-label="How does this work?"] ul>li::before {
   vertical-align: middle;
 }
 
-aside[aria-label="How does this work?"] ul>li ul {
+aside[aria-label="How does this work?"] ul > li ul {
   list-style-type: none;
 }
 
-aside[aria-label="How does this work?"] ul>li ul li::before {
+aside[aria-label="How does this work?"] ul > li ul li::before {
   content: "";
   display: inline-block;
   height: 12px;
@@ -716,11 +743,11 @@ aside[aria-label="How does this work?"] ul>li ul li::before {
   vertical-align: middle;
 }
 
-aside[aria-label="How does this work?"] ul>li ul li ul {
+aside[aria-label="How does this work?"] ul > li ul li ul {
   list-style-type: none;
 }
 
-aside[aria-label="How does this work?"] ul>li ul li ul li::before {
+aside[aria-label="How does this work?"] ul > li ul li ul li::before {
   content: "";
   display: inline-block;
   height: 10px;
@@ -810,8 +837,7 @@ body .accordion__item {
   button {
     background-color: var(--sl-color-black);
 
-    &:hover
-    &:focus {
+    &:hover &:focus {
       background-color: var(--sl-color-accent-high);
     }
   }
