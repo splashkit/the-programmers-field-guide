@@ -169,6 +169,7 @@ html[data-theme="dark"] .swiper-slide code {
   }
 
   .expressive-code * {
+    -webkit-user-select: none;
     user-select: none;
   }
 }
