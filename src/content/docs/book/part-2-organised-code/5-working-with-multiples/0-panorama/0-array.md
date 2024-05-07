@@ -41,23 +41,36 @@ void print_array(int arr[], int size)
 
 int main()
 {
-  int my_array[SIZE];
+  // Create an array called other with 3 elements
+  // and initialise to have values -5, 7, 10 to start
   int other[3] = {-5, 7, 10};
 
+  // Use our procedure to print the values
+  print_array(other, 3);
+
+  // Create a second array with SIZE elements (10 from above)
+  int my_array[SIZE];
+
+  // Set the first two element's values
   my_array[0] = 7;
   my_array[1] = 10;
 
+  // Loop through all of the indexes in my_array
+  // to read values for each
   for(int i = 0; i < SIZE; i++)
   {
     my_array[i] = read_integer("Enter value " + to_string(i+1) + ": ");
   }
 
+  // Loop through all of the indexes in my_array
+  // to output each
   for(int i = 0; i < SIZE; i++)
   {
     int value = my_array[i];
     write_line("The value of my_array[" + to_string(i) + "] = " + to_string(value));
   }
 
+  // Use our procedure to output them all
   print_array(my_array, SIZE);
 }
 
