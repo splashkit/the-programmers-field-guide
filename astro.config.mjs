@@ -2,8 +2,9 @@ import { defineConfig, squooshImageService } from "astro/config";
 import starlight from "@astrojs/starlight";
 import react from "@astrojs/react";
 import starlightLinksValidator from "starlight-links-validator";
-
 import sitemap from "@astrojs/sitemap";
+
+import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,10 +21,35 @@ export default defineConfig({
       wrap: true,
     },
   },
-  site: 'https://programmers.guide',
+  site: "https://programmers.guide",
   integrations: [
     starlight({
       title: "Field Guide",
+      head: [
+        {
+          tag: "script",
+          attrs: {
+            type: "text/partytown",
+            src: "https://www.googletagmanager.com/gtag/js?id=G-M004BNHE32",
+          },
+        },
+        {
+          tag: "script",
+          type: "text/partytown",
+          attrs: {
+            dataGaMeasurementId: "G-M004BNHE32",
+            id: "ga-init",
+          },
+          content: `
+          const measurementId = document.getElementById("ga-init").getAttribute("datagameasurementid");
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag("js", new Date());
+          gtag("config", measurementId);`,
+        },
+      ],
       customCss: [
         // Relative path to your custom CSS file
         "./src/styles/custom.css",
@@ -35,7 +61,11 @@ export default defineConfig({
         baseUrl:
           "https://github.com/splashkit/the-programmers-field-guide/edit/main/",
       },
-      plugins: [starlightLinksValidator({ errorOnRelativeLinks: true })],
+      plugins: [
+        starlightLinksValidator({
+          errorOnRelativeLinks: true,
+        }),
+      ],
       sidebar: [
         {
           label: "Part 0: First Steps",
@@ -1335,8 +1365,7 @@ export default defineConfig({
                 {
                   label: "Getting Started",
                   collapsed: true,
-                  link:
-                    "book/part-4-what-next/6-introduction-to-python/1-getting-started",
+                  link: "book/part-4-what-next/6-introduction-to-python/1-getting-started",
                 },
               ],
             },
@@ -1346,6 +1375,7 @@ export default defineConfig({
     }),
     react(),
     sitemap(),
+    partytown({ config: { forward: ["dataLayer.push"] } }),
   ],
   // Process images with sharp: https://docs.astro.build/en/guides/assets/#using-sharp
   image: {
