@@ -4,8 +4,6 @@ import react from "@astrojs/react";
 import starlightLinksValidator from "starlight-links-validator";
 import sitemap from "@astrojs/sitemap";
 
-import partytown from "@astrojs/partytown";
-
 // https://astro.build/config
 export default defineConfig({
   markdown: {
@@ -29,25 +27,17 @@ export default defineConfig({
         {
           tag: "script",
           attrs: {
-            type: "text/partytown",
+            async: true,
             src: "https://www.googletagmanager.com/gtag/js?id=G-M004BNHE32",
           },
         },
         {
           tag: "script",
-          type: "text/partytown",
-          attrs: {
-            dataGaMeasurementId: "G-M004BNHE32",
-            id: "ga-init",
-          },
           content: `
-          const measurementId = document.getElementById("ga-init").getAttribute("datagameasurementid");
           window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            dataLayer.push(arguments);
-          }
-          gtag("js", new Date());
-          gtag("config", measurementId);`,
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-M004BNHE32');`,
         },
       ],
       customCss: [
@@ -1375,7 +1365,6 @@ export default defineConfig({
     }),
     react(),
     sitemap(),
-    partytown({ config: { forward: ["dataLayer.push"] } }),
   ],
   // Process images with sharp: https://docs.astro.build/en/guides/assets/#using-sharp
   image: {
