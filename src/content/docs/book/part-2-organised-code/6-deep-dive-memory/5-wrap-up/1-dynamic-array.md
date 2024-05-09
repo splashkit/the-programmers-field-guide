@@ -42,12 +42,19 @@ template<typename T>
 dynamic_array<T> *new_dynamic_array(unsigned int capacity = 50)
 {
   dynamic_array<T> *result = (dynamic_array<T>*)malloc(sizeof(dynamic_array<T>));
+  new(result) dynamic_array<T>();
   // Make sure result was allocated
   if (result == nullptr)
   {
     return result;
   }
   result->data = (T*)malloc(sizeof(T) * capacity);
+  for (int i = 0; i < capacity; i++)
+  {
+      // Call constructor to initialise each of the 10 elements
+      new(&result->data[i]) T();
+  }
+
   result->size = 0;
   // Make sure that data was allocated, if not set capacity to 0
   if(result->data == nullptr)
@@ -76,6 +83,13 @@ void delete_dynamic_array(dynamic_array<T> *array)
 
   // Clear to ensure we remove any data from memory before freeing it
   array->size = 0;
+
+  // Call destructors on all elements
+  for (int i = 0; i < array->capacity; i++)
+  {
+      array->data[i].~T();
+  }
+
   array->capacity = 0;
   
   // Free the data and the array itself
@@ -103,6 +117,12 @@ bool resize(dynamic_array<T> *array, unsigned int new_capacity)
   // Ensure that the array is allocated
   if (!array) return false;
 
+  // Call destructors if we are reducing size
+  for(int i = array->capacity - 1; i >= (int)new_capacity; i--)
+  {
+    array->data[i].~T();
+  }
+
   // Resize the data in the array
   T* new_data = (T*)realloc(array->data, sizeof(T) * new_capacity);
   // Check if the allocation failed
@@ -110,6 +130,12 @@ bool resize(dynamic_array<T> *array, unsigned int new_capacity)
   {
     // We failed to allocate memory, so we can't resize the array
     return false;
+  }
+
+  // Call constructors if we increased size
+  for(int i = array->capacity; i < new_capacity; i++)
+  {
+    new(&array->data[i]) T();
   }
 
   // Update the array's data and capacity

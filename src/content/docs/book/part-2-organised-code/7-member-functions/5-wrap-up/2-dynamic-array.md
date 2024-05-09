@@ -39,6 +39,14 @@ struct dynamic_array
         size = 0;
         this->default_value = default_value;
 
+        // For each of the new elements... call constructor
+        for (int i = 0; i < capacity; i++)
+        {
+            // Call constructor to initialise each of the 10 elements
+            new(&this->data[i]) T();
+        }
+
+
         // Make sure that data was allocated, if not set capacity to 0
         if (data == nullptr)
         {
@@ -58,6 +66,13 @@ struct dynamic_array
     {
         // Clear to ensure we remove any data from memory before freeing it
         size = 0;
+        
+        // Call destructors on all elements
+        for (int i = 0; i < capacity; i++)
+        {
+            data[i].~T();
+        }
+
         capacity = 0;
 
         // Free the data and the array itself
@@ -76,6 +91,12 @@ struct dynamic_array
      */
     bool resize(unsigned int new_capacity)
     {
+        // Call destructors if we are reducing size
+        for(int i = capacity - 1; i >= (int)new_capacity; i--)
+        {
+            data[i].~T();
+        }
+
         // Resize the data in the array
         T *new_data = (T *)realloc(data, sizeof(T) * new_capacity);
         // Check if the allocation failed
@@ -83,6 +104,12 @@ struct dynamic_array
         {
             // We failed to allocate memory, so we can't resize the array
             return false;
+        }
+
+        // Call constructors if we increased size
+        for(int i = capacity; i < new_capacity; i++)
+        {
+            new(&new_data[i]) T();
         }
 
         // Update the array's data and capacity
