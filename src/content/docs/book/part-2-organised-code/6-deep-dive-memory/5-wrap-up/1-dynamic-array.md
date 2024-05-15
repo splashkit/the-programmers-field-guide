@@ -13,6 +13,7 @@ This header file contains the struct and template functions that allow us to wor
 #define DYNAMIC_ARRAY_HEADER
 
 #include <cstdlib>
+#include <new>
 
 /**
  * @brief A dynamic array struct that contains the size, capacity,
@@ -293,6 +294,4 @@ int main()
 
   return 0;
 }
-
-#endif
 ```
