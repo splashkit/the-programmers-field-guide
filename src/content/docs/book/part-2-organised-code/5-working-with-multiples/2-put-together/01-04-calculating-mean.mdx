@@ -3,25 +3,138 @@ title: Plan for Mean
 sidebar:
   label: " - Plan for Mean"
 ---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
 
-The mean of a list of values is the sum of those values divided by the number of values. In the case of the statistics calculator, we already a plan for the `sum` function, so the `mean` function does not need to recalculate the sum, it can just call the `sum` and use the result returned.
+The mean of a list of values is the sum of those values divided by the number of values. In the case of the statistics calculator, we already have a `sum` function, so the `mean` function can just call `sum` and use the result returned.
 
-To get the number of elements in the array we will need to keep track of this ourselves. As you may recall, C does not retain any details about the length of the arrays you declare. When you pass these to any function or procedure, you just get a pointer to the first element. We could keep track of this by passing in a `size` parameter to indicate the number of elements in the array, or we can create a struct that contains the array and the number of elements it currently contains valid values for. In this way, the `mean` can easily be calculated from the sum divided by the number of elements in the array.
+To get the number of elements in the array we needed to keep track of this ourselves as C does not retain any details about the length of the arrays you declare. This is why we have the `size` field in our `number_data` struct, so we will have the number of elements when we are asked to calculate the mean.
 
-<br/>
-<a id="ListingMean"></a>
+Have a go at coding this yourself.
 
+:::tip
+Think about any condition where there may be issues calculating the mean.
+:::
+
+<Accordion>
+  <AccordionItem
+    header="Code for mean"
+  >
+
+```cpp {80-92,108}
+/* stats-calc.cpp - from the field guide. written by ... */
+
+#include <cstdio>
+#include "utilities.h"
+
+// The maximum number of values we can store
+const int MAX_NUMBERS = 20;
+
+/**
+ * The data structure to store the numbers
+ *
+ * @field values the array of values
+ * @field size the number of values in the array - up to MAX_NUMBERS
+ */
+typedef struct
+{
+  double values[MAX_NUMBERS];
+  int size;
+} number_data;
+
+/**
+ * Populate the array with values entered by the user
+ *
+ * @param data the array of values (passed by reference)
+ */
+void populate_array(number_data &data)
+{
+  int size = read_integer("How many values do you want to enter? ");
+  if (size > MAX_NUMBERS)
+  {
+    printf("Sorry, you can only enter %d values.\n", MAX_NUMBERS);
+    size = MAX_NUMBERS;
+  }
+  else if (size < 0)
+  {
+    size = 0;
+  }
+
+  data.size = size;
+
+  // Populate each element - up to data.size
+  for (int i = 0; i < data.size; i++)
+  {
+    data.values[i] = read_double("Enter value: ");
+  }
+}
+
+/**
+ * Output the values in the array
+ *
+ * @param data the array of values
+ */
+void print(const number_data &data)
+{
+  for (int i = 0; i < data.size; i++)
+  {
+    printf("%d: %lf\n", i, data.values[i]);
+  }
+}
+
+/**
+ * Calculate the sum of the values in the array
+ *
+ * @param data the array of values
+ * @return the sum of the values
+ */
+double sum(const number_data &data)
+{
+  int i;
+  double result = 0;
+
+  for (i = 0; i < data.size; i++)
+  {
+    result += data.values[i];
+  }
+
+  return result;
+}
+
+/**
+ * Calculate the mean of the values in the array
+ *
+ * @param data the array of values
+ * @returns the mean of the values
+ */
+double mean(const number_data &data)
+{
+  if (data.size > 0)
+    return sum(data) / data.size;
+  else
+    return 0;
+}
+
+//todo: add max here
+
+int main()
+{
+  number_data data = {{},0};
+
+  populate_array(data);
+
+  printf("\nYou entered...\n\n");
+  print(data);
+
+  printf("\nCalculating statistics...\n\n");
+
+  printf("Sum:        %4.2lf\n", sum(data));
+  printf("Mean:       %4.2lf\n", mean(data));
+
+  return 0;
+}
 ```
-Function: Mean
--------------------------------
-Returns:
-    - Double: The average (mean) of the numbers from the data array
-Parameters:
-    1. data (array of Double) - the list of values
-    2. size (Integer) - the number of elements in data
-Steps
-    1. Return the result, Sum(data, size) / size
-```
-<div class="caption">Pseudocode for Mean</div>
 
-This gives us a plan for the mean, and a decision we need to make around storing the numbers in a basic array or in a struct that contains the array and its current number of stored elements.
+  </AccordionItem>  
+</Accordion>
+
+Once you are finished, make sure you check that this works before moving on.

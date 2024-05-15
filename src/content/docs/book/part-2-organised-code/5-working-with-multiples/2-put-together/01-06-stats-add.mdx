@@ -1,0 +1,156 @@
+---
+title: Adding Data to the Calculator
+sidebar:
+    label: " - Adding Data"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+We can wrap up with program with a couple of final changes. Firstly, we can add in a loop and allow the user to add more data to the array. Then in the final step we can look at also removing values from the array. These will be great features to help us explore arrays.
+
+## Adding a loop into main
+
+If we add a loop to main, after populating the array, we can give the user options to change the values in the array and recalculate the statistics. Have a go at adding a menu to let the user add, remove, and view the data, calculate the statistics, and quit.
+
+This is what I used for this:
+
+```cpp {11-20,25,29-60}
+/* stats-calc.cpp - from the field guide. written by ... */
+
+#include <cstdio>
+#include "utilities.h"
+
+// The maximum number of values we can store
+const int MAX_NUMBERS = 20;
+
+//...more code here...
+
+void print_menu()
+{
+  printf("\nMenu\n");
+  printf("1. Add a value\n");
+  printf("2. Remove a value\n");
+  printf("3. Print the values\n");
+  printf("4. Calculate stats\n");
+  printf("5. Quit\n");
+
+}
+
+int main()
+{
+  number_data data = {{},0};
+  int option;
+
+  populate_array(data);
+
+  print_menu();
+  option = read_integer("Enter an option: ", 1, 5);
+
+  while(option != 5)
+  {
+    switch(option)
+    {
+      case 1:
+        //todo: add_data(data);
+        break;
+      case 2:
+        //todo: remove_value(data);
+        break;
+      case 3:
+        printf("\nYou entered...\n\n");
+        print(data);
+        break;
+      case 4:
+        printf("\nCalculating statistics...\n\n");
+
+        printf("Sum:        %4.2lf\n", sum(data));
+        printf("Mean:       %4.2lf\n", mean(data));
+        printf("Max:        %4.2lf\n", max(data));
+        break;
+    }
+    read_string("Press Enter to continue...");
+
+    print_menu();
+    option = read_integer("Enter an option: ", 1, 5);
+  }
+
+  printf("Goodbye!\n");
+
+  return 0;
+}
+```
+
+## Adding data
+
+As with most of our code, each new action is likely to be coded in a new function or procedure which may in turn need additional functions and procedures to help implement its logic. So, for this we will create an `add_data` procedure.
+
+`Add data` could accept the number data by reference, so that it can change the array and size details in the struct.
+
+When you do this, you want to think of any cases where things may go wrong. Now, there are a couple that I can think of. Firstly, we need to make sure that we have not already run out of space in the array. We can only add new data if there is space for that data. We can guard against this with a simple if statement at the start of the `add data` code. If there is no space, then we can output an error message and return.
+
+In add data, we can then use the current size to determine where to store the data in the array. We can use the `data.size` value as the index, as the size is one larger than the current highest index.
+
+Have a go at coding this up yourself.
+
+<Accordion>
+<AccordionItem header="Code for add data">
+
+```cpp
+void add_data(number_data &data)
+{    
+  if (data.size < MAX_NUMBERS)
+  {
+    double value = read_double("Enter a value to add: ");
+    data.values[data.size] = value;
+    data.size++;
+  }
+  else
+  {
+    printf("Sorry, you can only enter %d values.\n", MAX_NUMBERS);
+  }
+}
+```
+
+</AccordionItem>
+</Accordion>
+
+Now this got me thinking of another issue. It is a bit more tricky, as you have to think about providing invalid data to make this happen.
+
+What would happen if `data.size` became negative? While we protected against this in `populate_array`, something may go wrong elsewhere or the data may become invalid due to a bug.
+
+:::caution
+
+Never assume that the data you get will be valid. Always check if something could cause your code to crash or access values it shouldn't. Many security issues could be avoided if everyone stuck to this simple idea.
+
+:::
+
+Have a go at fixing this code. Check if `data.size` is negative, and set it to 0 before adding the value.
+
+<Accordion>
+<AccordionItem header="Code to handle negative size">
+
+```cpp {5-9}
+void add_data(number_data &data)
+{
+  if (data.size < MAX_NUMBERS)
+  {
+    // Ensure this works if size is negative
+    if (data.size < 0)
+    {
+      data.size = 0;
+    }
+
+    double value = read_double("Enter a value to add: ");
+    data.values[data.size] = value;
+    data.size++;
+  }
+  else
+  {
+    printf("Sorry, you can only enter %d values.\n", MAX_NUMBERS);
+  }
+}
+```
+
+</AccordionItem>
+</Accordion>
+
+When you have added this in, update main to call this when the user chooses that option. Check that you can add values, but not exceed the maximum number.

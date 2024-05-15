@@ -1,41 +1,150 @@
 ---
-title: Plan for Sum
+title: Coding Sum
 sidebar:
-  label: " - Plan for Sum"
+  label: " - Coding Sum"
 ---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
 
-The sum is the simplest of the statistics to calculate. This involves adding together *all* the numbers in the array. The main issue here is that the computer cannot add *all* of these values together, and we must rethink our logic to express it in terms of processing *for each* element.
+Now we have the data in the program, we can start to think about the statistics we want to calculate.
 
-Think about the way you would sum a list of numbers, this is now the task you need to code for the computer. What is it that you do with each number? To think this through write a list of random numbers down. Keep it simple, and make each number between 0 and 9. Now calculate the sum. Do it slowly, and think about the tasks that you are performing for each number. Allow yourself only to look at one number at a time.
+The sum is the simplest of the statistics. This involves adding together *all* the numbers in the array. The main issue here is that the computer cannot add *all* of these values together, and we must rethink our logic to express it in terms of processing *for each* element.
 
-You should have noticed that you can achieve this by keeping a running total, and that you add the value of each number from the list to that total. When you have done this for each number in the list, you have the sum of all values. The pseudocode for this is shown in [Listing x.y](#ListingSum)
+Think about the way you would sum a list of numbers, this is now the task you need to code for the computer. What is it that you do with each number? To think this through write a list of random numbers down. Keep it simple, make each number between 0 and 9. Now calculate the sum. Do it slowly, and think about the tasks that you are performing for each number. Allow yourself only to look at one number at a time.
 
-<br/>
-<a id="ListingSum"></a>
+You should have noticed that you achieve this by keeping a running total, and that you add the value of *each* number from the list to that total. When you have done this *for each* number in the list, you have the sum of all values. The pseudocode for this is shown below.
 
-```
-Function: Sum
+```plaintext
+Function: sum
 -------------------------------
 Returns:
-- Double: The sum of the numbers from the data array
+- double: The sum of the numbers from the data array
 Parameters:
-- data (const array of Double) - the list of values to sum
-- size (Integer) - the number of elements in data (C only)
+- data (const reference to number data) - the data to sum
 Local Variables:
-- i (Integer): index of the current element in the array
-- total (Double): running total
+- i (int): index of the current element in the array
+- total (double): running total
 Steps
 1. total is assigned 0
-2. For i. starts at 0 and loops to the highest index of data
-3.      total is assigned total + the value of the ith element of data
+2. For i. starts at 0 and loops while i < data.size
+3.      total is assigned total + the value of the ith element of data.values
 4. Return the result total.
 ```
-<div class="caption">Pseudocode for Sum</div>
 
-There are three key things to notice about the pseudocode in [Listing x.y](#ListingSum). Firstly the [for loop](/book/part-1-instructions/3-control-flow/1-concepts/04-3-for-loop) is used to repeat the loop once for each element in the array. Second, the `i` variable moves through the valid indexes of the array. Finally, the `total` variable is used to keep the running total throughout the code.
+:::note
 
-The for loop will repeat its body once for each value in the array. The `i` variable will be updated to have the *current* index value each time the loop is repeated. Within the loop the *i<sup>th</sup>* value from the array is accessed. This is how the for loop processes each of the values from the array.
+- See how we use the [for loop](/book/part-2-organised-code/5-working-with-multiples/0-panorama/1-array-iteration) to iterate over the elements in the array. In this case we add the value from the current element to the `total` to calculate the sum. 
+- The for loop repeats its body once for each value in the array. The `i` variable stores the *current* index, so within the loop the *i<sup>th</sup>* value is accessed. This is how the for loop processes each of the values from the array.
 
-The `total` value keeps track of the current running total. Before the loop its value is set to 0, ensuring that it is appropriately initialised. In the body of the loop the *i<sup>th</sup>* value of the array is added to the `total`, and the result stored back into `total`. This means that by the end of the loop the `total` variable is now storing the sum of all the elements of the array.
+:::
 
-So we have a plan for how we can achieve the sum of the data in the array.
+Have a go at coding this yourself.
+
+<Accordion>
+  <AccordionItem
+    header="Code for sum"
+  >
+
+```cpp {61-78,89,92-94}
+/* stats-calc.cpp - from the field guide. written by ... */
+
+#include <cstdio>
+#include "utilities.h"
+
+// The maximum number of values we can store
+const int MAX_NUMBERS = 20;
+
+/**
+ * The data structure to store the numbers
+ *
+ * @field values the array of values
+ * @field size the number of values in the array - up to MAX_NUMBERS
+ */
+typedef struct
+{
+  double values[MAX_NUMBERS];
+  int size;
+} number_data;
+
+/**
+ * Populate the array with values entered by the user
+ *
+ * @param data the array of values (passed by reference)
+ */
+void populate_array(number_data &data)
+{
+  int size = read_integer("How many values do you want to enter? ");
+  if (size > MAX_NUMBERS)
+  {
+    printf("Sorry, you can only enter %d values.\n", MAX_NUMBERS);
+    size = MAX_NUMBERS;
+  }
+  else if (size < 0)
+  {
+    size = 0;
+  }
+
+  data.size = size;
+
+  // Populate each element - up to data.size
+  for (int i = 0; i < data.size; i++)
+  {
+    data.values[i] = read_double("Enter value: ");
+  }
+}
+
+/**
+ * Output the values in the array
+ *
+ * @param data the array of values
+ */
+void print(const number_data &data)
+{
+  for (int i = 0; i < data.size; i++)
+  {
+    printf("%d: %lf\n", i, data.values[i]);
+  }
+}
+
+/**
+ * Calculate the sum of the values in the array
+ *
+ * @param data the array of values
+ * @return the sum of the values
+ */
+double sum(const number_data &data)
+{
+  int i;
+  double result = 0;
+
+  for (i = 0; i < data.size; i++)
+  {
+    result += data.values[i];
+  }
+
+  return result;
+}
+
+//todo: add max here
+//todo: add mean here
+
+int main()
+{
+  number_data data = {{},0};
+
+  populate_array(data);
+
+  printf("\nYou entered...\n\n");
+  print(data);
+
+  printf("\nCalculating statistics...\n\n");
+
+  printf("Sum:        %4.2lf\n", sum(data));
+
+  return 0;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+Make sure to test your program is working. You should be able to enter different numbers of values each time, and see the sum of the values you entered.
