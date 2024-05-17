@@ -21,7 +21,7 @@ In this case we have:
     - The name of the type: Dynamic Array - which we will code as `dynamic_array`
 2. In the middle, fields for:
     - Size, which is an unsigned int - coded as `unsigned int size;`
-    - Capacity, an unsigned int - coded as `unsigned int size;`
+    - Capacity, an unsigned int - coded as `unsigned int capacity;`
     - Data, of the template type T - coded as `T *data;`
     - Default Value, that is of type T - coded as `T default_value;`
 3. At the bottom, methods for:
