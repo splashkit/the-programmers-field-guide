@@ -192,37 +192,47 @@ export default defineConfig({
                   link: "book/part-1-instructions/1-sequence-and-data/0-overview",
                 },
                 {
-                  label: "Concepts",
+                  label: "Panorama",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-1-instructions/1-sequence-and-data/1-concepts",
+                      "book/part-1-instructions/1-sequence-and-data/0-panorama",
                     collapsed: true,
                   },
                 },
                 {
-                  label: "Putting it Together",
+                  label: "Guided Tour",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-1-instructions/1-sequence-and-data/2-put-together",
+                      "book/part-1-instructions/1-sequence-and-data/1-tour",
                     collapsed: true,
                   },
                 },
                 {
-                  label: "Other Languages",
-                  link: "book/part-1-instructions/1-sequence-and-data/3-other-languages",
-                },
-                {
-                  label: "Activities",
-                  link: "book/part-1-instructions/1-sequence-and-data/4-activities",
-                },
-                {
-                  label: "Wrap Up",
+                  label: "Trailside Ponder",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-1-instructions/1-sequence-and-data/5-wrap-up",
+                      "book/part-1-instructions/1-sequence-and-data/2-trailside",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Go Exploring",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-1-instructions/1-sequence-and-data/3-explore",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Camp Site Reflection",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-1-instructions/1-sequence-and-data/4-camp",
                     collapsed: true,
                   },
                 },
