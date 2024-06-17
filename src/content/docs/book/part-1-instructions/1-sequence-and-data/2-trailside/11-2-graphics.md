@@ -81,7 +81,7 @@ The answer is simply **history**. The original monitors were based on Cathode Ra
 
 ### Double Buffering
 
-In a graphical program the computer still executes code in [sequence](/book/part-1-instructions/1-sequence-and-data/1-concepts/01-sequence).
+In a graphical program the computer still executes code in [sequence](/book/part-1-instructions/1-sequence-and-data/2-trailside/01-sequence).
 If we were to show the result of every drawing instruction immediately, we would get some very odd looking programs.
 
 For example, to draw a house on a hill we might combine an ellipse, a triangle, and a rectangle.

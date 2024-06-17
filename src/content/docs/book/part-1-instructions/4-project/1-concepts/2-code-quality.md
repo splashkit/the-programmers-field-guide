@@ -21,7 +21,7 @@ Remember that getting a program working is one thing, and making sure that you c
 
 ## Naming Standards
 
-Programming is all about building [digital realities](/book/part-0-getting-started/1-digital-realities/0-overview). These abstract models that run within the computer are built from many building blocks. So far we have seen how to create [variables](/book/part-1-instructions/1-sequence-and-data/1-concepts/07-variable) and [constants](/book/part-1-instructions/1-sequence-and-data/1-concepts/07-variable#constants). Next, we will start looking at building other code constructs to help organise our code into reusable components. All of these things that we create need **names**.
+Programming is all about building [digital realities](/book/part-0-getting-started/1-digital-realities/0-overview). These abstract models that run within the computer are built from many building blocks. So far we have seen how to create [variables](/book/part-1-instructions/1-sequence-and-data/2-trailside/07-variable) and [constants](/book/part-1-instructions/1-sequence-and-data/2-trailside/07-variable#constants). Next, we will start looking at building other code constructs to help organise our code into reusable components. All of these things that we create need **names**.
 
 It may seem strange, but naming things becomes one of the main challenges as your programs grow. The name that you give something can be quite powerful, as it will shape how people see and think about that aspect of your program. Getting names right is important.
 
@@ -82,7 +82,7 @@ The importance of indentation can be seen in the Python programming language. Th
 ## Commenting
 
 Lastly we have commenting.
-We have also [mentioned this before](/book/part-1-instructions/1-sequence-and-data/1-concepts/09-comments), but it is important enough to reiterate.
+We have also [mentioned this before](/book/part-1-instructions/1-sequence-and-data/2-trailside/09-comments), but it is important enough to reiterate.
 
 Comments are a great way of capturing your thoughts as you build out an algorithm. You can start with comments to outline the steps and then write the code to flesh these out, or you can add in some comments once you have the first working version. The important thing is make sure your comments capture things not necessarily evident in the code itself. Don't say what each line does, unless what you are saying adds something that is not immediately evident. The best comments capture the *intent* of the code rather than explain the syntax.
 

@@ -4,7 +4,7 @@ title: Methods to Use
 
 At this point the programs we create will include sequences of method calls, with variables that we can use to work with data within our program.
 
-To build programs we will need to have some [methods](/book/part-1-instructions/1-sequence-and-data/1-concepts/02-method) that we can [call](/book/part-1-instructions/1-sequence-and-data/1-concepts/03-method-call). The great this is that [library](/book/part-1-instructions/1-sequence-and-data/1-concepts/10-library) creators will describe the methods that they have created so that we can find and use them. In order to use this documentation we need to know how these methods will be described.
+To build programs we will need to have some [methods](/book/part-1-instructions/1-sequence-and-data/2-trailside/02-method) that we can [call](/book/part-1-instructions/1-sequence-and-data/2-trailside/03-method-call). The great this is that [library](/book/part-1-instructions/1-sequence-and-data/2-trailside/10-library) creators will describe the methods that they have created so that we can find and use them. In order to use this documentation we need to know how these methods will be described.
 
 ## Method Declarations
 

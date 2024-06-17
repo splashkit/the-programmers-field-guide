@@ -14,8 +14,8 @@ Variables are an invaluable tool to help you build digital realities.
 They allow you to capture simple values, associate them with a name -- the variable's **identifier** -- and change the value within your code.
 You can also use the variable to retrieve (i.e., read) the value it contains.
 
-Whenever you have information in your program that you want to be able to change, you create a variable to store it. Every variable has a [data type](/book/part-1-instructions/1-sequence-and-data/1-concepts/06-type), which needs to match the kind of data you want to store.
-After you define a variable with an **identifier** and [**data type**](/book/part-1-instructions/1-sequence-and-data/1-concepts/06-type), you need to **initialise** it with a starting value.
+Whenever you have information in your program that you want to be able to change, you create a variable to store it. Every variable has a [data type](/book/part-1-instructions/1-sequence-and-data/2-trailside/06-type), which needs to match the kind of data you want to store.
+After you define a variable with an **identifier** and [**data type**](/book/part-1-instructions/1-sequence-and-data/2-trailside/06-type), you need to **initialise** it with a starting value.
 Then, you can then read the current value and store new values in the variable as the program runs and the information the variable represents changes.
 
 ## Constants
@@ -46,7 +46,7 @@ The syntax for declaring a constant is very similar:
 
 Variable and constant declarations use almost identical syntax in C#. The main difference between a variable and a constant is the `const` keyword at the start of the declaration. If you include `const`, you are creating constants. Without it, you are creating variables.
 
-Both variables and constant declarations need to include the [type](/book/part-1-instructions/1-sequence-and-data/1-concepts/06-type) of data you want to store.Then, you provide a name (identifier) for the variable or constant.
+Both variables and constant declarations need to include the [type](/book/part-1-instructions/1-sequence-and-data/2-trailside/06-type) of data you want to store.Then, you provide a name (identifier) for the variable or constant.
 A variable can optionally be given a value when it is declared, but a constant must be given a value.
 You can also declare multiple variables or constants in the one line of code, as long as they are of the same data type.
 

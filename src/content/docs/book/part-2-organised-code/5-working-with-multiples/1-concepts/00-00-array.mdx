@@ -2,7 +2,7 @@
 title: Array
 ---
 
-An array is a special kind of **variable**, one that stores multiple values instead of a single value. The values within an array, called elements, all have the same [type](/book/part-1-instructions/1-sequence-and-data/1-concepts/06-type).
+An array is a special kind of **variable**, one that stores multiple values instead of a single value. The values within an array, called elements, all have the same [type](/book/part-1-instructions/1-sequence-and-data/2-trailside/06-type).
 
 <br/>
 import imgArray from './images/mmv-array.png';
@@ -36,7 +36,7 @@ One challenge we currently have is that our arrays will have a **fixed size**. W
 
 ## Arrays in Memory
 
-Arrays store multiple values, with an index that provides access to the individual elements within the array. Conceptually this can be viewed as a [variable](/book/part-1-instructions/1-sequence-and-data/1-concepts/07-variable) that contains multiple slots (the elements) into which the values are stored.
+Arrays store multiple values, with an index that provides access to the individual elements within the array. Conceptually this can be viewed as a [variable](/book/part-1-instructions/1-sequence-and-data/2-trailside/07-variable) that contains multiple slots (the elements) into which the values are stored.
 
 Many languages have **0** as the index of the first element. This reflects how the values are actually stored in memory. [Figure x.y](#FigureArrayContiguousMemory) shows how an array (named `arr` in this Figure) is stored in memory. The array is a **contiguous** area in memory, with the elements next to each other. You can think of the array as starting at the first element, so you need to skip *0* elements to access the first element. The second element is accessed by skipping *1* element, so it has index *1*. The third element is accessed by skipping *2* elements, so it has the index *2*, etc.
 

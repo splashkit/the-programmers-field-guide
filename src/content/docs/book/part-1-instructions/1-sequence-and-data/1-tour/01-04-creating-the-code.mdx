@@ -15,7 +15,7 @@ Your goal in this stage is to convert your ideas (in this case the pseudocode we
 
 The pseudocode shows the instructions we need to get this program working. At this stage these instructions need to be translated into source code, so that they can be compiled and the resulting program tested.
 
-You have seen the syntax details for how to create [programs](/book/part-1-instructions/1-sequence-and-data/1-concepts/00-program), [variables](/book/part-1-instructions/1-sequence-and-data/1-concepts/07-variable), and [constants](/book/part-1-instructions/1-sequence-and-data/1-concepts/07-variable#constants), and how to code the instructions for [method calls](/book/part-1-instructions/1-sequence-and-data/1-concepts/03-method-call) and [assignment statements](/book/part-1-instructions/1-sequence-and-data/1-concepts/08-assignment-statement). Now all you need to do is apply those rules with the ideas captured in our pseudocode, and you will have something you can compile.
+You have seen the syntax details for how to create [programs](/book/part-1-instructions/1-sequence-and-data/2-trailside/00-program), [variables](/book/part-1-instructions/1-sequence-and-data/2-trailside/07-variable), and [constants](/book/part-1-instructions/1-sequence-and-data/2-trailside/07-variable#constants), and how to code the instructions for [method calls](/book/part-1-instructions/1-sequence-and-data/2-trailside/03-method-call) and [assignment statements](/book/part-1-instructions/1-sequence-and-data/2-trailside/08-assignment-statement). Now all you need to do is apply those rules with the ideas captured in our pseudocode, and you will have something you can compile.
 
 :::note
 The next chapter, [Communicating Syntax](/book/part-1-instructions/2-communicating-syntax/0-overview), is all about how to read and use the syntax diagrams that we have used to outline the syntax. For now you can use the examples to give you a good idea of how to code these instructions. To use the syntax diagrams directly you would:
@@ -136,7 +136,7 @@ using static System.Convert;
 
 ### Creating constants
 
-The next things in our pseudocode are the constants. You can check the syntax details on the [constants](/book/part-1-instructions/1-sequence-and-data/1-concepts/07-variable) page, and start coding the `TWO_DOLLAR` constant as shown below. 
+The next things in our pseudocode are the constants. You can check the syntax details on the [constants](/book/part-1-instructions/1-sequence-and-data/2-trailside/07-variable) page, and start coding the `TWO_DOLLAR` constant as shown below. 
 
 ```cs
 // We need System.Console to use WriteLine and ReadLine
@@ -183,7 +183,7 @@ We are going to be interacting with the user in the Terminal. They will need to 
 
 Once the user knows what to enter, they will be able to provide us with these details. To access these, we can use the `ReadLine` method. This will be our go-to method for reading input from the user in the Terminal. In this case, we will also need to convert this to an integer. We can use Convert's `ToInt32` method for this.
 
-Once we have converted the data to an integer, we can store it in the `costOfItem` variable using an [assignment statement](/book/part-1-instructions/1-sequence-and-data/1-concepts/08-assignment-statement).
+Once we have converted the data to an integer, we can store it in the `costOfItem` variable using an [assignment statement](/book/part-1-instructions/1-sequence-and-data/2-trailside/08-assignment-statement).
 
 The code of this is shown below.
 
@@ -206,7 +206,7 @@ costOfItem = ToInt32(ReadLine());
 
 ```
 
-You can now keep going through the steps in the pseudocode to convert the idea for this program into instructions the computer can run. Our version of the code is in the [wrap up section](/book/part-1-instructions/1-sequence-and-data/5-wrap-up/1-change) at the end of the chapter. Try not to look, but if you get stuck you can check so that you can keep progressing. When you do need to check, take notes and go back to study that concept or code. This will help you fill in any gaps in your understanding.
+You can now keep going through the steps in the pseudocode to convert the idea for this program into instructions the computer can run. Our version of the code is in the [wrap up section](/book/part-1-instructions/1-sequence-and-data/4-camp/1-change) at the end of the chapter. Try not to look, but if you get stuck you can check so that you can keep progressing. When you do need to check, take notes and go back to study that concept or code. This will help you fill in any gaps in your understanding.
 
 ## Compiling and Running
 

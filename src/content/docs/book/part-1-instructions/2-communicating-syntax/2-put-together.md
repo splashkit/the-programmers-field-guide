@@ -42,7 +42,7 @@ To do this:
 4. Return to the diagram and make sure you can match each part of the
     example back to the rule that created it.
 5. Now look up any related rules that are not explained in this rule's
-    diagram. For example, a [method call](/book/part-1-instructions/1-sequence-and-data/1-concepts/03-method-call) has an identifier. The rule for an identifier
+    diagram. For example, a [method call](/book/part-1-instructions/1-sequence-and-data/2-trailside/03-method-call) has an identifier. The rule for an identifier
     has its [own page](/book/part-1-instructions/2-communicating-syntax/1-concepts/04-identifier).
 
 As you follow this process it is also a good idea to take notes and to try to use these rules in your own programs. Have your code editor open, and see if you can follow the rules or mimic the examples. You can also try typing in some of the examples to see how they work.

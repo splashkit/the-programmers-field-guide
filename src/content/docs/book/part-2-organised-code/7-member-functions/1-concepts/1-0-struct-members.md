@@ -55,7 +55,7 @@ With C++ you can combine this by embedding the functions and procedures within t
 
 :::note
 
-Remember back in [Part 1](/book/part-1-instructions/00-part-1-programs-as-instructions) we introduced the idea of [methods](/book/part-1-instructions/1-sequence-and-data/1-concepts/02-method) in C#. This is because, in C# you cannot write your functions and procedures outside a struct or class. So you have to organise your code in C# using methods.
+Remember back in [Part 1](/book/part-1-instructions/00-part-1-programs-as-instructions) we introduced the idea of [methods](/book/part-1-instructions/1-sequence-and-data/2-trailside/02-method) in C#. This is because, in C# you cannot write your functions and procedures outside a struct or class. So you have to organise your code in C# using methods.
 
 :::
 

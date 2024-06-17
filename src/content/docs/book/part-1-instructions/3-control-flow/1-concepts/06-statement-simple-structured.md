@@ -12,7 +12,7 @@ Remember. The computer is **unintelligent**, so none of the actions it performs 
 
 ## Statements -- when, why, and how?
 
-We have already seen that a [program](/book/part-1-instructions/1-sequence-and-data/1-concepts/00-program) is just a list of statements, as is a [compound statement](/book/part-1-instructions/3-control-flow/1-concepts/02-0-compound-statement).
+We have already seen that a [program](/book/part-1-instructions/1-sequence-and-data/2-trailside/00-program) is just a list of statements, as is a [compound statement](/book/part-1-instructions/3-control-flow/1-concepts/02-0-compound-statement).
 [If](/book/part-1-instructions/3-control-flow/1-concepts/03-1-if), [case](/book/part-1-instructions/3-control-flow/1-concepts/03-2-case), [while](/book/part-1-instructions/3-control-flow/1-concepts/04-1-while-loop), [do while](/book/part-1-instructions/3-control-flow/1-concepts/04-2-do-while), and [for](/book/part-1-instructions/3-control-flow/1-concepts/04-3-for-loop) loop statements also contain statements, which are only run under certain conditions.
 
 The great thing to see now is that you can **combine** these in lots of different ways. An `if` statement can contain a `while` loop, that contains a `case` statement. Anywhere you can put a statement, you can now choose between any of these different statements to create a sequence of actions that get the computer to do what you want.
@@ -30,8 +30,8 @@ The following diagram shows the list of things we have seen so far that can exis
 
 - A statement is a single instruction in code.
 - **Simple Statements** that perform an action. The actions you can perform are:
-  - [Method Call](/book/part-1-instructions/1-sequence-and-data/1-concepts/03-method-call): run the code in a method.
-  - [Assignment Statement](/book/part-1-instructions/1-sequence-and-data/1-concepts/08-assignment-statement): store a value in a variable.
+  - [Method Call](/book/part-1-instructions/1-sequence-and-data/2-trailside/03-method-call): run the code in a method.
+  - [Assignment Statement](/book/part-1-instructions/1-sequence-and-data/2-trailside/08-assignment-statement): store a value in a variable.
   - [Jump Statements](/book/part-1-instructions/3-control-flow/1-concepts/05-0-jumping): alter which instruction will be performed next.
   This includes:
     - [Break](/book/part-1-instructions/3-control-flow/1-concepts/05-1-break): jump out of a looping statement.

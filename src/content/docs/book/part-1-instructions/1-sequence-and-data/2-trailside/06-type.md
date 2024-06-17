@@ -41,7 +41,7 @@ A data type will have a size in memory and, in the case of numbers, a range of v
 There are two main text types in C#.
 You will use `string` most often, as it describes a sequence of zero or more alphanumeric characters.
 `char`, on the other hand, describes a single alphanumeric character.
-As we learned in [literals](/book/part-1-instructions/1-sequence-and-data/1-concepts/05-literal), a literal string value is enclosed in double quotes (`"`), and a character value is enclosed in single quotes (`'`).
+As we learned in [literals](/book/part-1-instructions/1-sequence-and-data/2-trailside/05-literal), a literal string value is enclosed in double quotes (`"`), and a character value is enclosed in single quotes (`'`).
 This difference in representation helps us to quickly identify what kind of text data a literal value is.
 
 | **Name**  | **Size**                                   |

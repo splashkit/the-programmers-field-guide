@@ -101,8 +101,8 @@ Which of the following names are valid identifiers in C# and why/why not?
 :::note[Summary]
 
 - Identifiers are used to **name** things in our programs.
-- When you create a [variable](/book/part-1-instructions/1-sequence-and-data/1-concepts/07-variable) or [constant](/book/part-1-instructions/1-sequence-and-data/1-concepts/07-variable#constants), you name it using an identifier.
-- When you [call a method](/book/part-1-instructions/1-sequence-and-data/1-concepts/03-method-call) you specify which method you want to execute by using its identifier.
-- To read the value from a variable or constant, you use its identifier in an [expression](/book/part-1-instructions/1-sequence-and-data/1-concepts/04-expression).
+- When you create a [variable](/book/part-1-instructions/1-sequence-and-data/2-trailside/07-variable) or [constant](/book/part-1-instructions/1-sequence-and-data/2-trailside/07-variable#constants), you name it using an identifier.
+- When you [call a method](/book/part-1-instructions/1-sequence-and-data/2-trailside/03-method-call) you specify which method you want to execute by using its identifier.
+- To read the value from a variable or constant, you use its identifier in an [expression](/book/part-1-instructions/1-sequence-and-data/2-trailside/04-expression).
 
 :::
