@@ -1,5 +1,5 @@
 ---
-title: Method and Library
+title: Methods and Libraries
 ---
 
 Computers instructions are very simple, meaning you need many instructions to perform a meaningful task. In order to work with this, programming languages allow you to group instructions into reusable packages called **methods** in C#.
@@ -18,7 +18,8 @@ This illustration highlights how your code can access methods.
 
 - is a group of instructions to perform a task.
 - has a name that will tell you what the method does.
-- may exist in a library that we can access.
+- will expect to be passed a number of value, and may return a value you can use.
+- will exist in a library or in our code (when we see how to build these ourselves)
 
 :::
 
@@ -72,3 +73,25 @@ Delay(delaySeconds * 1000);
 
 CloseAllWindows();
 ```
+
+## Activities
+
+Here are some method names from the SplashKit library. What do you think these methods do?
+
+1. `WriteLine`
+2. `OpenWidow`
+3. `FillRectangle`
+4. `PlaySoundEffect`
+5. `Rnd`
+
+<details>
+  <summary role="button">Answers</summary>
+  <ul>
+    <li><strong>1: </strong><code>WriteLine</code> writes a line of text to the terminal.</li>
+    <li><strong>2: </strong><code>OpenWindow</code> opens a graphical window you can draw to.</li>
+    <li><strong>3: </strong><code>FillRectangle</code> will color a rectangular area in the window.</li>
+    <li><strong>4: </strong><code>PlaySoundEffect</code> will play a sound effect that you have loaded.</li>
+    <li><strong>5: </strong><code>Rnd</code> returns a random number - its name it not as clear as the others. Ideally each method's name should capture what it does.</li>
+  </ul>
+</details>
+
