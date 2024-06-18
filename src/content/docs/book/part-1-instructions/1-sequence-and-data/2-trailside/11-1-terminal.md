@@ -11,9 +11,6 @@ Interacting with the [Terminal](/book/part-0-getting-started/2-computer-use/1-co
 When you want to display something on the terminal, you use either the `WriteLine` or `Write` method. There are lots of different versions of these methods which will allow you to pass many values to be output - so we can think of these as having this declaration, where `...` is replaced with data of the different basic data types (integers, numbers, text):
 
 ```cs
-// These need..
-// using static System.Console;
-// OR
 // using static SplashKitSDK.SplashKit;
 
 public static void WriteLine(...);
@@ -33,8 +30,6 @@ You can use the Terminal for input as well as output. The `ReadLine` method allo
 You can think of this as having the following method declaration:
 
 ```cs
-// using static System.Console;
-// OR
 // using static SplashKitSDK.SplashKit;
 
 public static string ReadLine();
@@ -52,8 +47,8 @@ As you can see above, `ReadLine` only returns string data. When you need this to
 // These need..
 // using static System.Convert;
 
-public static int ToInt32();
-public static double ToDouble();
+public static int ToInt32(string value);
+public static double ToDouble(string value);
 ```
 
 ## Example
