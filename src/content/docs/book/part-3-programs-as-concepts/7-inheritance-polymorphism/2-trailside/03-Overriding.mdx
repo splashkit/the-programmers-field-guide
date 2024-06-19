@@ -50,7 +50,7 @@ public class Program
         e.Draw();
     }
 }
-``` 
+```
 
 When the above code is run the `Rectangle` will draw as a rectangle, and the `Ellipse` will draw as an ellipse. Why? Each object knows what it is, so when an `Ellipse` object is told to draw it uses the code from the `Ellipse`. Similarly, when a `Rectangle` is told to draw it runs the code from the `Rectangle` class which is this case has not changed the way `Draw` works, so the original code from `Shape` is run.
 
@@ -72,7 +72,7 @@ public class Rectangle : Shape
         // do more code here..
     } 
 } 
-``` 
+```
 
 ## The Special Case with Constructors
 
@@ -117,8 +117,8 @@ public class Ellipse : Shape
     
     // ...
 }
-``` 
+```
 
 * Read about [Inheritance and Constructors](https://en.wikibooks.org/wiki/C_Sharp_Programming/Inheritance#Constructors) on the C# Programming book
 
-For help with syntax details, see this week's [syntax guide](/book/part-3-programs-as-concepts/7-inheritance-polymorphism/1-concepts/08-syntax-guide).
+For help with syntax details, see this week's [syntax guide](/book/part-3-programs-as-concepts/7-inheritance-polymorphism/2-trailside/08-syntax-guide).

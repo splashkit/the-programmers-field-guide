@@ -14,7 +14,7 @@ We can see that the image contains a circle, rectangle, and triangle. So it woul
 
 Inheritance allows you to extend abstraction to support **specialisation** and **generalisation**, creating a family of related types. In our drawing example, we could _generalise_ the circle, rectangle, and triangle to identify the more general role **Shape**. Similarly, if you had said that the image above contained shapes, then you could _specialise_ these to identify the specific roles of circle, rectangle, and triangle. The result is the same, we have **is a kind of** relationships between the `Circle`, `Rectangle` and `Triangle` classes and the `Shape` class.
 
-With inheritance we create a family of related types. The `Circle`, `Rectangle`, and `Triangle` are all `Shape` objects and they can **inherit** behaviour (knowledge and responsibilities) from the `Shape` class. This means that we can code _common_ attributes (methods and fields) in the `Shape` class, and then 
+With inheritance we create a family of related types. The `Circle`, `Rectangle`, and `Triangle` are all `Shape` objects and they can **inherit** behaviour (knowledge and responsibilities) from the `Shape` class. This means that we can code _common_ attributes (methods and fields) in the `Shape` class, and then
 
 In UML, we represent inheritance using a line with an open triangular arrow head. The following diagram shows our Shape Drawing program with support for `Ellipse` and `Rectangle` shapes. You can read the arrow from these classes to `Shape` as "Rectangle _is a kind of_ Shape" and "Ellipse _if a kind of_ Shape".
 
@@ -27,6 +27,7 @@ When we have an inheritance relationship, we think of one class as the **parent*
 In C#, and many modern object oriented languages, it is only possible to inherit from a single parent class. This avoids some complex scenarios where multiple inheritance is allowed, but is a limitation that you need to keep in mind.
 
 For further reading see:
+
 * [Inheritance](https://en.wikibooks.org/wiki/C_Sharp_Programming/Inheritance) in C# Programming
 
-For help with syntax details, see this week's [syntax guide](/book/part-3-programs-as-concepts/7-inheritance-polymorphism/1-concepts/08-syntax-guide).
+For help with syntax details, see this week's [syntax guide](/book/part-3-programs-as-concepts/7-inheritance-polymorphism/2-trailside/08-syntax-guide).
