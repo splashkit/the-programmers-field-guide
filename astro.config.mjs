@@ -289,37 +289,38 @@ export default defineConfig({
                   link: "book/part-1-instructions/3-control-flow/0-overview",
                 },
                 {
-                  label: "Concepts",
+                  label: "Guided Tour",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-1-instructions/3-control-flow/1-concepts",
+                      "book/part-1-instructions/3-control-flow/1-tour",
                     collapsed: true,
                   },
                 },
                 {
-                  label: "Putting it Together",
+                  label: "Trailside Ponder",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-1-instructions/3-control-flow/2-put-together",
+                      "book/part-1-instructions/3-control-flow/2-trailside",
                     collapsed: true,
                   },
                 },
                 {
-                  label: "Other Languages",
-                  link: "book/part-1-instructions/3-control-flow/3-other-languages",
-                },
-                {
-                  label: "Activities",
-                  link: "book/part-1-instructions/3-control-flow/4-activities",
-                },
-                {
-                  label: "Wrap Up",
+                  label: "Go Exploring",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-1-instructions/3-control-flow/5-wrapup",
+                      "book/part-1-instructions/3-control-flow/3-explore",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Camp Site Reflection",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-1-instructions/3-control-flow/4-camp",
                     collapsed: true,
                   },
                 },
