@@ -90,12 +90,7 @@ export default defineConfig({
                 },
                 {
                   label: "Guided Tour",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-0-getting-started/1-digital-realities/1-tour",
-                    collapsed: true,
-                  },
+                  link: "book/part-0-getting-started/1-digital-realities/1-tour",
                 },
                 {
                   label: "Trailside Ponder",

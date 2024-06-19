@@ -76,7 +76,7 @@ Delay(5000);
 ```
 
 :::tip[Code Comments]
-C# source code is [abstracted](/book/part-0-getting-started/1-digital-realities/1-concepts/6-source-code/#programming-with-a-third-generation-language) to make it more understandable for humans, but ultimately it is still written for computers.
+C# source code is [abstracted](/book/part-0-getting-started/1-digital-realities/2-trailside/6-source-code/#programming-with-a-third-generation-language) to make it more understandable for humans, but ultimately it is still written for computers.
 Because of this, C# and virtually all programming languages include syntax for writing [**code comments**](/book/part-1-instructions/1-sequence-and-data/2-trailside/09-comments).
 
 In the code above the line starting with `//` is a code comment and will be ignored by the compiler.

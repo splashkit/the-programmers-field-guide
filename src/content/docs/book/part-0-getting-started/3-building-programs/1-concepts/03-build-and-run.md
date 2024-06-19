@@ -3,7 +3,7 @@ title: Build and Run
 ---
 
 The computer cannot run source code directly.
-We need a [compiler or interpreter](/book/part-0-getting-started/1-digital-realities/1-concepts/6-source-code#compilers-and-interpreters).
+We need a [compiler or interpreter](/book/part-0-getting-started/1-digital-realities/2-trailside/6-source-code#compilers-and-interpreters).
 Dotnet uses a combination of both, with your source code being compiled into an intermediate code that is then run within a "just in time" (JIT) compiler at runtime.
 Luckily, all of this is detail abstracted away for us by the `dotnet` tool.
 

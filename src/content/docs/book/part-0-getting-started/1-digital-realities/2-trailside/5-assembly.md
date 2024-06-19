@@ -8,7 +8,7 @@ Programs written in this language cannot be executed directly by the computer, b
 
 ## Programming in Assembly
 
-The following snippet shows an example of some assembler code. This is the assembler code that was used to generate the machine code we showed you in the [machine code](/book/part-0-getting-started/1-digital-realities/1-concepts/4-machine-code) concept. The machine code was 13,344 bytes in size, where the same program in assembler code is only 658 bytes. Before this program can be executed, we need the assembler to read these 658 bytes and translate them into the equivalent machine code.
+The following snippet shows an example of some assembler code. This is the assembler code that was used to generate the machine code we showed you in the [machine code](/book/part-0-getting-started/1-digital-realities/2-trailside/4-machine-code) concept. The machine code was 13,344 bytes in size, where the same program in assembler code is only 658 bytes. Before this program can be executed, we need the assembler to read these 658 bytes and translate them into the equivalent machine code.
 
 ```asm
 .cstring
@@ -17,18 +17,18 @@ LC0:
   .text
 .globl _main
 _main:
-  pushl	%ebp
-  movl	%esp, %ebp
-  pushl	%ebx
-  subl	$20, %esp
-  call	___i686.get_pc_thunk.bx 
+  pushl %ebp
+  movl %esp, %ebp
+  pushl %ebx
+  subl $20, %esp
+  call ___i686.get_pc_thunk.bx 
 "L000001$pb":
-  leal	LC0-"L000001$pb"(%ebx), %eax
-  movl	%eax, (%esp)
-  call	L_write_line$stub
-  addl	$20, %esp
-  popl	%ebx
-  popl	%ebp
+  leal LC0-"L000001$pb"(%ebx), %eax
+  movl %eax, (%esp)
+  call L_write_line$stub
+  addl $20, %esp
+  popl %ebx
+  popl %ebp
   ret
 ```
 
