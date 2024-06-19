@@ -19,7 +19,7 @@ In C#, parameters are very similar to parameters in C/C++. By default, parameter
 
 ## Example
 
-See the examples in the [static method'](/book/part-3-programs-as-concepts/1-back-to-c-sharp/1-concepts/4-static-methods) page. The following example includes a parameter passed by reference. Notice that you also have to use the `ref` keyword in the method call as well. This helps highlight the fact that the value is being passed by reference, and that the passed variable's value may be changed in the call.
+See the examples in the [static method'](/book/part-3-programs-as-concepts/1-back-to-c-sharp/2-trailside/4-static-methods) page. The following example includes a parameter passed by reference. Notice that you also have to use the `ref` keyword in the method call as well. This helps highlight the fact that the value is being passed by reference, and that the passed variable's value may be changed in the call.
 
 ```cs
 class MyProgram

@@ -2,9 +2,9 @@
 title: Static Members
 ---
 
-We explored the idea of static members in the [Back to C# chapter](/book/part-3-programs-as-concepts/1-back-to-c-sharp/1-concepts/4-static-methods), and so we should touch back on this again here.
+We explored the idea of static members in the [Back to C# chapter](/book/part-3-programs-as-concepts/1-back-to-c-sharp/2-trailside/4-static-methods), and so we should touch back on this again here.
 
-Most members in a class should be instance members, as we described in this chapter. However, in some cases you can include static members that are available on the class itself. 
+Most members in a class should be instance members, as we described in this chapter. However, in some cases you can include static members that are available on the class itself.
 
 When thinking about static members, you can picture the class itself as an object at runtime. For example, the `Console` class defines a static `WriteLine` method. You can access this using `Console.WriteLine`, as if the `Console` class exists as an object you can reference at runtime.
 

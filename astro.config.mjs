@@ -891,21 +891,25 @@ export default defineConfig({
                   link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/0-overview",
                 },
                 {
-                  label: "Concepts",
+                  label: "Guided Tour",
+                  link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/1-tour",
+                },
+                {
+                  label: "Trailside Ponder",
                   collapsed: true,
                   autogenerate: {
-                    directory:
-                      "book/part-3-programs-as-concepts/1-back-to-c-sharp/1-concepts",
+                    directory: "book/part-3-programs-as-concepts/1-back-to-c-sharp/2-trailside",
                     collapsed: true,
                   },
                 },
                 {
-                  label: "Putting it Together",
-                  link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/2-put-together",
-                },
-                {
-                  label: "Activities",
-                  link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/4-activities",
+                  label: "Go Exploring",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/1-back-to-c-sharp/3-explore",
+                    collapsed: true,
+                  },
                 },
               ],
             },
