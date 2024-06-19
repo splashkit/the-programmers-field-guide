@@ -241,7 +241,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Camp Site Reflection",
+                  label: "Campsite Reflection",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -319,7 +319,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Camp Site Reflection",
+                  label: "Campsite Reflection",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -412,7 +412,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Camp Site Reflection",
+                  label: "Campsite Reflection",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -467,7 +467,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Camp Site Reflection",
+                  label: "Campsite Reflection",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -522,7 +522,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Camp Site Reflection",
+                  label: "Campsite Reflection",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -577,7 +577,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Camp Site Reflection",
+                  label: "Campsite Reflection",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -632,7 +632,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Camp Site Reflection",
+                  label: "Campsite Reflection",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -678,7 +678,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Camp Site Reflection",
+                  label: "Campsite Reflection",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -724,7 +724,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Camp Site Reflection",
+                  label: "Campsite Reflection",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -743,36 +743,38 @@ export default defineConfig({
             //       link: "book/part-2-organised-code/8-file-io/0-overview",
             //     },
             //     {
-            //       label: "Concepts",
+            //       label: "Guided Tour",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
-            //           "book/part-2-organised-code/8-file-io/1-concepts",
+            //           "book/part-2-organised-code/8-file-io/1-tour",
             //         collapsed: true,
             //       },
             //     },
             //     {
-            //       label: "Putting it Together",
+            //       label: "Trailside Ponder",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
-            //           "book/part-2-organised-code/8-file-io/2-put-together",
+            //           "book/part-2-organised-code/8-file-io/2-trailside",
             //         collapsed: true,
             //       },
             //     },
             //     {
-            //       label: "Other Languages",
-            //       link: "book/part-2-organised-code/8-file-io/3-other-languages",
-            //     },
-            //     {
-            //       label: "Activities",
-            //       link: "book/part-2-organised-code/8-file-io/4-activities",
-            //     },
-            //     {
-            //       label: "Wrap Up",
+            //       label: "Go Exploring",
             //       collapsed: true,
             //       autogenerate: {
-            //         directory: "book/part-2-organised-code/8-file-io/5-wrap-up",
+            //         directory:
+            //           "book/part-2-organised-code/8-file-io/3-explore",
+            //         collapsed: true,
+            //       },
+            //     },
+            //     {
+            //       label: "Campsite Reflection",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-2-organised-code/8-file-io/4-camp",
             //         collapsed: true,
             //       },
             //     },
@@ -787,37 +789,38 @@ export default defineConfig({
             //       link: "book/part-2-organised-code/9-low-level-programming/0-overview",
             //     },
             //     {
-            //       label: "Concepts",
+            //       label: "Guided Tour",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
-            //           "book/part-2-organised-code/9-low-level-programming/1-concepts",
+            //           "book/part-2-organised-code/9-low-level-programming/1-tour",
             //         collapsed: true,
             //       },
             //     },
             //     {
-            //       label: "Putting it Together",
+            //       label: "Trailside Ponder",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
-            //           "book/part-2-organised-code/9-low-level-programming/2-put-together",
+            //           "book/part-2-organised-code/9-low-level-programming/2-trailside",
             //         collapsed: true,
             //       },
             //     },
             //     {
-            //       label: "Other Languages",
-            //       link: "book/part-2-organised-code/9-low-level-programming/3-other-languages",
-            //     },
-            //     {
-            //       label: "Activities",
-            //       link: "book/part-2-organised-code/9-low-level-programming/4-activities",
-            //     },
-            //     {
-            //       label: "Wrap Up",
+            //       label: "Go Exploring",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
-            //           "book/part-2-organised-code/9-low-level-programming/5-wrap-up",
+            //           "book/part-2-organised-code/9-low-level-programming/3-explore",
+            //         collapsed: true,
+            //       },
+            //     },
+            //     {
+            //       label: "Campsite Reflection",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-2-organised-code/9-low-level-programming/4-camp",
             //         collapsed: true,
             //       },
             //     },
@@ -827,45 +830,46 @@ export default defineConfig({
               label: "10. Project",
               collapsed: true,
               items: [
+                // {
+                //   label: "Overview",
+                //   link: "book/part-2-organised-code/10-project/0-overview",
+                // },
+                // {
+                //   label: "Guided Tour",
+                //   collapsed: true,
+                //   autogenerate: {
+                //     directory:
+                //       "book/part-2-organised-code/10-project/1-tour",
+                //     collapsed: true,
+                //   },
+                // },
+                // {
+                //   label: "Trailside Ponder",
+                //   collapsed: true,
+                //   autogenerate: {
+                //     directory:
+                //       "book/part-2-organised-code/10-project/2-trailside",
+                //     collapsed: true,
+                //   },
+                // },
                 {
-                  label: "Overview",
-                  link: "book/part-2-organised-code/10-project/0-overview",
-                },
-                {
-                  label: "Concepts",
+                  label: "Go Exploring",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-2-organised-code/10-project/1-concepts",
+                      "book/part-2-organised-code/10-project/3-explore",
                     collapsed: true,
                   },
                 },
-                {
-                  label: "Putting it Together",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-2-organised-code/10-project/2-put-together",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Other Languages",
-                  link: "book/part-2-organised-code/10-project/3-other-languages",
-                },
-                {
-                  label: "Activities",
-                  link: "book/part-2-organised-code/10-project/4-activities",
-                },
-                {
-                  label: "Wrap Up",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-2-organised-code/10-project/5-wrap-up",
-                    collapsed: true,
-                  },
-                },
+                // {
+                //   label: "Campsite Reflection",
+                //   collapsed: true,
+                //   autogenerate: {
+                //     directory:
+                //       "book/part-2-organised-code/10-project/4-camp",
+                //     collapsed: true,
+                //   },
+                // },
               ],
             },
           ],
