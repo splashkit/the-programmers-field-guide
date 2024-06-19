@@ -338,25 +338,31 @@ export default defineConfig({
                   link: "book/part-1-instructions/4-project/0-overview",
                 },
                 {
-                  label: "Concepts",
-                  collapsed: true,
-                  autogenerate: {
-                    directory: "book/part-1-instructions/4-project/1-concepts",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Putting it Together",
+                  label: "Guided Tour",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-1-instructions/4-project/2-put-together",
+                      "book/part-1-instructions/4-project/1-tour",
                     collapsed: true,
                   },
                 },
                 {
-                  label: "Activities",
-                  link: "book/part-1-instructions/4-project/3-activities",
+                  label: "Trailside Ponder",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-1-instructions/4-project/2-trailside",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Go Exploring",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-1-instructions/4-project/3-explore",
+                    collapsed: true,
+                  },
                 },
               ],
             },
