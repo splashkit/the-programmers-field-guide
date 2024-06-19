@@ -72,7 +72,7 @@ integer main()
 ```
 
 :::note
-This code assumes you have created the utilities header and code file as described in the [shared utilities](/book/part-2-organised-code/2-organising-code/2-put-together/04-00-utilities) section. If not, you will need to remove the `#include` and copy in an implementation of the `read_integer` function for the example to work.
+This code assumes you have created the utilities header and code file as described in the [shared utilities](/book/part-2-organised-code/2-organising-code/1-tour/04-00-utilities) section. If not, you will need to remove the `#include` and copy in an implementation of the `read_integer` function for the example to work.
 :::
 
 In C++ we can achieve the same thing with `using` to create an alias.

@@ -18,7 +18,7 @@ You need to be able to perform certain actions to make pointers useful. These in
 
 :::note
 
-- You can get the address of values in [Local Variables](/book/part-2-organised-code/2-organising-code/1-concepts/03-local-variable), [Global Variables](/book/part-2-organised-code/2-organising-code/1-concepts/06-global-variables), [Parameters](/book/part-2-organised-code/2-organising-code/1-concepts/04-parameter), fields of [Structs](/book/part-2-organised-code/3-structuring-data/1-concepts/03-01-struct) and [Unions](/book/part-2-organised-code/3-structuring-data/1-concepts/03-05-union). Basically, you can get the address of any value you can read.
+- You can get the address of values in [Local Variables](/book/part-2-organised-code/2-organising-code/2-trailside/03-local-variable), [Global Variables](/book/part-2-organised-code/2-organising-code/2-trailside/06-global-variables), [Parameters](/book/part-2-organised-code/2-organising-code/2-trailside/04-parameter), fields of [Structs](/book/part-2-organised-code/3-structuring-data/1-concepts/03-01-struct) and [Unions](/book/part-2-organised-code/3-structuring-data/1-concepts/03-05-union). Basically, you can get the address of any value you can read.
 - Once you have the address (the Pointer value), you can store, or you can use it.
 - You need to follow the pointer, called **dereferencing** the pointer, to read its value or to assign a new value to the location it refers to.
 - Remember there are two values with pointers:
@@ -54,12 +54,11 @@ C and C++ provides a number of pointer operators that allow you to get and use p
 <br/>
 <a id="TableCpointerOperators"></a>
 
-
   | Name | Operator | Example        | Description |
   ------ | -------- | -------------- | ----------- |
   | Address Of  | `&` | `&x` | Gets a pointer to the variable/field etc. |
-  | Dereference | `*` | `*ptr` | Follow the pointer, and read the value it points to.| 
-  |             | `->` | `ptr -> field_name` | Follow a pointer to a struct or union, and read a field value. | 
+  | Dereference | `*` | `*ptr` | Follow the pointer, and read the value it points to.|
+  |             | `->` | `ptr -> field_name` | Follow a pointer to a struct or union, and read a field value. |
 
 <div class="caption">C/C++ pointer Operators</div>
 

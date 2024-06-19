@@ -30,11 +30,10 @@ We will revise the following instructions to see how they work with arrays:
 You may need to revise the following building blocks:
 
 - [Variable](/book/part-1-instructions/1-sequence-and-data/2-trailside/07-variable): The idea of storing data within your code.
-- [Local Variable](/book/part-2-organised-code/2-organising-code/1-concepts/03-local-variable): Storing data in a function or procedure.
-- [Parameter](/book/part-2-organised-code/2-organising-code/1-concepts/04-parameter): Passing data to a function or procedure.
+- [Local Variable](/book/part-2-organised-code/2-organising-code/2-trailside/03-local-variable): Storing data in a function or procedure.
+- [Parameter](/book/part-2-organised-code/2-organising-code/2-trailside/04-parameter): Passing data to a function or procedure.
 
 We will use a simple statistics calculator as an example in this chapter. Using this calculator, the user will be able to enter a number of values, and the program calculates some statistics. An example of this program executing is shown in [Listing x.y](#ListingStatsCalculatorTerminalRun)
-
 
 <a id="ListingStatsCalculatorTerminalRun"></a>
 
@@ -62,4 +61,5 @@ Variance:   9.17
 Max:        10.00
 $
 ```
+
 <div class="caption">Statistics Calculator run from the terminal</div>

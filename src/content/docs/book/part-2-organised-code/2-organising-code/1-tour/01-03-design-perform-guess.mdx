@@ -7,7 +7,6 @@ import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 Now that we have the different functions and procedure, we can now start to design the control flow for the Guess that Number program. For the Guess that Number program we can start by designing the control flow within the `Perform Guess` function. The specification of this is shown the table below. Think about the steps that need to be performed to achieve this. If you had been asked to do this what would you need to do?
 
-
 <a id="TablePerformGuessSpecs"></a>
 
 |   |   |
@@ -24,13 +23,13 @@ Now that we have the different functions and procedure, we can now start to desi
 
 The first task the function needs to perform is to get the guess from the user. This can be performed in a **sequence**: display a prompt, read the value from the user.
 
-This sequence sounds familiar. Rather than re-coding this here, we can incorporate our `read_integer` function in the program that we created [earlier](/book/part-2-organised-code/2-organising-code/2-put-together/00-2-explore-functions#read-integer).
+This sequence sounds familiar. Rather than re-coding this here, we can incorporate our `read_integer` function in the program that we created [earlier](/book/part-2-organised-code/2-organising-code/1-tour/00-2-explore-functions#read-integer).
 
 ![Initial sequence for the Perform Guess function](./images/guess-that-number-perform-guess-initial-sequence.png)
 
 <div class="caption">Initial sequence for the Perform Guess function</div>
 
-Let's start coding this up. Create a new C++ code file, and we can put in place some starter code and then build out from this iteratively. We can use the following as a starting point. Add in your [read integer](/book/part-2-organised-code/2-organising-code/2-put-together/00-2-explore-functions) and build the start of perform guess.
+Let's start coding this up. Create a new C++ code file, and we can put in place some starter code and then build out from this iteratively. We can use the following as a starting point. Add in your [read integer](/book/part-2-organised-code/2-organising-code/1-tour/00-2-explore-functions) and build the start of perform guess.
 
 ```cpp
 #include "splashkit.h"
@@ -148,7 +147,7 @@ When you run this make sure to test that each branch is run correctly.
 The last action in the code is to return a Boolean result indicating if the user's guess is equal to the target number. This may sound like a place where we need to use an if statement - i.e. if the target equals the guess, return true, else return false. This would work, but we can do this more efficiently and concisely.
 
 The flowchart below shows the *trick* that is being performed at the end of `perform guess`'s code.
-Perform guess needs to return a result indicating if the user has guessed the number of not. 
+Perform guess needs to return a result indicating if the user has guessed the number of not.
 This will be a Boolean value, with true indicating the user guessed the number.
 Instead of using an if statement, you can just directly return the expression that would have been used in the if statement's condition. Think about it. If the condition was true, you returned true, if the condition was false you returned false. It is much easier and faster to just return the value of the condition itself.
 
@@ -185,7 +184,6 @@ int main()
 :::tip
 Remember you can use the `ctrl-c` key combination to generate a signal to kill the program if you get stuck in an infinite loop!
 :::
-
 
 <Accordion>
   <AccordionItem

@@ -2,7 +2,7 @@
 title: "Variables with Custom Types"
 ---
 
-The custom types allow you to specify new data formats. To make use of this format you must declare variables that use the types you have created. You can use your new types when you declare [local variables](/book/part-2-organised-code/2-organising-code/1-concepts/03-local-variable) and [parameters](/book/part-2-organised-code/2-organising-code/1-concepts/04-parameter), allowing you to store values in this format and pass the around between your functions and procedures.
+The custom types allow you to specify new data formats. To make use of this format you must declare variables that use the types you have created. You can use your new types when you declare [local variables](/book/part-2-organised-code/2-organising-code/2-trailside/03-local-variable) and [parameters](/book/part-2-organised-code/2-organising-code/2-trailside/04-parameter), allowing you to store values in this format and pass the around between your functions and procedures.
 
 <a id="FigureDeclaringVariablesWithCustomTypes"></a>
 
@@ -39,6 +39,7 @@ In C/C++ you can declare variables from any of the types that you have declared.
 
 - This shows the syntax for declaring variables that use the types you have created.
 - In C/C++ the type declaration must appear before you can use the type to declare variables.
+
 :::
 
 In C/C++ it is possible to initialise a struct when you declare the variable. To do this, you use braces to wrap the values for the fields as (i.e. `{...}` ). Within the braces you place one value for each field, in the order you declared them in the struct. These values are then used to initialise the fields of the variable. See the declaration of `var2` in the example below.

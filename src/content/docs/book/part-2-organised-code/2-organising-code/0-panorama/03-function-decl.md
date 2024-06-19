@@ -2,7 +2,7 @@
 title: "Functions"
 ---
 
-Functions are used to **calculate values**. They are almost identical to procedures -- they have a name, contain instructions, and can be called to perform their actions. The *only* difference is what happens at the end. When a function ends, it [returns](/book/part-2-organised-code/2-organising-code/1-concepts/05-return) a value to the caller, meaning you should call it within an expression where you want the result to be used.
+Functions are used to **calculate values**. They are almost identical to procedures -- they have a name, contain instructions, and can be called to perform their actions. The *only* difference is what happens at the end. When a function ends, it [returns](/book/part-2-organised-code/2-organising-code/2-trailside/05-return) a value to the caller, meaning you should call it within an expression where you want the result to be used.
 
 ![Annotated code of a function](./images/function-pano.png)
 

@@ -8,7 +8,7 @@ You can require callers to pass values to a function or procedure you are creati
 
 :::note[A parameter:]
 
-- Is the **term** given to a [variable](/book/part-1-instructions/1-sequence-and-data/2-trailside/07-variable) declared to accept the value from an argument passed to a [function or procedure](/book/part-2-organised-code/2-organising-code/1-concepts/01-0-functions-and-procedures) when it is called.
+- Is the **term** given to a [variable](/book/part-1-instructions/1-sequence-and-data/2-trailside/07-variable) declared to accept the value from an argument passed to a [function or procedure](/book/part-2-organised-code/2-organising-code/2-trailside/01-0-functions-and-procedures) when it is called.
 - Requires the caller to provide an argument for its value when they call the procedure or function.
 - Can be used within the function or procedure in the same way as any other variable.
 - Is **good practice** to use to require values to be passed into a function or procedure.
