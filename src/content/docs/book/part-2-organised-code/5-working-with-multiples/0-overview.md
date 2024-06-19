@@ -18,14 +18,14 @@ Data is an important part of any program. Earlier chapters have shown how to sto
 
 The chapter introduces the following building blocks:
 
-- [Array](/book/part-2-organised-code/5-working-with-multiples/1-concepts/00-00-array): A kind of variable that is used to store multiple values. The individual values in the array are called *elements*.
-- [String](/book/part-2-organised-code/5-working-with-multiples/1-concepts/02-00-string): We will see how strings are achieved using arrays. This will help you understand the existing string type we have been using.
+- [Array](/book/part-2-organised-code/5-working-with-multiples/2-trailside/00-00-array): A kind of variable that is used to store multiple values. The individual values in the array are called *elements*.
+- [String](/book/part-2-organised-code/5-working-with-multiples/2-trailside/02-00-string): We will see how strings are achieved using arrays. This will help you understand the existing string type we have been using.
 
 We will revise the following instructions to see how they work with arrays:
 
-- [For Loop](/book/part-2-organised-code/5-working-with-multiples/1-concepts/01-for-loop): A loop that can be used to easily repeat a block of code for each element of an array.
-- [Expressions](/book/part-2-organised-code/5-working-with-multiples/1-concepts/00-03-expressions-with-arrays): Expressions can read the value from the element of an array.
-- [Assignment Statement](/book/part-2-organised-code/5-working-with-multiples/1-concepts/00-02-assign-element): The assignment statement can be used to assign a value to an element in an array.
+- [For Loop](/book/part-2-organised-code/5-working-with-multiples/2-trailside/01-for-loop): A loop that can be used to easily repeat a block of code for each element of an array.
+- [Expressions](/book/part-2-organised-code/5-working-with-multiples/2-trailside/00-03-expressions-with-arrays): Expressions can read the value from the element of an array.
+- [Assignment Statement](/book/part-2-organised-code/5-working-with-multiples/2-trailside/00-02-assign-element): The assignment statement can be used to assign a value to an element in an array.
 
 You may need to revise the following building blocks:
 

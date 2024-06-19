@@ -18,7 +18,7 @@ To access this you may need to revise:
 
 - Review how memory is allocated on the [stack](/book/part-2-organised-code/2-organising-code/2-trailside/01-1-the-stack).
 - [Pointers](/book/part-2-organised-code/4-indirect-access/2-trailside/02-00-pointer) to allow you to indirectly access things values in memory.
-- [Arrays](/book/part-2-organised-code/5-working-with-multiples/1-concepts/00-00-array) so that you can store and work with multiple values with ease.
+- [Arrays](/book/part-2-organised-code/5-working-with-multiples/2-trailside/00-00-array) so that you can store and work with multiple values with ease.
 
 We will see the instructions needed to:
 
