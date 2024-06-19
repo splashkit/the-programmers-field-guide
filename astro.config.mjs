@@ -4,6 +4,17 @@ import react from "@astrojs/react";
 import starlightLinksValidator from "starlight-links-validator";
 import sitemap from "@astrojs/sitemap";
 
+
+// TODO: new structure
+//
+// 1-concepts --> 2-trailside
+// 2-put-together --> 1-tour
+// 4-activities --> folder ... 3-explore
+// 5-wrap-up ---> 4-camp
+// 3-other-languages --> move into 2-trailside as last item
+
+
+
 // https://astro.build/config
 export default defineConfig({
   markdown: {
