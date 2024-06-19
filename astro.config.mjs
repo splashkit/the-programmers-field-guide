@@ -1283,25 +1283,31 @@ export default defineConfig({
             //       link: "book/part-4-what-next/1-things-we-left-out/0-overview",
             //     },
             //     {
-            //       label: "Concepts",
+            //       label: "Guided Tour",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
-            //           "book/part-4-what-next/1-things-we-left-out/1-concepts",
+            //           "book/part-4-what-next/1-things-we-left-out/1-tour",
             //         collapsed: true,
             //       },
             //     },
             //     {
-            //       label: "Putting it Together",
-            //       link: "book/part-4-what-next/1-things-we-left-out/2-put-together",
+            //       label: "Trailside Ponder",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-4-what-next/1-things-we-left-out/2-trailside",
+            //         collapsed: true,
+            //       },
             //     },
             //     {
-            //       label: "Other Languages",
-            //       link: "book/part-4-what-next/1-things-we-left-out/3-other-languages",
-            //     },
-            //     {
-            //       label: "Activities",
-            //       link: "book/part-4-what-next/1-things-we-left-out/4-activities",
+            //       label: "Go Exploring",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-4-what-next/1-things-we-left-out/3-explore",
+            //         collapsed: true,
+            //       },
             //     },
             //   ],
             // },
@@ -1314,25 +1320,31 @@ export default defineConfig({
             //       link: "book/part-4-what-next/2-libraries-packages/0-overview",
             //     },
             //     {
-            //       label: "Concepts",
+            //       label: "Guided Tour",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
-            //           "book/part-4-what-next/2-libraries-packages/1-concepts",
+            //           "book/part-4-what-next/2-libraries-packages/1-tour",
             //         collapsed: true,
             //       },
             //     },
             //     {
-            //       label: "Putting it Together",
-            //       link: "book/part-4-what-next/2-libraries-packages/2-put-together",
+            //       label: "Trailside Ponder",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-4-what-next/2-libraries-packages/2-trailside",
+            //         collapsed: true,
+            //       },
             //     },
             //     {
-            //       label: "Other Languages",
-            //       link: "book/part-4-what-next/2-libraries-packages/3-other-languages",
-            //     },
-            //     {
-            //       label: "Activities",
-            //       link: "book/part-4-what-next/2-libraries-packages/4-activities",
+            //       label: "Go Exploring",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-4-what-next/2-libraries-packages/3-explore",
+            //         collapsed: true,
+            //       },
             //     },
             //   ],
             // },
@@ -1345,24 +1357,31 @@ export default defineConfig({
             //       link: "book/part-4-what-next/3-build-game/0-overview",
             //     },
             //     {
-            //       label: "Concepts",
+            //       label: "Guided Tour",
             //       collapsed: true,
             //       autogenerate: {
-            //         directory: "book/part-4-what-next/3-build-game/1-concepts",
+            //         directory:
+            //           "book/part-4-what-next/3-build-game/1-tour",
             //         collapsed: true,
             //       },
             //     },
             //     {
-            //       label: "Putting it Together",
-            //       link: "book/part-4-what-next/3-build-game/2-put-together",
+            //       label: "Trailside Ponder",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-4-what-next/3-build-game/2-trailside",
+            //         collapsed: true,
+            //       },
             //     },
             //     {
-            //       label: "Other Languages",
-            //       link: "book/part-4-what-next/3-build-game/3-other-languages",
-            //     },
-            //     {
-            //       label: "Activities",
-            //       link: "book/part-4-what-next/3-build-game/4-activities",
+            //       label: "Go Exploring",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-4-what-next/3-build-game/3-explore",
+            //         collapsed: true,
+            //       },
             //     },
             //   ],
             // },
@@ -1375,25 +1394,31 @@ export default defineConfig({
             //       link: "book/part-4-what-next/4-build-web-app/0-overview",
             //     },
             //     {
-            //       label: "Concepts",
+            //       label: "Guided Tour",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
-            //           "book/part-4-what-next/4-build-web-app/1-concepts",
+            //           "book/part-4-what-next/4-build-web-app/1-tour",
             //         collapsed: true,
             //       },
             //     },
             //     {
-            //       label: "Putting it Together",
-            //       link: "book/part-4-what-next/4-build-web-app/2-put-together",
+            //       label: "Trailside Ponder",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-4-what-next/4-build-web-app/2-trailside",
+            //         collapsed: true,
+            //       },
             //     },
             //     {
-            //       label: "Other Languages",
-            //       link: "book/part-4-what-next/4-build-web-app/3-other-languages",
-            //     },
-            //     {
-            //       label: "Activities",
-            //       link: "book/part-4-what-next/4-build-web-app/4-activities",
+            //       label: "Go Exploring",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-4-what-next/4-build-web-app/3-explore",
+            //         collapsed: true,
+            //       },
             //     },
             //   ],
             // },
@@ -1406,25 +1431,31 @@ export default defineConfig({
             //       link: "book/part-4-what-next/5-integrate-ai/0-overview",
             //     },
             //     {
-            //       label: "Concepts",
+            //       label: "Guided Tour",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
-            //           "book/part-4-what-next/5-integrate-ai/1-concepts",
+            //           "book/part-4-what-next/5-integrate-ai/1-tour",
             //         collapsed: true,
             //       },
             //     },
             //     {
-            //       label: "Putting it Together",
-            //       link: "book/part-4-what-next/5-integrate-ai/2-put-together",
+            //       label: "Trailside Ponder",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-4-what-next/5-integrate-ai/2-trailside",
+            //         collapsed: true,
+            //       },
             //     },
             //     {
-            //       label: "Other Languages",
-            //       link: "book/part-4-what-next/5-integrate-ai/3-other-languages",
-            //     },
-            //     {
-            //       label: "Activities",
-            //       link: "book/part-4-what-next/5-integrate-ai/4-activities",
+            //       label: "Go Exploring",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-4-what-next/5-integrate-ai/3-explore",
+            //         collapsed: true,
+            //       },
             //     },
             //   ],
             // },
