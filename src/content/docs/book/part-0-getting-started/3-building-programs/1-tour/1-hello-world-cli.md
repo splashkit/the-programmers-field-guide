@@ -18,7 +18,7 @@ Firstly, we need to create a new C# project folder and the initial project files
 
 ### 1. Create Project Folder
 
-As mentioned earlier, in the Concepts page: [Create a Project](/book/part-0-getting-started/3-building-programs/1-concepts/01-create-project), we will be using the **~/Documents/Code** folder as the base. If you are saving your code elsewhere then make sure to adjust paths as needed.
+As mentioned earlier, in the Concepts page: [Create a Project](/book/part-0-getting-started/3-building-programs/2-trailside/01-create-project), we will be using the **~/Documents/Code** folder as the base. If you are saving your code elsewhere then make sure to adjust paths as needed.
 
 To set up your HelloWorld folder from the terminal, copy and paste the following command into your Terminal window:
 
@@ -45,7 +45,7 @@ If using **MSYS2 MINGW64**:
 
     where you would replace **<your_username>** with your own username.
 - To check your username, you can use the `whoami` command in your terminal.
-- Shortcut: You can also type `cd ` ("cd", then space), then click and drag a folder from File Explorer into your MSYS2 MINGW64 terminal window.
+- Shortcut: You can also type `cd` ("cd", then space), then click and drag a folder from File Explorer into your MSYS2 MINGW64 terminal window.
 
 :::
 

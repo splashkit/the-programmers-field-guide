@@ -2,11 +2,11 @@
 title: Debugging Your First Program
 ---
 
-As you continue learning new coding concepts, you will inevitably come across errors (bugs) in your code. Don't be discouraged though! Even the most skilled programmers run into bugs in their programs. You will get better and faster at [Debugging](/book/part-0-getting-started/3-building-programs/1-concepts/04-debug) the more you practice.
+As you continue learning new coding concepts, you will inevitably come across errors (bugs) in your code. Don't be discouraged though! Even the most skilled programmers run into bugs in their programs. You will get better and faster at [Debugging](/book/part-0-getting-started/3-building-programs/2-trailside/04-debug) the more you practice.
 
 ## Setting up your C# project
 
-In this guide, we will be using the **HelloWorld** project from the [previous page](/book/part-0-getting-started/3-building-programs/2-put-together/2-hello-world-gui), but with some simpler code, so that we can focus on the VS Code debugger more easily.
+In this guide, we will be using the **HelloWorld** project from the [previous page](/book/part-0-getting-started/3-building-programs/1-tour/2-hello-world-gui), but with some simpler code, so that we can focus on the VS Code debugger more easily.
 
 Copy the following example code and paste it into your Program.cs file (replacing existing code) and then run your program using `dotnet run` in your VS Code terminal to test it:
 

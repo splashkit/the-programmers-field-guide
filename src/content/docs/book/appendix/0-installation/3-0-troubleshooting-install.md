@@ -264,7 +264,7 @@ Therefore, you will need to use the commands mentioned in the [section below](#n
 
 If you have had issues installing the SplashKit global libraries, or you are using an older version of SplashKit, you will need to use `skm` at the start of any compiling/building commands, or when running C# programs.
 
-For example, you will need to use the following versions of the terminal commands mentioned at the end of the [Build and Run](/book/part-0-getting-started/3-building-programs/1-concepts/03-build-and-run) page:
+For example, you will need to use the following versions of the terminal commands mentioned at the end of the [Build and Run](/book/part-0-getting-started/3-building-programs/2-trailside/03-build-and-run) page:
 
 - `skm dotnet new console`: create a new C# terminal project in the current working directory.
 - `skm dotnet build`: compile the project in the current working directory.
