@@ -1,5 +1,5 @@
 ---
-title: Put Together
+title: Guided Tour
 ---
 
 To come...
