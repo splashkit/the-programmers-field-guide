@@ -4,21 +4,21 @@ title: Returning data from methods
 
 Methods have the capability of returning a value to the caller. This can be used to create methods that calculate or retrieve values.
 
-When you declare a method, the start of the method indicates what type of value the method returns. When this is **void**, it indicates the method does not return a value. Otherwise, this identifier indicates the type of value returned by the method. 
+When you declare a method, the start of the method indicates what type of value the method returns. When this is **void**, it indicates the method does not return a value. Otherwise, this identifier indicates the type of value returned by the method.
 
 At the end of the method you need to code a **return** statement that provides the value that is returned by the method to the caller. The return statement ends the method, and send the data back to the code that called the method.
 
 When a method returns a value it should be called within an expression so that the value can be used. For example, you could call a method in an assignment statement and store the result that is returned in a variable.
 
-C# also includes **properties** that allow you to expose things the object knows in a controlled fashion. Properties must be declared within a class, and appear like variables when used. Each property is a combination of two methods: one to _get_ the value and one to _set_ the value. 
+C# also includes **properties** that allow you to expose things the object knows in a controlled fashion. Properties must be declared within a class, and appear like variables when used. Each property is a combination of two methods: one to _get_ the value and one to _set_ the value.
 
-When the property is accessed within an expression, the _get_ accessor is invoked. When the property is used as the location to store a value in an assignment statement, then the _set_ accessor is invoked. 
+When the property is accessed within an expression, the _get_ accessor is invoked. When the property is used as the location to store a value in an assignment statement, then the _set_ accessor is invoked.
 
-Properties can also be read only, if they have only a get accessor. Similarly, a property can be write only if it has a set but no get accessor. 
+Properties can also be read only, if they have only a get accessor. Similarly, a property can be write only if it has a set but no get accessor.
 
 Properties give you the ability to calculate value in addition to providing access to the object’s fields. In the following examples we will demonstrate both uses of properties.
 
-Using methods and properties, you can give objects the ability to calculate and return values. 
+Using methods and properties, you can give objects the ability to calculate and return values.
 
 ### Example
 
@@ -63,5 +63,4 @@ Further reading:
 
 * [Defining and Calling Methods](https://www.microsoft.com/net/tutorials/csharp/getting-started/methods)
 
-
-There are also details on this in this week's [syntax guide](/book/part-3-programs-as-concepts/5-collaboration-encapsulation/1-concepts/16-syntax-guide).
+There are also details on this in this week's [syntax guide](/book/part-3-programs-as-concepts/5-collaboration-encapsulation/2-trailside/16-syntax-guide).

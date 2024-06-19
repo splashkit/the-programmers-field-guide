@@ -8,11 +8,11 @@ Variables can be used to store data for both long and short term memory within y
 
 #### Variable
 
-A **variable** is a programming artefact, and you can create variables where you want to remember a value. 
+A **variable** is a programming artefact, and you can create variables where you want to remember a value.
 
-Each variable has a name (its identifier) that is used to identify it. The name should reflect the value that is being stored. For example, if you had a _name_ variable in the Window you would expect it to relate to the “name” of the window. 
+Each variable has a name (its identifier) that is used to identify it. The name should reflect the value that is being stored. For example, if you had a _name_ variable in the Window you would expect it to relate to the “name” of the window.
 
-Each variable stores a _single value_ of a certain **type**. The table lists the main basic types that are included in C#. The type can also be a class name, where you want to store a reference to an object of that class. 
+Each variable stores a _single value_ of a certain **type**. The table lists the main basic types that are included in C#. The type can also be a class name, where you want to store a reference to an object of that class.
 
 | Kind of Data  | Type to Use  |
 | -------------| ------------|
@@ -30,9 +30,10 @@ You can picture a variable like a box that contains a single value.
 In memory, all variables store their data as a binary number. The type of the variable is used to give meaning to the data. An integer variable (int in C#) is a whole number.
 
 #### Assignment statement
+
 You use an **assignment statement** to _assign_ a value to a variable. This statement evaluates an expression, and stores the result in a variable. This will override any previous value stored there.  
 
-Once you have stored a value in a variable, you can use the variable within an **expression** to read its _current_ value. 
+Once you have stored a value in a variable, you can use the variable within an **expression** to read its _current_ value.
 
 The assignment statement gets the computer to perform two actions:
 
@@ -44,7 +45,7 @@ it evaluates the expression on the right of the assignment operator (the =) and 
     x = 2 + 4 * 2;
 ```
 
-The expression can also use variables. For example, if we have an x and a y variable we could do: 
+The expression can also use variables. For example, if we have an x and a y variable we could do:
 
 ```cs
     x = 10;
@@ -52,23 +53,23 @@ The expression can also use variables. For example, if we have an x and a y vari
     x = y + 5;
 ```
 
-This runs over time. 
+This runs over time.
 
-1. First, 10 is stored in x. 
+1. First, 10 is stored in x.
 1. In the second assignment statement, we calculate the expression `2 * x` (2 times x) giving 20, which is stored in y.
-1. The final statement then calculates `y + 5`, giving 25, which is stored in x (overwriting the previous value). 
+1. The final statement then calculates `y + 5`, giving 25, which is stored in x (overwriting the previous value).
 
-At the end of this code `x` would be storing 25 and `y` would be storing 20. 
+At the end of this code `x` would be storing 25 and `y` would be storing 20.
 
-The fact that this is two steps can help you understand how the following works. 
+The fact that this is two steps can help you understand how the following works.
 
 ```cs
     x = x + 1; 
 ```
 
-This evaluates the value of `x + 1`, and stores this in `x`. If the current value of `x` is 25, then the value would be 26 after this statement runs. 
+This evaluates the value of `x + 1`, and stores this in `x`. If the current value of `x` is 25, then the value would be 26 after this statement runs.
 
-As it is common to change the value of a variable by adding or removing something, there are a few shorthand ways to achieve this. You can use `+=` to add something to a variable, `-=` to subtract, and `++` to add one or `--` to subtract one. For example: 
+As it is common to change the value of a variable by adding or removing something, there are a few shorthand ways to achieve this. You can use `+=` to add something to a variable, `-=` to subtract, and `++` to add one or `--` to subtract one. For example:
 
 ```cs
     x++; // add one to x
@@ -82,7 +83,7 @@ These short hand assignment operators perform the same actions as the standard a
 
 ### Your Task
 
-What variables do you think you would need within a Bank Account object? 
+What variables do you think you would need within a Bank Account object?
 
 For additional reading see:
 
@@ -92,4 +93,4 @@ For additional reading see:
 - [Working with Strings](https://www.microsoft.com/net/tutorials/csharp/getting-started/strings)
 - [Working with Dates and Times](https://www.microsoft.com/net/tutorials/csharp/getting-started/datetimes)
 
-Also remember to checkout this week's [syntax guide](/book/part-3-programs-as-concepts/5-collaboration-encapsulation/1-concepts/16-syntax-guide).
+Also remember to checkout this week's [syntax guide](/book/part-3-programs-as-concepts/5-collaboration-encapsulation/2-trailside/16-syntax-guide).
