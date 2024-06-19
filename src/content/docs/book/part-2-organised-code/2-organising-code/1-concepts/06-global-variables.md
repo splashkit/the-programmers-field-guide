@@ -14,7 +14,7 @@ While global **variables** should be avoided, constants **should** be declared g
 ## In C/C++
 
 :::tip[Syntax]
-The syntax is the same for any [variable or constant](/book/part-2-organised-code/1-starting-cpp/1-concepts/4-1-variable-constant), whether it is global or not.
+The syntax is the same for any [variable or constant](/book/part-2-organised-code/1-starting-cpp/2-trailside/4-1-variable-constant), whether it is global or not.
 <!-- TODO: make "constant" a link to the page in P2C1 when the concept has been added -->
 All that changes is where the declaration is -- for the variable or constant to be global it must be declared **outside** a function or procedure.
 :::
@@ -83,6 +83,7 @@ Reading through the above code, look at **main**, and try to answer the followin
   ```
 
 2. Value of `x` at program completion: 13.
+
 </details>
 </span>
 

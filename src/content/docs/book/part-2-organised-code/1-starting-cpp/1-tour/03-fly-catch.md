@@ -10,4 +10,4 @@ For example, in C# you used `KeyCode.LeftKey`.
 In C/C++, this becomes just `LEFT_KEY`.
 
 With this information, try to write a C/C++ version of Fly Catch.
-Use [our solution](/book/part-2-organised-code/1-starting-cpp/5-wrap-up/3-fly-catch) if you get stuck, but try to leave it as a last resort.
+Use [our solution](/book/part-2-organised-code/1-starting-cpp/4-camp/3-fly-catch) if you get stuck, but try to leave it as a last resort.

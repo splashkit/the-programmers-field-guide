@@ -11,7 +11,7 @@ You might notice throughout this section that the core concepts are very familia
 
 ## Standard libraries
 
-As we saw in the [preprocessor](/book/part-2-organised-code/1-starting-cpp/1-concepts/1-2-compiling-steps#pre-processing), these functions are defined in header files, which you can include in your program using the `#include` preprocessor directive.
+As we saw in the [preprocessor](/book/part-2-organised-code/1-starting-cpp/2-trailside/1-2-compiling-steps#pre-processing), these functions are defined in header files, which you can include in your program using the `#include` preprocessor directive.
 
 The standard libraries should be included using `#include<library>`. The following includes the standard input / output (IO) library in the `stdio.h` header file. This includes functions to read and write data from a number of locations.
 

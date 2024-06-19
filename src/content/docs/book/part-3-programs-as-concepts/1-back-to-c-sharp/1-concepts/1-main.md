@@ -2,7 +2,7 @@
 title: Main Method
 ---
 
-When we were programming with C# in Part 1 we were using a language feature called [Top Level Statements](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/program-structure/top-level-statements). This feature lets you program instructions without needing to explicitly create a Main method - the C# equivalent of [main](/book/part-2-organised-code/1-starting-cpp/1-concepts/2-main-function) in C/C++.
+When we were programming with C# in Part 1 we were using a language feature called [Top Level Statements](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/program-structure/top-level-statements). This feature lets you program instructions without needing to explicitly create a Main method - the C# equivalent of [main](/book/part-2-organised-code/1-starting-cpp/2-trailside/2-main-function) in C/C++.
 
 Generally, these top level statements would only be used for small program scripts. Usually we would create a C# program that includes a Main method coded into a class.
 

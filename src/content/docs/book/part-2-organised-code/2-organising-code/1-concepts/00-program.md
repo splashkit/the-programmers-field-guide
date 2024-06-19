@@ -50,7 +50,7 @@ Here is the code of a program with functions.
 We have added comments to help you identify different parts of the syntax.
 Don't worry if you don't understand all of this -- we still need to explore most of these concepts.
 For now, focus on what looks different and what looks similar, and try to match the different sections with the syntax diagram above.
-Also take note of `int main()`, which defines the [entry point](/book/part-2-organised-code/1-starting-cpp/1-concepts/2-main-function) of the program.
+Also take note of `int main()`, which defines the [entry point](/book/part-2-organised-code/1-starting-cpp/2-trailside/2-main-function) of the program.
 
 ```cpp
 // includes and using statements
