@@ -2,7 +2,7 @@
 title: "Functions"
 ---
 
-Functions are used to **calculate values**. They are almost identical to procedures -- they have a name, contain instructions, and can be called to perform their actions. The *only* difference is what happens at the end. When a function ends, it [returns](/book/part-2-organised-code/2-organising-code/1-concepts/05-return) a value to the caller, whereas a procedure just ends. This means that procedures are called within [statements](/book/part-1-instructions/2-communicating-syntax/1-concepts/02-statement), whereas functions can be called within [expressions](/book/part-1-instructions/2-communicating-syntax/1-concepts/03-expression).
+Functions are used to **calculate values**. They are almost identical to procedures -- they have a name, contain instructions, and can be called to perform their actions. The *only* difference is what happens at the end. When a function ends, it [returns](/book/part-2-organised-code/2-organising-code/1-concepts/05-return) a value to the caller, whereas a procedure just ends. This means that procedures are called within [statements](/book/part-1-instructions/2-communicating-syntax/2-trailside/02-statement), whereas functions can be called within [expressions](/book/part-1-instructions/2-communicating-syntax/2-trailside/03-expression).
 
 ![A function is just like a method, except it calculates and returns a value](./images/function-concept.png "A function is just like a method, except it calculates and returns a value")
 
