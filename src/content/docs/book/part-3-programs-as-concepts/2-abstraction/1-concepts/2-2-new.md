@@ -7,7 +7,7 @@ sidebar:
 You create an object using the `new` operator.
 This is much the same as we discussed in [member functions](/book/part-2-organised-code/7-member-functions/1-concepts/1-1-constructor) in that it will do three things:
 
-1. Assigns space in memory for the object on the [heap](/book/part-2-organised-code/6-deep-dive-memory/1-concepts/01-heap).
+1. Assigns space in memory for the object on the [heap](/book/part-2-organised-code/6-deep-dive-memory/2-trailside/01-heap).
 2. Executes the constructor.
 3. Returns a reference to the new object's location in memory.
 
@@ -18,7 +18,7 @@ It can do this by using literal values, values passed in through a parameter, ca
 A constructor is often called as the expression within an assignment statement, so that the returned value can be stored in a variable.
 We can then use that variable to ask the object about things it knows, and to ask it to do things it can do.
 
-## In C#
+## In C #
 
 :::tip[Syntax]
 The syntax for calling a constructor in C# is shown below.

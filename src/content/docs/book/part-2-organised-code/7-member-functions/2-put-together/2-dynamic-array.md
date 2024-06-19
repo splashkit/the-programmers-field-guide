@@ -2,7 +2,7 @@
 title: Dynamic Array (v2)
 ---
 
-In [Chapter 2.6](/book/part-2-organised-code/6-deep-dive-memory/2-put-together/02-0-dynamic-array) we built out a dynamic array that captured the code needed to dynamically allocate memory. The main issue was that our dynamic array did not look like an array. We had to use functions and procedures to access it.
+In [Chapter 2.6](/book/part-2-organised-code/6-deep-dive-memory/1-tour/02-0-dynamic-array) we built out a dynamic array that captured the code needed to dynamically allocate memory. The main issue was that our dynamic array did not look like an array. We had to use functions and procedures to access it.
 
 Now that we have member functions, we can refactor this code so that everything for the dynamic array is nicely packaged with the struct. Other programmers can then easily see the features of the dynamic array as they use it. What is more, we can override the array access modifiers so that our dynamic array *looks like* a normal array. Once we have this in place, the dynamic array can easily be added to our existing projects where we previously had fixed length arrays.
 
@@ -33,7 +33,7 @@ In this case we have:
     - Set - changes a value in the array at a given index.
     - Operator[] returning both a T reference (`T&`) and a constant T reference (`const T&`).
 
-The great thing is that we already have all the logic for this in the functions and procedures we build in the [previous chapter](/book/part-2-organised-code/6-deep-dive-memory/2-put-together/02-0-dynamic-array). So our task is mostly about moving things around.
+The great thing is that we already have all the logic for this in the functions and procedures we build in the [previous chapter](/book/part-2-organised-code/6-deep-dive-memory/1-tour/02-0-dynamic-array). So our task is mostly about moving things around.
 
 ## Moving to Methods
 
@@ -42,12 +42,15 @@ We have functions and procedure, but we want methods. How do we achieve this cha
 1. Move the function/procedure into the struct's definition. This will particularly apply to the constructor and destructor.
 2. Rename the method as needed.
 3. Remove the struct parameter - we are now in the struct so we no longer need this parameter.
+
     ```cpp
     bool resize(dynamic_array<T> *array, unsigned int new_capacity)
     // becomes
     bool resize(unsigned int new_capacity)
     ```
+
 4. Change code that was reading or writing a value to a field. These no longer need to access the fields via the struct parameter (which we have already removed), and can access them via the `this` pointer, or by using the field name directly.
+
     ```cpp
     array->data = new_data;
     array->capacity = new_capacity;
@@ -58,13 +61,16 @@ We have functions and procedure, but we want methods. How do we achieve this cha
     data = new_data;
     capacity = new_capacity;
     ```
+
 5. We also had some additional checks that the parameter referred to a valid pointer (e.g. `if (!array) return false;`). It is possible that a call will occur on a `nullptr`, so we could check that `this` is valid, or we could remove these checks with a resulting error if the user does call it on an invalid pointer.
+
     ```cpp
     if (!array) return false;
     // becomes
     if (!this) return false;
     // or we can remove these for now
     ```
+
 6. Tidy up the constructor and destructor. Remove the code that allocated and freed the space for the struct itself, as this will now be handled by the `new` or `delete` call that triggers the constructor / destructor.
 7. Make sure everything is indented correctly, has meaningful identifiers, and compilers.
 
@@ -72,12 +78,15 @@ You will also need to adjust the test program. This should require only a few ch
 
 1. Change the constructor to call `new dynamic_array<int>(...)`. We named this in a similar way before, so it is just a case of removing the `_` between `new` and `dynamic_array`.
 2. Function and procedure calls need to move to method calls. This is just about reordering things a little. For example:
+
     ```cpp
     add(array, i);
     // becomes
     array->add(i);
     ```
+
 3. Delete the object at the end:
+
     ```cpp
     delete_dynamic_array(array);
     // becomes

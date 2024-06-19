@@ -4,7 +4,7 @@ title: Generics
 
 Ok, generics is not really related to memory management, but this is going to be really useful to know about as we start to build our own dynamic arrays to help handle memory efficiently.
 
-In the [dynamic arrays](/book/part-2-organised-code/6-deep-dive-memory/2-put-together/02-0-dynamic-array) task we will look at building our own structure to help manage arrays that can grow and shrink their allocations. Using the current tools we have, we would have to build this same code for each type. Giving us an `dynamic_int_array`, a `dynamic_double_array`, a `dynamic_user_array`, a `dynamic_currency_array`, and so on and so on. Each of these dynamic arrays would have *almost identical* code! The only difference would be the type of data that we store in the array.
+In the [dynamic arrays](/book/part-2-organised-code/6-deep-dive-memory/1-tour/02-0-dynamic-array) task we will look at building our own structure to help manage arrays that can grow and shrink their allocations. Using the current tools we have, we would have to build this same code for each type. Giving us an `dynamic_int_array`, a `dynamic_double_array`, a `dynamic_user_array`, a `dynamic_currency_array`, and so on and so on. Each of these dynamic arrays would have *almost identical* code! The only difference would be the type of data that we store in the array.
 
 When we have dealt with these kinds of similarities before we were able to abstract our code further by introducing things like variables, and loops, etc. If you think about this problem, what needs to change in this case?
 

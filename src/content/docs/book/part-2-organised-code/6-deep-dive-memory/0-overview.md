@@ -12,7 +12,7 @@ Using these tools you will be able to go beyond the limitations of the stack, wi
 
 This chapter introduces these new ideas:
 
-- The [heap](/book/part-2-organised-code/6-deep-dive-memory/1-concepts/01-heap) is an area in memory that the operating system reserves for dynamic memory allocation.
+- The [heap](/book/part-2-organised-code/6-deep-dive-memory/2-trailside/01-heap) is an area in memory that the operating system reserves for dynamic memory allocation.
 
 To access this you may need to revise:
 
@@ -22,7 +22,7 @@ To access this you may need to revise:
 
 We will see the instructions needed to:
 
-- [Allocate memory](/book/part-2-organised-code/6-deep-dive-memory/1-concepts/03-0-allocating-memory) for our program to use.
-- [Free memory](/book/part-2-organised-code/6-deep-dive-memory/1-concepts/04-freeing-memory) to return memory you have been allocated when you have finished with it.
+- [Allocate memory](/book/part-2-organised-code/6-deep-dive-memory/2-trailside/03-0-allocating-memory) for our program to use.
+- [Free memory](/book/part-2-organised-code/6-deep-dive-memory/2-trailside/04-freeing-memory) to return memory you have been allocated when you have finished with it.
 
 We will also explore revisit the issues around the use of pointers, and explore the new problems that arise from being responsible for memory allocation.

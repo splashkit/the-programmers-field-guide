@@ -26,7 +26,7 @@ Once you add this in, wait for the suggestion and check to make sure that it loo
 
 You want to make sure you have:
 
-- A template that declares `T` as a `typename`. See [generics](/book/part-2-organised-code/6-deep-dive-memory/1-concepts/07-generics).
+- A template that declares `T` as a `typename`. See [generics](/book/part-2-organised-code/6-deep-dive-memory/2-trailside/07-generics).
 - A `struct` called `dynamic_array`.
 - The required three fields
 

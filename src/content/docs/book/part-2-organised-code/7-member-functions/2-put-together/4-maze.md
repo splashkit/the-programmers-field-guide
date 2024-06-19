@@ -123,6 +123,6 @@ Compile and run the program, and you should be able to explore your maze. Make s
 
 ## Graphs
 
-Have you noticed how the structure of the maze is similar to a [linked list](/book/part-2-organised-code/6-deep-dive-memory/2-put-together/03-0-linked-list)?
+Have you noticed how the structure of the maze is similar to a [linked list](/book/part-2-organised-code/6-deep-dive-memory/1-tour/03-0-linked-list)?
 
 You can think of the maze as a graph, and the player is able to traverse that graph exploring the data along the way. While we used a game style theme here, the skills you develop by thinking and working through this will help you in other contexts that use graphs. For example, exploring connections in a social media graph, finding files in a file system, and many other applications.

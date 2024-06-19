@@ -7,7 +7,6 @@ sidebar:
 
 import MySwiper from '../../../../../../components/react/myswiper.jsx'
 
-
 import sliderReallocContiguous01 from './images/slider-realloc-contiguous/Slide1.png';
 import sliderReallocContiguous02 from './images/slider-realloc-contiguous/Slide2.png';
 import sliderReallocContiguous03 from './images/slider-realloc-contiguous/Slide3.png';
@@ -133,8 +132,6 @@ export const sliderReallocContiguous = [
     ]
   }
 ];
-
-
 
 import sliderReallocMoved01 from './images/slider-realloc-moved/Slide1.png';
 import sliderReallocMoved02 from './images/slider-realloc-moved/Slide2.png';
@@ -266,8 +263,6 @@ export const sliderReallocMoved = [
   }
 ];
 
-
-
 The advantage of dynamic memory allocation is that you can change your allocations. If you asked for an array of two values, you may later want to be able to expand that array to three or four elements. Alternatively, an array with twenty elements may have some data removed and be shrunk down to only 5 elements. All of this is possible with dynamic memory allocation. You can ask to have the memory you were allocated changed to a different size.
 
 <a id="FigureArraySizeChange"></a>
@@ -277,7 +272,7 @@ The advantage of dynamic memory allocation is that you can change your allocatio
 
 :::note
 
-- These reallocations will keep the data that was in the array previously. Obviously if the new allocation is smaller than than existing one you will lose some values, but the others are kept. 
+- These reallocations will keep the data that was in the array previously. Obviously if the new allocation is smaller than than existing one you will lose some values, but the others are kept.
 - It is possible that the Operating System will need to move your new allocation, so if you change the size of an array you need to be careful if other pointers refer to elements in their old locations.
 
 :::
@@ -347,6 +342,7 @@ int main()
     return 0;
 }
 ```
+
 <div class="caption">Example calls to <code>realloc</code></div>
 
 Notice how we use an if statement to check if the realloc worked. If it did, we update the pointer, otherwise it retains its original value.
@@ -357,9 +353,10 @@ To make this work in reality we would need to put this in a struct where we also
 
 - `realloc` allows you to *reallocate memory* for a pointer.
 - You need to include **stdlib.h** to use `realloc`.
-- `ptr` must be a`NULL`, or a pointer to a memory block on the heap, i.e. space previously allocated with `malloc`, `calloc`, or `realloc`. 
+- `ptr` must be a`NULL`, or a pointer to a memory block on the heap, i.e. space previously allocated with `malloc`, `calloc`, or `realloc`.
 - `realloc` returns `NULL` if it fails to allocate memory.
 - `realloc` may need to move the memory allocation, so you need to assign the result to a pointer as it may differ from the value passed to the `ptr` parameter.
+
 :::
 
 <br/>
@@ -371,14 +368,15 @@ Navigate the slide-show below to understand how realloc works when the memory re
 <MySwiper client:only height="" images={sliderReallocContiguous}></MySwiper>
 
 ### Realloc (allocation at new address)
-Navigate the slide-show below to understand how realloc works when the memory reallocation happens to shift from it's original memory space to a new area 
+
+Navigate the slide-show below to understand how realloc works when the memory reallocation happens to shift from it's original memory space to a new area
 
 <br/>
 <MySwiper client:only height="" images={sliderReallocMoved}></MySwiper>
 
 ## Reallocating multidimensional arrays
 
-If you need to change the allocation of a multidimensional array, the implications will depend on how this is implemented. If you have a [ragged array](/book/part-2-organised-code/6-deep-dive-memory/1-concepts/03-3-ragged-array), then you can reallocate each of the points, giving you the ability to resize different parts of the array as you go. With a rectangular array, you can resize associated memory and then move values from their old positions to their new positions. When you do this, you need to make sure you do this from the end of the old array back to the start.
+If you need to change the allocation of a multidimensional array, the implications will depend on how this is implemented. If you have a [ragged array](/book/part-2-organised-code/6-deep-dive-memory/2-trailside/03-3-ragged-array), then you can reallocate each of the points, giving you the ability to resize different parts of the array as you go. With a rectangular array, you can resize associated memory and then move values from their old positions to their new positions. When you do this, you need to make sure you do this from the end of the old array back to the start.
 
 :::note
 
