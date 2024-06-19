@@ -77,6 +77,10 @@ do
 
     // End the line...
     WriteLine();
+    WriteLine();
+
+    Write("Run again? Y/n: ");
+    again = ReadLine();
 } while (again != "n" && again != "N");
 ```
 

@@ -2,7 +2,27 @@
 title: Revised Change Calculator
 ---
 
-For our first project, lets revisit and enhance the change calculator. The [original version](/book/part-1-instructions/1-sequence-and-data/1-tour/01-00-change-calculator) used sequence and data, but did not take advantage of control flow. Hopefully your testing identified some issues with this program's code -- control flow can help us address these now.
+For our first project, let's build a change calculator.
+
+This program will perform the steps to calculate the ideal change to give for a purchase. For example, for $6.50 in change it should give you three $2 coins and one 50c coin.
+
+```txt title="Terminal output example (not code)"
+Cost of item (in cents): 15
+Amount paid (in cents): 500
+Change: 2 x $2, 0 x $1, 1 x 50c, 1 x 20c, 1 x 10c, 1 x 5c
+
+Run again? Y/n: Y
+Cost of item (in cents): 150
+Amount paid (in cents): 250
+Change: 0 x $2, 1 x $1, 0 x 50c, 0 x 20c, 0 x 10c, 0 x 5c
+
+Run again? Y/n: Y
+Cost of item (in cents): 175 
+Amount paid (in cents): 200
+Change: 0 x $2, 0 x $1, 0 x 50c, 1 x 20c, 0 x 10c, 1 x 5c
+
+Run again? Y/n: n
+```
 
 New requirements:
 
