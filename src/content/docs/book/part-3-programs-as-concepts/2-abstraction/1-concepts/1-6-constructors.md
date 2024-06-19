@@ -8,7 +8,7 @@ Constructors are the last thing we need to look at in terms of the code in our c
 
 A **constructor** is a special method that is called when an object is created. It is used to initialise the fields and perform any actions we need performed when the object is created, and before it is available for others to use.
 You can think of a constructor as a kind of doing responsibility.
-We briefly explored the idea of [constructors](/book/part-2-organised-code/7-member-functions/1-concepts/1-1-constructor) in the member functions chapter.
+We briefly explored the idea of [constructors](/book/part-2-organised-code/7-member-functions/2-trailside/1-1-constructor) in the member functions chapter.
 
 ## Constructor: Why, When, and How
 
@@ -16,7 +16,7 @@ It is always a good idea to provide a constructor for your classes. You can use 
 
 A constructor with no parameters is known as the **default constructor** as this constructor is called when no arguments are passed in to the respective `new` call.
 
-## In C#
+## In C #
 
 :::tip[Syntax]
 The syntax for declaring a constructor in a C# class is shown below.

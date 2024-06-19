@@ -2,7 +2,7 @@
 title: Static methods
 ---
 
-In C#, all methods must be declared within classes or structs. Normally you will need an [object](/book/part-2-organised-code/7-member-functions/1-concepts/1-0-struct-members#referring-to-struct-values-as-objects) upon which you will call any method.
+In C#, all methods must be declared within classes or structs. Normally you will need an [object](/book/part-2-organised-code/7-member-functions/2-trailside/1-0-struct-members#referring-to-struct-values-as-objects) upon which you will call any method.
 
 This results in one challenge, how do you create methods like `Main` which can be accessed without an object? After all, `Main` needs to be called before we have the chance to create any objects.
 
@@ -18,11 +18,11 @@ Here are some examples of static methods we have been using previously:
 - The `Convert` class contains static methods to convert data between common data types.
 - The `SplashKit` class contains static methods to call its various functions.
 
-## In C#
+## In C #
 
 :::tip[Syntax]
 
-The following diagram shows the syntax for method declarations in C#. These are the C# equivalent of the [member functions](/book/part-2-organised-code/7-member-functions/1-concepts/1-2-methods) in C++.
+The following diagram shows the syntax for method declarations in C#. These are the C# equivalent of the [member functions](/book/part-2-organised-code/7-member-functions/2-trailside/1-2-methods) in C++.
 
 ![Syntax for methods in C#](./images/method.png)
 
@@ -54,7 +54,7 @@ class MyProgram
 }
 ```
 
-As you read over the code you should be able to link the code with concepts you are already familiar with: 
+As you read over the code you should be able to link the code with concepts you are already familiar with:
 
 - Variable declarations are the same as we saw in Part 1.
 - Parameters use a very similar format as we used in C/C++.

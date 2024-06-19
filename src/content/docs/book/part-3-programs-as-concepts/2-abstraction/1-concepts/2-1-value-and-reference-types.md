@@ -33,7 +33,7 @@ You do not generally see the use of structs in most C# programs. These should be
 
 ## Reference Types
 
-A reference type variable stores a reference to a value on the heap, equivalent to a pointer variable in C/C++. When you declare the variable, you are getting space to store a reference (pointer). Reading the variable gets a copy of the reference. To create a value of the reference type you need to use the `new` keyword. This creates the [object](/book/part-2-organised-code/7-member-functions/1-concepts/1-0-struct-members#referring-to-struct-values-as-objects) and returns a reference.
+A reference type variable stores a reference to a value on the heap, equivalent to a pointer variable in C/C++. When you declare the variable, you are getting space to store a reference (pointer). Reading the variable gets a copy of the reference. To create a value of the reference type you need to use the `new` keyword. This creates the [object](/book/part-2-organised-code/7-member-functions/2-trailside/1-0-struct-members#referring-to-struct-values-as-objects) and returns a reference.
 
 ![Illustration of reference types](./images/ref-type-concept.png)
 

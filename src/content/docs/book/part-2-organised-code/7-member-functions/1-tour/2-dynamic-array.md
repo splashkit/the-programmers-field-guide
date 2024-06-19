@@ -10,7 +10,7 @@ Now that we have member functions, we can refactor this code so that everything 
 
 A means of visually capturing the design for our updated `dynamic_array` struct can help make it easy to communicating how the code is to work. The following is a basic **UML class diagram**, which we can use to capture the details of our struct.
 
-![Overview of the dynamic array struct](./images/../../1-concepts/images/dynamic-array-design.png)
+![Overview of the dynamic array struct](./images/dynamic-array-design.png)
 
 The diagram shows the details of our struct in a rectangle that is divided into three sections. At the top we have the details of the type, its name and annotations to indicate things like the fact this is a struct. The middle section indicates the things objects of this type will know - the fields of the struct. The bottom third lists the constructors, destructor, and methods that capture what the objects can do.
 

@@ -5,7 +5,7 @@ sidebar:
 ---
 
 Objects of a class will have responsibilities to be able to *do things*.
-These responsibilities are coded as **methods** within the class, in the same way we saw in the [member functions](/book/part-2-organised-code/7-member-functions/1-concepts/1-2-methods) chapter.
+These responsibilities are coded as **methods** within the class, in the same way we saw in the [member functions](/book/part-2-organised-code/7-member-functions/2-trailside/1-2-methods) chapter.
 
 A class can have any number of methods.
 Methods inside a class are very similar to the [functions and procedure](/book/part-2-organised-code/2-organising-code/2-trailside/01-0-functions-and-procedures) we coded in procedural programs: they still have an identifier, can have parameters, and can return a value.
