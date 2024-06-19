@@ -1,0 +1,89 @@
+---
+title: Step 3 - Drawing Shapes
+sidebar:
+  label: " - Drawing Shapes"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+With the window appearing, the next step is to draw some shapes. To start, let's get the hill drawing.
+
+![Hill output](./images/hill-shown.png)
+
+*How do you position a shape on the screen?*
+
+Your window is organised to have a number of discrete picture elements (small dots called pixels) that you can draw to. When you created the window you said how many pixels wide it will be, and how many pixels high. The different drawing methods will all need you to pass in coordinates for where the shape should appear.
+
+![Pixel locations are based on x and y locations](../2-trailside/images/window-pixels.png)
+
+:::caution
+
+Remember the top left is 0,0 (x = 0 and y = 0). The value of y will increase as you go down the window, and the value of x will increase as you go to the right.
+
+:::
+
+The best way to plan this out is to sketch what you want and to try to figure out where each shape needs to be drawn. Below is an illustration of the plan for the house drawing. We need to clear the screen white, draw a green ellipse for the hill, then a grey rectangle, and finally a red triangle.
+
+![House plan illustration](./images/house-plan.png)
+
+1. Start by clearing the screen and drawing the filled ellipse.
+
+    :::tip
+    - `ClearScreen` needs a color argument - you could pass it `ColorWhite()`.
+    - `FillEllipse` needs a color (use `ColorBrightGreen`) then four numbers - the top left coordinate (0, 400), and then the width and height (800, 400)
+    :::
+
+    <Accordion>
+      <AccordionItem header="Drawing the hill">
+
+      ```cs {6-7}
+      using static System.Convert;
+      using static SplashKitSDK.SplashKit;
+
+      OpenWindow("House Drawing by Andrew", 800, 600);
+
+      ClearScreen(ColorWhite());
+      FillEllipse(ColorBrightGreen(), 0, 400, 800, 400);
+
+      Delay(5000);
+      ```
+
+      </AccordionItem>
+    </Accordion>
+
+    :::caution[Where is my image?]
+    Don't panic when you compile and run this... there is one more thing we need to do to show the scene to the user.
+    :::
+
+2. Compile and run this... you should not see the shape! Why? SplashKit gives you the control of when things are shown to the user. To show the image you have created you need to call `RefreshScreen`. This will show the user what you have drawn.
+
+    :::tip[Think sequence!]
+    Make sure to refresh the screen **before** you delay.
+    :::
+
+    <Accordion>
+      <AccordionItem header="Making it appear!">
+
+      ```cs {9}
+      using static System.Convert;
+      using static SplashKitSDK.SplashKit;
+
+      OpenWindow("House Drawing by Andrew", 800, 600);
+
+      ClearScreen(ColorWhite());
+      FillEllipse(ColorBrightGreen(), 0, 400, 800, 400);
+
+      RefreshScreen();
+
+      Delay(5000);
+      ```
+
+      </AccordionItem>
+    </Accordion>
+
+3. Compile and run again. You should now see the white background and the green hill.
+
+:::note[Are these hard-coded values ok?]
+
+For this program we are just wanting to draw some fixed shapes, so we can tolerate these hard-coded values for now.
+
+:::
