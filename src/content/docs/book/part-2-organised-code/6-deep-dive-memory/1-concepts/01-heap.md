@@ -64,7 +64,7 @@ This raises one very important question, as illustrated in [Figure x.y](#FigureA
 
 > If the values exist outside of variables, how do you access them?
 
-The answer to this is via [pointers](/book/part-2-organised-code/4-indirect-access/1-concepts/02-00-pointer). As we have seen, pointers allow you to store a value that tells you where the data you want is located. We have used this to access variables stored in other functions/procedures on the stack, and we can use these now to also access values on the heap.
+The answer to this is via [pointers](/book/part-2-organised-code/4-indirect-access/2-trailside/02-00-pointer). As we have seen, pointers allow you to store a value that tells you where the data you want is located. We have used this to access variables stored in other functions/procedures on the stack, and we can use these now to also access values on the heap.
 
 <a id="FigureAccessingMemory"></a>
 

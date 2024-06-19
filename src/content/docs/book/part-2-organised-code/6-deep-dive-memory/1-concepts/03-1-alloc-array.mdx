@@ -6,7 +6,6 @@ sidebar:
 
 import MySwiper from '../../../../../../components/react/myswiper.jsx'
 
-
 import sliderAllocateArray01 from './images/slider-allocate-array/Slide1.png';
 import sliderAllocateArray02 from './images/slider-allocate-array/Slide2.png';
 import sliderAllocateArray03 from './images/slider-allocate-array/Slide3.png';
@@ -109,11 +108,11 @@ Storing single values on the heap can be useful, but often you want to be able t
 
 ## In C/C++
 
-In C you can use `malloc` to allocate space for a number of elements. Alternatively the `calloc` function from `stdlib.h` provides direct support for allocating space for an array. This function takes two parameter, the first takes the number of elements to allocation, the second the size of those elements. `calloc` also clears its allocation, setting each byte allocated to 0. 
+In C you can use `malloc` to allocate space for a number of elements. Alternatively the `calloc` function from `stdlib.h` provides direct support for allocating space for an array. This function takes two parameter, the first takes the number of elements to allocation, the second the size of those elements. `calloc` also clears its allocation, setting each byte allocated to 0.
 
 The following code allocates 4 integer values as shown in [Figure x.y](#FigureArrayAllocateMemory): `p = (int*) malloc(4 * sizeof(int));` or using `calloc`, which would set all values to 0, you could use `p = (int*) calloc(4, sizeof(int));`
 
-In C you can use the standard array access mechanisms with pointers to access subsequent elements. So `p[0]` is the value in the first element of the array dynamically allocated in [Figure x.y](#FigureArrayAllocateMemory), `p[1]` is the value of the second element, `p[2]` is the value of the third element, and so on. This relates back to pointer arithmetic discussed when we first looked at [pointers](/book/part-2-organised-code/4-indirect-access/1-concepts/02-01-pointer-use), and mirrors the way we used [arrays](/book/part-2-organised-code/5-working-with-multiples/1-concepts/00-05-array-params) when passed to parameters.
+In C you can use the standard array access mechanisms with pointers to access subsequent elements. So `p[0]` is the value in the first element of the array dynamically allocated in [Figure x.y](#FigureArrayAllocateMemory), `p[1]` is the value of the second element, `p[2]` is the value of the third element, and so on. This relates back to pointer arithmetic discussed when we first looked at [pointers](/book/part-2-organised-code/4-indirect-access/2-trailside/02-01-pointer-use), and mirrors the way we used [arrays](/book/part-2-organised-code/5-working-with-multiples/1-concepts/00-05-array-params) when passed to parameters.
 
 ## Array Allocation: Why, When, and How
 
@@ -165,6 +164,7 @@ int main()
     return 0;
 }
 ```
+
 <br/>
 Navigate the slide-show below which details the steps for allocating space for an array of 4 elements.
 <br/>

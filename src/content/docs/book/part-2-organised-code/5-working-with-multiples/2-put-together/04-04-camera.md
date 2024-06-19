@@ -76,7 +76,7 @@ In this section we have seen how to map between two sets of array indexes. Allow
 
 One thing you may have wondered is the impact of drawing all the tiles, when only some appear on the screen. We should be able to optimise this by only drawing the tiles that are actually on the screen. Let's see how to do that next.
 
-If we think about a really large map, most of it will not be drawn to the screen. At the moment, our code loops over *all* tiles in the map even though only some will actually appear. This is wasted effort which we can avoid. 
+If we think about a really large map, most of it will not be drawn to the screen. At the moment, our code loops over *all* tiles in the map even though only some will actually appear. This is wasted effort which we can avoid.
 
 The following image gives some ideas on how we can optimise this. Rather than looping from the fist to last column and then the first to last row, we can loop over only a part of these. We need to identify the first column that will appear on the screen and the last column to appear, as the same with the rows. Then you can adjust the loop to only access tiles at these values. This will improve performance by reducing wasted effort.
 
@@ -118,7 +118,7 @@ For example, at the start of the program the map is showing column 0 on the left
 
 *So what is being accessed?*
 
-Array access in C/C++ is based on the distance from the first element. If you access a negative index, then the compiler does not stop you (what were they thinking!) it just accesses data that appears in memory before the array declaration. This may result in a [segmentation fault](/book/part-2-organised-code/4-indirect-access/1-concepts/02-04-segfault) if you access data you shouldn't, but otherwise... it works.
+Array access in C/C++ is based on the distance from the first element. If you access a negative index, then the compiler does not stop you (what were they thinking!) it just accesses data that appears in memory before the array declaration. This may result in a [segmentation fault](/book/part-2-organised-code/4-indirect-access/2-trailside/02-04-segfault) if you access data you shouldn't, but otherwise... it works.
 
 :::caution
 

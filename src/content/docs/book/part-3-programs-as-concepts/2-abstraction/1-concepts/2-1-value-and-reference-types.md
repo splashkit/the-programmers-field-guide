@@ -6,7 +6,7 @@ sidebar:
 
 In order to understand objects in C#, we need to know that there are two different kinds of types in C#: **value types** and **reference types**. These impact what is stored in the variables of these types.
 
-In Part 2 we looked at the idea of [pointers and references](/book/part-2-organised-code/4-indirect-access/1-concepts/02-02-pointers-ref) and using these to indirectly access values. This idea is very powerful, but working manually with memory and memory management is very challenging.
+In Part 2 we looked at the idea of [pointers and references](/book/part-2-organised-code/4-indirect-access/2-trailside/02-02-pointers-ref) and using these to indirectly access values. This idea is very powerful, but working manually with memory and memory management is very challenging.
 
 To get around this, languages like C# give you a safer environment in which to work by focusing on references. C# does not have pointers, but instead distinguishes between two different kinds of type, being **value types** and **reference types** as noted above.
 
