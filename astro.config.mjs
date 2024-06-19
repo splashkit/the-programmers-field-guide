@@ -1052,12 +1052,7 @@ export default defineConfig({
             //     },
             //     {
             //       label: "Guided Tour",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/5-collaboration-encapsulation/1-tour",
-            //         collapsed: true,
-            //       },
+            //       link: "book/part-3-programs-as-concepts/5-collaboration-encapsulation/1-tour",
             //     },
             //     {
             //       label: "Trailside Ponder",
@@ -1088,25 +1083,26 @@ export default defineConfig({
             //       link: "book/part-3-programs-as-concepts/6-structured-error-handling/0-overview",
             //     },
             //     {
-            //       label: "Concepts",
+            //       label: "Guided Tour",
+            //       link: "book/part-3-programs-as-concepts/6-structured-error-handling/1-tour",
+            //     },
+            //     {
+            //       label: "Trailside Ponder",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
-            //           "book/part-3-programs-as-concepts/6-structured-error-handling/1-concepts",
+            //           "book/part-3-programs-as-concepts/6-structured-error-handling/2-trailside",
             //         collapsed: true,
             //       },
             //     },
             //     {
-            //       label: "Putting it Together",
-            //       link: "book/part-3-programs-as-concepts/6-structured-error-handling/2-put-together",
-            //     },
-            //     {
-            //       label: "Other Languages",
-            //       link: "book/part-3-programs-as-concepts/6-structured-error-handling/3-other-languages",
-            //     },
-            //     {
-            //       label: "Activities",
-            //       link: "book/part-3-programs-as-concepts/6-structured-error-handling/4-activities",
+            //       label: "Go Exploring",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-3-programs-as-concepts/6-structured-error-handling/3-explore",
+            //         collapsed: true,
+            //       },
             //     },
             //   ],
             // },
