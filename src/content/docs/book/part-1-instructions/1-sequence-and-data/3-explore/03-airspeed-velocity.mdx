@@ -28,12 +28,12 @@ My plan for this program involves the following steps:
 3. Calculate min and max speeds.
 4. Output results.
 
-When the program starts, we can output a few messages to let the user know what the program does. This can be a sequence of calls to `WriteLine` from `System.Console`.
+When the program starts, we can output a few messages to let the user know what the program does. This can be a sequence of calls to `WriteLine`.
 
 Reading in the bird's name will be relatively straightforward.
 We can use `Write` to display a prompt asking the user to enter a bird name, and then use `ReadLine` to get a value we then store in a variable.
 
-With frequency and amplitude, we will require the extra step to convert the user's input to a number. These will need to be `double` values, and any loss of precision will not cause issues. To do the conversion we can call `ToDouble` from C#'s `System.Convert`. This is very similar to what we did in the change calculator, just for a double instead of an integer.
+With frequency and amplitude, we will require the extra step to convert the user's input to a number. These will need to be `double` values, and any loss of precision will not cause issues. To do the conversion we can call `ToDouble` from C#'s `System.Convert`.
 
 To calculate the min and max speeds we can use the equation that we noted above, using variables to store the results. These can then be used in the "output results" step, where we can call `WriteLine` to output the calculated details.
 
@@ -97,4 +97,4 @@ Build and run this in small steps:
 
 ## Wrap Up
 
-Notice that the process for building this program was the same as the change calculator. Think about the algorithm, identify any things you need in the code (variables and constants), then code by building out the plan little by little. As you write more programs you will get very used to this process.
+Think about the algorithm, identify any things you need in the code (variables and constants), then code by building out the plan little by little. As you write more programs you will get very used to this process.

@@ -7,7 +7,7 @@ This will help you practice how to think through algorithms to draw shapes.
 
 ## The Algorithm
 
-Drawing something to the screen needs us to think through the algorithm in the same way as we did for the change calculator and the airspeed programs. In the [multimedia primer](/book/part-1-instructions/1-sequence-and-data/2-trailside/11-2-graphics) there is a list of different methods that we can call to perform the drawing for us, so we just need to work out what values we need to provide these methods.
+Drawing something to the screen needs us to think through the algorithm. In the [multimedia primer](/book/part-1-instructions/1-sequence-and-data/2-trailside/11-2-graphics) there is a list of different methods that we can call to perform the drawing for us, so we just need to work out what values we need to provide these methods.
 
 We can start by planning out the algorithm at a high level, and then work out the details. The plan we came up within involves the following steps:
 
@@ -23,7 +23,7 @@ Setting up the coordinates will require us to think through the values that we n
 
 ![A plan for the water bottle](./images/water-bottle-plan.png)
 
-Showing a welcome message and reading in values from the user will involve the same steps that we saw in the change calculator and the airspeed programs.
+Showing a welcome message and reading in values from the user will involve the same steps we have seen in our other programs.
 Once we have a percentage value from the user, we can convert it to a value between 0 and 1, then multiply this by the bottle's height to work out the height of the water.
 If the user enters the percent fill as an integer, then we can divide the value they entered by 100 to achieve this.
 For example, 15% full would be stored as `15 / 100` = `0.15`, and a bottle height of 100 pixels would then result in a water height of `0.15 * 100` = `15` pixels.
