@@ -968,25 +968,40 @@ export default defineConfig({
             //       link: "book/part-3-programs-as-concepts/3-unit-testing/0-overview",
             //     },
             //     {
-            //       label: "Concepts",
+            //       label: "Guided Tour",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
-            //           "book/part-3-programs-as-concepts/3-unit-testing/1-concepts",
+            //           "book/part-3-programs-as-concepts/3-unit-testing/1-tour",
             //         collapsed: true,
             //       },
             //     },
             //     {
-            //       label: "Putting it Together",
-            //       link: "book/part-3-programs-as-concepts/3-unit-testing/2-put-together",
+            //       label: "Trailside Ponder",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-3-programs-as-concepts/3-unit-testing/2-trailside",
+            //         collapsed: true,
+            //       },
             //     },
             //     {
-            //       label: "Other Languages",
-            //       link: "book/part-3-programs-as-concepts/3-unit-testing/3-other-languages",
+            //       label: "Go Exploring",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-3-programs-as-concepts/3-unit-testing/3-explore",
+            //         collapsed: true,
+            //       },
             //     },
             //     {
-            //       label: "Activities",
-            //       link: "book/part-3-programs-as-concepts/3-unit-testing/4-activities",
+            //       label: "Campsite Reflection",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-3-programs-as-concepts/3-unit-testing/4-camp",
+            //         collapsed: true,
+            //       },
             //     },
             //   ],
             // },
