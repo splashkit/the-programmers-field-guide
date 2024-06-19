@@ -2,7 +2,7 @@
 title: The Stack
 ---
 
-As we saw in the control flow chapter, [the stack](/book/part-1-instructions/3-control-flow/1-concepts/02-1-scope) is the name of a location in memory where the computer stores local variables. Each block creates a new scope that allows local variables to be added to the top of the stack. When the block ends, its memory allocation in the stack is freed to be used by other variables.
+As we saw in the control flow chapter, [the stack](/book/part-1-instructions/3-control-flow/2-trailside/02-1-scope) is the name of a location in memory where the computer stores local variables. Each block creates a new scope that allows local variables to be added to the top of the stack. When the block ends, its memory allocation in the stack is freed to be used by other variables.
 
 With function and procedure calls, we add a new kind of block that can be added to the stack. In addition to local variables, the stack maintains all the data needed to make function and procedure calls work. We saw this a little in the original details on [method calls](/book/part-1-instructions/1-sequence-and-data/2-trailside/03-method-call) where we saw how the program counter was maintained on the stack for a single method call.
 

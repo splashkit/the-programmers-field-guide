@@ -188,9 +188,9 @@ The continue statement is used to jump back to the condition of the current loop
 
 ## Continue -- when, why, and how?
 
-Like [break](/book/part-1-instructions/3-control-flow/1-concepts/05-1-break), the continue statement isn't something you use often. Most of the time you will want to execute the entire body of a loop. However, when needed you can use `continue` skip an iteration. This is typically done by using continue within a [branching statement](/book/part-1-instructions/3-control-flow/1-concepts/03-0-branching).
+Like [break](/book/part-1-instructions/3-control-flow/2-trailside/05-1-break), the continue statement isn't something you use often. Most of the time you will want to execute the entire body of a loop. However, when needed you can use `continue` skip an iteration. This is typically done by using continue within a [branching statement](/book/part-1-instructions/3-control-flow/2-trailside/03-0-branching).
 
-When you use continue in a [for loop](/book/part-1-instructions/3-control-flow/1-concepts/04-3-for-loop), the post-loop increment will still be executed to ensure that you move to the next value in the control variable. In a [while loop](/book/part-1-instructions/3-control-flow/1-concepts/04-1-while-loop), you need to make sure you have updated the condition before the continue statement so that you do not end up in an infinite loop.
+When you use continue in a [for loop](/book/part-1-instructions/3-control-flow/2-trailside/04-3-for-loop), the post-loop increment will still be executed to ensure that you move to the next value in the control variable. In a [while loop](/book/part-1-instructions/3-control-flow/2-trailside/04-1-while-loop), you need to make sure you have updated the condition before the continue statement so that you do not end up in an infinite loop.
 
 ## In C #
 
@@ -255,6 +255,6 @@ while (i < 11)
 :::note[Summary]
 
 - The continue statement is an **instruction** allowing you to jump to the condition of the current loop.
-- The continue statement should be coded within a [branching](/book/part-1-instructions/3-control-flow/1-concepts/03-0-branching) statement that checks if the loop should skip processing of the current cycle.
+- The continue statement should be coded within a [branching](/book/part-1-instructions/3-control-flow/2-trailside/03-0-branching) statement that checks if the loop should skip processing of the current cycle.
 
 :::

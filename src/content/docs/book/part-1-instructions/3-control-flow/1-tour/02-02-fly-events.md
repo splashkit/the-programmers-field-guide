@@ -49,7 +49,7 @@ Steps:
 
 ## Loop until quit
 
-With the basic details drawn, we can now place this within an [event loop](/book/part-1-instructions/3-control-flow/1-concepts/04-1-while-loop#event-loops---dynamic-graphical-programs). This will loop **while** the user has not asked to quit, with each loop clearing the screen, drawing the game, and processing any events the user has performed. This is captured in the following flowchart.
+With the basic details drawn, we can now place this within an [event loop](/book/part-1-instructions/3-control-flow/2-trailside/04-1-while-loop#event-loops---dynamic-graphical-programs). This will loop **while** the user has not asked to quit, with each loop clearing the screen, drawing the game, and processing any events the user has performed. This is captured in the following flowchart.
 
 ![The flow chart showing the event loop for the fly catch game](./images/fly-catch-events.png)
 
@@ -82,7 +82,7 @@ Create a new project for this, and code the program's instructions using the abo
 
 We will need to use the following SplashKit methods to get this working:
 
-- [Quit Requested](https://splashkit.io/api/input/#quit-requested) - This returns true when the user has asked to close the program. You can use this in the loop 
+- [Quit Requested](https://splashkit.io/api/input/#quit-requested) - This returns true when the user has asked to close the program. You can use this in the loop
 - [Process Events](https://splashkit.io/api/input/#process-events) - This listens to events such as keystrokes, mouse clicks, quit, etc.
 
 These methods have the following signatures:
@@ -95,7 +95,7 @@ public static bool QuitRequested();
 public static void ProcessEvents();
 ```
 
-There is an example of this logic on the [while loop page](/book/part-1-instructions/3-control-flow/1-concepts/04-1-while-loop/#event-loops---dynamic-graphical-programs), and remember you can check our version of the code in the [wrap up](/book/part-1-instructions/3-control-flow/5-wrapup/3-fly-catch-events) section if you get stuck.
+There is an example of this logic on the [while loop page](/book/part-1-instructions/3-control-flow/2-trailside/04-1-while-loop/#event-loops---dynamic-graphical-programs), and remember you can check our version of the code in the [wrap up](/book/part-1-instructions/3-control-flow/4-camp/3-fly-catch-events) section if you get stuck.
 
 :::tip[Where is the game?]
 Start to think about where the game really is occurring. You will see it on the screen, but the game actually exists within the data that we have created within this program. Try to picture the spider when you read the code -- it is a little hard to see at the moment as we only have individual variables.

@@ -90,7 +90,7 @@ Write($"{toGive} x {coinText}");
 
 Notice this has moved away from mentioning any specific coin or literal value, and allows us to work with any coin value by using `coinValue` and `coinText` variables.
 
-Now we can **repeat** this once for each coin, which will require us to think about this logic. We can use a [for loop](/book/part-1-instructions/3-control-flow/1-concepts/04-3-for-loop) to achieve this, as there is a set number of coins that we need to iterate through. This gives us the following pseudocode:
+Now we can **repeat** this once for each coin, which will require us to think about this logic. We can use a [for loop](/book/part-1-instructions/3-control-flow/2-trailside/04-3-for-loop) to achieve this, as there is a set number of coins that we need to iterate through. This gives us the following pseudocode:
 
 ```txt
   for each kind of coin
@@ -120,7 +120,7 @@ for i = 0; **while** i < NUM_COIN_TYPE; **then** i++
 
 Within the loop, we need to set the values for `coinValue` and `coinText`. For the moment, we can use the control variable `i` to determine which values to use. When `i` is 0, we need to use $2, when it is 1 we need to use $1, and so on.
 
-This is a great example of where we can use a [case statement](/book/part-1-instructions/3-control-flow/1-concepts/03-2-case). The following pseudocode shows how this might look:
+This is a great example of where we can use a [case statement](/book/part-1-instructions/3-control-flow/2-trailside/03-2-case). The following pseudocode shows how this might look:
 
 ```txt
 for each kind of coin (i loops 0 < 6)

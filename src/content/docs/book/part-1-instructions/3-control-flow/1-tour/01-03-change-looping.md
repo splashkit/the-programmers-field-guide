@@ -53,5 +53,5 @@ Notice how we can combine the blocks, nesting the existing algorithm within the 
 Go ahead and try implementing this. Match up the location of the `do while` loop, and use the examples to help you with the syntax. Compile, run, and test. Make sure that you can loop multiple times, and exit when you want.
 
 :::tip
-Make sure that you nest the existing code within the loop as a [compound statement](/book/part-1-instructions/3-control-flow/1-concepts/02-0-compound-statement). Once you code the loop you can select the existing code in Visual Studio Code and press *tab* to indent it all one level further. You can also right-click and select "Format Document" to help with code layout.
+Make sure that you nest the existing code within the loop as a [compound statement](/book/part-1-instructions/3-control-flow/2-trailside/02-0-compound-statement). Once you code the loop you can select the existing code in Visual Studio Code and press *tab* to indent it all one level further. You can also right-click and select "Format Document" to help with code layout.
 :::

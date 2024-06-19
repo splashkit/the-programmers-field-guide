@@ -20,7 +20,7 @@ We don't want the fly always being in the center of the screen -- we need to ran
 
 ## Timing Appearing
 
-One of the game features we wanted was that the fly should not appear straight away, but appear after a short delay (lets say between 1 and 3 seconds). In order to hide the fly, we need to add an **if** statement around the drawing code so that we only draw the fly if it has appeared. We can track if the fly has appeared using a [boolean](/book/part-1-instructions/3-control-flow/1-concepts/01-0-boolean-data) variable. This can start `false`, change to `true` when sufficient time has passed.
+One of the game features we wanted was that the fly should not appear straight away, but appear after a short delay (lets say between 1 and 3 seconds). In order to hide the fly, we need to add an **if** statement around the drawing code so that we only draw the fly if it has appeared. We can track if the fly has appeared using a [boolean](/book/part-1-instructions/3-control-flow/2-trailside/01-0-boolean-data) variable. This can start `false`, change to `true` when sufficient time has passed.
 
 :::tip[Boolean Variables]
 Boolean variables are a great way to remember if something has or should happen. This feature can then exist as something within your digital reality.

@@ -15,7 +15,7 @@ As with C#, you can also use `continue` and `break` within loops to jump back to
 
 ## Example
 
-Here is the example SplashKit event loop from the [while loop](/book/part-1-instructions/3-control-flow/1-concepts/04-1-while-loop#event-loops---dynamic-graphical-programs) page.
+Here is the example SplashKit event loop from the [while loop](/book/part-1-instructions/3-control-flow/2-trailside/04-1-while-loop#event-loops---dynamic-graphical-programs) page.
 
 ```cpp
 #include "splashkit.h"
@@ -35,7 +35,7 @@ int main()
 }
 ```
 
-Here is the C/C++ version of the [do while loop](/book/part-1-instructions/3-control-flow/1-concepts/04-2-do-while#how-does-do-while-work) example.
+Here is the C/C++ version of the [do while loop](/book/part-1-instructions/3-control-flow/2-trailside/04-2-do-while#how-does-do-while-work) example.
 
 ```cpp
 #include "splashkit.h"

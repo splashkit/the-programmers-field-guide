@@ -12,7 +12,7 @@ The for loop in C/C++ has the separate sections for the initialiser, condition, 
 ![The for loop syntax in C/C++](./images/for-loop.png)
 :::
 
-Here is our [example for loop](/book/part-1-instructions/3-control-flow/1-concepts/04-3-for-loop#simple-for-loop) from C#, translated to C/C++.
+Here is our [example for loop](/book/part-1-instructions/3-control-flow/2-trailside/04-3-for-loop#simple-for-loop) from C#, translated to C/C++.
 
 ## Example
 

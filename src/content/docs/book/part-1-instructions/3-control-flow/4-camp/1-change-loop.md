@@ -83,7 +83,7 @@ do
 :::note
 
 - Remember that getting this to work is not the goal. Focus on ensuring you understand *how* this was created and how it works.
-- Notice how the code is indented within the [do while loop](/book/part-1-instructions/3-control-flow/1-concepts/04-2-do-while).
+- Notice how the code is indented within the [do while loop](/book/part-1-instructions/3-control-flow/2-trailside/04-2-do-while).
 - This requires the user to enter "n" or "N" to exit the loop.
 
 :::

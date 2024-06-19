@@ -4,7 +4,7 @@ sidebar:
   label: " - Conditions"
 ---
 
-You can mix the [logical operators](/book/part-1-instructions/3-control-flow/1-concepts/01-2-logic-operators) within a single condition. In this case, you should use brackets to clearly show the **order** you want the different elements evaluated in. For example, with the following expression do we want the *or* (`||`) or the *and* (`&&`) to be evaluated first?
+You can mix the [logical operators](/book/part-1-instructions/3-control-flow/2-trailside/01-2-logic-operators) within a single condition. In this case, you should use brackets to clearly show the **order** you want the different elements evaluated in. For example, with the following expression do we want the *or* (`||`) or the *and* (`&&`) to be evaluated first?
 
 - `KeyDown(KeyCode.SpaceKey) || MouseX() > 50 && MouseClicked(MouseButton.LeftButton)`
 

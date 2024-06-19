@@ -75,7 +75,7 @@ If we want maps of different sizes we could add extra fields to the map so that 
 
 ## Functional Structure Design
 
-This will be an event drive program, so we can use the [event loop](/book/part-1-instructions/3-control-flow/1-concepts/04-1-while-loop) we first saw in the control flow chapter. We can code this in `main`, and for now we can just have it draw the map. The pseudocode for this is shown below. We need main to set up the map, and then loop drawing the map to the screen.
+This will be an event drive program, so we can use the [event loop](/book/part-1-instructions/3-control-flow/2-trailside/04-1-while-loop) we first saw in the control flow chapter. We can code this in `main`, and for now we can just have it draw the map. The pseudocode for this is shown below. We need main to set up the map, and then loop drawing the map to the screen.
 
 ```
 Function: Main
@@ -149,7 +149,7 @@ To build this we are going to need to be able to convert a tile kind to a color 
 
 ### Color for tile kind
 
-This function will accept a tile kind, and return the color to be used for that kind of tile. We can use a [case statement](/book/part-1-instructions/3-control-flow/1-concepts/03-2-case) to implement this. It can switch based on the passed in kind, and return a color for each of our different tile kinds. I used the following colors:
+This function will accept a tile kind, and return the color to be used for that kind of tile. We can use a [case statement](/book/part-1-instructions/3-control-flow/2-trailside/03-2-case) to implement this. It can switch based on the passed in kind, and return a color for each of our different tile kinds. I used the following colors:
 
 - WATER_TILE, `color_blue()`
 - GRASS_TILE: `color_lawn_green()`
