@@ -40,7 +40,9 @@ When working with a terminal based program, you will output prompts and messages
 
 :::
 
-### Example
+## Example
+
+The following code calculates a body mass index by reading the details from the user in the terminal.
 
 ```cs
 using static SplashKitSDK.SplashKit;

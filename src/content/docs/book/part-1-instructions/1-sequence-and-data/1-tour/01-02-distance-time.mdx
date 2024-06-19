@@ -1,0 +1,73 @@
+---
+title: Step 3 - Read distance and time
+sidebar:
+  label: " - Read distance and time"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+Now you have a start, you keep progressing in the same way. Building up the code in small increments. For the next step, let's read in the distance and time. This will need us to convert the data entered from text (what we read from the user) to numbers we can work with in the code.
+
+The output we are aiming to create next is:
+
+```txt {4-6}
+What is your name: Andrew
+
+Hi Andrew.
+
+How far have you travelled so far? Enter km: 5.2
+How long has it taken? Enter minutes: 7
+```
+
+1. What new things do we have that changing now?
+
+    Both the distance and time may be different. These are numeric values, so they could either be `int` or `double` values. Integers are whole numbers, doubles are real values.
+
+    Add the code for these variables. I suggest placing this back up at the top, below the declaration of the `name` variable.
+
+2. Add the code to read these values in from the user.
+
+    Now, we have a problem - you cannot store the result of calling `ReadLine` into a `int` or a `double`. How can we get this to work? There isn't *one* method we can use to here, so we have to think about using what we have. If you look back at the [terminal methods](/book/part-1-instructions/1-sequence-and-data/0-panorama/6-terminal-method-to-use) you will see there is a `ToInt32` and a `ToDouble` method. These convert strings to numeric values. We could read the text from the user into a string, and then convert that and store the result in our variables.
+
+    - Add a `userInput` string variable.
+    - Output appropriate messages with `Write`
+    - Read input from the user, and store it in `userInput`
+    - Convert `userInput` to the required type, and store the distance variable.
+    - Repeat for the time variable
+
+    <Accordion>
+      <AccordionItem header="Code for reading distance and time">
+
+    ```cs {5-7,15-22}
+    using static System.Convert;
+    using static SplashKitSDK.SplashKit;
+
+    string name;
+    string userInput;
+    double distance, time;
+
+    Write("What is your name: ");
+    name = ReadLine();
+
+    WriteLine();
+    WriteLine($"Hi {name}.");
+    WriteLine();
+
+    Write("How far have you travelled so far? Enter km: ");
+    userInput = ReadLine();
+    distance = ToDouble(userInput);
+
+    Write("How long has it taken? Enter minutes: ");
+    userInput = ReadLine();
+    time = ToDouble(userInput);
+    ```
+
+      </AccordionItem>
+    </Accordion>
+
+3. Compile and run your program. Check the output matches what we are after.
+
+    :::note
+
+    The program will crash is you enter something other than a number for distance and time. This is ok for now. We will see how to fix this later.
+
+    :::

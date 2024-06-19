@@ -30,8 +30,9 @@ To draw, you need something to draw onto. The base interactive component in Spla
 
 | <div style="width:120px">**Method**</div> | **Required Arguments** | **Description** |
 |-------------|------------------------|----------------|
-| [Open Window](https://splashkit.io/api/windows/#open-window) | the title, width, and height of the window | Opens a window for you to draw to. |
-| [Clear Screen](https://splashkit.io/api/graphics/#clear-screen) | a color | Clears everything on the current window, making it the indicated color. |
+| [OpenWindow](https://splashkit.io/api/windows/#open-window) | the title, width, and height of the window | Opens a window for you to draw to. |
+| [ClearScreen](https://splashkit.io/api/graphics/#clear-screen) | a color | Clears everything on the current window, making it the indicated color. |
+| [Delay](https://splashkit.io/api/utilities/#delay) | an integer | Delays for the number of milliseconds from the argument. |
 
 These methods have the following declarations.
 
@@ -40,7 +41,8 @@ These methods have the following declarations.
 // using static SplashKitSDK.SplashKit;
 
 public static Window OpenWindow(string caption, int width, int height);
-public static void ClearScreen();
+public static void ClearScreen(Color clr);
+public static void Delay(int milliseconds);
 ```
 
 The `OpenWindow` method can be called to create a new window for the user to interact with, and for your code to draw upon. This method requires three arguments: the window’s title, its width and its height. For example, `OpenWindow("House Drawing", 800, 600);` will open a window that is 800 pixels wide and 600 pixels high with the title "House Drawing", as shown in the following image. Please note that the house and hill are drawn by additional code.
@@ -96,7 +98,7 @@ It then waits for a command to display that surface to the user. With SplashKit,
 
 | <div style="width:70px">**Method**</div> | **Required Arguments** | **Description** |
 |-----------|------------------------|----------------|
-| [Refresh Screen](https://splashkit.io/api/graphics/#refresh-screen) | none | Present what has been drawn to the user. |
+| [RefreshScreen](https://splashkit.io/api/graphics/#refresh-screen) | none | Present what has been drawn to the user. |
 
 ```cs
 // These need:
@@ -114,11 +116,12 @@ These methods typically require arguments that allow you to control where the sh
 
 | <div style="width:70px">**Method**</div> | **Required Arguments** | **Description** |
 |-----------|------------------------|----------------|
-| [Color White](https://splashkit.io/api/color/#color-white), [Color Blue](https://splashkit.io/api/color/#color-blue), ... | None | Returns a value that represents the color indicated in the name of the method. See the [Color](https://splashkit.io/api/color/) page for the complete list.  |
-| [Fill Rectangle](https://splashkit.io/api/graphics/#fill-rectangle-3), [Draw Rectangle](https://splashkit.io/api/graphics/#draw-rectangle-3) | A color and four numeric values for the location (x and y), width, and height of the rectangle | Draws a filled or hollow rectangle to the screen. |
-| [Fill Ellipse](https://splashkit.io/api/graphics/#fill-ellipse-3), [Draw Ellipse](https://splashkit.io/api/graphics/#draw-ellipse-3) | A color and four numeric values for the location (x and y), width, and height of the ellipse | Draws a filled or hollow ellipse to the screen. |
-| [Fill Triangle](https://splashkit.io/api/graphics/#fill-triangle-3), [Draw Triangle](https://splashkit.io/api/graphics/#draw-triangle-3) | A color and six numeric values for the location (x and y) or each point of the triangle. | Draws a filled or hollow triangle to the screen. |
-|[Draw Line](https://splashkit.io/api/graphics/#draw-line-5) | A color and four numeric values for the location (x and y) of the start and end of the line. | Draws a line from one point to another. |
+| [ColorWhite](https://splashkit.io/api/color/#color-white), [ColorBlue](https://splashkit.io/api/color/#color-blue), ... | None | Returns a value that represents the color indicated in the name of the method. See the [Color](https://splashkit.io/api/color/) page for the complete list.  |
+| [FillCircle](https://splashkit.io/api/graphics/#fill-circle-3), [DrawCircle](https://splashkit.io/api/graphics/#draw-circle-3) | A color and three numeric values for the location (x and y) and radius of the circle. | Draws a filled or hollow circle to the screen. |
+| [FillRectangle](https://splashkit.io/api/graphics/#fill-rectangle-3), [DrawRectangle](https://splashkit.io/api/graphics/#draw-rectangle-3) | A color and four numeric values for the location (x and y), width, and height of the rectangle | Draws a filled or hollow rectangle to the screen. |
+| [FillEllipse](https://splashkit.io/api/graphics/#fill-ellipse-3), [DrawEllipse](https://splashkit.io/api/graphics/#draw-ellipse-3) | A color and four numeric values for the location (x and y), width, and height of the ellipse | Draws a filled or hollow ellipse to the screen. |
+| [FillTriangle](https://splashkit.io/api/graphics/#fill-triangle-3), [DrawTriangle](https://splashkit.io/api/graphics/#draw-triangle-3) | A color and six numeric values for the location (x and y) or each point of the triangle. | Draws a filled or hollow triangle to the screen. |
+|[DrawLine](https://splashkit.io/api/graphics/#draw-line-5) | A color and four numeric values for the location (x and y) of the start and end of the line. | Draws a line from one point to another. |
 
 These methods have the following declarations:
 
@@ -129,6 +132,9 @@ These methods have the following declarations:
 public static Color ColorWhite();
 public static Color ColorBlue();
 // and many others...
+
+public static void FillCircle(Color clr, double x, double y, double radius);
+public static void DrawCircle(Color clr, double x, double y, double radius);
 
 public static void FillRectangle(Color clr, double x, double y, double width, double height);
 public static void DrawRectangle(Color clr, double x, double y, double width, double height);
@@ -175,8 +181,8 @@ SplashKit organises these files in a **Resources** folder containing sub-folders
 
 | <div style="width:100px">**Method**</div> | **Required Arguments** |**Description** |
 |-----------|------------------------|----------------|
-| [Load Bitmap](https://splashkit.io/api/graphics/#load-bitmap) | the name of the bitmap and its filename | This loads the image (bitmap) into your program. You can use the name to access this bitmap in other method calls. The filename can be the full path to a file, or the filename of a file in the **Resources/images** folder.  |
-| [Draw Bitmap](https://splashkit.io/api/graphics/#draw-bitmap-3) | the image name, and two numbers for the coordinate to draw to | This draws the image you loaded with the given name, at the coordinates you provided (x and y). The coordinates indicate the top left corner of the bitmap when it is drawn. |
+| [LoadBitmap](https://splashkit.io/api/graphics/#load-bitmap) | the name of the bitmap and its filename | This loads the image (bitmap) into your program. You can use the name to access this bitmap in other method calls. The filename can be the full path to a file, or the filename of a file in the **Resources/images** folder.  |
+| [DrawBitmap](https://splashkit.io/api/graphics/#draw-bitmap-3) | the image name, and two numbers for the coordinate to draw to | This draws the image you loaded with the given name, at the coordinates you provided (x and y). The coordinates indicate the top left corner of the bitmap when it is drawn. |
 
 These methods have the following declarations:
 
@@ -217,8 +223,8 @@ You might want to be able to draw text to the screen to display messages to the 
 
 | <div style="width:100px">**Method**</div> | **Required Arguments** |**Description** |
 |-----------|------------------------|----------------|
-| [Load Font](https://splashkit.io/api/graphics/#load-font) | the name of the font and its filename | This loads the font into your program. You can use the name to access this font in other method calls. The filename can be the full path to a file, or the filename of a file in the **Resources/fonts** folder. |
-| [Draw Text](https://splashkit.io/api/graphics/#draw-text-1) | some text, a color, x, and y | This draws the provided text in the indicated color at the given coordinates (x and y). The coordinates indicate the top left of the text. This will draw using the built-in font. |
+| [LoadFont](https://splashkit.io/api/graphics/#load-font) | the name of the font and its filename | This loads the font into your program. You can use the name to access this font in other method calls. The filename can be the full path to a file, or the filename of a file in the **Resources/fonts** folder. |
+| [DrawText](https://splashkit.io/api/graphics/#draw-text-1) | some text, a color, x, and y | This draws the provided text in the indicated color at the given coordinates (x and y). The coordinates indicate the top left of the text. This will draw using the built-in font. |
 | | some text, a color, a loaded font's name, font size (int), x, and y | This draws the provided text in the indicated color, with the named font, at the indicated size. The coordinates (x and y) will be the top left of the text. |
 
 These methods have the following declarations:
