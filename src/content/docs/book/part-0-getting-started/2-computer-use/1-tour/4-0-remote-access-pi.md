@@ -11,7 +11,7 @@ All the details you need, and more, are in the Raspberry Pi documentation on [Re
 
 ## Enable SSH
 
-The best way to connect to your Raspberry Pi is via a **secure shell** (ssh). This is the same [shell](/book/part-0-getting-started/2-computer-use/1-concepts/02-shell) we introduced earlier, but accessed over the network.
+The best way to connect to your Raspberry Pi is via a **secure shell** (ssh). This is the same [shell](/book/part-0-getting-started/2-computer-use/2-trailside/02-shell) we introduced earlier, but accessed over the network.
 
 The Raspberry Pi comes with an ssh server built it, but it is switched off by default. In the [Remote Access](https://www.raspberrypi.com/documentation/computers/remote-access.html) documentation, the instruction are in the [Enabling the Server](https://www.raspberrypi.com/documentation/computers/remote-access.html#enabling-the-server) section. Basically you need to:
 
@@ -39,7 +39,7 @@ You should also be able to use your Pi's hostname with the `.local` address. For
 ssh florence@multitool.local
 ```
 
-Whichever way you access it, this will prompt you to accept the connection if your computer has not accessed the Pi before and then it will ask for the user's password. Type the password and press enter. 
+Whichever way you access it, this will prompt you to accept the connection if your computer has not accessed the Pi before and then it will ask for the user's password. Type the password and press enter.
 
 :::tip[Password not showing? That is good!]
 

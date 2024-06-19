@@ -50,7 +50,7 @@ This allows you to use the [methods](/book/part-1-instructions/1-sequence-and-da
 
 ## Examples
 
-The following code shows a basic Hello World C# Program. You should be able to match this up with the syntax defined above. This program uses code from the `System.Console` part of the C# library to access the `WriteLine` method, which can be called to output a message to [stdout](/book/part-0-getting-started/2-computer-use/1-concepts/09-streams#input-output-and-errors). The important thing to see here is that **all** of this code is the program -- each line is a part of the program.
+The following code shows a basic Hello World C# Program. You should be able to match this up with the syntax defined above. This program uses code from the `System.Console` part of the C# library to access the `WriteLine` method, which can be called to output a message to [stdout](/book/part-0-getting-started/2-computer-use/2-trailside/09-streams#input-output-and-errors). The important thing to see here is that **all** of this code is the program -- each line is a part of the program.
 
 ```csharp
 using static System.Console;

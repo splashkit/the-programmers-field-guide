@@ -22,7 +22,7 @@ TODO: Add instructions for installing DCC on the Raspberry Pi
 
 You can refer to this handy guide for installation which will stay updated as DCC evolves: [https://github.com/COMP1511UNSW/dcc#installation](DCC Installation Guide)
 
-On Windows we suggest you use WSL2. Follow the [WSL Installation Guide](/book/part-0-getting-started/2-computer-use/0-installation/2-5-setup-win-wsl#1-install-windows-subsystem-for-linux-wsl) in this book, and then install DCC on your WSL2 instance.
+On Windows we suggest you use WSL2. Follow the [WSL Installation Guide](/book/appendix/0-installation/2-5-setup-win-wsl#1-install-windows-subsystem-for-linux-wsl) in this book, and then install DCC on your WSL2 instance.
 
 ## Using DCC
 

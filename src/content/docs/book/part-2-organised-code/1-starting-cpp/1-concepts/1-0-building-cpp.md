@@ -9,7 +9,7 @@ For now, we will use the SplashKit library to handle user input and output, as t
 [Later on](/book/part-2-organised-code/9-low-level-programming/0-overview) you will understand the concepts needed to use the native C input and output functions, which are very primitive.
 
 The following steps go through the necessary actions to build and run programs using C/C++.
-These steps assume that you have followed the [Installation instructions from part 0](/book/part-0-getting-started/2-computer-use/0-installation/0-overview) on setting up the C/C++ tools for your operating system.
+These steps assume that you have followed the [Installation instructions from part 0](/book/appendix/0-installation/0-overview) on setting up the C/C++ tools for your operating system.
 
 ## Hello World in C/C++
 
@@ -66,7 +66,7 @@ If you have SplashKit installed globally it will be installed in paths that the 
 clang++ program.cpp -l SplashKit -o program
 ```
 
-If you do not have the library installed globally, then you will need to tell the compiler where to find the different files you are referring to. This can be achieved using the following command line options: 
+If you do not have the library installed globally, then you will need to tell the compiler where to find the different files you are referring to. This can be achieved using the following command line options:
 
 - `-I <path>` lets you add a folder to search for header files you have included (such as with `#include "splashkit.h"`). For SplashKit you use `-I ~/.splashkit/clang++/include`.
 - `-L <path>` lets you add a folder to search for libraries. For SplashKit you use `-L ~/.splashkit/lib/linux`, `-L ~/.splashkit/lib/macos`, or `-L ~/.splashkit/lib/win64`.

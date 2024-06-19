@@ -2,7 +2,7 @@
 title: Create a Project
 ---
 
-To create a program we need to write source code, and to write source code we need somewhere to put it. 
+To create a program we need to write source code, and to write source code we need somewhere to put it.
 While this process may differ slightly between languages, the idea is always the same: gather the code in one place and provide any settings needed.
 
 At this stage, you will be using the C# language, which is part of the open-source [.NET framework](https://dotnet.microsoft.com/en-us/) produced by Microsoft. These tools are free, work cross-platform, and provide us with a great language that we can use to explore programming.
@@ -12,9 +12,8 @@ You need somewhere to save your projects. In this book, we will assume you are s
 If you are saving your code elsewhere then make sure to adjust paths as needed.  
 If you are using **WSL (with Ubuntu)**, you might need to also create a "**Documents**" folder in your base directory, as it isn't created by default.
 
-
 If you haven't created a **Code** folder in your documents, then you will need to do this first.
-Review the `mkdir` command from [manipulating files](/book/part-0-getting-started/2-computer-use/1-concepts/05-manipulating-files/#making-a-directory-mkdir) to do this using the shell.
+Review the `mkdir` command from [manipulating files](/book/part-0-getting-started/2-computer-use/2-trailside/05-manipulating-files/#making-a-directory-mkdir) to do this using the shell.
 :::
 
 ## The `dotnet` program
@@ -25,7 +24,7 @@ With C#, you will use the `dotnet` program in the Terminal to perform actions li
 | ------------------- | ----------- | --------------------------------------------------- |
 | Create a project | `dotnet new console`      | Creates a C# project in the current folder. |
 
-The `dotnet` program sets up a C# project using the dotnet framework. The `new` argument indicates we want it to create a new project, and `console` indicates the type of program. In this context, "console" is a synonym for the terminal, and tells the `dotnet` tool we would like to write a program that is connected to the terminal with the [standard streams](/book/part-0-getting-started/2-computer-use/1-concepts/09-streams/) for input, output, and error messages.
+The `dotnet` program sets up a C# project using the dotnet framework. The `new` argument indicates we want it to create a new project, and `console` indicates the type of program. In this context, "console" is a synonym for the terminal, and tells the `dotnet` tool we would like to write a program that is connected to the terminal with the [standard streams](/book/part-0-getting-started/2-computer-use/2-trailside/09-streams/) for input, output, and error messages.
 
 :::tip
 The key thing to remember from this is the command **`dotnet new console`**.

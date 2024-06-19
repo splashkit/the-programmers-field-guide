@@ -4,7 +4,7 @@ sidebar:
     label: " - Terminal Methods"
 ---
 
-Interacting with the [Terminal](/book/part-0-getting-started/2-computer-use/1-concepts/01-terminal) is pretty simple in code. There are basically three methods that you need to care about: `WriteLine`, `Write`, and `ReadLine`. These are all described in the [Console](https://learn.microsoft.com/en-us/dotnet/api/system.console?view=net-8.0#methods) page in the .NET documentation which we will summarise below, along with some methods from the [Convert](https://learn.microsoft.com/en-us/dotnet/api/system.convert?view=net-8.0#methods) code.
+Interacting with the [Terminal](/book/part-0-getting-started/2-computer-use/2-trailside/01-terminal) is pretty simple in code. There are basically three methods that you need to care about: `WriteLine`, `Write`, and `ReadLine`. These are all described in the [Console](https://learn.microsoft.com/en-us/dotnet/api/system.console?view=net-8.0#methods) page in the .NET documentation which we will summarise below, along with some methods from the [Convert](https://learn.microsoft.com/en-us/dotnet/api/system.convert?view=net-8.0#methods) code.
 
 ## WriteLine and Write
 

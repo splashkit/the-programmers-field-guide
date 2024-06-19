@@ -76,7 +76,7 @@ Take the time to try to *understand* what you are reading, especially related to
 
 Understanding a bit about the software or context of your issue can drastically improve your skills in searching for issues online or understanding the suggested solutions enough to know if it could work for your situation.
 
-It might be helpful to go back and revise the content in the "Concepts" pages in [1: Digital Realities](/book/part-0-getting-started/1-digital-realities/2-trailside/1-programs) and [2: Computer Use](/book/part-0-getting-started/2-computer-use/1-concepts/01-terminal) now that you have more context for how to interpret the information on those pages.
+It might be helpful to go back and revise the content in the "Concepts" pages in [1: Digital Realities](/book/part-0-getting-started/1-digital-realities/2-trailside/1-programs) and [2: Computer Use](/book/part-0-getting-started/2-computer-use/2-trailside/01-terminal) now that you have more context for how to interpret the information on those pages.
 
 :::tip[Learning from errors]
 Troubleshooting errors/issues can be a fantastic opportunity to learn more about how your computer works, or clarify your understanding of related concepts!
