@@ -33,7 +33,7 @@ Every programming language has **coding conventions** that indicate which format
 Following the coding convention of the language is really important. This makes your code look and feel like other code from that language. Doing this will make it easier for others to engage with what you do. Break the convention, and others will doubt the quality of your code and contributions.
 :::
 
-## In C #
+## In C#
 
 :::tip[Syntax]
 The following diagram shows the C# syntax for an identifier.
@@ -41,7 +41,7 @@ The following diagram shows the C# syntax for an identifier.
 ![The C# syntax of an identifier.](./images/program-creation/IdentifierSyntax.png "The C# syntax of an identifier")
 :::
 
-We used this as our example when discussing [how to read syntax diagrams](/book/part-1-instructions/2-communicating-syntax/2-trailside/01-grammar#example).
+We used this as our example when discussing [how to read syntax diagrams](/book/part-1-instructions/2-communicating-syntax/1-concepts/01-grammar#example).
 For a quick recap, in C#:
 
 - Identifiers must start with an underscore (`_`) or a letter. This is because the compiler needs a way of distinguishing identifiers from numbers entered directly into the code.

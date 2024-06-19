@@ -29,7 +29,7 @@ It may seem strange, but naming things becomes one of the main challenges as you
 Always try to name the things in your code in a way that will help others understand what you intend that aspect to be used for.
 :::
 
-Associated with deciding on a name is the name's styling. As we saw with [identifiers](/book/part-1-instructions/2-communicating-syntax/2-trailside/04-identifier), the names we give things can't have spaces in them. So, languages usually have preferred ways for you to express identifiers based on what is being named. This helps ensure that people can easily get started with different programs written in the same language.
+Associated with deciding on a name is the name's styling. As we saw with [identifiers](/book/part-1-instructions/2-communicating-syntax/1-concepts/04-identifier), the names we give things can't have spaces in them. So, languages usually have preferred ways for you to express identifiers based on what is being named. This helps ensure that people can easily get started with different programs written in the same language.
 
 As you learn each language, these subtle differences in identifiers will help you understand what each thing is, without having to find where it is declared. This will become second nature as you progress, so breaking these conventions is a real problem.
 

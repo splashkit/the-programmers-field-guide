@@ -12,7 +12,7 @@ The types you define allow you to specify how data values can be formatted, allo
 :::note
 
 - Expression is the **term** given to the code that calculates values within your Statements.
-- Within an expression you can read the value from...
+- Within an expression you can read the value from... 
   - a field of a struct.
   - a field of a union.
   - an enumeration.
@@ -69,7 +69,7 @@ The [enumeration](/book/part-2-organised-code/3-structuring-data/1-concepts/03-0
 :::note
 
 - Accessing a value of an enumeration type is just like accessing an integer value.
-- In [Figure x.y](#FigureEnumerationExpression) the `accessories` variable is storing an `accessories_flag` value. This value can be read from the variable using the variable’s name (its [identifier](/book/part-1-instructions/2-communicating-syntax/2-trailside/04-identifier)).
+- In [Figure x.y](#FigureEnumerationExpression) the `accessories` variable is storing an `accessories_flag` value. This value can be read from the variable using the variable’s name (its [identifier](/book/part-1-instructions/2-communicating-syntax/1-concepts/04-identifier)).
 
 :::
 

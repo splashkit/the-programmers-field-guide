@@ -27,7 +27,7 @@ The syntax for a basic C/C++ procedure declaration is shown below.
 :::
 
 A **procedure declaration** starts with `void`. This indicates to the compiler that the next bit of code is a procedure declaration because it will return no data.
-The **procedure name** can be any valid [identifier](/book/part-1-instructions/2-communicating-syntax/2-trailside/04-identifier) that has not been used before in the same scope.
+The **procedure name** can be any valid [identifier](/book/part-1-instructions/2-communicating-syntax/1-concepts/04-identifier) that has not been used before in the same scope.
 The empty parenthesis must appear after the procedure’s name, and before the *block* which contains the statements that define the procedure's logic.
 
 :::note

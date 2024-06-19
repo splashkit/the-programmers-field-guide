@@ -260,26 +260,25 @@ export default defineConfig({
                   link: "book/part-1-instructions/2-communicating-syntax/0-overview",
                 },
                 {
-                  label: "Guided Tour",
-                  link: "book/part-1-instructions/2-communicating-syntax/1-tour",
-                },
-                {
-                  label: "Trailside Ponder",
+                  label: "Concepts",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-1-instructions/2-communicating-syntax/2-trailside",
+                      "book/part-1-instructions/2-communicating-syntax/1-concepts",
                     collapsed: true,
                   },
                 },
                 {
-                  label: "Go Exploring",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-1-instructions/2-communicating-syntax/3-explore",
-                    collapsed: true,
-                  },
+                  label: "Putting it Together",
+                  link: "book/part-1-instructions/2-communicating-syntax/2-put-together",
+                },
+                {
+                  label: "Other Languages",
+                  link: "book/part-1-instructions/2-communicating-syntax/3-other-languages",
+                },
+                {
+                  label: "Activities",
+                  link: "book/part-1-instructions/2-communicating-syntax/4-activities",
                 },
               ],
             },

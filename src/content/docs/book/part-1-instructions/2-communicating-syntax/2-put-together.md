@@ -1,5 +1,5 @@
 ---
-title: Guided Tour of Syntax
+title: Putting it Together
 ---
 
 Every program you create needs to follow the syntax rules of the language you are using. These rules are captured in the grammar. This chapter has explored syntax diagrams, a visual style of communicating grammar. These diagrams help us connect with grammar rules and understand how to apply them.
@@ -14,7 +14,7 @@ When you design a program you should be thinking in terms of **concepts**. To cr
 
 You can capture your ideas in **pseudocode** -- text that is not code but captures the plan you have for the code. The following text is an example of pseudocode. It is structured in steps similar to actual code but is more free form, capturing the ideas and sequence of the steps but without matching the language grammar rules. Writing pseudocode is a great way to plan and think through the logic you want your code to follow without worrying about getting the syntax correct.
 
-```plaintext
+```txt
 ----------------------------
 Program: Output Test
 ----------------------------
@@ -43,7 +43,7 @@ To do this:
     example back to the rule that created it.
 5. Now look up any related rules that are not explained in this rule's
     diagram. For example, a [method call](/book/part-1-instructions/1-sequence-and-data/2-trailside/03-method-call) has an identifier. The rule for an identifier
-    has its [own page](/book/part-1-instructions/2-communicating-syntax/2-trailside/04-identifier).
+    has its [own page](/book/part-1-instructions/2-communicating-syntax/1-concepts/04-identifier).
 
 As you follow this process it is also a good idea to take notes and to try to use these rules in your own programs. Have your code editor open, and see if you can follow the rules or mimic the examples. You can also try typing in some of the examples to see how they work.
 
@@ -68,9 +68,7 @@ WriteLine($" 1 + 1 = {1 + 1}");
 WriteLine($" Area of a circle with radius 3 = {PI * 3 * 3}");
 ```
 
-We could do the same thing in other languages. To do this we would need to know the syntax for a method call, constant declaration, and which method to call to output something to standard output.
-
-For example, the following shows the same program written in **Python**.
+We could do the same thing in other languages. To do this we would need to know the syntax for a method call, constant declaration, and which method to call to output something to standard output. For example, the following shows the same program written in Python.
 
 ```python
 # Create PI constant = 3.1415
