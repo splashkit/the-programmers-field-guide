@@ -121,35 +121,31 @@ export default defineConfig({
                   link: "book/part-0-getting-started/2-computer-use/0-overview",
                 },
                 {
-                  label: "Installation",
+                  label: "Guided Tour",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-0-getting-started/2-computer-use/0-installation",
+                      "book/part-0-getting-started/2-computer-use/1-tour",
                     collapsed: true,
                   },
                 },
                 {
-                  label: "Concepts",
+                  label: "Trailside Ponder",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-0-getting-started/2-computer-use/1-concepts",
+                      "book/part-0-getting-started/2-computer-use/2-trailside",
                     collapsed: true,
                   },
                 },
                 {
-                  label: "Putting it Together",
+                  label: "Go Exploring",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-0-getting-started/2-computer-use/2-put-together",
+                      "book/part-0-getting-started/2-computer-use/3-explore",
                     collapsed: true,
                   },
-                },
-                {
-                  label: "Activities",
-                  link: "book/part-0-getting-started/2-computer-use/4-activities",
                 },
               ],
             },
@@ -1385,6 +1381,21 @@ export default defineConfig({
                   link: "book/part-4-what-next/6-introduction-to-python/1-getting-started",
                 },
               ],
+            },
+          ],
+        },
+        {
+          label: "Appendix",
+          collapsed: true,
+          items: [
+            {
+              label: "Installation",
+              collapsed: true,
+              autogenerate: {
+                directory:
+                  "book/appendix/0-installation",
+                collapsed: true,
+              },
             },
           ],
         },
