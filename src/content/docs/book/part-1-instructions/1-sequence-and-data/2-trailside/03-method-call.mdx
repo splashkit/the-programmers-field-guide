@@ -146,7 +146,7 @@ The method call starts with the method's name that indicates the method to be ca
 Following the identifier is a list of values within parenthesis.
 These are the arguments passed to the method for it to use.
 
-As the `WriteLine` method comes from the C# library `System.Console`, this example program starts with a [using directive](/book/part-1-instructions/1-sequence-and-data/2-trailside/00-program/#in-c) to tell the compiler to look in the `System.Console` library for any methods that are called.
+As the `WriteLine` method comes from the `SplashKitSDK.SplashKit`, this example program starts with a [using directive](/book/part-1-instructions/1-sequence-and-data/2-trailside/00-program/#in-c) to tell the compiler to look in the `SplashKitSDK.SplashKit` library for any methods that are called.
 Remember that programs run in [sequence](/book/part-1-instructions/1-sequence-and-data/2-trailside/01-sequence), so we need to provide this directive *before* writing any code that calls a method from this library.
 This is why it is convention to put using directives at the start of a program's source code.
 
@@ -155,7 +155,7 @@ C# is case sensitive so using `writeLine` instead of `WriteLine` will not work.
 :::
 
 ```csharp
-using static System.Console;
+using static SplashKitSDK.SplashKit;
 
 WriteLine("Count back from 2...");
 WriteLine(2);

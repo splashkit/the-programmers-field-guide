@@ -41,7 +41,7 @@ The following code shows an example of both block and line comments in C#.
  */
 
 using static System.Convert;
-using static System.Console;
+using static SplashKitSDK.SplashKit;
 
 // Setup constants and variables
 const double PI = 3.1415;

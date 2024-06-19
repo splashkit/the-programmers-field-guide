@@ -60,7 +60,7 @@ Variables should have a **camelCase** name, where the first letter is lowercase 
 In this program, we want to capture the user's name and greet them using it. We need a variable for the name, as it may change each time the program runs. Within the program, the variable will represent the name of the user.
 
 ```csharp
-using static System.Console;
+using static SplashKitSDK.SplashKit;
 
 // Create a variable called name
 // it can store a string
@@ -100,7 +100,7 @@ The next example will help us calculate the volume of our water bottles, assumin
 - Numbers for `bottleVolume` and `litres` to store calculated values.
 
 ```csharp
-using static System.Console;
+using static SplashKitSDK.SplashKit;
 using static System.Convert;
 
 // Create a const called PI

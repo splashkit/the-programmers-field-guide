@@ -4,7 +4,7 @@ sidebar:
     label: " - Terminal Methods"
 ---
 
-Interacting with the [Terminal](/book/part-0-getting-started/2-computer-use/2-trailside/01-terminal) is pretty simple in code. There are basically three methods that you need to care about: `WriteLine`, `Write`, and `ReadLine`. These are all described in the [Console](https://learn.microsoft.com/en-us/dotnet/api/system.console?view=net-8.0#methods) page in the .NET documentation which we will summarise below, along with some methods from the [Convert](https://learn.microsoft.com/en-us/dotnet/api/system.convert?view=net-8.0#methods) code.
+Interacting with the [Terminal](/book/part-0-getting-started/2-computer-use/2-trailside/01-terminal) is pretty simple in code. There are basically three methods that you need to care about: `WriteLine`, `Write`, and `ReadLine`.
 
 ## WriteLine and Write
 
@@ -19,10 +19,6 @@ public static void Write(...);
 
 These methods differ only slightly. The `Write` method outputs the data that you pass it, while the `WriteLine` method outputs the data and adds a new line. This means that with `Write`, the cursor will remain on the same line, and the next output (or input) will appear on the same line as the data written out. Whereas, `WriteLine` will advance the cursor to the start of the next line.
 
-:::note
-The SplashKit library also includes version of these terminal interaction methods. We will generally use these from `System.Console`, but when you have a program that needs SplashKit for other features then **only** have `using static SplashKitSDK.SplashKit;` otherwise you will get errors that the compiler does not know which version of these methods you want to call.
-:::
-
 ## ReadLine
 
 You can use the Terminal for input as well as output. The `ReadLine` method allows you to read data from the Terminal, capturing the text the user types, placing it in a string, and returning it to you in a string when the user hits the enter or return key.
@@ -34,10 +30,6 @@ You can think of this as having the following method declaration:
 
 public static string ReadLine();
 ```
-
-:::tip
-[ReadLine](https://learn.microsoft.com/en-us/dotnet/api/system.console.readline?view=net-8.0#system-console-readline) in the Console class uses a feature that lets you indicate that it may not return any data. This will generate warnings when we use it. To remove these warnings, for now, you need to set the *nullable* property in your *.csproj* file to *disable*.
-:::
 
 ## Converting Data
 
@@ -56,7 +48,7 @@ public static double ToDouble(string value);
 You can use these as shown below:
 
 ```cs
-using static System.Console; // or using static SplashKitSDK.SplashKit;
+using static SplashKitSDK.SplashKit;
 using static System.Convert;
 
 string name;
