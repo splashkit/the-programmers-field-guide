@@ -23,6 +23,6 @@ Look back over the C# example code in the previous sections you will see that mo
 
 :::caution[Private fields?]
 
-You may be thinking, "What? If fields are private how do you set these?". Read on, and we can have a look at the idea of [properties](/book/part-3-programs-as-concepts/2-abstraction/1-concepts/1-5-properties) to give access to things the objects' know in a controlled fashion.
+You may be thinking, "What? If fields are private how do you set these?". Read on, and we can have a look at the idea of [properties](/book/part-3-programs-as-concepts/2-abstraction/2-trailside/1-5-properties) to give access to things the objects' know in a controlled fashion.
 
 :::

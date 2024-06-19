@@ -922,37 +922,38 @@ export default defineConfig({
                   link: "book/part-3-programs-as-concepts/2-abstraction/0-overview",
                 },
                 {
-                  label: "Concepts",
+                  label: "Guided Tour",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-3-programs-as-concepts/2-abstraction/1-concepts",
+                      "book/part-3-programs-as-concepts/2-abstraction/1-tour",
                     collapsed: true,
                   },
                 },
                 {
-                  label: "Putting it Together",
+                  label: "Trailside Ponder",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-3-programs-as-concepts/2-abstraction/2-put-together",
+                      "book/part-3-programs-as-concepts/2-abstraction/2-trailside",
                     collapsed: true,
                   },
                 },
                 {
-                  label: "Other Languages",
-                  link: "book/part-3-programs-as-concepts/2-abstraction/3-other-languages",
-                },
-                {
-                  label: "Activities",
-                  link: "book/part-3-programs-as-concepts/2-abstraction/4-activities",
-                },
-                {
-                  label: "Wrap Up",
+                  label: "Go Exploring",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-3-programs-as-concepts/2-abstraction/5-wrap-up",
+                      "book/part-3-programs-as-concepts/2-abstraction/3-explore",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Campsite Reflection",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/2-abstraction/4-camp",
                     collapsed: true,
                   },
                 },

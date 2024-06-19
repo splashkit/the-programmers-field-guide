@@ -13,10 +13,10 @@ Most of the time you will be able to use a `foreach` loop when you are working w
 You will not be able to use the `foreach` loop in cases where you want to work with elements at different positions in the collection, or when you need to know the index of the element you are working with. In these cases you will still use the standard for loop.
 
 :::note
-Your objects in C# will be [reference types](/book/part-3-programs-as-concepts/2-abstraction/1-concepts/2-1-value-and-reference-types) which means you will be able to use the `foreach` loop to access and work with the objects in the array or list. We will revisit this in the next chapter.
+Your objects in C# will be [reference types](/book/part-3-programs-as-concepts/2-abstraction/2-trailside/2-1-value-and-reference-types) which means you will be able to use the `foreach` loop to access and work with the objects in the array or list. We will revisit this in the next chapter.
 :::
 
-## In C#
+## In C #
 
 :::tip[Syntax]
 The syntax of the `foreach` loop is shown below.

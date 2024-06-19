@@ -35,7 +35,7 @@ The reason that a constructor declaration does not need to include a return type
 Therefore, its return type is implied and does not need to be explicitly stated.
 
 Aside from these two differences, a constructor declaration is the same as a method declaration.
-The syntax for a method declaration is hopefully looking familiar, because it is the same as the syntax for [declaring methods](/book/part-3-programs-as-concepts/2-abstraction/1-concepts/1-3-doing) you have already seen.
+The syntax for a method declaration is hopefully looking familiar, because it is the same as the syntax for [declaring methods](/book/part-3-programs-as-concepts/2-abstraction/2-trailside/1-3-doing) you have already seen.
 
 ## Example
 
