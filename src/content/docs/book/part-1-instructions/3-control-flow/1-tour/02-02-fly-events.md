@@ -95,7 +95,7 @@ public static bool QuitRequested();
 public static void ProcessEvents();
 ```
 
-There is an example of this logic on the [while loop page](/book/part-1-instructions/3-control-flow/2-trailside/04-1-while-loop/#event-loops---dynamic-graphical-programs), and remember you can check our version of the code in the [wrap up](/book/part-1-instructions/3-control-flow/4-camp/3-fly-catch-events) section if you get stuck.
+There is an example of this logic on the [while loop page](/book/part-1-instructions/3-control-flow/2-trailside/04-1-while-loop/#event-loops---dynamic-graphical-programs), and remember you can check our version of the code in the [campsite reflections](/book/part-1-instructions/3-control-flow/4-camp/3-fly-catch-events) section if you get stuck.
 
 :::tip[Where is the game?]
 Start to think about where the game really is occurring. You will see it on the screen, but the game actually exists within the data that we have created within this program. Try to picture the spider when you read the code -- it is a little hard to see at the moment as we only have individual variables.

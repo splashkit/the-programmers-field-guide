@@ -150,7 +150,7 @@ Have a go at implementing one of these two options. Both will work. Look at the 
 Make sure to [indent](/book/part-1-instructions/3-control-flow/2-trailside/07-indentation) the code within the if statement to help make the structure of the code apparent. See how this is done in the pseudocode above as a guide. Indenting code within these statements helps make it clear which lines are within the loop or branch and which lines follow it.
 :::
 
-Remember at each step you want to make sure that you have the software working. When you encounter issues, make sure to address these before continuing. Work through them one at a time, starting with the first error and reading the error messages carefully. If you get stuck, you can check the [wrap up](/book/part-1-instructions/3-control-flow/4-camp/0-wrapup) for the code that we developed. Just remember that there are several ways that you can achieve the same thing, so you're not necessarily wrong if your code doesn't match ours exactly.
+Remember at each step you want to make sure that you have the software working. When you encounter issues, make sure to address these before continuing. Work through them one at a time, starting with the first error and reading the error messages carefully. If you get stuck, you can check the [campsite reflections](/book/part-1-instructions/3-control-flow/4-camp/0-wrapup) for the code that we developed. Just remember that there are several ways that you can achieve the same thing, so you're not necessarily wrong if your code doesn't match ours exactly.
 
 :::tip
 Persistence and attention to detail are important attributes for IT professionals.
