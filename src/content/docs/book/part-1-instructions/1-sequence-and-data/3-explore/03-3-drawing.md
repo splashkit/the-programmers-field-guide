@@ -1,7 +1,7 @@
 ---
-title: Scene Drawing
+title: Creative Drawing
 sidebar:
-    label: " - Scene Drawing"
+    label: " - Creative Drawing"
 ---
 
 For this task you can build on the ideas from the [house drawing](/book/part-1-instructions/1-sequence-and-data/1-tour/02-00-house-drawing) tour. You may also find it useful to read about [drawing in SplashKit](/book/part-1-instructions/1-sequence-and-data/2-trailside/11-2-graphics/#drawing-to-a-window) and [playing sound effects in SplashKit](/book/part-1-instructions/1-sequence-and-data/2-trailside/11-3-audio) for this task.
