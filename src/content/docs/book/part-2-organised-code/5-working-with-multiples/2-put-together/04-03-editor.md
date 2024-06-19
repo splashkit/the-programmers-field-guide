@@ -15,7 +15,7 @@ Before we add states to the program, let's get something to quickly give us a ra
 We have the logic in `init_map` to make all tiles grass tiles. To randomise the map we need a similar procedure where we randomise the kind for each tile. A function will be handy here. If you recall, enumerations are just integers. So we can use SplashKit's `rnd` function to give us a random value between 0 and 3 (`rnd(4)`) and this will line up with our enumeration.
 
 :::tip
-Remember you need a [type cast](/book/part-2-organised-code/3-structuring-data/1-concepts/03-02-enum/#underlying-representation-and-casting) here. This will tell the compiler that you want to treat the integer as a `tile_kind`.
+Remember you need a [type cast](/book/part-2-organised-code/3-structuring-data/2-trailside/03-02-enum/#underlying-representation-and-casting) here. This will tell the compiler that you want to treat the integer as a `tile_kind`.
 :::
 
 ### Handling Input

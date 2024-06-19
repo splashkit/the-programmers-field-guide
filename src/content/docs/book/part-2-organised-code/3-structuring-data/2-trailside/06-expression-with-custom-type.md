@@ -22,7 +22,7 @@ The types you define allow you to specify how data values can be formatted, allo
 
 ## Reading Structs In Expressions
 
-A [struct](/book/part-2-organised-code/3-structuring-data/1-concepts/03-01-struct) is a type that contains a number of fields. When using a struct value, you can read either an individual field from the struct, or read all the fields. In the illustration, you can access the struct via `mouse`, or you can access one of the fields (`x` for example) using the dot operator.
+A [struct](/book/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct) is a type that contains a number of fields. When using a struct value, you can read either an individual field from the struct, or read all the fields. In the illustration, you can access the struct via `mouse`, or you can access one of the fields (`x` for example) using the dot operator.
 
 <a id="FigureRecordExpression"></a>
 
@@ -59,7 +59,7 @@ A **Union** has multiple fields that all give access to the same piece of memory
 
 ## Enumeration Expression
 
-The [enumeration](/book/part-2-organised-code/3-structuring-data/1-concepts/03-02-enum) is the simplest of the custom types to make use of. It defines a list of available options for values of this type. This means that enumerations are just like standard values.
+The [enumeration](/book/part-2-organised-code/3-structuring-data/2-trailside/03-02-enum) is the simplest of the custom types to make use of. It defines a list of available options for values of this type. This means that enumerations are just like standard values.
 
 <a id="FigureEnumerationExpression"></a>
 
@@ -75,6 +75,6 @@ The [enumeration](/book/part-2-organised-code/3-structuring-data/1-concepts/03-0
 
 ## Expressions - Why, When, and How
 
-Expressions have not changed. With structs and unions you now need the additional tools to access the fields within these as part of your expression. The dot operator (`.`) is used here as it was in the [assignment statement](/book/part-2-organised-code/3-structuring-data/1-concepts/05-assignment-statement-with-fields-and-elements) to access the fields of a struct or union.
+Expressions have not changed. With structs and unions you now need the additional tools to access the fields within these as part of your expression. The dot operator (`.`) is used here as it was in the [assignment statement](/book/part-2-organised-code/3-structuring-data/2-trailside/05-assignment-statement-with-fields-and-elements) to access the fields of a struct or union.
 
 When accessing a value in a struct or union, you start with the variable that contains the data. Where this is a struct or union, you can follow the variable name with a dot (`.`) and you can then access the fields of the struct or union. When you access a field, the expression now has the same type as the field. So `mouse` in the illustration is a `point_2d` type, and `mouse.x` is an integer.

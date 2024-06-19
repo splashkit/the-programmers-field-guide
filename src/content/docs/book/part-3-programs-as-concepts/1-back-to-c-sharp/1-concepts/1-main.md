@@ -30,7 +30,7 @@ Let's have a look at this line by line:
 
 This code shouldn't look too strange, and we can connect this with things we have already learnt:
 
-- The class is similar to the [structs](/book/part-2-organised-code/3-structuring-data/1-concepts/03-01-struct) we have been coding in C/C++ with [member functions](/book/part-2-organised-code/7-member-functions/0-overview).
+- The class is similar to the [structs](/book/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct) we have been coding in C/C++ with [member functions](/book/part-2-organised-code/7-member-functions/0-overview).
 - The main [method](/book/part-1-instructions/1-sequence-and-data/2-trailside/02-method) is like a [procedure](/book/part-2-organised-code/2-organising-code/2-trailside/01-0-functions-and-procedures) in C/C++. We call this a **method** as it is coded into a class.
 - `Console.WriteLine("Hello World");` is a [method call](/book/part-1-instructions/1-sequence-and-data/2-trailside/03-method-call).
 

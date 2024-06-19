@@ -41,7 +41,7 @@ The other use for pointers is to create relationships between elements in your c
 
 ### What can a pointer point to?
 
-Pointers store a value that is an address of the value that it points to. This means that you can point to any value in memory, regardless of where it is. You can have pointer values that point to [local variables](/book/part-2-organised-code/2-organising-code/2-trailside/03-local-variable), [global variables](/book/part-2-organised-code/2-organising-code/2-trailside/06-global-variables), [parameters](/book/part-2-organised-code/2-organising-code/2-trailside/04-parameter), fields of [structs](/book/part-2-organised-code/3-structuring-data/1-concepts/03-01-struct) or [unions](/book/part-2-organised-code/3-structuring-data/1-concepts/03-05-union).
+Pointers store a value that is an address of the value that it points to. This means that you can point to any value in memory, regardless of where it is. You can have pointer values that point to [local variables](/book/part-2-organised-code/2-organising-code/2-trailside/03-local-variable), [global variables](/book/part-2-organised-code/2-organising-code/2-trailside/06-global-variables), [parameters](/book/part-2-organised-code/2-organising-code/2-trailside/04-parameter), fields of [structs](/book/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct) or [unions](/book/part-2-organised-code/3-structuring-data/2-trailside/03-05-union).
 
 <a id="FigurePointerAccessHeap"></a>
 

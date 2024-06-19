@@ -24,7 +24,7 @@ Before we can go further we need to flesh out these ideas. The strategy I applie
 
 ### Tile Kind
 
-Each tile in our map needs to have a different visual appearance. For the moment we can code these using an [enumeration](/book/part-2-organised-code/3-structuring-data/1-concepts/03-02-enum). This will let us use the names we define to associate different tiles with different visual appearances. Going forward we may end up removing this as we move this to handle a whole range of different map tiles, but for now this will help us get started.
+Each tile in our map needs to have a different visual appearance. For the moment we can code these using an [enumeration](/book/part-2-organised-code/3-structuring-data/2-trailside/03-02-enum). This will let us use the names we define to associate different tiles with different visual appearances. Going forward we may end up removing this as we move this to handle a whole range of different map tiles, but for now this will help us get started.
 
 We can start with four tile kinds. These can then be drawn using blue, green, brown, and yellow colored tiles.
 

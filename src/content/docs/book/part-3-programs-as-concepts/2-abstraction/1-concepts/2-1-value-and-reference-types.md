@@ -23,7 +23,7 @@ A variable of a value type will store a value directly - just like variables in 
 | Parameters  | `void Method(int x) { }` | The value is copied from y and stored in x. There are two values in memory.  |
 | | `Method(y);` | |
 
-Value types in C# include the primitive types such as `int`, `double`, and `boolean` but also include [structs](/book/part-2-organised-code/3-structuring-data/1-concepts/03-01-struct) which you can define.
+Value types in C# include the primitive types such as `int`, `double`, and `boolean` but also include [structs](/book/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct) which you can define.
 
 :::caution
 

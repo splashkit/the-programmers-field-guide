@@ -2,7 +2,7 @@
 title: Class
 ---
 
-A **class** is a [type](/book/part-2-organised-code/3-structuring-data/1-concepts/03-01-struct), so it acts a *blueprint* we use to declare variables and create values (objects). Classes are the tool we use to create our *entities*, the objects that will **know** (the data they have) and what they will be able to **do** (methods available on the objects).
+A **class** is a [type](/book/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct), so it acts a *blueprint* we use to declare variables and create values (objects). Classes are the tool we use to create our *entities*, the objects that will **know** (the data they have) and what they will be able to **do** (methods available on the objects).
 
 Classes are powerful, because they allow us to organise our code differently to any other tools we've added to our toolkit so far.
 Because they are so different, classes also require us to *think* differently about how we design digital realities.
@@ -26,7 +26,7 @@ When you think about your problem, you come up with a number of *classifications
 
 At run time, the class will be used to create objects. The program can then call methods on the objects it has created, and these objects will perform the actions coded within their classes. These actions will in turn create and use other objects, each performing the role defined by its class. Through these interactions, the program is able to achieve its desired result.
 
-## In C#
+## In C #
 
 :::tip[Syntax]
 The syntax for a C# class declaration is shown below. The syntax for declaring each of the elements of a class are shown in the following sections.
@@ -45,9 +45,9 @@ For now, an access modifier can be either `public` or `private`, and we'll explo
 There are no limitations in the C# syntax to force you to declare the different members of your class in a specific order.
 However, there are some general conventions that C# programmers typically follow:
 
-* Fields are declared first, with constant fields before variable fields.
-* Constructors are declared after fields.
-* Other methods are declared after constructors.
+- Fields are declared first, with constant fields before variable fields.
+- Constructors are declared after fields.
+- Other methods are declared after constructors.
 
 :::note
 These general conventions obviously don't cover every possible case.
@@ -100,7 +100,6 @@ class Greeting
 :::note
 We can see a few C# conventions in this example:
 
-* Class names are written in PascalCase
+- Class names are written in PascalCase
 
 :::
-
