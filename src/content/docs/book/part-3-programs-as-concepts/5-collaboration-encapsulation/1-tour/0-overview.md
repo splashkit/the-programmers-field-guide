@@ -1,5 +1,5 @@
 ---
-title: Guided Tour
+title: Overview
 ---
 
 To come...

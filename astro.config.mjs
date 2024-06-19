@@ -1052,7 +1052,12 @@ export default defineConfig({
             //     },
             //     {
             //       label: "Guided Tour",
-            //       link: "book/part-3-programs-as-concepts/5-collaboration-encapsulation/1-tour",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-3-programs-as-concepts/5-collaboration-encapsulation/1-tour",
+            //         collapsed: true,
+            //       },
             //     },
             //     {
             //       label: "Trailside Ponder",
@@ -1084,7 +1089,12 @@ export default defineConfig({
             //     },
             //     {
             //       label: "Guided Tour",
-            //       link: "book/part-3-programs-as-concepts/6-structured-error-handling/1-tour",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-3-programs-as-concepts/6-structured-error-handling/1-tour",
+            //         collapsed: true,
+            //       },
             //     },
             //     {
             //       label: "Trailside Ponder",
@@ -1106,43 +1116,43 @@ export default defineConfig({
             //     },
             //   ],
             // },
-            {
-              label: "7. Inheritance and Polymorphism",
-              collapsed: true,
-              items: [
-                {
-                  label: "Overview",
-                  link: "book/part-3-programs-as-concepts/7-inheritance-polymorphism/0-overview",
-                },
-                {
-                  label: "Guided Tour",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-3-programs-as-concepts/7-inheritance-polymorphism/1-tour",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Trailside Ponder",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-3-programs-as-concepts/7-inheritance-polymorphism/2-trailside",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Go Exploring",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-3-programs-as-concepts/7-inheritance-polymorphism/3-explore",
-                    collapsed: true,
-                  },
-                },
-              ],
-            },
+            // {
+            //   label: "7. Inheritance and Polymorphism",
+            //   collapsed: true,
+            //   items: [
+            //     {
+            //       label: "Overview",
+            //       link: "book/part-3-programs-as-concepts/7-inheritance-polymorphism/0-overview",
+            //     },
+            //     {
+            //       label: "Guided Tour",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-3-programs-as-concepts/7-inheritance-polymorphism/1-tour",
+            //         collapsed: true,
+            //       },
+            //     },
+            //     {
+            //       label: "Trailside Ponder",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-3-programs-as-concepts/7-inheritance-polymorphism/2-trailside",
+            //         collapsed: true,
+            //       },
+            //     },
+            //     {
+            //       label: "Go Exploring",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-3-programs-as-concepts/7-inheritance-polymorphism/3-explore",
+            //         collapsed: true,
+            //       },
+            //     },
+            //   ],
+            // },
             // {
             //   label: "8. Interfaces and Abstract Classes",
             //   collapsed: true,
@@ -1152,30 +1162,31 @@ export default defineConfig({
             //       link: "book/part-3-programs-as-concepts/8-interfaces-abstract-classes/0-overview",
             //     },
             //     {
-            //       label: "Concepts",
+            //       label: "Guided Tour",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
-            //           "book/part-3-programs-as-concepts/8-interfaces-abstract-classes/1-concepts",
+            //           "book/part-3-programs-as-concepts/8-interfaces-abstract-classes/1-tour",
             //         collapsed: true,
             //       },
             //     },
             //     {
-            //       label: "Putting it Together",
+            //       label: "Trailside Ponder",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
-            //           "book/part-3-programs-as-concepts/8-interfaces-abstract-classes/2-put-together",
+            //           "book/part-3-programs-as-concepts/8-interfaces-abstract-classes/2-trailside",
             //         collapsed: true,
             //       },
             //     },
             //     {
-            //       label: "Other Languages",
-            //       link: "book/part-3-programs-as-concepts/8-interfaces-abstract-classes/3-other-languages",
-            //     },
-            //     {
-            //       label: "Activities",
-            //       link: "book/part-3-programs-as-concepts/8-interfaces-abstract-classes/4-activities",
+            //       label: "Go Exploring",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-3-programs-as-concepts/8-interfaces-abstract-classes/3-explore",
+            //         collapsed: true,
+            //       },
             //     },
             //   ],
             // },
@@ -1188,30 +1199,31 @@ export default defineConfig({
             //       link: "book/part-3-programs-as-concepts/9-design-principles-patterns/0-overview",
             //     },
             //     {
-            //       label: "Concepts",
+            //       label: "Guided Tour",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
-            //           "book/part-3-programs-as-concepts/9-design-principles-patterns/1-concepts",
+            //           "book/part-3-programs-as-concepts/9-design-principles-patterns/1-tour",
             //         collapsed: true,
             //       },
             //     },
             //     {
-            //       label: "Putting it Together",
+            //       label: "Trailside Ponder",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
-            //           "book/part-3-programs-as-concepts/9-design-principles-patterns/2-put-together",
+            //           "book/part-3-programs-as-concepts/9-design-principles-patterns/2-trailside",
             //         collapsed: true,
             //       },
             //     },
             //     {
-            //       label: "Other Languages",
-            //       link: "book/part-3-programs-as-concepts/9-design-principles-patterns/3-other-languages",
-            //     },
-            //     {
-            //       label: "Activities",
-            //       link: "book/part-3-programs-as-concepts/9-design-principles-patterns/4-activities",
+            //       label: "Go Exploring",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-3-programs-as-concepts/9-design-principles-patterns/3-explore",
+            //         collapsed: true,
+            //       },
             //     },
             //   ],
             // },
@@ -1224,25 +1236,31 @@ export default defineConfig({
             //       link: "book/part-3-programs-as-concepts/10-project/0-overview",
             //     },
             //     {
-            //       label: "Concepts",
+            //       label: "Guided Tour",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
-            //           "book/part-3-programs-as-concepts/10-project/1-concepts",
+            //           "book/part-3-programs-as-concepts/10-project/1-tour",
             //         collapsed: true,
             //       },
             //     },
             //     {
-            //       label: "Putting it Together",
-            //       link: "book/part-3-programs-as-concepts/10-project/2-put-together",
+            //       label: "Trailside Ponder",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-3-programs-as-concepts/10-project/2-trailside",
+            //         collapsed: true,
+            //       },
             //     },
             //     {
-            //       label: "Other Languages",
-            //       link: "book/part-3-programs-as-concepts/10-project/3-other-languages",
-            //     },
-            //     {
-            //       label: "Activities",
-            //       link: "book/part-3-programs-as-concepts/10-project/4-activities",
+            //       label: "Go Exploring",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-3-programs-as-concepts/10-project/3-explore",
+            //         collapsed: true,
+            //       },
             //     },
             //   ],
             // },

@@ -1,8 +1,6 @@
 ---
-title: Guided Tour
+title: Overview
 ---
-
-<!-- TODO - Olivia: Add in snippets for  -->
 
 For this chapter the main thing is to get back into the C# programming language and to be able to create a `Main` method within a class.
 
