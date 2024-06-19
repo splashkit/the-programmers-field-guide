@@ -1,7 +1,5 @@
 ---
-title: Putting Together Digital Realities
-sidebar:
-  label: Putting Together
+title: Guided Tour of Digital Realities
 ---
 
 This chapter was a little different from those that follow. We looked at the landscape around us so you could get a feel for the journey ahead and what will be important.

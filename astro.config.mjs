@@ -89,21 +89,31 @@ export default defineConfig({
                   link: "book/part-0-getting-started/1-digital-realities/0-overview",
                 },
                 {
-                  label: "Concepts",
+                  label: "Guided Tour",
                   collapsed: true,
                   autogenerate: {
                     directory:
-                      "book/part-0-getting-started/1-digital-realities/1-concepts",
+                      "book/part-0-getting-started/1-digital-realities/1-tour",
                     collapsed: true,
                   },
                 },
                 {
-                  label: "Putting it Together",
-                  link: "book/part-0-getting-started/1-digital-realities/2-put-together",
+                  label: "Trailside Ponder",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-0-getting-started/1-digital-realities/2-trailside",
+                    collapsed: true,
+                  },
                 },
                 {
-                  label: "Activities",
-                  link: "book/part-0-getting-started/1-digital-realities/3-activities",
+                  label: "Go Exploring",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-0-getting-started/1-digital-realities/3-explore",
+                    collapsed: true,
+                  },
                 },
               ],
             },

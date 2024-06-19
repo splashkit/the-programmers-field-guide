@@ -13,7 +13,7 @@ In your group, discuss the following:
 - Discuss the projects you hope to work on.
 - What strategies will you employ to help you engage with the abstract elements that exist within programming?
 
-# Wrap Up
+## Wrap Up
 
 This book is about learning to program, which is really learning to create digital realities that exist and operate within a computer. Computers are complicated machines, but we can rise above that due to abstraction.
 
