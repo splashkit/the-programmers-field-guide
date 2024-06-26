@@ -1,5 +1,5 @@
 ---
-title: Build your first program
+title: Your First Program
 ---
 
 Here are the steps needed to build your own program:
