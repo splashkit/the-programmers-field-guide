@@ -2,7 +2,7 @@
 title: Debugging Your First Program
 ---
 
-As you continue learning new coding concepts, you will inevitably come across errors (bugs) in your code. Don't be discouraged though! Even the most skilled programmers run into bugs in their programs. You will get better and faster at [Debugging](/book/part-0-getting-started/3-building-programs/2-trailside/04-debug) the more you practice.
+As you continue learning new coding concepts, you will inevitably come across errors (bugs) in your code. Don't be discouraged though! Even the most skilled programmers run into bugs in their programs. You will get better and faster at [Debugging](/book/part-0-getting-started/3-building-programs/2-trailside/04-0-debug) the more you practice.
 
 ## Setting up your C# project
 

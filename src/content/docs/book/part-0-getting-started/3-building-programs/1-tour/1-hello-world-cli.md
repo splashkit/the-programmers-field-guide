@@ -1,10 +1,16 @@
 ---
-title: Hello World Command Line
-sidebar:
-  label: " - Terminal Hello World"
+title: Build your first program
 ---
 
-In this guide, we will go through the steps of building a basic terminal-based C# program to output the text: "Hello, World".
+Here are the steps needed to build your own program:
+
+1. Create a new folder for the project, and move into this in the terminal
+2. Use `dotnet new console` to create the initial project files
+3. Add the SplashKit package we will be using `dotnet add package splashkit`
+4. Write the code in **Program.cs**
+5. Build and run using `dotnet run`
+
+Let's go through these steps to build a simple terminal-based program to output the text: "Hello, World".
 
 :::note[Why "Hello World"?]
 Whenever you start learning a new programming language, you will likely write code to output **"Hello, World"** for your first program - just like we are going to do here!
@@ -12,30 +18,23 @@ Whenever you start learning a new programming language, you will likely write co
 You can read more about the origin of "Hello, World" [here](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) if you're curious, but the short version is that it is a simple way of checking that your computer is set up correctly to code in a particular language.
 :::
 
-## Create your Project
+## Create the Project Folder
 
-Firstly, we need to create a new C# project folder and the initial project files within this folder:
-
-### 1. Create Project Folder
-
-As mentioned earlier, in the Concepts page: [Create a Project](/book/part-0-getting-started/3-building-programs/2-trailside/01-create-project), we will be using the **~/Documents/Code** folder as the base. If you are saving your code elsewhere then make sure to adjust paths as needed.
-
-To set up your HelloWorld folder from the terminal, copy and paste the following command into your Terminal window:
+We will create a folder in our **Documents/Code** folder (which we created in the [Computer Use](/book/part-0-getting-started/2-computer-use/1-tour/3-1-terminal) chapter). If you are saving your code elsewhere then make sure to adjust paths as needed.
 
 ```zsh
+# Windows users -see the following note
 cd ~/Documents/Code
+
+# Make a folder for the project
 mkdir HelloWorld
+
+# Move into that folder
 cd HelloWorld
 ```
 
 :::note
-If using **WSL/Ubuntu**:
-
-- You might need to create a "Documents" folder/directory in your base directory.
-- You can find your base directory in File Explorer by going to the **Linux** drive that has been created alongside your C drive, then go into the "**home**" folder, then you will see a folder with the username you created in the setup steps. This is your base directory in WSL/Ubuntu.
-    <!-- TODO: may need to include image showing this (and double check these steps -->
-
-If using **MSYS2 MINGW64**:
+If you are using **MSYS2 MINGW64**:
 
 - You will need to adjust the `cd` command slightly from what is shown in the command above, which will look similar to this:
 
@@ -45,26 +44,31 @@ If using **MSYS2 MINGW64**:
 
     where you would replace **<your_username>** with your own username.
 - To check your username, you can use the `whoami` command in your terminal.
-- Shortcut: You can also type `cd` ("cd", then space), then click and drag a folder from File Explorer into your MSYS2 MINGW64 terminal window.
 
+:::
+
+:::tip
+You can also type `cd` ("cd", then space), then click and drag a folder from File Explorer or Finder into your terminal window.
 :::
 
 :::caution[Project Folders]
 
-- For all new programs, you will need to create a new project folder.  
-  (1 folder per project)
-- Make sure to name your project folder in a way that allows you to easily identify what it is doing.
-- Avoid using *Spaces* in your folder names if possible, as this can sometimes cause issues later on.
+Remember to avoid adding *Spaces* in your folder names!
 
 :::
 
-### 2. Create *dotnet* project files
+## Create *dotnet* project files
+
+We will be using C# initially, for these programs we need to setup project files that the language uses to know how to build your program.
 
 To create the initial project files for this C# program, copy and paste the following commands into your Terminal window:
 
 ```bash
 dotnet new console
+dotnet add package splashkit
 ```
+
+This creates the project, and add the splashkit library we will be using.
 
 If you run `ls -lha` in the terminal after the commands above, it should look similar to this:
 
@@ -82,7 +86,7 @@ code .
 ```
 
 :::note
-If the `code .` command does not work on your computer, you can open Visual Studio Code, and then click *File > Open Folder*, and then navigate to the HelloWorld folder you created in the steps above.
+If the `code .` command does not work on your computer, you can open Visual Studio Code, and then click *File > Open Folder*, and then navigate to the HelloWorld folder you created in the steps above. Make sure to open the folder itself.
 :::
 
 You will notice that shortly after opening the project, a **bin** folder and a **.sln** file will be added automatically:
@@ -95,18 +99,24 @@ Open `Program.cs` file (shown above in Green box) by double-clicking the file in
 Copy the following code into your Program.cs file (replacing the existing code):
 
 ```cs
-using static System.Console;
+using static SplashKitSDK.SplashKit;
 
 WriteLine("Hello, World!");
 ```
 
 After the last line, you can add another `WriteLine("...")` bit of code with your own custom message!
 
+:::caution
+
+We will be using SplashKit for terminal input and output initially. Avoid using the `System.Console` version for now, but we will come back to this once we have moved beyond the basics.
+
+:::
+
 ## Build and Run your Code
 
 Let's turn your code into a program! Like magic!
 
-To run the program (and build it at the same time), use the following command in your terminal:
+Use the following command to build and run the program:
 
 ```bash
 dotnet run
@@ -118,7 +128,7 @@ To avoid having to switch back and forth between your apps, you can open a Termi
 
 Here is what the result will look like:
 
-![A VS Code window showing the program being run in the terminal.](./images/vscode-cli-hello-world-output.png)
+![A VS Code window showing the program being run in the terminal.](./images/cli-hello-world-splashkit.png)
 <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 Next, we are going to create a **Graphical** *Hello World* program!

@@ -1,74 +1,26 @@
 ---
-title: Hello World GUI
-sidebar:
-  label: " - Graphical Hello World"
+title: Graphical Hello World
 ---
 
 import { YouTube } from 'astro-embed';
 
 Continuing on from [the previous page](/book/part-0-getting-started/3-building-programs/1-tour/1-hello-world-cli), we will now be using *SplashKit* to create a GUI (**G**raphical **U**ser **I**nterface) Hello World program.
 
-## Add SplashKit package to project
+## Create a project folder
 
-To install the *SplashKit NuGet package* in your project, copy and paste the following command into your Terminal window:
+Each C# project needs a new folder. Create a **HelloGui** folder for this one.
 
 ```bash
+# If you are in the Documents/Code/HelloWorld folder at the moment...
+cd ..
+mkdir HelloGui
+dotnet new console
 dotnet add package SplashKit
+code .
 ```
-
-:::note
-After running the command above, your `HelloWorld.csproj` file will have been updated to look like this:
-
-![A VS Code window showing the SplashKit included in the project file](./images/splashkit-package-csproj.png)
-<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
-:::
-
-Now we can use all the SplashKit functionality in our program &#128526;
-
-## Terminal Hello World *with SplashKit!*
-
-Here we will recreate the *terminal Hello World* program that we did on the previous page, but **using SplashKit** this time!
-
-In your Program.cs file, you can replace the first line with the follow code:
-
-```cs
-using static SplashKitSDK.SplashKit;
-```
-
-Then run your program again using `dotnet run`.
-
-:::tip[For Example]
-Using the following code:
-
-```cs
-using static SplashKitSDK.SplashKit;
-
-WriteLine("Hello, World!");
-WriteLine("Using SplashKit!");
-```
-
-We would get this output in the Terminal (shown in the Green Box):
-
-![A VS Code window showing the program being run in the terminal.](./images/cli-hello-world-splashkit.png)
-<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
-:::
 
 :::tip[Troubleshooting tip:]
-If the `dotnet run` command is not working, and you were not able to install SplashKit globally, go to the [No SplashKit Global Install](/book/appendix/0-installation/3-0-troubleshooting-install/#no-splashkit-global-install) section on the Installation Troubleshooting page to see the alternate commands to use.
-:::
-
-## Graphical Hello World
-
-We are getting to the fun part now!
-
-Using a Graphical User Interface for your program will allow you to create more versatile programs much more easily. And it's fun to see your code come to life with these graphics!
-
-### Using Basic Shapes/Text
-
-Here we will be using SplashKit functionality to draw some shapes on the Window that will open when the program is run.
-
-:::note
-You're not expected to understand how the following code works at this point. It has been created for fun, so you can just copy and paste - and enjoy a colourful "Hello World!" GUI program!
+If the `dotnet run` command is not working, make sure you have SplashKit installed correctly. If you were not able to install SplashKit globally, go to the [No SplashKit Global Install](/book/appendix/0-installation/3-0-troubleshooting-install/#no-splashkit-global-install) section on the Installation Troubleshooting page to see the alternate commands to use.
 :::
 
 Copy the following code and paste it into your Program.cs file (replacing existing code) and then run your program using `dotnet run`:
@@ -146,129 +98,3 @@ Here is what the code above will create:
 ![A window showing the GUI output of the program being run in the terminal.](./images/splashkit-gui-shapes-hello-world.png)
 
 Yes... The program above was created using just 3 shapes - Rectangles, Ellipses, and Triangles! (Well... 4 if you count the last little Circle on the exclamation mark)
-
-### Using Images, Fonts and SoundEffects
-
-The code for this part will be using SplashKit functionality to draw images, play sound effects and draw text with a specific font.
-
-:::note[Reminder]
-You're not expected to understand how the following code works at this point. It has been created for fun, so you can just copy and paste - and enjoy another "Hello World!" GUI program!
-:::
-
-:::caution[MSys download issues]
-Currently the SplashKit download functions will not function if you are using MSys on Windows. If you want to run these programs, you need to download the images and sound effects manually, save them in the folder with your program, and change the code to use the "Load" version of the methods. For example, `LoadSoundEffect("Hello World", "hello-world-snippet-saddle-club.ogg");`.
-:::
-
-Copy the following code and paste it into your Program.cs file (replacing existing code) and then run your program using `dotnet run`:
-
-```cs
-using static SplashKitSDK.SplashKit;
-
-// download resources
-DownloadSoundEffect("Hello World", "https://programmers.guide/resources/code-examples/part-0/hello-world-snippet-saddle-club.ogg", 443);
-DownloadFont("main", "https://programmers.guide/resources/code-examples/part-0/Roboto-Italic.ttf", 443);
-DownloadBitmap("Earth", "https://programmers.guide/resources/code-examples/part-0/earth.png", 443);
-DownloadBitmap("SmallEarth", "https://programmers.guide/resources/code-examples/part-0/earth-small.png", 443);
-DownloadBitmap("SplashKitBox", "https://programmers.guide/resources/code-examples/part-0/skbox.png", 443);
-
-OpenWindow("Hello World: Using Resources with SplashKit", 800, 600);
-PlaySoundEffect("Hello World");
-
-ClearScreen(ColorWhite());
-DrawText("Anyone remember the \"Hello World\" Saddle Club song?", ColorBlack(), "main", 30, 40, 200);
-RefreshScreen();
-Delay(2500);
-
-ClearScreen(ColorWhite());
-
-// H
-DrawBitmap("SmallEarth", 20, 100);
-DrawBitmap("SmallEarth", 20, 130);
-DrawBitmap("SmallEarth", 20, 160);
-DrawBitmap("SmallEarth", 20, 190);
-DrawBitmap("SmallEarth", 20, 220);
-DrawBitmap("SmallEarth", 52, 160);
-DrawBitmap("SmallEarth", 84, 100);
-DrawBitmap("SmallEarth", 84, 130);
-DrawBitmap("SmallEarth", 84, 160);
-DrawBitmap("SmallEarth", 84, 190);
-DrawBitmap("SmallEarth", 84, 220);
-RefreshScreen();
-Delay(200);
-
-// E
-DrawBitmap("SmallEarth", 148, 100);
-DrawBitmap("SmallEarth", 148, 130);
-DrawBitmap("SmallEarth", 148, 160);
-DrawBitmap("SmallEarth", 148, 190);
-DrawBitmap("SmallEarth", 148, 220);
-DrawBitmap("SmallEarth", 180, 100);
-DrawBitmap("SmallEarth", 212, 100);
-DrawBitmap("SmallEarth", 180, 160);
-DrawBitmap("SmallEarth", 180, 220);
-DrawBitmap("SmallEarth", 212, 220);
-RefreshScreen();
-Delay(200);
-
-// L
-DrawBitmap("SmallEarth", 276, 100);
-DrawBitmap("SmallEarth", 276, 130);
-DrawBitmap("SmallEarth", 276, 160);
-DrawBitmap("SmallEarth", 276, 190);
-DrawBitmap("SmallEarth", 276, 220);
-DrawBitmap("SmallEarth", 308, 220);
-DrawBitmap("SmallEarth", 340, 220);
-RefreshScreen();
-Delay(200);
-
-// L
-DrawBitmap("SmallEarth", 404, 100);
-DrawBitmap("SmallEarth", 404, 130);
-DrawBitmap("SmallEarth", 404, 160);
-DrawBitmap("SmallEarth", 404, 190);
-DrawBitmap("SmallEarth", 404, 220);
-DrawBitmap("SmallEarth", 436, 220);
-DrawBitmap("SmallEarth", 468, 220);
-RefreshScreen();
-Delay(200);
-
-// O
-DrawBitmap("SmallEarth", 530, 160);
-DrawBitmap("SmallEarth", 622, 160);
-DrawBitmap("SmallEarth", 540, 128);
-DrawBitmap("SmallEarth", 560, 100);
-DrawBitmap("SmallEarth", 592, 100);
-DrawBitmap("SmallEarth", 612, 128);
-DrawBitmap("SmallEarth", 540, 192);
-DrawBitmap("SmallEarth", 560, 220);
-DrawBitmap("SmallEarth", 592, 220);
-DrawBitmap("SmallEarth", 612, 192);
-RefreshScreen();
-Delay(500);
-
-// World
-DrawBitmap("Earth", 100, 350);
-RefreshScreen(60);
-Delay(2000);
-
-// SplashKit ("Me")
-DrawBitmap("SplashKitBox", 450, 300);
-DrawText("SplashKit!", ColorBlack(), "main", 50, 450, 530);
-RefreshScreen(60);
-Delay(2000);
-```
-
-Following a bit of a theme with *writing words out of something other than actual text*, we get this:
-
-<div class="not-content">
-  <YouTube id="LVYH18vDQ-w" params="fs=1&start=1&modestbranding=1&rel=0&autoplay=1"/>
-</div>
-
-&#127759; Yes, that is "HELLO", written using "worlds" &#128516;  
-(Because "HELLO" ... "*world*")
-
-:::tip[Hooray!]
-You have now successfully run terminal and graphical programs in C#!
-
-Next we will have a look at the Debugger, to help you when things don't run quite so smoothly.
-:::

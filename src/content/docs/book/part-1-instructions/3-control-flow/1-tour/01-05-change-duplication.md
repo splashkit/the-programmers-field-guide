@@ -209,7 +209,7 @@ Steps:
     While (again != "N" and again != "n")
 ```
 
-Adjust your code to incorporate the new structure. Then test it with different amounts of change to make sure it works as expected. Run it through the [debugger](/book/part-0-getting-started/3-building-programs/2-trailside/04-debug) to help consolidate your understanding of how it works. Remember you can also use this to help fix any logic issues you have once you sort out any syntax errors.
+Adjust your code to incorporate the new structure. Then test it with different amounts of change to make sure it works as expected. Run it through the [debugger](/book/part-0-getting-started/3-building-programs/2-trailside/04-0-debug) to help consolidate your understanding of how it works. Remember you can also use this to help fix any logic issues you have once you sort out any syntax errors.
 
 What we have created ends up being more code, but it is much more flexible.
 There is still duplication in this, but with some more programming tools we can improve it further. We are now getting to a point where the amount of code is getting too much to manage in this way, and we need more effective means of managing data within the program. This will be the focus of [Part 2](/book/part-2-organised-code/00-part-2-programs-as-organised-code), where we will look at [structuring code](/book/part-2-organised-code/2-organising-code/0-overview), [structuring data](/book/part-2-organised-code/3-structuring-data/0-overview), and [managing multiples](/book/part-2-organised-code/5-working-with-multiples/0-overview).
