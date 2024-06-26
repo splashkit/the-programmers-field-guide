@@ -181,12 +181,7 @@ export default defineConfig({
                 },
                 {
                   label: "Go Exploring",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-0-getting-started/3-building-programs/3-explore",
-                    collapsed: true,
-                  },
+                  link: "book/part-0-getting-started/3-building-programs/3-explore",
                 },
               ],
             },
