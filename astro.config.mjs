@@ -103,12 +103,7 @@ export default defineConfig({
                 },
                 {
                   label: "Go Exploring",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-0-getting-started/1-digital-realities/3-explore",
-                    collapsed: true,
-                  },
+                  link: "book/part-0-getting-started/1-digital-realities/3-explore",
                 },
               ],
             },
@@ -119,6 +114,15 @@ export default defineConfig({
                 {
                   label: "Overview",
                   link: "book/part-0-getting-started/2-computer-use/0-overview",
+                },
+                {
+                  label: "Panorama",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-0-getting-started/2-computer-use/0-panorama",
+                    collapsed: true,
+                  },
                 },
                 {
                   label: "Guided Tour",
