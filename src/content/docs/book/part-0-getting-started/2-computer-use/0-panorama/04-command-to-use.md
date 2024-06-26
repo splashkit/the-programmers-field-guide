@@ -1,0 +1,67 @@
+---
+title: Commands to use
+---
+
+You can run many commands and programs at the terminal, but there are only a few you really need to get started. The best thing to remember is that you can get help from each command using the `--help` argument.
+
+- `ls`: Use the `ls` command to list files in a folder. Pass it arguments for the name of the folder to list, if you do not want the listing of the current folder. You can also pass it options for how to format the list `-lha` are good options to start with.
+- `cd`: Use `cd` to move the shell to a new folder (directory). Pass it one argument, the path to the folder you want to move to.
+- `cp`: The `cp` command lets you copy files. Pass it arguments for the source (what to copy) and the destination (where to put it).
+- `rm`: Is used to *remove* aka *delete* a file or folder. To delete folders you need to pass in the `-r` option. Beware, there is no "recycle bin" here. When you remove a file, it is gone.
+- `mkdir`: Can be used to create folders.
+
+![Example of cp --help](./images/command-help.png)
+
+:::note[Using --help...]
+
+- will tell you want a command done.
+- shows you what arguments the command expects.
+- describes options you can pass to the command.
+
+:::
+
+:::tip
+
+If you are not sure what command to use, you can search for it or use a generative AI engine to give you ideas. Include descriptions like "in bash", "at the command line", "cli", or "shell command".
+
+:::
+
+## Example
+
+```zsh
+# move into the /c/Users/andrew/Documents/ folder
+cd /c/Users/andrew/Documents
+
+# Now we are in the Documents folder...
+# move into the /c/Users/andrew/Documents/Code folder
+cd Code
+
+# We can make a folder for a project called HelloWorld
+# Notice no space between Hello and World
+mkdir HelloWorld
+
+# Move into the new folder
+cd ./HelloWorld
+
+# Print out the location in the terminal
+pwd
+
+# Create some empty files
+touch test.cpp
+touch test.h
+
+# List the files
+ls -lha
+
+# Move to your code folder (mac or Linux - Windows needs /c/Users/...)
+cd ~/Documents/Code
+
+# Explore further to do things like...
+
+# Get a word count of all of your C++ code
+find . -name *.cpp -exec cat {} \; | wc -w
+
+# Download and interact with files
+curl https://programmers.guide/book/part-0-getting-started/00-0-introduction/ > intro.html
+```
+  
