@@ -11,20 +11,21 @@ Create a program that draws a custom scene, picture, or animation using shapes a
 - Make sure to draw at least 3 shapes, or have a few steps in your animation
 - Provide some calculated elements to the scene, that the user can input. Something like the position, size, or speed of a component is sufficient.
 
+This could be a simple image like a car or flower shape, or you could combine text, delays, drawing, and sound effects to create an animation.
 
-This could be a simple image like a car or flower shape, or you could combine text, delays, drawing, and sound effects to create an animation. For example:
+For example, the following is a starter/trailer for some scary game. The user would change the speed of the animation by scaling the delay time. Use this for inspiration.
 
 ```txt
 Welcome friend. What is your name: Andrew
 Hello Andrew,
 What are you most scared of? Spiders
-Delay speed scale? [0 to 1]: 0.75
+Delay speed scale? [100 to 1000]: 750
 
 You are approaching what looks like a haunted house
 (delay - scale by speed scale factor)
 (play door creak sound effect - delay scaled)
 It is dark in here...
-Andrew! (delay then print) There are Spiders everywhere!
+Andrew! (delay then print) Spiders everywhere!
 (open window - show black - delay)
 (draw scary picture - play scream sound effect - short delay)
 (draw black screen - short delay)
