@@ -273,12 +273,7 @@ export default defineConfig({
                 },
                 {
                   label: "Go Exploring",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-1-instructions/2-communicating-syntax/3-explore",
-                    collapsed: true,
-                  },
+                  link: "book/part-1-instructions/2-communicating-syntax/3-explore",
                 },
               ],
             },

@@ -1,6 +1,5 @@
 ---
-title: Activities
-draft: true
+title: Go Exploring
 ---
 
 Go back over the sequence and data chapter and review the syntax diagrams. Check these against the code you have already created. You should now be able to connect the ideas from the diagrams with the code you have created.
