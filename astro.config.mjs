@@ -286,6 +286,15 @@ export default defineConfig({
                   link: "book/part-1-instructions/3-control-flow/0-overview",
                 },
                 {
+                  label: "Panorama",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-1-instructions/3-control-flow/0-panorama",
+                    collapsed: true,
+                  },
+                },
+                {
                   label: "Guided Tour",
                   collapsed: true,
                   autogenerate: {
