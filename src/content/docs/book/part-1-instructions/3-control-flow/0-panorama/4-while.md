@@ -2,7 +2,7 @@
 title: Repeat with while
 ---
 
-You can repeat code using a while loop. This tests a condition at the start of the instructions. If the condition is true, then the loop is entered and run to their end before returning to the condition to see if the instructions should be run again.
+You can repeat code using a while loop. This tests a condition at the start of the instructions. If the condition is true, then the loop is entered and runs to its end before returning to the condition to see if the instructions should be run again.
 
 ![Example while loop](./images/while-code.png)
 
@@ -16,7 +16,7 @@ You can repeat code using a while loop. This tests a condition at the start of t
 
 :::tip
 
-Remember that the instructions still run in sequence. So the condition is only checked when once at the start of each loop.
+Remember that the instructions still run in sequence. So the condition is only checked once at the start of each loop.
 
 :::
 
