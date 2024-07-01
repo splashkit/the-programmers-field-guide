@@ -11,6 +11,7 @@ no_sudo_check=false
 no_dotnet=false
 splashkit_url="https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh"
 background_light=false
+deakin_background=false
 no_zsh=false
 no_fan=false
 
@@ -44,10 +45,10 @@ function display_help() {
    echo "--no_vscode            Do not install VS Code."
    echo "--no_clang             Do not install clang."
    echo "--no_dotnet            Do not install .NET."
-   echo "--splashkit_url=<url>  Specify the url to the splashkit install script."
+#    echo "--splashkit_url=<url>  Specify the url to the splashkit install script."
    echo "--background_light     Specify if the backgound image theme is light. Defualt is dark."
    echo "--no_zsh               Do not install zsh."
-   echo "--no_fan               On Pi Do not enable fan control, Defulat is enabled 60 degrees"
+   echo "--no_fan               On Pi Do not enable fan control, Default is enabled 60 degrees"
    echo
 }
 
@@ -85,6 +86,9 @@ for arg in "$@"; do
             ;;
         --no_fan)
             no_fan=true
+            ;;
+        --deakin-background)
+            deakin_background=true
             ;;
         -h|--help)
             display_help
@@ -251,31 +255,33 @@ echo "Categories=Development;" >> ~/programmers-field-guide.desktop
 sudo mv ~/programmers-field-guide.desktop /usr/share/applications/programmers-field-guide.desktop
 
 #Set Background
-echo "Setting background image"
-if [[ "$platform" == "aarch64" ]]; then
-    sudo curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/appendix/0-installation/images/setup-pi/Deakin-Backgound-1920x1080-outline-dark.jpg" -o /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-dark.jpg
-    sudo curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/appendix/0-installation/images/setup-pi/Deakin-Backgound-1920x1080-outline-light.jpg" -o /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-light.jpg
-
+if [[ "$deakin_background" == true ]]; then
     echo "Setting background image"
-    if [[ "$background_light" == true ]]; then
-        echo "Setting background image to light"
-        pcmanfm --set-wallpaper /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-light.jpg
-    else
-        echo "Setting background image to dark"
-        pcmanfm --set-wallpaper /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-dark.jpg
-    fi
-elif [[ "$platform" == "x86_64" ]]; then
+    if [[ "$platform" == "aarch64" ]]; then
+        sudo curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/appendix/0-installation/images/setup-pi/Deakin-Backgound-1920x1080-outline-dark.jpg" -o /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-dark.jpg
+        sudo curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/appendix/0-installation/images/setup-pi/Deakin-Backgound-1920x1080-outline-light.jpg" -o /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-light.jpg
 
-    mkdir -p ~/.local/share/backgrounds
+        echo "Setting background image"
+        if [[ "$background_light" == true ]]; then
+            echo "Setting background image to light"
+            pcmanfm --set-wallpaper /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-light.jpg
+        else
+            echo "Setting background image to dark"
+            pcmanfm --set-wallpaper /usr/share/rpd-wallpaper/Deakin-Backgound-1920x1080-outline-dark.jpg
+        fi
+    elif [[ "$platform" == "x86_64" ]]; then
 
-    curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/appendix/0-installation/images/setup-pi/Deakin-Backgound-1920x1080-outline-dark.jpg" -o ~/.local/share/backgrounds/Deakin-Backgound-1920x1080-outline-dark.jpg
-    curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/appendix/0-installation/images/setup-pi/Deakin-Backgound-1920x1080-outline-light.jpg" -o ~/.local/share/backgrounds/Deakin-Backgound-1920x1080-outline-light.jpg
-    gsettings set org.gnome.desktop.background picture-uri file://$HOME/.local/share/backgrounds/Deakin-Backgound-1920x1080-outline-light.jpg
-    gsettings set org.gnome.desktop.background picture-uri-dark file://$HOME/.local/share/backgrounds/Deakin-Backgound-1920x1080-outline-dark.jpg
-    if [[ "$background_light" == true ]]; then
-        gsettings set org.gnome.desktop.interface color-scheme 'default'
-    else
-        gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+        mkdir -p ~/.local/share/backgrounds
+
+        curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/appendix/0-installation/images/setup-pi/Deakin-Backgound-1920x1080-outline-dark.jpg" -o ~/.local/share/backgrounds/Deakin-Backgound-1920x1080-outline-dark.jpg
+        curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/src/content/docs/book/appendix/0-installation/images/setup-pi/Deakin-Backgound-1920x1080-outline-light.jpg" -o ~/.local/share/backgrounds/Deakin-Backgound-1920x1080-outline-light.jpg
+        gsettings set org.gnome.desktop.background picture-uri file://$HOME/.local/share/backgrounds/Deakin-Backgound-1920x1080-outline-light.jpg
+        gsettings set org.gnome.desktop.background picture-uri-dark file://$HOME/.local/share/backgrounds/Deakin-Backgound-1920x1080-outline-dark.jpg
+        if [[ "$background_light" == true ]]; then
+            gsettings set org.gnome.desktop.interface color-scheme 'default'
+        else
+            gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+        fi
     fi
 fi
 

@@ -60,8 +60,8 @@ sudo apt install curl git clang -y
 This script will install the following applications and tools:
 
 - Visual Studio Code
-  - C/C++ Extension
-  - C# Extension
+  - C/C++ Extensions
+  - C# Extensions
 - .NET SDK
 - SplashKit
   - SplashKit Global
@@ -73,7 +73,7 @@ This script will install the following applications and tools:
 Open the Terminal and run the following command:
 
 ```bash
-curl -s "https://programmers.guide/resources/Linux_Pi_InstallScript.sh" | bash /dev/stdin
+curl -s "https://programmers.guide/resources/Linux_InstallScript.sh" | bash /dev/stdin
 ```
 
 :::note
@@ -90,7 +90,7 @@ The linux_pi_install script supports several options that can be used to customi
 The example below will display the help menu, which lists the available options (scroll the command across to see the end):
 
 ```bash
-curl -s "https://programmers.guide/resources/Linux_Pi_InstallScript.sh"| bash /dev/stdin --help
+curl -s "https://programmers.guide/resources/Linux_InstallScript.sh"| bash /dev/stdin --help
 ```
 
 :::
