@@ -3,6 +3,7 @@ title: Configuring VS Code
 sidebar:
   label: " - Configuring VS Code"
 ---
+import { YouTube } from 'astro-embed';
 
 Getting the program compiling and running in the terminal will mean that you now know the steps an editor like Visual Studio Code would need to automate for us.
 
@@ -114,7 +115,7 @@ At this point, you have Visual Studio Code set up to build the currently selecte
 Going forward, you can edit the tasks.json to compile multiple files. To do this you need to change the argument that passes in what to compile, and the output option in the following ways:
 
 - Change **"${file}"** to **"*.cpp"**. This will then compile all cpp files.
-- The **"-o"** argument is followed by the name of the program to create. This is **"${fileDirname}/${fileBasenameNoExtension}"** which names the program after the selected file. When building multiple files you can provide a fixed value here like **"program"**. This will then always build the same output regardless of which source file is selected.
+- The **"-o"** argument is followed by the name of the program to create. This is **"$\{fileDirname}/$\{fileBasenameNoExtension}"** which names the program after the selected file. When building multiple files you can provide a fixed value here like **"program"**. This will then always build the same output regardless of which source file is selected.
 
 ### Configuring Launch
 
@@ -199,3 +200,9 @@ To run your code in the debugger, use the "debug/play" or click the "Run and Deb
 Notice that unlike C#, the output does not go into the terminal window. To include terminal input and output, you need to change the "externalConsole" setting to `false`. When you run the debugger now, it will open the default terminal program and allow you to use it for input and output.
 
 Remember, if you change the "-o" setting in *tasks.json*, you will also need to change it in *launch.json*.
+
+## Video Walkthrough
+In this video we'll step through how to set up compiling and debugging C++ in VS Code.
+<div class="not-content">
+  <YouTube id="pmoLv8sfplU" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
