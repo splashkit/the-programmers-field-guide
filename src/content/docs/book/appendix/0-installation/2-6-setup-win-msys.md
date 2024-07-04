@@ -54,7 +54,7 @@ To install SplashKit, you will firstly need to install **Git** and a compiler wh
 Copy and paste the following command into your **MINGW64** terminal window to install the `git` and `clang` command-line tool:
 
 ```bash
-pacman -S git mingw-w64-{x86_64,i686}-clang mingw-w64-x86_64-gcc mingw-w64-x86_64-gdb --noconfirm --disable-download-timeout
+pacman -S git mingw-w64-x86_64-clang mingw-w64-x86_64-gcc mingw-w64-x86_64-gdb --noconfirm --disable-download-timeout
 ```
 
 :::caution[Paste commands into MINGW64 Terminal]
