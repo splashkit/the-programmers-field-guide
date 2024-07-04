@@ -1,0 +1,45 @@
+---
+title: Terminal methods to use
+---
+import { YouTube } from 'astro-embed';
+
+In Sequence and Data, we were able to use a number of methods from the .NET System libraries and SplashKit in order to produce outputs and read values from the user. Now that we have control flow, there are a number of additional methods that you can use to help with your projects.
+
+## Terminal Methods
+
+<div class="not-content">
+  <YouTube id="ozp3oUHEidg" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+In addition to `WriteLine`, `Write`, `ReadLine`, and the convert methods we will now need ways to check if data provided has the right format. The .NET library doesn't have the best 
+
+```cs
+public static bool SplashKit.IsDouble(string text);
+public static bool SplashKit.IsInteger(string text);
+```
+
+These methods will allow you to test if a string can be converted to an integer or a double. You can use these to perform simple validations, by using this as the condition in a loop. For example, the following validates the entry of a double value.
+
+```cs
+using static SplashKitSDK.SplashKit;
+using static System.Convert;
+
+string line;
+double value;
+
+Write("Please enter a number: ");
+line = ReadLine();
+while (!IsDouble(line))
+{
+  WriteLine($"Sorry, I cannot convert {line} to a number.");
+  Write("Please enter a number: ");
+  line = ReadLine();
+}
+value = ToDouble(line);
+
+WriteLine($"Thanks you I got {value}");
+```
+
+:::caution
+Make sure you are not using the `System.Console` code. Both SplashKit and Console provide `WriteLine`, `Write`, and `ReadLine` methods. To avoid getting the compiler confused, make sure you are `using static SplashKitSDK.SplashKit;` and do not add the code to use `System.Console`.
+:::

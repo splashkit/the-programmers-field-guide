@@ -1,5 +1,5 @@
 ---
-title: Flow and Conditions
+title: Flow and conditions
 ---
 
 We have been focusing on sequence so far. With sequence, you can picture instructions flowing through the computer as it executes them one at a time.
