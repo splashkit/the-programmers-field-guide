@@ -2,5 +2,7 @@
 title: Test Your Knowledge
 ---
 
-- Database with update (in multiple ways) -- business logic? -- interest calculation account - dynamic account ... add transaction (deposit/withdraw) ... add interest ... print account ...  - (description, balance, interest, period)
-- Simple game - one entity - shape click - target shoot (reaction difficulty scale - size based on last speed to click) - shows min size for score
+With indirect access you can start to include updates more easily in your programs. Build one or more of the following to explore how you can use pass by reference to update values in your programs structs.
+
+- [Bank System](/book/part-2-organised-code/4-indirect-access/3-explore/3-1-database) - create a program to perform financial transactions.
+- [Click game](/book/part-2-organised-code/4-indirect-access/3-explore/3-2-reaction-game) - create a small reaction timer game.
