@@ -407,12 +407,7 @@ export default defineConfig({
                 },
                 {
                   label: "Go Exploring",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-2-organised-code/1-starting-cpp/3-explore",
-                    collapsed: true,
-                  },
+                  link: "book/part-2-organised-code/1-starting-cpp/3-explore",
                 },
                 {
                   label: "Campsite Reflection",
