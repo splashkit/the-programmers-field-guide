@@ -58,18 +58,18 @@ then
         exit 1
     fi
     rm dotnet-sdk-installer.exe
+
+    # Add .NET environment variables
+    if command -v bash &> /dev/null; then
+        if ! grep -q 'export DOTNET_ROOT=$HOME/.dotnet' ~/.bashrc; then
+            echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
+        fi
+        if ! grep -q 'export PATH=$PATH:$HOME/.dotnet' ~/.bashrc; then
+            echo 'export PATH=$PATH:$HOME/.dotnet' >> ~/.bashrc
+        fi
+    fi
 else
     echo ".NET SDK is already installed."
-fi
-
-# Add .NET environment variables
-if command -v bash &> /dev/null; then
-    if ! grep -q 'export DOTNET_ROOT=$HOME/.dotnet' ~/.bashrc; then
-        echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
-    fi
-    if ! grep -q 'export PATH=$PATH:$HOME/.dotnet' ~/.bashrc; then
-        echo 'export PATH=$PATH:$HOME/.dotnet' >> ~/.bashrc
-    fi
 fi
 
 # -----------------------------------------------------
