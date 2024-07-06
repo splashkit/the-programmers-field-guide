@@ -181,7 +181,7 @@ Steps:
 Code this up, and test it to ensure you can move left and right. Make sure to try holding down both arrow keys. If you like, test out the alternate logic to see the difference.
 
 :::tip
-Check out the video on the [Methods to Use](/book/part-1-instructions/3-control-flow/2-trailside/09-00-methods) page. This demonstrates how to get the event loop setup, and use this to move a character around on the screen.
+Check out the video on the [Methods to Use](/book/part-1-instructions/3-control-flow/0-panorama/9-multimedia-methods) page. This demonstrates how to get the event loop setup, and use this to move a character around on the screen.
 :::
 
 ### Staying on the web
