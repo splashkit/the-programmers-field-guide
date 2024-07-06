@@ -99,6 +99,58 @@ To make it easier to open each time, you can pin your Terminal to the Taskbar.
 <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 :::
 
+## Automated Setup
+
+:::caution[Install VS Code first!]
+Before running the automated installation script command below, it is strongly recommended that you install Visual Studio Code directly in Windows first (rather than inside WSL).
+
+Go to Step [4. Install Visual Studio Code](#4-install-visual-studio-code) then come back to this section.
+:::
+
+This script will install the following applications and tools:
+
+- Visual Studio Code Extensions
+  - C/C++ Extensions
+  - C# Extensions
+- .NET SDK
+- SplashKit
+  - SplashKit Global
+- wget
+- git
+- curl
+- clang
+- build-essential
+- g++
+- gdb
+
+Open the Ubuntu Terminal and run the following command:
+
+```bash
+curl -s "https://programmers.guide/resources/WSL_InstallScript.sh" | bash /dev/stdin
+```
+
+:::note
+This script may take a while to run (approx. 5-10 mins).
+
+If `curl` is not already pre-installed on your WSL environment, you can run the following command:
+
+```bash
+sudo apt install curl
+```
+
+Then run the `curl -s "..." | bash /dev/stdin` command again.
+:::
+
+Once the automated script has finished running, close and reopen the Terminal.
+
+Run the command `skm` to check SplashKit is installed correctly.
+
+:::tip[Using WSL Terminal]
+Once you're finished, you can go to the [Using WSL](#using-wsl) section for more information about accessing files in your C drive with the WSL terminal.
+:::
+
+## Manual Steps
+
 ## 2. Install Command Line Tools
 
 To install SplashKit on WSL, you will firstly need to install the `git`, `curl`, and `clang` tools using the `apt` command, which works with Ubuntu's **A**dvanced **P**ackaging **T**ool.
@@ -157,7 +209,7 @@ This may take a while (approx. 10 mins).
 Command above being run in WSL terminal is shown in the next section below.
 :::
 
-## 4. Install SplashKit Globally
+### Install SplashKit Globally
 
 Finally, you will need to install the SplashKit Global Libraries. This will install the SplashKit libraries and library include files into the system's default global locations so that the compiler can find these files when building (compiling) programs created with SplashKit.
 
@@ -174,7 +226,7 @@ skm global install
 The command above will add the **SplashKit libraries** into the `/usr/local/lib/` folder, and the required **SplashKit library include files** into the `/usr/local/include` folder.
 :::
 
-## 5. Install Visual Studio Code
+## 4. Install Visual Studio Code
 
 Visual Studio Code, also commonly known as *VS Code* or just *Code*, is a powerful and versatile code editor that enables efficient coding, debugging, and collaboration for your SplashKit projects!
 
@@ -201,7 +253,7 @@ The final step to complete the setup of VS Code is to install a few *Extensions*
 
 Go to the page linked above, follow the steps to install both the C# and C/C++ recommended extensions, and then come back here and continue to the next step. *You can use the "Back button" in your browser to return to this page.*
 
-## 6. Install Language Specific Tools
+## 5. Install Language Specific Tools
 
 Some coding languages require specific tools/frameworks to be installed to be able to build and run your code files.  
 As you will be coding in C# and C++ in this book, let's look at the tools needed for these languages:
