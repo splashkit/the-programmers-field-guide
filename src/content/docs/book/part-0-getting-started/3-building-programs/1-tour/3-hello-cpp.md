@@ -29,7 +29,7 @@ code .
 We can keep this simple. Add the following code for a simple command line program that outputs Hello World.
 
 ```cpp
-#include "SplashKit.h"
+#include "splashkit.h"
 
 int main()
 {
