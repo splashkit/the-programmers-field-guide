@@ -1,8 +1,8 @@
 ---
-title: Revised Change Calculator
+title: Change Calculator
 ---
 
-For our first project, let's build a change calculator.
+For our next project, let's build a change calculator.
 
 This program will perform the steps to calculate the ideal change to give for a purchase. For example, for $6.50 in change it should give you three $2 coins and one 50c coin.
 

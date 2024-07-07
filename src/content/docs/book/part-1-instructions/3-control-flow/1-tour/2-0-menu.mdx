@@ -1,0 +1,215 @@
+---
+title: Menu and input validation
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+Let's switch back to the terminal now, and we can use control flow to create a small menu and to validate user input.
+
+We can use the following starter code to get things going.
+
+```cs
+using static SplashKitSDK.SplashKit;
+using static System.Convert;
+
+string line;
+int choice;
+
+WriteLine("1: Addition");
+WriteLine("2: Subtraction");
+WriteLine("3: Multiplication");
+WriteLine("4: Division");
+WriteLine("5: Quit");
+Write("Enter your choice: ");
+line = ReadLine();
+choice = ToInt32(line);
+```
+
+## Creating a menu
+
+At this point we have shown a menu to the user, and read in their choice. Now we need to add branches for the different paths we will need for these options. We could use a number of if statements, but for this we could use a `switch` statement to provide the necessary branches.
+
+Have a go at adding in a `switch` stateemnt for the above code. For now, just output the name of the branch taken. So, for example, output "Addition" if the user chooses 1.
+
+<Accordion>
+  <AccordionItem header="Code for menu">
+
+    ```cs {16-36}
+    using static SplashKitSDK.SplashKit;
+    using static System.Convert;
+
+    string line;
+    int choice;
+
+    WriteLine("1: Addition");
+    WriteLine("2: Subtraction");
+    WriteLine("3: Multiplication");
+    WriteLine("4: Division");
+    WriteLine("5: Quit");
+    Write("Enter your choice: ");
+    line = ReadLine();
+    choice = ToInt32(line);
+
+    switch (choice)
+    {
+        case 1:
+            WriteLine("Addition");
+            break;
+        case 2:
+            WriteLine("Subtraction");
+            break;
+        case 3:
+            WriteLine("Multiplication");
+            break;
+        case 4:
+            WriteLine("Division");
+            break;
+        case 5:
+            WriteLine("Quit");
+            break;
+        default:
+            WriteLine("Invalid choice");
+            break;
+    }
+
+    ```
+
+  </AccordionItem>
+</Accordion>
+
+## Looping until quit
+
+With this menu we want the user to be able to perform multiple actions, so we need to repeat this until they choose to quit. Let's do this by adding a `do ... while` loop.
+
+Have a go at embedding the code that shows the menu and performs its actions inside a do while loop. This can repeat while the user's choice is not 5.
+
+<Accordion>
+  <AccordionItem header="Code for menu">
+
+    ```cs {7,8,39}
+    using static SplashKitSDK.SplashKit;
+    using static System.Convert;
+
+    string line;
+    int choice;
+
+    do
+    {
+        WriteLine("1: Addition");
+        WriteLine("2: Subtraction");
+        WriteLine("3: Multiplication");
+        WriteLine("4: Division");
+        WriteLine("5: Quit");
+        Write("Enter your choice: ");
+        line = ReadLine();
+        choice = ToInt32(line);
+
+        switch (choice)
+        {
+            case 1:
+                WriteLine("Addition");
+                break;
+            case 2:
+                WriteLine("Subtraction");
+                break;
+            case 3:
+                WriteLine("Multiplication");
+                break;
+            case 4:
+                WriteLine("Division");
+                break;
+            case 5:
+                WriteLine("Quit");
+                break;
+            default:
+                WriteLine("Invalid choice");
+                break;
+        }
+    } while (choice != 5);
+    ```
+
+  </AccordionItem>
+</Accordion>
+
+Compile and run the program and make sure that you can repeat the menu actions.
+
+## Validating input
+
+Now try entering something other than a number. Something like "one". The program will crash. Why, we attempted to convert this into a number. When the library cannot do this, it raises an error that causes the program to crash.
+
+We can avoid this if we test the string before we try to convert it to a number. SplashKit provides an [IsInteger](https://splashkit.io/api/utilities/#is-integer) function that will test if the string you pass it is an integer. There is also an [IsDouble](https://splashkit.io/api/utilities/#is-double) for testing if the values are valid doubles.
+
+Have a think about how you could validate the user input. Will this be a branch or a loop?
+
+<Accordion>
+  <AccordionItem header="Code with validation">
+
+    Here we need to use a loop. This way we can require the user to provide us with a valid number. Without this we will not know which path to take in the menu. If you had used a branch, then the user may still enter an invalid number and the program will then crash when you attempt to convert this.
+
+    ```cs {17-22}
+    using static SplashKitSDK.SplashKit;
+    using static System.Convert;
+
+    string line;
+    int choice;
+
+    do
+    {
+        WriteLine("1: Addition");
+        WriteLine("2: Subtraction");
+        WriteLine("3: Multiplication");
+        WriteLine("4: Division");
+        WriteLine("5: Quit");
+        Write("Enter your choice: ");
+        line = ReadLine();
+
+        while ( ! IsInteger(line) )
+        {
+            WriteLine("Please enter a whiole number");
+            Write("Enter your choice: ");
+            line = ReadLine();
+        }
+
+        choice = ToInt32(line);
+
+        switch (choice)
+        {
+            case 1:
+                WriteLine("Addition");
+                break;
+            case 2:
+                WriteLine("Subtraction");
+                break;
+            case 3:
+                WriteLine("Multiplication");
+                break;
+            case 4:
+                WriteLine("Division");
+                break;
+            case 5:
+                WriteLine("Quit");
+                break;
+            default:
+                WriteLine("Invalid choice");
+                break;
+        }
+    } while (choice != 5);
+
+    ```
+  </AccordionItem>
+</Accordion>
+
+Compile and run the program. Test that it does not crash when you enter an invalid number. Try entering a few invalid entries, and see that the code handles this case as well.
+
+:::tip
+
+When building code you need to think of all the different ways the user can break your program. Don't just think they will do what you expect - that is bound to lead to a number of security issues!
+
+:::
+
+With this, you have now seen how to use the basic control flow statements work. These are the foundation of every program.
+
+:::tip
+
+Remember everything is still based in sequence, and the control flow statements give you the ability to control that sequence. You still need to think things through in steps, but now you can have steps were you made a decision and either repeat or select which code will run next.
+
+:::

@@ -1,0 +1,164 @@
+---
+title: Handling events with if
+sidebar:
+    label: " - Handling events with if"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+Now we have the circle moving, but do we *always* want the circle to move? No, let's change it so that we *only* update the position *if* the user is holding down an arrow key.
+
+Add an [if statement](/book/part-1-instructions/3-control-flow/0-panorama/2-branches) that will check if the right arrow key is held down. You can put the code that adds to the `player_x` value within the if statement so that it is only run *if* the arrow key is held down.
+
+:::tip
+
+You need to add `using SplashKit;` so that you can access `KeyCode.RightKey`.
+
+:::
+
+<Accordion>
+  <AccordionItem header="Code with if">
+
+    ```cs {1,19-22}
+    using SplashKitSDK;
+    using static SplashKitSDK.SplashKit;
+
+    const int PLAYER_RADIUS = 50;
+    const int PLAYER_SPEED = 3;
+
+    int player_x = 640;
+
+    OpenWindow("Circle Moving", 1280, 720);
+
+    while( ! QuitRequested() )
+    {
+        ClearScreen(ColorWhite());
+        FillCircle(ColorTurquoise(), player_x, 360, PLAYER_RADIUS);
+        RefreshScreen(60);
+
+        ProcessEvents();
+
+        if ( KeyDown(KeyCode.RightKey) )
+        {
+            player_x += PLAYER_SPEED;
+        }
+    }
+
+    ```
+
+  </AccordionItem>
+</Accordion>
+
+Compile and run the program. Notice how the player's x location is not changing. Hold down the right arrow key, and the circle will move right. Release the key and it will stop.
+
+:::note
+
+Notice how the if statement allows you to say *if* some code will run, or not. You use the if statement's condition to determine when the code will run.
+
+:::
+
+:::note
+Remember it is still running in sequence, so here we have the while loop repeating the code over and over, and the if statement then runs each loop.
+:::
+
+Now we have it moving right, let's get it so we can move left as well.
+
+Add another if statement to check if the left key is held down. Inside this if statement, add the code to subtract the speed from the `player_x` variable.
+
+<Accordion>
+  <AccordionItem header="Code to move left">
+
+    ```cs {23-26}
+    using SplashKitSDK;
+    using static SplashKitSDK.SplashKit;
+
+    const int PLAYER_RADIUS = 50;
+    const int PLAYER_SPEED = 3;
+
+    int player_x = 640;
+
+    OpenWindow("Circle Moving", 1280, 720);
+
+    while( ! QuitRequested() )
+    {
+        ClearScreen(ColorWhite());
+        FillCircle(ColorTurquoise(), player_x, 360, PLAYER_RADIUS);
+        RefreshScreen(60);
+
+        ProcessEvents();
+
+        if ( KeyDown(KeyCode.RightKey) )
+        {
+            player_x += PLAYER_SPEED;
+        }
+        else if ( KeyDown(KeyCode.LeftKey) )
+        {
+            player_x -= PLAYER_SPEED;
+        }
+    }
+
+    ```
+
+  </AccordionItem>
+</Accordion>
+
+Compile and run the program. Test out the following and make sure that you can explain how it works:
+
+- Try holding down the left key
+- Try holding down the right key
+- Try holding down left and right keys together
+
+Notice the logic is not quite right. Try removing the `else` and instead have two independent if statements.
+
+<Accordion>
+  <AccordionItem header="Code to move left (fixed)">
+
+    ```cs {23-24}
+    using SplashKitSDK;
+    using static SplashKitSDK.SplashKit;
+
+    const int PLAYER_RADIUS = 50;
+    const int PLAYER_SPEED = 3;
+
+    int player_x = 640;
+
+    OpenWindow("Circle Moving", 1280, 720);
+
+    while( ! QuitRequested() )
+    {
+        ClearScreen(ColorWhite());
+        FillCircle(ColorTurquoise(), player_x, 360, PLAYER_RADIUS);
+        RefreshScreen(60);
+
+        ProcessEvents();
+
+        if ( KeyDown(KeyCode.RightKey) )
+        {
+            player_x += PLAYER_SPEED;
+        }
+        
+        if ( KeyDown(KeyCode.LeftKey) )
+        {
+            player_x -= PLAYER_SPEED;
+        }
+    }
+
+    ```
+
+  </AccordionItem>
+</Accordion>
+
+Test it out again:
+
+- Hold down the left key
+- Hold down the right key
+- Hold down left and right keys together
+
+:::note
+
+See how if statements allow you to control the sequence of actions. When the computer gets to the if statement, it uses your condition to determine which path is taken.
+
+:::
+
+Have a go at getting the player to move vertically as well.
+
+Using these same mechanics you can create a whole wealth of different functionalities. In each case you can use an if statement to check if an event has occurred, and then you update values within the program in reponse.
