@@ -2,7 +2,7 @@
 title: Change Calculator
 ---
 
-Try converting the most recent version of your [change calculator](/book/part-1-instructions/3-control-flow/1-tour/01-0-change-calculator) to C/C++.
+Try converting the most recent version of your [change calculator](/book/part-1-instructions/3-control-flow/3-explore/01-0-change-calculator) to C/C++.
 The logic of the program should remain the same, the syntax will just look a little different.
 
 The change of library does mean that you cannot use C#'s `ToInt32` method.
