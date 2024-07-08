@@ -1,0 +1,430 @@
+---
+title: Giving change
+sidebar:
+  label: " - Giving change"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+We can use a flowchart to help us capture the sequence we need to perform in the change calculator.
+
+:::note
+The use of a box with a dotted outline to capture and label related group of instructions -- this is often a helpful addition to the readability of a flow chart.
+:::
+
+![The flowchart showing the sequence of steps from the current change calculator code](./images/change-calc-1-sequence.png)
+
+When we code this we want to try to avoid duplication. Instead of repeating code, over and over, to give different change values, we can use control flow and code this up as general instructions.
+
+This will be a common theme as we go forward. In order to create more interesting programs, we need to start using data together with the control flow statements. By doing this you can then change the data, and the processing should work with the new context.
+
+For example, the change calculator currently works with Australian currency. If we could move this to pure data, then we could shift to American currency by just changing the data that informs this control flow.
+
+:::tip
+Empowering data allows you to create efficient and powerful software. Learning to start making these changes now will help you see the possibilities. This is all about starting to raise the level of **abstraction**, and building more comprehensive digital realities.
+:::
+
+## Steps to give change
+
+Let's quickly think through the steps needed to give change. We can think of this as the following sequence.
+
+```txt
+Give $2 coins - the largest value coin first!
+    Calculate the number of $2 coins to give (changeValue / 200)
+    Update the amount of change remaining to give
+    Output the number of $2
+
+Give $1 coins
+    Calculate the number of $1 coins to give
+    Update the amount of change remaining to give
+    Output the number of $1
+
+Give 50c coins
+    Calculate the number of 50c coins to give
+    Update the amount of change remaining to give
+    Output the number of 50c
+
+Give 20c coins
+    Calculate the number of 20c coins to give
+    Update the amount of change remaining to give
+    Output the number of 20c
+
+Give 10c coins
+    Calculate the number of 10c coins to give
+    Update the amount of change remaining to give
+    Output the number of 10c
+
+Give 5c coins
+    Calculate the number of 5c coins to give
+    Update the amount of change remaining to give
+    Output the number of 5c
+```
+
+Notice that each coin we give has the same steps. The only difference is the **value** of the coin and the **text** that is used when this is output. For example, with the 20c coin we need to know the value of the coin is 20 and the text is "20c". So the steps can be:
+
+```txt
+Calculate the number of coins to give using the coinValue.
+Update the amount of change remaing
+Output the number of coins with the coin text
+```
+
+This can be implemented in C# using variables as:
+
+```csharp
+// Calculate the number of coins to give using the coinValue.
+toGive = changeValue / coinValue;
+
+// Update the amount of change remaining
+changeValue = changeValue - toGive * coinValue;
+
+// Output the number of coins with the coin text
+Write($"{toGive} x {coinText}");
+```
+
+Notice this does not mention any specific coin or literal value, and allows us to work with *any* coin value.
+
+Let's put this in our code and calculate how many $2 coins to give.
+
+1. Create the `toGive`, `coinValue`, and `coinText` variables.
+2. After calculating the change value, initialise `coinValue` to 200 and `coinText` to "$2". Then add the above code to calculate how many coins to give.
+
+    Compile and run your program, and then test that it can output the right number of $2 coins for a range of different change values.
+
+    <Accordion>
+      <AccordionItem header="Code to give $2 coins">
+
+      ```cs {8-10,37-47}
+      using static SplashKitSDK.SplashKit;
+      using static System.Convert;
+
+      string line;
+      int costOfItem;
+      int amountPaid;
+      int changeValue;
+      int toGive;
+      int coinValue;
+      string coinText;
+
+      Write("Cost of item in cents: ");
+      line = ReadLine();
+      while (!IsInteger(line))
+      {
+          WriteLine("Please enter a whole number.");
+          Write("Cost of item in cents: ");
+          line = ReadLine();
+      }
+
+      costOfItem = ToInt32(line);
+
+      Write("Payment in cents: ");
+      line = ReadLine();
+      while (!IsInteger(line))
+      {
+          WriteLine("Please enter a whole number.");
+          Write("Payment in cents: ");
+          line = ReadLine();
+      }
+
+      amountPaid = ToInt32(line);
+
+      changeValue = amountPaid - costOfItem;
+      WriteLine($"Change to give {changeValue}");
+
+      coinValue = 200;
+      coinText = "$2";
+
+      // Calculate the number of coins to give using the coinValue.
+      toGive = changeValue / coinValue;
+
+      // Update the amount of change remaining
+      changeValue = changeValue - toGive * coinValue;
+
+      // Output the number of coins with the coin text
+      Write($"{toGive} x {coinText}");
+      ```
+
+      </AccordionItem>
+    </Accordion>
+
+    When you run this you should see something like this:
+
+    ```bash
+    Cost of item in cents: 0
+    Payment in cents: 650
+    Change to give 650
+    3 x $2
+    ```
+
+3. Now, add in constants for each of the coin values, and we can add in a constant for the number of coins.
+
+    <Accordion>
+      <AccordionItem header="Constants for coins">
+
+      ```cs {4-11,46}
+      using static SplashKitSDK.SplashKit;
+      using static System.Convert;
+
+      const int NUM_COIN_TYPES = 6;
+
+      const int TWO_DOLLARS = 200;
+      const int ONE_DOLLAR = 100;
+      const int FIFTY_CENTS = 50;
+      const int TWENTY_CENTS = 20;
+      const int TEN_CENTS = 10;
+      const int FIVE_CENTS = 5;
+
+      string line;
+      int costOfItem;
+      int amountPaid;
+      int changeValue;
+      int toGive;
+      int coinValue;
+      string coinText;
+
+      Write("Cost of item in cents: ");
+      line = ReadLine();
+      while (!IsInteger(line))
+      {
+          WriteLine("Please enter a whole number.");
+          Write("Cost of item in cents: ");
+          line = ReadLine();
+      }
+
+      costOfItem = ToInt32(line);
+
+      Write("Payment in cents: ");
+      line = ReadLine();
+      while (!IsInteger(line))
+      {
+          WriteLine("Please enter a whole number.");
+          Write("Payment in cents: ");
+          line = ReadLine();
+      }
+
+      amountPaid = ToInt32(line);
+
+      changeValue = amountPaid - costOfItem;
+      WriteLine($"Change to give {changeValue}");
+
+      coinValue = TWO_DOLLARS;
+      coinText = "$2";
+
+      // Calculate the number of coins to give using the coinValue.
+      toGive = changeValue / coinValue;
+
+      // Update the amount of change remaining
+      changeValue = changeValue - toGive * coinValue;
+
+      // Output the number of coins with the coin text
+      Write($"{toGive} x {coinText}");
+      ```
+
+      </AccordionItem>
+    </Accordion>
+
+4. Now we can **repeat** the code to calculate the change, once for each coin. We can use a [for loop](/book/part-1-instructions/3-control-flow/2-trailside/04-3-for-loop) to achieve this, as there is a set number of coins that we need to iterate through. This gives us the following pseudocode:
+
+    ```txt
+    for each kind of coin
+        ...
+        Calculate the number of coins to give using the coinValue.
+        Update the amount of change remaing
+        Output the number of coins with the coinText
+    ```
+
+    Have a go at adding this loop in, and for the moment it can give $2 multiple times. You will need to add in an `i` variable to keep track of the number of times through the loop.
+
+    <Accordion>
+      <AccordionItem header="Constants with coins loop">
+
+        ```csharp {46-47,59}
+        using static SplashKitSDK.SplashKit;
+        using static System.Convert;
+
+        const int NUM_COIN_TYPES = 6;
+
+        const int TWO_DOLLARS = 200;
+        const int ONE_DOLLAR = 100;
+        const int FIFTY_CENTS = 50;
+        const int TWENTY_CENTS = 20;
+        const int TEN_CENTS = 10;
+        const int FIVE_CENTS = 5;
+
+        string line;
+        int costOfItem;
+        int amountPaid;
+        int changeValue;
+        int toGive;
+        int coinValue;
+        string coinText;
+
+        Write("Cost of item in cents: ");
+        line = ReadLine();
+        while (!IsInteger(line))
+        {
+            WriteLine("Please enter a whole number.");
+            Write("Cost of item in cents: ");
+            line = ReadLine();
+        }
+
+        costOfItem = ToInt32(line);
+
+        Write("Payment in cents: ");
+        line = ReadLine();
+        while (!IsInteger(line))
+        {
+            WriteLine("Please enter a whole number.");
+            Write("Payment in cents: ");
+            line = ReadLine();
+        }
+
+        amountPaid = ToInt32(line);
+
+        changeValue = amountPaid - costOfItem;
+        WriteLine($"Change to give {changeValue}");
+
+        for(int i = 0; i < NUM_COIN_TYPES; i++)
+        {
+
+            coinValue = TWO_DOLLARS;
+            coinText = "$2";
+
+            // Calculate the number of coins to give using the coinValue.
+            toGive = changeValue / coinValue;
+
+            // Update the amount of change remaining
+            changeValue = changeValue - toGive * coinValue;
+
+            // Output the number of coins with the coin text
+            Write($"{toGive} x {coinText}");
+        }
+        ```
+      </AccordionItem>
+    </Accordion>
+
+    :::tip
+    You can read a for loop as "for [initializer] while [condition], then [increment]" (at the end of each loop). So this for loop is:
+
+    for i = 0; **while** i < NUM_COIN_TYPE; **then** i++
+    :::
+
+    When you run this it should output 6 coin values, but they are all $2.
+
+5. To wrap this up we need to set the values for `coinValue` and `coinText`. We can use the control variable `i` to determine which values to use. When `i` is 0, we need to use $2, when it is 1 we need to use $1, and so on.
+
+    This is a great example of where we can use a [case statement](/book/part-1-instructions/3-control-flow/2-trailside/03-2-case). The following pseudocode shows how this might look:
+
+    ```txt
+    for each kind of coin (i loops 0 to 5... while < 6)
+        Switch based on i
+            when 0, coinValue is 200, and coinText is "$2"
+            when 1, coinValue is 100, and coinText is "$1"
+            when 2, coinValue is 50, and coinText is "50c"
+            when 3, coinValue is 20, and coinText is "20c"
+            when 4, coinValue is 10, and coinText is "10c"
+            when 5, coinValue is 5, and coinText is "5c"
+
+        Calculate the number of coins to give using the coinValue.
+        Update the amount of change remaing
+        Output the number of coins with the coinText
+    ```
+
+    Have a go at adding this logic to your program.
+
+    <Accordion>
+      <AccordionItem header="Selecting the coin value">
+
+    ```cs {48-78}
+    using static SplashKitSDK.SplashKit;
+    using static System.Convert;
+
+    const int NUM_COIN_TYPES = 6;
+
+    const int TWO_DOLLARS = 200;
+    const int ONE_DOLLAR = 100;
+    const int FIFTY_CENTS = 50;
+    const int TWENTY_CENTS = 20;
+    const int TEN_CENTS = 10;
+    const int FIVE_CENTS = 5;
+
+    string line;
+    int costOfItem;
+    int amountPaid;
+    int changeValue;
+    int toGive;
+    int coinValue;
+    string coinText;
+
+    Write("Cost of item in cents: ");
+    line = ReadLine();
+    while (!IsInteger(line))
+    {
+        WriteLine("Please enter a whole number.");
+        Write("Cost of item in cents: ");
+        line = ReadLine();
+    }
+
+    costOfItem = ToInt32(line);
+
+    Write("Payment in cents: ");
+    line = ReadLine();
+    while (!IsInteger(line))
+    {
+        WriteLine("Please enter a whole number.");
+        Write("Payment in cents: ");
+        line = ReadLine();
+    }
+
+    amountPaid = ToInt32(line);
+
+    changeValue = amountPaid - costOfItem;
+    WriteLine($"Change to give {changeValue}");
+
+    for(int i = 0; i < NUM_COIN_TYPES; i++)
+    {
+        switch (i)
+        {
+            case 0:
+                coinValue = TWO_DOLLARS;
+                coinText = "$2, ";
+                break;
+            case 1:
+                coinValue = ONE_DOLLAR;
+                coinText = "$1, ";
+                break;
+            case 2:
+                coinValue = FIFTY_CENTS;
+                coinText = "50c, ";
+                break;
+            case 3:
+                coinValue = TWENTY_CENTS;
+                coinText = "20c, ";
+                break;
+            case 4:
+                coinValue = TEN_CENTS;
+                coinText = "10c, ";
+                break;
+            case 5:
+                coinValue = FIVE_CENTS;
+                coinText = "5c";
+                break;
+            default:
+                coinValue = 1;
+                coinText = "ERROR";
+                break;
+        }
+
+        // Calculate the number of coins to give using the coinValue.
+        toGive = changeValue / coinValue;
+
+        // Update the amount of change remaining
+        changeValue = changeValue - toGive * coinValue;
+
+        // Output the number of coins with the coin text
+        Write($"{toGive} x {coinText}");
+    }
+    ```
+
+      </AccordionItem>
+    </Accordion>
+
+    Compile and run your program, making sure that it outputs the right change for the values you enter.
