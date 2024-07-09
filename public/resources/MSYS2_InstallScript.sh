@@ -8,6 +8,12 @@
 splashkit_url="https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh"
 dotnet_sdk_url="https://download.visualstudio.microsoft.com/download/pr/90486d8a-fb5a-41be-bfe4-ad292c06153f/6673965085e00f5b305bbaa0b931cc96/dotnet-sdk-8.0.300-win-x64.exe"
 vscode_installer_url="https://aka.ms/win32-x64-user-stable"
+# settings_json_url="https://programmers.guide/resources/msys2-settings.json"
+settings_json_url="https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/public/resources/msys2-settings.json"
+ 
+# Define paths
+SETTINGS_JSON_PATH="$APPDATA/Code/User"
+VSCODE_PATH=`cd $LOCALAPPDATA/Programs/Microsoft\ VS\ Code/bin; pwd` #VS Code path to 'code' (to avoid need for restarting shell)
 
 # -----------------------------------------------------
 # 1. Update and Install required packages
@@ -100,9 +106,6 @@ fi
 echo ""
 echo "Installing VS Code extensions..."
 
-# Create variable to VS Code path to 'code' (to avoid need for restarting shell)
-VSCODE_PATH=`cd $LOCALAPPDATA/Programs/Microsoft\ VS\ Code/bin; pwd`
-
 # Install VS Code extensions
 if command -v "$VSCODE_PATH/code" &> /dev/null; then
     
@@ -134,6 +137,25 @@ if command -v "$VSCODE_PATH/code" &> /dev/null; then
         "$VSCODE_PATH/code" --install-extension ms-dotnettools.vscodeintellicode-csharp
     fi
 fi
+
+# -----------------------------------------------------
+# 6. Replace settings.json file if empty
+# -----------------------------------------------------
+
+echo "Checking is VS Code settings.json file is empty..."
+cd $SETTINGS_JSON_PATH
+ 
+# empty settings = ~3 bytes
+if [ $(wc -c < "settings.json") -le 3 ]; then
+    echo "Overwriting empty settings.json file..."
+ 
+    curl -O "$settings_json_url"
+    mv msys2-settings.json settings.json
+else
+    echo "VS Code settings.json file is not empty. Cannot overwrite settings."
+fi
+ 
+cd ~
 
 # -----------------------------------------------------
 
