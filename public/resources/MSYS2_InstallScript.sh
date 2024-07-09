@@ -100,7 +100,28 @@ else
 fi
 
 # -----------------------------------------------------
-# 5. Install VS Code extensions for C++ and C# 
+# 5. Replace settings.json file if empty
+# -----------------------------------------------------
+
+echo ""
+echo "Checking VS Code settings.json file size..."
+cd $SETTINGS_JSON_PATH
+ 
+# empty settings = ~3 bytes
+if [ $(wc -c < "settings.json") -le 3 ]; then
+    echo "Adding MSYS2/MINGW64 terminal settings to settings.json file..."
+ 
+    curl -O "$settings_json_url"
+    mv msys2-settings.json settings.json
+else
+    echo "Cannot add MSYS2/MINGW64 settings to VS Code settings.json file."
+    echo "You will need to update file manually."
+fi
+ 
+cd ~
+
+# -----------------------------------------------------
+# 6. Install VS Code extensions for C++ and C# 
 # -----------------------------------------------------
 
 echo ""
@@ -137,25 +158,6 @@ if command -v "$VSCODE_PATH/code" &> /dev/null; then
         "$VSCODE_PATH/code" --install-extension ms-dotnettools.vscodeintellicode-csharp
     fi
 fi
-
-# -----------------------------------------------------
-# 6. Replace settings.json file if empty
-# -----------------------------------------------------
-
-echo "Checking is VS Code settings.json file is empty..."
-cd $SETTINGS_JSON_PATH
- 
-# empty settings = ~3 bytes
-if [ $(wc -c < "settings.json") -le 3 ]; then
-    echo "Overwriting empty settings.json file..."
- 
-    curl -O "$settings_json_url"
-    mv msys2-settings.json settings.json
-else
-    echo "VS Code settings.json file is not empty. Cannot overwrite settings."
-fi
- 
-cd ~
 
 # -----------------------------------------------------
 
