@@ -81,7 +81,7 @@ For example, in C# the string `$"1 + 1 = { 1 + 1 }"` has the value `"1 + 1 = 2"`
 
 :::
 
-# Activities
+## Activities
 
 What expressions are there in the following lines of code?
 

@@ -34,6 +34,7 @@ using static SplashKitSDK.SplashKit;
 WriteLine("Testing method calls");
 
 int delaySeconds;
+string userInput;
 
 // Call the Write method - the argument is the text to output
 Write("How many seconds do you want it to show for? Enter seconds: ");
