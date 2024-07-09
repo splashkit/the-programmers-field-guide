@@ -8,9 +8,8 @@
 splashkit_url="https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh"
 dotnet_sdk_url="https://download.visualstudio.microsoft.com/download/pr/90486d8a-fb5a-41be-bfe4-ad292c06153f/6673965085e00f5b305bbaa0b931cc96/dotnet-sdk-8.0.300-win-x64.exe"
 vscode_installer_url="https://aka.ms/win32-x64-user-stable"
-# settings_json_url="https://programmers.guide/resources/msys2-settings.json"
-settings_json_url="https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/public/resources/msys2-settings.json"
- 
+settings_json_url="https://programmers.guide/resources/msys2-settings.json"
+
 # Define paths
 SETTINGS_JSON_PATH="$APPDATA/Code/User"
 VSCODE_PATH=`cd $LOCALAPPDATA/Programs/Microsoft\ VS\ Code/bin; pwd` #VS Code path to 'code' (to avoid need for restarting shell)
