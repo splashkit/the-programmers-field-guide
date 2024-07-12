@@ -93,7 +93,7 @@ export default defineConfig({
                   link: "book/part-0-getting-started/1-digital-realities/1-tour",
                 },
                 {
-                  label: "Trailside Ponder",
+                  label: "Trailside Stop",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -134,7 +134,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Ponder",
+                  label: "Trailside Stop",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -171,7 +171,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Ponder",
+                  label: "Trailside Stop",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -222,7 +222,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Ponder",
+                  label: "Trailside Stop",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -263,7 +263,7 @@ export default defineConfig({
                   link: "book/part-1-instructions/2-communicating-syntax/1-tour",
                 },
                 {
-                  label: "Trailside Ponder",
+                  label: "Trailside Stop",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -304,7 +304,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Ponder",
+                  label: "Trailside Stop",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -350,7 +350,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Ponder",
+                  label: "Trailside Stop",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -406,7 +406,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Ponder",
+                  label: "Trailside Stop",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -456,7 +456,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Ponder",
+                  label: "Trailside Stop",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -511,7 +511,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Ponder",
+                  label: "Trailside Stop",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -566,7 +566,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Ponder",
+                  label: "Trailside Stop",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -621,7 +621,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Ponder",
+                  label: "Trailside Stop",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -667,7 +667,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Ponder",
+                  label: "Trailside Stop",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -713,7 +713,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Ponder",
+                  label: "Trailside Stop",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -759,7 +759,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Ponder",
+            //       label: "Trailside Stop",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -805,7 +805,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Ponder",
+            //       label: "Trailside Stop",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -851,7 +851,7 @@ export default defineConfig({
                 //   },
                 // },
                 // {
-                //   label: "Trailside Ponder",
+                //   label: "Trailside Stop",
                 //   collapsed: true,
                 //   autogenerate: {
                 //     directory:
@@ -902,7 +902,7 @@ export default defineConfig({
                   link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/1-tour",
                 },
                 {
-                  label: "Trailside Ponder",
+                  label: "Trailside Stop",
                   collapsed: true,
                   autogenerate: {
                     directory: "book/part-3-programs-as-concepts/1-back-to-c-sharp/2-trailside",
@@ -938,7 +938,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Ponder",
+                  label: "Trailside Stop",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -984,7 +984,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Ponder",
+            //       label: "Trailside Stop",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1030,7 +1030,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Ponder",
+            //       label: "Trailside Stop",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1067,7 +1067,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Ponder",
+            //       label: "Trailside Stop",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1104,7 +1104,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Ponder",
+            //       label: "Trailside Stop",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1141,7 +1141,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Ponder",
+            //       label: "Trailside Stop",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1178,7 +1178,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Ponder",
+            //       label: "Trailside Stop",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1215,7 +1215,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Ponder",
+            //       label: "Trailside Stop",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1252,7 +1252,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Ponder",
+            //       label: "Trailside Stop",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1299,7 +1299,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Ponder",
+            //       label: "Trailside Stop",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1336,7 +1336,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Ponder",
+            //       label: "Trailside Stop",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1373,7 +1373,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Ponder",
+            //       label: "Trailside Stop",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1410,7 +1410,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Ponder",
+            //       label: "Trailside Stop",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1447,7 +1447,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Ponder",
+            //       label: "Trailside Stop",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:

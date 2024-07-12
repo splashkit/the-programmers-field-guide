@@ -61,7 +61,7 @@ When you open a window, you create an area onto which you can draw. The `width` 
 
 Shape drawing methods need a color to know what color shape to draw. You can get a color value by calling the different `Color...` methods such as `ColorRed()`, and pass that as the color argument value. Following the color, the methods indicate where the shape should appear, and its size. The position is indicated use `x` and `y` coordinates. The `x` value represents the distance from the left side of the window, while `y` is the distance from the *top* of the window. Size values will depend on the shape, a rectangle has a width and height, a circle has a radius, triangles have three points, etc.
 
-We will explore this further in the [guided tour](/book/part-1-instructions/1-sequence-and-data/1-tour/00-overview) and [trailside ponder](/book/part-1-instructions/1-sequence-and-data/2-trailside/11-2-graphics). For now, it is enough to remember that these methods exist.
+We will explore this further in the [guided tour](/book/part-1-instructions/1-sequence-and-data/1-tour/00-overview) and [trailside stop](/book/part-1-instructions/1-sequence-and-data/2-trailside/11-2-graphics). For now, it is enough to remember that these methods exist.
 
 ## Example
 
