@@ -56,7 +56,7 @@ The while loop is letting you repeat some code based on a condition. In an inter
 
 Now we have the loop going, let's get the player moving. At the moment, the circle's position is fixed. Let's change this to use a variable for the x coordinate of the player.
 
-Add a new `player_x` variable, initialise this to 640, and use the variable as the value for the x coordinate when filling the circle. Using a variable will allow us to change the value.
+Add a new `playerX` variable, initialise this to 640, and use the variable as the value for the x coordinate when filling the circle. Using a variable will allow us to change the value.
 
 <Accordion>
   <AccordionItem header="Code with player position variable">
@@ -66,14 +66,14 @@ Add a new `player_x` variable, initialise this to 640, and use the variable as t
 
     const int PLAYER_RADIUS = 50;
 
-    int player_x = 640;
+    int playerX = 640;
 
     OpenWindow("Circle Moving", 1280, 720);
 
     while( ! QuitRequested() )
     {
         ClearScreen(ColorWhite());
-        FillCircle(ColorTurquoise(), player_x, 360, PLAYER_RADIUS);
+        FillCircle(ColorTurquoise(), playerX, 360, PLAYER_RADIUS);
         RefreshScreen(60);
 
         ProcessEvents();
@@ -87,7 +87,7 @@ Run the program and make sure that it is still working.
 
 Now that we have a variable for the player's position, we can change this every loop. This should make the circle appear to move!
 
-Create a `PLAYER_SPEED` constant with the value 3. Add this to the `player_x` variable within the loop.
+Create a `PLAYER_SPEED` constant with the value 3. Add this to the `playerX` variable within the loop.
 
 <Accordion>
   <AccordionItem header="Code with player moving">
@@ -98,20 +98,20 @@ Create a `PLAYER_SPEED` constant with the value 3. Add this to the `player_x` va
     const int PLAYER_RADIUS = 50;
     const int PLAYER_SPEED = 3;
 
-    int player_x = 640;
+    int playerX = 640;
 
     OpenWindow("Circle Moving", 1280, 720);
 
     while( ! QuitRequested() )
     {
         ClearScreen(ColorWhite());
-        FillCircle(ColorTurquoise(), player_x, 360, PLAYER_RADIUS);
+        FillCircle(ColorTurquoise(), playerX, 360, PLAYER_RADIUS);
         RefreshScreen(60);
 
         ProcessEvents();
 
-        // player_x = player_x + PLAYER_SPEED;
-        player_x += PLAYER_SPEED; 
+        // playerX = playerX + PLAYER_SPEED;
+        playerX += PLAYER_SPEED; 
     }
     ```
   </AccordionItem>
