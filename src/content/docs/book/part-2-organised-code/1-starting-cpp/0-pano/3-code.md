@@ -6,7 +6,7 @@ When you switch programming languages, you need to learn how that language works
 
 ![Illustration of converting our code to C++](./images/cs-to-cpp-pano.png)
 
-:::note[Different language...]
+:::note[Different languages...]
 
 - have different naming conventions. In C# method names use `PascalCase`, while the equivalent functions/procedures use `snake_case` in C++.
 - use different names for their types. C# and C++ include int, double, bool, and string.
@@ -18,7 +18,19 @@ When you switch programming languages, you need to learn how that language works
 
 :::tip
 
-We are focusing on building your mental model of programming, so the features we have explored so far are common across imperative programming languages.
+We are focusing on building your mental model of programming, so the features we have explored so far are common across most imperative programming languages.
+
+:::
+
+:::note[The C++ code for...]
+
+- Variable and constant declarations **use the same syntax** we were using in C#. Declare variables using `int age; string name;` and constants using `const int MAX_WIDTH = 300`. Our C++ coding convention will use `snake_case` variable names.
+- Function and procedure calls **use the same syntax** `write_line("Hello World");`. Our C++ coding convention will use `snake_case` for function and procedure names.
+- If statements **remain the same** as we were doing in C#.
+- Switch case statements *are similar*, but are limited to integer values. So no more switch based on a string, for example.
+- While loops **remain the same** as we were doing in C#.
+- Do while loops **remain the same** as we were doing in C#.
+- For loops **remain the same** as we were doing in C#.
 
 :::
 
