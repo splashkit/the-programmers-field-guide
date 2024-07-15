@@ -14,7 +14,7 @@ How long before the purchase? Enter weeks: 10
 How much do you have already? Enter dollars: 2
 How much can you save each week? Enter dollars: 50
 
-For the Holiday, you need to save 250.7 dollars a week
+For the Holiday, you need to save 257.0 dollars a week
 Based on current savings you will need 51.4 weeks to save $2572
 ```
 
