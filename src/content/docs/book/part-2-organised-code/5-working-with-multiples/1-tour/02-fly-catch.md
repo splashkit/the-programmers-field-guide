@@ -1,5 +1,7 @@
 ---
 title: Arrays in Fly Catch
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
 ---
 
 Our fly catch game currently has the spider chasing a single fly. Now that we have arrays, we can quickly change this to allow the spider to chase a number of flies.

@@ -2,6 +2,8 @@
 title: Map explorer camera
 sidebar:
   label: " - Moving the Camera"
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
 ---
 
 The map for the game is going to be larger than the screen, meaning we need a way to draw different locations on the screen. We can achieve this by creating a virtual camera to help simplify this operation.

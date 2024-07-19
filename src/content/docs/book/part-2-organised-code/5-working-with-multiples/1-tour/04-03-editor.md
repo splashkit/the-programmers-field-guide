@@ -2,6 +2,8 @@
 title: Map explorer editor
 sidebar:
   label: " - Adding an Editor"
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
 ---
 
 Now we have the map drawing, we need to change the tiles so that we can design maps for the user to explore. To do this, let's add in an editor. This way the user will be able to switch between editing and exploring the map.

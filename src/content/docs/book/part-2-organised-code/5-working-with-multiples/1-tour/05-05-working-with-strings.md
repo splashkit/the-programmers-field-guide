@@ -1,5 +1,7 @@
 ---
 title: Working with C-Strings
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
 ---
 
 To wrap up this section, let's look at how strings works. While many of these features are likely to be handled by the language and its libraries, knowing how this works will help you understand what is happening when you perform operations with text. Many of these operations are time-consuming as you are working with arrays, so understanding their operations can help you optimise your code, thereby improving its speed and efficiency.

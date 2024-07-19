@@ -2,6 +2,8 @@
 title: Design for Map Explorer
 sidebar:
   label: " - Drawing the Map"
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
 ---
 
 Before jumping into the code, we should think about the structure of our program and its data. Generally, I would start thinking about the data first, and then think through the functionality. Either way, you sort of have to keep both in mind. So as you think through the data, you think a little about how it will be processed. Similarly, as you think through the functionality, you think about the data and how it is structured.

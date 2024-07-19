@@ -2,6 +2,8 @@
 title: Map Explorer Levels and More
 sidebar:
   label: " - Adding Levels"
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
 ---
 
 We are now well on the way to starting to build an interesting tile-based map program. There are several ways that we could go to expand this further. As a design exercise let's plan out how we could add levels as another dimension to the game. We can then think through the next steps to taking this program further.
