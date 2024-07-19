@@ -1,0 +1,65 @@
+---
+title: Store and access values
+sidebar:
+  label: " - Store and access values"
+---
+import { YouTube } from 'astro-embed';
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+Now we have the array, how can we use it to store values, and how can we access the values within the array?
+
+Watch the following video and work through storing names in your array, and accessing these to print these out.
+
+<div class="not-content">
+  <YouTube id="wYYIBWY3uBg" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+Have a go at implementing code to store three names in the array, and then access the values entered to output the list of names. For the moment, access each array element directly as shown in the video. This will help you see each value in the array.
+
+<Accordion>
+  <AccordionItem
+    header="Code storing and accessing values"
+  >
+
+  ```cpp {26-29,31-34}
+  #include "splashkit.h"
+
+  string read_string(string prompt)
+  {
+      string result;
+      
+      write(prompt);
+      result = read_line();
+
+      return result;
+  }
+
+  int read_integer(string prompt)
+  {
+      string line;
+      line = read_string(prompt);
+      return convert_to_integer(line);
+  }
+
+  int main()
+  {
+      // Declare an array of three strings
+      // The array is called names
+      string names[3];
+      
+      // Assign values to the elements within the array
+      names[0] = read_string("Enter a name: ");
+      names[1] = read_string("Enter a name: ");
+      names[2] = read_string("Enter a name: ");
+
+      // Access elements in the array to write out names entered
+      write_line(names[0]);
+      write_line(names[1]);
+      write_line(names[2]);
+
+      return 0;
+  }
+  ```
+
+  </AccordionItem>
+</Accordion>

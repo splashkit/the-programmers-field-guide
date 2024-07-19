@@ -1,0 +1,124 @@
+---
+title: Working with arrays
+sidebar:
+  label: " - Working with arrays"
+---
+import { YouTube } from 'astro-embed';
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+Now we have the basics of how to declare arrays, store values in the array, and access these values, lets switch to see how to make use of this. In the following video we go through the thinking behind working with arrays. This will help equip you with the tools to start building different functionality when working with arrays in your code. 
+
+<div class="not-content">
+  <YouTube id="sfV1UFzdmu0" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+Have a go at building a total level function, that outputs the length of all the names in the array.
+
+:::caution[Calculating string length]
+
+SplashKit now has a `length_of` function you can use to calculate the length of a string. The video access this on the string data itself, but try instead to use the `length_of` function in your code. We will explore member functions at a later stage.
+
+:::
+
+<Accordion>
+  <AccordionItem
+    header="Code to calculate total length"
+  >
+
+  ```cpp {3,22-45,82-83}
+  #include "splashkit.h"
+
+  using std::to_string;
+
+  string read_string(string prompt)
+  {
+      string result;
+      
+      write(prompt);
+      result = read_line();
+
+      return result;
+  }
+
+  int read_integer(string prompt)
+  {
+      string line;
+      line = read_string(prompt);
+      return convert_to_integer(line);
+  }
+
+  /**
+  * @brief Calculate the total length of all the names in the array
+  * 
+  * @param names the array of names
+  * @param size the number of names in the array
+  * @return int with the total length of all the names
+  */
+  int total_length(string names[], int size)
+  {
+      // Start the result at 0 - if there are no names the total length is 0
+      int result = 0;
+
+      // for each element in the array
+      for(int i = 0; i < size; i++)
+      {
+          // Access the element...
+          string name = names[i];
+          // Add its length to the result
+          result += length_of(name);
+      }
+
+      // Return the total length
+      return result;
+  }
+
+  int main()
+  {
+      // Declare a constant for the size of the array
+      const int SIZE = 3;
+
+      // Declare an array of three strings
+      // The array is called names
+      string names[SIZE];
+
+      // Create a variable to store the index of the array
+      // This can be used to control the loops below
+      int i;
+      
+      // Assign values to the elements within the array
+
+      // Start i at the first index - index 0
+      i = 0;
+      while ( i < SIZE ) // loop while i is less than the number of elements
+      {
+          // Store in the i-th element of the array
+          // i changes each loop - so this will store in names[0], names[1], ...
+          names[i] = read_string("Enter a name: ");
+          i = i + 1; // increment i... could be written as i++
+      }
+
+      // Access elements in the array to write out names entered
+      // Use a for loop to combine the loop control
+      //  - i is initialised to 0
+      //  - the loop continues while i is less than SIZE
+      //  - i is incremented each loop (at the end)
+      for(i = 0; i < SIZE; i++)
+      {
+          write_line(names[i]);
+      }
+
+      // Use the total_length function to calculate the total length of all the names
+      write_line("Total length of all names: " + to_string(total_length(names, SIZE)));
+
+      return 0;
+  }
+  ```
+
+  </AccordionItem>
+</Accordion>
+
+:::tip
+
+Remember to think about what you can do **for each** element in an array. The computer runs in sequence, working one step at a time. So we need to align our thinking with that.
+
+:::

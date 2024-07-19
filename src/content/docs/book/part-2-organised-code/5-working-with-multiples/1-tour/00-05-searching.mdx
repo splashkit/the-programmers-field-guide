@@ -1,0 +1,186 @@
+---
+title: Searching arrays
+sidebar:
+  label: " - Searching arrays"
+---
+import { YouTube } from 'astro-embed';
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+To wrap up this part of the tour, let's finish off by looking at how we can combine other control flow statements to work on things like searching through an array. This will help you gain a better understanding of how to work with arrays.
+
+<div class="not-content">
+  <YouTube id="vAgCn8Rreh0" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+Have a go at building the shortest name function, and then build your own index of function. Being able to work with array indexes can be very useful, so have a go at exploring this with your code.
+
+:::caution[Calculating string length]
+
+As with the last video. SplashKit now has a `length_of` function you can use to calculate the length of a string. The video access this on the string data itself, but try instead to use the `length_of` function in your code. We will explore member functions at a later stage.
+
+:::
+
+<Accordion>
+  <AccordionItem
+    header="Code for shortest name and contains"
+  >
+
+  ```cpp {47-66,68-101,141-149}
+  #include "splashkit.h"
+
+  using std::to_string;
+
+  string read_string(string prompt)
+  {
+      string result;
+      
+      write(prompt);
+      result = read_line();
+
+      return result;
+  }
+
+  int read_integer(string prompt)
+  {
+      string line;
+      line = read_string(prompt);
+      return convert_to_integer(line);
+  }
+
+  /**
+  * @brief Calculate the total length of all the names in the array
+  * 
+  * @param names the array of names
+  * @param size the number of names in the array
+  * @return int with the total length of all the names
+  */
+  int total_length(string names[], int size)
+  {
+      // Start the result at 0 - if there are no names the total length is 0
+      int result = 0;
+
+      // for each element in the array
+      for(int i = 0; i < size; i++)
+      {
+          // Access the element...
+          string name = names[i];
+          // Add its length to the result
+          result += length_of(name);
+      }
+
+      // Return the total length
+      return result;
+  }
+
+  /**
+  * @brief Tests if an array contains a given name
+  * 
+  * @param names the array of names to search
+  * @param size the number of names in the array
+  * @param name the name to search for
+  * @return true when the name is found (case insensitive)
+  * @return false when the name is not found
+  */
+  bool contains(string names[], int size, string name)
+  {
+      for(int i = 0; i < size; i++)
+      {
+          if( to_lowercase(names[i]) == to_lowercase(name) )
+          {
+              return true;
+          }
+      }
+      return false;
+  }
+
+  /**
+  * @brief Returns the shortest name in the array
+  * 
+  * @param names the array of names
+  * @param size the number of names in the array
+  * @return string the shortest name in the array
+  */
+  string shortest_name(string names[], int size)
+  {
+      string min;
+
+      // Return an empty string if the array is empty
+      if (size == 0)
+      {
+          return "";
+      }
+
+      // Assume the first name is the shortest...
+      min = names[0];
+
+      // Search the rest of the array to find a shorter name
+      for(int i = 1; i < size; i++)
+      {
+          // Is the current name in the array shorter?
+          if ( length_of(min) > length_of(names[i]) )
+          {
+              // It is... so store it as the new shortest name
+              min = names[i];
+          }
+      }
+
+      // Return the shortest name we found
+      return min;
+  }
+
+  int main()
+  {
+      // Declare a constant for the size of the array
+      const int SIZE = 3;
+
+      // Declare an array of three strings
+      // The array is called names
+      string names[SIZE];
+
+      // Create a variable to store the index of the array
+      // This can be used to control the loops below
+      int i;
+      
+      // Assign values to the elements within the array
+
+      // Start i at the first index - index 0
+      i = 0;
+      while ( i < SIZE ) // loop while i is less than the number of elements
+      {
+          // Store in the i-th element of the array
+          // i changes each loop - so this will store in names[0], names[1], ...
+          names[i] = read_string("Enter a name: ");
+          i = i + 1; // increment i... could be written as i++
+      }
+
+      // Access elements in the array to write out names entered
+      // Use a for loop to combine the loop control
+      //  - i is initialised to 0
+      //  - the loop continues while i is less than SIZE
+      //  - i is incremented each loop (at the end)
+      for(i = 0; i < SIZE; i++)
+      {
+          write_line(names[i]);
+      }
+
+      // Use the total_length function to calculate the total length of all the names
+      write_line("Total length of all names: " + to_string(total_length(names, SIZE)));
+
+      bool has_andrew;
+      has_andrew = contains(names, SIZE, "andrew");
+
+      if ( has_andrew )
+      {
+        write_line("Contains Andrew");
+      }
+
+      write_line(shortest_name(names, SIZE));
+
+      return 0;
+  }
+  ```
+
+  </AccordionItem>
+</Accordion>
+
+Hopefully this activity will have helped you see how to get started using arrays in your code.

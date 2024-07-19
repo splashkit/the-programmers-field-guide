@@ -1,0 +1,81 @@
+---
+title: Declaring an array
+sidebar:
+  label: " - Declaring an array"
+---
+import { YouTube } from 'astro-embed';
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+To get started, let's consider what an array is and see how we can declare this in our code. The following video goes explains arrays, and gets you started with the code for this.
+
+<div class="not-content">
+  <YouTube id="p1eBZ6hUJWQ" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+
+Here is the starter code that you can use to work along with this. You may want to use your utilities code that you created earlier, in which case you can remove the `read_string` and `read_integer` code and instead access these from your header file.
+
+```cpp
+#include "splashkit.h"
+
+string read_string(string prompt)
+{
+    string result;
+    
+    write(prompt);
+    result = read_line();
+
+    return result;
+}
+
+int read_integer(string prompt)
+{
+    string line;
+    line = read_string(prompt);
+    return convert_to_integer(line);
+}
+
+int main()
+{
+    return 0;
+}
+```
+
+Work through the video and have a go at creating an array to store three names.
+
+<Accordion>
+  <AccordionItem
+    header="Code with array"
+  >
+
+  ```cpp {22-24}
+  #include "splashkit.h"
+
+  string read_string(string prompt)
+  {
+      string result;
+      
+      write(prompt);
+      result = read_line();
+
+      return result;
+  }
+
+  int read_integer(string prompt)
+  {
+      string line;
+      line = read_string(prompt);
+      return convert_to_integer(line);
+  }
+
+  int main()
+  {
+      // Declare an array of three strings
+      // The array is called names
+      string names[3];
+      
+      return 0;
+  }
+  ```
+
+  </AccordionItem>
+</Accordion>
