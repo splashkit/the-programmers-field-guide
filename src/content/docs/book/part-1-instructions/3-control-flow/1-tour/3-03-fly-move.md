@@ -2,6 +2,8 @@
 title: Move the Spider
 sidebar:
   label: " - Move the Spider"
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
 ---
 
 Now we have a loop constantly updating what is drawn to the screen, we can focus on making some changes. Let's test this out first, then see how we can use control flow to limit when the data changes.

@@ -2,6 +2,8 @@
 title: Fly Catch Plan
 sidebar:
     label: " - A Plan"
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
 ---
 
 As always, we will approach the design and development of the Fly Catch program using an iterative process. This will involve designing and building the program a little at a time. Despite this, we still need an overall goal to help guide our actions and to give us an idea of how we can achieve the features we want.

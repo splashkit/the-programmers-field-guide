@@ -1,5 +1,7 @@
 ---
 title: Change Calculator
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
 ---
 
 The change calculator is at a reasonable place where we left it in the [structuring code](/book/part-2-organised-code/2-organising-code/0-overview) chapter. However, we can think through the code to see where we can make some improvements by incorporating structs and enums.
@@ -8,7 +10,7 @@ The change calculator is at a reasonable place where we left it in the [structur
 
 In the code, we are looping through all the different coins, using the index to represent each coin. By introducing a `coin_kind` we can have a constant in the enumeration to more clearly represent these. This would give us something like the following description of the enum.
 
-```
+```txt
 Enum: Coin Kind
 Options:
   NO_COIN = -1,

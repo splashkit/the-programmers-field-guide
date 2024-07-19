@@ -2,6 +2,8 @@
 title: Let the Fly escape
 sidebar:
   label: " - Let the Fly Escape"
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
 ---
 
 The fly escaping can be similar logic to the fly appearing. We can create an `escapeAtTime` variable, and use this to record when the fly should no longer appear. To make sure this works, we need to make sure we also reset the `appearAtTime` to a value in the future. Otherwise, when the fly escapes it will automatically appear again and escape immediately over and over as the two conditions would both be true.

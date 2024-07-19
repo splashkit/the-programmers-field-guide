@@ -1,5 +1,7 @@
 ---
 title: Fly Catch
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
 ---
 
 We have been progressing nicely with the fly catch program. One of the main remaining challenges has been our inability to break up `main` and move the handle input and update game logic. We also have some inefficiencies in passing copies of struct parameters that we could now re-code as constant references to enhance performance.

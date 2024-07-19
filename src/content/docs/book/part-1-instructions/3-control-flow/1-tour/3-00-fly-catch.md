@@ -1,5 +1,7 @@
 ---
 title: Fly Catch
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
 ---
 
 Our second worked example will look at how we can use control flow with SplashKit to create a small game where the user controls a spider on its web.

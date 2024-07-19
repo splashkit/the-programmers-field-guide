@@ -2,6 +2,8 @@
 title: Eat the Fly
 sidebar:
   label: " - Eat the Fly"
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
 ---
 
 Now to finish this off -- the spider needs to be able to catch the fly.

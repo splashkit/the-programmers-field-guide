@@ -1,5 +1,7 @@
 ---
 title: Fly Catch
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
 ---
 
 The fly catch game is going to really benefit from structs to help model the entities in the game. When we think about the game, the entities are really clear. We know that the game is made up of a spider and a fly. We can now model these as structs in our code.

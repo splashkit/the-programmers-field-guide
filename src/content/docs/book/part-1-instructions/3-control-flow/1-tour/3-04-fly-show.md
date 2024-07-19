@@ -2,6 +2,8 @@
 title: Show the fly
 sidebar:
   label: " - Show the Fly"
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
 ---
 
 Now we have the spider moving it's going to need a target -- the fly. We can get this working over a few steps, starting with getting the fly drawing, then adding code to time its appearance.

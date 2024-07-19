@@ -2,6 +2,8 @@
 title: Fly Catch Event Loop
 sidebar:
   label: " - Event Loop"
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
 ---
 
 To get this started, we can set up some details for the spider and get it appearing on the screen. We can then add in the event loop which will give us the main control flow of the program.
