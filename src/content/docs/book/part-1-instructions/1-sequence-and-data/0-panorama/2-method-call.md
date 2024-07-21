@@ -30,6 +30,9 @@ The following code demonstrates several method calls. Notice how each is always 
 // Give us access to methods in SplashKit library
 using static SplashKitSDK.SplashKit;
 
+// Give us access to convert methods from C#
+using static System.Convert;
+
 // Call the WriteLine method - the argument is the text to output
 WriteLine("Testing method calls");
 
