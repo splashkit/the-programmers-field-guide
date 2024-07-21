@@ -281,7 +281,9 @@ Your Windows machine is now set up with MSYS2, Visual Studio Code, and SplashKit
 
 ## Using MSYS2
 
-MSYS installs a minimal Linux environment on top of Windows. This will give you easy access to all of your Windows files and folder. The one challenge is that MSYS2 has its own home folder that does not map to your Windows home folder. If you want to access your Windows home folder you will need to use the `cd` command to move into that folder. Each of your system drives (C: for example) is mapped to a folder with the drive name in the root of the file system. So `C:` is `/c/` in MSYS. To access my Windows Documents folder, I can use the path `/c/Users/andrew/Documents`. You will need to change `andrew` to be your username, so the path will be in the format `/c/Users/<username>/Documents`. The following commands open my Documents folder.
+MSYS installs a minimal Linux environment on top of Windows. This will give you easy access to all of your Windows files and folder. The one challenge is that MSYS2 has its own home folder that does not map to your Windows home folder.
+
+If you want to access your Windows home folder you will need to use the `cd` command to move into that folder. Each of your system drives (C: for example) is mapped to a folder with the drive name in the root of the file system. So `C:` is `/c/` in MSYS. To access my Windows Documents folder, I can use the path `/c/Users/andrew/Documents`. You will need to change `andrew` to be your username, so the path will be in the format `/c/Users/<username>/Documents`. The following commands move to my Documents folder.
 
 ```bash
 # Move to my C drive
@@ -291,15 +293,37 @@ cd /c/
 cd /c/Users/andrew/Documents
 ```
 
-Using these commands you should be able to save your projects either in your Windows Documents folder for easy access.
+### Update HOME path in MSYS2/MINGW64 terminal
 
-If you want to find where your MSYS2 home folder is on your Windows machine, you can use the `pwd` command with a `-W` option to say you want the "Windows" path for the current folder. You can also use the `explorer.exe` program to open a folder in the File Explorer.
+:::note
+If you used the **automated installation script** above, you should already have an updated 'home' folder. You can check this by using the `pwd` command when you first open the terminal window. If you get a result such as `/c/Users/<your username>`, then your home folder has been updated. If you see `/home/<your username>`, then the home folder has not been updated. Follow the instructions below to update.
+:::
+
+To simplify changing the directory in your MSYS2/MINGW64 terminal, you can update the default home folder (HOME path) to be your Windows home using the following command:
 
 ```bash
-# Move into my MSYS home folder
-cd ~
-# Output my home folder's Windows path
-pwd -W
+echo 'HOME="/c/Users/$(whoami)"' >> ~/.bashrc
+echo 'cd ~' >> ~/.bashrc
+source ~/.bashrc
+```
+
+Once the home folder has been changed to your Windows folder, you will be able to use the following command to move to your Documents folder
+
+```bash
+# Move to Documents folder
+cd ~/Documents
+```
+
+### File Explorer
+
+Using these commands you should be able to save your projects in a `Code` folder inside your Windows Documents folder for easy access.
+
+You can also use the `explorer.exe` program to open a folder in the File Explorer.
+
+```bash
+# Move into my Documents folder
+cd ~/Documents
+
 # Open the current directory in File Explorer
 explorer .
 ```
