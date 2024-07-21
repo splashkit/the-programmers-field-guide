@@ -159,6 +159,19 @@ if command -v "$VSCODE_PATH/code" &> /dev/null; then
 fi
 
 # -----------------------------------------------------
+# 7. Update HOME path to Windows folder 
+# -----------------------------------------------------
+
+echo ""
+echo "Updating HOME (~) path..."
+
+echo 'HOME="/c/Users/$(whoami)"' >> ~/.bashrc
+echo 'cd ~' >> ~/.bashrc
+source ~/.bashrc
+
+echo "HOME (~) path now set to $HOME"
+
+# -----------------------------------------------------
 
 echo ""
 echo "Installation complete. Please restart your terminal for changes to take effect."
