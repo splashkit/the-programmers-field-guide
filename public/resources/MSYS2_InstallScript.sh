@@ -166,7 +166,6 @@ echo ""
 echo "Updating HOME (~) path..."
 
 echo 'HOME="/c/Users/$(whoami)"' >> ~/.bashrc
-echo 'cd ~' >> ~/.bashrc
 source ~/.bashrc
 
 echo "HOME (~) path now set to $HOME"
