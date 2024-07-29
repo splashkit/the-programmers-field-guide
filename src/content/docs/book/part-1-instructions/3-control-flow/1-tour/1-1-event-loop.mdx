@@ -7,9 +7,9 @@ import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 Run the program. What happens? The program starts, a window appears, and it closes after a short delay. How can we change the program so that it closes when the user decides?
 
-We can achieve this using a loop. The loop will repeat while the user has *not* asked to quit (which you can check with the `quit_requested` function). This will require us to call `process_events` inside the loop so that SplashKit can detect if the user has closed the window.
+We can achieve this using a loop. The loop will repeat while the user has *not* asked to quit (which you can check with the `QuitRequested` function). This will require us to call `ProcessEvents` inside the loop so that SplashKit can detect if the user has closed the window.
 
-Have a go at adding this loop yourself. This should start after the window is opened, and include the code to clear the screen and fill the circle. You can remove the `delay` code now, as the loop will control the duration of the program.
+Have a go at adding this loop yourself. This should start after the window is opened, and include the code to clear the screen and fill the circle. You can remove the `Delay` code now, as the loop will control the duration of the program.
 
 <Accordion>
     <AccordionItem header="Code with loop">
