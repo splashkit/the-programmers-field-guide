@@ -6,7 +6,7 @@ The following function and procedure declarations provide you with access to the
 
 ```cpp
 // These needs...
-// using static SplashKitSDK.SplashKit;
+// #include "splashkit.h";
 
 window open_window(string caption, int width, int height);
 void clear_screen();
