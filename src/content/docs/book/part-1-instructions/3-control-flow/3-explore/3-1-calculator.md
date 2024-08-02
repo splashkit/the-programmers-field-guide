@@ -17,7 +17,7 @@ Max: 10.0
 Average: 10.0
 
 Add another value: [y/n] y
-Enter value: 20
+Enter value: 30
 Count: 2
 Total: 30.0
 Min: 10.0

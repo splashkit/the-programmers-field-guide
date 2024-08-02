@@ -37,3 +37,13 @@ You want to make sure you have space for every value the variable is assigned ov
 :::
 
 Hand execution is a great way to see if you really understand the actions that each statement performs. Hopefully you have noticed we have been using it a lot to explain how different statements work! As your programs get more complex, you can use hand execution to see how the computer is organising its data. This can be a valuable tool for debugging, but also helpful when initially designing your program's logic.
+
+## Variable scope
+
+In some of your programs you may have variables that go out of scope. In these cases it is important to illustrate this by crossing out the variable itself. The following image illustrates this with an adjusted version of the same code. Here the `i` variable is declared within the for loop. This means that the `i` variable is destroyed when the loop ends. Notice how in this case I have crossed out the while `i` variable.
+
+![Example of hand execution for a variable that goes out of scope](./images/hand-execution-scope.png)
+
+:::tip
+Remember variables exist within a given [scope](/book/part-1-instructions/3-control-flow/2-trailside/02-1-scope). When the variable goes out of scope it is destroyed, so you cannot access it any longer.
+:::
