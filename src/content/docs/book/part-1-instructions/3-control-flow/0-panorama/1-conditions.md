@@ -61,12 +61,12 @@ int value = ToInt32(line);
 bool bigValue = value > 100;
 
 Write("Is that a big value for you? [y/n]: ");
-string line = ReadLine();
+line = ReadLine();
 
 // You can join boolean values using logical operators
 // It is big for the user if they entered 'y' or 'Y'
-bool bigForUser = (line == 'y') || (line == 'Y');
+bool bigForUser = (line == "y") || (line == "Y");
 
 // You can join any boolean value using the logical operators
-bool bigForBoth =  bigForUser && bigValue;
+bool bigForBoth = bigForUser && bigValue;
 ```
