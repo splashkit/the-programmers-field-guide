@@ -18,38 +18,52 @@ Whenever you start learning a new programming language, you will likely write co
 You can read more about the origin of "Hello, World" [here](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) if you're curious, but the short version is that it is a simple way of checking that your computer is set up correctly to code in a particular language.
 :::
 
-## Create the Project Folder
+## Make sure you are set up
 
-We will create a folder in our **Documents/Code** folder (which we created in the [Computer Use](/book/part-0-getting-started/2-computer-use/1-tour/3-1-terminal) chapter). If you are saving your code elsewhere then make sure to adjust paths as needed.
+We need somewhere to put our project's code. For this, we will create a folder in our **Documents/Code** folder. You should have created this folder as part of the tour in the [Computer Use](/book/part-0-getting-started/2-computer-use/1-tour/3-1-terminal) chapter, but we will repeat it here just in case you missed that step.
+
+You can choose anywhere to store your code, if you want to save your code elsewhere then make sure to adjust paths as needed. Open a terminal, and use the following commands to create the *Documents/Code* folder:
 
 ```zsh
+# Create a Documents/Code folder
 # Windows users -see the following note
-cd ~/Documents/Code
 
+mkdir ~/Documents/Code
+
+# Move to the Documents/Code folder
+cd ~/Documents/Code
+```
+
+:::note
+If you are using **MSYS2 MINGW64**:
+
+- You will need to adjust the `mkdir` and `cd` commands slightly from what is shown above if you want to use your standard Documents filder. With MSYS2, you need to use something like this:
+
+    ```bash
+    mkdir /c/Users/<your_username>/Documents/Code
+    cd /c/Users/<your_username>/Documents/Code
+    ```
+
+    Replace **<your_username>** with your own username.
+- To check your username, you can use the `whoami` command in your terminal.
+
+:::
+
+:::tip
+You can also type `cd ` ("cd", then space), then drag a folder from File Explorer or Finder into your terminal window. This will add the path to the folder/file that you drag in.
+:::
+
+## Create the project folder
+
+Now you can create a folder for your project. Make sure you are in your *Documents/Code* folder, and run the following commands:
+
+```zsh
 # Make a folder for the project
 mkdir HelloWorld
 
 # Move into that folder
 cd HelloWorld
 ```
-
-:::note
-If you are using **MSYS2 MINGW64**:
-
-- You will need to adjust the `cd` command slightly from what is shown in the command above, which will look similar to this:
-
-    ```bash
-    cd /c/Users/<your_username>/Documents/Code
-    ```
-
-    where you would replace **<your_username>** with your own username.
-- To check your username, you can use the `whoami` command in your terminal.
-
-:::
-
-:::tip
-You can also type `cd` ("cd", then space), then click and drag a folder from File Explorer or Finder into your terminal window.
-:::
 
 :::caution[Project Folders]
 
@@ -77,7 +91,7 @@ If you run `ls -lha` in the terminal after the commands above, it should look si
 
 Now you are ready to start coding your first program!
 
-## Write your Code
+## Write your code
 
 From the terminal window, we can open the current folder in Visual Studio Code using the following command:
 
@@ -112,7 +126,7 @@ We will be using SplashKit for terminal input and output initially. Avoid using 
 
 :::
 
-## Build and Run your Code
+## Build and run your code
 
 Let's turn your code into a program! Like magic!
 

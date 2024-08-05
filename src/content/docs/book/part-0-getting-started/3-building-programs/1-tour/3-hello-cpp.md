@@ -1,14 +1,14 @@
 ---
-title: Hello from another language
+title: Hello from C/C++
 ---
 
-To wrap up this tour, lets also compile a small C++ program. When we get to [Part 2](/book/part-2-organised-code/00-part-2-programs-as-organised-code) we will be switching language. While you are getting things setup, best to test this is working as well!
+To wrap up this tour, let's also compile a small C/C++ program. When we get to [Part 2](/book/part-2-organised-code/00-part-2-programs-as-organised-code) we will be switching language. While you are getting things setup, best to test this is working as well!
 
 ## Creating a project
 
 The C++ language aims to be very flexible, meaning you have to do lots yourself. As a result, there is no project concepts. All you need is a file with your code in it. We could put these all in one folder, or keep using a folder for each project.
 
-Let's create a code folder called **CppCode**. This can be used for any small C++ code files we want to work with.
+Let's create a code folder called **CppCode** in our *Documents/Code* folder. This can be used for any small C++ code files we want to work with.
 
 ```zsh
 # Remember to use /c/Users/<username>/Documents/Code for MSys
@@ -40,7 +40,7 @@ int main()
 
 :::caution
 
-As with C#, we will be using SplashKit for terminal input and output initially. Avoid using the `printf` or `cout` and `cin` for now, but we will come back to this once we have moved beyond the basics. This will also simplify moving between languages, as we can keep using the SplashKit library from both. 
+As with C#, we will be using SplashKit for terminal input and output initially. Avoid using the `printf` or `cout` and `cin` for now, but we will come back to this once we have moved beyond the basics. This will also simplify moving between languages, as we can keep using the SplashKit library from both.
 
 Once you have the basics, we can come back to explore the language itself in more detail.
 
