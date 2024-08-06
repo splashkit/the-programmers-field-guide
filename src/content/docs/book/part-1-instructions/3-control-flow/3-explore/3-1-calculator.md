@@ -19,13 +19,13 @@ Average: 10.0
 Add another value: [y/n] y
 Enter value: 30
 Count: 2
-Total: 30.0
+Total: 40.0
 Min: 10.0
 Max: 30.0
 Average: 15.0
 
 Add another value: [y/n] y
-Enter value: 15
+Enter value: 5
 Count: 3
 Total: 45.0
 Min: 10.0
@@ -40,13 +40,6 @@ Min: -45.0
 Max: 30.0
 Average: 0.0
 
-Add another value: [y/n] y
-Enter value: -45
-Count: 4
-Total: 0.0
-Min: -45.0
-Max: 30.0
-Average: 0.0
 
 Add another value: [y/n] y
 Enter value: 25.5
