@@ -72,7 +72,7 @@ void setup_coins(machine_data &machine)
 }
 ```
 
-In the `give_change` function, we can add a reference to the machine as a parameter (`void give_change(int change_value, machine_data &machine)`). Now we need to loop through the coins in the machine. The for loop should loop from 0 to `macihe.coin_count`. This will then work for any number of coins - depending on how we set up the machine.
+In the `give_change` function, we can add a reference to the machine as a parameter (`void give_change(int change_value, machine_data &machine)`). Now we need to loop through the coins in the machine. The for loop should loop from 0 to `machine.coin_count`. This will then work for any number of coins - depending on how we set up the machine.
 
 Inside the loop, we can grab the coin data from the array. We could even do this with a local reference variable, to save copying the coin data. The data we would need can be read from the array in the machine (`coin_data &coin = machine.coins[i];`). The rest of the logic would remain the same.
 
