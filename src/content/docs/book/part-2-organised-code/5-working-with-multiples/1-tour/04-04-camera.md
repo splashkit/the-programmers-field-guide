@@ -80,7 +80,7 @@ One thing you may have wondered is the impact of drawing all the tiles, when onl
 
 If we think about a really large map, most of it will not be drawn to the screen. At the moment, our code loops over *all* tiles in the map even though only some will actually appear. This is wasted effort which we can avoid.
 
-The following image gives some ideas on how we can optimise this. Rather than looping from the fist to last column and then the first to last row, we can loop over only a part of these. We need to identify the first column that will appear on the screen and the last column to appear, as the same with the rows. Then you can adjust the loop to only access tiles at these values. This will improve performance by reducing wasted effort.
+The following image gives some ideas on how we can optimise this. Rather than looping from the first to last column and then the first to last row, we can loop over only a part of these. We need to identify the first column that will appear on the screen and the last column to appear, as the same with the rows. Then you can adjust the loop to only access tiles at these values. This will improve performance by reducing wasted effort.
 
 ![Only draw the tiles that appear on the screen by identifying the left-most and right-most tiles, and top and bottom tiles](./images/camera-optimisation.png)
 
