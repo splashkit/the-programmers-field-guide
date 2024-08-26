@@ -1,7 +1,7 @@
 ---
-title: Player Profile
+title: Click Game
 sidebar:
-    label: " - Player profile"
+    label: " - Click Game"
 ---
 
 For this activity, create a program that lets the user enters a number of targets to hit. Then, show a window that displays the number of targets left to hit, using a health-bar style graphic (a partially filled bar, based on proportion of initial target remaining). Draw a circle on the screen, and test if the user has clicked the circle. When they do click it, subtract one from the targets to be hit, ending when this is 0.
