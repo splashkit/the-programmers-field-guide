@@ -20,7 +20,7 @@ bool flyAppeared = false;
 long appearAtTime = 1000 + Rnd(2000);
 long escapeAtTime = 0;
 
-OpenWindow("Flay Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
+OpenWindow("Fly Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
 
 CreateTimer(GAME_TIMER);
 StartTimer(GAME_TIMER);

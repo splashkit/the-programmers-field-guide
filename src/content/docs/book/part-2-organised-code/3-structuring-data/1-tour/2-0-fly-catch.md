@@ -91,7 +91,7 @@ int main()
 
   game.spider = new_spider();
   
-  open_window("Flay Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
+  open_window("Fly Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
   ...
 }
 ```
@@ -124,7 +124,7 @@ int main()
   game.spider = new_spider();
   game.fly = new_fly();
   
-  open_window("Flay Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
+  open_window("Fly Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
   ...
 }
 ```

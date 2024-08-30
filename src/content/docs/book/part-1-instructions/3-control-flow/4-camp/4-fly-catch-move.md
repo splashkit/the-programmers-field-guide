@@ -19,7 +19,7 @@ const int SPIDER_SPEED = 3;
 int spiderX = SCREEN_WIDTH / 2;
 int spiderY = SCREEN_HEIGHT / 2;
 
-OpenWindow("Flay Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
+OpenWindow("Fly Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
 
 // The event loop
 while (!QuitRequested())
