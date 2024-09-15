@@ -6,11 +6,11 @@ When your program is executed, it is allocated memory to work with. To help ensu
 
 The stack is an essential part of every program. The fact that it is managed by the compiler means that you do not need to think too much about memory allocation for these variables.
 
-However, there are limitations. The compiler needs to know how much space to allocate each variable, and once allocated this is fixed as other values will be been allocated around this. In addition, the space of the stack is very limited, as it is designed to only work with local variables. The heap is intended to be used when you want to work with larger amounts of data.
+However, there are limitations. The compiler needs to know how much space to allocate each variable, and once allocated this is fixed as other values will have been allocated around this. In addition, the space of the stack is very limited, as it is designed to only work with local variables. The heap is intended to be used when you want to work with larger amounts of data.
 
 The **heap** represents the bulk of memory that is accessible to your program, but only if you request space and manage it yourself. Any memory that you allocate to your program will come from the heap.
 
-To work with the heap you will need to learn how to allocation, access, and free space dynamically. These actions are the focus of this chapter.
+To work with the heap you will need to learn how to allocate, access, and free space dynamically. These actions are the focus of this chapter.
 
 <a id="FigureTheHeap"></a>
 
