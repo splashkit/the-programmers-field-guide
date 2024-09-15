@@ -4,7 +4,7 @@ sidebar:
     label: " - Using the Dynamic Array"
 ---
 
-Now that we have the dynamic array we can start to use it within our projects. In this section we can have a look at using moving the code into a header file so that it can be included in other projects easily, and we can then look at how we could have used this in our statistics calculator and our fly catch programs.
+Now that we have the dynamic array we can start to use it within our projects. In this section we can have a look at moving the code into a header file so that it can be included in other projects easily, and we can then look at how we could have used this in our statistics calculator and our fly catch programs.
 
 ## Moving it to a header
 
@@ -12,7 +12,7 @@ In the [structuring code](/book/part-2-organised-code/2-organising-code/0-overvi
 
 As this is C++ code, and it won't work in C, we can put this in a file with a **.hpp** extension. This helps indicate that it is C++.
 
-With C++ templates, the compiler needs all the code when the template it used. It needs to be able to generate the code from the template for the different type options that we use. As a result, you will need to copy the declarations, and their implementations into the header file.
+With C++ templates, the compiler needs all the code when the template is used. It needs to be able to generate the code from the template for the different type options that we use. As a result, you will need to copy the declarations, and their implementations into the header file.
 
 Remember to add the header guard, to ensure that we do not include this code more than once. Review the previous [header files](/book/part-2-organised-code/2-organising-code/2-trailside/07-forward-declarations/#header-files) page for the code to handle this.
 
