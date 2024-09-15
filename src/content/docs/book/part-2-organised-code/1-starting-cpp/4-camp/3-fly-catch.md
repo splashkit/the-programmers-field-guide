@@ -29,7 +29,7 @@ int main()
     long appearAtTime = 1000 + rnd(2000);
     long escapeAtTime = 0;
 
-    open_window("Flay Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
+    open_window("Fly Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
 
     create_timer(GAME_TIMER);
     start_timer(GAME_TIMER);

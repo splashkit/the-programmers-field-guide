@@ -28,7 +28,7 @@ int flyX = Rnd(SCREEN_WIDTH), flyY = Rnd(SCREEN_HEIGHT);
 bool flyAppeared = false;
 long appearAtTime = 1000 + Rnd(2000);
 
-OpenWindow("Flay Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
+OpenWindow("Fly Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
 
 CreateTimer(GAME_TIMER);
 StartTimer(GAME_TIMER);
