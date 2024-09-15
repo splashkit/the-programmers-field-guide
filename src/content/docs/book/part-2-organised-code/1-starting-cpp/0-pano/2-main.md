@@ -58,6 +58,9 @@ int main()
 
     // Call the Delay method - pass in the number of milliseconds to delay
     delay(delay_seconds * 1000);
+
+    // Return 0 at the end of the program - indicating successful execution of the program
+    return 0;
 }
 ```
 
