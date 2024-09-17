@@ -271,7 +271,7 @@ void clear_from_heap(T *ptr)
 
 int main()
 {
-    my_test_struct *data = make_on_heap<my_test_struct>({ "Hello"});
+    my_test_struct *data = make_on_heap<my_test_struct>((my_test_struct){ "Hello"});
     int *p = make_on_heap<int>(5);
 
     printf("p -> %d\n", *p);
