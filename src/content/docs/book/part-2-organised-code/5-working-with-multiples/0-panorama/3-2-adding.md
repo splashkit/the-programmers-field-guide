@@ -24,7 +24,7 @@ This will then ensure that the new element is included in any subsequent process
 
 ## Example
 
-```cpp {46-69,79}
+```cpp {19-42,49-52}
 #include <cstdio>
 #include "utilities.h"
 
@@ -37,38 +37,11 @@ const int MAX_NUMBERS = 20;
  * @field values the array of values
  * @field size the number of values in the array - up to MAX_NUMBERS
  */
-typedef struct
+struct number_data
 {
   double values[MAX_NUMBERS];
   int size;
-} number_data;
-
-/**
- * Populate the array with values entered by the user
- *
- * @param data the array of values (passed by reference)
- */
-void populate_array(number_data &data)
-{
-  int size = read_integer("How many values do you want to enter? ");
-  if (size > MAX_NUMBERS)
-  {
-    printf("Sorry, you can only enter %d values.\n", MAX_NUMBERS);
-    size = MAX_NUMBERS;
-  }
-  else if (size < 0)
-  {
-    size = 0;
-  }
-
-  data.size = size;
-
-  // Populate each element - up to data.size
-  for (int i = 0; i < data.size; i++)
-  {
-    data.values[i] = read_double("Enter value: ");
-  }
-}
+};
 
 void add_data(number_data &data)
 {
@@ -100,19 +73,17 @@ int main()
   // Initialise struct with an empty array and a size of 0.
   number_data data = {{},0};
 
-  // You can pass to a procedure by reference, and have it update
-  populate_array(data);
-
+  // We can add to the array a number of times
+  add_data(data);
+  add_data(data);
   add_data(data);
 
-  // Loop through as normal - using .size and .values
+  // Loop through printing all values
   for (int i = 0; i < data.size; i++)
   {
-    // Access elements of the values array within the struct.
     printf("%lf\n", data.values[i]);
   }
 
   return 0;
 }
 ```
-
