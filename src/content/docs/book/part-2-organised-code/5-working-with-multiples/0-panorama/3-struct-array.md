@@ -1,4 +1,0 @@
----
-title: Struct with Array
----
-
