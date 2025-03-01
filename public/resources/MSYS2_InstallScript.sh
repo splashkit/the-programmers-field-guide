@@ -41,6 +41,11 @@ fi
 export PATH=$PATH:~/.splashkit
 
 if [ -d ~/.splashkit/global ]; then
+    echo "Installing Windows dependencies"
+    skm windows install
+fi
+
+if [ -d ~/.splashkit/global ]; then
     echo "Installing SplashKit global"
     skm global install
 fi
@@ -107,7 +112,7 @@ echo "Checking VS Code settings.json file size..."
 cd $SETTINGS_JSON_PATH
  
 # empty settings = ~3 bytes
-if [ $(wc -c < "settings.json") -le 3 ]; then
+if [ $(wc -c < "settings.json") -le 4 ]; then
     echo "Adding MSYS2/MINGW64 terminal settings to settings.json file..."
  
     curl -O "$settings_json_url"
@@ -157,18 +162,6 @@ if command -v "$VSCODE_PATH/code" &> /dev/null; then
         "$VSCODE_PATH/code" --install-extension ms-dotnettools.vscodeintellicode-csharp
     fi
 fi
-
-# -----------------------------------------------------
-# 7. Update HOME path to Windows folder 
-# -----------------------------------------------------
-
-echo ""
-echo "Updating HOME (~) path..."
-
-echo 'HOME="/c/Users/$(whoami)"' >> ~/.bashrc
-source ~/.bashrc
-
-echo "HOME (~) path now set to $HOME"
 
 # -----------------------------------------------------
 
