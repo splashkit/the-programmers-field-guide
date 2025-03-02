@@ -64,9 +64,15 @@ If you have issues installing the WSL with Ubuntu, go to the [Issues creating Ub
 
 WSL is now setup and ready to use!
 
+:::note[Opening WSL Terminal]
+To open a terminal for your WSL, search for "Ubuntu", and click the Ubuntu App (green box below):
+
+![Open Ubuntu Terminal](./images/setup-windows/ubuntu-terminal-open.png)
+:::
+
 ### Configure 'Windows Terminal'
 
-Note: This step is *optional*.
+Note: This step is *optional*, but encouraged.
 
 If you want to be able to have your 'Windows **Terminal**' app automatically open with WSL, you can change the *Default profile* to use WSL (with Ubuntu) using the steps below:
 
@@ -348,6 +354,9 @@ If you have been working on your projects in WSL, you can access these from Wind
 One convenient way of accessing your files is to run the `explorer.exe` program from within your WSL terminal. When you do this, you can open a File Explorer and give it a path to open. Running the following commands at the WSL Terminal will let me open my Linux Documents folder in File Explorer.
 
 ```bash
+# Create Documents folder
+mkdir ~/Documents
+
 # Move to my Documents folder in Linux
 cd ~/Documents
 
@@ -356,3 +365,23 @@ explorer.exe .
 ```
 
 Using this option you can work within your Linux files for your programming projects, and then access these from the File Explorer when needed.
+
+### Accessing WSL Files in File Explorer
+
+*Follow the instructions below to access your WSL folders and files in File Explorer*:
+
+In the left sidebar panel, scroll to the bottom and click on the "Linux" folder (red box below), then navigated into the "Ubuntu" folder (orange box below):
+
+![Initial navigation to WSL Folder in File Explorer](./images/setup-windows/wsl-file-explorer-ubuntu.png)
+
+Next, go into the "home" folder (red box below):
+
+![Navigation to WSL home folder in File Explorer](./images/setup-windows/wsl-file-explorer-home.png)
+
+You will then see a folder with the username that you used to create your WSL/Ubuntu account. Click into this folder to see your WSL folders and files.
+
+:::note
+This is the *home* (~) directory for WSL, which is the location that your Ubuntu terminal will start in when you open a new terminal.
+
+Also, if you have issues and need to reinstall/recreate your Ubuntu account, these folders and files will be removed. Make sure to create a backup of any important folders/files beforehand.
+:::

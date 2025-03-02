@@ -1508,6 +1508,7 @@ export default defineConfig({
     service: squooshImageService(),
   },
   server: {
+    host: true,
     port: 3001,
   },
 });
