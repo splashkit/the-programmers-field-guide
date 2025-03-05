@@ -260,6 +260,34 @@ By using an older version of SplashKit, you won't be able to install SplashKit g
 Therefore, you will need to use the commands mentioned in the [section below](#no-splashkit-global-install).
 :::
 
+### `dotnet run` unable to find SplashKit library
+
+If you get an error message when running the `dotnet run` command (after running the `dotnet add package SplashKit` command), which might look something like this:
+
+![dotnet run not working with .NET 9](./images/troubleshooting/dotnet-9-issue.png)
+
+This is likely caused by installing .NET 9.0 (which has been released at the end of 2024). SplashKit is not yet compatible with .NET 9 when using the global installation.
+
+There are a few ways to resolve this issue:
+
+#### Option 1: Install .NET 8
+
+Firstly, download and install [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0).
+
+You will then need to update the `<TargetFramework>` property in your C# project (`.csproj`) file to use `.net8.0`.
+
+![Update target framework to net8.0](./images/troubleshooting/csproj-update-target-framework.png)
+
+In your project folder, click on the `.csproj` file (green box above), and update the `<TargetFramework>` property to use `.net8.0` (yellow box above).
+
+You may also need to delete the `bin` and `obj` folders (which will be regenerated).
+
+If you are still having issues, you will need to remove .NET 9. For information on how to do this, see the [How to remove the .NET Runtime and SDK](https://learn.microsoft.com/en-us/dotnet/core/install/remove-runtime-sdk-versions?pivots=os-windows) article.
+
+#### Option 2: Use `skm` commands
+
+Another option you can use is to run your C# projects using `skm dotnet run`. See the [No SplashKit Global Install](#no-splashkit-global-install) section below for the full list of `skm dotnet` commands.
+
 ### No SplashKit Global Install
 
 If you have had issues installing the SplashKit global libraries, or you are using an older version of SplashKit, you will need to use `skm` at the start of any compiling/building commands, or when running C# programs.
