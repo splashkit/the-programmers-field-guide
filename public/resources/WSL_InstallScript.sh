@@ -9,6 +9,10 @@ splashkit_url="https://raw.githubusercontent.com/splashkit/skm/master/install-sc
 repo_version=$(if command -v lsb_release &> /dev/null; then lsb_release -r -s; else grep -oP '(?<=^VERSION_ID=).+' /etc/os-release | tr -d '"'; fi)
 dotnet_pkg_url="https://packages.microsoft.com/config/ubuntu/$repo_version/packages-microsoft-prod.deb"
 
+# Define paths
+WIN_USER=`powershell.exe -Command "[System.Environment]::UserName')"`
+VSCODE_PATH=`cd /mnt/c/Users/$WIN_USER/AppData/Local/Programs/Microsoft\ VS\ Code/bin; pwd` #VS Code path to 'code' (to avoid need for restarting shell)
+
 # -----------------------------------------------------
 # 1. Update and Install required packages
 # -----------------------------------------------------
@@ -38,19 +42,13 @@ export PATH=$PATH:~/.splashkit
 #run with yes input to answer yes to apt-get request
 yes | skm linux install
 
-# check if SplashKit Global is avalible
-if [ -d ~/.splashkit/global ]; then
-    echo "Installing SplashKit global"
-    skm global install
-fi
-
 # -----------------------------------------------------
 # 3. Install .NET SDK
 # -----------------------------------------------------
 
 # Check if .NET SDK is installed
 if ! command -v dotnet &> /dev/null; then
-    echo "Installing .NET..."
+    echo "Installing .NET 8.0 ..."
     wget $dotnet_pkg_url -O packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     rm packages-microsoft-prod.deb
@@ -67,51 +65,62 @@ if ! command -v dotnet &> /dev/null; then
         fi
     fi
 else
-    echo ".NET SDK is already installed."
+    echo ".NET 8.0 SDK is already installed."
 fi
 
 # -----------------------------------------------------
-# 4. Install VS Code extensions for C++ and C# 
+# 4. Install Visual Studio Code
+# -----------------------------------------------------
+
+# Check if VS Code needs to be installed
+if ! command -v code &> /dev/null
+then
+    echo "Downloading Visual Studio Code installer..."
+    powershell.exe -Command "winget install -e --id Microsoft.VisualStudioCode"
+fi
+
+# -----------------------------------------------------
+# 5. Install VS Code extensions for C++ and C# 
 # -----------------------------------------------------
 
 # Check if VS Code is installed
-if command -v code &> /dev/null; then
+if command -v "$VSCODE_PATH/code" &> /dev/null; then
     echo ""
     echo "Installing VS Code extensions..."
 
     # Check if WSL extension is installed
-    if ! code --list-extensions | grep -q "ms-vscode-remote.remote-wsl"; then
+    if ! "$VSCODE_PATH/code" --list-extensions | grep -q "ms-vscode-remote.remote-wsl"; then
         echo ""
         echo "WSL:"
-        code --install-extension ms-vscode-remote.remote-wsl
+        "$VSCODE_PATH/code" --install-extension ms-vscode-remote.remote-wsl
     fi
 
     # Check if C/C++ extension is installed
-    if ! code --list-extensions | grep -q "ms-vscode.cpptools-extension-pack"; then
+    if ! "$VSCODE_PATH/code" --list-extensions | grep -q "ms-vscode.cpptools-extension-pack"; then
         echo ""
         echo "C/C++ Extension Pack:"
-        code --install-extension ms-vscode.cpptools-extension-pack
+        "$VSCODE_PATH/code" --install-extension ms-vscode.cpptools-extension-pack
     fi
 
     # Check if "C#" extension is installed
-    if ! code --list-extensions | grep -q "ms-dotnettools.csharp"; then
+    if ! "$VSCODE_PATH/code" --list-extensions | grep -q "ms-dotnettools.csharp"; then
         echo ""
         echo "C#:"
-        code --install-extension ms-dotnettools.csharp
+        "$VSCODE_PATH/code" --install-extension ms-dotnettools.csharp
     fi
 
     # Check if "C# Dev Kit" extension is installed
-    if ! code --list-extensions | grep -q "ms-dotnettools.csdevkit"; then
+    if ! "$VSCODE_PATH/code" --list-extensions | grep -q "ms-dotnettools.csdevkit"; then
         echo ""
         echo "C# Dev Kit:"
-        code --install-extension ms-dotnettools.csdevkit
+        "$VSCODE_PATH/code" --install-extension ms-dotnettools.csdevkit
     fi
 
     # Check if "Intellicode for C# Dev Kit" extension is installed
-    if ! code --list-extensions | grep -q "ms-dotnettools.vscodeintellicode-csharp"; then
+    if ! "$VSCODE_PATH/code" --list-extensions | grep -q "ms-dotnettools.vscodeintellicode-csharp"; then
         echo ""
         echo "Intellicode for C# Dev Kit:"
-        code --install-extension ms-dotnettools.vscodeintellicode-csharp
+        "$VSCODE_PATH/code" --install-extension ms-dotnettools.vscodeintellicode-csharp
     fi
 else
     echo "Visual Studio Code missing..."
