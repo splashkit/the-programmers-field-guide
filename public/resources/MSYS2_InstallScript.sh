@@ -40,14 +40,9 @@ fi
 
 export PATH=$PATH:~/.splashkit
 
-if [ -d ~/.splashkit/global ]; then
+if [ -d ~/.splashkit/windows ]; then
     echo "Installing Windows dependencies"
     skm windows install
-fi
-
-if [ -d ~/.splashkit/global ]; then
-    echo "Installing SplashKit global"
-    skm global install
 fi
 
 # -----------------------------------------------------
@@ -86,7 +81,7 @@ fi
 # 4. Install Visual Studio Code
 # -----------------------------------------------------
 
-# Check if VS Code is installed
+# Check if VS Code needs to be installed
 if ! command -v code &> /dev/null
 then
     echo "Downloading Visual Studio Code installer..."
@@ -111,17 +106,17 @@ echo ""
 echo "Checking VS Code settings.json file size..."
 cd $SETTINGS_JSON_PATH
  
-# empty settings = ~3 bytes
-if [ $(wc -c < "settings.json") -le 4 ]; then
+# empty settings = <= 5 bytes
+if [ $(wc -c < "settings.json") -le 5 ]; then
     echo "Adding MSYS2/MINGW64 terminal settings to settings.json file..."
  
     curl -O "$settings_json_url"
     mv msys2-settings.json settings.json
 else
-    echo "Cannot add MSYS2/MINGW64 settings to VS Code settings.json file."
-    echo "You will need to update file manually."
+    echo "Cannot add MSYS2/MINGW64 terminal settings to VS Code settings.json file."
+    echo "You will need to update settings.json file manually."
 fi
- 
+
 cd ~
 
 # -----------------------------------------------------

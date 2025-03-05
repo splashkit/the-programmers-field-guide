@@ -28,5 +28,12 @@
     "terminal.integrated.env.windows": {
         "MSYSTEM": "MINGW64",
         "CHERE_INVOKING": "1"
-    }
+    },
+    "C_Cpp.default.systemIncludePath": [
+        "${default}",
+        "C:\\msys64\\mingw64\\bin\\**",
+        "C:\\msys64\\mingw64\\include\\**"
+    ],
+    "files.autoSave": "afterDelay",
+    "editor.formatOnSave": true
 }
