@@ -107,14 +107,9 @@ To make it easier to open each time, you can pin your Terminal to the Taskbar.
 
 ## Automated Setup
 
-:::caution[Install VS Code first!]
-Before running the automated installation script command below, it is strongly recommended that you install Visual Studio Code directly in Windows first (rather than inside WSL).
-
-Go to Step [4. Install Visual Studio Code](#4-install-visual-studio-code) then come back to this section.
-:::
-
 This script will install the following applications and tools:
 
+- Visual Studio Code
 - Visual Studio Code Extensions
   - C/C++ Extensions
   - C# Extensions
@@ -129,7 +124,15 @@ This script will install the following applications and tools:
 - g++
 - gdb
 
-Open the Ubuntu Terminal and run the following command:
+:::caution[Uninstall SplashKit in MSYS2 if it has been installed]
+Before running the automated script below, make sure to **uninstall SplashKit in the MSYS2/MINGW64 terminal** if you have installed it there.
+
+You can uninstall SplashKit using the command: `skm uninstall`.
+
+This will ensure the automated script below does not try to use the `.splashkit` folder inside the MSYS2 folders accidentally.
+:::
+
+Open the **Ubuntu** Terminal and run the following command:
 
 ```bash
 curl -s "https://programmers.guide/resources/WSL_InstallScript.sh" | bash /dev/stdin
