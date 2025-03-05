@@ -10,7 +10,7 @@ repo_version=$(if command -v lsb_release &> /dev/null; then lsb_release -r -s; e
 dotnet_pkg_url="https://packages.microsoft.com/config/ubuntu/$repo_version/packages-microsoft-prod.deb"
 
 # Define paths
-WIN_USER=`powershell.exe -Command "[System.Environment]::UserName')"`
+WIN_USER=`powershell.exe -Command "[System.Environment]::UserName"`
 VSCODE_PATH=`cd /mnt/c/Users/$WIN_USER/AppData/Local/Programs/Microsoft\ VS\ Code/bin; pwd` #VS Code path to 'code' (to avoid need for restarting shell)
 
 # -----------------------------------------------------
