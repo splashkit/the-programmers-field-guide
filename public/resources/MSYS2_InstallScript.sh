@@ -10,10 +10,6 @@ dotnet_sdk_url="https://download.visualstudio.microsoft.com/download/pr/90486d8a
 vscode_installer_url="https://aka.ms/win32-x64-user-stable"
 settings_json_url="https://programmers.guide/resources/msys2-settings.json"
 
-# Define paths
-SETTINGS_JSON_PATH="$APPDATA/Code/User"
-VSCODE_PATH=`cd $LOCALAPPDATA/Programs/Microsoft\ VS\ Code/bin; pwd` #VS Code path to 'code' (to avoid need for restarting shell)
-
 # -----------------------------------------------------
 # 1. Update and Install required packages
 # -----------------------------------------------------
@@ -97,6 +93,10 @@ then
 else
     echo "Visual Studio Code is already installed."
 fi
+
+# Define paths
+SETTINGS_JSON_PATH="$APPDATA/Code/User"
+VSCODE_PATH=`cd $LOCALAPPDATA/Programs/Microsoft\ VS\ Code/bin; pwd` #VS Code path to 'code' (to avoid need for restarting shell)
 
 # -----------------------------------------------------
 # 5. Replace settings.json file if empty

@@ -9,10 +9,6 @@ splashkit_url="https://raw.githubusercontent.com/splashkit/skm/master/install-sc
 repo_version=$(if command -v lsb_release &> /dev/null; then lsb_release -r -s; else grep -oP '(?<=^VERSION_ID=).+' /etc/os-release | tr -d '"'; fi)
 dotnet_pkg_url="https://packages.microsoft.com/config/ubuntu/$repo_version/packages-microsoft-prod.deb"
 
-# Define paths
-WIN_USER=`powershell.exe -Command "[System.Environment]::UserName"`
-VSCODE_PATH=`cd /mnt/c/Users/$WIN_USER/AppData/Local/Programs/Microsoft\ VS\ Code/bin; pwd` #VS Code path to 'code' (to avoid need for restarting shell)
-
 # -----------------------------------------------------
 # 1. Update and Install required packages
 # -----------------------------------------------------
@@ -78,6 +74,10 @@ then
     echo "Downloading Visual Studio Code installer..."
     powershell.exe -Command "winget install -e --id Microsoft.VisualStudioCode"
 fi
+
+# Define paths
+WIN_USER=`powershell.exe -Command "[System.Environment]::UserName" | sed 's/\r$//'`
+VSCODE_PATH=`cd /mnt/c/Users/$WIN_USER/AppData/Local/Programs/Microsoft\ VS\ Code/bin; pwd` #VS Code path to 'code' (to avoid need for restarting shell)
 
 # -----------------------------------------------------
 # 5. Install VS Code extensions for C++ and C# 
