@@ -23,7 +23,7 @@ clang++ program.cpp utilities.cpp -l SplashKit -o test
 
 The header file will include header guards and the signatures for your functions. You can copy these from an existing project where you have declared these functions. Remember the signature is just the first line of the function declaration, terminated with a `;` where the block of instructions would go.
 
-```cpp
+```cpp title="utilities.h"
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
@@ -57,7 +57,7 @@ Including the documentation in the header is a great idea, as this can then be r
 
 The code in the *utilities.cpp* will have just the code to implement these functions, but can include additional headers to access functions you need to implement these.
 
-```cpp
+```cpp title="utilities.cpp"
 #include "utilities.h"
 #include "splashkit.h"
 
