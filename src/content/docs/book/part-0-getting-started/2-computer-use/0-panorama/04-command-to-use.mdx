@@ -2,6 +2,8 @@
 title: Commands to use
 ---
 
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
 You can run many commands and programs at the terminal, but there are only a few you really need to get started. The best thing to remember is that you can get help from each command using the `--help` argument.
 
 - `ls`: Use the `ls` command to list files in a folder. Pass it arguments for the name of the folder to list, if you do not want the listing of the current folder. You can also pass it options for how to format the list `-lha` are good options to start with.
@@ -28,6 +30,89 @@ If you are not sure what command to use, you can search for it or use a generati
 
 ## Example
 
+<Tabs syncKey="terminal-type">
+<TabItem label="macOS">
+
+```zsh
+# move into the /Users/andrew/Documents/ folder
+cd /Users/andrew/Documents
+
+# Now we are in the Documents folder...
+# move into the /Users/andrew/Documents/Code folder
+cd Code
+
+# We can make a folder for a project called HelloWorld
+# Notice no space between Hello and World
+mkdir HelloWorld
+
+# Move into the new folder
+cd HelloWorld
+
+# Print out the location in the terminal
+pwd
+
+# Create some empty files
+touch test.cpp
+touch test.h
+
+# List the files
+ls -lha
+
+# Move to your code folder
+cd ~/Documents/Code
+
+# Explore further to do things like...
+
+# Get a word count of all of your C++ code
+find . -name *.cpp -exec cat {} \; | wc -w
+
+# Download and interact with files
+curl https://programmers.guide/book/part-0-getting-started/00-0-introduction/ > intro.html
+```
+
+</TabItem>
+<TabItem label="Windows (WSL) & Linux">
+
+```zsh
+# move into the /home/andrew/Documents/ folder (WSL users may need to create Documents folder)
+cd /home/andrew/Documents
+
+# Now we are in the Documents folder...
+# move into the /home/andrew/Documents/Code folder
+cd Code
+
+# We can make a folder for a project called HelloWorld
+# Notice no space between Hello and World
+mkdir HelloWorld
+
+# Move into the new folder
+cd HelloWorld
+
+# Print out the location in the terminal
+pwd
+
+# Create some empty files
+touch test.cpp
+touch test.h
+
+# List the files
+ls -lha
+
+# Move to your code folder
+cd ~/Documents/Code
+
+# Explore further to do things like...
+
+# Get a word count of all of your C++ code
+find . -name *.cpp -exec cat {} \; | wc -w
+
+# Download and interact with files
+curl https://programmers.guide/book/part-0-getting-started/00-0-introduction/ > intro.html
+```
+
+</TabItem>
+<TabItem label="Windows (MSYS2)">
+
 ```zsh
 # move into the /c/Users/andrew/Documents/ folder
 cd /c/Users/andrew/Documents
@@ -41,7 +126,7 @@ cd Code
 mkdir HelloWorld
 
 # Move into the new folder
-cd ./HelloWorld
+cd HelloWorld
 
 # Print out the location in the terminal
 pwd
@@ -53,8 +138,8 @@ touch test.h
 # List the files
 ls -lha
 
-# Move to your code folder (mac or Linux - Windows needs /c/Users/...)
-cd ~/Documents/Code
+# Move to your code folder
+cd /c/Users/andrew/Documents/Code
 
 # Explore further to do things like...
 
@@ -64,4 +149,7 @@ find . -name *.cpp -exec cat {} \; | wc -w
 # Download and interact with files
 curl https://programmers.guide/book/part-0-getting-started/00-0-introduction/ > intro.html
 ```
+
+</TabItem>
+</Tabs>
   

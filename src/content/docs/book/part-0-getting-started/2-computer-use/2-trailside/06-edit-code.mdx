@@ -4,6 +4,8 @@ sidebar:
     label: Editing code
 ---
 
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
 From the terminal you can use all of the commands we have already seen as well as launch graphical programs.
 
 | **Action**          | **Command** | **Description**                                     |
@@ -14,20 +16,38 @@ Visual Studio Code (VS Code) is a graphical text editor designed to write source
 
 The `code` command can be passed an argument to indicate the file or folder you want to open. For example, `code .` will launch VS Code and have it open the folder from the current working directory. Use `code Program.cs` to open VS Code with the *Program.cs* file.
 
+<Tabs syncKey="terminal-type">
+<TabItem label="macOS">
+
 ```sh
 cd ~/Documents/Code/HelloWorld
 code .
 # launch VS Code with the HelloWorld folder open
 ```
 
-We will explore how to get this all setup and ready to go in the next section.
-
-
-:::caution[Paths in Windows MSYS2]
-Remember to adjust the path to your Documents' folder if you are using MSYS2 on Windows. For me, the first step of the above will become:
+</TabItem>
+<TabItem label="Windows (WSL) & Linux">
 
 ```sh
-cd /c/Users/andrew/Documents/Code/HelloWorld
+cd ~/Documents/Code/HelloWorld
+code .
+# launch VS Code with the HelloWorld folder open
 ```
 
+</TabItem>
+<TabItem label="Windows (MSYS2)">
+
+```sh
+cd /c/Users/`whoami`/Documents/Code/HelloWorld
+code .
+# launch VS Code with the HelloWorld folder open
+```
+
+</TabItem>
+</Tabs>
+
+We will explore how to get this all setup and ready to go in the next section.
+
+:::caution[Paths in Windows MSYS2]
+Remember to adjust the path to your Documents' folder if you are using MSYS2 on Windows. See the command used in the "Windows (MSYS2)" Tab above.
 :::

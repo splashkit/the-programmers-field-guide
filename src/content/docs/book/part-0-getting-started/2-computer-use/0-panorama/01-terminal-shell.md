@@ -30,4 +30,4 @@ Getting started with the terminal can be challenging. We can start small, but ov
 
 ## Example
 
-The above images show some examples Terminals, with the output from shell commands.
+The images at the top of the page show some example Terminals, with the output from shell commands.

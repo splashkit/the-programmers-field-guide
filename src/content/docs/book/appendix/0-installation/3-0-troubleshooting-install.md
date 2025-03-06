@@ -270,7 +270,17 @@ This is likely caused by installing .NET 9.0 (which has been released at the end
 
 There are a few ways to resolve this issue:
 
-#### Option 1: Install .NET 8
+#### Option 1: Update SplashKit
+
+Firstly, try running `skm update` in a new terminal window.
+
+Make sure to check if there are any errors in the output such as permissions issues.
+
+Then run `skm global install`. This is usually run when using the update command above, but running it again won't cause issues.
+
+Lastly, to properly test if this has been resolved: Create a new project folder and a new C# project.
+
+#### Option 2: Install .NET 8
 
 Firstly, download and install [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0).
 
@@ -284,7 +294,7 @@ You may also need to delete the `bin` and `obj` folders (which will be regenerat
 
 If you are still having issues, you will need to remove .NET 9. For information on how to do this, see the [How to remove the .NET Runtime and SDK](https://learn.microsoft.com/en-us/dotnet/core/install/remove-runtime-sdk-versions?pivots=os-windows) article.
 
-#### Option 2: Use `skm` commands
+#### Option 3: Use `skm` commands
 
 Another option you can use is to run your C# projects using `skm dotnet run`. See the [No SplashKit Global Install](#no-splashkit-global-install) section below for the full list of `skm dotnet` commands.
 

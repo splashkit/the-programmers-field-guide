@@ -2,6 +2,8 @@
 title: Shell Commands
 ---
 
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
 Each shell has its own set of commands that it understands, but they all follow the same general format. Commands are broken into words (separated by spaces) with the first word being the command or program to run, and subsequent words being passed to the program as arguments for it to use.
 
 ![Illustration of shell commands](./images/shell-command-pano.png)
@@ -29,6 +31,8 @@ Operating systems restrict some actions to admin users, particularly when the ac
 If you have lots of things you want to run as the superuser, you can use `sudo` to run a new shell. When you are finished, you can close that shell using **ctrl-d**.
 
 ```sh
+sudo bash
+# or
 sudo zsh
 # You are now in a shell as the super user
 ```
@@ -41,7 +45,68 @@ Please note that this won't work in the MSys as it does not have the capacity to
 
 The following are some example shell commands. Lines starting with a `#` are comments, so these are ignored by the shell program. We use them here to explain how each shell command is structured.
 
-```zsh
+Note: These commands are not expected to be used directly all together (copied and pasted), but rather as information to explain the commands shown, or using individual sections.
+
+<Tabs syncKey="terminal-type">
+<TabItem label="macOS">
+
+```shell
+# the ls command with flags -l -h and -a
+ls -l -h -a
+
+# shorthand for the above, with -lha
+ls -lha
+
+# cd command, with a folder path as an argument
+cd /Users/andrew/Documents/Code
+
+# mkdir command with Project1 as an argument
+mkdir Project1
+
+# dotnet program with 2 arguments: new and console
+dotnet new console
+
+# dotnet program with 3 arguments: add, package, and splashkit
+dotnet add package splashkit
+
+# clang++ program with 5 arguments: test.cpp, -o, test, -l, SplashKit
+# -o and test are linked (test is the value for the -o option)
+# -l and splashkit are linked (splashkit is the value for this -l)
+clang++ test.cpp -o test -l SplashKit
+```
+
+</TabItem>
+<TabItem label="Windows (WSL) & Linux">
+
+```shell
+# the ls command with flags -l -h and -a
+ls -l -h -a
+
+# shorthand for the above, with -lha
+ls -lha
+
+# cd command, with a folder path as an argument
+cd /home/andrew/Documents/Code
+
+# mkdir command with Project1 as an argument
+mkdir Project1
+
+# dotnet program with 2 arguments: new and console
+dotnet new console
+
+# dotnet program with 3 arguments: add, package, and splashkit
+dotnet add package splashkit
+
+# clang++ program with 5 arguments: test.cpp, -o, test, -l, SplashKit
+# -o and test are linked (test is the value for the -o option)
+# -l and splashkit are linked (splashkit is the value for this -l)
+clang++ test.cpp -o test -l SplashKit
+```
+
+</TabItem>
+<TabItem label="Windows (MSYS2)">
+
+```shell
 # the ls command with flags -l -h and -a
 ls -l -h -a
 
@@ -65,3 +130,6 @@ dotnet add package splashkit
 # -l and splashkit are linked (splashkit is the value for this -l)
 clang++ test.cpp -o test -l SplashKit
 ```
+
+</TabItem>
+</Tabs>

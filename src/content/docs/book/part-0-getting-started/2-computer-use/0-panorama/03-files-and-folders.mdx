@@ -2,6 +2,8 @@
 title: Files and Folders
 ---
 
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
 Working in the shell requires you to understand how the files on your computer are organised.
 
 ![Illustration of file systems](./images/file-system-pano.png)
@@ -28,7 +30,47 @@ Working in the shell requires you to understand how the files on your computer a
 
 The following illustrates how we can move and work with files and folders in the shell.
 
-```zsh
+<Tabs syncKey="terminal-type">
+
+<TabItem label="macOS">
+
+```shell
+# move into the /Users/andrew/Documents/ folder
+cd /Users/andrew/Documents
+# or
+cd ~/Documents
+
+# Now we are in the Documents folder...
+# move into the /Users/andrew/Documents/Code folder
+cd Code
+
+## Move back to /Users/andrew - the parent of the parent folder
+cd ../..
+```
+
+</TabItem>
+
+<TabItem label="Windows (WSL) & Linux">
+
+```shell
+# move into the /home/andrew/Documents/ folder
+cd /home/andrew/Documents
+# or
+cd ~/Documents
+
+# Now we are in the Documents folder...
+# move into the /home/andrew/Documents/Code folder
+cd Code
+
+## Move back to /home/andrew - the parent of the parent folder
+cd ../..
+```
+
+</TabItem>
+
+<TabItem label="Windows (MSYS2)">
+
+```shell
 # move into the /c/Users/andrew/Documents/ folder
 cd /c/Users/andrew/Documents
 
@@ -39,3 +81,6 @@ cd Code
 ## Move back to /c/Users/andrew - the parent of the parent folder
 cd ../..
 ```
+
+</TabItem>
+</Tabs>

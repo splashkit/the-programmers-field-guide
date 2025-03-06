@@ -4,6 +4,8 @@ sidebar:
     label: Navigating File Systems
 ---
 
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
 Files store the data you need to work with, so the shell needs to provide you with convenient ways of accessing and interacting with both your files and the folders that organise them. To achieve this, the shell has a **working directory**. This represents the folder that you are working with. You can execute shell commands to list the files within the working directory, move to new directories, and perform other operations on your files.
 
 ## File Access Commands
@@ -20,7 +22,7 @@ You can directly access files within the current working directory, which we oft
 
 The `pwd` command will let you know the path to the terminal's current working directory. Give it a go in your terminal. Type `pwd` at the shell's prompt, press *enter* to execute the command, and see the path to where you currently are.
 
-```sh
+```shell
 pwd
 ```
 
@@ -38,19 +40,44 @@ When a command can be provided with an argument we say that it **accepts** the a
 :::tip[Read the friendly manual]
 The `man` shell command in Unix opens the manual for a given command. You pass `man` a single argument of the name of the command you want help with. So `man pwd` will give you the instructions on how to use the `pwd` command. This can be useful if you are stuck, though searching the internet or accessing Bard or other generative AIs can help too. Online versions of these manuals are also available. For example, you can use this to read about the [cp command](https://man.cx/Cp).
 
-```sh
+```shell
 man pwd
 # This will open the manual for the pwd command - press q to quit
 man man
 # This will open the manual for the man command - press q to quit
 ```
+
 :::
+
+<Tabs syncKey="terminal-type">
+<TabItem label="macOS">
+
+Here is an example on how the change directory command is used. This will change the current working directory into the folder at the `/Users` path.
+
+```shell
+cd /Users
+```
+
+</TabItem>
+<TabItem label="Windows (WSL) & Linux">
 
 Here is an example on how the change directory command is used. This will change the current working directory into the folder at the `/home` path.
 
-```sh
+```shell
 cd /home
 ```
+
+</TabItem>
+<TabItem label="Windows (MSYS2)">
+
+Here is an example on how the change directory command is used. This will change the current working directory into the folder at the `/c/msys64/home` path.
+
+```shell
+cd /home
+```
+
+</TabItem>
+</Tabs>
 
 The `cd` command takes one argument - the path to the directory you want to make the current working directory.
 
@@ -58,11 +85,11 @@ The `cd` command takes one argument - the path to the directory you want to make
 With many terminal programs, you can drag and drop files onto the terminal program to inject their path at the location of the cursor in the prompt.
 :::
 
-### Give it a try!
+### Give it a try
 
 Use the following commands to move to the root of the file system, print out the working directory, then move back to your home folder and print out the working directory again.
 
-```sh
+```shell
 cd /
 pwd
 # This will output > / (you are in the root folder)
@@ -99,7 +126,7 @@ Moving folders is great, but we also need to be able to see what is in these fol
 
 Use the [`ls` command](https://man.cx/Ls) to list the files in a folder. By default, `ls` lists the files in the current folder. Alternatively, you can pass in an argument for the path to the folder you want to list the contents of.
 
-```sh
+```shell
 ls
 # You should see a list of the files and folders in the current directory (folder)
 ```
@@ -114,12 +141,12 @@ The idea behind having hidden files is to avoid cluttering the display of direct
 On OSX and Linux, the name of a hidden file always starts with "."
 :::
 
-### Give it a try!
+### Give it a try
 
 Try running the following commands in your terminal.
 Compare the output of using `ls` with different options.
 
-```sh
+```shell
 ls -l
 # compare with the ls output
 
@@ -141,7 +168,7 @@ To get back to your **home** directory, the one where your files are generally s
 
 Give it a try. Move back home using `cd ~`. Use `pwd` to check where you are.
 
-```sh
+```shell
 cd /
 pwd
 # This will output > / (we are in the root folder)
@@ -162,7 +189,7 @@ Remember that in MSYS2 the `~` shortcut will refer to your *home* folder in MSYS
 
 Once again you could use the full absolute path, but you could also use the convenient shortcut `..`. In the shell, `.` is a shortcut for the current directory and `..` is the shortcut for the current directory's parent.
 
-```sh
+```shell
 cd /home
 pwd
 # This will output > /home
@@ -176,7 +203,7 @@ pwd
 
 There is also a shortcut to the current folder. This will be very useful later. You can use `.` to represent the current folder.
 
-```sh
+```shell
 cd /home
 pwd
 # This will output > /home
@@ -200,11 +227,12 @@ To summarise, there are three really useful shortcuts:
 * `~` is the path to your home directory.
 * `.` is the path to the current working directory.
 * `..` is the path to the current working directory's parent folder.
+
 :::
 
 Using folder shortcuts, you can create **relative** paths. These are paths *relative* to the terminal's current location. That is, they describe a path *from* your current location *to* another location within the file system. The following examples demonstrate the use of relative paths and folder shortcuts to navigate between sibling folders (folders with the same parent).
 
-```sh
+```shell
 cd /home/multitool/Documents/code
 pwd
 # This will output > /home/multitool/Documents/code
@@ -221,7 +249,7 @@ So, `cd Documents` is the same as `cd ./Documents`.
 
 You can combine multiple shortcuts together to navigate anywhere in your filesystem without using an absolute path:
 
-```sh
+```shell
 cd /home/multitool/Documentations/presentations
 cd ../../Downloads
 pwd
