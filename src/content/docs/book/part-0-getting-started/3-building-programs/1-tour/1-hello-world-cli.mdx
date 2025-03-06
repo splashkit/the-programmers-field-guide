@@ -2,6 +2,8 @@
 title: Your First Program
 ---
 
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
 Here are the steps needed to build your own program:
 
 1. Create a new folder for the project, and move into this in the terminal
@@ -24,33 +26,46 @@ We need somewhere to put our project's code. For this, we will create a folder i
 
 You can choose anywhere to store your code, if you want to save your code elsewhere then make sure to adjust paths as needed. Open a terminal, and use the following commands to create the *Documents/Code* folder:
 
+<Tabs syncKey="terminal-type">
+<TabItem label="macOS">
+
 ```zsh
 # Create a Documents/Code folder
-# Windows users -see the following note
-
 mkdir ~/Documents/Code
 
 # Move to the Documents/Code folder
 cd ~/Documents/Code
 ```
 
-:::note
-If you are using **MSYS2 MINGW64**:
+</TabItem>
+<TabItem label="Windows (WSL) & Linux">
 
-- You will need to adjust the `mkdir` and `cd` commands slightly from what is shown above if you want to use your standard Documents filder. With MSYS2, you need to use something like this:
+```zsh
+# Create a Documents/Code folder
+# WSL users might also need to create the Documents folder, using:
+#   mkdir ~/Documents
+mkdir ~/Documents/Code
 
-    ```bash
-    mkdir /c/Users/<your_username>/Documents/Code
-    cd /c/Users/<your_username>/Documents/Code
-    ```
+# Move to the Documents/Code folder
+cd ~/Documents/Code
+```
 
-    Replace **<your_username>** with your own username.
-- To check your username, you can use the `whoami` command in your terminal.
+</TabItem>
+<TabItem label="Windows (MSYS2)">
 
-:::
+```zsh
+# Create a Documents/Code folder
+mkdir /c/Users/`whoami`/Documents/Code
+
+# Move to the Documents/Code folder
+cd /c/Users/`whoami`/Documents/Code
+```
+
+</TabItem>
+</Tabs>
 
 :::tip
-You can also type `cd ` ("cd", then space), then drag a folder from File Explorer or Finder into your terminal window. This will add the path to the folder/file that you drag in.
+You can also type `cd` ("cd", then space), then drag a folder from File Explorer or Finder into your terminal window. This will add the path to the folder/file that you drag in.
 :::
 
 ## Create the project folder

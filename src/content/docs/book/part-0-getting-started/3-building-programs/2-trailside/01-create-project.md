@@ -54,7 +54,7 @@ Before we go on, let's have a look at the structure of a C# project file (the `.
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="splashkit" Version="1.1.4" />
+    <PackageReference Include="splashkit" Version="1.2.9" />
   </ItemGroup>
 
 </Project>
@@ -66,6 +66,6 @@ The Project element contains an attribute called `Sdk`, indicating the **softwar
 
 Within the Project element, we have a `PropertyGroup` and `ItemGroup`. The property group sets some properties for the project. The `OutputType` says that this project will create an executable program (`exe`). The .NET SDK has a number of versions, so the `TargetFramework` tells VS Code which version of .NET this project was written for. The next properties, `ImplicitUsings` and `Nullable`, set some options that will be used when the programs are built.
 
-The `ItemGroup` contains a `PackackageReference` that represents a library that our project has access to.
+The `ItemGroup` contains a `PackageReference` that represents a library that our project has access to.
 
 All of these settings are used by VS Code and the `dotnet` program, and can be customised for each project.

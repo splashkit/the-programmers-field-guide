@@ -2,6 +2,8 @@
 title: Hello from C/C++
 ---
 
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
 To wrap up this tour, let's also compile a small C/C++ program. When we get to [Part 2](/book/part-2-organised-code/00-part-2-programs-as-organised-code) we will be switching language. While you are getting things setup, best to test this is working as well!
 
 ## Creating a project
@@ -10,8 +12,10 @@ The C++ language aims to be very flexible, meaning you have to do lots yourself.
 
 Let's create a code folder called **CppCode** in our *Documents/Code* folder. This can be used for any small C++ code files we want to work with.
 
+<Tabs syncKey="terminal-type">
+<TabItem label="macOS">
+
 ```zsh
-# Remember to use /c/Users/<username>/Documents/Code for MSys
 cd ~/Documents/Code
 mkdir CppCode
 
@@ -23,6 +27,41 @@ touch HelloWorld.cpp
 # Open folder in VS Code
 code .
 ```
+
+</TabItem>
+<TabItem label="Windows (WSL) & Linux">
+
+```zsh
+cd ~/Documents/Code
+mkdir CppCode
+
+cd CppCode
+
+# Create an empty HelloWorld.cpp file
+touch HelloWorld.cpp
+
+# Open folder in VS Code
+code .
+```
+
+</TabItem>
+<TabItem label="Windows (MSYS2)">
+
+```zsh
+cd /c/Users/`whoami`/Documents/Code
+mkdir CppCode
+
+cd CppCode
+
+# Create an empty HelloWorld.cpp file
+touch HelloWorld.cpp
+
+# Open folder in VS Code
+code .
+```
+
+</TabItem>
+</Tabs>
 
 ## Write the code
 
@@ -52,10 +91,59 @@ When you are using C++ you will have to compile your code each time you change i
 
 Save your code and then try to compile and run it with the following:
 
+<Tabs syncKey="terminal-type">
+<TabItem label="macOS">
+
 ```zsh
 clang++ HelloWorld.cpp -o hello -l SplashKit
 ./hello
 ```
+
+</TabItem>
+<TabItem label="Windows (WSL) & Linux">
+
+```zsh
+clang++ HelloWorld.cpp -o hello -l SplashKit
+./hello
+```
+
+</TabItem>
+<TabItem label="Windows (MSYS2)">
+
+```zsh
+clang++ HelloWorld.cpp -o hello -l SplashKit
+./hello.exe
+```
+
+</TabItem>
+</Tabs>
+
+:::note
+From the command above, the **compiling** command is:
+
+```zsh
+clang++ HelloWorld.cpp -o hello -l SplashKit
+```
+
+Or, you can also use `g++`:
+
+```zsh
+g++ HelloWorld.cpp -o hello -l SplashKit
+```
+
+And the command to **run** is:
+
+```zsh
+./hello
+```
+
+Or, for Windows (MSYS2) users:
+
+```zsh
+./hello.exe
+```
+
+:::
 
 The `clang++` command runs the compiler. You pass it the file to compile, along with arguments to set the name of the program to create (`-o hello`) and to link it with any libraries you use `-l SplashKit`. We will explore this further in the later parts, but for now make sure this works, and you see the output message when it runs.
 
