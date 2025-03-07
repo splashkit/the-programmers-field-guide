@@ -57,7 +57,34 @@ xcode-select --install
 
 That means you've already installed Xcode, and are ready to move to the next step!
 
-## 2. Install SplashKit
+## 2. Install Language Specific Tools
+
+Some coding languages require specific tools/frameworks to be installed to be able to build and run your code files.  
+As you will be coding in C# and C++ in this book, let's look at the tools needed for these languages:
+
+### C# Tools
+
+For coding in C#, you will need to install the `.NET` SDK which will allow you to use the *dotnet* terminal command to create, build, and run your C# project code.
+
+:::note[.NET Installation Video:]
+<div class="not-content">
+  <YouTube id="i2g9br8Y9Jc" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
+</div>
+:::
+
+Download the latest version of the .NET SDK for macOS from the official .NET website: [dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+
+Run the downloaded installer and follow on-screen instructions.
+
+### C/C++ Tools
+
+For coding in C++, you will need to have a C++ compiler installed to build your C++ code into a file you can use to run your program. Commonly used C++ compilers are `g++` and `clang++`.
+
+:::note
+If you installed Xcode Command Line Tools successfully in Step 1, then you will already have the necessary compilers installed and ready for coding in C++!
+:::
+
+## 3. Install SplashKit
 
 [SplashKit](https://splashkit.io) is a beginner's all-purpose software toolkit that will allow you to create fun and exciting programs more easily, especially for Graphical User Interface (GUI) programs.
 
@@ -83,6 +110,14 @@ bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-sc
 
 :::
 
+### Build the SplashKit Library
+
+This step is optional for most users. If you are using an OSX version earlier than OSX 13, you will need to run the following command to build the SplashKit library locally:
+
+```bash
+skm macos install
+```
+
 ### Install SplashKit Globally
 
 Finally, you will need to install the SplashKit Global Libraries. This will install the SplashKit libraries and library include files into the system's default global locations so that the compiler can find these files when building (compiling) programs created with SplashKit.
@@ -100,7 +135,7 @@ skm global install
 The command above will add the **SplashKit libraries** into the `/usr/local/lib/` folder, and the required **SplashKit library include files** into the `/usr/local/include` folder.
 :::
 
-## 3. Install Visual Studio Code
+## 4. Install Visual Studio Code
 
 Visual Studio Code, also commonly known as *VS Code* or just *Code*, is a powerful and versatile code editor that enables efficient coding, debugging, and collaboration for your SplashKit projects!
 
@@ -138,33 +173,6 @@ The final step to complete the setup of VS Code is to install a few *Extensions*
 [**Set up my VS Code Extensions**](/book/appendix/0-installation/2-7-setup-vscode)
 
 Go to the page linked above, follow the steps to install both the C# and C/C++ recommended extensions, and then come back here and continue to the next step. *You can use the "Back button" in your browser to return to this page.*
-
-## 4. Install Language Specific Tools
-
-Some coding languages require specific tools/frameworks to be installed to be able to build and run your code files.  
-As you will be coding in C# and C++ in this book, let's look at the tools needed for these languages:
-
-### C# Tools
-
-For coding in C#, you will need to install the `.NET` SDK which will allow you to use the *dotnet* terminal command to create, build, and run your C# project code.
-
-:::note[.NET Installation Video:]
-<div class="not-content">
-  <YouTube id="i2g9br8Y9Jc" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
-</div>
-:::
-
-Download the latest version of the .NET SDK for macOS from the official .NET website: [dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
-
-Run the downloaded installer and follow on-screen instructions.
-
-### C/C++ Tools
-
-For coding in C++, you will need to have a C++ compiler installed to build your C++ code into a file you can use to run your program. Commonly used C++ compilers are `g++` and `clang++`.
-
-:::note
-If you installed Xcode Command Line Tools successfully in Step 1, then you will already have the necessary compilers installed and ready for coding in C++!
-:::
 
 ## 5. Optional Steps
 
