@@ -264,7 +264,7 @@ As you will be coding in C# and C++ in this book, let's look at the tools needed
 
 ### C# Tools
 
-For coding in C#, you will need to install the `.NET 8` SDK which will allow you to use the *dotnet* terminal command to create, build, and run your C# project code.
+For coding in C#, you will need to install the `.NET` SDK which will allow you to use the *dotnet* terminal command to create, build, and run your C# project code.
 
 :::note[.NET Installation Video:]
 <div class="not-content">
@@ -272,7 +272,7 @@ For coding in C#, you will need to install the `.NET 8` SDK which will allow you
 </div>
 :::
 
-Download the **.NET 8** SDK for Windows from the official .NET website: [dotnet.microsoft.com/download](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+Download the latest version of the .NET SDK for macOS from the official .NET website: [dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
 
 :::caution[.NET 9 Not compatible with SplashKit when using "dotnet run"]
 If you have installed .NET 9, check the [`dotnet run` unable to find SplashKit library](/book/appendix/0-installation/3-0-troubleshooting-install/#dotnet-run-unable-to-find-splashkit-library) section of the Troubleshooting page.
@@ -310,20 +310,6 @@ cd /c/Users/andrew/Documents
 If you used the **automated installation script** above, you should already have an updated 'home' folder. You can check this by using the `pwd` command when you first open the terminal window. If you get a result such as `/c/Users/<your username>`, then your home folder has been updated. If you see `/home/<your username>`, then the home folder has not been updated. Follow the instructions below to update.
 :::
 
-To simplify changing the directory in your MSYS2/MINGW64 terminal, you can update the default home folder (HOME path) to be your Windows home using the following command:
-
-```bash
-echo 'HOME="/c/Users/$(whoami)"' >> ~/.bashrc
-source ~/.bashrc
-```
-
-Once the home folder has been changed to your Windows folder, you will be able to use the following command to move to your Documents folder
-
-```bash
-# Move to Documents folder
-cd ~/Documents
-```
-
 ### File Explorer
 
 Using these commands you should be able to save your projects in a `Code` folder inside your Windows Documents folder for easy access.
@@ -332,7 +318,7 @@ You can also use the `explorer.exe` program to open a folder in the File Explore
 
 ```bash
 # Move into my Documents folder
-cd ~/Documents
+cd /c/Users/`whoami`/Documents
 
 # Open the current directory in File Explorer
 explorer .
