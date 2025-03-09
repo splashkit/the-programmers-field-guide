@@ -59,7 +59,7 @@ For example, with the username "**default-user**", your terminal would look like
 You can see in the image above where the "**default-user**" username was first entered (shown in the pink box), and the same username being used with the terminal prompt (shown in the orange box).
 
 :::tip[Troubleshooting tip:]
-If you have issues installing the WSL with Ubuntu, go to the [Issues creating Ubuntu user account](/book/appendix/0-installation/3-0-troubleshooting-install/#issues-creating-ubuntu-user-account) section in the Installation Troubleshooting page for a way to reset the Ubuntu installation and user account setup.
+If you have issues installing the WSL with Ubuntu, go to the [Issues creating Ubuntu user account](https://splashkit.io/troubleshoot/windows-wsl/wsl-issue-1/) page on the SplashKit website for a way to reset the Ubuntu installation and user account setup.
 :::
 
 WSL is now setup and ready to use!
@@ -201,7 +201,7 @@ bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-sc
 <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 :::tip[Troubleshooting tip:]
-If you have issues installing the SplashKit SDK, go to the [No response when running SplashKit installation command](/book/appendix/0-installation/3-0-troubleshooting-install/#no-response-when-running-splashkit-installation-command) section in the Installation Troubleshooting page for an alternative installation process.
+If you have issues installing the SplashKit SDK, go to [this troubleshooting page](https://splashkit.io/troubleshoot/linux/linux-issue-1/) on the SplashKit website for an alternative installation process.
 :::
 
 Close and reopen the WSL Terminal, then run the command below to build SplashKit:

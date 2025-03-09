@@ -110,7 +110,7 @@ bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-sc
 ```
 
 :::tip[Troubleshooting tip:]
-If you have issues installing the SplashKit SDK, go to the [No response when running SplashKit installation command](/book/appendix/0-installation/3-0-troubleshooting-install/#no-response-when-running-splashkit-installation-command) section in the Installation Troubleshooting page for an alternative installation process.
+If you have issues installing the SplashKit SDK, go to [this troubleshooting page](https://splashkit.io/troubleshoot/linux/linux-issue-1/) on the SplashKit website for an alternative installation process.
 :::
 
 Close and reopen the Terminal, then run the command below to build SplashKit:
