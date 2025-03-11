@@ -5,7 +5,9 @@ sidebar:
     class: windows
   label: " - Windows (MSYS2)"
 ---
+
 import { YouTube } from 'astro-embed';
+import { Steps } from '@astrojs/starlight/components';
 
 In this guide, we will walk through the steps to install the necessary Applications and Tools using **MSYS2** (**M**inimal **SYS**tem) on Windows. This will enable you to code in C# and C++ with SplashKit.
 
@@ -21,9 +23,7 @@ Now, let's get started!
 
 To get SplashKit and other coding tools installed on Windows, using MSYS2, follow the steps outlined below:
 
-## 1. Install MSYS2
-
-Download the installer from the official MSYS2 website: [www.msys2.org](https://www.msys2.org/)
+## 1. Install MSYS2/MINGW64
 
 :::note[MSYS2 Installation Video:]
 <div class="not-content">
@@ -31,26 +31,35 @@ Download the installer from the official MSYS2 website: [www.msys2.org](https://
 </div>
 :::
 
-To install MSYS2, double-click the downloaded executable file, and follow the on-screen instructions.
+<Steps>
 
-*It is strongly recommended that you use the default install path, but you can customise the other installation options as needed.*
+1. Download the installer from the official MSYS2 website: [www.msys2.org](https://www.msys2.org/)
 
-:::note[Which Terminal?]
-MSYS2 comes with a variety of terminal environments. The **MINGW64** terminal environment is recommended for 64-bit computers (MINGW32 for 32-bit) as it has been found to support the C# and C++ terminal commands you will use.
+2. To install MSYS2, double-click the downloaded executable file, and follow the on-screen instructions.
 
-Therefore, you should use the **MINGW64** (MSYS2 MINGW64) terminal, which you can find by searching "mingw64" in the Windows Start menu and selecting the **MSYS2 MINGW64** App.
-:::
+    Make sure to use the default install path.
 
-:::tip[Pin it!]
-To make it easier to open each time, you can pin your terminal to the Taskbar.
 
-- Open MINGW64 terminal.
-- Right-click on the MSYS2 App icon in the taskbar (shown in the orange box in the image below).
-- Select "Pin to taskbar" (shown in the pink box):
+3.  ### Use the "MINGW64" terminal
 
-![Image showing MSYS2 MINGW64 App pinning to taskbar](./images/setup-windows/mingw64-pin-to-taskbar.png)
-<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
-:::
+    MSYS2 comes with a variety of terminal environments.
+
+    You will need to use the **MINGW64** terminal environment (not MSYS or UCRT), which you can find by searching "mingw64" in the Windows Start menu and selecting the **MSYS2 MINGW64** App.
+
+4. Pin MINGW64 Terminal to the taskbar:
+
+    To make it easier to open each time, you can pin your terminal to the Taskbar.
+
+    - Open MINGW64 terminal.
+    - Right-click on the MSYS2 App icon in the taskbar (shown in the orange box in the image below).
+    - Select "Pin to taskbar" (shown in the pink box):
+
+    ![Image showing MSYS2 MINGW64 App pinning to taskbar](./images/setup-windows/mingw64-pin-to-taskbar.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
+
+</Steps>
+
+---
 
 ## Automated Setup
 
@@ -67,33 +76,37 @@ This script will install the following applications and tools:
 - gcc
 - gdb
 
-Open the MSYS2/**MINGW64** Terminal using **"Run as Administrator"** and run the following command:
+<Steps>
 
-```bash
-curl -s "https://programmers.guide/resources/MSYS2_InstallScript.sh" | bash /dev/stdin
-```
+1. Open the **MINGW64** Terminal using **"Run as Administrator"** and run the following command:
 
-:::note
-This script may take a while to run (approx. 5-10 mins).
-:::
+    ```bash
+    curl -s "https://programmers.guide/resources/MSYS2_InstallScript.sh" | bash /dev/stdin
+    ```
 
-Once the automated script has finished running, close and reopen the Terminal.
+    :::note
+    This script may take a while to run (approx. 5-10 mins).
+    :::
 
-Run the command `skm` to check SplashKit is installed correctly.
+2. Once the automated script has finished running, close and reopen the Terminal.
 
-Lastly, try opening a "New Terminal" in VS Code (*Terminal* > *New Terminal*).
+3. Run the command `skm` to check SplashKit is installed correctly.
 
-:::tip[Add MINGW64 Terminal to Visual Studio Code]
-If you do not see the MSYS2/MINGW64 terminal, go to the [Setup VS Code Terminal](#setup-vs-code-terminal) section to add your MSYS2/MINGW64 Terminal into VS Code.
-:::
+4. Lastly, try opening a "New Terminal" in VS Code (*Terminal* > *New Terminal*).
 
-Then, once you're finished, you can go to the [Using MSYS2](#using-msys2) section for more information about accessing files in your C drive with the MSYS2/MINGW64 terminal.
+    :::tip[Add MINGW64 Terminal to Visual Studio Code]
+    If you do not see the MSYS2/MINGW64 terminal, go to the [Setup VS Code Terminal](#setup-vs-code-terminal) section to add your MSYS2/MINGW64 Terminal into VS Code.
+    :::
+
+5. Then, once you're finished, you can go to the [Using MSYS2](#using-msys2) section for more information about accessing files in your C drive with the MSYS2/MINGW64 terminal.
+
+</Steps>
 
 ## Manual Steps
 
 ### 2. Install Command Line Tools
 
-To install SplashKit, you will firstly need to install some command line tools using the `pacman` package manager.
+To install SplashKit, you will firstly need to install the `git`, `clang`, `gcc` and `gdb` command line tools using the `pacman` package manager.
 
 :::note[Command Line Tools Installation Video:]
 <div class="not-content">
@@ -103,17 +116,27 @@ To install SplashKit, you will firstly need to install some command line tools u
 *The command used in the video above has been altered slightly, but the process is the same.*
 :::
 
-Copy and paste the following command into your **MINGW64** terminal window to install the `git`, `clang`, `gcc` and `gdb` pacman packages:
+<Steps>
 
-```bash
-pacman -S git mingw-w64-x86_64-clang mingw-w64-x86_64-gcc mingw-w64-x86_64-gdb --noconfirm --disable-download-timeout
-```
+1. Copy the following command:
 
-:::caution[Paste commands into MINGW64 Terminal]
-Unfortunately, you won't be able to use `Ctrl` + `V` to paste.
+    ```bash
+    pacman -S git mingw-w64-x86_64-clang mingw-w64-x86_64-gcc mingw-w64-x86_64-gdb --noconfirm --disable-download-timeout
+    ```
 
-Instead, right-click anywhere in the terminal window and then select **Paste**.
-:::
+2. Paste the command into your **MINGW64** Terminal.
+
+    :::caution[Paste commands into MINGW64 Terminal]
+    Unfortunately, you won't be able to use `Ctrl` + `V` to paste.
+
+    Instead, right-click anywhere in the terminal window and then select **Paste**.
+    :::
+
+3. Press enter to run the command.
+
+</Steps>
+
+---
 
 ### 3. Install SplashKit
 
@@ -125,37 +148,39 @@ SplashKit is a beginner's all-purpose software toolkit that will allow you to cr
 </div>
 :::
 
-Copy and paste the following command into your MINGW64 terminal to download and run the SplashKit installer:
+<Steps>
 
-```bash
-bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)
-```
+1. Copy and paste the following command into your **MINGW64** terminal to download and run the SplashKit installer:
 
-:::tip[Troubleshooting tip:]
-If you have issues installing the SplashKit SDK, go to [this troubleshooting page](https://splashkit.io/troubleshoot/windows-msys2/win-issue-1) on the SplashKit website for an alternative installation process.
-:::
+    ```bash
+    bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)
+    ```
 
-:::note[Curious to know more?]
-The **SplashKit SDK** is installed using the `skm-install.sh` shell script which is stored in the [**skm**](https://github.com/splashkit/skm) GitHub repository (in the **install-scripts** folder).
+    :::tip[Troubleshooting tip:]
+    If you have issues installing the SplashKit SDK, go to [this troubleshooting page](https://splashkit.io/troubleshoot/windows-msys2/win-issue-1) on the SplashKit website for an alternative installation process.
+    :::
 
-It will also add the required paths to your PATH environment variable.
-:::
+2. Now, close and reopen your **MINGW64** terminal, and run the following command to install the dependencies needed for SplashKit:
 
-### Install SplashKit Globally
+    ```bash
+    skm windows install
+    ```
 
-Finally, you will need to install the SplashKit Global Libraries. This will install the SplashKit libraries and library include files into the system's default global locations so that the compiler can find these files when building (compiling) programs created with SplashKit.
+3. ### Install SplashKit Globally
 
-To install SplashKit globally, open the MINGW64 terminal and run the following command in the terminal window:
+    Finally, you will need to install the SplashKit Global Libraries. This will install the SplashKit libraries and library include files into the system's default global locations so that the compiler can find these files when building (compiling) programs created with SplashKit.
 
-```bash
-skm global install
-```
+    To install SplashKit globally, open the **MINGW64** terminal and run the following command in the terminal window:
 
-You may need to open the MINGW64 Terminal with "Run as administrator" if you have issues.
+    ```bash
+    skm global install
+    ```
 
-:::note[What does this command do specifically?]
-The command above will add the **SplashKit libraries** into the `/mingw64/lib` folder, and the required **SplashKit library include files** into the `/mingw64/include` folder.
-:::
+    You may need to open the **MINGW64** Terminal with "Run as administrator" if you have issues.
+
+</Steps>
+
+---
 
 ### 4. Install Visual Studio Code
 
@@ -171,91 +196,95 @@ Visual Studio Code, also commonly known as *VS Code* or just *Code*, is a powerf
 Once you have your code project set up, Visual Studio Code will be the main program you will use to write, build, run and debug your code.
 :::
 
-Download and run the installer from: [code.visualstudio.com/Download](https://code.visualstudio.com/Download).
+<Steps>
 
-:::tip[Open Code from Terminal]
-You can open Visual Studio Code from the MINGW64 terminal by typing `code` and pressing enter. `code .` will open the current folder in Visual Studio Code.
+1. Download and run the installer from: [code.visualstudio.com/Download](https://code.visualstudio.com/Download).
 
-*You will need to close and reopen any currently open terminal windows after installing VS Code for the above commands to work.*
-:::
+    :::tip[Open VS Code from MINGW64 Terminal]
+    You can open Visual Studio Code from the **MINGW64** terminal by typing `code` and pressing enter. `code .` will open the current folder in Visual Studio Code.
 
-### Setup VS Code Terminal
+    *You will need to close and reopen any currently open terminal windows after installing VS Code for the above commands to work.*
+    :::
 
-Visual Studio Code has a built-in Terminal that you can use instead of needing to switch back and forth between VS Code and your MINGW64 terminal window. You will need to update some settings to get this working with your MINGW64 terminal.
+2. ### Setup VS Code Terminal
 
-Open Visual Studio Code, then press `Ctrl` + `Shift` + `P` to open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
+    Visual Studio Code has a built-in Terminal that you can use instead of needing to switch back and forth between VS Code and your **MINGW64** terminal window. You will need to update some settings to get this working with your **MINGW64** terminal.
 
-Start typing "Open user..." and then select **Open User Settings (JSON)** (shown in the orange box in the image below):
+3. Open Visual Studio Code, then press `Ctrl` + `Shift` + `P` to open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
 
-![Image showing Command palette use to open User Setting (JSON) in VS Code window](./images/setup-windows/vscode-open-user-settings-json.png)
-<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
+4. Start typing "Open user..." and then select **Open User Settings (JSON)** (shown in the orange box in the image below):
 
-This will open the **settings.json** file that you can now edit.
+    ![Image showing Command palette use to open User Setting (JSON) in VS Code window](./images/setup-windows/vscode-open-user-settings-json.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
-Create a new line just before the last closing curly brace `}` at the end of the file, and then copy and paste the text below into that line:
+    This will open the **settings.json** file that you can now edit.
 
-```json
-    "terminal.integrated.profiles.windows": {
-        "PowerShell": {
-            "source": "PowerShell",
-            "icon": "terminal-powershell"
-        },
-        "Command Prompt": {
-            "path": [
-                "${env:windir}\\Sysnative\\cmd.exe",
-                "${env:windir}\\System32\\cmd.exe"
-            ],
-            "args": [],
-            "icon": "terminal-cmd"
-        },
-        "MSYS2": {
-            "path": "C:\\msys64\\usr\\bin\\bash.exe",
-            "args": [
-                "--login",
-                "-i"
-            ],
-            "env": {
-                "MSYSTEM": "MINGW64",
-                "CHERE_INVOKING": "1"
+5. Create a new line just before the last closing curly brace `}` at the end of the file, and then copy and paste the text below into that line:
+
+    ```json
+        "terminal.integrated.profiles.windows": {
+            "PowerShell": {
+                "source": "PowerShell",
+                "icon": "terminal-powershell"
+            },
+            "Command Prompt": {
+                "path": [
+                    "${env:windir}\\Sysnative\\cmd.exe",
+                    "${env:windir}\\System32\\cmd.exe"
+                ],
+                "args": [],
+                "icon": "terminal-cmd"
+            },
+            "MSYS2": {
+                "path": "C:\\msys64\\usr\\bin\\bash.exe",
+                "args": [
+                    "--login",
+                    "-i"
+                ],
+                "env": {
+                    "MSYSTEM": "MINGW64",
+                    "CHERE_INVOKING": "1"
+                }
             }
-        }
-    },
-    "terminal.integrated.defaultProfile.windows": "MSYS2",
-    "terminal.integrated.env.windows": {
-        "MSYSTEM": "MINGW64",
-        "CHERE_INVOKING": "1"
-    },
-    "C_Cpp.default.systemIncludePath": [
-        "${default}",
-        "C:\\msys64\\mingw64\\bin\\**",
-        "C:\\msys64\\mingw64\\include\\**"
-    ],
-    "files.autoSave": "afterDelay",
-    "editor.formatOnSave": true,
-```
+        },
+        "terminal.integrated.defaultProfile.windows": "MSYS2",
+        "terminal.integrated.env.windows": {
+            "MSYSTEM": "MINGW64",
+            "CHERE_INVOKING": "1"
+        },
+        "C_Cpp.default.systemIncludePath": [
+            "${default}",
+            "C:\\msys64\\mingw64\\bin\\**",
+            "C:\\msys64\\mingw64\\include\\**"
+        ],
+        "files.autoSave": "afterDelay",
+        "editor.formatOnSave": true,
+    ```
 
-:::note[Troubleshooting Notes:]
+    :::note[Troubleshooting Notes:]
 
-- If you already have some settings included in this file, you will need to add a comma `,` after the closing curly brace `}` on the line above your new line.
-- If you already see code that looks similar to the code above, you may need to copy only small parts to match the code above.
-- The last line of the code above will set your default profile, so that it will automatically use the MSYS2 (MINGW64) terminal. You can also read this [article](https://code.visualstudio.com/docs/terminal/profiles) to see other ways to set the default terminal.
+    - If you already have some settings included in this file, you will need to add a comma `,` after the closing curly brace `}` on the line above your new line.
+    - If you already see code that looks similar to the code above, you may need to copy only small parts to match the code above.
+    - The last line of the code above will set your default profile, so that it will automatically use the MSYS2 (MINGW64) terminal. You can also read this [article](https://code.visualstudio.com/docs/terminal/profiles) to see other ways to set the default terminal.
 
-:::
+    :::
 
-Save the file for these changes to take effect.
+6. Save the file for these changes to take effect.
 
-Now you can open a new Terminal in VS Code with: ***Terminal* > *New Terminal*** (as shown below):
+7. Now you can open a new Terminal in VS Code with: ***Terminal* > *New Terminal*** (as shown below):
 
-![Image showing opening a new terminal in VS Code window](./images/setup-windows/new-terminal-vscode.png)
-<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
+    ![Image showing opening a new terminal in VS Code window](./images/setup-windows/new-terminal-vscode.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
-### Recommended Extensions
+8. ### Install VS Code Extensions
 
-The final step to complete the setup of VS Code is to install a few *Extensions* in VS Code:
+    The final step to complete the setup of VS Code is to install a few *Extensions* in VS Code:
 
-[**Set up my VS Code Extensions**](/book/appendix/0-installation/2-7-setup-vscode)
+    [**Set up my VS Code Extensions**](/book/appendix/0-installation/2-7-setup-vscode)
 
-Go to the page linked above, follow the steps to install both the C# and C/C++ recommended extensions, and then come back here and continue to the next step. *You can use the "Back button" in your browser to return to this page.*
+    Go to the page linked above, follow the steps to install both the C# and C/C++ recommended extensions, and then come back here and continue to the next step. *You can use the "Back button" in your browser to return to this page.*
+
+</Steps>
 
 ### 5. Install Language Specific Tools
 
@@ -272,9 +301,13 @@ For coding in C#, you will need to install the `.NET` SDK which will allow you t
 </div>
 :::
 
-Download the latest version of the .NET SDK for macOS from the official .NET website: [dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+<Steps>
 
-Run the downloaded installer and follow on-screen instructions.
+1. Download the latest version of the .NET SDK (currently .NET 9) for macOS from the official .NET website: [dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+
+2. Run the downloaded installer and follow on-screen instructions.
+
+</Steps>
 
 ### C/C++ Tools
 
@@ -299,12 +332,6 @@ cd /c/
 # Move to my Documents folder
 cd /c/Users/andrew/Documents
 ```
-
-### Update HOME path in MSYS2/MINGW64 terminal
-
-:::note
-If you used the **automated installation script** above, you should already have an updated 'home' folder. You can check this by using the `pwd` command when you first open the terminal window. If you get a result such as `/c/Users/<your username>`, then your home folder has been updated. If you see `/home/<your username>`, then the home folder has not been updated. Follow the instructions below to update.
-:::
 
 ### File Explorer
 
