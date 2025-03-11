@@ -1,4 +1,4 @@
-import { defineConfig, squooshImageService } from "astro/config";
+import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import react from "@astrojs/react";
 import starlightLinksValidator from "starlight-links-validator";
@@ -1476,7 +1476,6 @@ export default defineConfig({
                 },
                 {
                   label: "Getting Started",
-                  collapsed: true,
                   link: "book/part-4-what-next/6-introduction-to-python/1-getting-started",
                 },
               ],
@@ -1504,9 +1503,9 @@ export default defineConfig({
     sitemap(),
   ],
   // Process images with sharp: https://docs.astro.build/en/guides/assets/#using-sharp
-  image: {
-    service: squooshImageService(),
-  },
+  // image: {
+  //   service: squooshImageService(),
+  // },
   server: {
     host: true,
     port: 3001,

@@ -12,15 +12,15 @@
   "dependencies": {
     "@astrojs/react": "^3.3.2",
     "@astrojs/sitemap": "^3.1.4",
-    "@astrojs/starlight": "^0.22.1",
+    "@astrojs/starlight": "^0.32.2",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
-    "astro": "^4.16.18",
+    "astro": "^5.4.2",
     "astro-embed": "^0.6.1",
     "astro-icon": "^0.8.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "squoosh": "^0.0.0",
+    "sharp": "^0.33.5",
     "starlight-links-validator": "^0.8.0",
     "swiper": "^11.1"
   },
