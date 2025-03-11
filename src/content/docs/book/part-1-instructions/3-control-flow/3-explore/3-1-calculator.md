@@ -28,7 +28,7 @@ Add another value: [y/n] y
 Enter value: 5
 Count: 3
 Total: 45.0
-Min: 10.0
+Min: 5.0
 Max: 30.0
 Average: 15.0
 
