@@ -2,6 +2,8 @@
 title: Message of the Moment
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 Explore how to create a basic web server to server a _Message of the Moment_ web service.
 
 The following UML class diagram shows the two classes we will create to build our web server.
@@ -191,15 +193,41 @@ Try getting this code to work, then run the program to interact with it.
 
 When you run the program you will see a status window that shows the current message, but the main way to interact with the program is via a web browser.
 
-* Open a web browser
-* Navigate to [http://localhost:8080/message](http://localhost:8080/message) and you should see the current message!
-* Navigate to [http://localhost:8080/index.html](http://localhost:8080/index.html) or just to [http://localhost:8080/](http://localhost:8080/) and you should see the web page contained within the message_index.html file.
-* You can close the window or kill the server by navigating to [http://localhost:8080/stop](http://localhost:8080/stop)
+<Steps>
+
+1. Open a web browser.
+2. Navigate to the following URL (copy/paste it into your browser):
+
+    ```plaintext
+    http://localhost:8080/message
+    ```
+
+    Now you should see the current message!
+
+3. Navigate to the following URL (copy/paste it into your browser):
+
+    ```plaintext
+    http://localhost:8080/index.html
+    ```
+
+    Or just to:
+
+    ```plaintext
+    http://localhost:8080/
+    ```
+
+    Now you should see the web page contained within the message_index.html file.
+
+4. You can close the window or kill the server by navigating to:
+
+    ```plaintext
+    http://localhost:8080/stop
+    ```
+
+</Steps>
 
 ![Screenshot of the web server](./images/sit771-WebServerScreenshot.png)
 
 [Download](/resources/code-examples/part-3/5-collaboration-encapsulation/WebServerMOTD.zip) the code and resources used in this article.
 
 What happens if you try to revisit the page after you close the Window or stop the server?
-
-Let us know in the comments
