@@ -1,0 +1,172 @@
+---
+title: Read a GPIO Pin Value
+sidebar:
+    attrs:
+        class: pi
+---
+
+import { Accordion, AccordionItem, Steps } from 'accessible-astro-components'
+
+# Overview
+
+In this guide, you'll learn how to read the value of a GPIO pin using SplashKit on your Raspberry Pi. We'll use a simple push button circuit so that when you press the button, the program reads whether the pin is HIGH or LOW. Instead of using loops or conditional logic, we'll simply ask you to press Enter at specific times to record three separate readings.
+
+# Hardware Setup
+
+For this project, we'll use a push button to provide input to the Raspberry Pi.
+
+### Components Needed
+
+- **Push Button:** Acts as a simple switch.
+- **10K Ω Resistor:** Serves as a pull-down resistor to ensure the pin defaults to LOW when the button is not pressed.
+- **Breadboard and Jumper Wires:** For creating temporary, reliable connections.
+- **Raspberry Pi:** We'll use GPIO Pin 12 for this example, with a connection to a Ground (GND) pin.
+
+### Wiring the Button
+
+![Button circuit](./images/button%20circuit.png)
+
+1. **3.3V Connection:** Connect one terminal of the push button to the 3.3V supply on your Raspberry Pi.
+2. **Pull-Down Resistor:** Connect a 10K Ω resistor between GPIO Pin 12 and a GND pin. This ensures the pin reads LOW by default.
+3. **Button to GPIO:** Connect the other terminal of the push button directly to GPIO Pin 12.
+
+> **Safety Note:** Always double-check your wiring and ensure you’re properly grounded before handling your components to avoid static discharge or damage.
+
+# Step 1: Initialization
+
+We begin by initializing the GPIO system and configuring our button pin as an input. In our code, we’ll use the SplashKit functions and enums as shown:
+
+```csharp
+using System;
+using SplashKitSDK;
+using static SplashKitSDK.SplashKit;
+
+// Initialize the GPIO system
+RaspiInit();
+
+// Define the button pin (using physical Pin 12)
+Pins buttonPin = Pins.Pin12;
+
+// Set the button pin to input mode (GPIO_INPUT)
+RaspiSetMode(buttonPin, PinModes.GpioInput);
+```
+
+# Step 2: Reading the Pin Value
+
+Next, we read the state of the button three separate times. Each time, the program will prompt you to press the button and then hit Enter to record that reading.
+
+```csharp
+// First reading
+Console.WriteLine("Press your button, then hit Enter to record the reading:");
+Console.ReadLine();  // Wait for user to press Enter
+PinValues reading1 = RaspiRead(buttonPin);
+Console.WriteLine("Reading 1: " + reading1);
+
+// Second reading
+Console.WriteLine("Press your button again, then hit Enter:");
+Console.ReadLine();  // Wait for another press
+PinValues reading2 = RaspiRead(buttonPin);
+Console.WriteLine("Reading 2: " + reading2);
+
+// Third reading
+Console.WriteLine("Press your button once more, then hit Enter:");
+Console.ReadLine();  // Wait for another press
+PinValues reading3 = RaspiRead(buttonPin);
+Console.WriteLine("Reading 3: " + reading3);
+```
+
+# Full Code Example
+
+Below is the complete code, combining initialization and three separate readings. This code follows our simple, step-by-step approach without using loops or extra logic.
+
+<Accordion>
+  <AccordionItem header="Full Code (C#)">
+  
+  ```csharp
+  using System;
+  using SplashKitSDK;
+  using static SplashKitSDK.SplashKit;
+  
+  class ReadPinExample
+  {
+      static void Main(string[] args)
+      {
+          // Initialize the GPIO system
+          RaspiInit();
+  
+          // Define the button pin (using physical Pin 12)
+          Pins buttonPin = Pins.Pin12;
+  
+          // Set the button pin to input mode (GPIO_INPUT)
+          RaspiSetMode(buttonPin, PinModes.GpioInput);
+  
+          // First reading
+          Console.WriteLine("Press your button, then hit Enter to record the reading:");
+          Console.ReadLine();  // Wait for user to press Enter
+          PinValues reading1 = RaspiRead(buttonPin);
+          Console.WriteLine("Reading 1: " + reading1);
+  
+          // Second reading
+          Console.WriteLine("Press your button again, then hit Enter:");
+          Console.ReadLine();  // Wait for another press
+          PinValues reading2 = RaspiRead(buttonPin);
+          Console.WriteLine("Reading 2: " + reading2);
+  
+          // Third reading
+          Console.WriteLine("Press your button once more, then hit Enter:");
+          Console.ReadLine();  // Wait for another press
+          PinValues reading3 = RaspiRead(buttonPin);
+          Console.WriteLine("Reading 3: " + reading3);
+  
+          // Clean up the GPIO system
+          RaspiCleanup();
+      }
+  }
+  ```
+  
+  </AccordionItem>
+</Accordion>
+
+# Build and Run
+
+1. **Set Up Your Project:**  
+   Open your terminal and create a new C# console project:
+   
+   ```bash
+   mkdir ReadPin
+   cd ReadPin
+   dotnet new console
+   dotnet add package SplashKit
+   code .
+   ```
+   
+2. **Paste the Code:**  
+   Replace the contents of your `Program.cs` (or equivalent) with the full code example above.
+
+3. **Build the Project:**
+   
+   ```bash
+   dotnet build
+   ```
+
+4. **Run the Program:**
+   
+   ```bash
+   dotnet run
+   ```
+
+# Expected Outcome
+
+When you run the program, you will be prompted three times to press your button and hit Enter. Each time, the program reads the state of GPIO Pin 12 and prints the reading directly to the console. You might see outputs like:
+
+```
+Reading 1: 0
+Reading 2: 1
+Reading 3: 0
+```
+
+*(The exact values depend on whether the button is pressed when you hit Enter.)*
+
+After printing the three readings, the program cleans up the GPIO settings and exits.
+
+Enjoy exploring how your Raspberry Pi reads input, and have fun building more projects with SplashKit!
