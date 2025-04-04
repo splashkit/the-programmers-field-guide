@@ -123,7 +123,7 @@ Try coding this and test that the spider now only moves when you press the right
 
 Return to the idea of a flip-book. Imagine an animation with a circle moving from the left to the right of the page. How long will this take?
 
-The answer depends on how quickly you flip through the pages. That is the same with our code here. To help ensure a consistent speed, we can limit the number of times we redraw the screen. SplashKit has a [RefreshScreen](https://splashkit.io/api/graphics/#refresh-screen--2) method that accepts an integer argument indicating a target frame rate. This method makes sure our program does not exceed the specified frames per second.
+The answer depends on how quickly you flip through the pages. That is the same with our code here. To help ensure a consistent speed, we can limit the number of times we redraw the screen. SplashKit has a [RefreshScreen](https://splashkit.io/api/graphics/#refresh-screen-with-target-fps) method that accepts an integer argument indicating a target frame rate. This method makes sure our program does not exceed the specified frames per second.
 
 For our Fly Catch program we can update our refresh screen call to limit us to sixty frames per second using the following line of code.
 

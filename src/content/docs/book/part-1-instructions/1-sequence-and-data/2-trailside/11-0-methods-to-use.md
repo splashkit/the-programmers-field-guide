@@ -47,7 +47,7 @@ using static SplashkitSDK.SplashKit;
 OpenWindow("This is the caption", 800, 600);
 ```
 
-For the final example let's look at [Fill Circle](https://splashkit.io/api/graphics/#fill-circle-3) and [Color Red](https://splashkit.io/api/color/#color-red). These have the following declaration on the SplashKit website.
+For the final example let's look at [Fill Circle](https://splashkit.io/api/graphics/#fill-circle) and [Color Red](https://splashkit.io/api/color/#color-red). These have the following declaration on the SplashKit website.
 
 ```cs
 public static void FillCircle(Color clr, double x, double y, double radius);

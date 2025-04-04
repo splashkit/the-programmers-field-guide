@@ -117,11 +117,11 @@ These methods typically require arguments that allow you to control where the sh
 | <div style="width:70px">**Method**</div> | **Required Arguments** | **Description** |
 |-----------|------------------------|----------------|
 | [ColorWhite](https://splashkit.io/api/color/#color-white), [ColorBlue](https://splashkit.io/api/color/#color-blue), ... | None | Returns a value that represents the color indicated in the name of the method. See the [Color](https://splashkit.io/api/color/) page for the complete list.  |
-| [FillCircle](https://splashkit.io/api/graphics/#fill-circle-3), [DrawCircle](https://splashkit.io/api/graphics/#draw-circle-3) | A color and three numeric values for the location (x and y) and radius of the circle. | Draws a filled or hollow circle to the screen. |
-| [FillRectangle](https://splashkit.io/api/graphics/#fill-rectangle-3), [DrawRectangle](https://splashkit.io/api/graphics/#draw-rectangle-3) | A color and four numeric values for the location (x and y), width, and height of the rectangle | Draws a filled or hollow rectangle to the screen. |
-| [FillEllipse](https://splashkit.io/api/graphics/#fill-ellipse-3), [DrawEllipse](https://splashkit.io/api/graphics/#draw-ellipse-3) | A color and four numeric values for the location (x and y), width, and height of the ellipse | Draws a filled or hollow ellipse to the screen. |
-| [FillTriangle](https://splashkit.io/api/graphics/#fill-triangle-3), [DrawTriangle](https://splashkit.io/api/graphics/#draw-triangle-3) | A color and six numeric values for the location (x and y) or each point of the triangle. | Draws a filled or hollow triangle to the screen. |
-|[DrawLine](https://splashkit.io/api/graphics/#draw-line-5) | A color and four numeric values for the location (x and y) of the start and end of the line. | Draws a line from one point to another. |
+| [FillCircle](https://splashkit.io/api/graphics/#fill-circle), [DrawCircle](https://splashkit.io/api/graphics/#draw-circle) | A color and three numeric values for the location (x and y) and radius of the circle. | Draws a filled or hollow circle to the screen. |
+| [FillRectangle](https://splashkit.io/api/graphics/#fill-rectangle), [DrawRectangle](https://splashkit.io/api/graphics/#draw-rectangle) | A color and four numeric values for the location (x and y), width, and height of the rectangle | Draws a filled or hollow rectangle to the screen. |
+| [FillEllipse](https://splashkit.io/api/graphics/#fill-ellipse), [DrawEllipse](https://splashkit.io/api/graphics/#draw-ellipse) | A color and four numeric values for the location (x and y), width, and height of the ellipse | Draws a filled or hollow ellipse to the screen. |
+| [FillTriangle](https://splashkit.io/api/graphics/#fill-triangle), [DrawTriangle](https://splashkit.io/api/graphics/#draw-triangle) | A color and six numeric values for the location (x and y) or each point of the triangle. | Draws a filled or hollow triangle to the screen. |
+|[DrawLine](https://splashkit.io/api/graphics/#draw-line) | A color and four numeric values for the location (x and y) of the start and end of the line. | Draws a line from one point to another. |
 
 These methods have the following declarations:
 
@@ -182,7 +182,7 @@ SplashKit organises these files in a **Resources** folder containing sub-folders
 | <div style="width:100px">**Method**</div> | **Required Arguments** |**Description** |
 |-----------|------------------------|----------------|
 | [LoadBitmap](https://splashkit.io/api/graphics/#load-bitmap) | the name of the bitmap and its filename | This loads the image (bitmap) into your program. You can use the name to access this bitmap in other method calls. The filename can be the full path to a file, or the filename of a file in the **Resources/images** folder.  |
-| [DrawBitmap](https://splashkit.io/api/graphics/#draw-bitmap-3) | the image name, and two numbers for the coordinate to draw to | This draws the image you loaded with the given name, at the coordinates you provided (x and y). The coordinates indicate the top left corner of the bitmap when it is drawn. |
+| [DrawBitmap](https://splashkit.io/api/graphics/#draw-bitmap-named) | the image name, and two numbers for the coordinate to draw to | This draws the image you loaded with the given name, at the coordinates you provided (x and y). The coordinates indicate the top left corner of the bitmap when it is drawn. |
 
 These methods have the following declarations:
 
@@ -224,8 +224,8 @@ You might want to be able to draw text to the screen to display messages to the 
 | <div style="width:100px">**Method**</div> | **Required Arguments** |**Description** |
 |-----------|------------------------|----------------|
 | [LoadFont](https://splashkit.io/api/graphics/#load-font) | the name of the font and its filename | This loads the font into your program. You can use the name to access this font in other method calls. The filename can be the full path to a file, or the filename of a file in the **Resources/fonts** folder. |
-| [DrawText](https://splashkit.io/api/graphics/#draw-text-1) | some text, a color, x, and y | This draws the provided text in the indicated color at the given coordinates (x and y). The coordinates indicate the top left of the text. This will draw using the built-in font. |
-| | some text, a color, a loaded font's name, font size (int), x, and y | This draws the provided text in the indicated color, with the named font, at the indicated size. The coordinates (x and y) will be the top left of the text. |
+| [DrawText](https://splashkit.io/api/graphics/#draw-text-no-font-no-size) | some text, a color, x, and y | This draws the provided text in the indicated color at the given coordinates (x and y). The coordinates indicate the top left of the text. This will draw using the built-in font. |
+| [DrawText](https://splashkit.io/api/graphics/#draw-text-font-as-string) | some text, a color, a loaded font's name, font size (int), x, and y | This draws the provided text in the indicated color, with the named font, at the indicated size. The coordinates (x and y) will be the top left of the text. |
 
 These methods have the following declarations:
 

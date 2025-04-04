@@ -46,7 +46,7 @@ The program will need to allow the user to:
 
 - Play a song
 
-  The user selects a song as with delete or update. This will then update the times played, and use the [play music](https://splashkit.io/api/audio/#play-music) procedure to start the song playing. You can pass `play_music` the song's unique id.
+  The user selects a song as with delete or update. This will then update the times played, and use the [play music](https://splashkit.io/api/audio/#play-music-named) procedure to start the song playing. You can pass `play_music` the song's unique id.
 
 - Pause / Resume song
 

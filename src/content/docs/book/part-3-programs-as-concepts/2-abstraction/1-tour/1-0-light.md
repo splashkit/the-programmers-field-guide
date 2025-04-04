@@ -69,7 +69,7 @@ When you code this up, each of these responsibilities should be relatively simpl
 - `IsOn`, `X` and `Y` properties will provide access to their respective fields.
 - `BitmapName` can use an if statement and return "on" or "off" based on the lights state.
 - The `Image` property can just return the `BitmapNamed(BitmapName)`. Using the SplashKit method along with the `BitmapName` property to return either the "on" or "off" bitmap.
-- For `IsUnderMouse` we can use [Bitmap Point Collision](https://splashkit.io/api/physics/#bitmap-point-collision-3) method. This exists on SplashKit [Bitmap](https://splashkit.io/api/types/#bitmap) objects, and we could call it using `Image.PointCollision(X, Y, SplashKit.MouseX(), SplashKit.MouseY());`. This would use the `Image` property, and the location of the Light to determine if it is under the mouse.
+- For `IsUnderMouse` we can use [Bitmap Point Collision](https://splashkit.io/api/physics/#bitmap-point-collision) method. This exists on SplashKit [Bitmap](https://splashkit.io/api/types/#bitmap) objects, and we could call it using `Image.PointCollision(X, Y, SplashKit.MouseX(), SplashKit.MouseY());`. This would use the `Image` property, and the location of the Light to determine if it is under the mouse.
 - The constructor can set the fields.
 - `Draw` can call `Image.Draw(X, Y);`
 - Lastly, `TogglePower` can toggle `_isOn`. You don't need an if statement for this as you can use `_isOn = !_isOn;`. Think through this, and you will see how it can be used to toggle a boolean variable.

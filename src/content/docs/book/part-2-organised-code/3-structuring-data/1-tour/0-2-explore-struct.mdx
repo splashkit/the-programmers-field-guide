@@ -83,7 +83,7 @@ In order to see what is happening, let's next add a `draw_target` procedure. We 
 | **Parameters** | `target`: The target to draw (a target_data value). |
 | **Description** | Draws a filled circle to the screen at the target's location. |
 
-Have a go at adding the code to initialise target in main, add and call the `draw_target` procedure. A start for this is shown in the code below. For drawing the target you can use SplashKit's [fill circle](https://splashkit.io/api/graphics/#fill-circle-3) procedure.
+Have a go at adding the code to initialise target in main, add and call the `draw_target` procedure. A start for this is shown in the code below. For drawing the target you can use SplashKit's [fill circle](https://splashkit.io/api/graphics/#fill-circle) procedure.
 
 ```cpp
 #include "splashkit.h"
@@ -168,7 +168,7 @@ At the moment we initialise the target in main, but we really want to be able to
 
 Within `random_target` we can call `new_target` to perform the initialisation. This means that `random_target` can focus just on the values for the random target's position and size. SplashKit includes functions to generate random values which we can use. To keep the target on the screen it's `x` value must be larger than its radius, and less than the width of the screen minus its radius. We can apply the same logic to the `y` value and the screen height. For the radius we can declare some constants for `MIN_TARGET_RADIUS` and `MAX_TARGET_RADIUS`.
 
-Have a look at the [rnd](https://splashkit.io/api/utilities/#rnd-1) function in SplashKit. There are several versions of this, one that generates a random value between a min and max ([rnd](https://splashkit.io/api/utilities/#rnd-1)) one that generates a random real value between 0 and 1 ([rnd](https://splashkit.io/api/utilities/#rnd-2)) and one that generates a random integer up to a particular value ([rnd](https://splashkit.io/api/utilities/#rnd-3)).
+Have a look at the [rnd](https://splashkit.io/api/utilities/#rnd-functions) function in SplashKit. There are several versions of this, one that generates a random value between a min and max ([rnd](https://splashkit.io/api/utilities/#rnd-range)), one that generates a random real value between 0 and 1 ([rnd](https://splashkit.io/api/utilities/#rnd)), and one that generates a random integer up to a particular value ([rnd](https://splashkit.io/api/utilities/#rnd-int)).
 
 |   |   |
 |---|---|
@@ -228,7 +228,7 @@ target_data new_target(double x, double y, double radius)
 }
 ```
 
-For `random_target` I am using two versions of the [rnd](https://splashkit.io/api/utilities/#rnd-1) function. For the radius I am using the version that returns a random integer. To ensure we have a minimum radius, the random is up to `MAX_TARGET_RADIUS - MIN_TARGET_RADIUS`, to which I then add `MIN_TARGET_RADIUS`. For the location of the target I used the version that takes a range (a min and max). In our case, the minimum can be the radius of the circle, and the maximum is the screen width or height minus the radius. In this way we ensure that the target will be on the screen.
+For `random_target` I am using two versions of the [rnd](https://splashkit.io/api/utilities/#rnd-functions) function. For the radius I am using the version that returns a random integer. To ensure we have a minimum radius, the random is up to `MAX_TARGET_RADIUS - MIN_TARGET_RADIUS`, to which I then add `MIN_TARGET_RADIUS`. For the location of the target I used the version that takes a range (a min and max). In our case, the minimum can be the radius of the circle, and the maximum is the screen width or height minus the radius. In this way we ensure that the target will be on the screen.
 
 ```cpp
 target_data random_target()
@@ -252,7 +252,7 @@ Each time you run this, you should see the target at a different location.
 
 When the user clicks, we want to be able to check if they have hit the target. To implement this we can create a `mouse_over_target` function. This can check if the mouse is over the target. Main can then use this new function with an if statement, inside which it can set the target to a new target for the user to click.
 
-To implement this we can use the [point_in_circle](https://splashkit.io/api/geometry/#point-in-circle-2) function. This function accepts parameters for the point x and y (which we can get from [mouse_x](https://splashkit.io/api/input/#mouse-x) and [mouse_y](https://splashkit.io/api/input/#mouse-y)) and the x, y, and radius of the circle (which we can get from the target).
+To implement this we can use the [point_in_circle](https://splashkit.io/api/geometry/#point-in-circle-with-values) function. This function accepts parameters for the point x and y (which we can get from [mouse_x](https://splashkit.io/api/input/#mouse-x) and [mouse_y](https://splashkit.io/api/input/#mouse-y)) and the x, y, and radius of the circle (which we can get from the target).
 
 |   |   |
 |---|---|
@@ -477,7 +477,7 @@ Make sure that the program runs again when you finish the code. While we have th
 | **Parameters** | `game` The reaction game data to draw to the screen |
 | **Description** | Draw the game to the screen by clearing the screen, drawing the game's target, and then drawing game stats to the top left of the screen. This also refreshes the screen to ensure it is shown to the user. |
 
-We have most of this code in main, so it is a case of cutting it out of there and pasting it into the new `draw_game` procedure. We can draw the text to the screen using SplashKit's [draw text](https://splashkit.io/api/graphics/#draw-text-3) procedure. This version of draw text takes in parameters for the text, its color, and its location on the screen. The characters are 8 pixels high, so you can draw multiple lines 10 pixels apart and it should look ok.
+We have most of this code in main, so it is a case of cutting it out of there and pasting it into the new `draw_game` procedure. We can draw the text to the screen using SplashKit's [draw text](https://splashkit.io/api/graphics/#draw-text-no-font-no-size) procedure. This version of draw text takes in parameters for the text, its color, and its location on the screen. The characters are 8 pixels high, so you can draw multiple lines 10 pixels apart and it should look ok.
 
 *What text do we draw?*
 
