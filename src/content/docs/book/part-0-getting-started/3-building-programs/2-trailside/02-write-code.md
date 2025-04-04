@@ -18,7 +18,7 @@ This opens the current folder (**.**) in VS Code. It is always best to open the 
 
 The following image shows what you will see in VS Code. In the left-hand side of the VS Code window you will see the list of files in your project folder. You can open a file by double-clicking on it in the explorer on the left. For example, double-clicking on **Program.cs** will open it in the source code editor as shown below.
 
-![Visual Studio Code](/book/part-0-getting-started/3-building-programs/2-trailside/2-put-together/images/vscode-cli-hello-world-output.png)
+![Visual Studio Code](/book/part-0-getting-started/3-building-programs/1-tour/images/vscode-cli-hello-world-output.png)
 <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 Once you have updated the code, you need to save it before you can build and run it. You can click **Save** in the File menu or by pressing the **Ctrl-S** (or **Cmd-S** on macOS) shortcut keys.

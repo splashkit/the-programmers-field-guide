@@ -30,7 +30,7 @@ You can download it from the VirtualBox Downloads site [here](https://www.virtua
 
 *Windows and Linux only.*
 
-[VMware Workstation Player](https://www.vmware.com/au/products/workstation-player.html) is a virtualisation software package for use on x64 Windows or Linux computers, and is available for free for personal use.
+[VMware Workstation Player](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion) is a virtualisation software package for use on x64 Windows or Linux computers, and is available for free for personal use.
 
 You can download it from the VMware Downloads site [here](https://customerconnect.vmware.com/en/downloads/details?downloadGroup=WKST-PLAYER-1750&productId=1377&rPId=111473).
 
