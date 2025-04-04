@@ -39,7 +39,7 @@ string read_string(string prompt)
     return result;
 }
 
-void main()
+int main()
 {
     string name;
     name = read_string("Enter your name: ");
