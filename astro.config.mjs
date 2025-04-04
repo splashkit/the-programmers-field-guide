@@ -58,10 +58,10 @@ export default defineConfig({
       social: {
         github: "https://github.com/splashkit/the-programmers-field-guide",
       },
-      editLink: {
-        baseUrl:
-          "https://github.com/splashkit/the-programmers-field-guide/edit/main/",
-      },
+      // editLink: {
+      //   baseUrl:
+      //     "https://github.com/splashkit/the-programmers-field-guide/edit/main/",
+      // },
       plugins: [
         starlightLinksValidator({
           errorOnRelativeLinks: true,
@@ -899,7 +899,7 @@ export default defineConfig({
                 },
                 {
                   label: "Guided Tour",
-                  link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/1-tour",
+                  link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/1-tour/0-overview",
                 },
                 {
                   label: "Trailside Stop",
