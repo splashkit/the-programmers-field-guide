@@ -38,7 +38,7 @@ string read_string(string prompt)
     return result;
 }
 
-void main()
+int main()
 {
     string name;
     // The call to read_string has to have one argument
