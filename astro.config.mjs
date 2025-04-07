@@ -58,10 +58,10 @@ export default defineConfig({
       social: {
         github: "https://github.com/splashkit/the-programmers-field-guide",
       },
-      // editLink: {
-      //   baseUrl:
-      //     "https://github.com/splashkit/the-programmers-field-guide/edit/main/",
-      // },
+      editLink: {
+        baseUrl:
+          "https://github.com/splashkit/the-programmers-field-guide/edit/main/",
+      },
       plugins: [
         starlightLinksValidator({
           errorOnRelativeLinks: true,
