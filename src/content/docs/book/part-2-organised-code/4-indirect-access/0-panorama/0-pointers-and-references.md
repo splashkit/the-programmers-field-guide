@@ -48,12 +48,16 @@ int main()
     ref = "test update";
     write_line(name);
 
-    // Update via reference
+    // Update via a pointer
     *ptr = "ptr update"; // Use * to update the value referred to
     write_line(name);
 
-    // Change what ptr refers to
-    ptr = &other; // Without * we can change that ptr refers to
+    // You cannot change what the reference refers to...
+
+    // but you can change what ptr refers to
+    ptr = &other; // Without * we can change what ptr refers to
+
+    // Now when we de-reference ptr we access `other`
     write_line(*ptr);
 
     return 0;
