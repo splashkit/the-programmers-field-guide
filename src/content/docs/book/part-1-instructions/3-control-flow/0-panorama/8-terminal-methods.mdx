@@ -11,7 +11,7 @@ In Sequence and Data, we were able to use a number of methods from the .NET Syst
   <YouTube id="ozp3oUHEidg" params="fs=1&modestbranding=1&rel=0&autoplay=1"/>
 </div>
 
-In addition to `WriteLine`, `Write`, `ReadLine`, and the convert methods we will now need ways to check if data provided has the right format. The .NET library doesn't have the best 
+In addition to `WriteLine`, `Write`, `ReadLine`, and the convert methods we will now need ways to check if data provided has the right format. The .NET library doesn't have an easy way to do this, but we can make use of the following SplashKit methods for now:
 
 ```cs
 public static bool SplashKit.IsDouble(string text);
@@ -41,5 +41,5 @@ WriteLine($"Thanks you I got {value}");
 ```
 
 :::caution
-Make sure you are not using the `System.Console` code. Both SplashKit and Console provide `WriteLine`, `Write`, and `ReadLine` methods. To avoid getting the compiler confused, make sure you are `using static SplashKitSDK.SplashKit;` and do not add the code to use `System.Console`.
+Make sure you are not using the `System.Console` code. Both SplashKit and Console provide `WriteLine`, `Write`, and `ReadLine` methods. To avoid getting the compiler confused, make sure you are `using static SplashKitSDK.SplashKit;` and *do not* add the code to use `System.Console`.
 :::
