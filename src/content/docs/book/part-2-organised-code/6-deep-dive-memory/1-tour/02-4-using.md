@@ -20,7 +20,7 @@ If you cut and paste the code from the original test, then you can include your 
 
 ## Statistics Calculator
 
-When we designed the statistics calculator, we used a fixed size array within the `number_data` struct. This limited the user to an arbitrary number of elements. With the dynamic array this limitation could have been avoided. We also remove the need to have a separate `number_data` struct. This can be replaced with our `dynamic_array` which keeps track of the number of elements it is managing.
+When we were [Designing the Statistics Calculator](/book/part-2-organised-code/5-working-with-multiples/1-tour/01-01-stats-design/) in the previous chapter, we used a fixed size array within the `number_data` struct. This limited the user to an arbitrary number of elements. With the dynamic array this limitation could have been avoided. We also remove the need to have a separate `number_data` struct. This can be replaced with our `dynamic_array` which keeps track of the number of elements it is managing.
 
 As a thought exercise, here are the steps I followed to convert the code to using our dynamic array. You could try implementing these yourself to see it in action, but you can probably achieve the same result by extending your test program. When you can see how the dynamic array works, then you can think through how it can apply in a range of different program contexts.
 
