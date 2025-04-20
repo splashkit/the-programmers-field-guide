@@ -13,7 +13,7 @@ A procedure is a group of instructions that **do something**. In your program, y
 - Has a name that is the identifier used to call the procedure.
 - May have a number of parameters that allow you to pass values to it.
 - Will have a **side effect** when it runs. This means that a procedure changes something when it is executed.
-- Has instructions which are are **isolated** from the other code in your program.
+- Has instructions which are **isolated** from the other code in your program.
 - Must be coded within the program - not within other functions or procedures.
 - Starts with `void`, then the *name* of the procedure, and a list of parameters in parentheses. This is followed by the block of code to run when the procedure is called.
 
