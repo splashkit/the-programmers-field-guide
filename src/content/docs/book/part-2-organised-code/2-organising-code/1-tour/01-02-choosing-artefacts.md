@@ -10,7 +10,7 @@ When designing the building blocks that will make up your code, you need to thin
 
 In reviewing the Guess that Number game, there appear to be two main processes that need to be performed: **play game** and **perform guess**. We can put these into our digital reality by creating functions or procedures in the program's code.
 
-`Play Game` code can be implemented as a procedure. It will be responsible for running the process of the game, starting with telling the user that the program has 'thought of a number', through to coordinating the guesses, ending only when the user gets the answer of runs out of guesses.
+`Play Game` code can be implemented as a procedure. It will be responsible for running the process of the game, starting with telling the user that the program has 'thought of a number', through to coordinating the guesses, ending only when the user gets the answer or runs out of guesses.
 
 `Perform Guess` can be created to contain the logic for performing a single guess. This can be a function, so it can return a boolean value indicating if the user has guessed the target number. The code in `Perform Guess` will be responsible for asking the user to enter a guess, and then giving them the feedback on their guess. As this has the details of the guess. The result from this will be needed when the code returns to `Play Game`, so that it can determine if the game has ended.
 
