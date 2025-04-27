@@ -208,7 +208,7 @@ double square(double val)
     return val * val;
 }
 
-bool pount_in_circle(double pt_x, double pt_y, double c_x, double c_y, double c_radius)
+bool point_in_circle(double pt_x, double pt_y, double c_x, double c_y, double c_radius)
 {
     double distance = sqrt(square(pt_x - c_x) + square(pt_y - c_y));
     return distance <= c_radius;
