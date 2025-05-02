@@ -137,18 +137,19 @@ Note how the final line in `test_return` does not execute because the return sta
 
 using std::to_string;
 
-int main()
-{
-    write_line("Calling test_return - the value " + to_string(test_return()) + " is returned\n");
-    return 0;
-}
-
 int test_return() 
 {
     write_line("test-return started");
     return 3;
     write_line("Cannot be run as code returned above!");
 }
+
+int main()
+{
+    write_line("Calling test_return - the value " + to_string(test_return()) + " is returned\n");
+    return 0;
+}
+
 ```
 
 Let's explore how this code works.

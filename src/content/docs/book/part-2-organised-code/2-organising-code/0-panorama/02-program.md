@@ -17,7 +17,7 @@ A program can contain functions, procedures, constants and variables. These allo
 
 ## Example
 
-Here is a simple C++ program.
+Here is a simple C++ program that includes two functions (`read_string` and `main`) and one procedure (`say_hello_to`).
 
 ```cpp
 #include "splashkit.h"

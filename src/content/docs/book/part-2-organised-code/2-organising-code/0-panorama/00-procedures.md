@@ -16,6 +16,7 @@ A procedure is a group of instructions that **do something**. In your program, y
 - Has instructions which are **isolated** from the other code in your program.
 - Must be coded within the program - not within other functions or procedures.
 - Starts with `void`, then the *name* of the procedure, and a list of parameters in parentheses. This is followed by the block of code to run when the procedure is called.
+- Documentation comments should be added to describe the procedure. These start with `/**` and are placed before the function declaration. 
 
 :::
 
@@ -45,3 +46,7 @@ int main()
     return 0;
 }
 ```
+
+:::tip
+The [Doxygen Documentation Generator](https://marketplace.visualstudio.com/items/?itemName=cschlosser.doxdocgen) can be used in Visual Studio Code to help with the documentation comments. Install this, and then when you type `/**` and press enter, it will add a template for you to fill in based on the code that follows.
+:::

@@ -39,3 +39,7 @@ int main()
     return 0;
 }
 ```
+
+:::danger
+Avoid using global variables, even if they are a shortcut to achieve something. Global variables break your ability to concentrate on single functions or procedures, as you need to know everywhere the global variable is used.
+:::

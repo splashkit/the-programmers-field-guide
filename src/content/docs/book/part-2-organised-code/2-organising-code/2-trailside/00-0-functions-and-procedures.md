@@ -2,7 +2,7 @@
 title: Functions and Procedures
 ---
 
-Programming languages need a way to help you manage the complexity of your code. To do this, they provide the ability to **group** instructions into reusable chunks. In C#, these chunks were known as methods. In C/C++, they are functions and procedures. See how this changes how to picture a program in the image below.
+Programming languages need a way to help you manage the complexity of your code. To do this, they provide the ability to **group** instructions into reusable chunks. In C#, these chunks were known as methods. In C/C++, they are called functions and procedures. See how this changes how to picture a program in the image below.
 
 ![Illustration showing functions and procedures within the program.](./images/prog-fn-proc-idea.png)
 
@@ -11,7 +11,7 @@ While C/C++ does not explicitly distinguish between functions and procedures, it
 - **Procedure**: a named group of instructions that will perform an action.
 - **Function**: a named group of instructions that will calculate and return a value.
 
-Procedures **do things**, whereas functions **calculate things**. If we think of some C# methods we have used, you can see this distinction. `WriteLine`, for example, is a procedure. It does something -- it writes text to the terminal. `IsDouble`, on the other hand, is a function. It calculates something -- it determines if a string can be converted to a double, and returns a boolean value to indicate if this is possible.
+Procedures **do something**, whereas functions **calculate something**. If we think of some C# methods we have used, you can see this distinction. `write_line`, for example, is a procedure. It does something -- it writes text to the terminal. Whereas, `is_double`, is a function. It calculates something -- it determines if a string can be converted to a double, and returns a boolean value to indicate if this is possible.
 
 ## Functions and Procedures -- when, why, and how
 

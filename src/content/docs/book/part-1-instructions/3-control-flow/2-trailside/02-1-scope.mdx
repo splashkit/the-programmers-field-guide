@@ -77,15 +77,16 @@ WriteLine($"We can access {name} here");
 {
     // We are in a new block - one nested in the program's block
     int i = 0;
-    WriteLine($"{name} amd {i} are accessible here");
+    WriteLine($"{name} and {i} are accessible here");
 }
 
-// We are back in the program's block
-WriteLine($"{name} is accessible here - but i is out of scope (and no longer exists)");
+// We are back in the program's block - i is now "out of scope"
+WriteLine($"{name} is accessible here - but i no longer exists");
 
 {
+    // We are in a new block.. and can create a new i variable
     int i = 1;
-    WriteLine($"{name} amd a new/different {i} are accessible here");
+    WriteLine($"{name} and a new/different {i} are accessible here");
 }
 ```
 
@@ -103,4 +104,6 @@ Let's look at an example.
 
 <MySwiper client:only height="" images={sliderImagesStack}></MySwiper>
 
+:::tip
 Make sure you declare variables within the right block so that they are accessible when you need them.
+:::
