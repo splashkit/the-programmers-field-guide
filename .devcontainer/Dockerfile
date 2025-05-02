@@ -1,8 +1,8 @@
-FROM mcr.microsoft.com/devcontainers/javascript-node:0-20
+FROM mcr.microsoft.com/devcontainers/javascript-node:20
 
-# Install OpenJDK-8
+# Install JDK
 RUN apt-get update && \
-    apt-get install -y openjdk-11-jdk && \
+    apt-get install -y default-jdk && \
     apt-get install -y ant && \
     apt-get clean;
     
