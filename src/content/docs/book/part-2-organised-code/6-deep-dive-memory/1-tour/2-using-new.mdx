@@ -1,0 +1,172 @@
+---
+title: "Using New and Delete"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+In this tour, let's have a look at how to use the `new` and `delete` operators in C++. This style of dynamic memory management is used in many other programming languages including Java, and C#.
+
+Start up another file called `test-cpp-alloc.cpp`. In this program we will create an account struct, and allocate space for it on the heap. We have added a sample `print_account` procedure that accepts a reference to an account that we can use - this should help you see how you can integrate these ideas in with the current programming skills you have.
+
+```cpp
+#include "splashkit.h"
+#include "utilities.h"
+
+using std::to_string;
+
+/**
+ * An account value storing the name and balance of an account.
+ * 
+ * @field name The name of the account.
+ * @field balance The amount of funds allocated to the account.
+ */
+struct account
+{
+    string name;
+    int balance;
+};
+
+/**
+ * Print the account details to the terminal.
+ * 
+ * @param act the account to print.
+ */
+void print_account(account &act)
+{
+    write_line("Name: " + act.name);
+    write_line("Balance: " + to_string(act.balance));
+}
+
+int main()
+{
+    //TODO: declare an account pointer
+    
+    //TODO: Create a new account on the heap
+
+    //TODO: Allocate details to the account's fields
+    
+    //TODO: Print the account using the pointer
+
+    //TODO: Print the account using the function
+
+    //TODO: Clean up
+    
+    delete ptr;
+}
+```
+
+## Create the account on the heap
+
+To get started using new and delete, start with the first two TODO items. Declare an account pointer variable that you can use to refer to the account we create on the heap. Then use the `new` operator to create a new account on the heap, storing the pointer in the variable you created.
+
+<Accordion>
+  <AccordionItem
+    header="Create an account pointer, and a new account"
+  >
+
+You should end up with something like this:
+
+```cpp {3-5}
+int main()
+{
+    // Create an account on the heap
+    account *ptr;
+    ptr = new account();
+
+    //TODO: Allocate details to the account's fields
+    
+    //TODO: Print the account using the pointer
+
+    //TODO: Print the account using the function
+
+    //TODO: Clean up
+    
+    return 0;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+## Store data in the account and print it out
+
+Now you can interact with the account object on the heap. The code is the same as accessing a struct via a pointer, where ever the struct is stored. Remember that with the pointer you can use the `->` operator in C/C++ to access the struct's fields.
+
+Also have a go at calling the `print_account` function - for this you will need to dereference the pointer when you pass it to the parameter. The reference will then refer to the value on the heap as well.
+
+Have a go at this yourself, but you can check the code below if you get stuck.
+
+<Accordion>
+  <AccordionItem
+    header="Store data and print details"
+  >
+
+You should end up with something like this:
+
+```cpp {7-9,11-13,15,16}
+int main()
+{
+    // Create an account on the heap
+    account *ptr;
+    ptr = new account();
+
+    // Store data in the account
+    ptr->name = "My Account";
+    ptr->balance = 154;
+    
+    // Print the details out
+    write_line("Name: " + ptr->name);
+    write_line("Age: " + to_string(ptr->balance));
+
+    //Print the account using the function
+    print_account(*ptr);
+
+    //TODO: Clean up
+    
+    return 0;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+## Wrap up
+
+Now you can wrap this up by deleting the account - this kind of action would be used when an account was removed from the system.
+
+<Accordion>
+  <AccordionItem
+    header="Clean up"
+  >
+
+You should end up with something like this:
+
+```cpp {18-20}
+int main()
+{
+    // Create an account on the heap
+    account *ptr;
+    ptr = new account();
+
+    // Store data in the account
+    ptr->name = "My Account";
+    ptr->balance = 154;
+    
+    // Print the details out
+    write_line("Name: " + ptr->name);
+    write_line("Age: " + to_string(ptr->balance));
+
+    //Print the account using the function
+    print_account(*ptr);
+
+    //Clean up
+    delete ptr;
+    ptr = NULL;
+    
+    return 0;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+

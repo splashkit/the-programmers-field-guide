@@ -658,6 +658,15 @@ export default defineConfig({
                   link: "book/part-2-organised-code/6-deep-dive-memory/0-overview",
                 },
                 {
+                  label: "Panorama",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/6-deep-dive-memory/0-panorama",
+                    collapsed: true,
+                  },
+                },
+                {
                   label: "Guided Tour",
                   collapsed: true,
                   autogenerate: {
@@ -672,6 +681,15 @@ export default defineConfig({
                   autogenerate: {
                     directory:
                       "book/part-2-organised-code/6-deep-dive-memory/2-trailside",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Advanced Tour",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/6-deep-dive-memory/2a-advanced-tour",
                     collapsed: true,
                   },
                 },
@@ -742,52 +760,61 @@ export default defineConfig({
                 },
               ],
             },
-            // {
-            //   label: "8. Saving and Loading Data",
-            //   collapsed: true,
-            //   items: [
-            //     {
-            //       label: "Overview",
-            //       link: "book/part-2-organised-code/8-file-io/0-overview",
-            //     },
-            //     {
-            //       label: "Guided Tour",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-2-organised-code/8-file-io/1-tour",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "Trailside Stop",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-2-organised-code/8-file-io/2-trailside",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "Go Exploring",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-2-organised-code/8-file-io/3-explore",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "Campsite Reflection",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-2-organised-code/8-file-io/4-camp",
-            //         collapsed: true,
-            //       },
-            //     },
-            //   ],
-            // },
+            {
+              label: "8. Saving and Loading Data",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "book/part-2-organised-code/8-file-io/0-overview",
+                },
+                {
+                  label: "Panorama",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/8-file-io/0-panorama",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Guided Tour",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/8-file-io/1-tour",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Trailside Stop",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/8-file-io/2-trailside",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Go Exploring",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/8-file-io/3-explore",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Campsite Reflection",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/8-file-io/4-camp",
+                    collapsed: true,
+                  },
+                },
+              ],
+            },
             // {
             //   label: "9. Low Level Programming",
             //   collapsed: true,
