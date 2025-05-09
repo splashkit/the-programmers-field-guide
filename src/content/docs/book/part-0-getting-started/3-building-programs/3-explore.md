@@ -112,7 +112,7 @@ Delay(2000);
 Following a bit of a theme with *writing words out of something other than actual text*, we get this:
 
 <div class="not-content">
-  <YouTube id="LVYH18vDQ-w" params="fs=1&start=1&modestbranding=1&rel=0&autoplay=1"/>
+  <YouTube id="LVYH18vDQ-w" params="fs=1&start=1&modestbranding=1&rel=0"/>
 </div>
 
 &#127759; Yes, that is "HELLO", written using "worlds" &#128516;  
