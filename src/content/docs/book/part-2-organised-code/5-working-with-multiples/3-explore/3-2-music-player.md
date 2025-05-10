@@ -56,8 +56,6 @@ The program will need to allow the user to:
 
   The user is shown a report that contains:
 
-  - Total sale value
-  - Total profit
   - Number of songs
   - Total number of songs played
   - Total number of loved songs.
