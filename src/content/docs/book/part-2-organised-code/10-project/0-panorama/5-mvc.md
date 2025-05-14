@@ -1,0 +1,3 @@
+---
+title: Model Separated Design
+---

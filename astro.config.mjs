@@ -85,7 +85,7 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
+                  label: "Introduction",
                   link: "book/part-0-getting-started/1-digital-realities/0-overview",
                 },
                 {
@@ -93,7 +93,7 @@ export default defineConfig({
                   link: "book/part-0-getting-started/1-digital-realities/1-tour",
                 },
                 {
-                  label: "Trailside Stop",
+                  label: "In Depth",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -102,7 +102,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Go Exploring",
+                  label: "Activities",
                   link: "book/part-0-getting-started/1-digital-realities/3-explore",
                 },
               ],
@@ -112,11 +112,11 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
+                  label: "Introduction",
                   link: "book/part-0-getting-started/2-computer-use/0-overview",
                 },
                 {
-                  label: "Panorama",
+                  label: "Overview",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -134,7 +134,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Stop",
+                  label: "In Depth",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -143,7 +143,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Go Exploring",
+                  label: "Activities",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -158,7 +158,7 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
+                  label: "Introduction",
                   link: "book/part-0-getting-started/3-building-programs/0-overview",
                 },
                 {
@@ -171,7 +171,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Stop",
+                  label: "In Depth",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -180,7 +180,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Go Exploring",
+                  label: "Activities",
                   link: "book/part-0-getting-started/3-building-programs/3-explore",
                 },
               ],
@@ -200,11 +200,11 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
+                  label: "Introduction",
                   link: "book/part-1-instructions/1-sequence-and-data/0-overview",
                 },
                 {
-                  label: "Panorama",
+                  label: "Overview",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -222,7 +222,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Stop",
+                  label: "In Depth",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -231,20 +231,11 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Go Exploring",
+                  label: "Activities",
                   collapsed: true,
                   autogenerate: {
                     directory:
                       "book/part-1-instructions/1-sequence-and-data/3-explore",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Campsite Reflection",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-1-instructions/1-sequence-and-data/4-camp",
                     collapsed: true,
                   },
                 },
@@ -255,7 +246,7 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
+                  label: "Introduction",
                   link: "book/part-1-instructions/2-communicating-syntax/0-overview",
                 },
                 {
@@ -263,7 +254,7 @@ export default defineConfig({
                   link: "book/part-1-instructions/2-communicating-syntax/1-tour",
                 },
                 {
-                  label: "Trailside Stop",
+                  label: "In Depth",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -272,7 +263,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Go Exploring",
+                  label: "Activities",
                   link: "book/part-1-instructions/2-communicating-syntax/3-explore",
                 },
               ],
@@ -282,11 +273,11 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
+                  label: "Introduction",
                   link: "book/part-1-instructions/3-control-flow/0-overview",
                 },
                 {
-                  label: "Panorama",
+                  label: "Overview",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -304,7 +295,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Stop",
+                  label: "In Depth",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -313,7 +304,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Go Exploring",
+                  label: "Activities",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -347,11 +338,11 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
+                  label: "Introduction",
                   link: "book/part-2-organised-code/1-starting-cpp/0-overview",
                 },
                 {
-                  label: "Panorama",
+                  label: "Overview",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -369,7 +360,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Stop",
+                  label: "In Depth",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -378,7 +369,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Go Exploring",
+                  label: "Activities",
                   link: "book/part-2-organised-code/1-starting-cpp/3-explore",
                 },
                 {
@@ -397,11 +388,11 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
+                  label: "Introduction",
                   link: "book/part-2-organised-code/2-organising-code/0-overview",
                 },
                 {
-                  label: "Panorama",
+                  label: "Overview",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -419,7 +410,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Stop",
+                  label: "In Depth",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -428,7 +419,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Go Exploring",
+                  label: "Activities",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -452,11 +443,11 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
+                  label: "Introduction",
                   link: "book/part-2-organised-code/3-structuring-data/0-overview",
                 },
                 {
-                  label: "Panorama",
+                  label: "Overview",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -474,7 +465,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Stop",
+                  label: "In Depth",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -483,7 +474,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Go Exploring",
+                  label: "Activities",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -507,11 +498,11 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
+                  label: "Introduction",
                   link: "book/part-2-organised-code/4-indirect-access/0-overview",
                 },
                 {
-                  label: "Panorama",
+                  label: "Overview",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -529,7 +520,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Stop",
+                  label: "In Depth",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -538,7 +529,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Go Exploring",
+                  label: "Activities",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -562,11 +553,11 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
+                  label: "Introduction",
                   link: "book/part-2-organised-code/5-working-with-multiples/0-overview",
                 },
                 {
-                  label: "Panorama",
+                  label: "Overview",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -584,7 +575,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Stop",
+                  label: "In Depth",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -593,7 +584,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Go Exploring",
+                  label: "Activities",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -617,11 +608,11 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
+                  label: "Introduction",
                   link: "book/part-2-organised-code/6-deep-dive-memory/0-overview",
                 },
                 {
-                  label: "Panorama",
+                  label: "Overview",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -639,7 +630,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Stop",
+                  label: "In Depth",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -658,7 +649,7 @@ export default defineConfig({
                 },
                 // TODO: Add back in when Activities are added
                 // {
-                //   label: "Go Exploring",
+                //   label: "Activities",
                 //   collapsed: true,
                 //   autogenerate: {
                 //     directory:
@@ -682,7 +673,7 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
+                  label: "Introduction",
                   link: "book/part-2-organised-code/7-member-functions/0-overview",
                 },
                 {
@@ -695,7 +686,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Stop",
+                  label: "In Depth",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -704,7 +695,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Go Exploring",
+                  label: "Activities",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -728,11 +719,11 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
+                  label: "Introduction",
                   link: "book/part-2-organised-code/8-file-io/0-overview",
                 },
                 {
-                  label: "Panorama",
+                  label: "Overview",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -750,7 +741,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Stop",
+                  label: "In Depth",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -759,7 +750,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Go Exploring",
+                  label: "Activities",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -783,7 +774,7 @@ export default defineConfig({
             //   collapsed: true,
             //   items: [
             //     {
-            //       label: "Overview",
+            //       label: "Introduction",
             //       link: "book/part-2-organised-code/9-low-level-programming/0-overview",
             //     },
             //     {
@@ -796,7 +787,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Stop",
+            //       label: "In Depth",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -805,7 +796,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Go Exploring",
+            //       label: "Activities",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -834,7 +825,7 @@ export default defineConfig({
                   },
               // items: [
               //   // {
-              //   //   label: "Overview",
+              //   //   label: "Introduction",
               //   //   link: "book/part-2-organised-code/10-project/0-overview",
               //   // },
               //   // {
@@ -847,7 +838,7 @@ export default defineConfig({
               //   //   },
               //   // },
               //   // {
-              //   //   label: "Trailside Stop",
+              //   //   label: "In Depth",
               //   //   collapsed: true,
               //   //   autogenerate: {
               //   //     directory:
@@ -856,7 +847,7 @@ export default defineConfig({
               //   //   },
               //   // },
               //   {
-              //     label: "Go Exploring",
+              //     label: "Activities",
               //     collapsed: true,
               //     autogenerate: {
               //       directory:
@@ -890,7 +881,7 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
+                  label: "Introduction",
                   link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/0-overview",
                 },
                 {
@@ -898,7 +889,7 @@ export default defineConfig({
                   link: "book/part-3-programs-as-concepts/1-back-to-c-sharp/1-tour/0-overview",
                 },
                 {
-                  label: "Trailside Stop",
+                  label: "In Depth",
                   collapsed: true,
                   autogenerate: {
                     directory: "book/part-3-programs-as-concepts/1-back-to-c-sharp/2-trailside",
@@ -906,7 +897,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Go Exploring",
+                  label: "Activities",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -921,7 +912,7 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
+                  label: "Introduction",
                   link: "book/part-3-programs-as-concepts/2-abstraction/0-overview",
                 },
                 {
@@ -934,7 +925,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Trailside Stop",
+                  label: "In Depth",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -943,7 +934,7 @@ export default defineConfig({
                   },
                 },
                 {
-                  label: "Go Exploring",
+                  label: "Activities",
                   collapsed: true,
                   autogenerate: {
                     directory:
@@ -967,7 +958,7 @@ export default defineConfig({
             //   collapsed: true,
             //   items: [
             //     {
-            //       label: "Overview",
+            //       label: "Introduction",
             //       link: "book/part-3-programs-as-concepts/3-unit-testing/0-overview",
             //     },
             //     {
@@ -980,7 +971,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Stop",
+            //       label: "In Depth",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -989,7 +980,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Go Exploring",
+            //       label: "Activities",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1013,7 +1004,7 @@ export default defineConfig({
             //   collapsed: true,
             //   items: [
             //     {
-            //       label: "Overview",
+            //       label: "Introduction",
             //       link: "book/part-3-programs-as-concepts/4-collections/0-overview",
             //     },
             //     {
@@ -1026,7 +1017,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Stop",
+            //       label: "In Depth",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1035,7 +1026,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Go Exploring",
+            //       label: "Activities",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1050,7 +1041,7 @@ export default defineConfig({
             //   collapsed: true,
             //   items: [
             //     {
-            //       label: "Overview",
+            //       label: "Introduction",
             //       link: "book/part-3-programs-as-concepts/5-collaboration-encapsulation/0-overview",
             //     },
             //     {
@@ -1063,7 +1054,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Stop",
+            //       label: "In Depth",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1072,7 +1063,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Go Exploring",
+            //       label: "Activities",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1087,7 +1078,7 @@ export default defineConfig({
             //   collapsed: true,
             //   items: [
             //     {
-            //       label: "Overview",
+            //       label: "Introduction",
             //       link: "book/part-3-programs-as-concepts/6-structured-error-handling/0-overview",
             //     },
             //     {
@@ -1100,7 +1091,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Stop",
+            //       label: "In Depth",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1109,7 +1100,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Go Exploring",
+            //       label: "Activities",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1124,7 +1115,7 @@ export default defineConfig({
             //   collapsed: true,
             //   items: [
             //     {
-            //       label: "Overview",
+            //       label: "Introduction",
             //       link: "book/part-3-programs-as-concepts/7-inheritance-polymorphism/0-overview",
             //     },
             //     {
@@ -1137,7 +1128,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Stop",
+            //       label: "In Depth",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1146,7 +1137,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Go Exploring",
+            //       label: "Activities",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1161,7 +1152,7 @@ export default defineConfig({
             //   collapsed: true,
             //   items: [
             //     {
-            //       label: "Overview",
+            //       label: "Introduction",
             //       link: "book/part-3-programs-as-concepts/8-interfaces-abstract-classes/0-overview",
             //     },
             //     {
@@ -1174,7 +1165,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Stop",
+            //       label: "In Depth",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1183,7 +1174,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Go Exploring",
+            //       label: "Activities",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1198,7 +1189,7 @@ export default defineConfig({
             //   collapsed: true,
             //   items: [
             //     {
-            //       label: "Overview",
+            //       label: "Introduction",
             //       link: "book/part-3-programs-as-concepts/9-design-principles-patterns/0-overview",
             //     },
             //     {
@@ -1211,7 +1202,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Stop",
+            //       label: "In Depth",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1220,7 +1211,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Go Exploring",
+            //       label: "Activities",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1235,7 +1226,7 @@ export default defineConfig({
             //   collapsed: true,
             //   items: [
             //     {
-            //       label: "Overview",
+            //       label: "Introduction",
             //       link: "book/part-3-programs-as-concepts/10-project/0-overview",
             //     },
             //     {
@@ -1248,7 +1239,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Stop",
+            //       label: "In Depth",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1257,7 +1248,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Go Exploring",
+            //       label: "Activities",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1282,7 +1273,7 @@ export default defineConfig({
             //   collapsed: true,
             //   items: [
             //     {
-            //       label: "Overview",
+            //       label: "Introduction",
             //       link: "book/part-4-what-next/1-things-we-left-out/0-overview",
             //     },
             //     {
@@ -1295,7 +1286,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Stop",
+            //       label: "In Depth",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1304,7 +1295,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Go Exploring",
+            //       label: "Activities",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1319,7 +1310,7 @@ export default defineConfig({
             //   collapsed: true,
             //   items: [
             //     {
-            //       label: "Overview",
+            //       label: "Introduction",
             //       link: "book/part-4-what-next/2-libraries-packages/0-overview",
             //     },
             //     {
@@ -1332,7 +1323,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Stop",
+            //       label: "In Depth",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1341,7 +1332,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Go Exploring",
+            //       label: "Activities",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1356,7 +1347,7 @@ export default defineConfig({
             //   collapsed: true,
             //   items: [
             //     {
-            //       label: "Overview",
+            //       label: "Introduction",
             //       link: "book/part-4-what-next/3-build-game/0-overview",
             //     },
             //     {
@@ -1369,7 +1360,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Stop",
+            //       label: "In Depth",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1378,7 +1369,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Go Exploring",
+            //       label: "Activities",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1393,7 +1384,7 @@ export default defineConfig({
             //   collapsed: true,
             //   items: [
             //     {
-            //       label: "Overview",
+            //       label: "Introduction",
             //       link: "book/part-4-what-next/4-build-web-app/0-overview",
             //     },
             //     {
@@ -1406,7 +1397,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Stop",
+            //       label: "In Depth",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1415,7 +1406,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Go Exploring",
+            //       label: "Activities",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1430,7 +1421,7 @@ export default defineConfig({
             //   collapsed: true,
             //   items: [
             //     {
-            //       label: "Overview",
+            //       label: "Introduction",
             //       link: "book/part-4-what-next/5-integrate-ai/0-overview",
             //     },
             //     {
@@ -1443,7 +1434,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Trailside Stop",
+            //       label: "In Depth",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1452,7 +1443,7 @@ export default defineConfig({
             //       },
             //     },
             //     {
-            //       label: "Go Exploring",
+            //       label: "Activities",
             //       collapsed: true,
             //       autogenerate: {
             //         directory:
@@ -1467,7 +1458,7 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
+                  label: "Introduction",
                   link: "book/part-4-what-next/6-introduction-to-python/0-overview",
                 },
                 {
