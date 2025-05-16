@@ -17,7 +17,7 @@ Now we can start building this out using a test driven development approach. Thi
    - **cheese-shop.h**: a header file for our shared functions and data types.
    - **cheese-shop-tests.cpp**: the code for our tests.
    - **cheese-shop.cpp**: the code for the model of our program.
-   - **cheese-shop-cli.cpp**: the command line interface code.
+   - **cheese-shop-cli.cpp**: the command line interface (CLI) code.
   
 ## Decide what to build first
 
@@ -334,12 +334,171 @@ Cheddar, 1.500000kg, $20.000000 per kg
 
 Nothing special, but we have a start from which we can build.
 
+### Refactoring print cheese
+
+At the moment we have some logic within `print_cheese` to determine how to represent a `cheese_data` value in text. This may be something that is useful elsewhere in the program and tests. Rather than having this logic in the CLI code, we can move this into the model.
+
+Create a `cheese_string` function that is passed a `cheese_data` value and a boolean indicating if full details are required. This should then use the C++ [format](https://en.cppreference.com/w/cpp/utility/format/format) function to convert the cheese value into a string. The string should contain the name of the cheese, its weight, and price (in dollars per kilogram).
+
+:::tip
+The first parameter to `format` is the format string, which can be used to customise the format of the variables injected within it. To format a floating point value (e.g. `double`) you can use something like this: `format("{:.2f}", my_double)`, this will format the output to have 2 decimal places in the output. You can use this to format the weight and price.
+:::
+
+Remember to start with the tests, and then add the code to make this functional. You will need to update the *cheese-shop.h* header with the new function, add tests to the *cheese-shop-test.cpp*, implement the logic in *cheese-shop.cpp*, and then change the way you print the cheese in the *cheese-shop-cli.cpp*.
+
+<Accordion>
+  <AccordionItem
+    header="Code for cheese string"
+  >
+
+For the **cheese-shop.h** we need to add in a new function header for the `cheese_string` function.
+
+```cpp {29-36}
+#include <string>
+
+using std::string;
+
+/**
+ * Data about a cheese within an order or in stock.
+ * 
+ * @field name The name of the cheese.
+ * @field weight The weight of the cheese in stock (kg).
+ * @field price_per_kg The price of the cheese per kg (cents).
+ */
+struct cheese_data
+{
+    string name;
+    double weight;
+    int price_per_kg;  
+};
+
+/**
+ * Initialise a cheese_data value - with parameters to initialise the name,
+ * weight, and price_per_kg.
+ * 
+ * @param name The name of the cheese. Defaults to an empty string.
+ * @param weight The weight of the cheese in stock (kg). Defaults to 0.0.
+ * @param price_per_kg The price of the cheese per kg (cents). Defaults to 0.
+ */
+cheese_data new_cheese(string name = "", double weight = 0.0, int price_per_kg = 0);
+
+/**
+ * Convert a cheese_data value to a string.
+ * 
+ * @param cheese The cheese_data value to convert.
+ * @param full_details If true, include full details of the cheese. Defaults to false.
+ * @return string The string representation of the cheese_data value.
+ */
+string cheese_to_string(const cheese_data &cheese, bool full_details = false);
+```
+
+For the **cheese-shop-test.cpp** I added the following:
+
+```cpp {6-36}
+#include "catch_amalgamated.hpp"
+#include "cheese-shop.h"
+
+//...
+
+TEST_CASE("Cheese - Convert cheese data to string")
+{
+    cheese_data cheese;
+    cheese = new_cheese("Cheddar", 1.5, 2000);
+
+    // Test full details
+    string result = cheese_to_string(cheese, true);
+    string expected = "Cheddar: 1.50 kg, $20.00";
+
+    REQUIRE(result == expected);
+
+    // Test without full details
+    result = cheese_to_string(cheese, false);
+    expected = "Cheddar";
+
+    REQUIRE(result == expected);
+
+    // Change the cheese details
+    cheese = new_cheese("Camembert");
+
+    result = cheese_to_string(cheese, false);
+    expected = "Camembert";
+
+    REQUIRE(result == expected);
+
+    // Shows defaults - and 0s
+    result = cheese_to_string(cheese, true);
+    expected = "Camembert: 0.00 kg, $0.00";
+
+    REQUIRE(result == expected);
+}
+```
+
+In the **cheese-shop.cpp** we implement the logic for this using the C++ format function.
+
+```cpp {15-28}
+#include "cheese-shop.h"
+#include <format>
+
+using std::format;
+
+cheese_data new_cheese(string name, double weight, int price_per_kg)
+{
+    cheese_data cheese;
+    cheese.name = name;
+    cheese.weight = weight;
+    cheese.price_per_kg = price_per_kg;
+    return cheese;
+}
+
+string cheese_to_string(const cheese_data &cheese, bool full_details)
+{
+    if (full_details)
+    {
+        return format("{}: {:.2f} kg, ${:.2f}", 
+                    cheese.name,
+                    cheese.weight,
+                    cheese.price_per_kg / 100.0);
+    }
+    else
+    {
+        return cheese.name;
+    }
+}
+```
+
+Then you can use this in **cheese-shop-cli.cpp**.
+
+```cpp {5-8}
+#include "splashkit.h"
+#include "utilities.h"
+#include "cheese-shop.h"
+
+void print_cheese(const cheese_data &cheese)
+{
+    write_line(cheese_to_string(cheese, true));
+}
+
+int main()
+{
+    cheese_data cheese;
+    cheese = new_cheese("Cheddar", 1.5, 2000);
+
+    print_cheese(cheese);
+
+    return 0;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
 ### Add in additional cheese functionality
 
 Now you can add unit tests and the code to make the following changes.
 
 1. Add a `total_cost` function that accepts a `cheese_data` value and returns the cost (in cents) of that cheese. Test to ensure this works with different values, and include this in the output line.
-2. Create a `reduce_weight` procedure that accepts a reference to a `cheese_data` value, and is given a weight to reduce the cheese by. It should ignore negative values, and ensure that the final weight does not become negative. This will return the actual amount removed. For example, if you have 1.5 kg of cheese and attempt to reduce it by 1.7 kg then the resulting weight will be 0, and 1.5 will be returned.
-3. Create a `increase_weight` procedure that accepts a reference to a `cheese_data` value, and is given a weight to add to the cheese. This should ignore negative values, but otherwise add the passed in weight to the weight already present.
+2. Extend the details in the cheese string to include the total cost, so that this outputs the total price of the cheese in addition to the name, weight, and price per kilogram.
+3. Create a `reduce_weight` procedure that accepts a reference to a `cheese_data` value, and is given a weight to reduce the cheese by. It should ignore negative values, and ensure that the final weight does not become negative. This will return the actual amount removed. For example, if you have 1.5 kg of cheese and attempt to reduce it by 1.7 kg then the resulting weight will be 0, and 1.5 will be returned. This will be used when orders are fulfilled in later iterations - you can add basic test code to the CLI to see this functioning.
+4. Create a `increase_weight` procedure that accepts a reference to a `cheese_data` value, and is given a weight to add to the cheese. This should ignore negative values, but otherwise add the passed in weight to the weight already present. This will be used when stock is re-supplied in later iterations - you can add basic test code to the CLI to see this functioning.
 
-For each of these, first develop the required unit tests and then add the code to the model and add something to the cli version to see these working yourself.
+For each of these, first develop the required unit tests and then add the code to the model and add something to the CLI version to see these working yourself.

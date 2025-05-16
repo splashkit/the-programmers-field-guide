@@ -1,5 +1,0 @@
----
-title: C++ Utilities
----
-
-## Vector

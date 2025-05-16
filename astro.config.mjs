@@ -818,53 +818,57 @@ export default defineConfig({
             {
               label: "10. Project",
               collapsed: true,
-              autogenerate: {
+              items: [
+                {
+                  label: "Introduction",
+                  link: "book/part-2-organised-code/10-project/0-overview",
+                },
+                {
+                  label: "Overview",
+                  collapsed: true,
+                  autogenerate: {
                     directory:
-                      "book/part-2-organised-code/10-project",
+                      "book/part-2-organised-code/10-project/0-panorama",
                     collapsed: true,
                   },
-              // items: [
-              //   // {
-              //   //   label: "Introduction",
-              //   //   link: "book/part-2-organised-code/10-project/0-overview",
-              //   // },
-              //   // {
-              //   //   label: "Guided Tour",
-              //   //   collapsed: true,
-              //   //   autogenerate: {
-              //   //     directory:
-              //   //       "book/part-2-organised-code/10-project/1-tour",
-              //   //     collapsed: true,
-              //   //   },
-              //   // },
-              //   // {
-              //   //   label: "In Depth",
-              //   //   collapsed: true,
-              //   //   autogenerate: {
-              //   //     directory:
-              //   //       "book/part-2-organised-code/10-project/2-trailside",
-              //   //     collapsed: true,
-              //   //   },
-              //   // },
-              //   {
-              //     label: "Activities",
-              //     collapsed: true,
-              //     autogenerate: {
-              //       directory:
-              //         "book/part-2-organised-code/10-project/3-explore",
-              //       collapsed: true,
-              //     },
-              //   },
-              //   // {
-              //   //   label: "Campsite Reflection",
-              //   //   collapsed: true,
-              //   //   autogenerate: {
-              //   //     directory:
-              //   //       "book/part-2-organised-code/10-project/4-camp",
-              //   //     collapsed: true,
-              //   //   },
-              //   // },
-              // ],
+                },
+                {
+                  label: "Guided Tour",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/10-project/1-tour",
+                    collapsed: true,
+                  },
+                },
+                // {
+                //   label: "In Depth",
+                //   collapsed: true,
+                //   autogenerate: {
+                //     directory:
+                //       "book/part-2-organised-code/10-project/2-trailside",
+                //     collapsed: true,
+                //   },
+                // },
+                {
+                  label: "Activities",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/10-project/3-explore",
+                    collapsed: true,
+                  },
+                },
+                // {
+                //   label: "Campsite Reflection",
+                //   collapsed: true,
+                //   autogenerate: {
+                //     directory:
+                //       "book/part-2-organised-code/10-project/4-camp",
+                //     collapsed: true,
+                //   },
+                // },
+              ],
             },
           ],
         },
