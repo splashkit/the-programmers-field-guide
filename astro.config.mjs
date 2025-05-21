@@ -677,6 +677,15 @@ export default defineConfig({
                   link: "book/part-2-organised-code/7-member-functions/0-overview",
                 },
                 {
+                  label: "Overview",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/7-member-functions/0-panorama",
+                    collapsed: true,
+                  },
+                },
+                {
                   label: "Guided Tour",
                   collapsed: true,
                   autogenerate: {

@@ -1,0 +1,5 @@
+---
+title: Class
+---
+
+Coming soon

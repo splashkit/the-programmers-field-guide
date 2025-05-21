@@ -12,7 +12,7 @@ Interestingly, namespaces can also be nested in other namespaces. This helps giv
 
 Namespaces are really useful when you start to build much larger programs. Namespaces are optional, so for now you can code all of your classes directly into your code files. You will, however, have to know about namespaces so that you can access classes in libraries.
 
-## In C #
+## In C#
 
 :::tip[Syntax]
 You can create a namespace using the `namespace` keyword directly within your code file, or within another namespace.
