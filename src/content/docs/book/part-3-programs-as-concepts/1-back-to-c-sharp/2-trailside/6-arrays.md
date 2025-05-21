@@ -8,7 +8,7 @@ Arrays are fixed size, but do include member functions that allow you to query t
 
 The [List<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-8.0) class from the `System.Collections.Generic` namespace is the equivalent of the dynamic array we created in the [member functions](/book/part-2-organised-code/7-member-functions/1-tour/2-dynamic-array) chapter.
 
-## In C #
+## In C#
 
 :::tip[Syntax]
 ![Syntax for array declaration](./images/array-decl.png)

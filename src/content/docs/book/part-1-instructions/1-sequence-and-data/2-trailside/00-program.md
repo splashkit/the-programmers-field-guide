@@ -26,7 +26,7 @@ To master these concepts you will need to memorise the syntax so that you can st
 
 :::
 
-## In C #
+## In C#
 
 :::tip[Syntax]
 In a C# project, you have one source code file that will contain the program's main code. The following illustration shows the structure of the syntax for this.

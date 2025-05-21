@@ -14,7 +14,7 @@ When coding [knowing responsibilities](/book/part-3-programs-as-concepts/2-abstr
 
 Properties also give you the ability to make these values read or write only outside the class. Each property will define instructions to be performed when you read and instructions to be performed when you write to the property. If you provide both of these you have a property that can be read and written to. If you only provide one, then the property will be read or write only depending on which part you code.
 
-## In C #
+## In C#
 
 :::tip[Syntax]
 The syntax for declaring a property in a C# class is shown in Figure X.

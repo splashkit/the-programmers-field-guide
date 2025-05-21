@@ -16,7 +16,7 @@ It is always a good idea to provide a constructor for your classes. You can use 
 
 A constructor with no parameters is known as the **default constructor** as this constructor is called when no arguments are passed in to the respective `new` call.
 
-## In C #
+## In C#
 
 :::tip[Syntax]
 The syntax for declaring a constructor in a C# class is shown below.

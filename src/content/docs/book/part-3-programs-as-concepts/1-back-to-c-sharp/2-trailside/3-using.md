@@ -12,7 +12,7 @@ You are going to need to make use of classes coded within other namespaces in al
 
 A version of the `using` directive can give you access to the [static methods](/book/part-3-programs-as-concepts/1-back-to-c-sharp/2-trailside/4-static-methods) within a class. We used this in Part 1 when we were calling methods.
 
-## In C #
+## In C#
 
 :::tip[Syntax]
 The C# syntax for a using directive is shown below. This must appear at the top of your code file before any other declarations or top level statements.

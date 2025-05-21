@@ -18,7 +18,7 @@ Here are some examples of static methods we have been using previously:
 - The `Convert` class contains static methods to convert data between common data types.
 - The `SplashKit` class contains static methods to call its various functions.
 
-## In C #
+## In C#
 
 :::tip[Syntax]
 

@@ -33,7 +33,7 @@ Every programming language has **coding conventions** that indicate which format
 Following the coding convention of the language is really important. This makes your code look and feel like other code from that language. Doing this will make it easier for others to engage with what you do. Break the convention, and others will doubt the quality of your code and contributions.
 :::
 
-## In C #
+## In C#
 
 :::tip[Syntax]
 The following diagram shows the C# syntax for an identifier.

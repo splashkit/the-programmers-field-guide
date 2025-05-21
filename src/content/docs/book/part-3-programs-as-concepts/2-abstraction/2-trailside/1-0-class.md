@@ -26,7 +26,7 @@ When you think about your problem, you come up with a number of *classifications
 
 At run time, the class will be used to create objects. The program can then call methods on the objects it has created, and these objects will perform the actions coded within their classes. These actions will in turn create and use other objects, each performing the role defined by its class. Through these interactions, the program is able to achieve its desired result.
 
-## In C #
+## In C#
 
 :::tip[Syntax]
 The syntax for a C# class declaration is shown below. The syntax for declaring each of the elements of a class are shown in the following sections.

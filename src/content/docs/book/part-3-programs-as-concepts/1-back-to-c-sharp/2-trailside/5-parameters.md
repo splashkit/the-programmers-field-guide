@@ -8,7 +8,7 @@ In Part 2 we saw how to use parameters within our functions and procedures. In C
 
 You will use parameters in C# in the same way you did in C/C++. These allow you to pass values in to methods, and with pass by reference you can change the value of the variable that is passed to it.
 
-## In C #
+## In C#
 
 :::tip[Syntax]
 In C#, parameters are very similar to parameters in C/C++. By default, parameters are [passed by value](/book/part-2-organised-code/4-indirect-access/2-trailside/01-pass-by-ref). You can add the ref keyword to use [pass by reference](/book/part-2-organised-code/4-indirect-access/2-trailside/01-pass-by-ref) instead.

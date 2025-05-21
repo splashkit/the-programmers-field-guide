@@ -16,7 +16,7 @@ You will not be able to use the `foreach` loop in cases where you want to work w
 Your objects in C# will be [reference types](/book/part-3-programs-as-concepts/2-abstraction/2-trailside/2-1-value-and-reference-types) which means you will be able to use the `foreach` loop to access and work with the objects in the array or list. We will revisit this in the next chapter.
 :::
 
-## In C #
+## In C#
 
 :::tip[Syntax]
 The syntax of the `foreach` loop is shown below.

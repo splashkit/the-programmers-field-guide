@@ -18,7 +18,7 @@ It can do this by using literal values, values passed in through a parameter, ca
 A constructor is often called as the expression within an assignment statement, so that the returned value can be stored in a variable.
 We can then use that variable to ask the object about things it knows, and to ask it to do things it can do.
 
-## In C #
+## In C#
 
 :::tip[Syntax]
 The syntax for calling a constructor in C# is shown below.

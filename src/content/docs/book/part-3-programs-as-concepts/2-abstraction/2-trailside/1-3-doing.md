@@ -21,7 +21,7 @@ For example, the Fly objects in our Fly escape game would have a number of thing
 
 As you design an object-oriented program you will need to think about each role, and the actions that it needs to be able to do in order to get the outcomes you want. You have to picture the digital reality you are creating, and see how these objects can act within this reality to generate the required responses or outcomes.
 
-## In C #
+## In C#
 
 :::tip[Syntax]
 The syntax for declaring a method in a C# class is shown below. If you look, you should notice this is basically the same as declaring a function or procedure.
