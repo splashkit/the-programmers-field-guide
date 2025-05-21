@@ -66,7 +66,7 @@ class MyProgram
 
         foreach(string name in names)
         {
-            SayHelloTo(names[i]);
+            SayHelloTo(name);
         }
     }
 }
