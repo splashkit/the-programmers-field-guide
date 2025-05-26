@@ -74,11 +74,11 @@ To follow the pointer, and read its value, you use the `*` operator. With struct
 ```c
 #include <stdio.h>
 
-typedef struct 
+struct point_2d
 {
   double x;
   double y;
-} point_2d;
+};
 
 int main()
 {

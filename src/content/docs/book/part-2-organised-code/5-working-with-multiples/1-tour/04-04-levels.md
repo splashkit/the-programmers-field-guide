@@ -17,10 +17,10 @@ We have two options here: we can add a dimension to the tiles in map data, or we
 Map data contains a two-dimensional array of tile data. This can be extended to add a dimension to track the different levels. The code for this is shown below. We can then pass around the index to the current level when we perform drawing operations on the map.
 
 ```cpp
-typedef struct
+struct map_data
 {
   tile_data tiles[MAX_LEVELS][MAX_MAP_COLS][MAX_MAP_ROWS];
-} map_data;
+};
 ```
 
 This approach works well when the data need to be processed flexibly across the different dimensions. In this case we would never want to check a column or row across different levels. So while we can represent this as an additional dimension on the array, we should look for alternative ways to achieve this.
@@ -28,14 +28,14 @@ This approach works well when the data need to be processed flexibly across the 
 Looking at the explorer data, we can see that there is currently a single map. Rather than adding a dimension within the map, we can convert this to an array of maps as shown below. This ensures that all the existing code that works with maps will still work. We just need to add a current map index (or pointer) that will tell us which map we need to draw and interact with.
 
 ```cpp
-typedef struct
+struct explorer_data
 {
   map_data maps[MAX_MAPS];
   int current_map; // or map_data *current_map;
   point_2d camera_position;
   explorer_state_kind state;
   tile_kind editor_tile_kind;
-} explorer_data;
+};
 ```
 
 ## What next?

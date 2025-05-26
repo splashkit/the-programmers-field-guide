@@ -38,11 +38,11 @@ using std::to_string;
  * @field title  the title of the book
  * @field pages  the number of pages in the book
  */
-typedef struct book_data
+struct book_data
 {
     string title;
     int pages;
-} book_data;
+};
 
 /**
  * Output details of a book to the terminal

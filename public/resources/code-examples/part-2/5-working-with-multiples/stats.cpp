@@ -10,11 +10,11 @@ const int MAX_NUMBERS = 20;
  * @field values the array of values
  * @field size the number of values in the array - up to MAX_NUMBERS
  */
-typedef struct
+struct number_data
 {
   double values[MAX_NUMBERS];
   int size;
-} number_data;
+};
 
 /**
  * Read an integer from the user

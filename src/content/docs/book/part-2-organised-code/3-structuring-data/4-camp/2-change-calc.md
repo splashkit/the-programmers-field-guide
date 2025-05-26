@@ -18,7 +18,7 @@ using std::to_string;
 /**
  * The different kinds of coins in the system
  */
-typedef enum
+enum coin_kind
 {
   NO_COIN = -1,
   TWO_DOLLARS,
@@ -27,7 +27,7 @@ typedef enum
   TWENTY_CENTS,
   TEN_CENTS,
   FIVE_CENTS
-} coin_kind;
+};
 
 /**
  * The number of coins we can give change for
@@ -42,12 +42,12 @@ const int NUM_COIN_TYPES = 6;
  * @field value The value of the coin
  * @field text  The coin text for output
  */
-typedef struct
+struct coin_data
 {
   int value;
   coin_kind kind;
   string text;
-} coin_data;
+};
 
 /**
  * Read an integer from the user

@@ -76,19 +76,11 @@ using std::to_string;
  * @field name  the name of the person
  * @field age   the person's age
  */
-struct person_struct
+struct person
 {
     string name;
     int age;
 };
-
-/**
- * A person is used to capture the data we want to track
- * about people in our program.
- *
- * This is an alias of the struct person_struct type.
- */
-typedef struct person_struct person;
 
 /**
  * Output details of a person to the terminal
@@ -135,17 +127,3 @@ int main()
     return 0;
 }
 ```
-
-:::tip
-
-You can combine the typedef and the struct declaration in a single line. The following code shows how to do this for the `person` typedef. Notice how it wraps the struct definition within the typedef.
-
-```cpp
-typedef struct person_struct
-{
-    string name;
-    int    age;
-} person;
-```
-
-:::

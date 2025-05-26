@@ -30,33 +30,33 @@ const int TILE_HEIGHT = 60;
  * @field DIRT_TILE    A dirt tile
  * @field SAND_TILE    A sand tile
  */
-typedef enum
+enum tile_kind
 {
   WATER_TILE,
   GRASS_TILE,
   DIRT_TILE,
   SAND_TILE
-} tile_kind;
+};
 
 /**
  * A tile in the map.
  * 
  * @field kind  The kind of tile
  */
-typedef struct
+struct tile_data
 {
   tile_kind kind;
-} tile_data;
+};
 
 /**
  * A map containing a two dimensional array of tiles.
  * 
  * @field tiles   The tiles in the map
  */
-typedef struct
+struct map_data
 {
   tile_data tiles[MAX_MAP_COLS][MAX_MAP_ROWS];
-} map_data;
+};
 
 /**
  * Initialise the map with all grass tiles.

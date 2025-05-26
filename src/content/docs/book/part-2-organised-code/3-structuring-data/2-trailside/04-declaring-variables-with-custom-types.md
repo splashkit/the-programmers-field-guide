@@ -55,25 +55,25 @@ The following example demonstrates declaring and using values from the different
 
 using std::to_string;
 
-typedef struct
+struct my_struct
 {
   int     field1;
   double  field2;
   string  field3;
-} my_struct;
+};
 
-typedef enum 
+enum my_enum
 {
   OPT_1,
   OPT_2
-} my_enum;
+};
 
-typedef union
+union my_number
 {
   int         int_val;
   long long   long_val;
   double      dbl_val;
-} my_number;
+};
 
 int main()
 {

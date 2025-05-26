@@ -48,7 +48,7 @@ We can lay out the binary values to make this comparison easier to see. Notice h
 You can use this in your code to test if a value is present in an enumeration setup to work as binary flags. The following example shows how you can do this. The `accessories_flag` type has binary unique values, so we can add a bag and sunglasses and store the result in the accessories variable. To test, we can use `accessories & BAG` to test if the `BAG` bit is set in the accessories value.
 
 ```cpp
-typedef enum
+enum accessories_flag
 {
   BAG = 1,
   HAT = 2,
@@ -57,7 +57,7 @@ typedef enum
   BRACELET = 16,
   RING = 32,
   EARRINGS = 64
-} accessories_flag;
+};
 
 int main()
 {

@@ -40,11 +40,11 @@ The array in `data` can contain a hundred values, but we can use `num_values` to
 /* Program: test-array.c */
 #include <stdio.h>
 
-typedef struct
+struct number_data
 {
   int value[100];
   int num_values;
-} number_data;
+};
 
 int main()
 {

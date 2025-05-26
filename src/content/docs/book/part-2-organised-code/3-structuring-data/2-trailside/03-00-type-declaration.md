@@ -94,4 +94,4 @@ integer main()
 
 ```
 
-In most cases we will use the C version, as this works both for C and C++.
+For clarity, we will focus on the C++ version without using `typedef` unless an alias is required.

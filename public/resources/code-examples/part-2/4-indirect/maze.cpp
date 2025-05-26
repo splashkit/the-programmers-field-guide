@@ -2,19 +2,19 @@
 
 using std::string;
 
-typedef struct room_struct *room_ptr;
+typedef struct room_data *room_ptr;
 
-typedef struct path_struct
+struct path_data
 {
   string    description;
   room_ptr  destination;
-} path_data;
+};
 
-typedef struct room_struct
+struct room_data
 {
   string title;
   string description;
-} room_data;
+};
 
 /**
  * New path populates the data in a path struct and returns it.

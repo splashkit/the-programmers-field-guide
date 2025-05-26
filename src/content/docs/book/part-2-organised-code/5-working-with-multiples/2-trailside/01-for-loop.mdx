@@ -32,11 +32,11 @@ The following code illustrates using for loops to populate and print values from
 
 const int MAX_NUMBER_DATA_VALUES = 100;
 
-typedef struct
+struct number_data
 {
   double values[MAX_NUMBER_DATA_VALUES];
   int num_values;
-} number_data;
+};
 
 
 void populate(double data[], int size)

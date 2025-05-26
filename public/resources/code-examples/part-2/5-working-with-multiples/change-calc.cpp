@@ -21,12 +21,12 @@ const int MAX_COINS_TYPES = 10;
  * @field value The value of the coin
  * @field text  The coin text for output
  */
-typedef struct
+struct coin_data
 {
   int value;
   coin_kind kind;
   string text;
-} coin_data;
+};
 
 /**
  * The data for the machine, storing an array of the 
@@ -35,11 +35,11 @@ typedef struct
  * @field coins the array of different kinds of coins
  * @field coin_count the number of coins in the array
  */
-typedef struct
+struct machine_data
 {
   coin_data coins[MAX_COINS_TYPES];
   int coin_count;
-} machine_data;
+};
 
 /**
  * Read an integer from the user

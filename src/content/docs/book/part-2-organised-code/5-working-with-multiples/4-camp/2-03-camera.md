@@ -22,11 +22,11 @@ const int MAX_MAP_COLS = 20;
 const int TILE_WIDTH = 60;
 const int TILE_HEIGHT = 60;
 
-typedef enum
+enum explorer_state_kind
 {
   PLAY_STATE,
   EDIT_STATE
-} explorer_state_kind;
+};
 
 /**
  * There are different kinds of tiles in the map.
@@ -36,41 +36,41 @@ typedef enum
  * @field DIRT_TILE    A dirt tile
  * @field SAND_TILE    A sand tile
  */
-typedef enum
+enum tile_kind
 {
   WATER_TILE,
   GRASS_TILE,
   DIRT_TILE,
   SAND_TILE
-} tile_kind;
+};
 
 /**
  * A tile in the map.
  * 
  * @field kind  The kind of tile
  */
-typedef struct
+struct tile_data
 {
   tile_kind kind;
-} tile_data;
+};
 
 /**
  * A map containing a two dimensional array of tiles.
  * 
  * @field tiles   The tiles in the map
  */
-typedef struct
+struct map_data
 {
   tile_data tiles[MAX_MAP_COLS][MAX_MAP_ROWS];
-} map_data;
+};
 
-typedef struct
+struct explorer_data
 {
   map_data map;
   point_2d camera_position;
   explorer_state_kind state;
   tile_kind editor_tile_kind;
-} explorer_data;
+};
 
 /**
  * Initialise the map with all grass tiles.

@@ -19,11 +19,11 @@ The following code illustrates how to populate an array by passing it to a proce
 
 const int MAX_NUMBER_DATA_VALUES = 100;
 
-typedef struct
+struct number_data
 {
   double value[MAX_NUMBER_DATA_VALUES];
   int num_values;
-} number_data;
+};
 
 
 void populate(double data[], int size)

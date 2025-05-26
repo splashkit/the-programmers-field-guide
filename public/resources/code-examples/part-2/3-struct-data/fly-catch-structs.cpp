@@ -19,7 +19,7 @@ const int FLY_RADIUS = 10;
  * @field appear_at_time  the time when the fly will appear
  * @field escape_at_time  the time when the fly will escape
 */
-typedef struct
+struct fly_data
 {
   bool appeared;
   double x;
@@ -27,7 +27,7 @@ typedef struct
 
   long appear_at_time;
   long escape_at_time;
-} fly_data;
+};
 
 /**
  * The spider has a location on the screen.
@@ -35,11 +35,11 @@ typedef struct
  * @field x the distance from the left side of the window
  * @field y the distance from the top of the window
 */
-typedef struct
+struct spider_data
 {
   double x;
   double y;
-} spider_data;
+};
 
 /**
  * The game involves a spider and a fly. The player is 
@@ -48,11 +48,11 @@ typedef struct
  * @field spider  the data about the spider
  * @field fly     the data for the fly
 */
-typedef struct
+struct game_data
 {
   spider_data spider;
   fly_data    fly;
-} game_data;
+};
 
 /**
  * Draw the spider on the screen

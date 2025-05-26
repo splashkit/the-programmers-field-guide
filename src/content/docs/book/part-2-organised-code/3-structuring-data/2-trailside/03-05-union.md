@@ -49,18 +49,18 @@ union my_union
     string str_value;
 };
 
-typedef enum
+enum data_tag
 {
     INT_VALUE,
     DBL_VALUE,
     STR_VALUE
-} data_tag;
+};
 
-typedef struct
+struct data_value
 {
     data_tag     tag;
     union my_union  value; 
-} data_value;
+};
 
 int main()
 {

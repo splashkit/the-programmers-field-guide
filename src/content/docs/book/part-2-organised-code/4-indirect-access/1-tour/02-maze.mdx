@@ -120,30 +120,30 @@ The room will have fields for title and description, while the path will have a 
 
 Going forward we will want to have paths within our rooms, so we can start by coding the path struct ahead of the room struct. There is a challenge here, we need to code the room pointer within the path, but the room will be declared after the path. To achieve this we can use a **forward declaration**.
 
-To do this, we use a `typedef` and set up an alias for a pointer to a `struct room_struct`. We can name this type `room_ptr`. The code for this is shown below.
+To do this, we use a `typedef` and set up an alias for a pointer to a `struct room_data`. We can name this type `room_ptr`. The code for this is shown below.
 
 ```cpp
-typedef struct room_struct *room_ptr;
+typedef struct room_data *room_ptr;
 ```
 
 Then in the path, we can use this `room_ptr` type when we declare the destination field.
 
 ```cpp
-typedef struct path_struct
+struct path_data
 {
   string    description;
   room_ptr  destination;
-} path_data;
+};
 ```
 
-We also need to fulfil the forward declaration, and provide details of what the `struct room_struct` is. This can be coded as shown below:
+We also need to fulfil the forward declaration, and provide details of what the `struct room_data` is. This can be coded as shown below:
 
 ```cpp
-typedef struct room_struct
+struct room_data
 {
   string title;
   string description;
-} room_data;
+};
 ```
 
 These are all the types we need, so now we can focus on the functions and procedures that work with these.

@@ -17,11 +17,11 @@ The result should look something like this:
 ```cpp
 const int MAX_FLIES = 5;
 
-typedef struct
+struct game_data
 {
   spider_data spider;
   fly_data    flies[MAX_FLIES];
-} game_data;
+};
 ```
 
 This change will break the code, but there aren't too many places we need to update. We will need to update the way we initialise the game, update the flies, and draw the flies. The great this is that we already have the code to initialise, update, and draw a single fly, so these changes will only need to add the code to loop through the array and perform the action on each element.
