@@ -1114,7 +1114,7 @@ export default defineConfig({
               ],
             },
             {
-              label: "7. Inheritance",
+              label: "6. Inheritance",
               collapsed: true,
               items: [
                 {
@@ -1160,7 +1160,7 @@ export default defineConfig({
               ],
             },
             {
-              label: "8. Abstract Interfaces",
+              label: "7. Abstract Interfaces",
               collapsed: true,
               items: [
                 {
