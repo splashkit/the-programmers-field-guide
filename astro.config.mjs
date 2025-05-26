@@ -732,61 +732,61 @@ export default defineConfig({
                 },
               ],
             },
-            {
-              label: "8. Saving and Loading Data",
-              collapsed: true,
-              items: [
-                {
-                  label: "Introduction",
-                  link: "book/part-2-organised-code/8-file-io/0-overview",
-                },
-                {
-                  label: "Overview",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-2-organised-code/8-file-io/0-panorama",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Guided Tour",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-2-organised-code/8-file-io/1-tour",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "In Depth",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-2-organised-code/8-file-io/2-trailside",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Activities",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-2-organised-code/8-file-io/3-explore",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Campsite Reflection",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-2-organised-code/8-file-io/4-camp",
-                    collapsed: true,
-                  },
-                },
-              ],
-            },
+            // {
+            //   label: "8. Saving and Loading Data",
+            //   collapsed: true,
+            //   items: [
+            //     {
+            //       label: "Introduction",
+            //       link: "book/part-2-organised-code/8-file-io/0-overview",
+            //     },
+            //     {
+            //       label: "Overview",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-2-organised-code/8-file-io/0-panorama",
+            //         collapsed: true,
+            //       },
+            //     },
+            //     {
+            //       label: "Guided Tour",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-2-organised-code/8-file-io/1-tour",
+            //         collapsed: true,
+            //       },
+            //     },
+            //     {
+            //       label: "In Depth",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-2-organised-code/8-file-io/2-trailside",
+            //         collapsed: true,
+            //       },
+            //     },
+            //     {
+            //       label: "Activities",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-2-organised-code/8-file-io/3-explore",
+            //         collapsed: true,
+            //       },
+            //     },
+            //     {
+            //       label: "Campsite Reflection",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-2-organised-code/8-file-io/4-camp",
+            //         collapsed: true,
+            //       },
+            //     },
+            //   ],
+            // },
             // {
             //   label: "9. Low Level Programming",
             //   collapsed: true,
@@ -834,7 +834,7 @@ export default defineConfig({
             //   ],
             // },
             {
-              label: "10. Project",
+              label: "8. Project",
               collapsed: true,
               items: [
                 {
