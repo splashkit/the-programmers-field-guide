@@ -1,0 +1,22 @@
+---
+title: Two tanks - moving knowledge into the object
+---
+
+Now that you have created the Storage Tank drawing you can move some of its short term knowledge into the object for long term memory. 
+
+Using local variables meant that the object forgot the details you calculated within the draw method. As these values are entirely contained within the method, all tanks would always draw at the same location with the same volume. To overcome this we need to make use of object fields and properties. 
+
+With these in place we can now create and draw multiple water tanks. Each Tank *knows* its own details and uses these when it is drawn to the screen. 
+
+- Fields allow you to add knowledge to an object. 
+- Fields should be private 
+- Properties can be added to access a field or calculate a value 
+- Properties can be public as they provide a controlled way of accessing data.
+
+## Your Task
+
+Have a look at some of the SplashKit objects. What kinds of properties do they give you access to? 
+
+## Further Reading
+
+- [Fields, local variables, and parameters](https://en.wikibooks.org/wiki/C_Sharp_Programming/Variables#Fields.2C_local_variables.2C_and_parameters)

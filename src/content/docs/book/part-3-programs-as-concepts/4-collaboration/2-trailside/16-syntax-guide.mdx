@@ -1,0 +1,354 @@
+---
+title: Syntax Guide
+---
+
+## Example Class
+
+Here is an example class that makes use of the syntax covered in this week.
+
+```cs
+public class MyRectangle
+{
+  // Fields to store the location of the MyRectangle object
+  private int _x;
+  private int _y;
+  
+  // Properties to access these fields.
+  public int X
+  {
+    get { return _x; }
+    set { _x = value; }
+  }
+
+  public int Y
+  {
+    get { return _y; }
+    set { _y = value; }
+  }
+
+  // Examples of an auto-property. Where C# adds the code and fields for you.
+
+  public int Width { get; set; }
+  public int Height { get; set; }
+  public Color DrawColor { get; set; }
+
+  // A constructor that takes in data to position the My Rectangle object
+  public MyRectangle(int x, int y)
+  {
+    _x = x; //set the field directly
+    Y = y;  // or you can set it via the property.
+
+    Width = 100; // Auto properties can only be accessed via the property
+    Height = 50; // here we are using fixed values for the width and height.
+    DrawColor = Color.Blue;
+  }
+
+  // Get the MyRectangle object to draw itself.
+  public void Draw()
+  {
+    // Use SplashKit to draw, pass in the values read from the fields
+    SplashKit.DrawRectangle(DrawColor, X, Y, Width, Height);
+  }
+
+  // Move the MyRectangle object
+  // The x and y parameters say how much to move.
+  public void MoveBy(int x, int y)
+  {
+    // Reads the old field value, add x to it, then store the new value back in the field.
+    _x = _x + x; 
+    // This does the same, but uses C# += ... which is the same as _y = _y + y;
+    _y += y;
+  }
+}
+```
+
+Here is an example program that makes use of the above class.
+
+```cs
+public class Program
+{
+  public static void Main()
+  {
+    Window screen = new Window("Test Window", 400, 400);
+    
+    MyRectangle rect1 = new MyRectangle(10, 20);
+    MyRectangle rect2 = new MyRectangle(120, 20);
+    MyRectangle rect3 = new MyRectangle(240, 20) { Width = 50, Height = 20, DrawColor = Color.Green };
+
+    rect2.DrawColor = Color.Red;
+    rect2.Width = 20;
+    rect2.Height = 300;
+
+    screen.Clear(Color.White);
+    rect1.Draw();
+    rect2.Draw();
+    rect3.Draw();
+    screen.Refresh();
+    SplashKit.Delay(5000);
+  }
+} 
+```
+
+## Class Declaration
+
+<br/>
+import imgClassDeclaration from './images/sit771-class-declaration.png';
+
+<a id="FigureClassDeclaration"></a>
+<img src={imgClassDeclaration.src} alt="This diagram shows the syntax for declaring a class with instance members." width="100%" />
+<div class="caption">This diagram shows the syntax for declaring a class with instance members.</div><br/>
+
+The following code snippet is of a `Shape` class with 2 private instance members, an `int x`, `int y`, as well as a `public void Draw()` method. This means that any objects of type Shape will have their own x and y integer variables, and a Draw method which they can invoke.
+
+```cs
+public class Shape
+{
+  private int _x;
+  private int _y;
+
+  public void Draw()
+  {
+    // ...
+  }
+}
+```
+
+## Constructors
+
+This diagram shows the syntax for declaring constructor:
+
+<br/>
+import imgConstructor from './images/sit771-constructors.png';
+
+<a id="FigureConstructor"></a>
+<img src={imgConstructor.src} alt="This diagram shows the syntax for declaring a constructor." width="100%" />
+<div class="caption">This diagram shows the syntax for declaring a constructor.</div><br/>
+
+## Fields
+
+This diagram shows the syntax for fields:
+
+<br/>
+import imgFields from './images/sit771-fields.png';
+
+<a id="FigureFields"></a>
+<img src={imgFields.src} alt="This diagram shows the syntax for fields." width="100%" />
+<div class="caption">This diagram shows the syntax for fields.</div><br/>
+
+
+Just like instance methods are "attached" to each object of a given class, *fields* are variables associated with a given class (unless they're static). Each object has it's own memory allocation for each instance field.
+
+Having a look at the code below, it has three fields, two of which are *instance fields*. (static fields are not instance fields).
+
+```cs
+public class Shape
+{
+  public static string Name = "Shawn";
+  private int _x;
+  private int _y;
+}
+```
+
+Let's take a look at the public static string `name = "Shawn";`. 
+- firstly, the `public` modifier, which means any code which has a reference to it can access and change it. 
+- the `static` modifier means that the field's memory is shared across all `Shape` objects. 
+- `string` is the type of the field. 
+- Lastly, it is assigned the value "Shawn".
+
+## Properties
+
+Properties are "accessors" to an objects private fields. They can either just return the value of the field, or perform a calculation/expression.
+
+properties are helpful because they act as accessors to fields. This means they provide ways for us to control how much access they have to a field.
+
+This diagram shows the syntax for properties:
+
+<br/>
+import imgProperties from './images/sit771-properties.png';
+
+<a id="FigureProperties"></a>
+<img src={imgProperties.src} alt="This diagram shows the syntax for properties." width="100%" />
+<div class="caption">This diagram shows the syntax for properties.</div><br/>
+
+```cs
+public class Shape()
+{
+  private int _x;
+  public int X
+  {
+    get {return _x};
+    set { _x = value };
+  }
+}
+```
+
+The `get` and `set` keywords tell us that this property has access to getting and setting the field.
+
+A common pattern is to omit the `set`, which says that this field is `readonly`:
+
+```cs
+public class Shape()
+{
+  private int _x;
+  public int X
+  {
+    get {return _x};
+  }
+}
+```
+
+We can also use **auto-implemented properties**, which are a helpful and quicker way to create a field and property. The following code will have a public `X` property, and a private field.
+
+```cs
+public class Shape()
+{
+  public int X { get; set; }
+}
+```
+
+## Local Variables
+
+Local variables are variables which are declared within a class's method. In the code example below we can see some local variables in the Main() method.
+
+:::Note
+Note that any code outside of Main() cannot access the variables - hence why they're called local!
+:::
+
+```cs
+public class Shape
+{
+  private int x; //instance field
+  private int y; //instance field
+
+  public static void Main()
+  {
+    int i = 0; //local variable
+    string name = "Fred"; //local variable
+  }
+}
+```
+
+This diagram shows the syntax for declaring variables in our code:
+
+
+<br/>
+import imgDeclaringVariables from './images/sit771-variable-declaration.png';
+
+<a id="FigureDeclaringVariables"></a>
+<img src={imgDeclaringVariables.src} alt="This diagram shows the syntax for declaring variables in our code." width="100%" />
+<div class="caption">This diagram shows the syntax for declaring variables in our code.</div><br/>
+
+## Return statement
+
+Returning is an important part of our methods, it's how we signal that the method as finished doing its job, and if the method is a function, it let's us know which value to return to the caller.
+
+This diagram shows the syntax for returning in our code:
+
+<br/>
+import imgReturnStatement from './images/sit771-return-statement.png';
+
+<a id="FigureReturnStatement"></a>
+<img src={imgReturnStatement.src} alt="This diagram shows the syntax for returning in our code." width="100%" />
+<div class="caption">This diagram shows the syntax for returning in our code.</div><br/>
+
+There are a few things to note when returning: * Void methods don't return a value, just use the `return1 statement: ie return;. 
+
+- You must return a value who's type matches the return type of the method, ie: 
+  - You can return any value of the correct type, so you can can return a variable (`return name;`), literal value (`return 3;`), or calculation (`return x + 50/2;`). The expression is evaluated, and then returned.
+
+```cs
+string GetName()
+{
+  return "John"; // "John" is a string, good :)
+}
+
+string GetName()
+{
+  return 3; // 3 is not a string, won't work :(
+}
+```
+
+## Example program
+
+We've covered a lot of new syntax this week, why don't you have a look at the following example program and try and identify all of the pieces of syntax we've spoken about?
+
+```cs
+using System;
+using SplashKitSDK;
+
+public class Program
+{
+  public static void Main()
+  {
+    Window w = new Window(...);
+    StorageTank tnk = new StorageTank(100.0, 27.5, 10, 10, 70, 200);
+  }
+}
+
+public class StorageTank
+{
+  private Color _liquidColor = Color.Blue;
+  private readonly double _capacity;
+  private double _level;
+
+  private int _x, _y;
+  private int _width, _height;
+
+  public StorageTank(double capacity, double startLevel, int x, int y, int width, int height)
+  {
+    _x = x;
+    _y = y;
+    _width = width;
+    _height = height;
+
+    _capacity = capacity;
+    _level = startLevel;
+  }
+
+  public Color LiquidColor
+  {
+    get { return _liquidColor; }
+    set { _liquidColor = value; }
+  }
+
+  public double Capacity
+  {
+    get { return _capacity; }
+  }
+
+  public double Level
+  {
+    get { return _level; }
+  }
+
+  public double PercentFull
+  {
+    get { return _level / _capacity; }
+  }
+
+  public void AddLiquid(double amount)
+  {
+    _level = _level + amount;
+  }
+
+  public void TakeLiquid(double amount)
+  {
+    _level = _level - amount;
+  }
+
+  public void Draw(Window w)
+  {
+    double topY = y + height - height * PercentFull;
+    w.FillRectangle(LiquidColor, x, topY, x + width, y + height);
+    w.DrawRectangle(Color.Black, x, y, x + width, y + height);
+  }
+}
+```
+
+## Modifier Keywords Cheat Sheet
+
+- **public:** Any class which references the object has access.
+- **private:** Accessible only within the body of the class in which they are declared.
+- **static:** Declares a member that belongs to the type itself instead of to a specific object.
+
+There are other modifiers, which we'll take a look at in other weeks. See the [msdn reference](https://msdn.microsoft.com/en-us/library/6tcf2h8w.aspx) for further information.

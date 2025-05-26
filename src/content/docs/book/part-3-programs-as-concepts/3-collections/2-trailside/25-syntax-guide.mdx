@@ -1,0 +1,146 @@
+---
+title: Syntax Guide
+---
+
+## Array Declaration
+
+The [] brackets go after the type, to indicate that we have an array of the preceding type.
+
+```cs
+int[] values;
+string[] names;
+```
+
+## Array Initialisation
+
+We can initialise our arrays when we declare them with the following syntax:
+```cs
+int[] temperatures = new int[5];
+int[] temperatures = new int[3] { 22, 23, 24 };
+string[] names = new string[3] { "Steven", "Alex", "Andrew" };
+```
+
+<br/>
+import imgArrayDeclarationInitialization from './images/arrays-declaration-initialization.png';
+
+<a id="FigureArrayDeclarationInitialization"></a>
+<img src={imgArrayDeclarationInitialization.src} alt="This diagram shows the syntax for an array declaration and initialisation in C#." width="100%" />
+<div class="caption">This diagram shows the syntax for an array declaration and initialisation in C#.</div><br/>
+
+:::note
+Note that values or expressions must all be of a type which matches the type of array. Above, our int array of temperatures stores 22, 23, 24 (all integers).
+:::
+
+## Accessing values in an array
+
+We can access individual values in our arrays with the following syntax:
+
+```cs
+int[] temperatures = new int[3] { 22, 23, 24 };
+
+temperatures[2];
+
+int i = 3;
+temperatures[i]
+temperatures[i + 2]
+```
+
+<br/>
+import imgArrayExpression from './images/arrays-expression.png';
+
+<a id="FigureArrayExpression"></a>
+<img src={imgArrayExpression.src} alt="This diagram shows the syntax for an array expression in C#." width="100%" />
+<div class="caption">This diagram shows the syntax for an array expression in C#.</div><br/>
+
+## For Loops
+
+<br/>
+import imgArrayForLoop from './images/arrays-for-loops.png';
+
+<a id="FigureArrayForLoop"></a>
+<img src={imgArrayForLoop.src} alt="This diagram shows the syntax for a for loop in C#." width="100%" />
+<div class="caption">This diagram shows the syntax for a for loop in C#.</div><br/>
+
+The for loop is most often constructed with the following components which are separated by a semicolon ; in the brackets:
+
+- **init** - runs once before the loop starts.
+- **while** - the condition of the loop, checked each iteration.
+- **post loop action** - runs at the end of each loop.
+ 
+The for loop in the following code initialises an `i` *index* variable, and loops while `i < temperatures.Length`, adding 1 to i at the end of each loop.
+
+```cs
+int[] temperatures = { 22, 22, 23, 24, 24, 22 };
+for ( int i; i < temperatures.Length; i++ )
+{
+   Console.WriteLine(temperatures[i]);
+}
+
+int i = 0;
+while (i < temperatures.Length;)
+{
+   Console.WriteLine(temperatures[i]);
+   i++;
+}
+```
+
+:::note
+The for and while loops in the examples above are equivalent.
+:::
+
+## Generics
+
+Generics are used when a class needs to use or manage objects of some type, where the specifics of the type will be provided by the user of the class. For example the *List* class needs us to specify what type we want to store in the list. This way, the List class can store lists of *any* type!
+
+```cs
+List<int> list1;
+List<string> names;
+List<decimal> prices;
+List<SpaceShip> ships;
+```
+
+Generics are specified with the syntax `List<T>`, where `<T>` represents the position we specify the type. Wherever you see a `<T>`, it is the placeholder for a type.
+
+You can also initialise lists with array contents as shown below. More details from [msdn](https://msdn.microsoft.com/en-us/library/bb384062.aspx).
+
+## foreach loop:
+
+foreach loops are a handy way for us to more easily loop over arrays and lists. They handle the index variable for us, and are an alternative syntax to for loops.
+
+:::Note
+Sometimes you still want an index variable, so you could use a for loop wherever you can use a foreach loop.
+:::
+
+<br/>
+import imgArrayForEachLoop from './images/arrays-foreach-loops.png';
+
+<a id="FigureArrayForEachLoop"></a>
+<img src={imgArrayForEachLoop.src} alt="This diagram shows the syntax for a foreach loop in C#." width="100%" />
+<div class="caption">This diagram shows the syntax for a foreach loop in C#.</div><br/>
+
+```cs
+int[] temperatures = { 22, 22, 23, 24, 24, 22 };
+foreach (int temp in temperatures)
+{
+   Console.WriteLine(temp);
+}
+```
+
+A foreach loop is constructed with the following components:
+
+- A type (`int`) is the type of element in your array or list.
+- the `temp` is the name of the variable used in the loop, equivalent to `temperatures[i]`
+- the name of the array/list: in `temperatures`.
+
+*For more advanced array concepts, we can have 2 dimensional arrays:*
+```cs
+string[,] names;
+```
+
+And jagged 2D arrays:
+
+```cs
+int[][] values;
+```
+
+Read more on 2D arrays at [msdn](https://msdn.microsoft.com/en-us/library/2yd9wwz4.aspx).

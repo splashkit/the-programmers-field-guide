@@ -704,6 +704,15 @@ export default defineConfig({
                   },
                 },
                 {
+                  label: "Advanced Tour",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-2-organised-code/7-member-functions/2a-advanced-tour",
+                    collapsed: true,
+                  },
+                },
+                {
                   label: "Activities",
                   collapsed: true,
                   autogenerate: {
@@ -966,237 +975,236 @@ export default defineConfig({
                 },
               ],
             },
-            // {
-            //   label: "3. Unit Testing",
-            //   collapsed: true,
-            //   items: [
-            //     {
-            //       label: "Introduction",
-            //       link: "book/part-3-programs-as-concepts/3-unit-testing/0-overview",
-            //     },
-            //     {
-            //       label: "Guided Tour",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/3-unit-testing/1-tour",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "In Depth",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/3-unit-testing/2-trailside",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "Activities",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/3-unit-testing/3-explore",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "Campsite Reflection",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/3-unit-testing/4-camp",
-            //         collapsed: true,
-            //       },
-            //     },
-            //   ],
-            // },
-            // {
-            //   label: "4. Collections",
-            //   collapsed: true,
-            //   items: [
-            //     {
-            //       label: "Introduction",
-            //       link: "book/part-3-programs-as-concepts/4-collections/0-overview",
-            //     },
-            //     {
-            //       label: "Guided Tour",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/4-collections/1-tour",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "In Depth",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/4-collections/2-trailside",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "Activities",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/4-collections/3-explore",
-            //         collapsed: true,
-            //       },
-            //     },
-            //   ],
-            // },
-            // {
-            //   label: "5. Collaboration and Encapsulation",
-            //   collapsed: true,
-            //   items: [
-            //     {
-            //       label: "Introduction",
-            //       link: "book/part-3-programs-as-concepts/5-collaboration-encapsulation/0-overview",
-            //     },
-            //     {
-            //       label: "Guided Tour",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/5-collaboration-encapsulation/1-tour",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "In Depth",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/5-collaboration-encapsulation/2-trailside",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "Activities",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/5-collaboration-encapsulation/3-explore",
-            //         collapsed: true,
-            //       },
-            //     },
-            //   ],
-            // },
-            // {
-            //   label: "6. Structured Error Handling",
-            //   collapsed: true,
-            //   items: [
-            //     {
-            //       label: "Introduction",
-            //       link: "book/part-3-programs-as-concepts/6-structured-error-handling/0-overview",
-            //     },
-            //     {
-            //       label: "Guided Tour",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/6-structured-error-handling/1-tour",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "In Depth",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/6-structured-error-handling/2-trailside",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "Activities",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/6-structured-error-handling/3-explore",
-            //         collapsed: true,
-            //       },
-            //     },
-            //   ],
-            // },
-            // {
-            //   label: "7. Inheritance and Polymorphism",
-            //   collapsed: true,
-            //   items: [
-            //     {
-            //       label: "Introduction",
-            //       link: "book/part-3-programs-as-concepts/7-inheritance-polymorphism/0-overview",
-            //     },
-            //     {
-            //       label: "Guided Tour",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/7-inheritance-polymorphism/1-tour",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "In Depth",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/7-inheritance-polymorphism/2-trailside",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "Activities",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/7-inheritance-polymorphism/3-explore",
-            //         collapsed: true,
-            //       },
-            //     },
-            //   ],
-            // },
-            // {
-            //   label: "8. Interfaces and Abstract Classes",
-            //   collapsed: true,
-            //   items: [
-            //     {
-            //       label: "Introduction",
-            //       link: "book/part-3-programs-as-concepts/8-interfaces-abstract-classes/0-overview",
-            //     },
-            //     {
-            //       label: "Guided Tour",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/8-interfaces-abstract-classes/1-tour",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "In Depth",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/8-interfaces-abstract-classes/2-trailside",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "Activities",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-3-programs-as-concepts/8-interfaces-abstract-classes/3-explore",
-            //         collapsed: true,
-            //       },
-            //     },
-            //   ],
-            // },
+            {
+              label: "3. Collections",
+              collapsed: true,
+              items: [
+                {
+                  label: "Introduction",
+                  link: "book/part-3-programs-as-concepts/3-collections/0-overview",
+                },
+                {
+                  label: "Overview",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/3-collections/0-panorama",
+                    collapsed: true,
+                  },
+                },              
+                {
+                  label: "Guided Tour",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/3-collections/1-tour",
+                    collapsed: true,
+                  },
+                },
+                // {
+                //   label: "In Depth",
+                //   collapsed: true,
+                //   autogenerate: {
+                //     directory:
+                //       "book/part-3-programs-as-concepts/3-collections/2-trailside",
+                //     collapsed: true,
+                //   },
+                // },
+                // {
+                //   label: "Activities",
+                //   collapsed: true,
+                //   autogenerate: {
+                //     directory:
+                //       "book/part-3-programs-as-concepts/3-collections/3-explore",
+                //     collapsed: true,
+                //   },
+                // },
+              ],
+            },
+            {
+              label: "4. Collaboration",
+              collapsed: true,
+              items: [
+                {
+                  label: "Introduction",
+                  link: "book/part-3-programs-as-concepts/4-collaboration/0-overview",
+                },
+                {
+                  label: "Overview",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/4-collaboration/0-panorama",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Guided Tour",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/4-collaboration/1-tour",
+                    collapsed: true,
+                  },
+                },
+                // {
+                //   label: "In Depth",
+                //   collapsed: true,
+                //   autogenerate: {
+                //     directory:
+                //       "book/part-3-programs-as-concepts/4-collaboration/2-trailside",
+                //     collapsed: true,
+                //   },
+                // },
+                // {
+                //   label: "Activities",
+                //   collapsed: true,
+                //   autogenerate: {
+                //     directory:
+                //       "book/part-3-programs-as-concepts/4-collaboration/3-explore",
+                //     collapsed: true,
+                //   },
+                // },
+              ],
+            },
+            {
+              label: "5. Error Handling",
+              collapsed: true,
+              items: [
+                {
+                  label: "Introduction",
+                  link: "book/part-3-programs-as-concepts/5-error-handling/0-overview",
+                },
+                {
+                  label: "Overview",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/5-error-handling/0-panorama",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Guided Tour",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/5-error-handling/1-tour",
+                    collapsed: true,
+                  },
+                },
+                // {
+                //   label: "In Depth",
+                //   collapsed: true,
+                //   autogenerate: {
+                //     directory:
+                //       "book/part-3-programs-as-concepts/5-error-handling/2-trailside",
+                //     collapsed: true,
+                //   },
+                // },
+                // {
+                //   label: "Activities",
+                //   collapsed: true,
+                //   autogenerate: {
+                //     directory:
+                //       "book/part-3-programs-as-concepts/5-error-handling/3-explore",
+                //     collapsed: true,
+                //   },
+                // },
+              ],
+            },
+            {
+              label: "7. Inheritance",
+              collapsed: true,
+              items: [
+                {
+                  label: "Introduction",
+                  link: "book/part-3-programs-as-concepts/6-inheritance/0-overview",
+                },
+                {
+                  label: "Overview",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/6-inheritance/0-panorama",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Guided Tour",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/6-inheritance/1-tour",
+                    collapsed: true,
+                  },
+                },
+                // {
+                //   label: "In Depth",
+                //   collapsed: true,
+                //   autogenerate: {
+                //     directory:
+                //       "book/part-3-programs-as-concepts/6-inheritance/2-trailside",
+                //     collapsed: true,
+                //   },
+                // },
+                // {
+                //   label: "Activities",
+                //   collapsed: true,
+                //   autogenerate: {
+                //     directory:
+                //       "book/part-3-programs-as-concepts/6-inheritance/3-explore",
+                //     collapsed: true,
+                //   },
+                // },
+              ],
+            },
+            {
+              label: "8. Abstract Interfaces",
+              collapsed: true,
+              items: [
+                {
+                  label: "Introduction",
+                  link: "book/part-3-programs-as-concepts/7-abstract-interfaces/0-overview",
+                },    
+                {
+                  label: "Overview",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/7-abstract-interfaces/0-panorama",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Guided Tour",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/7-abstract-interfaces/1-tour",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "In Depth",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/7-abstract-interfaces/2-trailside",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Activities",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-3-programs-as-concepts/7-abstract-interfaces/3-explore",
+                    collapsed: true,
+                  },
+                },
+              ],
+            },
             // {
             //   label: "9. Design Principles and Patterns",
             //   collapsed: true,

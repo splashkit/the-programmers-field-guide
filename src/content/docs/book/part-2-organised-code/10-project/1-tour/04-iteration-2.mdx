@@ -199,7 +199,7 @@ cheese_data read_cheese()
 
     result.name = read_string("Enter cheese name: ");
     result.weight = read_double("Enter weight in stock (kg): ");
-    result.price_per_kg = read_int("Enter price per kg (cents): ");
+    result.price_per_kg = read_integer("Enter price per kg (cents): ");
 
     return result;
 }
@@ -227,7 +227,7 @@ main_menu_option read_main_menu_option()
     write_line("1. Add cheese");
     write_line("2. Print cheese list");
 
-    return (main_menu_option)read_int("Select an option (0-2): ", 0, 2);
+    return (main_menu_option)read_integer("Select an option (0-2): ", 0, 2);
 }
 
 /**
@@ -357,7 +357,7 @@ cheese_data read_cheese()
 
     result.name = read_string("Enter cheese name: ");
     result.weight = read_double("Enter weight in stock (kg): ");
-    result.price_per_kg = read_int("Enter price per kg (cents): ");
+    result.price_per_kg = read_integer("Enter price per kg (cents): ");
 
     return result;
 }
@@ -371,17 +371,17 @@ void edit_cheese(cheese_data &cheese)
 {
     write_line("Editing cheese: " + cheese_to_string(cheese, true));
     
-    if ( read_int("Do you want to edit the name? (1 for yes, 0 for no): ", 0, 1) == 1 )
+    if ( read_integer("Do you want to edit the name? (1 for yes, 0 for no): ", 0, 1) == 1 )
     {
         cheese.name = read_string("Enter new cheese name: ");
     }
-    if ( read_int("Do you want to edit the weight? (1 for yes, 0 for no): ", 0, 1) == 1 )
+    if ( read_integer("Do you want to edit the weight? (1 for yes, 0 for no): ", 0, 1) == 1 )
     {
         cheese.weight = read_double("Enter new weight in stock (kg): ");
     }
-    if ( read_int("Do you want to edit the price? (1 for yes, 0 for no): ", 0, 1) == 1 )
+    if ( read_integer("Do you want to edit the price? (1 for yes, 0 for no): ", 0, 1) == 1 )
     {
-        cheese.price_per_kg = read_int("Enter new price per kg (cents): ");
+        cheese.price_per_kg = read_integer("Enter new price per kg (cents): ");
     }
 }
 
@@ -423,7 +423,7 @@ int select_cheese(vector<cheese_data> &cheeses)
 
     print_cheese_list(cheeses, true);
 
-    return read_int("Select cheese (0 - " + to_string(cheeses.size()) + "): ", 0, cheeses.size()) - 1;
+    return read_integer("Select cheese (0 - " + to_string(cheeses.size()) + "): ", 0, cheeses.size()) - 1;
 }
 
 /**
@@ -464,7 +464,7 @@ main_menu_option read_main_menu_option()
     write_line("2. Edit cheese");
     write_line("3. Print cheese list");
 
-    return (main_menu_option)read_int("Select an option (0-3): ", 0, 3);
+    return (main_menu_option)read_integer("Select an option (0-3): ", 0, 3);
 }
 
 /**

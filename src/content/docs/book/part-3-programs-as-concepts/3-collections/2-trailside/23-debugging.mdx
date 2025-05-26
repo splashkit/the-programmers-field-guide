@@ -1,0 +1,71 @@
+---
+title: Debugging
+---
+
+
+See how to work with a debugger to step though and inspect values as your program runs.
+
+Software development tools include debuggers that allow you to control running programs, and inspect values as your program runs. For simple problems this is often an effective means of working out what is going wrong in a given scenario. In this video we will show you how to use the Debugger in Visual Studio Code to debug your C# programs.
+
+[Download](/resources/code-examples/part-2/5-working-with-multiples/using-debugger/UsingDebugger.cs) the code and resources used in this video, or view the code below
+
+<br/>
+<a id="ListingUsingDebugger"></a>
+
+```csharp
+using System;
+
+class Program
+{
+  public static int ReadInteger(string prompt)
+  {
+    while (true)
+    {
+      try
+      {
+        Console.Write(prompt);
+        return Convert.ToInt32(Console.ReadLine());
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine(e.Message);
+      }
+    }
+  }
+
+  public static int[] Insert(int[] data, int position, int value)
+  {
+    int[] newArray = new int[data.Length + 1];
+
+    for (int i = 0; i < position; i++)
+    {
+      newArray[i] = data[i];
+    }
+
+    newArray[position] = value;
+
+    for (int i = position + 1; i < newArray.Length; i++)
+    {
+      newArray[i] = data[i-1];
+    }
+
+    return newArray;
+  }
+
+  public static void Main()
+  {
+    int[] temperatures = new int[ReadInteger("How many temps???")];
+
+    for(int i = 0; i < temperatures.Length; i++)
+    {
+        temperatures[i] = ReadInteger("Enter temperature for the day: ");
+    }
+
+    for(int i = 0; i < temperatures.Length; i++)
+    {
+        Console.WriteLine("Temperature on day " + i + " is " + temperatures[i]);
+    }
+  }
+```
+<div class="caption">Using the Debugger</div>
+

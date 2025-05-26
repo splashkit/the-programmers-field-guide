@@ -1,0 +1,48 @@
+---
+title: Working Together
+---
+
+Examine how objects must work together in order to achieve more complex system functions.
+
+Objects know and can do things, but to achieve anything beyond simple tasks a program's objects must work together. This can be achieved by getting objects to know each other.
+
+Key to this is the fact that variables and objects are distinct. C# has two different kinds of types: **value types** and **reference types**.
+
+### Value and Reference Types
+
+A value type stores its value directly within the variable (hence the name value type). In this case, you can picture the variable as the container within which the value is stored. Many of the built in types are value types including: `int`, `double`, and `bool`.
+
+In contrast, reference types store a reference to a value within the variable rather than the value itself. Classes are reference types, which is why you need to use **new** in order to create the actual objects. The object itself does not exist within the variable, instead the variable stores the location where the object is in memory.
+
+The following image shows a visualisation of the difference between value and reference types. In this picture, the variable `count` is storing an `int` **value**. Notice that the value in the variable, is its value. In contrast, the variable `p` is storing a reference to a `Person` object that is actually located elsewhere in memory.
+
+![Diagram showing reference vs value](./images/sit771-Referencevsvalue.png)
+
+Also notice that the `age` within the person is storing a value. This is an `int` field, so it stores the value directly within the object. When you access this field, you are accessing the value directly. In contrast, the name is a `string`. This is a **reference** type in C#, so it stores a reference to the name which is actually located within a separate string object.
+
+### Object Collaborations
+
+The fact that objects are stored as references makes it possible for us to setup dynamic links between objects. One object may be referred to by many variables, allowing it to be known and used by many other objects.
+
+Therefore, to setup a collaboration only requires an object to have a field which is used to refer to another object. It would even be possible for one object to have a field that referred to itself if that was needed.
+
+Once the relationship is setup, the object can be accessed and used via the field. This will allow one object to ask another to perform tasks on its behalf.
+
+For example, the Light Simulator object knows about a Light Bulb. So when the simulator performs its Draw method, it can ask the light to draw. Similarly, it can ask the Light Bulb to toggle its power or ask it for things that it know. The Light Simulator collaborates with the Light Bulb in order to achieve program goals.
+
+The key here is to understand that object variables are used to refer to objects, and the object is not directly stored within the variable. This makes it possible to have many different ways of getting to the same object. Each object may know, and be known by, many other objects. This is illustrated in the following picture which shows the `Person` object being accessed in multiple ways.
+
+![Diagram showing one object accessed in many ways.](./images/sit771-oneObject.png)
+
+
+
+### Further Reading
+
+Read about the following related pages:
+
+* [Value and Reference Types](https://en.wikibooks.org/wiki/C_Sharp_Programming/Variables#Value_types) in the online C# book.
+* [Types](https://msdn.microsoft.com/en-us/library/ms173104.aspx) in the C# Programming Guide.
+
+### Your Task
+
+Think about a program you are interested in making, and reflect on how the objects will need to work together. Let us know what you think in the comments.

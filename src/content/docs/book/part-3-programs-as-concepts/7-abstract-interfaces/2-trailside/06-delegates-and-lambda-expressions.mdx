@@ -1,0 +1,104 @@
+---
+title: Delegates and Lambda Expressions
+---
+
+See how C# lets you store and work with methods in variables, and create methods in-line in the code with lambda expressions.
+
+Delegates and lambdas are an advanced programming concept, so you may need to go over this a couple of times before it makes sense. Don't worry if it doesn't make sense the first time you go through this.
+
+Interfaces are a great way of providing a means of indicating the features that are required in order for an object to be used in a given scenario. However, this can be overkill when all we needed was a single method. For example, in sort we only needed a method that could compare two objects of the type we were sorting. With interfaces we added that ability to one of the objects, but this makes it challenging to change the way we sort these objects. If you want to sort in a different way you somehow need to tell the object so it can change how it does the comparison.
+
+To get around this, and similar situations, C# and other modern languages provide a means of packaging up and storing a method in a variable. We can then use this as a variable, so we can pass it as a parameter to a method, and we can treat it like a method. So we can use the variable to run the code in the method that it refers to. In C# this capability comes from the **delegate** type.
+
+A delegate allows you to specify the kind of method that you want to be able to store in a variable. The following code demonstrates how to declare delegates in C#, one without generics and one with generics. These delegates describe a method that takes in two parameters, and returns a integer (`int`) value. These `Comparison` delegates can be used as a type for variables that will store these values.
+
+~~~cs
+delegate int Comparison(Object first, Object second);
+delegate int Comparison<T>(T first, T second);
+~~~
+
+You can then use the delegate as a type for variables that you create, and you can assign this any method that matches that signature. Have a look at the following code, for example. It declares a `CompareCosts` method that takes in two `StockItem` objects and returns an integer. In `SortByCost` we can then create a `Comparison<StockItem>` variable, and assign it the method `CompareCosts`. Notice that we are not calling `CompareCosts` here where it is assigned to `compare`. There are no brackets after `CompareCosts` and no values passed to its parameters. Instead, we are storing `CompareCosts` itself into the `compare` variable. We could now use this variable to call `CompareCosts`, just as we could call it directly on the method itself.
+
+~~~cs
+public class StockManager
+{
+    private int CompareCosts(StockItem item1, StockItem item2)
+    {
+        return item1.Cost.CompareTo(item2.Cost);
+    }
+
+    public void SortByCost()
+    {
+        Comparison<StockItem> compare;
+
+        compare = CompareCosts;
+
+        _items.Sort(compare);
+    }
+}
+~~~
+
+The sort method can now use the `Comparison` that we passed it to work out when to swap values in the List. The following code demonstrates how this could work. Notice here that we use the `compare` parameter as if it were a method inside the if statement. This code will call whichever method was passed into the `Sort` method. So in the above code it would call `CompareCosts` and be passed the two `StockItem` objects from within the list.
+
+~~~cs
+public void Sort(Comparison<T> compare)
+{
+    for( int i = 0; i < _data.Length - 1; i++ )
+    {
+        for( int j = 0; j < _data.Length - 1; j++ )
+        {
+            if ( compare( _data[j], _data[j+1] ) > 0 )
+            {
+                Swap(_data[j], _data[j+1]);
+            }
+        }
+    }
+}
+~~~
+
+## Lambda Expressions
+
+With delegates, we can now pass methods around as parameters and have other code execute these methods when they need them. Sometimes it can be convenient to create a method in-line, without the overhead of declaring an explicit method within the class itself. Lambda Expressions, lambdas for short, provide a convenient way of quickly coding up the steps of a method within a statement. The following code demonstrates how to create a lambda for a `Comparison<StockItem>` delegate. 
+
+~~~cs
+Comparison<StockItem> compare;
+
+compare = (StockItem item1, StockItem item2) => item1.Name.CompareTo ( item2.Name );
+~~~
+
+The lambda itself is the code `(StockItem item1, StockItem item2) -> item1.Name.CompareTo ( item2.Name );`. The names in the brackets are the parameters going into this method, with the code after the `=>` being the statement that this lambda will run. If you want to run multiple statements in the lambda, you can use the **compound statement** (`{...}`) to group these together.
+
+In many cases the compiler can work out the types of the parameters for us, so you will often see lambda expressions where the parameter types are omitted. For example, the following code is identical to the above code as the C# compiler knows that the delegate needs to take in two `StockItem` parameters.
+
+~~~cs
+Comparison<StockItem> compare;
+
+compare = (item1, item2) => item1.Name.CompareTo ( item2.Name );
+~~~
+
+## Closures
+
+As lambdas are coded within other methods they gain a special feature known as a **closure**. This means that the lambda can access data from its enclosing method, in much the same way that an object's methods can access its fields. This is demonstrated in the following code in which the lambda accesses the `compareName` local variable. Notice that `compareName` is not declared within the lambda itself, it is being captured from the broader scope.
+
+~~~cs
+bool compareName = true;
+Comparison<StockItem> compare;
+
+compare = (item1, item2) => {
+    if ( compareName )
+        return item1.Name.CompareTo ( item2.Name );
+    else
+        return item1.Cost.CompareTo ( item2.Cost );
+}
+~~~
+
+Closures make it possible for you to provide additional data to the lambda that would not have been easy to achieve by other means. The above example shows a way for the lambda to know how you want the data compared, while still having the method only be passed the two values it is comparing.
+
+The next video will demonstrate the use of delegates and lambdas with the list to allow different ways of sorting.
+
+## Your Task
+
+Think about delegates and lambdas, do they fully replace the need for interfaces? Have a think and let us know your thoughts in the comments.
+
+## Further Reading
+[Delegates](https://en.wikibooks.org/wiki/C_Sharp_Programming/Delegates_and_Events) in the C# online text.

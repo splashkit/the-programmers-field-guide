@@ -1,0 +1,30 @@
+---
+title: Syntax Guide
+---
+
+## Lambda Expressions
+
+<br/>
+import imgLambdaExpressions from './images/lambda-expressions.png';
+
+<a id="FigureLambdaExpressions"></a>
+<img src={imgLambdaExpressions.src} alt="This diagram shows the syntax for lambda expressions in C#" width="100%" />
+<div class="caption">This diagram shows the syntax for lambda expressions in C#</div><br/>
+
+The first example uses syntax which supports multiple lambda arguments 
+
+```cs
+Comparison compare; 
+compare = (StockItem item1, StockItem item2) => item1.Name.CompareTo ( item2.Name );
+```
+
+The second example is a single lambda argument expression, in which no braces are needed () 
+
+```cs
+cs var doubleIt = x => x * 2;
+```
+
+- The var keyword is used to tell the compiler to determine the type of the variable. This is useful for us in the above example because it means any type of number will be doubled and stored.
+
+Read more about var at [msdn](https://msdn.microsoft.com/en-us/library/bb383973.aspx).
+Read more about var at msdn.
