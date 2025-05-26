@@ -1,0 +1,270 @@
+---
+title: Account Class & Objects
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+To play around with the idea of member functions, let's build a simple bank account class. We will keep this simple, so we can focus on the basics of combining data and methods in a class, and using this class to create objects.
+
+```
+Class: Bank Account
+Fields:
+ - name: the name of the account. (public)
+ - balance: the funds within the account. In cents. (private)
+Constructors:
+  - One that accepts the name and balance, and initialises these.
+  - Default constructor sets the name to a default value and the balance to 0.
+Methods:
+ - deposit: will increase the balance by a given amount.
+ - withdraw: will decrease the balance by a given amount.
+ - print: will output its details to the terminal.
+ - get_balance: will return the current balance.
+```
+
+In `main`, we can then create a few account objects, deposit and withdraw some funds, and get them to print their details to the terminal.
+
+:::tip
+
+Remember that a class and a struct are almost the same thing. We will use our class to contain the fields, constructors, and methods described above.
+
+:::
+
+## Creating your class
+
+To start this program, you will need to declare the class, and code within this the two fields. This should be very similar to coding in the struct, but you need to indicate the members that are visible outside the class using the `public:` keyword. For now, let's make the balance private and the name public.
+
+Here is some starter code to get us going.
+
+```cpp
+#include "splashkit.h"
+
+class account
+{
+    // private members here...
+
+    public:   
+        // public members here...
+};
+
+int main()
+{
+    return 0;
+}
+```
+
+:::info
+Remember the main difference in C++ between a struct and a class is that class members are private by default. We will review this in depth in the Part 3.
+:::
+
+Have a go at adding the fields to your class.
+
+<Accordion>
+  <AccordionItem
+    header="Code for fields in the account"
+  >
+
+```cpp {5-8,11-14}
+#include "splashkit.h"
+
+class account
+{
+    /**
+     * The balance of the account in cents.
+     */
+    int balance;
+
+    public:   
+        /**
+         * The name of the account holder.
+         */
+        string name;
+};
+
+int main()
+{
+    return 0;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+### Adding constructors
+
+You now have the class and its data, which we can extend with the two constructors
+
+We will provide two [constructors](/book/part-2-organised-code/7-member-functions/2-trailside/1-1-constructor) in the class, one that will accept parameters for the account name and balance and initialise these values within the object and a default constructor that will initialise the account name to a default string and the balance to 0. When implementing these remember that the constructor is a special method that has the same name as the class (or struct).
+
+Have a go at this yourself.
+
+<Accordion>
+  <AccordionItem
+    header="Code for constructors"
+  >
+
+```cpp {16-22,24-31}
+#include "splashkit.h"
+
+class account
+{
+    /**
+     * The balance of the account in cents.
+     */
+    int balance;
+
+    public:   
+        /**
+         * The name of the account holder.
+         */
+        string name;
+
+        account(string name, int balance)
+        {
+            // Initialises the account - this-> refers to the value being created.
+            // We need to use this-> to refer to the fields as the parameters have the same name
+            this->name = name;
+            this->balance = balance;
+        }
+
+        account()
+        {
+            // A default constructor lets you initialise the value when no parameters are passed
+            // Here we can access the fields directly
+            // this-> is not needed here, but can be used for clarity
+            name = "Account Holder Unknown";
+            balance = 0;
+        }
+};
+
+int main()
+{
+    return 0;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+### Adding the print method
+
+If we add the `print` [method](/book/part-2-organised-code/7-member-functions/2-trailside/1-2-methods) next, then we will be able to update `main` to create and print some account objects for us. This should output the account in any format you desire, as long as it shows the account name and the balance. As this is coded within the method, it will have access to account name and balance which are also coded within the class.
+
+Have a go at this yourself.
+
+<Accordion>
+  <AccordionItem
+    header="Code for print method"
+  >
+
+```cpp {35-38}
+#include "splashkit.h"
+
+using std::to_string;
+
+class account
+{
+    /**
+     * The balance of the account in cents.
+     */
+    int balance;
+
+    public:   
+        /**
+         * The name of the account holder.
+         */
+        string name;
+
+        account(string name, int balance)
+        {
+            // Initialises the account - this-> refers to the value being created.
+            // We need to use this-> to refer to the fields as the parameters have the same name
+            this->name = name;
+            this->balance = balance;
+        }
+
+        account()
+        {
+            // A default constructor lets you initialise the value when no parameters are passed
+            // Here we can access the fields directly
+            // this-> is not needed here, but can be used for clarity
+            name = "Account Holder Unknown";
+            balance = 0;
+        }
+
+        void print()
+        {
+            write_line(name + ": $" + to_string(balance / 100.0));
+        }
+};
+
+int main()
+{
+    return 0;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+## Making and using objects
+
+Now we can update main to test out this new class. Try creating different account objects, some on the stack and some on the heap (remembering to delete the ones from the heap). Get them to print out their messages.
+
+Have a go at this yourself.
+
+<Accordion>
+  <AccordionItem
+    header="Code to test accounts in main"
+  >
+
+```cpp
+int main()
+{
+    // Create 5 accounts objects on the stack
+    account a1("Atabak", 100);
+    account a2("Sheena", 734231);
+    account a3("Azadeh", 90210);
+    account a4("Jo", -1000);
+    account a5;
+
+    // Create an account object on the heap
+    // a6 is a pointer, the object is on the heap
+    account *a6 = new account("John", 109954);
+
+    // Print the accounts
+    a1.print();
+    a2.print();
+    a3.print();
+    a4.print();
+    a5.print();
+
+    // When using a pointer we use the -> notation
+    a6->print();
+
+    // Delete the object (pointer still exists)
+    delete a6;
+    a6 = nullptr;
+
+    return 0;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+:::tip
+
+Objects are values created from a struct or class type, where we are using member functions. As with these values before, they can exist on the stack or on the heap. Remember that when working with a pointer, the value/object exists elsewhere in memory.
+
+:::
+
+## Extending the class
+
+Have a go at adding the `deposit` and `withdraw` methods. These should accept an integer value for the amount to be deposited or withdrawn. Only change the balance if the value to be deposited/withdrawn is positive. Test this with a couple of the account objects in main, and make sure that their values are updated as expected.
+
+Try accessing the balance from inside main - notice how its private nature means that you cannot access this in the code. Add in the `get_balance` method to allow you to read the value of the balance from `main`.
+
+:::tip
+
+Notice how you can control access to the private `balance` field. Here we have a `get_balance` method that lets you read the value, and `deposit` and `withdraw` methods to allow you to change the balance. But, you cannot just set the balance to be any value you want. It has to do through those methods.
+
+:::

@@ -25,6 +25,7 @@ struct dynamic_array
      * @brief Create a new dynamic array with the indicated initial capacity.
      *
      * @param capacity its initial capacity
+     * @param default_value the value to return if the index is out of bounds
      */
     dynamic_array(unsigned int capacity, T default_value)
     {
@@ -118,7 +119,6 @@ struct dynamic_array
      * If the index is out of bounds, the function will return the indicated default value.
      *
      * @param index the index of the element to remove
-     * @param default_value the value to return if the index is out of bounds
      */
     T &get(unsigned int index)
     {
