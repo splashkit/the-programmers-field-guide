@@ -1,156 +1,126 @@
 ---
 title: Read a Potentiometer
 sidebar:
-    attrs:
-        class: pi
+  attrs:
+    class: pi
 ---
 
-import { Accordion, AccordionItem, Steps } from 'accessible-astro-components'
+import { Accordion, AccordionItem, Steps } from "accessible-astro-components";
 
 # Overview
 
-In this guide, we’ll explore how to use an ADC to read a potentiometer on your Raspberry Pi. A potentiometer is a variable resistor that lets you adjust a voltage level—perfect for creating dynamic inputs in your projects. With the ADS7830 ADC, we can convert the analog voltage from the potentiometer into digital values that your Raspberry Pi can process. Although our SplashKit setup doesn’t yet support ADC connections, we’re laying the groundwork for future lessons. Get ready to imagine the possibilities!
-
-:::caution
-**Note:**  
-Currently, our SplashKit setup doesn’t include an ADC connection. We’re laying the groundwork for future lessons where we’ll dive into interfacing with the ADS7830 and making full use of analog sensors. Stay tuned!
-:::
+In this guide, we’ll explore how to use SplashKit’s new ADC functions to read a potentiometer on your Raspberry Pi. A potentiometer is a variable resistor whose wiper outputs a voltage you can adjust—perfect for dynamic inputs. With the ADS7830 ADC module, SplashKit can now convert that analog voltage into digital values. Let’s dive in!
 
 # Hardware Setup
 
-To read a potentiometer using an ADC, you’ll need the following components:
+You’ll need:
 
-- **Potentiometer:** A device that allows you to vary the output voltage.
-- **ADS7830 ADC Module:** Converts the analog voltage from the potentiometer into a digital value.
-- **Breadboard and Jumper Wires:** For making secure connections.
-- **Raspberry Pi:** This will be connected to the ADC module via I²C or SPI (depending on your setup).
+- **Potentiometer** (3.3 V ↔ GND with wiper)  
+- **ADS7830 ADC Module** (I²C)  
+- **Breadboard & Jumper Wires**  
+- **Raspberry Pi** (with I²C enabled)
 
-### Wiring the Potentiometer
+### Wiring
 
-1. **Connect the Potentiometer:**
-   - Connect one outer terminal to the 3.3V supply.
-   - Connect the opposite outer terminal to Ground (GND).
-   - The middle terminal (wiper) will provide a variable voltage as you adjust the knob.
+1. **Potentiometer:**  
+   - Outer legs → 3.3 V and GND  
+   - Middle (wiper) → ADC input channel A0  
+2. **ADS7830 Module:**  
+   - Connect SDA, SCL, VCC (3.3 V) and GND to the Pi  
+   - Connect wiper to A0 on ADS7830
 
-2. **Connect to the ADS7830:**
-   - Wire the potentiometer’s wiper to one of the ADC’s analog input channels.
-   - Connect the ADC module to your Raspberry Pi following the module’s datasheet (typically via I²C).
+---
 
 # 1. Initialization
-
-Begin by initializing the ADC module. While we can’t interact with the ADC yet in SplashKit, here’s what the initialization might look like in pseudocode:
 
 ```csharp
 using System;
 using SplashKitSDK;
 using static SplashKitSDK.SplashKit;
 
-// Initialize the GPIO/ADC system (conceptual)
+
+// Prepare GPIO and I²C
 RaspiInit();
 
-// Initialize the ADC module (ADS7830)
-// This is a placeholder function since ADC support will be added in the future
-ADS7830Init();
-```
+// Open the ADS7830 on I2C bus 1, address 0x48
+AdcDevice adc = OpenAdc("ADC1", 1, 0x48, AdcType.Ads7830);
+````
 
-*Note:* `ADS7830Init()` is a fictional function representing the initialization of the ADC module.
+---
 
-# 2. Reading the Potentiometer Value
+# 2. Reading the Potentiometer
 
-Next, read the voltage value from the potentiometer using the ADC. In our planned implementation, we will prompt the user to adjust the potentiometer and then record the ADC value. Since we aren’t using loops or conditionals yet, we’ll read the value three separate times:
+We’ll take three readings—each after you adjust the knob and press Enter:
 
 ```csharp
 // First reading
-Console.WriteLine("Adjust the potentiometer, then hit Enter to record reading 1:");
-Console.ReadLine();  // Wait for user to press Enter
-// Read from ADC channel (e.g., channel 0)
-int reading1 = ADS7830ReadChannel(0);
-Console.WriteLine("Potentiometer Reading 1: " + reading1);
+WriteLine("Turn the knob, then press Enter to record reading 1:");
+ReadLine();
+int reading1 = ReadAdc(adc, AdcPin.AdcPin0);
+WriteLine($"Reading 1: {reading1}");
 
 // Second reading
-Console.WriteLine("Adjust the potentiometer again, then hit Enter for reading 2:");
-Console.ReadLine();
-int reading2 = ADS7830ReadChannel(0);
-Console.WriteLine("Potentiometer Reading 2: " + reading2);
+WriteLine("Adjust again, then press Enter for reading 2:");
+ReadLine();
+int reading2 = ReadAdc(adc, AdcPin.AdcPin0);
+WriteLine($"Reading 2: {reading2}");
 
 // Third reading
-Console.WriteLine("Adjust the potentiometer once more, then hit Enter for reading 3:");
-Console.ReadLine();
-int reading3 = ADS7830ReadChannel(0);
-Console.WriteLine("Potentiometer Reading 3: " + reading3);
+WriteLine("One more time—press Enter for reading 3:");
+ReadLine();
+int reading3 = ReadAdc(adc, AdcPin.AdcPin0);
+WriteLine($"Reading 3: {reading3}");
 ```
 
-*Note:* `ADS7830ReadChannel(int channel)` is a placeholder function that represents reading an analog value from the specified ADC channel.
+---
 
 # Full Code Example
 
-Below is the full code example combining initialization and the three readings. Remember, some functions are placeholders as ADC support in SplashKit will be added later.
-
 <Accordion>
   <AccordionItem header="Full Code (C#)">
-  
-  ```csharp
-  using System;
-  using SplashKitSDK;
-  using static SplashKitSDK.SplashKit;
-  
-  class ReadPotentiometerExample
-  {
-      static void Main(string[] args)
-      {
-          // Initialize the GPIO and ADC system
-          RaspiInit();
-          // Initialize the ADS7830 ADC module (placeholder)
-          ADS7830Init();
-  
-          // Prompt and record three readings from the potentiometer on ADC channel 0
-  
-          // First reading
-          Console.WriteLine("Adjust the potentiometer, then hit Enter to record reading 1:");
-          Console.ReadLine();  // Wait for user to press Enter
-          int reading1 = ADS7830ReadChannel(0);
-          Console.WriteLine("Potentiometer Reading 1: " + reading1);
-  
-          // Second reading
-          Console.WriteLine("Adjust the potentiometer again, then hit Enter for reading 2:");
-          Console.ReadLine();  // Wait for user input
-          int reading2 = ADS7830ReadChannel(0);
-          Console.WriteLine("Potentiometer Reading 2: " + reading2);
-  
-          // Third reading
-          Console.WriteLine("Adjust the potentiometer once more, then hit Enter for reading 3:");
-          Console.ReadLine();  // Wait for user input
-          int reading3 = ADS7830ReadChannel(0);
-          Console.WriteLine("Potentiometer Reading 3: " + reading3);
-  
-          // Clean up the GPIO/ADC system
-          RaspiCleanup();
-      }
-  
-      // Placeholder functions for ADC initialization and reading
-      static void ADS7830Init()
-      {
-          // Future implementation: Initialize the ADS7830 ADC module.
-          Console.WriteLine("Initializing ADS7830 ADC module... (placeholder)");
-      }
-  
-      static int ADS7830ReadChannel(int channel)
-      {
-          // Future implementation: Read and return the ADC value from the specified channel.
-          // For now, return a dummy value.
-          return 1234;
-      }
-  }
-  ```
-  
+
+```csharp
+using System;
+using SplashKitSDK;
+using static SplashKitSDK.SplashKit;
+
+
+// Initialize GPIO & Iï¿½C
+
+RaspiInit();
+// Open ADC device on bus 1, address 0x48
+AdcDevice adc = OpenAdc("ADC1", 1, 0x48, AdcType.Ads7830);
+// Three separate readings
+WriteLine("Turn the knob, then press Enter to record reading 1:");
+ReadLine();
+
+int r1 = ReadAdc(adc, AdcPin.AdcAdcPin0);
+WriteLine($"Reading 1: {r1}");
+WriteLine("Adjust again, then press Enter for reading 2:");
+ReadLine();
+
+int r2 = ReadAdc(adc, AdcPin.AdcAdcPin0);
+WriteLine($"Reading 2: {r2}");
+WriteLine("One more time, press Enter for reading 3:");
+ReadLine();
+
+int r3 = ReadAdc(adc, AdcPin.AdcAdcPin0);
+WriteLine($"Reading 3: {r3}");
+
+// Clean up
+CloseAdc(adc);
+RaspiCleanup();
+```
+
   </AccordionItem>
 </Accordion>
 
+---
+
 # Build and Run
 
-1. **Set Up Your Project:**  
-   Open your terminal and create a new C# console project:
-   
+1. **Create Project**
+
    ```bash
    mkdir ReadPotentiometer
    cd ReadPotentiometer
@@ -158,24 +128,25 @@ Below is the full code example combining initialization and the three readings. 
    dotnet add package SplashKit
    code .
    ```
-   
-2. **Paste the Code:**  
-   Replace the contents of your `Program.cs` (or equivalent) with the full code example above.
 
-3. **Build the Project:**
-   
+2. **Paste the Code** into `Program.cs`.
+
+3. **Build**
+
    ```bash
    dotnet build
    ```
 
-4. **Run the Program:**
-   
+4. **Run**
+
    ```bash
    dotnet run
    ```
 
+---
+
 # Expected Outcome
 
-When you run the program, you will be prompted three times to adjust the potentiometer and hit Enter. Each time, the program will read a value from the ADC (using our placeholder function) and print it to the console. In a future lesson, when ADC support is integrated into SplashKit, these readings will reflect the actual voltage from the potentiometer. For now, you should see a dummy value (e.g., 1234) printed for each reading.
+When you run the program, you’ll be prompted three times to adjust the potentiometer and press Enter. Each prompt will display the actual ADC reading from channel A0 (0–255). Enjoy exploring analog inputs with SplashKit’s new ADC support!
 
-Enjoy this journey into the analog world and get excited about the new possibilities that come with unlocking analog sensor inputs! Happy coding!
+![Terminal output of the potentiometer](./images/potentiometer_output.png)

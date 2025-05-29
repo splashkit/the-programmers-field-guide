@@ -1,11 +1,11 @@
 ---
 title: Read a GPIO Pin Value
 sidebar:
-    attrs:
-        class: pi
+  attrs:
+    class: pi
 ---
 
-import { Accordion, AccordionItem, Steps } from 'accessible-astro-components'
+import { Accordion, AccordionItem, Steps } from "accessible-astro-components";
 
 # Overview
 
@@ -57,22 +57,22 @@ Next, we read the state of the button three separate times. Each time, the progr
 
 ```csharp
 // First reading
-Console.WriteLine("Press your button, then hit Enter to record the reading:");
-Console.ReadLine();  // Wait for user to press Enter
+WriteLine("Press your button, then hit Enter to record the reading:");
+ReadLine();  // Wait for user to press Enter
 PinValues reading1 = RaspiRead(buttonPin);
-Console.WriteLine("Reading 1: " + reading1);
+WriteLine("Reading 1: " + reading1);
 
 // Second reading
-Console.WriteLine("Press your button again, then hit Enter:");
-Console.ReadLine();  // Wait for another press
+WriteLine("Press your button again, then hit Enter:");
+ReadLine();  // Wait for another press
 PinValues reading2 = RaspiRead(buttonPin);
-Console.WriteLine("Reading 2: " + reading2);
+WriteLine("Reading 2: " + reading2);
 
 // Third reading
-Console.WriteLine("Press your button once more, then hit Enter:");
-Console.ReadLine();  // Wait for another press
+WriteLine("Press your button once more, then hit Enter:");
+ReadLine();  // Wait for another press
 PinValues reading3 = RaspiRead(buttonPin);
-Console.WriteLine("Reading 3: " + reading3);
+WriteLine("Reading 3: " + reading3);
 ```
 
 # Full Code Example
@@ -86,78 +86,74 @@ Below is the complete code, combining initialization and three separate readings
   using System;
   using SplashKitSDK;
   using static SplashKitSDK.SplashKit;
-  
-  class ReadPinExample
-  {
-      static void Main(string[] args)
-      {
-          // Initialize the GPIO system
-          RaspiInit();
-  
-          // Define the button pin (using physical Pin 12)
-          Pins buttonPin = Pins.Pin12;
-  
-          // Set the button pin to input mode (GPIO_INPUT)
-          RaspiSetMode(buttonPin, PinModes.GpioInput);
-  
-          // First reading
-          Console.WriteLine("Press your button, then hit Enter to record the reading:");
-          Console.ReadLine();  // Wait for user to press Enter
-          PinValues reading1 = RaspiRead(buttonPin);
-          Console.WriteLine("Reading 1: " + reading1);
-  
-          // Second reading
-          Console.WriteLine("Press your button again, then hit Enter:");
-          Console.ReadLine();  // Wait for another press
-          PinValues reading2 = RaspiRead(buttonPin);
-          Console.WriteLine("Reading 2: " + reading2);
-  
-          // Third reading
-          Console.WriteLine("Press your button once more, then hit Enter:");
-          Console.ReadLine();  // Wait for another press
-          PinValues reading3 = RaspiRead(buttonPin);
-          Console.WriteLine("Reading 3: " + reading3);
-  
-          // Clean up the GPIO system
-          RaspiCleanup();
-      }
-  }
-  ```
-  
-  </AccordionItem>
+
+
+  // Initialize the GPIO system
+  RaspiInit();
+
+  // Define the button pin (using physical Pin 12)
+  Pins buttonPin = Pins.Pin12;
+
+  // Set the button pin to input mode (GPIO_INPUT)
+  RaspiSetMode(buttonPin, PinModes.GpioInput);
+
+  // First reading
+  WriteLine("Press your button, then hit Enter to record the reading:");
+  ReadLine();  // Wait for user to press Enter
+  PinValues reading1 = RaspiRead(buttonPin);
+  WriteLine("Reading 1: " + reading1);
+
+  // Second reading
+  WriteLine("Press your button again, then hit Enter:");
+  ReadLine();  // Wait for another press
+  PinValues reading2 = RaspiRead(buttonPin);
+  WriteLine("Reading 2: " + reading2);
+
+  // Third reading
+  WriteLine("Press your button once more, then hit Enter:");
+  ReadLine();  // Wait for another press
+  PinValues reading3 = RaspiRead(buttonPin);
+  WriteLine("Reading 3: " + reading3);
+
+  // Clean up the GPIO system
+  RaspiCleanup();
+
+````
+
+</AccordionItem>
 </Accordion>
 
 # Build and Run
 
-1. **Set Up Your Project:**  
-   Open your terminal and create a new C# console project:
-   
-   ```bash
-   mkdir ReadPin
-   cd ReadPin
-   dotnet new console
-   dotnet add package SplashKit
-   code .
-   ```
-   
+1. **Set Up Your Project:**
+ Open your terminal and create a new C# console project:
+
+ ```bash
+ mkdir ReadPin
+ cd ReadPin
+ dotnet new console
+ dotnet add package SplashKit
+ code .
+````
+
 2. **Paste the Code:**  
    Replace the contents of your `Program.cs` (or equivalent) with the full code example above.
 
 3. **Build the Project:**
-   
+
    ```bash
    dotnet build
    ```
 
 4. **Run the Program:**
-   
+
    ```bash
    dotnet run
    ```
 
 # Expected Outcome
 
-When you run the program, you will be prompted three times to press your button and hit Enter. Each time, the program reads the state of GPIO Pin 12 and prints the reading directly to the console. You might see outputs like:
+When you run the program, you will be prompted three times to press your button and hit Enter. Each time, the program reads the state of GPIO Pin 12 and prints the reading directly to the You might see outputs like:
 
 ```
 Reading 1: 0
@@ -165,7 +161,7 @@ Reading 2: 1
 Reading 3: 0
 ```
 
-*(The exact values depend on whether the button is pressed when you hit Enter.)*
+_(The exact values depend on whether the button is pressed when you hit Enter.)_
 
 After printing the three readings, the program cleans up the GPIO settings and exits.
 
