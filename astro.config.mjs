@@ -899,7 +899,7 @@ export default defineConfig({
               link: "book/part-3-programs-as-concepts/00-part-3-programs-as-concepts",
             },
             {
-              label: "1. Welcome Back to C#",
+              label: "1. Back to C# and Others",
               collapsed: true,
               items: [
                 {
