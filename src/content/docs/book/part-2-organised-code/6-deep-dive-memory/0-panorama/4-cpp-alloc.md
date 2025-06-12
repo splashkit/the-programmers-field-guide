@@ -2,7 +2,7 @@
 title: C++ Memory Allocations
 ---
 
-What we have looked at so far are the lower level, C functions for allocating and freeing memory. C++ includes a number of features that we will explore in [Member Functions](/book/part-2-organised-code/7-member-functions/0-overview.md) that impact memory management. As a result, you should use the following C++ functions when working with dynamic memory involving C++ types (such as `string`). These are not quite as flexible as the C functions, and there are ways of mixing these together as underneath they are both using the same operating system features - with the C++ versions building on top of the C functions.
+What we have looked at so far are the lower level, C functions for allocating and freeing memory. C++ includes a number of features that we will explore in [Member Functions](/book/part-2-organised-code/7-member-functions/0-overview) that impact memory management. As a result, you should use the following C++ functions when working with dynamic memory involving C++ types (such as `string`). These are not quite as flexible as the C functions, and there are ways of mixing these together as underneath they are both using the same operating system features - with the C++ versions building on top of the C functions.
 
 ![Code showing use of new and delete to allocate space](./images/new-delete.png)
 

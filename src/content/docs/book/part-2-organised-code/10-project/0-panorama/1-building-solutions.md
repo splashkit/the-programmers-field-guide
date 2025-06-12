@@ -4,7 +4,7 @@ title: Building Solutions
 
 Learning to build software takes practice. The main this is not to get too overwhelmed with everything. One of the key strategies for overcoming this is to break problems down into parts. This is referred to as **problem decomposition**, and is the key to dealing with the complexities of software development.
 
-As you get started with this, make sure to approach things [iteratively](./2-iterative-development). Do not try to do too much in any step. Get something simple working, then add a little, get it working, and repeat this until you achieve your goals.
+As you get started with this, make sure to approach things [iteratively](/book/part-2-organised-code/10-project/0-panorama/2-iterative-development). Do not try to do too much in any step. Get something simple working, then add a little, get it working, and repeat this until you achieve your goals.
 
 Computer software is complicated, involving many parts working together to achieve desired results. Utilisation of **decomposition** is critical to helping us work effectively. There are several tools we can use to help with this: functional decomposition, data organisation, and structured programming.
 

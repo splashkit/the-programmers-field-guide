@@ -2,7 +2,7 @@
 title: "Heap"
 ---
 
-When your program is executed, it is allocated memory to work with. To help ensure system security, this memory is divided into different areas based on the different kinds of values that need to be stored in memory. Previously, our programs' data was housed on the [stack](/book/part-2-organised-code/2-organising-code/2-trailside/01-1-the-stack) which is reserved for local variables and the data needed to keep track of function and procedure calls.
+When your program is executed, it is allocated memory to work with. To help ensure system security, this memory is divided into different areas based on the different kinds of values that need to be stored in memory. Previously, our programs' data was housed on the [stack](/book/part-2-organised-code/2-organising-code/2-trailside/05-the-stack) which is reserved for local variables and the data needed to keep track of function and procedure calls.
 
 The stack is an essential part of every program. The fact that it is managed by the compiler means that you do not need to think too much about memory allocation for these variables.
 
@@ -21,7 +21,7 @@ To work with the heap you will need to learn how to allocate, access, and free s
 
 - [Figure x.y](#FigureTheHeap) includes the following areas:
   1. Your program’s machine code is loaded into the code area.
-  2. [The stack](/book/part-2-organised-code/2-organising-code/2-trailside/01-1-the-stack) is used to manage the execution of the program’s functions and procedures.
+  2. [The stack](/book/part-2-organised-code/2-organising-code/2-trailside/05-the-stack) is used to manage the execution of the program’s functions and procedures.
   3. [Global variables](/book/part-2-organised-code/2-organising-code/2-trailside/06-global-variables) are allocated their own space.
   4. The new area is the **heap**. This is used to store all dynamically allocated values.
 - Values can be stored in the global variables, in local variables on the *stack*, and on the *heap* using dynamic memory allocation functions and procedures.
