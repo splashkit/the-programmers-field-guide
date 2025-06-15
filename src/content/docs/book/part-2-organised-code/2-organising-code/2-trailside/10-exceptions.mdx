@@ -1,0 +1,181 @@
+---
+title: Exceptions
+banner:
+    content: |
+        Advanced topic! You may skip this and return later...
+---
+
+import MySwiper from "/src/components/react/myswiper.jsx";
+
+import Slide1 from "./images/exception-slider/slider-1.png";
+import Slide2 from "./images/exception-slider/slider-2.png";
+import Slide3 from "./images/exception-slider/slider-3.png";
+import Slide4 from "./images/exception-slider/slider-4.png";
+import Slide5 from "./images/exception-slider/slider-5.png";
+import Slide6 from "./images/exception-slider/slider-6.png";
+import Slide7 from "./images/exception-slider/slider-7.png";
+import Slide8 from "./images/exception-slider/slider-8.png";
+import Slide9 from "./images/exception-slider/slider-9.png";
+import Slide10 from "./images/exception-slider/slider-10.png";
+import Slide11 from "./images/exception-slider/slider-11.png";
+import Slide12 from "./images/exception-slider/slider-12.png";
+
+export const ExceptionSwiper = [
+    {
+        src: Slide1.src,
+        altText:
+            "Try block registers exception handler",
+        tipHeader: "Try is encountered",
+        tips: [
+            "Try block registers we have catch blocks",
+            "The <code>check</code> variable is created in main",
+        ],
+    },
+    {
+        src: Slide2.src,
+        altText:
+            "Shows call to double_positive(5)",
+        tipHeader: "Normal Path",
+        tips: [
+            "Here we pass 5 to double_positive",
+            "This will let us see the normal behaviour",
+        ],
+    },
+    {
+        src: Slide3.src,
+        altText:
+            "In double_positive we do not throw an exception",
+        tipHeader: "Normal Path - no exception",
+        tips: [
+            "Value is not less than 0, so we skip the code that throws",
+        ],
+    },
+    {
+        src: Slide4.src,
+        altText:
+            "10 is returned as normal",
+        tipHeader: "Normal Path - value returned to caller",
+        tips: [
+            "We return 10 back to the caller - main",
+        ],
+    },
+    {
+        src: Slide5.src,
+        altText:
+            "Catch is skipped",
+        tipHeader: "Normal Path - catch skipped",
+        tips: [
+            "When we get to the end of the try block, we skip the catch blocks.",
+            "The catch statements are only executed if an exception is thrown",
+            "This should be the case most of the time",
+        ],
+    },
+    {
+        src: Slide6.src,
+        altText:
+            "Calling double_positive with a negative value",
+        tipHeader: "Exception Path - calling with negative value",
+        tips: [
+            "When we get to the end of the try block, we skip the catch blocks.",
+            "The catch statements are only executed if an exception is thrown",
+        ],
+    },
+    {
+        src: Slide7.src,
+        altText:
+            "Throw occurs in double_positive",
+        tipHeader: "Exception Path - exception thrown",
+        tips: [
+            "Value is less than 0, so we throw the message",
+            "Message is a string - not shown in the illustration",
+        ],
+    },
+    {
+        src: Slide8.src,
+        altText:
+            "Throw jumps into the exception handling code",
+        tipHeader: "Exception Path - exception back up stack for catch",
+        tips: [
+            "The exception handling code takes over, and will search back up the stack for a handler",
+            "double_positive ends, as there is no catch here",
+        ],
+    },
+    {
+        src: Slide9.src,
+        altText:
+            "Try is found in main",
+        tipHeader: "Exception Path - try is found in main",
+        tips: [
+            "Try is found in main - so the handler checks for a matching catch",
+            "We threw a string, and there is a matching block",
+            "Control will now continue within this catch block",
+        ],
+    },
+    {
+        src: Slide10.src,
+        altText:
+            "Exception is caugh",
+        tipHeader: "Exception Path - catch takes over",
+        tips: [
+            "Space for <code>e</code> is allocated on the stack",
+            "<code>e</code> is given the value thrown",
+            "The code in the catch is run",
+            "Other catch blocks will be skipped, if any exist",
+            "Execution will continue as normal from here",
+        ],
+    },
+    {
+        src: Slide11.src,
+        altText:
+            "Example where we throw an uncaught exception",
+        tipHeader: "Uncaught Exception Path - what if we throw an int in this case?",
+        tips: [
+            "If we change double_positive to throw an int",
+            "There is no matching catch",
+        ],
+    },
+    {
+        src: Slide12.src,
+        altText:
+            "Exception causes main to end and program to terminate",
+        tipHeader: "Uncaught Exception Path - main ends as well",
+        tips: [
+            "As there is no catch block to use, the current function ends too",
+            "This would continue to search further back in the stack, if there were more stack frames",
+            "In this case, when main ends the program terminates",
+            "The exception handler then outputs a message to help us understand what happened",
+        ],
+    },
+];
+
+Exceptions provide an alternate pathway to exit a function/procedure, one that is taken when there is an error or issue that means the function cannot perform its actions as normal.
+
+## Exceptions -- when, why, and how
+
+You should avoid using exceptions as much as possible, but they are useful when you start building libraries or other components where you do not have full control of how the code works. In these cases you can use exceptions as a way of saying "I can't do what you are asking...".
+
+For now, it is good to keep in mind that code you call may also throw exceptions.
+
+## In C/C++
+
+:::tip[Syntax]
+
+In C/C++ you can throw any type of data. The syntax is `throw` followed by the data to use as the exception.
+
+To catch, you need a `try` block followed by one or more `catch` blocks. In each catch you can specify the type of exception to catch by declaring a variable to store the exception within the catch block's parenthesis. You can also catch any exception using `catch(...) { }`.
+
+:::
+
+## Exceptions Up Close
+
+The following images will step you through execution of the throw and catch mechanic.
+
+<MySwiper client:only height="" images={ExceptionSwiper}></MySwiper>
+
+:::note[Summary]
+
+Exceptions are a structured mechanism that provide an alternate exit path from a function or procedure, one that is faciliated by the exception handling code provided by the language. The exception handler will search back through the stack for the first matching `catch` block, and it will return execution to that point. Where no matching catch blocks are found, the exception will terminate the program.
+
+Avoid using exceptions where you can, but these will come in handy when you start to build reusable utilities.
+
+:::

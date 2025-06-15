@@ -32,7 +32,7 @@ export default ({ images }) => {
       if (image.tips.length > 0) {
         tipAside = (
           <aside
-            aria-label={tipHeader}
+            aria-label="How does this work?" //{tipHeader}
             className="starlight-aside starlight-aside--tip"
           >
             <p className="starlight-aside__title" aria-hidden="true">
