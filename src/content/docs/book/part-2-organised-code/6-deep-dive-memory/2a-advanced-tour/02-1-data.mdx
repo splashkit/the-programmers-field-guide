@@ -3,6 +3,7 @@ title: Dynamic Array - Data
 sidebar:
     label: " - Data"
 ---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 Before we can write any functionality we need to get the data structure in place. We have the plan, so we can capture this in a comment. The following is the comment I added as a prompt to get copilot to help me out.
 
@@ -46,6 +47,41 @@ int main()
 
 Make sure this compiles before you move on.
 
+<Accordion>
+  <AccordionItem header="My code for if you get stuck">
+
+```cpp {12-18}
+
+/**
+ * @brief A dynamic array struct that contains the size, capacity,
+ *        and data pointer used to implement this dynamic structure.
+ *
+ * @tparam T the type of data to store in the dynamic array
+ * @field data a pointer to the data in the dynamic array on the heap
+ * @field size the number of elements used in the dynamic array
+ * @field capacity the number of elements the dynamic array can hold
+ */
+template <typename T>
+struct dynamic_array
+{
+    T *data;
+    unsigned int size;
+    unsigned int capacity;
+};
+
+
+int main()
+{
+  // Create a dynamic array of int
+  dynamic_array<int> *array;
+
+  return 0;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
 ## Creating a new dynamic array
 
 Next we need to have some code that will create new dynamic arrays for us. This can allocate space on the heap, and make sure that the fields are all setup correctly.
@@ -63,7 +99,7 @@ Try something like this as the prompt for this function.
  */
 ```
 
-Copilot will probably generate something close to what you need, but it will probably need some help. For me, it didn't think about the case that the `malloc` failed to allocate memory. So I added a comment `// Make sure that data was allocated, if not set capacity to 0` to ensure it had an if statement when assigning the capacity.
+Copilot will probably generate something close to what you need, but it will probably need some help. For me, it didn't *"think"* about the case that the `malloc` failed to allocate memory. So I added a comment `// Make sure that data was allocated, if not set capacity to 0` to ensure it had an if statement when assigning the capacity.
 
 :::tip
 
@@ -129,3 +165,100 @@ When you update the comment about initialising the array, you can remove the `;`
 Compile and run the program. While there is no output, at least you will know that it was able to create and free the space on the heap.
 
 Once this is working you can move on to adding the resizing the data in the array.
+
+<Accordion>
+  <AccordionItem header="My code for if you get stuck">
+
+```cpp {1,28-49,58-75,81,84,85}
+#include <cstdlib>
+
+/**
+ * @brief A dynamic array struct that contains the size, capacity,
+ *        and data pointer used to implement this dynamic structure.
+ *
+ * @tparam T the type of data to store in the dynamic array
+ * @field data a pointer to the data in the dynamic array on the heap
+ * @field size the number of elements used in the dynamic array
+ * @field capacity the number of elements the dynamic array can hold
+ * @field default_value the default value to use when getting an element
+ */
+template <typename T>
+struct dynamic_array
+{
+    T *data;
+    unsigned int size;
+    unsigned int capacity;
+};
+
+/**
+ * @brief Create a new dynamic array with the indicated initial capacity.
+ * 
+ * @tparam T the type of data the array will store
+ * @param capacity its initial capacity, with a default value of 50
+ * @return dynamic_array<T>* a pointer to the new dynamic array
+ */
+template<typename T>
+dynamic_array<T> *new_dynamic_array(unsigned int capacity = 50)
+{
+  dynamic_array<T> *result = (dynamic_array<T>*)malloc(sizeof(dynamic_array<T>));
+  // Make sure result was allocated
+  if (result == nullptr)
+  {
+    return result;
+  }
+  result->data = (T*)malloc(sizeof(T) * capacity);
+  result->size = 0;
+  // Make sure that data was allocated, if not set capacity to 0
+  if(result->data == nullptr)
+  {
+    result->capacity = 0;
+  }
+  else
+  {
+    result->capacity = capacity;
+  }
+  return result;
+}
+
+/**
+ * @brief Free the memory allocated to the dynamic array. Once freed
+ *        the data in the array will no longer be accessible.
+ * 
+ * @tparam T the data type of the dynamic array
+ * @param array a pointer to the dynamic array to free
+ */
+template<typename T>
+void delete_dynamic_array(dynamic_array<T> *array)
+{
+  // Ensure that the array is allocated
+  if (!array) return;
+
+  // Clear to ensure we remove any data from memory before freeing it
+  array->size = 0;
+  array->capacity = 0;
+  
+  // Free the data and the array itself
+  free(array->data);
+  // Ensure we don't have a dangling pointer
+  array->data = nullptr;
+
+  // Free the dynamic array itself
+  free(array);
+}
+
+int main()
+{
+  // Create a dynamic array of int
+  // and initialise it to a new dynamic array of 10 elements
+  dynamic_array<int> *array = new_dynamic_array<int>(10);
+
+  // Free the array and ensure we do not have a dangling pointer
+  delete_dynamic_array(array);
+  array = nullptr;
+  
+  return 0;
+}
+```
+
+  </AccordionItem>
+</Accordion>

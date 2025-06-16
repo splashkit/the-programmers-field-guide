@@ -1,0 +1,325 @@
+---
+title: Dynamic Array - Get and Set Elements
+sidebar:
+    label: " - Get and Set Elements"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+We can put data into the array, so the next step will be getting data out of the array.
+
+## Get
+
+We are getting close to a functional dynamic array. The data is all in the array, but we can't access it. Adding a `get` function will let us read the data from the array.
+
+This is now a case where we may not be able to do what we are asked. The main one I am thinking of is the case where we are asked to get a value for an invalid index, for example index -1 or an index larger than or equal to the current size of the array. To handle this we can throw an exception in those cases.
+
+:::tip[Revisit Exceptions]
+
+As this is the first time we are really using exceptions, you may want to go back and review how they work. Make sure to check out the exception sections: [exceptions overview](/book/part-2-organised-code/2-organising-code/0-panorama/07-exceptions) and [exceptions up close](/book/part-2-organised-code/2-organising-code/2-trailside/10-exceptions).
+
+:::
+
+Here is the prompt that I used to get this function started.
+
+```cpp
+/**
+ * @brief read and return the value of the indicated element from the dynamic array.
+ * 
+ * If the array is not allocated or the index is out of bounds, the function will throw a string exception message.
+ * 
+ * @tparam T the type of data in the dynamic array
+ * @param array the dynamic array to remove the element from
+ * @param index the index of the element to remove
+ * @throws a string message if the array is not allocated or the index is invalid
+*/
+```
+
+The code inside `get` should be quite small, and for me Copilot did ok with this. If needed you can add additional comments to help correct any issues that you identify.
+
+:::tip
+
+Notice how you have to know what you are doing. Here you want to make sure that:
+
+- The dynamic array is passed as a `const` pointer, as we do not change the array.
+- It checks for out of bounds. If you are using an `unsigned int` then you only need to guard against `index >= array->size`.
+- When index is not valid, it should throw an exception.
+- Otherwise, it can return the element from `array->data[index]`.
+
+:::
+
+We can extend main to now print out the values from the valid indexes, but we should also test printing out invalid indexes (within try blocks so we handle the resulting exceptions). Try coming up with prompts to get Copilot to help you with this. You want to make sure that you can see the data from within the array now, and that accessing invalid data results in exceptions, rather than accessing invalid memory locations.
+
+## Set
+
+The last function for this part is `set`. This is used to update a value in the array. You can use the following to help prompt Copilot.
+
+```cpp
+/**
+ * @brief set the value of the indicated element from the dynamic array.
+ * 
+ * If the index is out of bounds, the function will throw an string exception.
+ * 
+ * @tparam T the type of data in the dynamic array
+ * @param array the dynamic array to set the element in
+ * @param index the index of the element to change
+ * @param value the value to set the element to
+*/
+```
+
+When checking this, think about possible issues. The main things will be the array index, but also the possibility that `array` may be a `nullptr`.
+
+Once you have this implemented, update main so that you change the values in the array and then re-print them. When you have this working, you have a usable dynamic array. In the test we have got it working with an array of `int`, but it will also work with an array of any other type name.
+
+<Accordion>
+  <AccordionItem header="My code for if you get stuck">
+
+```cpp {2,4,157-170,182-196,210-238}
+#include <cstdlib>
+#include "splashkit.h"
+
+using std::to_string;
+
+/**
+ * @brief A dynamic array struct that contains the size, capacity,
+ *        and data pointer used to implement this dynamic structure.
+ *
+ * @tparam T the type of data to store in the dynamic array
+ * @field data a pointer to the data in the dynamic array on the heap
+ * @field size the number of elements used in the dynamic array
+ * @field capacity the number of elements the dynamic array can hold
+ * @field default_value the default value to use when getting an element
+ */
+template <typename T>
+struct dynamic_array
+{
+    T *data;
+    unsigned int size;
+    unsigned int capacity;
+};
+
+/**
+ * @brief Create a new dynamic array with the indicated initial capacity.
+ * 
+ * @tparam T the type of data the array will store
+ * @param capacity its initial capacity, with a default value of 50
+ * @return dynamic_array<T>* a pointer to the new dynamic array
+ */
+template<typename T>
+dynamic_array<T> *new_dynamic_array(unsigned int capacity = 50)
+{
+  dynamic_array<T> *result = (dynamic_array<T>*)malloc(sizeof(dynamic_array<T>));
+  // Make sure result was allocated
+  if (result == nullptr)
+  {
+    return result;
+  }
+  result->data = (T*)malloc(sizeof(T) * capacity);
+  result->size = 0;
+  // Make sure that data was allocated, if not set capacity to 0
+  if(result->data == nullptr)
+  {
+    result->capacity = 0;
+  }
+  else
+  {
+    result->capacity = capacity;
+  }
+  return result;
+}
+
+/**
+ * @brief Free the memory allocated to the dynamic array. Once freed
+ *        the data in the array will no longer be accessible.
+ * 
+ * @tparam T the data type of the dynamic array
+ * @param array a pointer to the dynamic array to free
+ */
+template<typename T>
+void delete_dynamic_array(dynamic_array<T> *array)
+{
+  // Ensure that the array is allocated
+  if (!array) return;
+
+  // Clear to ensure we remove any data from memory before freeing it
+  array->size = 0;
+  array->capacity = 0;
+  
+  // Free the data and the array itself
+  free(array->data);
+  // Ensure we don't have a dangling pointer
+  array->data = nullptr;
+
+  // Free the dynamic array itself
+  free(array);
+}
+
+/**
+ * @brief Resize the capacity of the dynamic array.
+ * 
+ * If the new capacity is smaller than the current size, the size will be updated to match the new capacity.
+ * 
+ * @tparam T the type of data in the dynamic array
+ * @param array the dynamic array to grow
+ * @param new_capacity the new capacity of the dynamic array
+ * @returns true if this succeeded, or false if it could not reallocate memory
+*/
+template<typename T>
+bool resize(dynamic_array<T> *array, unsigned int new_capacity)
+{
+  // Ensure that the array is allocated
+  if (!array) return false;
+
+  // Resize the data in the array
+  T* new_data = (T*)realloc(array->data, sizeof(T) * new_capacity);
+  // Check if the allocation failed
+  if (new_data == nullptr)
+  {
+    // We failed to allocate memory, so we can't resize the array
+    return false;
+  }
+
+  // Update the array's data and capacity
+  array->data = new_data;
+  array->capacity = new_capacity;
+
+  // Update the size if the new capacity is smaller than the current size
+  if (new_capacity < array->size)
+  {
+    array->size = new_capacity;
+  }
+
+  return true;
+}
+
+/**
+ * @brief Add an element to the end of the dynamic array
+ * 
+ * @tparam T the type of data in the dynamic array
+ * @param value the value to add to the end of the dynamic array
+ * @param array the dynamic array to add the value to
+ */
+template<typename T>
+bool add(dynamic_array<T> *array, T value)
+{
+  // Ensure that the array is allocated
+  if (!array) return false;
+
+  // Check if we need to resize the array, and if we failed to resize the array
+  // We double the capacity and add 1 to address issues where capacity is 0 initially
+  if (array->size >= array->capacity && !resize(array, array->capacity * 2 + 1))
+  {
+    // We didn't have space, and we failed to resize the array!
+    return false;
+  }
+
+  // Add the value to the end of the array
+  array->data[array->size] = value;
+  array->size++;
+
+  return true;
+}
+
+/**
+ * @brief read and return the value of the indicated element from the dynamic array.
+ * 
+ * If the array is not allocated or the index is out of bounds, the function will throw a string exception message.
+ * 
+ * @tparam T the type of data in the dynamic array
+ * @param array the dynamic array to remove the element from
+ * @param index the index of the element to remove
+ * @return a copy of the value at the specified index in the dynamic array
+ * @throws a string message if the array is not allocated or the index is invalid
+*/
+template<typename T>
+T get(const dynamic_array<T> *array, unsigned int index)
+{
+  // Ensure that the array is allocated
+  if (!array) throw string("Array is not allocated");
+
+  // Check if the index is out of bounds
+  if (index >= array->size)
+  {
+    throw string("Index out of bounds");
+  }
+
+  return array->data[index];
+}
+
+/**
+ * @brief set the value of the indicated element from the dynamic array.
+ * 
+ * If the index is out of bounds, the function will throw an string exception.
+ * 
+ * @tparam T the type of data in the dynamic array
+ * @param array the dynamic array to set the element in
+ * @param index the index of the element to change
+ * @param value the value to set the element to
+*/
+template<typename T>
+void set(dynamic_array<T> *array, unsigned int index, T value)
+{
+  // Ensure that the array is allocated
+  if (!array) throw string("Array is not allocated");
+
+  // Check if the index is out of bounds
+  if (index >= array->size)
+  {
+    throw string("Index out of bounds");
+  }
+
+  // Set the value at the specified index
+  array->data[index] = value;
+}
+
+int main()
+{
+  // Create a dynamic array of int
+  // and initialise it to a new dynamic array of 10 elements
+  dynamic_array<int> *array = new_dynamic_array<int>(10);
+
+  // Add 15 values to the array
+  for(int i = 0; i < 15; i++)
+  {
+    add(array, i);
+  }
+
+  // Reprint the size and capacity of the array after adding
+  write_line("size: " + to_string(array->size));
+  write_line("capacity: " + to_string(array->capacity));
+
+  // Print and update the values in the array, using the get and set functions
+  for(unsigned int i = 0; i < array->size; i++)
+  {
+    int value = get(array, i);
+    write_line(to_string(i) + " = " + to_string(value));
+    set(array, i, value * 2);
+  }
+
+  // Attempt to access an element out of bounds using get
+  try {
+    int value = get(array, 99);
+    write_line("ERROR! array[99] = " + to_string(value));
+    
+  } catch (const string &e) {
+    write_line("Caught exception: " + e);
+  }
+
+  // Attempt to access an element out of bounds using set
+  try {
+    set(array, 99, 100);
+    write_line("ERROR: Set array[99] to 100\n");
+    
+  } catch (const string &e) {
+    write_line("Caught exception: " + e);
+  }
+
+  // Free the array and ensure we do not have a dangling pointer
+  delete_dynamic_array(array);
+  array = nullptr;
+
+  return 0;
+}
+```
+
+  </AccordionItem>
+</Accordion>
