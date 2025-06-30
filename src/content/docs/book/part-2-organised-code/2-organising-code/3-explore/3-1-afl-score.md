@@ -82,41 +82,18 @@ Bye!
 
 :::caution
 
-Make sure you are using this to demonstrate how to build this using functions and procedures. Here are some functions and procedures you may want to consider adding:
+Make sure you are using this activity to demonstrate how to build a program using **functions** and **procedures**, and how to pass data to functions/procedures using **parameters**.
 
-<details>
-<summary>Functions to read and validate data from the user (strings, numbers, boolean)</summary>
+:::
 
-*Hint: Have a look at the [Explore functions](/book/part-2-organised-code/2-organising-code/1-tour/00-2-explore-functions) page.*
+:::tip[Hints:]
 
-</details>
+Here are some functions and procedures you may want to consider adding:
 
-<details>
-<summary>Output calculated details of each team (taking in the names and score details of the two teams)</summary>
-
-*Hint: This procedure should have 6 parameters.*
-
-</details>
-
-<details>
-<summary>Print menu</summary>
-
-*Hint: This procedure should have 2 parameters.*
-
-</details>
-
-<details>
-<summary>A function to calculate a score from a number of goals and behinds</summary>
-
-*Hint: This function should return an integer, and have 2 parameters.*
-
-</details>
-
-<details>
-<summary>A function to calculate and return the name of the winner, from the two team names and scores</summary>
-
-*Hint: This function should return a string, and have 4 parameters.*
-
-</details>
+- Functions to [read and validate data from the user](/book/part-2-organised-code/2-organising-code/1-tour/00-2-explore-functions) (strings, numbers, boolean).
+- Output calculated details of each team (taking in the names and score details of the two teams).
+- Print menu (taking in the names of the two teams).
+- A function to calculate a score from a number of goals and behinds.
+- A function to calculate and return the name of the winner, from the two team names and scores.
 
 :::
