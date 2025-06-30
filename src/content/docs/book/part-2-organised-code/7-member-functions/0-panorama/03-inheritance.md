@@ -4,7 +4,7 @@ title: Inheritance
 
 With classes (and structs in C++) we can now create objects that contain data and functionality. This different way of thinking about organising our code led to a new programming capability: *inheritance*.
 
-Inheritance lets you create a class that *inherits* all the features from a *parent* class. The *child* class can then add additional features (method and/or fields) and change (override) existing methods. This can be a very useful tool to help avoid repetition, but also in creating a *family* of related classes that all have similar features.
+Inheritance lets you create a class that *inherits* all the features from a *parent* class. The *child* class can then add additional features (methods and/or fields) and change (override) existing methods. This can be a very useful tool to help avoid repetition, but also in creating a *family* of related classes that all have similar features.
 
 :::note
 
@@ -78,6 +78,26 @@ class text_message
     {
         write_line("Message from " + sender + ": " + text);
     }
+
+    /**
+     * @brief Gets the sender of the message.
+     *
+     * @return string The sender of the message.
+     */
+    string get_sender()
+    {
+        return sender;
+    }
+
+    /**
+     * @brief Get the text of the message.
+     * 
+     * @return string The content of the message.
+     */
+    string get_text()
+    {
+        return text;
+    }
 };
 
 /**
@@ -87,7 +107,7 @@ class text_message
  * @field error_code The code associated with the error.
  * 
  * All error message are sent by the system, so the sender is hardcoded to "System".
- * When printed, it includes the error code for support reference.
+ * When printed, it includes the error code in the output.
  */
 class error_message : public text_message
 {
@@ -126,6 +146,10 @@ int main()
     error_message err("404", "This is an error message");
     err.print();
 
+    // We can also access inherited methods
+    write_line("Sender of error message: " + err.get_sender());
+    write_line("Text of error message: " + err.get_text());
+
     return 0;
 }
 ```
@@ -137,11 +161,14 @@ Message from Sender: This is a message
 
 Message from System: This is an error message
 Please contact support with code: 404
+Sender of error message: System
+Text of error message: This is an error message
 ```
 
 :::note
 
 - Notice how the error message class does not define a text or sender field. It inherits these from the text message parent class.
+- Objects of the error message class will have sender, text, and error code fields, as well as a print method.
 - Print must be marked as virtual to allow the error message class to override it.
 - You can think of the error message as building on the base set by text message.
 
