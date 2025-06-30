@@ -87,74 +87,36 @@ Make sure you are using this to demonstrate how to build this using functions an
 <details>
 <summary>Functions to read and validate data from the user (strings, numbers, boolean)</summary>
 
-| Return Type | Name      | Parameters |
-| ----------- | --------- | ----------------- |
-| `string` | read_string  | message prompt string |
-| `int`    | read_integer | message prompt string |
-| `int`    | read_integer_range | message prompt string,<br>minimum value,<br>maximum value |
-| `bool`   | read_boolean | message prompt string |
+*Hint: Have a look at the [Explore functions](/book/part-2-organised-code/2-organising-code/1-tour/00-2-explore-functions) page.*
 
 </details>
 
 <details>
-<summary>Output calculated details of each team</summary>
+<summary>Output calculated details of each team (taking in the names and score details of the two teams)</summary>
 
-This *procedure* should have **6** parameters:
-
-Team 1's name, team 1's goals, team 1's behinds, team 2's name, team 2's goals, and team 2's behinds.
+*Hint: This procedure should have 6 parameters.*
 
 </details>
 
 <details>
 <summary>Print menu</summary>
 
-This *procedure* should have **2** parameters:
-
-Team 1's name, and team 2's name.
+*Hint: This procedure should have 2 parameters.*
 
 </details>
 
 <details>
 <summary>A function to calculate a score from a number of goals and behinds</summary>
 
-This *function* should return an integer, and have **2** parameters:
-
-Goals scored and behinds scored.
+*Hint: This function should return an integer, and have 2 parameters.*
 
 </details>
 
 <details>
 <summary>A function to calculate and return the name of the winner, from the two team names and scores</summary>
 
-This *function* should return a string, and have **4** parameters:
-
-Team 1's name, team 1's score, team 2's name, and team 2's score.
+*Hint: This function should return a string, and have 4 parameters.*
 
 </details>
 
 :::
-
-<!-- Alternative below -->
-
-Procedures:
-
-| Name/Description | Parameters |
-| ----------- | --------------- |
-| Print menu | team 1's name, team 2's name |
-| Output details (taking in the two team names, as well as each team's goals and behinds) | team 1's name, team 1's goals, team 1's behinds, team 2's name, team 2's goals, team 2's behinds |
-
-User input functions:
-
-| Return Type | Name/Description | Parameters |
-| ----------- | ---------------- | ---------- |
-| `string` | read in a string from the user | message prompt string |
-| `int`    | read in an integer from the user | message prompt string |
-| `int`    | read in an integer from the user, within a specified range | message prompt string, minimum value, maximum value |
-| `bool`   | read in a boolean value from the user | message prompt string |
-
-Other functions:
-
-| Return Type | Name/Description | Parameters |
-| ----------- | ---------------- | ---------- |
-| `int` | A function to calculate a score from a number of goals and behinds | goals scored, behinds scored |
-| `string` | A function to calculate and return the name of the winner, from the two team names and scores | team 1's name, team 1's score, team 2's name, team 2's score |
