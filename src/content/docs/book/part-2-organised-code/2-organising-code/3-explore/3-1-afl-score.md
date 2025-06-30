@@ -80,19 +80,13 @@ Are you sure you want to quit? [Y/n]: y
 Bye!
 ```
 
-:::caution
-
-Make sure you are using this activity to demonstrate how to build a program using **functions** and **procedures**, and how to pass data to functions/procedures using **parameters**.
-
-:::
-
 :::tip[Hints:]
 
 Here are some functions and procedures you may want to consider adding:
 
 - Functions to [read and validate data from the user](/book/part-2-organised-code/2-organising-code/1-tour/00-2-explore-functions) (strings, numbers, boolean).
-- Output calculated details of each team (taking in the names and score details of the two teams).
-- Print menu (taking in the names of the two teams).
+- A procedure to output calculated details of each team (taking in the names and score details of the two teams).
+- A procedure to print the menu (taking in the names of the two teams).
 - A function to calculate a score from a number of goals and behinds.
 - A function to calculate and return the name of the winner, from the two team names and scores.
 
