@@ -2,7 +2,7 @@
 title: "Errors and Exceptions"
 banner:
     content: |
-        Advanced topic! You may skip this and return later...
+        Advanced topic! You may want to skip this and return later...
 ---
 
 In some cases our function and procedures only work when certain conditions are met. For example, a function that reads from a file may only succeed if the file is available, and accessible. To cater for these cases modern programming languages provide a mechanism called *exceptions*. This provides an alternate return option out of a function or procedure, but requires some new mechanisms within the calling function/procedure.

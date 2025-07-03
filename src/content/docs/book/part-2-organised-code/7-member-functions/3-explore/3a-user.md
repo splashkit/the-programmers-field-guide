@@ -4,10 +4,9 @@ sidebar:
     label: " - User Account"
 ---
 
-Create a class to represent a user account. This should have a username and a password. The password should be kept private, so that it cannot be read outside the class. The system will have a single user, which is set when the program starts. Allow the user to test the login, and to change their password. The change password method should accept the current password, and the new password, and only update the password if the existing passwords match.
+Create a class to represent a user account. This should have a username and a password. The password should be kept private, so that it cannot be read outside the class. The system will have a single user, which is set when the program starts. Allow the user to test the login, and to change their password. The change password method should accept the current password, and the new password, and only update the password if the existing passwords match. The code should also check the new password was not the previous password. You may choose to add additional constraints on the password as well.
 
 ```txt
-
 Username: Glory
 Password: 123Er
 - Account set.

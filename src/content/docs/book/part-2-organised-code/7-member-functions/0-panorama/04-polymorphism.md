@@ -1,5 +1,8 @@
 ---
 title: Polymorphism
+banner:
+    content: |
+        Advanced topic! You may want to skip this and return later...
 ---
 
 In programming, polymorphism means *many forms* and refers to the ability to use symbols/methods with different types. For example, at an operator level the symbol `+` can be used to work with integers, floating point values, and strings. So the one operator works with *many forms* of data. [Overloading](/book/part-2-organised-code/2-organising-code/2-trailside/09-overloading) is another example of polymorphism, where a given function/procedure/method name can accept different parameters.
@@ -13,8 +16,9 @@ Object-oriented programming and inheritance opens up a new opportunity for polym
 - With inheritance, the child class has inherited the features of the parent class. Therefore, any object of the child class can be used anywhere the parent is required. After all, it has all the required features.
 - Virtual methods include a lookup step, so that the actual method called will depend on the object. So calling print on a `text_message` reference will actually call the print method on the `error_message` class if the object is an `error_message`.
 - This ability to override methods is usually what people are referring to when they talk about polymorphism - though there are other forms of polymorphism.
-- In C++, you will need to use references or pointers to achieve this, as otherwise you have only the fixed space allocated to the class used to declare the variable.
 - In this context, the reference can refer to *many forms* of objects -- objects from the class itself, or from any child class that inherits from the class.
+- For languages like C++, when accessing an object via a reference, the type of the reference will determine the features that are accessible. This is enforced by the compiler, which wants assurances that the feature you are accessing exists.
+- In C++, you will need to use references or pointers to achieve this, as otherwise you have only the fixed space allocated to the class used to declare the variable.
 
 :::
 

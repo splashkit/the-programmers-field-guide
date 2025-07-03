@@ -1,5 +1,8 @@
 ---
 title: Inheritance
+banner:
+    content: |
+        Advanced topic! You may want to skip this and return later...
 ---
 
 With classes (and structs in C++) we can now create objects that contain data and functionality. This different way of thinking about organising our code led to a new programming capability: *inheritance*.
@@ -17,6 +20,9 @@ We will explore inheritance much more in Part 3, for the moment we will focus ju
 
 - Inheritance allows you to create a class that inherits all features from another class (its parent class).
 - In the child class, you can add new features and override any virtual methods (changing how they work on objects created from this class).
+- Inheritance is used to create a hierarchy of classes.
+- Inheritance involves generalisation/specialisation - more specific classes inhert features from the more general classes. In this way, more general/common features from the parent are inherited across all child classes.
+- The term *base class* can be used to describe a class from which other classes inherit. In our example, the `text_message` is a the base class from which `error_message` inherits.
 
 :::
 
@@ -24,7 +30,7 @@ We will explore inheritance much more in Part 3, for the moment we will focus ju
 
 The error message class is a kind of text message used to send system errors. Using inheritance, the error message class inherits all the features of a log message (so it has a sender and message text). The `error_message` class adds an error code field, a different constructor, and changes the way the print method works.
 
-```cpp
+```cpp {55-73,85-110,119-120,123-124}
 #include "splashkit.h"
 
 /**
