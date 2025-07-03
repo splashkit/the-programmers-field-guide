@@ -22,19 +22,19 @@ Click 10 targets to end the game.
 // end when there are no targets left to hit
 ```
 
-:::caution
+:::tip[Hints:]
 
-Make sure you are using this to demonstrate how to build this using functions and procedures. Here are some functions and procedures you may want to consider adding:
+Here are some functions and procedures you may want to consider adding:
 
-- Functions to read and validate data from the user (numbers)
+- Functions to [read and validate data from the user](/book/part-2-organised-code/2-organising-code/1-tour/00-2-explore-functions) (numbers)
 - A procedure to play the game
 - A procedure to draw the game, that uses a procedure to draw the target bar
 - A procedure to draw the target bar - using parameters for position and proportion of bar to be filled. This can be drawn with two rectangles - using the proportion to be filled for one dimension of the second rectangle.
-- Function (target hit) to check if the user has clicked, and the mouse is inside the target circle.
+- A function (target hit) to check if the user has clicked, and the mouse is inside the target circle.
 
 :::
 
-:::tip
+:::note[Useful SplashKit functions:]
 
 You can use the [point in circle](https://splashkit.io/api/geometry/#point-in-circle-with-values) function to test if the mouse is in the circle. See [mouse x](https://splashkit.io/api/input/#mouse-x) and [mouse y](https://splashkit.io/api/input/#mouse-y) to get the location of the mouse.
 
