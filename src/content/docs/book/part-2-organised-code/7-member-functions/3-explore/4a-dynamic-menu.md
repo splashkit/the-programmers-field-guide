@@ -25,7 +25,7 @@ With objects, inheritance, and polymorphism we can now replace this with a list 
 
 ## Creating User Actions
 
-To do this, we will create the following User Action abstract class and a couple of child classes.
+To do this, we will create the following User Action abstract class and a couple of child classes. Each user action will represent an item in the menu shown the user. We will be able to draw the menu from a list of user actions by calling each action's show method. The user will then be able to select the action to perform, and the code will call that user action's run method -- letting it perform what ever steps it required.
 
 ```txt
 Class: User Action <<abstract>>
@@ -34,7 +34,7 @@ Methods:
  - Run: Performs the action <<abstract>>
 ```
 
-As a test create the following two actions:
+As a test, create two specific actions:
 
 ```txt
 Class: Say Hello Action
@@ -52,7 +52,7 @@ In main, create an array (ideally a dynamic array using your code dynamic array 
 
 Create a `choose_and_run` procedure which accepts your array of user actions, loops through them, and outputs the options. Let the user select an option, and run it.
 
-Test that you can run one of the two actions.
+Test that you can run each of the two actions.
 
 ## Adding new actions
 
