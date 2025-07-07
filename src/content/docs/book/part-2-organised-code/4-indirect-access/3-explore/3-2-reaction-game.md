@@ -4,7 +4,7 @@ sidebar:
     label: " - Reaction game"
 ---
 
-Create a small target clicking game that works on reaction time to scale difficulty. When the game starts, fill a circle on the screen in a random location. The objective is to click this as quickly as possible. 
+Create a small target clicking game that works on reaction time to scale difficulty. When the game starts, fill a circle on the screen in a random location. The objective is to click this as quickly as possible.
 
 When the target is clicked, move it to a new position and adjust the radius to be proportional to the time taken. If the user takes more than 1 second (1000ms) make the circle slowly grow larger.
 

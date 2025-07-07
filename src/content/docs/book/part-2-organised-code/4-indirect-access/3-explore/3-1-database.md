@@ -28,7 +28,7 @@ Option: 2
 Amount deposited: -10
 Please enter a value larger than or equal to 0
 Amount deposited: 10
-Balance: 1010
+Balance: 1010.000000
 
 Actions:
 1: Print account details
@@ -41,7 +41,7 @@ Option: 3
 Amount withdrawn: -10
 Please enter a value larger than or equal to 0
 Amount withdrawn: 10
-Balance: 1000
+Balance: 1000.000000
 
 Actions:
 1: Print account details

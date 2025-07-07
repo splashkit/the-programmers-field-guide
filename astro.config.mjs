@@ -1496,7 +1496,7 @@ export default defineConfig({
           items: [
             {
               label: "Installation",
-              collapsed: true,
+              collapsed: false,
               autogenerate: {
                 directory:
                   "book/appendix/0-installation",
