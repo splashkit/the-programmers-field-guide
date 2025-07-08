@@ -8,7 +8,7 @@ A game in the Australian Football League consists of two teams aiming to achieve
 
 Build a program that allows the user to enter details of an AFL game, output scores and winners, and provide a menu for the user to update game details and output scores.
 
-An example of this running is shown below.
+An example of this running is shown below:
 
 ```txt
 Welcome to the AFL score calculator!
