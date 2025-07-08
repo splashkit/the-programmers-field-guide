@@ -26,11 +26,13 @@ When current state is...
     - showing details - when the user presses 1
     - showing menu - when the user presses 2
 - **showing details**:
-  - Clear the screen to blue
+  - Clear the screen to light blue
+  - Draw the player circle in a lighter color
+  - Draw a small black circle with a radius of 2 at the player location
   - Draw the player location to the screen
   - Change the current state to playing when the user presses space
 - **showing menu**:
-  - Clear the screen to green
+  - Clear the screen to light green
   - Change the current state to playing when the user presses space
   - Quit the game if the user presses q
 
