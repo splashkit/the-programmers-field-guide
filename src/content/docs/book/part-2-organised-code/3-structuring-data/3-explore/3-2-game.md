@@ -56,6 +56,6 @@ Here are some functions and procedures you may want to consider adding:
 
 You could consider using the [`point_2d`](https://splashkit.io/api/types/#point-2d) struct from SplashKit to store the x and y location of the player. Then you can use functions like [Random Screen Point](https://splashkit.io/api/geometry/#random-screen-point) to position the player, and [Point To String](https://splashkit.io/api/geometry/#point-to-string) to draw text with the player's position.
 
-You can find more information about SplashKit's [Color](https://splashkit.io/api/color/) options on the [SplashKit Colours](https://splashkit.io/guides/getting-started/11-colour-generator/) page.
+The [SplashKit Colors](https://splashkit.io/guides/getting-started/11-colour-generator/) page has a grid with all SplashKit's [Color](https://splashkit.io/api/color/) options in the "Color Palette" section.
 
 :::
