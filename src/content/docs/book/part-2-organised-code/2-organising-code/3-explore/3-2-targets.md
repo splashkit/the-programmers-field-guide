@@ -36,6 +36,6 @@ Here are some functions and procedures you may want to consider adding:
 
 :::note[Useful SplashKit functions:]
 
-You can use the [point in circle](https://splashkit.io/api/geometry/#point-in-circle-with-values) function to test if the mouse is in the circle. See [mouse x](https://splashkit.io/api/input/#mouse-x) and [mouse y](https://splashkit.io/api/input/#mouse-y) to get the location of the mouse.
+You can use the [Point In Circle](https://splashkit.io/api/geometry/#point-in-circle-with-values) function to test if the mouse is in the circle. See [Mouse X](https://splashkit.io/api/input/#mouse-x) and [Mouse Y](https://splashkit.io/api/input/#mouse-y) to get the location of the mouse.
 
 :::
