@@ -22,7 +22,7 @@ In terms of functionality, we can build the following functions and procedures. 
 - Once we add the code to create the array, we should next create a `delete_dynamic_array` to free these allocations. This can free both the `data` and the `dynamic_array`. We can set values in memory to avoid issues if there are [dangling pointers](/book/part-2-organised-code/6-deep-dive-memory/2-trailside/05-3-dangling-pointer).
 - To put data in the array we can create an `add` function. This will check if there is capacity, and resize if needed. We can make this return a boolean so that it can return `false` if it cannot get space to add the data. This will only happen if we are out of memory, so it won't happen often.
 - A `resize` function can be told the new capacity, and change the array's `data` field memory allocation. This can grow or shrink the size of the array. We can call it from `add`, and it can be called by users of the dynamic array.
-- Once a value is added to the array, we can read it using `get` and update it using `set`. These can do the bounds checking, and make sure that they only get or set values that are allocated within the array. The get will need to accept a `default_value` that can be returned if we ask for something out of bounds. We cannot just return a fixed `0` or `""` as we do not know the type.
+- Once a value is added to the array, we can read it using `get` and update it using `set`. These can do the bounds checking, and make sure that they only get or set values that are allocated within the array. We can throw an exception if the caller tries to access a value using an invalid index.
 
 We can build this in a few steps.
 

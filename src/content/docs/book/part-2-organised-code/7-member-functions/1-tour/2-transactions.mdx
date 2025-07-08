@@ -1,0 +1,213 @@
+---
+title: Transactions
+banner:
+    content: |
+        Advanced topic! You may want to skip this and return later...
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+We can explore inheritance and abstract classes by extending our account program to incorporate transactions. In our system each transaction will refer to an account, be for an amount, and will know if it has been performed. When a transaction is performed, it will interact with the account and either deposit or withdraw funds depending on the type of transaction.
+
+## Designing the solution
+
+When we model this we could have a transaction type within the transaction, and then use control flow statements to choose which action to perform. However, we can also implement this as a family of related classes. There will be a transaction class that captures the common details for all transactions. From this base class, we can create two derived classes representing a deposit transaction or a withdraw transaction. Each transaction will include a method to `perform` the transaction, which will need to be abstract in the transaction class. The specific child classes will be able to override and implement this method.
+
+We can picture this as shown below. The line with a triangular arrow is used to represent inheritance. For example, it shows that the Withdraw Transaction inherits from the Transaction class. We can see here that the base class will contain the data, and the child classes can provide the specific features that differ between the different transactions.
+
+![Visualisation of the transaction classes](./images/transaction-uml.png)
+
+## Building the Transaction
+
+Extend your account code to include a class for the transaction. Initialise performed and succeeded to false when the transaction is created.
+
+```
+Class: Transaction
+Fields:
+ - performed: a boolean to indicate if the transaction has run. (protected)
+ - succeeded: Indicates if the transaction was successful (protected)
+ - amount: The number of cents associated with the transaction (protected)
+ - account: A pointer to an account object (protected)
+Constructors:
+  - One that accepts a pointer to the account and an amount
+Methods:
+ - perform: abstract/pure virtual method to perform the transaction
+ - was_successful: bool function that returns succeeded
+ - was_performed: bool function that returns performed
+```
+
+:::tip
+
+Make the fields `protected`, so they are accessible within the child class, but not publicly. This way they will be accessible within the child classes. If they are `private` then even the child classes will not be able to access them.
+
+Remember to make the perform method abstract. The child classes will determine how this works.
+
+Use a pointer in the transaction to refer to the account.
+
+:::
+
+<Accordion>
+  <AccordionItem header="My code for if you get stuck">
+
+```cpp
+#include "splashkit.h"
+
+class account
+{
+    // Your account code here...
+};
+
+class transaction
+{
+    protected:
+        account *destination_account;
+        int amount;
+        bool performed = false;
+        bool successful = false;
+
+    public:
+        transaction(account *acc, int amt)
+        {
+            this->destination_account = acc;
+            this->amount = amt;
+        }
+
+        virtual void perform() = 0;
+
+        bool was_performed() const
+        {
+            return performed;
+        }
+
+        bool was_successful() const
+        {
+            return successful;
+        }
+};
+```
+
+  </AccordionItem>
+</Accordion>
+
+## Creating a withdraw transaction
+
+Now have a go at implementing the withdraw transaction, and adding a test of this to `main`.
+
+```
+Class: Withdraw Transaction
+Inherits: Transaction
+Constructors:
+  - One that accepts a pointer to the account and an amount
+    and passes these to the transaction parent class
+Methods:
+ - perform: attempt to withdraw funds - mark as performed, and 
+            record success/failure.
+```
+
+Here is the code that I used to test this:
+
+```cpp
+int main()
+{
+    account acct("Azadeh", 90210);
+
+    transaction *test;
+
+    acct.print();
+
+    // Withdraw 1000 cents (or $10.00)
+    test = new withdraw_transaction(&acct, 1000);
+    test->perform();
+
+    if (test->was_successful())
+    {
+        write_line("Transaction successful!");
+    }
+    else
+    {
+        write_line("Transaction failed.");
+    }
+
+    acct.print();
+    
+    return 0;
+}
+```
+
+:::tip
+
+For the constructor, C++ requires you to pass the details to the parent class constructor before the `{`. Like this:
+
+```cpp
+withdraw_transaction(account *acc, int amt) : transaction(acc, amt) {}
+```
+
+This initialiser says to initialise the `transaction` part of the object before starting to initialise the withdraw transaction.
+
+:::
+
+<Accordion>
+  <AccordionItem header="My code for if you get stuck">
+
+```cpp
+class withdraw_transaction : public transaction
+{
+    public:
+        withdraw_transaction(account *acc, int amt) : transaction(acc, amt) {}
+
+        void perform() override
+        {
+            if (performed) 
+            {
+                string error_message = "Transaction already performed";
+                throw error_message;
+            }
+
+            try
+            {
+                destination_account->withdraw(amount);
+                successful = true;
+            }
+            catch (const string &e)
+            {
+                write_line("Transaction failed: " + e);
+                successful = false;
+            }
+
+            performed = true;
+        }
+};
+```
+
+  </AccordionItem>
+</Accordion>
+
+## Create a deposit transaction
+
+Have a go now at creating your own deposit transaction. This should be relatively straightforward, and the logic is very similar to the withdraw transaction class.
+
+Adjust main so that it is testing both the deposit and withdraw transaction classes. Make sure to print out some details to see that the transactions are working as expected.
+
+## Refactor your classes
+
+As we have considered before, duplication of code is not desirable. If you look over the logic in the deposit and withdraw transaction classes you will see that the bulk of the logic in `perform` is the same.
+
+*How can we fix this?*
+
+Here, one of the nicest options will be to refactor (change the code to improve its structure, not to add functionality) the way `perform` works. At the moment, `perform` is abstract in the parent class. We could change this. Instead, `perform` could contain most of the logic:
+
+```txt
+Method: Transaction --> Perform
+Steps:
+ 1:    Raise an exception if the transaction has already been performed
+ 2:    Try
+ 2.1:    Update Account
+ 2.2:    Record Success
+ 2.3:  Catch Exceptions
+ 2.4:    Report and Record Failure
+ 2.5:  End
+ 2.6:  Record that transaction was performed
+```
+
+Then we would need an abstract `update_account` method in the transaction. This could be protected, and then overridden by child classes. They would then only need to perform the statement to carry out the deposit or withdrawal. No other code would be needed.
+
+Have a go at implementing this yourself. Notice that you do not need to change `main` -- we are changing how the objects work internally without changing their public interface. This is a great advantage of object-oriented programming -- by putting responsibilities within classes we can change how these are coded without needing to change how they are used in many cases.
