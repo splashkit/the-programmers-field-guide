@@ -1,124 +1,156 @@
 ---
-title: LED Blink
+title: Hello LED Blinking
 sidebar:
-    attrs:
-        class: pi
+  attrs:
+    class: pi
 ---
 
-import { Accordion, AccordionItem, Steps } from 'accessible-astro-components'
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from "@astrojs/starlight/components";
 
-## Overview
-
-Welcome to our fun, step-by-step guide on how to blink a physical LED using SplashKit on your Raspberry Pi! In this tutorial, you'll learn how to set up your hardware, write simple code (without loops) to turn your LED on and off with delays, and run your project. Get ready to see your LED come to life!
+Welcome to our fun, step-by-step guide on how to blink a physical LED using SplashKit on your Raspberry Pi! In this tutorial, you'll learn how to set up your hardware, write simple code (without loops) to turn your LED on and off with delays, as well as how to run your project. Get ready to see your LED come to life!
 
 ## Hardware Setup
 
-Imagine a simple LED circuit that you'd build in real life. Here's what you need:
+### Components
 
-- **LED:** (any color; remember: the longer leg is the anode, the shorter is the cathode)
+To build the simple LED circuit shown below (in real life), here's what you need:
+
+- **LED:** Can be any color.  
+  *Remember: the longer leg is the anode (+), the shorter is the cathode (-).*
 - **220 Ω Resistor:** This protects the LED by limiting the current.
 - **Breadboard and Jumper Wires:** For making temporary connections.
 - **Raspberry Pi:** With a GPIO pin (we'll use GPIO Pin 11) and a Ground (GND) pin.
 
-**Wiring Instructions:**
+### Wiring Instructions
 
 ![Led Blink Circuit](./images/blinkledcircuit.png)
 
-1. **Resistor Connection:** Attach one end of the resistor to GPIO Pin 11.
-2. **LED Connection:** Connect the LED’s anode (long leg) to the other end of the resistor.
-3. **Ground Connection:** Connect the LED’s cathode (short leg) to a GND pin on the Raspberry Pi.
+<Steps>
 
-:::caution
-**Safety Note:** Always double-check your connections and ground yourself before handling the circuit to avoid static discharge or accidental damage!
+1. **Put the LED and resistor onto the breadboard:**
+
+    Place the resistor across the center channel of the breadboard, or across any two separate rows.
+
+    Then place the LED across two rows (as shown above), with the cathode (short leg) on the same row as one end of the resistor.
+
+2. **Attach the ground wire:**
+
+    Attach a jumper wire from the other end of the resistor to a GND pin.  
+    *(This is the black wire connected to pin 6 in the diagram above.)*
+
+3. **Connect the LED to the GPIO Pin:**
+
+    Attach a jumper wire from the LED’s anode (long leg) to GPIO Pin 11.
+    *(This is the blue wire connected to pin 11 in the diagram above.)*
+
+</Steps>
+
+:::caution[Safety Note:]
+Always double-check your connections and ground yourself before handling the circuit to avoid static discharge or accidental damage!
 :::
 
+## Blinking the LED
 
+<Steps>
 
-## 1. Initialization
+1. **Initialise the GPIO Pins:**
 
-First, we'll initialize the GPIO system on your Raspberry Pi using SplashKit and set up our chosen pin as an output.
+    First, we'll initialise the GPIO system on the Raspberry Pi using SplashKit and set up our chosen pin as an output.
 
-```csharp
-using SplashKitSDK;
-using static SplashKitSDK.SplashKit;
+    ```csharp
+    using SplashKitSDK;
+    using static SplashKitSDK.SplashKit;
 
-// Initialize the GPIO system
-RaspiInit();
+    // Initialise the GPIO system
+    RaspiInit();
 
-// Define the LED pin (using physical Pin 11)
-Pins ledPin = Pins.Pin11;
+    // Define the LED pin (using physical Pin 11)
+    GpioPin ledPin = GpioPin.Pin11;
 
-// Set the LED pin to output mode (GPIO_OUTPUT mode is represented by 1)
-RaspiSetMode(ledPin, PinModes.GpioOutput);
-```
+    // Set the LED pin to output mode (output mode is represented by 1)
+    RaspiSetMode(ledPin, GpioPinMode.GpioOutput);
+    ```
 
-## 2. Blinking the LED
+2. **Blink the LED:**
 
-Now, we’ll blink the LED by turning it on and off with delays. We’re keeping it simple—no loops here! Each command is written in sequence:
+    Now, we’ll blink the LED by turning it on and off with delays in between. We’re keeping it simple—no loops here! Each command is written in sequence:
 
-```csharp
-// Turn the LED ON
-RaspiWrite(ledPin, PinValues.GpioHigh);
-Delay(500);  // Wait for 500 milliseconds
+    ```csharp
+    // Turn the LED ON
+    RaspiWrite(ledPin, GpioPinValue.GpioHigh);
+    Delay(500);  // Wait for 500 milliseconds
 
-// Turn the LED OFF
-RaspiWrite(ledPin, PinValues.GpioLow);
-Delay(500);  // Wait for 500 milliseconds
+    // Turn the LED OFF
+    RaspiWrite(ledPin, GpioPinValue.GpioLow);
+    Delay(500);  // Wait for 500 milliseconds
 
-// Blink the LED again (ON)
-RaspiWrite(ledPin, PinValues.GpioHigh);
-Delay(500);  // Wait for 500 milliseconds
+    // Blink the LED again (ON)
+    RaspiWrite(ledPin, GpioPinValue.GpioHigh);
+    Delay(500);  // Wait for 500 milliseconds
 
-// Turn the LED OFF again
-RaspiWrite(ledPin, PinValues.GpioLow);
-Delay(500);  // Wait for 500 milliseconds
+    // Turn the LED OFF again
+    RaspiWrite(ledPin, GpioPinValue.GpioLow);
+    Delay(500);  // Wait for 500 milliseconds
 
-// One more blink (ON)
-RaspiWrite(ledPin, PinValues.GpioHigh);
-Delay(500);  // Wait for 500 milliseconds
+    // One more blink (ON)
+    RaspiWrite(ledPin, GpioPinValue.GpioHigh);
+    Delay(500);  // Wait for 500 milliseconds
 
-// Finally, turn the LED OFF
-RaspiWrite(ledPin, PinValues.GpioLow);
-Delay(500);  // Wait for 500 milliseconds
-```
+    // Finally, turn the LED OFF
+    RaspiWrite(ledPin, GpioPinValue.GpioLow);
+    Delay(500);  // Wait for 500 milliseconds
+    ```
 
-## Full Code Example
+3. **Reset the GPIO system:**
 
-Below is the complete code, combining the initialization and blinking sequence. All commands are executed one after the other—no loops!
+    Lastly, we'll clean up the GPIO system and ensure our pins are turned off.
+
+    ```csharp
+    // Clean up the GPIO system
+    RaspiCleanup();
+    ```
+
+</Steps>
+
+### Full Code Example
+
+Below is the complete code, combining the initialisation, blinking sequence and resetting the system. All commands are executed one after the other—no loops!
 
 <Accordion>
   <AccordionItem header="Full LED Blink Code (C#)">
   
   ```csharp
   using SplashKitSDK;
-  
-  // Initialize the GPIO system
+  using static SplashKitSDK.SplashKit;
+
+  // Initialise the GPIO system
   RaspiInit();
-  
+
   // Define the LED pin (using physical Pin 11)
-  Pins ledPin = Pins.Pin11;
-  
+  GpioPin ledPin = GpioPin.Pin11;
+
   // Set the LED pin to output mode
-  RaspiSetMode(ledPin, PinModes.GpioOutput);
-  
+  RaspiSetMode(ledPin, GpioPinMode.GpioOutput);
+
   // Blink 1: Turn LED ON, wait, then OFF
-  RaspiWrite(ledPin, PinValues.GpioHigh);
+  RaspiWrite(ledPin, GpioPinValue.GpioHigh);
   Delay(500);  // LED ON for 500 ms
-  RaspiWrite(ledPin, PinValues.GpioLow);
+  RaspiWrite(ledPin, GpioPinValue.GpioLow);
   Delay(500);  // LED OFF for 500 ms
-  
+
   // Blink 2: Turn LED ON, wait, then OFF
-  RaspiWrite(ledPin, PinValues.GpioHigh);
+  RaspiWrite(ledPin, GpioPinValue.GpioHigh);
   Delay(500);
-  RaspiWrite(ledPin, PinValues.GpioLow);
+  RaspiWrite(ledPin, GpioPinValue.GpioLow);
   Delay(500);
-  
+
   // Blink 3: Turn LED ON, wait, then OFF
-  RaspiWrite(ledPin, PinValues.GpioHigh);
+  RaspiWrite(ledPin, GpioPinValue.GpioHigh);
   Delay(500);
-  RaspiWrite(ledPin, PinValues.GpioLow);
+  RaspiWrite(ledPin, GpioPinValue.GpioLow);
   Delay(500);
-  
+
   // Clean up the GPIO system
   RaspiCleanup();
   ```
@@ -126,37 +158,40 @@ Below is the complete code, combining the initialization and blinking sequence. 
   </AccordionItem>
 </Accordion>
 
-## Build and Run
+### Build and Run
 
-1. **Set Up Your Project:**
-   Open your terminal and create a new C## console project:
-   
-   ```bash
-   mkdir LedBlink  
-   cd LedBlink  
-   dotnet new console  
-   dotnet add package SplashKit  
-   code .
-   ```
-   
-2. **Paste the Code:**
-   Replace the contents of your `Program.cs` (or equivalent) with the full code example above.
+<Steps>
 
-3. **Build the Project:**
-   
-   ```bash
-   dotnet build
-   ```
+1. **Create a new C# project for the LED blinking program:**
 
-4. **Run the Program:**
-   
-   ```bash
-   dotnet run
-   ```
+    Open your terminal and create a new C# console project:
 
-## Expected Outcome
+    ```shell
+    mkdir LedBlink
+    cd LedBlink
+    dotnet new console
+    dotnet add package SplashKit
+    code .
+    ```
+
+2. **Copy/Paste the example code:**
+
+    Replace the contents of your `Program.cs` file with the full code example above.
+
+3. **Build and run the project:**
+
+    Use the following command to build and run the program:
+
+    ```shell
+    dotnet run
+    ```
+
+</Steps>
+
+### Expected Outcome
 
 When you run the program, your physical LED connected to GPIO Pin 11 should blink on and off three times. Each "on" state lasts for 500 milliseconds followed by an "off" state for 500 milliseconds. Once the sequence is complete, the program cleans up the GPIO settings and exits.
+
 ![Led Blinking](./images/LedBlinkSlow.gif)
 
 Enjoy watching your LED blink and have fun tinkering with your Raspberry Pi projects!
