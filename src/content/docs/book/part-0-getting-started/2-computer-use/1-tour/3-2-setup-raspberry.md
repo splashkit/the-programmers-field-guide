@@ -16,6 +16,7 @@ At its heart, the Raspberry Pi has a CPU (the brain), RAM (its short-term memory
 ## Understanding the GPIO Pins
 
 ![Raspberry-pinouts](./images/raspberry-pinouts.webp)
+<div class="caption">Image from <a href="https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio">Raspberry Pi Foundation</a></div>
 
 The **General Purpose Input/Output (GPIO)** pins are like a set of super-flexible connectors on your Raspberry Pi. Here’s how you can use them:
 
