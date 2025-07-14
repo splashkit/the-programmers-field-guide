@@ -3,10 +3,14 @@ title: Testing the Linked List
 sidebar:
     label: " - Testing"
 ---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 If you haven't already created some tests, now is a good time. Add `main` and play with the different functions to test they work as expected.
 
 Here is a simple version that I used to test this out. We should add some extra checks to make sure that we remove different elements (the first, last, and only for example) but this is a pretty good start on what is a nice bit of memory management code to think through.
+
+<Accordion>
+  <AccordionItem header="My code as an example">
 
 ```cpp
 int main()
@@ -18,7 +22,7 @@ int main()
     add_node(list, 4);
 
     node<int> *current = list->first;
-    while (current != NULL) 
+    while (current != nullptr) 
     {
         printf("%d->", current->data);
         current = current->next;
@@ -28,7 +32,7 @@ int main()
     remove_node(list, list->first->next->next);
 
     current = list->first;
-    while (current != NULL) 
+    while (current != nullptr) 
     {
         printf("%d->", current->data);
         current = current->next;
@@ -38,6 +42,9 @@ int main()
     delete_linked_list(list);
 }
 ```
+
+  </AccordionItem>
+</Accordion>
 
 :::caution
 

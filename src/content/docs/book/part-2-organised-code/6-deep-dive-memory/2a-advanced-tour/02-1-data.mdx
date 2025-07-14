@@ -50,7 +50,7 @@ Make sure this compiles before you move on.
 <Accordion>
   <AccordionItem header="My code for if you get stuck">
 
-```cpp {12-18}
+```cpp {10-16}
 
 /**
  * @brief A dynamic array struct that contains the size, capacity,
@@ -111,8 +111,57 @@ In this case you will want to check the following:
 - There are checks that this space was allocated, remember it can fail.
 - The `size` is set to 0
 - Capacity is set to 0 if you cannot allocate memory to `result->data`, otherwise it is set to the passed in capacity.
+- Placement constructors are called on each element.
 
 :::
+
+<Accordion>
+  <AccordionItem header="My code for new dynamic array">
+
+```cpp
+/**
+ * @brief Create a new dynamic array with the indicated initial capacity.
+ * 
+ * @tparam T the type of data the array will store
+ * @param capacity its initial capacity, with a default value of 50
+ * @return dynamic_array<T>* a pointer to the new dynamic array
+ */
+template<typename T>
+dynamic_array<T> *new_dynamic_array(unsigned int capacity = 50)
+{
+  dynamic_array<T> *result = (dynamic_array<T>*)malloc(sizeof(dynamic_array<T>));
+  // Make sure result was allocated
+  if (result == nullptr)
+  {
+    return result;
+  }
+  result->data = (T*)malloc(sizeof(T) * capacity);
+  result->size = 0;
+  // Make sure that data was allocated, if not set capacity to 0
+  if(result->data == nullptr)
+  {
+    result->capacity = 0;
+  }
+  else
+  {
+    result->capacity = capacity;
+  }
+
+  // For each of the new elements... call placement new constructor
+  for (int i = 0; i < capacity; i++)
+  {
+      // Call constructor to initialise each element
+      new(&result->data[i]) T();
+  }
+
+  return result;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+## Creating delete dynamic array
 
 Before updating `main`, we should add a `delete_dynamic_array` procedure. We have the memory allocations in mind, so now we can add the code to remove this allocation.
 
@@ -138,6 +187,7 @@ Copilot was a bit lazy for me here. I had to add in a few extra prompts to get w
 
 Check to make sure that it has:
 
+- Destructors are called on each element.
 - Set `array->size` and `array->capacity` to 0
 - Freed `array->data`
 - Set `array->data` to point to `nullptr`
@@ -166,11 +216,16 @@ Compile and run the program. While there is no output, at least you will know th
 
 Once this is working you can move on to adding the resizing the data in the array.
 
+:::tip
+Copilot is not likely to remember to call the placement new constructors on the allocated space. You can try prompting it with something like `// For each of the new elements... call placement new constructor`.
+:::
+
 <Accordion>
   <AccordionItem header="My code for if you get stuck">
 
-```cpp {1,28-49,58-75,81,84,85}
+```cpp {1-2,29-58,67-90,86,96,99-100}
 #include <cstdlib>
+#include <new>
 
 /**
  * @brief A dynamic array struct that contains the size, capacity,
@@ -217,6 +272,14 @@ dynamic_array<T> *new_dynamic_array(unsigned int capacity = 50)
   {
     result->capacity = capacity;
   }
+
+  // For each of the new elements... call placement new constructor
+  for (int i = 0; i < capacity; i++)
+  {
+      // Call constructor to initialise each element
+      new(&result->data[i]) T();
+  }
+
   return result;
 }
 
@@ -232,6 +295,12 @@ void delete_dynamic_array(dynamic_array<T> *array)
 {
   // Ensure that the array is allocated
   if (!array) return;
+
+  // Call destructors on all elements
+  for (int i = 0; i < array->capacity; i++)
+  {
+    array->data[i].~T();
+  }
 
   // Clear to ensure we remove any data from memory before freeing it
   array->size = 0;

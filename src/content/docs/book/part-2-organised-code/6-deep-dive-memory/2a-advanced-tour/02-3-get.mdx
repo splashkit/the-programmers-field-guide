@@ -49,6 +49,40 @@ Notice how you have to know what you are doing. Here you want to make sure that:
 
 We can extend main to now print out the values from the valid indexes, but we should also test printing out invalid indexes (within try blocks so we handle the resulting exceptions). Try coming up with prompts to get Copilot to help you with this. You want to make sure that you can see the data from within the array now, and that accessing invalid data results in exceptions, rather than accessing invalid memory locations.
 
+<Accordion>
+  <AccordionItem header="My code for get if you get stuck">
+
+```cpp
+/**
+ * @brief read and return the value of the indicated element from the dynamic array.
+ * 
+ * If the array is not allocated or the index is out of bounds, the function will throw a string exception message.
+ * 
+ * @tparam T the type of data in the dynamic array
+ * @param array the dynamic array to remove the element from
+ * @param index the index of the element to remove
+ * @return a copy of the value at the specified index in the dynamic array
+ * @throws a string message if the array is not allocated or the index is invalid
+*/
+template<typename T>
+T get(const dynamic_array<T> *array, unsigned int index)
+{
+  // Ensure that the array is allocated
+  if (!array) throw string("Array is not allocated");
+
+  // Check if the index is out of bounds
+  if (index >= array->size)
+  {
+    throw string("Index out of bounds");
+  }
+
+  return array->data[index];
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
 ## Set
 
 The last function for this part is `set`. This is used to update a value in the array. You can use the following to help prompt Copilot.
@@ -68,13 +102,50 @@ The last function for this part is `set`. This is used to update a value in the 
 
 When checking this, think about possible issues. The main things will be the array index, but also the possibility that `array` may be a `nullptr`.
 
-Once you have this implemented, update main so that you change the values in the array and then re-print them. When you have this working, you have a usable dynamic array. In the test we have got it working with an array of `int`, but it will also work with an array of any other type name.
+<Accordion>
+  <AccordionItem header="My code for set if you get stuck">
+
+```cpp
+/**
+ * @brief set the value of the indicated element from the dynamic array.
+ * 
+ * If the index is out of bounds, the function will throw an string exception.
+ * 
+ * @tparam T the type of data in the dynamic array
+ * @param array the dynamic array to set the element in
+ * @param index the index of the element to change
+ * @param value the value to set the element to
+*/
+template<typename T>
+void set(dynamic_array<T> *array, unsigned int index, T value)
+{
+  // Ensure that the array is allocated
+  if (!array) throw string("Array is not allocated");
+
+  // Check if the index is out of bounds
+  if (index >= array->size)
+  {
+    throw string("Index out of bounds");
+  }
+
+  // Set the value at the specified index
+  array->data[index] = value;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+## Updating main
+
+Once you have this implemented, update main so that you change the values in the array and then re-print them. When you have this working, you have a usable dynamic array. While this test code uses an array of `int`, we can also use our array with other data types.
 
 <Accordion>
   <AccordionItem header="My code for if you get stuck">
 
-```cpp {2,4,157-170,182-196,210-238}
+```cpp {3,5,178-191,203-217,231-263}
 #include <cstdlib>
+#include <new>
 #include "splashkit.h"
 
 using std::to_string;
@@ -124,6 +195,14 @@ dynamic_array<T> *new_dynamic_array(unsigned int capacity = 50)
   {
     result->capacity = capacity;
   }
+
+  // For each of the new elements... call placement new constructor
+  for (int i = 0; i < capacity; i++)
+  {
+      // Call constructor to initialise each element
+      new(&result->data[i]) T();
+  }
+
   return result;
 }
 
@@ -139,6 +218,12 @@ void delete_dynamic_array(dynamic_array<T> *array)
 {
   // Ensure that the array is allocated
   if (!array) return;
+
+  // Call destructors on all elements
+  for (int i = 0; i < array->capacity; i++)
+  {
+    array->data[i].~T();
+  }
 
   // Clear to ensure we remove any data from memory before freeing it
   array->size = 0;
@@ -168,6 +253,12 @@ bool resize(dynamic_array<T> *array, unsigned int new_capacity)
 {
   // Ensure that the array is allocated
   if (!array) return false;
+
+  // Call destructors if we are reducing size
+  for(int i = array->capacity - 1; i >= (int)new_capacity; i--)
+  {
+    array->data[i].~T();
+  }
 
   // Resize the data in the array
   T* new_data = (T*)realloc(array->data, sizeof(T) * new_capacity);
@@ -296,20 +387,24 @@ int main()
   }
 
   // Attempt to access an element out of bounds using get
-  try {
+  try 
+  {
     int value = get(array, 99);
-    write_line("ERROR! array[99] = " + to_string(value));
-    
-  } catch (const string &e) {
+    write_line("ERROR! array[99] = " + to_string(value)); 
+  }
+  catch (const string &e) 
+  {
     write_line("Caught exception: " + e);
   }
 
   // Attempt to access an element out of bounds using set
-  try {
+  try
+  {
     set(array, 99, 100);
     write_line("ERROR: Set array[99] to 100\n");
-    
-  } catch (const string &e) {
+  } 
+  catch (const string &e) 
+  {
     write_line("Caught exception: " + e);
   }
 
