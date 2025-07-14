@@ -7,8 +7,8 @@ Having explore how we can organise code to help make the code in your programs e
 - [AFL game data](/book/part-2-organised-code/2-organising-code/3-explore/3-1-afl-score) - create functions and procedures to calculate AFL scores and game details.
 - [Click game](/book/part-2-organised-code/2-organising-code/3-explore/3-2-targets) - create functions and procedures for a small target hitting game.
 
-:::caution
+:::tip
 
-Make sure your code isn't just all done in main, and that you are using this activity to demonstrate how to build a program using **functions** and **procedures**, and how to pass data to functions/procedures using **parameters**.
+Remember to focus on organising your code in appropriate functions and procedures, using parameters to share data as needed. Make sure your code isn't just all done in main.
 
 :::
