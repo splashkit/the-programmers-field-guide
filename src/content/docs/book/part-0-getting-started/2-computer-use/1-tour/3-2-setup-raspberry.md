@@ -15,8 +15,8 @@ At its heart, the Raspberry Pi has a CPU (the brain), RAM (its short-term memory
 
 ## Understanding the GPIO Pins
 
-![Raspberry-pinouts](./images/raspberry-pinouts.webp)
-<div class="caption">Image from <a href="https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio">Raspberry Pi Foundation</a></div>
+![Raspberry Pi 40-pin header](https://www.raspberrypi.com/documentation/computers/images/GPIO-Pinout-Diagram-2.png)
+<div class="caption">Image © Raspberry Pi Ltd, licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA)</div>
 
 The **General Purpose Input/Output (GPIO)** pins are like a set of super-flexible connectors on your Raspberry Pi. Here’s how you can use them:
 
@@ -28,14 +28,6 @@ The **General Purpose Input/Output (GPIO)** pins are like a set of super-flexibl
 
 - **Digital and PWM Signals:**  
   Some pins work in a digital on/off mode (perfect for simple tasks), while others support Pulse Width Modulation (PWM), which lets you control the speed of a motor or the brightness of an LED by varying the power output.
-
-:::tip[Check out SplashKit's Raspberry Data types!]
-
-- The pins shown in the diagram above can be seen in the [GPIO Pin](https://splashkit.io/api/types/#gpio-pin) table.
-- The modes mentioned above can be seen in the [GPIO Pin Mode](https://splashkit.io/api/types/#gpio-pin-mode) table.
-- The values available for the pins can be seen in the [GPIO Pin Value](https://splashkit.io/api/types/#gpio-pin-value) table.
-
-:::
 
 :::caution[Always check your project’s voltage requirements]
 The Raspberry Pi’s GPIO pins work with 3.3V logic. Overloading them with higher voltage can damage your board.

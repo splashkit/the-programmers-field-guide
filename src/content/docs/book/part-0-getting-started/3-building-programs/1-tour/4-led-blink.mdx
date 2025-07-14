@@ -136,7 +136,40 @@ To set up the software side of this project, you can follow the steps below:
     You will learn more about SplashKit's Raspberry Pi code in Part 1, but for now you can just copy/paste this code without needing to know the details just yet.
     :::
 
-3. ### Build and run the project
+3. ### Start the "pigpiod" Daemon
+
+    Underneath SplashKit we use the [Pigpio library](https://abyz.me.uk/rpi/pigpio), specifically its
+    daemon. To interface with this daemon, it must be running.
+
+    :::tip[Daemons]
+    A daemon is a background process that runs continuously, waiting for requests to
+    perform some action. In this case, the daemon is waiting for requests to change the state of the
+    GPIO pins. This allows us to run multiple programs that interact with the GPIO pins.
+    :::
+
+    To start the `pigpiod` daemon, run the following command:
+
+    ```shell
+    sudo pigpiod
+    ```
+
+    To stop the daemon from running, you can use the command:
+
+    ```shell
+    sudo killall pigpiod
+    ```
+
+    :::note[Pigpiod Error Message]
+
+    If the `pigpiod` daemon is not running, you will the following error message in your terminal:
+
+    ```shell
+    ERROR [default] Pigpio error: bad connect.
+    ```
+
+    :::
+
+4. ### Build and run the project
 
     Use the following command to build and run the program:
 
