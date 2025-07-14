@@ -8,7 +8,7 @@ A game in the Australian Football League consists of two teams aiming to achieve
 
 Build a program that allows the user to enter details of an AFL game, output scores and winners, and provide a menu for the user to update game details and output scores.
 
-An example of this running is shown below.
+An example of this running is shown below:
 
 ```txt
 Welcome to the AFL score calculator!
@@ -80,13 +80,13 @@ Are you sure you want to quit? [Y/n]: y
 Bye!
 ```
 
-:::caution
+:::tip[Hints:]
 
-Make sure you are using this to demonstrate how to build this using functions and procedures. Here are some functions and procedures you may want to consider adding:
+Here are some functions and procedures you may want to consider adding:
 
-- Output details (taking in the two team names and scores)
-- Functions to read and validate data from the user (strings, numbers, boolean)
-- Print menu
+- Functions to [read and validate data from the user](/book/part-2-organised-code/2-organising-code/1-tour/00-2-explore-functions) (strings, numbers, boolean).
+- A procedure to output calculated details of each team (taking in the names and score details of the two teams).
+- A procedure to print the menu (taking in the names of the two teams).
 - A function to calculate a score from a number of goals and behinds.
 - A function to calculate and return the name of the winner, from the two team names and scores.
 
