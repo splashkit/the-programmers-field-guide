@@ -2,6 +2,10 @@
 title: Go Exploring
 ---
 
+:::tip
+Use the [installation guides](/book/appendix/0-installation/0-overview) to install the tools you need.
+:::
+
 Here is a fun hello world program to wrap up this section. You can also look through the guide and fine other sample code you can download and run now. This is a great way to explore the ideas you are learning.
 
 The code for this part will be using SplashKit functionality to draw images, play sound effects and draw text with a specific font.
