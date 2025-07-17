@@ -4,88 +4,58 @@ sidebar:
   attrs:
     class: pi
 ---
-import { Tabs, TabItem } from "@astrojs/starlight/components";
 
 TODO: Overview of Raspberry Pi GPIO Pins:
 
 - Refer back to [Use Your Raspberry Pi](/book/part-0-getting-started/2-computer-use/1-tour/3-2-setup-raspberry) - give summary of content on that page maybe?
 - Refer back to [Machine Code](/book/part-0-getting-started/1-digital-realities/2-trailside/4-machine-code) - discuss binary values
-- Include tables for relevant Pin Modes and Pin Values
-- Explain 7-segment display (with image below)
 
-![Diagram explaining the 7-segment display pin configuration](./images/7-segment-display-pins-explained.png)
+- Add diagrams similar to method call, but for setting mode
+- Include tables for relevant Pin Modes and Pin Values?
+- Add diagrams similar to method call, but for RaspiWrite and RaspiRead
 
 ## Example
 
-To get started using the 7-segment display, you can use the following wiring diagram to connect to the "Decimal Point" segment LED for the LED blinking program below.
+To get started with using the Raspberry functions to write and read GPIO pin values, you can use the following wiring diagram to connect an LED to Pin 11 and connect a button to Pin 13.
 
-If you don't have a 7-segment display yet, you can click on the "Alternative: Simple LED" tab below. This wiring diagram will also work with the example code below.
-
-<Tabs>
-<TabItem label="7-Segment Display Decimal Point">
-
-![Wiring diagram to control the 7-segment display decimal point](./images/7-segment-decimal-point-circuit.png)
+![Image showing wiring diagram using an LED and a button](./images/read-button-circuit.png)
 <div class="caption">Image created with <a href="https://fritzing.org/">Fritzing</a></div>
 
-</TabItem>
-<TabItem label="Alternative: Simple LED">
-
-![Alternative wiring diagram using LED](./images/led-alternative-circuit.png)
-<div class="caption">Image created with <a href="https://fritzing.org/">Fritzing</a></div>
-
-</TabItem>
-</Tabs>
-
-The following program uses methods in the [Raspberry](https://splashkit.io/api/raspberry/) category of the SplashKit library to "write" data to Pin 36 (GPIO16) on the Raspberry Pi, which will be connected to the 7-Segment Display pin for the "Decimal Point" segment LED, or a simple LED (as shown in the wiring diagram options above).
+The following program uses methods in the [Raspberry](https://splashkit.io/api/raspberry/) category of the SplashKit library to "write" data to Pin 11 (GPIO 17), and "read" data from Pin 13 (GPIO 27) on the Raspberry Pi (as shown in the wiring diagram above).
 
 ```cs
 using SplashKitSDK;
 using static SplashKitSDK.SplashKit;
 
-// 
-// Setting up the GPIO pins:
-// 
-
 // Initialise the GPIO system
 RaspiInit();
 
-// Define the GPIO pin being used for the simple LED or 'Decimal Point' segment LED
-GpioPin ledPin = GpioPin.Pin36;
+// Define the button pin (using physical Pin 13)
+GpioPin buttonPin = GpioPin.Pin13;
+// Define the LED pin (using physical Pin 11)
+GpioPin ledPin = GpioPin.Pin11;
 
-// Set the "mode" for the pin being used to "output" mode
+// Set the button pin to input mode
+RaspiSetMode(buttonPin, GpioPinMode.GpioInput);
+// Set the led pin to output mode
 RaspiSetMode(ledPin, GpioPinMode.GpioOutput);
 
-// 
-// Blinking the LED:
-// 
+// Set the button pin to use an internal pull-down resistor
+RaspiSetPullUpDown(buttonPin, PullUpDown.PudDown);
 
-// Turn 'ON' the the LED
-RaspiWrite(ledPin, GpioPinValue.GpioHigh);
-Delay(500);  // Hold for 500 milliseconds
+// Button pressed
+WriteLine("Press and hold your button down, then hit Enter to record the reading:");
+ReadLine();  // Wait for user to press Enter
+GpioPinValue reading1 = RaspiRead(buttonPin);
+WriteLine("Button Gpio value: " + reading1);
+RaspiWrite(ledPin, reading1);
 
-// Turn 'OFF' the LED
-RaspiWrite(ledPin, GpioPinValue.GpioLow);
-Delay(500);  // Hold for 500 milliseconds
-
-// Turn 'ON' the the LED
-RaspiWrite(ledPin, GpioPinValue.GpioHigh);
-Delay(500);  // Hold for 500 milliseconds
-
-// Turn 'OFF' the LED
-RaspiWrite(ledPin, GpioPinValue.GpioLow);
-Delay(500);  // Hold for 500 milliseconds
-
-// Turn 'ON' the the LED
-RaspiWrite(ledPin, GpioPinValue.GpioHigh);
-Delay(500);  // Hold for 500 milliseconds
-
-// Turn 'OFF' the LED
-RaspiWrite(ledPin, GpioPinValue.GpioLow);
-Delay(500);  // Hold for 500 milliseconds
-
-// 
-// Turning off the GPIO pins:
-// 
+// Button released
+WriteLine("Now release your button now so it is not pressed, then hit Enter:");
+ReadLine();  // Wait for another press
+GpioPinValue reading2 = RaspiRead(buttonPin);
+WriteLine("Button Gpio value: " + reading2);
+RaspiWrite(ledPin, reading2);
 
 // Clean up the GPIO system
 RaspiCleanup();
@@ -95,17 +65,17 @@ RaspiCleanup();
 
 Here are some lines from the code above. What do you think these lines of code do?
 
-1. `GpioPin ledPin = GpioPin.Pin36;`
+1. `GpioPin ledPin = GpioPin.Pin7;`
 2. `RaspiSetMode(ledPin, GpioPinMode.GpioOutput);`
-3. `RaspiWrite(ledPin, GpioPinValue.GpioHigh);`
-4. `RaspiWrite(ledPin, GpioPinValue.GpioLow);`
+3. `GpioPinValue reading1 = RaspiRead(buttonPin);`
+4. `RaspiWrite(ledPin, reading1);`
 
 <details>
   <summary role="button">Answers</summary>
   <ul>
     <li><strong>1: </strong><code>GpioPin ledPin = GpioPin.Pin36;</code> creates a GpioPin variable named ledPin, and assigns it the value of pin 36.</li>
     <li><strong>2: </strong><code>RaspiSetMode(ledPin, GpioPinMode.GpioOutput);</code> sets the LED pin to output mode to allow data to be written to pin 36.</li>
-    <li><strong>3: </strong><code>RaspiWrite(ledPin, GpioPinValue.GpioHigh);</code> turns the LED "on" by writing a digital high (1) value to pin 36.</li>
-    <li><strong>4: </strong><code>RaspiWrite(ledPin, GpioPinValue.GpioLow);</code> turns the LED "off" by writing a digital low (0) value to pin 36.</li>
+    <li><strong>3: </strong><code>GpioPinValue reading1 = RaspiRead(buttonPin);</code> reads the value of the pin 11, while the button is pushed, and assigns it to a GpioPinValue variable named "reading1".</li>
+    <li><strong>4: </strong><code>RaspiWrite(ledPin, reading1);</code> turns the LED "on" by writing the value stored in the "reading1" variable (GpioHigh) to pin 7, which is connected to the LED.</li>
   </ul>
 </details>

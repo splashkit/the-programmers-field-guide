@@ -1,5 +1,5 @@
 ---
-title: GPIO methods to use
+title: Raspberry methods to use
 sidebar:
   attrs:
     class: pi
@@ -25,8 +25,14 @@ public static void RaspiInit();
 // Set the Mode for a GPIO Pin on the Raspberry Pi
 public static void RaspiSetMode(GpioPin pin, GpioPinMode mode);
 
+// Set the Pull up/down mode for a pin to set it's default state (down = 0 and up = 1)
+public static void RaspiSetPullUpDown(GpioPin pin, PullUpDown pud);
+
 // Write data (0 or 1) to the Raspberry Pi GPIO pin
 public static void RaspiWrite(GpioPin pin, GpioPinValue value);
+
+// Read data (0 or 1) from the Raspberry Pi GPIO pin
+public static GpioPinValue RaspiRead(GpioPin pin);
 
 // Reset the GPIO system before exiting the program
 public static void RaspiCleanup();
@@ -37,13 +43,15 @@ public static void Delay(int milliseconds);
 
 *What do the different arguments represent?*
 
-When you interact with the GPIO pins on your Raspberry Pi, it first needs to know which GPIO pin is being used, and how. This is done using the `RaspiSetMode` method. The `pin` argument determines which GPIO pin to set up, and the `mode` argument determines how it will be used, such as using `GpioPinMode.GpioOutput` to write data to a GPIO pin.
+When you interact with the GPIO pins on your Raspberry Pi, it first needs to know which GPIO pin is being used, and how. This is done using the `RaspiSetMode` method. The `pin` argument determines which GPIO pin to set up, and the `mode` argument determines how it will be used, such as using `GpioPinMode.GpioOutput` to write data to a GPIO pin, or `GpioPinMode.GpioInput` to read data from a GPIO pin.
 
 The `RaspiWrite` method allows you to write data to a given GPIO pin, using the `pin` argument. The data written to the pin is determined by the `value` argument, which could be `GpioPinValue.GpioLow` (0), or `GpioPinValue.GpioHigh` (1).
 
+The `RaspiRead` method allows you to read data from a given GPIO pin, using the `pin` argument. The data read from the pin, which could be `GpioPinValue.GpioLow` (0), or `GpioPinValue.GpioHigh` (1), is returned when the method is called.
+
 ## Example
 
-The following example blinks an LED connected to Pin 36 (GPIO16) three times.
+The following example reads whether the button connected to Pin 11 was pressed, and then turns the LED connected to Pin 13 "ON" if the button was pressed, and "OFF" if not pressed.
 
 ```cs
 using SplashKitSDK;
@@ -52,29 +60,32 @@ using static SplashKitSDK.SplashKit;
 // Initialise the GPIO system
 RaspiInit();
 
-// Define the LED pin (using physical Pin 36)
-GpioPin ledPin = GpioPin.Pin36;
+// Define the button and LED pins
+GpioPin buttonPin = GpioPin.Pin13;
+GpioPin ledPin = GpioPin.Pin11;
 
-// Set the LED pin to output mode
+// Set the button pin to input mode, and the led pin to output mode
+RaspiSetMode(buttonPin, GpioPinMode.GpioInput);
 RaspiSetMode(ledPin, GpioPinMode.GpioOutput);
 
-// Blink 1: Turn LED ON, wait, then OFF
-RaspiWrite(ledPin, GpioPinValue.GpioHigh);
-Delay(500);  // LED ON for 500 ms
-RaspiWrite(ledPin, GpioPinValue.GpioLow);
-Delay(500);  // LED OFF for 500 ms
+// Set the button pin to use an internal pull-down resistor
+RaspiSetPullUpDown(buttonPin, PullUpDown.PudDown);
 
-// Blink 2: Turn LED ON, wait, then OFF
-RaspiWrite(ledPin, GpioPinValue.GpioHigh);
-Delay(500);
-RaspiWrite(ledPin, GpioPinValue.GpioLow);
-Delay(500);
+// Button pressed
+WriteLine("Press and hold your button down, then hit Enter to record the reading:");
+ReadLine();  // Wait for user to press Enter
+GpioPinValue reading1 = RaspiRead(buttonPin);
 
-// Blink 3: Turn LED ON, wait, then OFF
-RaspiWrite(ledPin, GpioPinValue.GpioHigh);
-Delay(500);
-RaspiWrite(ledPin, GpioPinValue.GpioLow);
-Delay(500);
+WriteLine("Button Gpio value: " + reading1);
+RaspiWrite(ledPin, reading1);
+
+// Button released
+WriteLine("Now release your button now so it is not pressed, then hit Enter:");
+ReadLine();  // Wait for another press
+GpioPinValue reading2 = RaspiRead(buttonPin);
+
+WriteLine("Button Gpio value: " + reading2);
+RaspiWrite(ledPin, reading2);
 
 // Clean up the GPIO system
 RaspiCleanup();
