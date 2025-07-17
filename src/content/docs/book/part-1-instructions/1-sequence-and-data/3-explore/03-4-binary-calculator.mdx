@@ -6,15 +6,11 @@ sidebar:
   label: " - Binary Calculator"
 ---
 
-TODO: Update this to use control flow - page will focus on reading Digital values.
-
-import { Accordion, AccordionItem, Steps } from 'accessible-astro-components'
-
-# Overview
+import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 Welcome to the challenge! Your task is to create a simple 4-pin push button binary calculator using SplashKit on your Raspberry Pi. In this project, you will read the state (HIGH or LOW) of four push buttons and then use those values to form a binary number. Finally, you'll convert that binary number into its decimal equivalent and display the result.
 
-# Hardware Setup
+## Hardware Setup
 
 For this project, you'll need to build a simple circuit with push buttons:
 
@@ -25,13 +21,14 @@ For this project, you'll need to build a simple circuit with push buttons:
 
 > **Safety Note:** Always double-check your wiring and ground yourself before handling components to avoid static discharge or accidental damage.
 
-# Task Details
+## Task Details
 
 ## 1. Initialization
 
 - **Objective:** Initialize the GPIO system and configure your four button pins as inputs.
 - **Hint:** Use SplashKit’s `RaspiInit()`, and set each pin mode using `RaspiSetMode()`.  
 - **Example (for one pin):**
+
   ```csharp
   RaspiInit();
   Pins buttonPin = Pins.Pin12;
@@ -56,23 +53,27 @@ For this project, you'll need to build a simple circuit with push buttons:
   - Next bit: weight 2 (2¹)
   - **Least Significant Bit (LSB):** weight 1 (2⁰)
 - **Calculation:** Multiply each reading by its corresponding weight and add the results:
+
   ```txt
   decimalValue = (reading1 * 8) + (reading2 * 4) + (reading3 * 2) + (reading4 * 1)
   ```
+
 - **Example:** If your button readings are 1, 0, 1, 1, then the binary number is 1011, which equals 11 in decimal.
 
 ## 4. Expected Outcome
 
 Once you complete the program, it should:
+
 1. Prompt you to press each button and record the four binary digits.
 2. Calculate the decimal value from these four binary digits.
 3. Display the result on the console.  
    For instance, if you press the buttons such that the readings are 1, 0, 1, and 1, the program should output:
-   ```
+
+   ```txt
    The decimal value is: 11
    ```
 
-# Pseudocode Overview
+## Pseudocode Overview
 
 Here’s a rough pseudocode outline to help you plan your solution:
 
@@ -107,9 +108,10 @@ Print "The decimal value is: " + decimalValue
 Call RaspiCleanup()
 ```
 
-# Wrap Up
+## Wrap Up
 
 This task encourages you to think about how binary numbers work and how to convert them into decimal form using sequence and data. Work through the process step by step:
+
 - Start by initializing your hardware.
 - Read each button state individually.
 - Use simple arithmetic to perform binary addition.
