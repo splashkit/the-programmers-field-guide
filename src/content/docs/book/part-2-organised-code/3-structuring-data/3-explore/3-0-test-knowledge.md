@@ -9,6 +9,6 @@ At this point in your journey, you have the tools to build more interesting prog
 
 :::tip
 
-For this you want to make sure how to create and use structs and enums, while also continuing to show how to organise your code in functions and procedures. You want to see these new data types working in conjuncture with the other programming features you have already mastered.
+For this you want to show how to create and use structs and enums, while also continuing to show how to organise your code in functions and procedures. You want to see these new data types working in conjuncture with the other programming features you have already mastered.
 
 :::
