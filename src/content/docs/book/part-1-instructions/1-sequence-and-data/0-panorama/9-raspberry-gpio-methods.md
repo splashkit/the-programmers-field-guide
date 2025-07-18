@@ -76,6 +76,7 @@ WriteLine("Press and hold your button down, then hit Enter to record the reading
 ReadLine();  // Wait for user to press Enter
 GpioPinValue reading1 = RaspiRead(buttonPin);
 
+// Output result
 WriteLine("Button Gpio value: " + reading1);
 RaspiWrite(ledPin, reading1);
 
@@ -84,6 +85,7 @@ WriteLine("Now release your button now so it is not pressed, then hit Enter:");
 ReadLine();  // Wait for another press
 GpioPinValue reading2 = RaspiRead(buttonPin);
 
+// Output result
 WriteLine("Button Gpio value: " + reading2);
 RaspiWrite(ledPin, reading2);
 

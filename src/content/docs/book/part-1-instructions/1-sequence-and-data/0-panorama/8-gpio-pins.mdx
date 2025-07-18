@@ -9,7 +9,6 @@ TODO: Overview of Raspberry Pi GPIO Pins:
 
 - Refer back to [Use Your Raspberry Pi](/book/part-0-getting-started/2-computer-use/1-tour/3-2-setup-raspberry) - give summary of content on that page maybe?
 - Refer back to [Machine Code](/book/part-0-getting-started/1-digital-realities/2-trailside/4-machine-code) - discuss binary values
-
 - Add diagrams similar to method call, but for setting mode
 - Include tables for relevant Pin Modes and Pin Values?
 - Add diagrams similar to method call, but for RaspiWrite and RaspiRead
@@ -30,10 +29,10 @@ using static SplashKitSDK.SplashKit;
 // Initialise the GPIO system
 RaspiInit();
 
-// Define the button pin (using physical Pin 13)
-GpioPin buttonPin = GpioPin.Pin13;
 // Define the LED pin (using physical Pin 11)
 GpioPin ledPin = GpioPin.Pin11;
+// Define the button pin (using physical Pin 13)
+GpioPin buttonPin = GpioPin.Pin13;
 
 // Set the button pin to input mode
 RaspiSetMode(buttonPin, GpioPinMode.GpioInput);
@@ -43,17 +42,21 @@ RaspiSetMode(ledPin, GpioPinMode.GpioOutput);
 // Set the button pin to use an internal pull-down resistor
 RaspiSetPullUpDown(buttonPin, PullUpDown.PudDown);
 
-// Button pressed
+// Reading 1 with button pressed
 WriteLine("Press and hold your button down, then hit Enter to record the reading:");
 ReadLine();  // Wait for user to press Enter
 GpioPinValue reading1 = RaspiRead(buttonPin);
+
+// Output of button being pressed
 WriteLine("Button Gpio value: " + reading1);
 RaspiWrite(ledPin, reading1);
 
-// Button released
+// Reading 2 with button released
 WriteLine("Now release your button now so it is not pressed, then hit Enter:");
 ReadLine();  // Wait for another press
 GpioPinValue reading2 = RaspiRead(buttonPin);
+
+// Output of button not being pressed
 WriteLine("Button Gpio value: " + reading2);
 RaspiWrite(ledPin, reading2);
 
@@ -65,7 +68,7 @@ RaspiCleanup();
 
 Here are some lines from the code above. What do you think these lines of code do?
 
-1. `GpioPin ledPin = GpioPin.Pin7;`
+1. `GpioPin ledPin = GpioPin.Pin11;`
 2. `RaspiSetMode(ledPin, GpioPinMode.GpioOutput);`
 3. `GpioPinValue reading1 = RaspiRead(buttonPin);`
 4. `RaspiWrite(ledPin, reading1);`
@@ -73,9 +76,9 @@ Here are some lines from the code above. What do you think these lines of code d
 <details>
   <summary role="button">Answers</summary>
   <ul>
-    <li><strong>1: </strong><code>GpioPin ledPin = GpioPin.Pin36;</code> creates a GpioPin variable named ledPin, and assigns it the value of pin 36.</li>
-    <li><strong>2: </strong><code>RaspiSetMode(ledPin, GpioPinMode.GpioOutput);</code> sets the LED pin to output mode to allow data to be written to pin 36.</li>
-    <li><strong>3: </strong><code>GpioPinValue reading1 = RaspiRead(buttonPin);</code> reads the value of the pin 11, while the button is pushed, and assigns it to a GpioPinValue variable named "reading1".</li>
-    <li><strong>4: </strong><code>RaspiWrite(ledPin, reading1);</code> turns the LED "on" by writing the value stored in the "reading1" variable (GpioHigh) to pin 7, which is connected to the LED.</li>
+    <li><strong>1: </strong><code>GpioPin ledPin = GpioPin.Pin11;</code> creates a GpioPin variable named ledPin, and assigns it the value of pin 11.</li>
+    <li><strong>2: </strong><code>RaspiSetMode(ledPin, GpioPinMode.GpioOutput);</code> sets the LED pin to output mode to allow data to be written to pin 11.</li>
+    <li><strong>3: </strong><code>GpioPinValue reading1 = RaspiRead(buttonPin);</code> reads the value of the pin 13, while the button is pushed, and assigns it to a GpioPinValue variable named "reading1".</li>
+    <li><strong>4: </strong><code>RaspiWrite(ledPin, reading1);</code> turns the LED "on" by writing the value stored in the "reading1" variable (GpioHigh) to pin 11, which is connected to the LED.</li>
   </ul>
 </details>
