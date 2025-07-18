@@ -69,7 +69,6 @@ We have functions and procedure, but we want methods. How do we achieve this cha
     if (!array) return false;
     // becomes
     if (!this) return false;
-    // or we can remove these now
     ```
 
 6. Tidy up the constructor and destructor. Remove the code that allocated and freed the space for the struct itself, as this will now be handled by the `new` or `delete` call that triggers the constructor / destructor.
@@ -120,14 +119,6 @@ struct dynamic_array
         size = 0;
         this->default_value = default_value;
 
-        // For each of the new elements... call constructor
-        for (int i = 0; i < capacity; i++)
-        {
-            // Call constructor to initialise each of the 10 elements
-            new(&this->data[i]) T();
-        }
-
-
         // Make sure that data was allocated, if not set capacity to 0
         if (data == nullptr)
         {
@@ -136,6 +127,13 @@ struct dynamic_array
         else
         {
             this->capacity = capacity;
+        }
+
+        // For each of the new elements... call constructor
+        for (int i = 0; i < capacity; i++)
+        {
+            // Call constructor to initialise each element
+            new(&this->data[i]) T();
         }
     }
 

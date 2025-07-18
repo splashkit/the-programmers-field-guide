@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <new>
 
 /**
  * A node is a struct that contains a pointer to the next node,
@@ -39,8 +40,8 @@ template <typename T>
 linked_list<T> *new_linked_list() 
 {
     linked_list<T> *list = (linked_list<T> *) malloc(sizeof(linked_list<T>));
-    list->first = NULL;
-    list->last = NULL;
+    list->first = nullptr;
+    list->last = nullptr;
     return list;
 }
 
@@ -54,17 +55,18 @@ template <typename T>
 void delete_linked_list(linked_list<T> *list)
 {
     node<T> *current = list->first;
-    while (current != NULL) 
+    while (current != nullptr) 
     {
         node<T> *next = current->next;
         // Clear data from node
-        current->next = NULL;
+        current->next = nullptr;
+        current->data.~T(); // Call destructor
         free(current);
         current = next;
     }
     // Clear old data from list
-    list->first = NULL;
-    list->last = NULL;
+    list->first = nullptr;
+    list->last = nullptr;
     free(list);
 }
 
@@ -79,9 +81,10 @@ template <typename T>
 void add_node(linked_list<T> *list, T data)
 {
     node<T> *new_node = (node<T> *) malloc(sizeof(node<T>));
+    new(&new_node->data) T; // Placement new to construct the data in the node
     new_node->data = data;
-    new_node->next = NULL;
-    if (list->first == NULL) 
+    new_node->next = nullptr;
+    if (list->first == nullptr) 
     {
         list->first = new_node;
         list->last = new_node;
@@ -103,7 +106,7 @@ void add_node(linked_list<T> *list, T data)
 template <typename T>
 void remove_node(linked_list<T> *list, node<T> *node_to_remove)
 {
-    node<T> *previous = NULL;
+    node<T> *previous = nullptr;
 
     // Removing the first node
     if (list->first == node_to_remove
@@ -118,14 +121,14 @@ void remove_node(linked_list<T> *list, node<T> *node_to_remove)
         node<T> *current = list->first;
 
         // Iterate through the list until we find the node to remove
-        while (current != node_to_remove && current != NULL) 
+        while (current != node_to_remove && current != nullptr) 
         {
             previous = current;
             current = current->next;
         }
 
         // Check if the node to remove was found
-        if (current == NULL) 
+        if (current == nullptr) 
         {
             return;
         }
@@ -141,7 +144,8 @@ void remove_node(linked_list<T> *list, node<T> *node_to_remove)
     }
     
     // Clear data from node
-    node_to_remove->next = NULL;
+    node_to_remove->next = nullptr;
+    node_to_remove->data.~T(); // Call destructor
     free(node_to_remove);
 }
 
@@ -154,7 +158,7 @@ int main()
     add_node(list, 4);
 
     node<int> *current = list->first;
-    while (current != NULL) 
+    while (current != nullptr) 
     {
         printf("%d->", current->data);
         current = current->next;
@@ -164,7 +168,7 @@ int main()
     remove_node(list, list->first->next->next);
 
     current = list->first;
-    while (current != NULL) 
+    while (current != nullptr) 
     {
         printf("%d->", current->data);
         current = current->next;

@@ -3,6 +3,7 @@ title: Removing Nodes from a Linked List
 sidebar:
     label: " - Removing Nodes"
 ---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 As a final step, let's add the code to remove a node. For this to work, we need to know which node to remove. The process of removing it involves routing the link from the previous node to the node that follows the node to be removed. This is shown in the following image.
 
@@ -61,9 +62,14 @@ This is a case when the code is pretty convincing, until you look and think abou
 
 Similarly, we don't need to search for the previous node if we removed the first node. We should move searching for the previous node into an else branch, so it is skipped if we know we removed the first node.
 
+We also need to add in the code to call the C++ destructor, to make sure that it cleans up anything in the C++ values that we work with.
+
 Lastly, the `node` parameter will hide the `node` data type. We need to think of a new name for this parameter.
 
-We can move this around to fix it up. This took some thinking, as we need to make sure we handle different cases we identified above (remove first, last, and only nodes). Here is what I came up with.
+We can move this around to fix it up. This took some thinking, as we need to make sure we handle different cases we identified above (remove first, last, and only nodes).
+
+<Accordion>
+  <AccordionItem header="My code for if you get stuck">
 
 ```cpp
 /**
@@ -76,7 +82,7 @@ We can move this around to fix it up. This took some thinking, as we need to mak
 template <typename T>
 void remove_node(linked_list<T> *list, node<T> *node_to_remove)
 {
-    node<T> *previous = NULL;
+    node<T> *previous = nullptr;
 
     // Removing the first node
     if (list->first == node_to_remove) 
@@ -90,14 +96,14 @@ void remove_node(linked_list<T> *list, node<T> *node_to_remove)
         node<T> *current = list->first;
 
         // Iterate through the list until we find the node to remove
-        while (current != node_to_remove && current != NULL) 
+        while (current != node_to_remove && current != nullptr) 
         {
             previous = current;
             current = current->next;
         }
 
         // Check if the node to remove was found
-        if (current == NULL) 
+        if (current == nullptr) 
         {
             return;
         }
@@ -114,7 +120,11 @@ void remove_node(linked_list<T> *list, node<T> *node_to_remove)
     }
     
     // Clear data from node
-    node_to_remove->next = NULL;
+    node_to_remove->next = nullptr;
+    node_to_remove->data.~T(); // C++ destructor...
     free(node_to_remove);
 }
 ```
+
+  </AccordionItem>
+</Accordion>
