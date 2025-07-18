@@ -1,0 +1,282 @@
+---
+title: Step 4 - Multiple Button presses
+sidebar:
+  label: "- Multiple Button presses"
+---
+
+import { Accordion, AccordionItem } from "accessible-astro-components";
+
+TODO: Finalise wording of steps below and decide if page should be split into 2 pages.
+
+1. Add in the code to read a second button press. For this, you can reuse the "button value" variable you created in the last step.
+
+    <Accordion>
+      <AccordionItem header="Code for reading second button press">
+
+      ```cs {26-31,37}
+      using SplashKitSDK;
+      using static SplashKitSDK.SplashKit;
+
+      // Initialise the GPIO system
+      RaspiInit();
+
+      // Define the button pin (using physical Pin 11)
+      GpioPin buttonPin = GpioPin.Pin11;
+
+      // Set the button pin to input mode
+      RaspiSetMode(buttonPin, GpioPinMode.GpioInput);
+
+      // Set the button pin to use an internal pull-down resistor
+      RaspiSetPullUpDown(buttonPin, PullUpDown.PudDown);
+
+      // Define variable for reading button value
+      GpioPinValue buttonValue;
+
+      // First button reading
+      WriteLine("Button Press - Reading 1:");
+      WriteLine("Press Enter to record the button reading.");
+      ReadLine();  // Wait for user to press Enter
+      buttonValue = RaspiRead(buttonPin);
+      int reading1 = ToInt(buttonValue);
+
+      // Second button reading
+      WriteLine("Button Press - Reading 2:");
+      WriteLine("Press Enter to record the button reading.");
+      ReadLine();  // Wait for user to press Enter
+      buttonValue = RaspiRead(buttonPin);
+      int reading2 = ToInt(buttonValue);
+
+      // Output results
+      WriteLine("Results:");
+      WriteLine();
+      WriteLine("Reading 1: " + reading1);
+      WriteLine("Reading 2: " + reading2);
+
+      // Clean up the GPIO system
+      RaspiCleanup();
+      ```
+
+      </AccordionItem>
+    </Accordion>
+
+2. Next, add the third button press.
+
+    <Accordion>
+      <AccordionItem header="Code for reading third button press">
+
+      ```cs {33-38,45}
+      using SplashKitSDK;
+      using static SplashKitSDK.SplashKit;
+
+      // Initialise the GPIO system
+      RaspiInit();
+
+      // Define the button pin (using physical Pin 11)
+      GpioPin buttonPin = GpioPin.Pin11;
+
+      // Set the button pin to input mode
+      RaspiSetMode(buttonPin, GpioPinMode.GpioInput);
+
+      // Set the button pin to use an internal pull-down resistor
+      RaspiSetPullUpDown(buttonPin, PullUpDown.PudDown);
+
+      // Define variable for reading button value
+      GpioPinValue buttonValue;
+
+      // First button reading
+      WriteLine("Button Press - Reading 1:");
+      WriteLine("Press Enter to record the button reading.");
+      ReadLine();  // Wait for user to press Enter
+      buttonValue = RaspiRead(buttonPin);
+      int reading1 = ToInt(buttonValue);
+
+      // Second button reading
+      WriteLine("Button Press - Reading 2:");
+      WriteLine("Press Enter to record the button reading.");
+      ReadLine();  // Wait for user to press Enter
+      buttonValue = RaspiRead(buttonPin);
+      int reading2 = ToInt(buttonValue);
+
+      // Third button reading
+      WriteLine("Button Press - Reading 3:");
+      WriteLine("Press Enter to record the button reading.");
+      ReadLine();  // Wait for user to press Enter
+      buttonValue = RaspiRead(buttonPin);
+      int reading3 = ToInt(buttonValue);
+
+      // Output results
+      WriteLine("Results:");
+      WriteLine();
+      WriteLine("Reading 1: " + reading1);
+      WriteLine("Reading 2: " + reading2);
+      WriteLine("Reading 3: " + reading3);
+
+      // Clean up the GPIO system
+      RaspiCleanup();
+      ```
+
+      </AccordionItem>
+    </Accordion>
+
+3. Now that there are multiple button presses being recorded, you can count the button presses by storing the sum of the integer "reading" variables in a variable for the "count".
+
+    <Accordion>
+      <AccordionItem header="Code for counting button presses">
+
+      ```cs {45}
+      using SplashKitSDK;
+      using static SplashKitSDK.SplashKit;
+
+      // Initialise the GPIO system
+      RaspiInit();
+
+      // Define the button pin (using physical Pin 11)
+      GpioPin buttonPin = GpioPin.Pin11;
+
+      // Set the button pin to input mode
+      RaspiSetMode(buttonPin, GpioPinMode.GpioInput);
+
+      // Set the button pin to use an internal pull-down resistor
+      RaspiSetPullUpDown(buttonPin, PullUpDown.PudDown);
+
+      // Define variable for reading button value
+      GpioPinValue buttonValue;
+
+      // First button reading
+      WriteLine("Button Press - Reading 1:");
+      WriteLine("Press Enter to record the button reading.");
+      ReadLine();  // Wait for user to press Enter
+      buttonValue = RaspiRead(buttonPin);
+      int reading1 = ToInt(buttonValue);
+
+      // Second button reading
+      WriteLine("Button Press - Reading 2:");
+      WriteLine("Press Enter to record the button reading.");
+      ReadLine();  // Wait for user to press Enter
+      buttonValue = RaspiRead(buttonPin);
+      int reading2 = ToInt(buttonValue);
+
+      // Third button reading
+      WriteLine("Button Press - Reading 3:");
+      WriteLine("Press Enter to record the button reading.");
+      ReadLine();  // Wait for user to press Enter
+      buttonValue = RaspiRead(buttonPin);
+      int reading3 = ToInt(buttonValue);
+
+      // Output results
+      WriteLine("Results:");
+      WriteLine();
+      WriteLine("Reading 1: " + reading1);
+      WriteLine("Reading 2: " + reading2);
+      WriteLine("Reading 3: " + reading3);
+      WriteLine();
+
+      // Count the button presses
+      int count = reading1 + reading2 + reading3;
+      WriteLine("The button was pressed " + count + " times!");
+      WriteLine();
+
+      // Clean up the GPIO system
+      RaspiCleanup();
+      ```
+
+      </AccordionItem>
+    </Accordion>
+
+4. Lastly, add some code to output the instructions at the start of the program running.
+
+    ```txt {1-3}
+    Welcome to the button press counter!
+    You will be prompted to read the value of the button pin 3 times.
+    Press the button when prompted to increase the button counter.
+
+    Button Press - Reading 1
+    Press Enter to record the button reading: 
+
+    Button Press - Reading 2
+    Press Enter to record the button reading: 
+
+    Button Press - Reading 3
+    Press Enter to record the button reading: 
+
+    Results:
+
+    Reading 1: 1
+    Reading 2: 0
+    Reading 3: 1
+
+    The button was pressed 2 times!
+    ```
+
+Here is the final code:
+
+<Accordion>
+  <AccordionItem header="Final code">
+
+  ```cs
+  using SplashKitSDK;
+  using static SplashKitSDK.SplashKit;
+
+  // Initialise the GPIO system
+  RaspiInit();
+
+  // Define the button pin (using physical Pin 11)
+  GpioPin buttonPin = GpioPin.Pin11;
+
+  // Set the button pin to input mode
+  RaspiSetMode(buttonPin, GpioPinMode.GpioInput);
+
+  // Set the button pin to use an internal pull-down resistor
+  RaspiSetPullUpDown(buttonPin, PullUpDown.PudDown);
+
+  // Define variable for reading button value
+  GpioPinValue buttonValue;
+
+  WriteLine("Welcome to the button press counter!");
+  WriteLine();
+  WriteLine("You will be prompted to read the value of the button pin 3 times.");
+  WriteLine("Press the button when prompted to increase the button counter.");
+  WriteLine();
+
+  // First button reading
+  WriteLine("Button Press - Reading 1:");
+  WriteLine("Press Enter to record the button reading.");
+  ReadLine();  // Wait for user to press Enter
+  buttonValue = RaspiRead(buttonPin);
+  int reading1 = ToInt(buttonValue);
+
+  // Second button reading
+  WriteLine("Button Press - Reading 2:");
+  WriteLine("Press Enter to record the button reading.");
+  ReadLine();  // Wait for user to press Enter
+  buttonValue = RaspiRead(buttonPin);
+  int reading2 = ToInt(buttonValue);
+
+  // Third button reading
+  WriteLine("Button Press - Reading 3:");
+  WriteLine("Press Enter to record the button reading.");
+  ReadLine();  // Wait for user to press Enter
+  buttonValue = RaspiRead(buttonPin);
+  int reading3 = ToInt(buttonValue);
+
+  // Output results
+  WriteLine("Results:");
+  WriteLine();
+  WriteLine("Reading 1: " + reading1);
+  WriteLine("Reading 2: " + reading2);
+  WriteLine("Reading 3: " + reading3);
+  WriteLine();
+
+  // Count the button presses
+  int count = reading1 + reading2 + reading3;
+  WriteLine("The button was pressed " + count + " times!");
+  WriteLine();
+
+  // Clean up the GPIO system
+  RaspiCleanup();
+  ```
+
+  </AccordionItem>
+</Accordion>
+
+When you have this working you should feel confident that you can start working with Raspberry Pi GPIO programs to record pin value inputs for calculations.
