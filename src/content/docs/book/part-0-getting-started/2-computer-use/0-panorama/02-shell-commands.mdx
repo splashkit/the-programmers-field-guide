@@ -76,7 +76,35 @@ clang++ test.cpp -o test -l SplashKit
 ```
 
 </TabItem>
-<TabItem label="Windows (WSL) & Linux">
+<TabItem label="Linux">
+
+```shell
+# the ls command with flags -l -h and -a
+ls -l -h -a
+
+# shorthand for the above, with -lha
+ls -lha
+
+# cd command, with a folder path as an argument
+cd /home/andrew/Documents/Code
+
+# mkdir command with Project1 as an argument
+mkdir Project1
+
+# dotnet program with 2 arguments: new and console
+dotnet new console
+
+# dotnet program with 3 arguments: add, package, and splashkit
+dotnet add package splashkit
+
+# clang++ program with 5 arguments: test.cpp, -o, test, -l, SplashKit
+# -o and test are linked (test is the value for the -o option)
+# -l and splashkit are linked (splashkit is the value for this -l)
+clang++ test.cpp -o test -l SplashKit
+```
+
+</TabItem>
+<TabItem label="Windows (WSL)">
 
 ```shell
 # the ls command with flags -l -h and -a

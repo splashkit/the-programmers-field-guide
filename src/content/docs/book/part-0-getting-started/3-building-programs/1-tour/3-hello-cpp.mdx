@@ -29,7 +29,23 @@ code .
 ```
 
 </TabItem>
-<TabItem label="Windows (WSL) & Linux">
+<TabItem label="Linux">
+
+```zsh
+cd ~/Documents/Code
+mkdir CppCode
+
+cd CppCode
+
+# Create an empty HelloWorld.cpp file
+touch HelloWorld.cpp
+
+# Open folder in VS Code
+code .
+```
+
+</TabItem>
+<TabItem label="Windows (WSL)">
 
 ```zsh
 cd ~/Documents/Code
@@ -100,7 +116,15 @@ clang++ HelloWorld.cpp -o hello -l SplashKit
 ```
 
 </TabItem>
-<TabItem label="Windows (WSL) & Linux">
+<TabItem label="Linux">
+
+```zsh
+clang++ HelloWorld.cpp -o hello -l SplashKit
+./hello
+```
+
+</TabItem>
+<TabItem label="Windows (WSL)">
 
 ```zsh
 clang++ HelloWorld.cpp -o hello -l SplashKit
