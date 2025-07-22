@@ -14,7 +14,7 @@ using SplashKitSDK;
 using static SplashkitSDK.SplashKit;
 ```
 
-The `using SplashKitSDK;` line allows you to create variables for your GPIO pins using SplashKit's [`GpioPin`](https://splashkit.io/api/types/#gpio-pin) data type.
+The `using SplashKitSDK;` line allows you to create variables using SplashKit's data types, such as [`GpioPin`](https://splashkit.io/api/types/#gpio-pin) for your GPIO pins and [`GpioPinValue`](https://splashkit.io/api/types/#gpio-pin-value) for the values received from the GPIO pins.
 
 With the `using static SplashkitSDK.SplashKit;` line, you have access to the following methods to interact with the Raspberry Pi GPIO Pins:
 
