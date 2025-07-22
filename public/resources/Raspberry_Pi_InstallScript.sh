@@ -240,9 +240,9 @@ if [[ "$no_dotnet" == false ]]; then
     fi
 fi
 
-# Add Programers Feild guide to Menu
-echo "Adding Programers Feild guide to Menu"
-sudo curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/public/favicon.svg" -o /usr/share/pixmaps/feildguide.svg 
+# Add Programers Field guide to Menu
+echo "Adding Programers Field guide to Menu"
+sudo curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/public/favicon.svg" -o /usr/share/pixmaps/fieldguide.svg 
 
 touch ~/programmers-field-guide.desktop
 echo "[Desktop Entry]" >> ~/programmers-field-guide.desktop
@@ -250,7 +250,7 @@ echo "Type=Application" >> ~/programmers-field-guide.desktop
 echo "Name=Programmers Field Guide" >> ~/programmers-field-guide.desktop
 echo "TryExec=/usr/bin/x-www-browser" >> ~/programmers-field-guide.desktop
 echo "Exec=/usr/bin/x-www-browser https://programmers.guide/" >> ~/programmers-field-guide.desktop
-echo "Icon=/usr/share/pixmaps/feildguide.svg" >> ~/programmers-field-guide.desktop
+echo "Icon=/usr/share/pixmaps/fieldguide.svg" >> ~/programmers-field-guide.desktop
 echo "Categories=Development;" >> ~/programmers-field-guide.desktop
 sudo mv ~/programmers-field-guide.desktop /usr/share/applications/programmers-field-guide.desktop
 
