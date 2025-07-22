@@ -152,6 +152,12 @@ Open the Terminal and run the following command:
 curl -s "https://programmers.guide/resources/Raspberry_Pi_InstallScript.sh" | bash /dev/stdin
 ```
 
+:::caution[Script asking for your password?]
+
+Before running any script that uses **sudo**, make sure to review its contents to understand what it does. If you choose not to inspect the script, it should only be because you fully trust the source. Running unverified code with elevated privileges can pose serious security risks.
+
+:::
+
 :::note
 This script will take a while to run (approx. 12-15 mins).
 :::

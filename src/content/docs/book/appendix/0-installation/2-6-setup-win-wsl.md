@@ -150,6 +150,12 @@ sudo apt install curl
 Then run the `curl -s "..." | bash /dev/stdin` command again.
 :::
 
+:::caution[Script asking for your password?]
+
+Before running any script that uses **sudo**, make sure to review its contents to understand what it does. If you choose not to inspect the script, it should only be because you fully trust the source. Running unverified code with elevated privileges can pose serious security risks.
+
+:::
+
 Once the automated script has finished running, close and reopen the Terminal.
 
 Run the command `skm` to check SplashKit is installed correctly.
