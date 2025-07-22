@@ -1,0 +1,97 @@
+---
+title: Using the Terminal
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+Now we need to get our hands dirty and start playing with the Terminal. This will be a very quick tour, but will help get you started. We will expand on this in the next chapter.
+
+Open the terminal on your computer.
+
+:::tip[How do I open the Terminal?]
+
+<Tabs syncKey="terminal-type">
+<TabItem label="macOS">
+  
+To open the Terminal on macOS, press ***Command*** (⌘) + ***Space bar*** to open the Spotlight Search, start typing "Terminal" and then click the **Terminal** app.
+
+![Gif showing Spotlight Search to open Terminal and pasting Xcode install command](/gifs/setup-macos/terminal-xcode-install.gif)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
+
+</TabItem>
+<TabItem label="Linux">
+
+- To open the Terminal on **Debian**:
+
+    Click "Activities" in the top left of the screen and type "Terminal" in the search bar, then click on the Terminal icon.
+
+    ![Gif showing how to open the Terminal](/gifs/setup-linux/OpenTerminal.gif)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
+
+- To open the Terminal on **Raspberry Pi**:
+
+    Click the Terminal icon in the task bar or press `Ctrl + Alt + T`.
+
+    ![Image Showing the Terminal Icon](/src/content/docs/book/appendix/0-installation/images/setup-pi/1-2-setup-pi-Terminal_Icon.png)
+    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
+
+</TabItem>
+<TabItem label="Windows (WSL)">
+
+To open a WSL Terminal, search "Ubuntu" in the Windows Start menu, and then select the Ubuntu App (green box below):
+
+![Open Ubuntu Terminal](/src/content/docs/book/appendix/0-installation/images/setup-windows/ubuntu-terminal-open.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
+
+*You can also follow the steps in the [Configure 'Windows Terminal'](/book/appendix/0-installation/2-6-setup-win-wsl/#configure-windows-terminal) section of the WSL installation page to set up the Windows "Terminal" app to use the WSL terminal.*
+
+</TabItem>
+
+<TabItem label="Windows (MSYS2)">
+
+To open the **MINGW64** terminal (not MSYS2, UCRT64, etc), search "mingw64" in the Windows Start menu and then select the **MSYS2 MINGW64** App (green box below):
+
+![Image showing how to open MSYS2 MINGW64 Terminal](/src/content/docs/book/appendix/0-installation/images/setup-windows/open-mingw64-terminal.png)
+<div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
+
+</TabItem>
+
+</Tabs>
+
+:::
+
+At this point, you should see a “prompt” within the terminal. This is the **shell** asking you to give it an instruction. You type commands, and press the Enter or Return key on your keyboard to get the shell to do what you have asked.
+
+Try the following:
+
+```sh
+echo "Hello `whoami`"
+```
+
+:::caution[Make sure to use backticks]
+
+For these commands to work, make sure you are using double quotes (") around the text and backticks (\`) not single quotes (') around the `whoami`. We will look at why soon.
+
+:::
+
+## Moving around
+
+One of the main things you have to learn is to move around within the file system. Let's start by creating a **Code** folder in our Documents folder. We can then use this for all of our code projects later on.
+
+1. Open or switch back to your terminal.
+2. You can check where you are using the `pwd` command. Give that a go and see where you are now.
+3. Let's now move to your Documents folder:
+    - Linux and macOS: `cd ~/Documents`
+    - Windows with MSys: `cd /c/Users/username/Documents`
+
+    For Windows (MSYS2), you need to put the full path as MSys has its own "home" folder. Replace `username` with your username, and this should work.
+
+    For Windows (WSL), you may need to first create the Documents folder using `mkdir ~/Documents`
+
+    In Linux and macOS, the `~` symbol is a shortcut to indicate your home folder.
+
+4. Use `pwd` again to see where you are, and try out `ls -lha` to see the files and folders in your Documents.
+5. Next, use `mkdir` to create a new folder. Run `mkdir Code` - this passes the value `Code` to `mkdir`. It will then make a new folder (directory). This will be in the current folder, but you can create the folder anywhere by passing in a full path (eg `mkdir /c/Users/andrew/Documents/Code` (Windows MSYS2/MINGW64 terminal) or `mkdir ~/Documents/Code` for WSL, Linux and macOS terminals).
+6. Open your file explorer or finder, and check that this folder now exists.
+
+That will be enough for now. I encourage you to explore the ideas in this chapter further as you have time, but for now this should be enough for us to build upon in the next chapter.

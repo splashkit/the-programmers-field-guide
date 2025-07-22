@@ -152,6 +152,12 @@ Open the Terminal and run the following command:
 curl -s "https://programmers.guide/resources/Raspberry_Pi_InstallScript.sh" | bash /dev/stdin
 ```
 
+:::caution[Script asking for your password?]
+
+Before running any script that uses **sudo**, make sure to review its contents to understand what it does. If you choose not to inspect the script, it should only be because you fully trust the source. Running unverified code with elevated privileges can pose serious security risks.
+
+:::
+
 :::note
 This script will take a while to run (approx. 12-15 mins).
 :::
@@ -383,8 +389,8 @@ To add the Programmers Field Guide to the menu, run the following commands in th
 On the Raspberry Pi it will appear under "Programming" in the menu.
 
 ```bash
-    echo "Adding Programers Feild guide to Menu"
-    sudo curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/public/favicon.svg" -o /usr/share/pixmaps/feildguide.svg
+    echo "Adding Programers Field guide to Menu"
+    sudo curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/public/favicon.svg" -o /usr/share/pixmaps/fieldguide.svg
 
     touch ~/programmers-field-guide.desktop
     echo "[Desktop Entry]" >> ~/programmers-field-guide.desktop
@@ -392,7 +398,7 @@ On the Raspberry Pi it will appear under "Programming" in the menu.
     echo "Name=Programmers Field Guide" >> ~/programmers-field-guide.desktop
     echo "TryExec=/usr/bin/x-www-browser" >> ~/programmers-field-guide.desktop
     echo "Exec=/usr/bin/x-www-browser https://programmers.guide/" >> ~/programmers-field-guide.desktop
-    echo "Icon=/usr/share/pixmaps/feildguide.svg" >> ~/programmers-field-guide.desktop
+    echo "Icon=/usr/share/pixmaps/fieldguide.svg" >> ~/programmers-field-guide.desktop
     echo "Categories=Development;" >> ~/programmers-field-guide.desktop
     sudo mv ~/programmers-field-guide.desktop /usr/share/applications/programmers-field-guide.desktop
 ```
