@@ -200,6 +200,7 @@ if [[ "$no_dotnet" == false ]]; then
             if ! grep -q 'export PATH=$PATH:$HOME/.dotnet' ~/.bashrc; then
                 echo 'export PATH=$PATH:$HOME/.dotnet' >>~/.bashrc
             fi
+            source ~/.bashrc
         fi
 
         if command -v zsh &>/dev/null; then
@@ -209,10 +210,8 @@ if [[ "$no_dotnet" == false ]]; then
             if ! grep -q 'export PATH=$PATH:$HOME/.dotnet' ~/.zshrc; then
                 echo 'export PATH=$PATH:$HOME/.dotnet' >>~/.zshrc
             fi
+            source ~/.zshrc
         fi
-
-        export DOTNET_ROOT=$HOME/.dotnet
-        export PATH=$PATH:$HOME/.dotnet
     fi
 fi
 
