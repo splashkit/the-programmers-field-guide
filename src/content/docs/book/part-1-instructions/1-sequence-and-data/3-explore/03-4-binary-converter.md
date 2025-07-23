@@ -27,10 +27,10 @@ Button Reading 3: 1
 
 Press Enter to record the button reading for the Least Significant Bit: 
 
-Button Reading 4: 1
+Button Reading 4: 0
 
-The binary value is: 1011
-The converted decimal value is: 11
+The binary value is: 1010
+The converted decimal value is: 10
 ```
 
 :::tip[Binary Addition Logic]
@@ -44,13 +44,16 @@ In binary, each digit has a **weight**. For a 4-digit binary number:
 
 To calculate the decimal value from the 4 binary values, you need to multiply the bit value by the corresponding weight, and then add them together.
 
-<!-- For a binary value of `1011`, the formula would be: `(1 * 8) + (0 * 4) + (1 * 2) + (1 * 1)`. -->
+<!-- TODO: Check if image is needed -->
+
+![Image showing binary calculation for decimal value of 10](https://www.geeksforgeeks.org/wp-content/uploads/binary2decimal.png)
+<div class="caption">Image from <a href="https://www.geeksforgeeks.org/dsa/program-binary-decimal-conversion/">GeeksForGeeks</a></div>
 
 :::
 
 :::note[How many Buttons?]
 
-You will only need a single push button for this activity.
+You will only need a single push button for this activity, just like with the [Button Press Counter](/book/part-1-instructions/1-sequence-and-data/1-tour/03-00-button-press-counter) activity.
 
 You can try it with multiple buttons, but make sure you can build a program with a single button first.
 
