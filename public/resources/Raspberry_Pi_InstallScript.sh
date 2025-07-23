@@ -189,30 +189,8 @@ fi
 echo "Installing Splashkit..."
 
 bash <(curl -s $splashkit_url)
-if command -v bash &> /dev/null; then
-    if ! grep -q 'export PATH=$PATH:~/.splashkit' ~/.bashrc; then
-        echo 'export PATH=$PATH:~/.splashkit' >> ~/.bashrc
-    fi
-fi
-
-if command -v zsh &> /dev/null; then
-    if ! grep -q 'export PATH=$PATH:~/.splashkit' ~/.zshrc; then
-        echo 'export PATH=$PATH:~/.splashkit' >> ~/.zshrc
-    fi
-fi
 
 export PATH=$PATH:~/.splashkit
-
-
-#run with yes input to answer yes to apt-get request
-yes | skm linux install
-
-# check if SplashKit Global is avalible
-if [ -d ~/.splashkit/global ]; then
-    echo "Installing splashkit global"
-    skm global install
-fi
-
 
 # Install .NET
 if [[ "$no_dotnet" == false ]]; then
