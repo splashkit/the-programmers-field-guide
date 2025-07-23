@@ -9,6 +9,7 @@ no_vscode=false
 no_clang=false
 no_sudo_check=false
 no_dotnet=false
+no_pigpio=false
 splashkit_url="https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh"
 background_light=false
 deakin_background=false
@@ -44,6 +45,7 @@ function display_help() {
     echo "--no_vscode            Do not install VS Code."
     echo "--no_clang             Do not install clang."
     echo "--no_dotnet            Do not install .NET."
+    echo "--no_pigpio            Do not enable pigpio to start automatically."
     # echo "--splashkit_url=<url>  Specify the url to the splashkit install script."
     echo "--background_light     Specify if the backgound image theme is light. Defualt is dark."
     echo "--no_zsh               Do not install zsh."
@@ -68,6 +70,9 @@ for arg in "$@"; do
         ;;
     --no_dotnet)
         no_dotnet=true
+        ;;
+    --no_pigpio)
+        no_pigpio=true
         ;;
     --splashkit_url=* | --splashkit_url)
         if [[ "$arg" == "--splashkit_url" ]]; then
@@ -217,6 +222,19 @@ echo "Installing Splashkit..."
 bash <(curl -s $splashkit_url)
 
 export PATH=$PATH:~/.splashkit
+
+# Enable the "pigpio" daemon to start automatically on startup
+if [[ "$no_pigpio" == false ]]; then
+    echo "Enabling the pigpio daemon to start automatically on startup with the following commands:"
+    echo "  sudo systemctl enable pigpiod"
+    echo "  sudo systemctl start pigpiod"
+
+    sudo systemctl enable pigpiod
+    sudo systemctl start pigpiod
+
+    echo "You can run \"sudo systemctl disable pigpiod\" to stop the daemon starting automatically."
+    echo
+fi
 
 # Add Programers Field guide to Menu
 echo "Adding Programers Field guide to Menu"
