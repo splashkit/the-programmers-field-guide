@@ -179,6 +179,9 @@ if [[ "$no_dotnet" == false ]]; then
                 echo 'export PATH=$PATH:$HOME/.dotnet' >>~/.zshrc
             fi
         fi
+
+        export DOTNET_ROOT=$HOME/.dotnet
+        export PATH=$PATH:$HOME/.dotnet
     fi
 fi
 
