@@ -185,13 +185,6 @@ elif [[ "$no_clang" == false ]]; then
     sudo apt-get -y install clang
 fi
 
-# Install Splashkit
-echo "Installing Splashkit..."
-
-bash <(curl -s $splashkit_url)
-
-export PATH=$PATH:~/.splashkit
-
 # Install .NET
 if [[ "$no_dotnet" == false ]]; then
     if ! command -v dotnet &> /dev/null; then
@@ -217,6 +210,14 @@ if [[ "$no_dotnet" == false ]]; then
         fi
     fi
 fi
+
+
+# Install Splashkit
+echo "Installing Splashkit..."
+
+bash <(curl -s $splashkit_url)
+
+export PATH=$PATH:~/.splashkit
 
 # Add Programers Field guide to Menu
 echo "Adding Programers Field guide to Menu"
