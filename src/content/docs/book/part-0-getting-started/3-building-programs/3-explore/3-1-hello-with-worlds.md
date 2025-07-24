@@ -1,5 +1,5 @@
 ---
-title: Go Exploring
+title: Hello with Worlds
 ---
 
 Here is a fun hello world program to wrap up this section. You can also look through the guide and fine other sample code you can download and run now. This is a great way to explore the ideas you are learning.
