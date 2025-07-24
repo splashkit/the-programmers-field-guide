@@ -25,9 +25,15 @@ Add is going to need resize, so we are best to implement the resize code first. 
 */
 ```
 
-For me, it kept wanting to do silly things like use `malloc` instead of `realloc` and then manually copying over the data one element at a time. This is slow, inefficient, and unnecessary. I ended up accepting the `malloc` suggestion, then I deleted the `malloc` code, and the code to copy the array over, and added a new comment at the right location to prompt it to use `realloc`. Similarly, I had to prompt it to update the capacity if the new capacity was smaller. The prompts are below.
+For me, it kept wanting to do silly things like use `malloc` instead of `realloc` and then manually copying over the data one element at a time. This is slow, inefficient, and unnecessary. I ended up accepting the `malloc` suggestion, then I deleted the `malloc` code, and the code to copy the array over, and added a new comment at the right location to prompt it to use `realloc`. Similarly, I had to prompt it to update the capacity if the new capacity was smaller.
+
+This is also not likely to remember to call the C++ destructors. For this you should directly call the destructors on the elements being removed. I suggest looping backward through the array to its new capacity, calling the destructor on each element.
+
+Here are some prompts that may help.
 
 ```cpp
+// Call destructors on all elements removed when reducing size
+
 // Resize the data in the array
 
 // Update the size if the new capacity is smaller than the current size
@@ -37,6 +43,7 @@ For me, it kept wanting to do silly things like use `malloc` instead of `realloc
 
 The logic for resize should include the following:
 
+- Call destructors on all elements being removed.
 - It is using `realloc` to allocate space on the heap based on the new capacity.
 - You store the pointer returned from `realloc` in a local variable, and test that this is not null.
 - If `realloc` returned null, you are out of memory, so you have to `return false`.
@@ -49,83 +56,7 @@ The logic for resize should include the following:
 <Accordion>
   <AccordionItem header="My code for if you get stuck">
 
-```cpp {87-113}
-#include <cstdlib>
-
-/**
- * @brief A dynamic array struct that contains the size, capacity,
- *        and data pointer used to implement this dynamic structure.
- *
- * @tparam T the type of data to store in the dynamic array
- * @field data a pointer to the data in the dynamic array on the heap
- * @field size the number of elements used in the dynamic array
- * @field capacity the number of elements the dynamic array can hold
- * @field default_value the default value to use when getting an element
- */
-template <typename T>
-struct dynamic_array
-{
-    T *data;
-    unsigned int size;
-    unsigned int capacity;
-};
-
-/**
- * @brief Create a new dynamic array with the indicated initial capacity.
- * 
- * @tparam T the type of data the array will store
- * @param capacity its initial capacity, with a default value of 50
- * @return dynamic_array<T>* a pointer to the new dynamic array
- */
-template<typename T>
-dynamic_array<T> *new_dynamic_array(unsigned int capacity = 50)
-{
-  dynamic_array<T> *result = (dynamic_array<T>*)malloc(sizeof(dynamic_array<T>));
-  // Make sure result was allocated
-  if (result == nullptr)
-  {
-    return result;
-  }
-  result->data = (T*)malloc(sizeof(T) * capacity);
-  result->size = 0;
-  // Make sure that data was allocated, if not set capacity to 0
-  if(result->data == nullptr)
-  {
-    result->capacity = 0;
-  }
-  else
-  {
-    result->capacity = capacity;
-  }
-  return result;
-}
-
-/**
- * @brief Free the memory allocated to the dynamic array. Once freed
- *        the data in the array will no longer be accessible.
- * 
- * @tparam T the data type of the dynamic array
- * @param array a pointer to the dynamic array to free
- */
-template<typename T>
-void delete_dynamic_array(dynamic_array<T> *array)
-{
-  // Ensure that the array is allocated
-  if (!array) return;
-
-  // Clear to ensure we remove any data from memory before freeing it
-  array->size = 0;
-  array->capacity = 0;
-  
-  // Free the data and the array itself
-  free(array->data);
-  // Ensure we don't have a dangling pointer
-  array->data = nullptr;
-
-  // Free the dynamic array itself
-  free(array);
-}
-
+```cpp
 /**
  * @brief Resize the capacity of the dynamic array.
  * 
@@ -141,6 +72,12 @@ bool resize(dynamic_array<T> *array, unsigned int new_capacity)
 {
   // Ensure that the array is allocated
   if (!array) return false;
+
+  // Call destructors if we are reducing size
+  for(int i = array->capacity - 1; i >= (int)new_capacity; i--)
+  {
+    array->data[i].~T();
+  }
 
   // Resize the data in the array
   T* new_data = (T*)realloc(array->data, sizeof(T) * new_capacity);
@@ -162,19 +99,6 @@ bool resize(dynamic_array<T> *array, unsigned int new_capacity)
   }
 
   return true;
-}
-
-int main()
-{
-  // Create a dynamic array of int
-  // and initialise it to a new dynamic array of 10 elements
-  dynamic_array<int> *array = new_dynamic_array<int>(10);
-
-  // Free the array and ensure we do not have a dangling pointer
-  delete_dynamic_array(array);
-  array = nullptr;
-  
-  return 0;
 }
 ```
 
@@ -220,10 +144,82 @@ You want to make sure that add has the following:
 :::
 
 <Accordion>
+  <AccordionItem header="My code for add">
+
+```cpp
+/**
+ * @brief Add an element to the end of the dynamic array
+ * 
+ * @tparam T the type of data in the dynamic array
+ * @param value the value to add to the end of the dynamic array
+ * @param array the dynamic array to add the value to
+ */
+template<typename T>
+bool add(dynamic_array<T> *array, T value)
+{
+  // Ensure that the array is allocated
+  if (!array) return false;
+
+  // Check if we need to resize the array, and if we failed to resize the array
+  // We double the capacity and add 1 to address issues where capacity is 0 initially
+  if (array->size >= array->capacity && !resize(array, array->capacity * 2 + 1))
+  {
+    // We didn't have space, and we failed to resize the array!
+    return false;
+  }
+
+  // Add the value to the end of the array
+  array->data[array->size] = value;
+  array->size++;
+
+  return true;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+## Test in main
+
+To test this in main I used the following comment as a prompt.
+
+```cpp
+// Add 15 values to the array
+```
+
+At this point, `main` is looking like this for me.
+
+```cpp
+int main()
+{
+  // Create a dynamic array of int
+  // and initialise it to a new dynamic array of 10 elements
+  dynamic_array<int> *array = new_dynamic_array<int>(10);
+
+  // Add 15 values to the array
+  for(int i = 0; i < 15; i++)
+  {
+    add(array, i);
+  }
+
+  // Free the array and ensure we do not have a dangling pointer
+  delete_dynamic_array(array);
+  array = nullptr;
+
+  return 0;
+}
+```
+
+Make sure your program builds and runs before you move on.
+
+Try working with an initial capacity of `0`. I ended up changing my `add` method to double and `+ 1` so that it works when the capacity was originally 0. As `2 * 0` is still 0.
+
+<Accordion>
   <AccordionItem header="My code for if you get stuck">
 
-```cpp {122-141}
+```cpp {102-134,143-162,170-174}
 #include <cstdlib>
+#include <new>
 
 /**
  * @brief A dynamic array struct that contains the size, capacity,
@@ -270,6 +266,14 @@ dynamic_array<T> *new_dynamic_array(unsigned int capacity = 50)
   {
     result->capacity = capacity;
   }
+
+  // For each of the new elements... call placement new constructor
+  for (int i = 0; i < capacity; i++)
+  {
+      // Call constructor to initialise each element
+      new(&result->data[i]) T();
+  }
+
   return result;
 }
 
@@ -285,6 +289,12 @@ void delete_dynamic_array(dynamic_array<T> *array)
 {
   // Ensure that the array is allocated
   if (!array) return;
+
+  // Call destructors on all elements
+  for (int i = 0; i < array->capacity; i++)
+  {
+    array->data[i].~T();
+  }
 
   // Clear to ensure we remove any data from memory before freeing it
   array->size = 0;
@@ -314,6 +324,12 @@ bool resize(dynamic_array<T> *array, unsigned int new_capacity)
 {
   // Ensure that the array is allocated
   if (!array) return false;
+
+  // Call destructors if we are reducing size
+  for(int i = array->capacity - 1; i >= (int)new_capacity; i--)
+  {
+    array->data[i].~T();
+  }
 
   // Resize the data in the array
   T* new_data = (T*)realloc(array->data, sizeof(T) * new_capacity);
@@ -371,35 +387,6 @@ int main()
   // and initialise it to a new dynamic array of 10 elements
   dynamic_array<int> *array = new_dynamic_array<int>(10);
 
-  // Free the array and ensure we do not have a dangling pointer
-  delete_dynamic_array(array);
-  array = nullptr;
-  
-  return 0;
-}
-
-```
-
-  </AccordionItem>
-</Accordion>
-
-## Test in main
-
-To test this in main I used the following comment as a prompt.
-
-```cpp
-// Add 15 values to the array
-```
-
-At this point, `main` is looking like this for me.
-
-```cpp
-int main()
-{
-  // Create a dynamic array of int
-  // and initialise it to a new dynamic array of 10 elements
-  dynamic_array<int> *array = new_dynamic_array<int>(10);
-
   // Add 15 values to the array
   for(int i = 0; i < 15; i++)
   {
@@ -414,6 +401,5 @@ int main()
 }
 ```
 
-Make sure your program builds and runs before you move on.
-
-Try working with an initial capacity of `0`. I ended up changing my `add` method to double and `+ 1` so that it works when the capacity was originally 0. As `2 * 0` is still 0.
+  </AccordionItem>
+</Accordion>
