@@ -134,16 +134,27 @@ fi
 
 # Install VS Code extensions
 if command -v code &>/dev/null; then
-    # Check if C/C++ extension is installed
-    if ! code --list-extensions | grep -q "ms-vscode.cpptools"; then
-        echo "Installing C/C++ VS_Code extension..."
-        code --install-extension ms-vscode.cpptools
+    # Check if C/C++ extension pack is installed
+    if ! code --list-extensions | grep -q "ms-vscode.cpptools-extension-pack"; then
+        echo "Installing \"C/C++ Extension Pack\" VS Code extension..."
+        code --install-extension ms-vscode.cpptools-extension-pack
     fi
 
     # Check if C# extension is installed
     if ! code --list-extensions | grep -q "ms-dotnettools.csharp"; then
-        echo "Installing C# VS_Code extension..."
+        echo "Installing \"C#\" VS Code extension..."
         code --install-extension ms-dotnettools.csharp
+    fi
+    # Check if C# Dev Kit extension is installed
+    if ! code --list-extensions | grep -q "ms-dotnettools.csdevkit"; then
+        echo "Installing \"C# Dev Kit\" VS Code extension..."
+        code --install-extension ms-dotnettools.csdevkit
+    fi
+
+    # Check if Python extension is installed
+    if ! code --list-extensions | grep -q "ms-python.python"; then
+        echo "Installing \"Python\" VS Code extension..."
+        code --install-extension ms-python.python
     fi
 fi
 
@@ -169,6 +180,7 @@ if [[ "$no_dotnet" == false ]]; then
             if ! grep -q 'export PATH=$PATH:$HOME/.dotnet' ~/.bashrc; then
                 echo 'export PATH=$PATH:$HOME/.dotnet' >>~/.bashrc
             fi
+            source ~/.bashrc
         fi
 
         if command -v zsh &>/dev/null; then
@@ -178,10 +190,8 @@ if [[ "$no_dotnet" == false ]]; then
             if ! grep -q 'export PATH=$PATH:$HOME/.dotnet' ~/.zshrc; then
                 echo 'export PATH=$PATH:$HOME/.dotnet' >>~/.zshrc
             fi
+            source ~/.zshrc
         fi
-
-        export DOTNET_ROOT=$HOME/.dotnet
-        export PATH=$PATH:$HOME/.dotnet
     fi
 fi
 
