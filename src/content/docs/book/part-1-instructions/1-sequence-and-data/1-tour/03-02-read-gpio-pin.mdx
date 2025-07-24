@@ -8,8 +8,9 @@ import { Accordion, AccordionItem } from "accessible-astro-components";
 
 Let's start by recording a single button press. This step will focus on the "Reading 1" sections of the output from the first page of this activity:
 
-```txt {5-7, 14-16}
+```txt {6-8, 15-17}
 Welcome to the button press counter!
+
 You will be prompted to read the value of the button pin 3 times.
 Press the button when prompted to increase the button counter.
 
@@ -29,6 +30,7 @@ Reading 2: 0
 Reading 3: 1
 
 The button was pressed 2 times!
+​
 ```
 
 1. Start by creating a variable for the "button value", using SplashKit's [`GpioPinValue`](https://splashkit.io/api/types/#gpio-pin-value) data type.
@@ -54,8 +56,8 @@ The button was pressed 2 times!
       // Initialise the GPIO system
       RaspiInit();
 
-      // Define the button pin (using physical Pin 11)
-      GpioPin buttonPin = GpioPin.Pin11;
+      // Define the button pin (using physical Pin 13)
+      GpioPin buttonPin = GpioPin.Pin13;
 
       // Set the button pin to input mode
       RaspiSetMode(buttonPin, GpioPinMode.GpioInput);
