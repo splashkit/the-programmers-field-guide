@@ -181,7 +181,12 @@ export default defineConfig({
                 },
                 {
                   label: "Activities",
-                  link: "book/part-0-getting-started/3-building-programs/3-explore",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/part-0-getting-started/3-building-programs/3-explore",
+                    collapsed: true,
+                  },
                 },
               ],
             },
