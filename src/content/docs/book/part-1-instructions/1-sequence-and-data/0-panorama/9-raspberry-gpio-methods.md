@@ -37,6 +37,9 @@ public static GpioPinValue RaspiRead(GpioPin pin);
 // Reset the GPIO system before exiting the program
 public static void RaspiCleanup();
 
+// Convert the "GpioPinValue" type to an integer
+public static int ToInt(GpioPinValue value);
+
 // Delay - waiting for a number of milliseconds before continuing
 public static void Delay(int milliseconds);
 ```

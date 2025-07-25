@@ -5,13 +5,82 @@ sidebar:
     class: pi
 ---
 
-TODO: Overview of Raspberry Pi GPIO Pins:
+**G**eneral **P**urpose **I**nput/**O**utput pins let your Raspberry Pi sense or control simple electronic components. Each pin can be configured as an input (to read a signal) or an output (to send a signal).
 
-- Refer back to [Use Your Raspberry Pi](/book/part-0-getting-started/2-computer-use/1-tour/3-2-setup-raspberry) - give summary of content on that page maybe?
-- Refer back to [Machine Code](/book/part-0-getting-started/1-digital-realities/2-trailside/4-machine-code) - discuss binary values
-- Include tables for relevant Pin Modes and Pin Values? (Or just links to splashkit for easier maintainability?)
-- Links to GPIO SplashKit types: [Gpio Pin](https://splashkit.io/api/types/#gpio-pin), [Gpio Pin Mode](https://splashkit.io/api/types/#gpio-pin-mode), [Gpio Pin Value](https://splashkit.io/api/types/#gpio-pin-value), and maybe [Pull Up Down](https://splashkit.io/api/types/#pull-up-down)?
-- Maybe add diagrams similar to method call, but for RaspiWrite and RaspiRead - not sure if needed.
+SplashKit provides a variety of useful functionality and special data types to make it easier to work with the Raspberry Pi's GPIO pins.
+
+## Working with GPIO Pins
+
+### Pin Numbering
+
+SplashKit's GpioPin data type refers to the physical header numbers, shown in the pinout diagram in [Understandingthe GPIO Pins](/book/part-0-getting-started/2-computer-use/1-tour/3-2-setup-raspberry#understanding-the-gpio-pins).
+
+The [`GpioPin`](https://splashkit.io/api/types/#gpio-pin) table shows the code values for each pin on the left, and a description of the pin on the right. e.g. `GpioPin.Pin11` refers to "GPIO 17".
+
+The interactive [Raspberry Pi Pinout](https://pinout.xyz/) page is a useful resource if you want to learn more about the different GPIO pins.
+
+### Pin Modes
+
+GPIO pins need their "mode" (input/output) configured before using them in your code. You can set the input/output mode of a GPIO Pin using SplashKit's [`RaspiSetMode`](https://splashkit.io/api/raspberry/#raspi-set-mode) method. The second argument given to this method will use the values shown in the first two rows of the [`GpioPinMode`](https://splashkit.io/api/types/#gpio-pin-mode) table (`GpioPinMode.GpioInput` and `GpioPinMode.GpioOutput`).
+
+### Pull Resistors (Input Mode)
+
+When configuring a GPIO pin for **digital *input*** devices such as a push button, the input signal can “float” if nothing is connected (such as when a button is not pressed), which will cause unexpected behaviour in your program. To prevent this issue, you can use SplashKit's [`RaspiSetPullUpDown`](https://splashkit.io/api/raspberry/#raspi-set-pull-up-down) method to enable an internal pull‑up (default high) or pull‑down (default low) resistor.
+
+In the example below, the button pin has been configured to enable an internal pull‑down resistor using the `PullUpDown.PudDown` value from the [`PullUpDown`](https://splashkit.io/api/types/#pull-up-down) table.
+
+### Pin Values
+
+The GPIO pins use **digital** signals when writing to, or reading from, a GPIO pin. A digital signal is either low (0) or high (1). This connects with the [Machine Code](/book/part-0-getting-started/1-digital-realities/2-trailside/4-machine-code) ideas: the CPU ultimately deals in ones and zeroes, and GPIO lets you see and set those bits in the real world.
+
+:::caution[Digital "high" signal voltage]
+
+On the Raspberry Pi, a digital high signal is 3.3 volts.
+
+*Never feed 5 volts into a GPIO pin!*
+
+:::
+
+:::tip[SplashKit's Pin Values]
+
+When reading button inputs in the example below, the [`RaspiRead`](https://splashkit.io/api/raspberry/#raspi-read) method will return a [`GpioPinValue`](https://splashkit.io/api/types/#gpio-pin-value) of `GpioLow` (0) or `GpioHigh` (1).
+
+To convert these values into raw binary values (0 or 1) to use in calculations, you can use SplashKit's [`ToInt`](https://splashkit.io/api/raspberry/#to-int) method.
+:::
+
+### The usual GPIO workflow
+
+Once you have wired up your circuit and connected it to the relevant GPIO pins:
+
+1. Start the pigpiod daemon in the shell if you have just rebooted.
+2. In your code, call `RaspiInit` at the start.
+3. Create `GpioPin` variables for each pin you want to use.
+4. Set each pin’s mode (and pull for inputs)
+5. Read or write as needed
+6. Then call `RaspiCleanup` before the program exits.
+
+## GPIO "pre‑flight checklist"
+
+### 1. Hardware and wiring
+
+- Power to the Pi is off while you wire components (or just connect the voltage pin last).
+- LED polarity is correct: long leg to GPIO via resistor, short leg to Ground (GND).
+- A current‑limiting resistor (≈220–330 Ω) is in series with any LEDs.
+- Buttons are wired between the chosen GPIO pin and 3.3 V or GND (match this to your pull‑up or pull‑down choice).
+- Ground connection is solid (all components share a GND with the Pi).
+- No 5V wire is touching a GPIO pin (GPIOs are 3.3 V tolerant only).
+
+### 2. Pin choices and naming
+
+- You know which physical header pins you are using (for example `GpioPin.Pin11`).
+- You are not mixing physical pin numbers with Broadcom (BCM) numbers.
+
+### 3. System services
+
+- `pigpiod` is running (start it after a reboot):  
+
+  ```shell
+  sudo pigpiod
 
 ## Example
 
