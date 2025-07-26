@@ -110,38 +110,34 @@ cd ~
 # 6. Install VS Code extensions for C++ and C#
 # -----------------------------------------------------
 
-echo ""
-echo "Installing VS Code extensions..."
-
 # Install VS Code extensions
 if command -v "$VSCODE_PATH/code" &>/dev/null; then
-
-    # Check if C/C++ extension is installed
+    # Check if C/C++ extension pack is installed
     if ! "$VSCODE_PATH/code" --list-extensions | grep -q "ms-vscode.cpptools-extension-pack"; then
         echo ""
-        echo "C/C++ Extension Pack:"
+        echo "Installing \"C/C++ Extension Pack\" VS Code extension..."
         "$VSCODE_PATH/code" --install-extension ms-vscode.cpptools-extension-pack
     fi
 
     # Check if "C#" extension is installed
     if ! "$VSCODE_PATH/code" --list-extensions | grep -q "ms-dotnettools.csharp"; then
         echo ""
-        echo "C#:"
+        echo "Installing \"C#\" VS Code extension..."
         "$VSCODE_PATH/code" --install-extension ms-dotnettools.csharp
     fi
 
     # Check if "C# Dev Kit" extension is installed
     if ! "$VSCODE_PATH/code" --list-extensions | grep -q "ms-dotnettools.csdevkit"; then
         echo ""
-        echo "C# Dev Kit:"
+        echo "Installing \"C# Dev Kit\" VS Code extension..."
         "$VSCODE_PATH/code" --install-extension ms-dotnettools.csdevkit
     fi
 
-    # Check if "Intellicode for C# Dev Kit" extension is installed
-    if ! "$VSCODE_PATH/code" --list-extensions | grep -q "ms-dotnettools.vscodeintellicode-csharp"; then
+    # Check if "Python" extension is installed
+    if ! "$VSCODE_PATH/code" --list-extensions | grep -q "ms-python.python"; then
         echo ""
-        echo "Intellicode for C# Dev Kit:"
-        "$VSCODE_PATH/code" --install-extension ms-dotnettools.vscodeintellicode-csharp
+        echo "Installing \"Python\" VS Code extension..."
+        "$VSCODE_PATH/code" --install-extension ms-python.python
     fi
 fi
 
