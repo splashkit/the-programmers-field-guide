@@ -1,12 +1,37 @@
 ---
-title: Open the Terminal
+title: Terminal and Shell
 ---
-
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-Now we need to get our hands dirty and start playing with the Terminal. This will be a very quick tour, but will help get you started. We will expand on this in the next chapter.
+Behind the graphical user interface there is a powerful text driven interface that lets you interact with the computer using text alone. Understanding how to use this is important for IT professionals, as it gives you the capability to automate processes, manage remote machines, and opening up ways for your programs to interact with the computer as well.
 
-Open the terminal on your computer.
+![Illustration of terminal and shell](./images/terminal-shell-pano.png)
+
+:::note[The terminal...]
+
+- is a program you can run to interact with the computer
+- connects you with a shell program that interprets your commands
+
+:::
+
+:::note[The shell...]
+
+- is an interactive program that is used to run commands
+- it accepts text input and sends output to the terminal
+- different shells require different commands
+- we will be using the Unix shells - either bash or zsh
+
+:::
+
+:::tip
+
+Getting started with the terminal can be challenging. We can start small, but over time you should look to explore more commands to open up opportunities for you to make use of this very powerful tool.
+
+:::
+
+## Example
+
+The images at the top of the page show some example Terminals, with the output from shell commands. The following tip shows you how to open the Terminal in the different operating systems.
 
 :::tip[How do I open the Terminal?]
 
@@ -58,23 +83,7 @@ To open a WSL Terminal, search "Ubuntu" in the Windows Start menu, and then sele
 *You can also follow the steps in the [Configure 'Windows Terminal'](/book/appendix/0-installation/2-6-setup-win-wsl/#configure-windows-terminal) section of the WSL installation page to set up the Windows "Terminal" app to use the WSL terminal.*
 
 </TabItem>
+
 </Tabs>
 
 :::
-
-At this point, you should see a “prompt” within the terminal. This is the **shell** asking you to give it an instruction. You type commands, and press the Enter or Return key on your keyboard to get the shell to do what you have asked.
-
-Try the following:
-
-```sh
-echo "Hello `whoami`"
-```
-
-:::caution[Make sure to use backticks]
-
-For these commands to work, make sure you are using double quotes (") around the text and backticks (\`) not single quotes (') around the `whoami`. We will look at why soon.
-
-:::
-
-Now let's have a look at the basic commands you will need to use... these will be enough to get you started and you can learn more as you go.
-
