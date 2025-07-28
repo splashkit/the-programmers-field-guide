@@ -33,7 +33,7 @@ if ! command -v dotnet &>/dev/null; then
     echo "Click "Yes" in pop-up Window if it appears."
     powershell.exe -Command "Start-Process dotnet-sdk-installer.exe -ArgumentList '/quiet /norestart' -Wait"
     if [ $? -ne 0 ]; then
-        echo ".NET SDK installation failed. Please try installing it manually."
+        echo ".NET SDK installation failed. Please try installing it manually. Then run this script again."
         exit 1
     fi
     rm dotnet-sdk-installer.exe
