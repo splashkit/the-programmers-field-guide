@@ -1,0 +1,113 @@
+---
+title: Step 3 - Read GPIO Pin Value
+sidebar:
+  label: "- Read GPIO Pin Value"
+---
+
+import { Accordion, AccordionItem } from "accessible-astro-components";
+
+Let's start by recording a single button press. This step will focus on the "Reading 1" sections of the output from the first page of this activity:
+
+```txt {6-8, 15-17}
+Welcome to the button press counter!
+
+You will be prompted to read the value of the button pin 3 times.
+Press the button when prompted to increase the button counter.
+
+Button Press - Reading 1
+Press Enter to record the button reading: 
+
+Button Press - Reading 2
+Press Enter to record the button reading: 
+
+Button Press - Reading 3
+Press Enter to record the button reading: 
+
+Results:
+
+Reading 1: 1
+Reading 2: 0
+Reading 3: 1
+
+The button was pressed 2 times!
+​
+```
+
+1. Start by creating a variable for the "button value", using SplashKit's [`GpioPinValue`](https://splashkit.io/api/types/#gpio-pin-value) data type.
+
+2. Now prompt the user to press the button for "Reading 1".  
+    *Make sure to include a message telling the user to press Enter to record the button reading*.
+
+3. You can then call `ReadLine()` to pause the program and wait for the user to press Enter. After the program continues again, you will need to record the button pin value using the "button value" variable you just created above.
+
+    Assign this variable with the result of calling the `RaspiRead` method with the "button pin" variable as the argument.
+
+4. The `RaspiRead` method returns a `GpioPinValue` type, rather than an integer of **0** or **1** as shown in the terminal output above. Therefore, you will need to convert this value to an integer using the `ToInt` method and store it in an integer variable.
+
+5. Lastly, add some code to print out the result of the button press.
+
+    <Accordion>
+      <AccordionItem header="Code for reading a button press">
+
+      ```cs {16-29}
+      using SplashKitSDK;
+      using static SplashKitSDK.SplashKit;
+
+      // Initialise the GPIO system
+      RaspiInit();
+
+      // Define the button pin (using physical Pin 13)
+      GpioPin buttonPin = GpioPin.Pin13;
+
+      // Set the button pin to input mode
+      RaspiSetMode(buttonPin, GpioPinMode.GpioInput);
+
+      // Set the button pin to use an internal pull-down resistor
+      RaspiSetPullUpDown(buttonPin, PullUpDown.PudDown);
+
+      // Define variable for reading button value
+      GpioPinValue buttonValue;
+
+      // First button reading
+      WriteLine("Button Press - Reading 1:");
+      WriteLine("Press Enter to record the button reading.");
+      ReadLine();  // Wait for user to press Enter
+      buttonValue = RaspiRead(buttonPin);
+      int reading1 = ToInt(buttonValue);
+
+      // Output results
+      WriteLine("Results:");
+      WriteLine();
+      WriteLine("Reading 1: " + reading1);
+
+      // Clean up the GPIO system
+      RaspiCleanup();
+      ```
+
+      </AccordionItem>
+    </Accordion>
+
+6. Compile and run your program:
+
+    ```shell
+    dotnet run
+    ```
+
+    Check the output matches the highlighted lines above, and test what happens when the button is pressed and when it is not pressed.
+
+    :::tip
+    Don't forget to [Start the “pigpiod” Daemon](/book/part-0-getting-started/3-building-programs/1-tour/4-led-blink/#start-the-pigpiod-daemon) if you haven't already.
+
+    To start the `pigpiod` daemon, run the following command:
+
+    ```shell
+    sudo pigpiod
+    ```
+
+    *The `pigpiod` daemon only needs to started "again" when you restart your Raspberry Pi.*
+
+    :::
+
+    :::note[Button press not showing?]
+    The button reading will depend on whether the button is being pressed when you hit Enter.
+    :::
