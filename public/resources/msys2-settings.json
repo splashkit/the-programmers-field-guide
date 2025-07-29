@@ -30,8 +30,8 @@
         "CHERE_INVOKING": "1"
     },
     "C_Cpp.default.systemIncludePath": [
-        "C:\\msys64\\mingw64\\bin\\**",
-        "C:\\msys64\\mingw64\\include\\**",
+        "C:\\msys64\\mingw64\\bin",
+        "C:\\msys64\\mingw64\\include",
         "${default}"
     ],
     "files.autoSave": "afterDelay",
