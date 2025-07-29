@@ -22,7 +22,7 @@ To read analog data using SplashKit's Raspberry methods, you will need the **ADS
 
 <!-- ![Image showing ADS7830 ADC module](./images/ads7830-adc-module.png) -->
 
-<!-- TODO: Discuss the pins on the ADS7830 module -->
+<!-- TODO: Discuss the pins to use on the ADS7830 module -->
 
 ### Analog Sensors  
 
@@ -34,5 +34,3 @@ Analog sensors produce a range of values, instead of just “on” or “off”.
 - **Joystick Module:** Detect changes in position, in two directions - x and y.
 - **Light Sensors:** Measure varying light intensities.  
 - **Analog Temperature Sensors:** Provide a continuous range of temperature readings.
-
-The next pages

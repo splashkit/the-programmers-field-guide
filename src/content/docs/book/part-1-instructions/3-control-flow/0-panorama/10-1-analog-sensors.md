@@ -30,11 +30,11 @@ A potentiometer has three terminals:
 
     Connect the "left" outer terminal to Ground (GND), as shown with the black wire above.
 
-    Connect the outer terminal to the 3.3V supply, as shown with the red wire above.
+    Connect the "right" outer terminal to the 3.3V supply, as shown with the red wire above.
 
 3. **Connect the middle pin:**
 
-    Connect the middle terminal to the **A0** ADC channel on the ADS7830 module so that the variable voltage can be read by your Raspberry Pi.
+    Connect the middle terminal to the **A0** analog channel on the ADS7830 module so that the variable voltage can be read by your Raspberry Pi.
 
 ### Reading the Potentiometer
 
