@@ -50,6 +50,6 @@ int main()
 
         write("Again: ");
         again = read_line();
-    } (again == "y" || again == "Y");
+    } while (again == "y" || again == "Y");
 }
 ```

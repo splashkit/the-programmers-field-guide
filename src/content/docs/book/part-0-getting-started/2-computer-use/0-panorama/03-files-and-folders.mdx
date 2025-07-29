@@ -41,6 +41,9 @@ cd /Users/andrew/Documents
 cd ~/Documents
 
 # Now we are in the Documents folder...
+# Make a new Code folder
+mkdir Code
+
 # move into the /Users/andrew/Documents/Code folder
 cd Code
 
@@ -50,7 +53,7 @@ cd ../..
 
 </TabItem>
 
-<TabItem label="Windows (WSL) & Linux">
+<TabItem label="Linux">
 
 ```shell
 # move into the /home/andrew/Documents/ folder
@@ -59,6 +62,9 @@ cd /home/andrew/Documents
 cd ~/Documents
 
 # Now we are in the Documents folder...
+# Make a new Code folder
+mkdir Code
+
 # move into the /home/andrew/Documents/Code folder
 cd Code
 
@@ -67,7 +73,6 @@ cd ../..
 ```
 
 </TabItem>
-
 <TabItem label="Windows (MSYS2)">
 
 ```shell
@@ -75,10 +80,33 @@ cd ../..
 cd /c/Users/andrew/Documents
 
 # Now we are in the Documents folder...
+# Make a new Code folder
+mkdir Code
+
 # move into the /c/Users/andrew/Documents/Code folder
 cd Code
 
 ## Move back to /c/Users/andrew - the parent of the parent folder
+cd ../..
+```
+
+</TabItem>
+<TabItem label="Windows (WSL)">
+
+```shell
+# move into the /home/andrew/Documents/ folder
+cd /home/andrew/Documents
+# or
+cd ~/Documents
+
+# Now we are in the Documents folder...
+# Make a new Code folder
+mkdir Code
+
+# move into the /home/andrew/Documents/Code folder
+cd Code
+
+## Move back to /home/andrew - the parent of the parent folder
 cd ../..
 ```
 

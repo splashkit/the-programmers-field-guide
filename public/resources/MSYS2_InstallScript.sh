@@ -21,33 +21,11 @@ echo "Installing required packages..."
 pacman -S git mingw-w64-x86_64-clang mingw-w64-x86_64-gcc mingw-w64-x86_64-gdb --noconfirm --disable-download-timeout
 
 # -----------------------------------------------------
-# 2. Install SplashKit
-# -----------------------------------------------------
-
-echo "Installing SplashKit..."
-
-bash <(curl -s $splashkit_url)
-
-if command -v bash &> /dev/null; then
-    if ! grep -q 'export PATH=$PATH:~/.splashkit' ~/.bashrc; then
-        echo 'export PATH=$PATH:~/.splashkit' >> ~/.bashrc
-    fi
-fi
-
-export PATH=$PATH:~/.splashkit
-
-if [ -d ~/.splashkit/windows ]; then
-    echo "Installing Windows dependencies"
-    skm windows install
-fi
-
-# -----------------------------------------------------
-# 3. Install .NET SDK
+# 2. Install .NET SDK
 # -----------------------------------------------------
 
 # Check if .NET SDK is installed
-if ! command -v dotnet &> /dev/null
-then
+if ! command -v dotnet &>/dev/null; then
     echo "Downloading .NET SDK installer..."
     curl -L $dotnet_sdk_url -o dotnet-sdk-installer.exe
 
@@ -55,18 +33,18 @@ then
     echo "Click "Yes" in pop-up Window if it appears."
     powershell.exe -Command "Start-Process dotnet-sdk-installer.exe -ArgumentList '/quiet /norestart' -Wait"
     if [ $? -ne 0 ]; then
-        echo ".NET SDK installation failed. Please try installing it manually."
+        echo ".NET SDK installation failed. Please try installing it manually. Then run this script again."
         exit 1
     fi
     rm dotnet-sdk-installer.exe
 
     # Add .NET environment variables
-    if command -v bash &> /dev/null; then
+    if command -v bash &>/dev/null; then
         if ! grep -q 'export DOTNET_ROOT=$HOME/.dotnet' ~/.bashrc; then
-            echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
+            echo 'export DOTNET_ROOT=$HOME/.dotnet' >>~/.bashrc
         fi
         if ! grep -q 'export PATH=$PATH:$HOME/.dotnet' ~/.bashrc; then
-            echo 'export PATH=$PATH:$HOME/.dotnet' >> ~/.bashrc
+            echo 'export PATH=$PATH:$HOME/.dotnet' >>~/.bashrc
         fi
     fi
 else
@@ -74,12 +52,18 @@ else
 fi
 
 # -----------------------------------------------------
+# 3. Install SplashKit
+# -----------------------------------------------------
+
+echo "Installing SplashKit..."
+bash <(curl -s $splashkit_url)
+
+# -----------------------------------------------------
 # 4. Install Visual Studio Code
 # -----------------------------------------------------
 
 # Check if VS Code needs to be installed
-if ! command -v code &> /dev/null
-then
+if ! command -v code &>/dev/null; then
     echo "Downloading Visual Studio Code installer..."
     curl -L $vscode_installer_url -o vscode-installer.exe
 
@@ -96,7 +80,10 @@ fi
 
 # Define paths
 SETTINGS_JSON_PATH="$APPDATA/Code/User"
-VSCODE_PATH=`cd $LOCALAPPDATA/Programs/Microsoft\ VS\ Code/bin; pwd` #VS Code path to 'code' (to avoid need for restarting shell)
+VSCODE_PATH=$(
+    cd $LOCALAPPDATA/Programs/Microsoft\ VS\ Code/bin
+    pwd
+) #VS Code path to 'code' (to avoid need for restarting shell)
 
 # -----------------------------------------------------
 # 5. Replace settings.json file if empty
@@ -105,11 +92,11 @@ VSCODE_PATH=`cd $LOCALAPPDATA/Programs/Microsoft\ VS\ Code/bin; pwd` #VS Code pa
 echo ""
 echo "Checking VS Code settings.json file size..."
 cd $SETTINGS_JSON_PATH
- 
+
 # empty settings = <= 5 bytes
-if [ $(wc -c < "settings.json") -le 5 ]; then
+if [ $(wc -c <"settings.json") -le 5 ]; then
     echo "Adding MSYS2/MINGW64 terminal settings to settings.json file..."
- 
+
     curl -O "$settings_json_url"
     mv msys2-settings.json settings.json
 else
@@ -120,41 +107,37 @@ fi
 cd ~
 
 # -----------------------------------------------------
-# 6. Install VS Code extensions for C++ and C# 
+# 6. Install VS Code extensions for C++ and C#
 # -----------------------------------------------------
 
-echo ""
-echo "Installing VS Code extensions..."
-
 # Install VS Code extensions
-if command -v "$VSCODE_PATH/code" &> /dev/null; then
-    
-    # Check if C/C++ extension is installed
+if command -v "$VSCODE_PATH/code" &>/dev/null; then
+    # Check if C/C++ extension pack is installed
     if ! "$VSCODE_PATH/code" --list-extensions | grep -q "ms-vscode.cpptools-extension-pack"; then
         echo ""
-        echo "C/C++ Extension Pack:"
+        echo "Installing \"C/C++ Extension Pack\" VS Code extension..."
         "$VSCODE_PATH/code" --install-extension ms-vscode.cpptools-extension-pack
     fi
 
     # Check if "C#" extension is installed
     if ! "$VSCODE_PATH/code" --list-extensions | grep -q "ms-dotnettools.csharp"; then
         echo ""
-        echo "C#:"
+        echo "Installing \"C#\" VS Code extension..."
         "$VSCODE_PATH/code" --install-extension ms-dotnettools.csharp
     fi
 
     # Check if "C# Dev Kit" extension is installed
     if ! "$VSCODE_PATH/code" --list-extensions | grep -q "ms-dotnettools.csdevkit"; then
         echo ""
-        echo "C# Dev Kit:"
+        echo "Installing \"C# Dev Kit\" VS Code extension..."
         "$VSCODE_PATH/code" --install-extension ms-dotnettools.csdevkit
     fi
 
-    # Check if "Intellicode for C# Dev Kit" extension is installed
-    if ! "$VSCODE_PATH/code" --list-extensions | grep -q "ms-dotnettools.vscodeintellicode-csharp"; then
+    # Check if "Python" extension is installed
+    if ! "$VSCODE_PATH/code" --list-extensions | grep -q "ms-python.python"; then
         echo ""
-        echo "Intellicode for C# Dev Kit:"
-        "$VSCODE_PATH/code" --install-extension ms-dotnettools.vscodeintellicode-csharp
+        echo "Installing \"Python\" VS Code extension..."
+        "$VSCODE_PATH/code" --install-extension ms-python.python
     fi
 fi
 

@@ -44,27 +44,27 @@ When picturing the stream, remember the first thing put on the stream will be th
 
 The **standard input** stream provides your program with text input that it can read. By default, the shell will stream data from the keyboard to your program while it is running.
 
-**Picture of data from the keyboard going into a program**
+<!-- TODO: Picture of data from the keyboard going into a program -->
 
 #### Standard Output (stdout)
 
 A program can write text output to its **standard output** stream. By default, the shell will stream this to the terminal for the user to see.
 
-**Picture of data from program going to the terminal**
+<!-- TODO: Picture of data from program going to the terminal -->
 
 ### Standard Error (stderr)
 
 A program can write text output to its **standard error** stream. By default, the shell will stream this to the terminal for the user to see.
 
 :::note
-When you run a program normally there is no difference between standard output and standard error. 
+When you run a program normally there is no difference between standard output and standard error.
 However, there are ways of redirecting these streams, so it is useful to have them separated.
 For example, some programs redirect standard error to a log file.
 :::
 
 ## Redirection
 
-One of the great features of streams is the ability the operating system provides to **redirect** them. 
+One of the great features of streams is the ability the operating system provides to **redirect** them.
 Using this feature, you can change where the data for standard input comes from, and where standard output and standard error go.
 
 When running a program from the terminal, you can use different shell commands to redirect a program's streams.

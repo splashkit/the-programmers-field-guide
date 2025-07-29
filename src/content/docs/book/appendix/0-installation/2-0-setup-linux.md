@@ -80,6 +80,12 @@ curl -s "https://programmers.guide/resources/Linux_InstallScript.sh" | bash /dev
 This script will take a while to run (approx. 12-15 mins).
 :::
 
+:::caution[Script asking for your password?]
+
+Before running any script that uses **sudo**, make sure to review its contents to understand what it does. If you choose not to inspect the script, it should only be because you fully trust the source. Running unverified code with elevated privileges can pose serious security risks.
+
+:::
+
 Once the automated script has finished running, close and reopen the Terminal.
 
 Run the command `skm` to check SplashKit is installed correctly.
@@ -110,7 +116,7 @@ bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-sc
 ```
 
 :::tip[Troubleshooting tip:]
-If you have issues installing the SplashKit SDK, go to [this troubleshooting page](https://splashkit.io/troubleshoot/linux/linux-issue-1/) on the SplashKit website for an alternative installation process.
+If you have issues installing the SplashKit SDK, go to [this troubleshooting page](https://splashkit.io/troubleshoot/linux/issue-1-bash-curl-not-working/) on the SplashKit website for an alternative installation process.
 :::
 
 Close and reopen the Terminal, then run the command below to build SplashKit:
@@ -301,8 +307,8 @@ source ~/.zshrc
 To add the Programmers Field Guide to the menu, run the following commands in the Terminal:
 
 ```bash
-    echo "Adding Programers Feild guide to Menu"
-    sudo curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/public/favicon.svg" -o /usr/share/pixmaps/feildguide.svg
+    echo "Adding Programers Field guide to Menu"
+    sudo curl -s "https://raw.githubusercontent.com/splashkit/the-programmers-field-guide/main/public/favicon.svg" -o /usr/share/pixmaps/fieldguide.svg
 
     touch ~/programmers-field-guide.desktop
     echo "[Desktop Entry]" >> ~/programmers-field-guide.desktop
@@ -310,7 +316,7 @@ To add the Programmers Field Guide to the menu, run the following commands in th
     echo "Name=Programmers Field Guide" >> ~/programmers-field-guide.desktop
     echo "TryExec=/usr/bin/x-www-browser" >> ~/programmers-field-guide.desktop
     echo "Exec=/usr/bin/x-www-browser https://programmers.guide/" >> ~/programmers-field-guide.desktop
-    echo "Icon=/usr/share/pixmaps/feildguide.svg" >> ~/programmers-field-guide.desktop
+    echo "Icon=/usr/share/pixmaps/fieldguide.svg" >> ~/programmers-field-guide.desktop
     echo "Categories=Development;" >> ~/programmers-field-guide.desktop
     sudo mv ~/programmers-field-guide.desktop /usr/share/applications/programmers-field-guide.desktop
 ```

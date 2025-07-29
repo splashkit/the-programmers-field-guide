@@ -2,6 +2,12 @@
 title: Activities
 ---
 
+## Install software development tools
+
+The most important first step in getting ready is to install the compilers, libraries, and code editor we will use throughout the next chapters. Jump over to the [installation guides](/book/appendix/0-installation/0-overview) and follow the steps to install the tools you will need.
+
+## Organise your files
+
 You will build a number of programs and small projects as you progress through the journey in this book. To help yourself, we recommend organising your file system in a way that will make it easy to find these projects from the terminal.
 
 Think about how you will organise your projects, and where on your computer's file system you will store them.

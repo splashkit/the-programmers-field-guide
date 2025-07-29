@@ -71,7 +71,47 @@ curl https://programmers.guide/book/part-0-getting-started/00-0-introduction/ > 
 ```
 
 </TabItem>
-<TabItem label="Windows (WSL) & Linux">
+<TabItem label="Linux">
+
+```zsh
+# move into the /home/andrew/Documents/ folder (WSL users may need to create Documents folder)
+cd /home/andrew/Documents
+
+# Now we are in the Documents folder...
+# move into the /home/andrew/Documents/Code folder
+cd Code
+
+# We can make a folder for a project called HelloWorld
+# Notice no space between Hello and World
+mkdir HelloWorld
+
+# Move into the new folder
+cd HelloWorld
+
+# Print out the location in the terminal
+pwd
+
+# Create some empty files
+touch test.cpp
+touch test.h
+
+# List the files
+ls -lha
+
+# Move to your code folder
+cd ~/Documents/Code
+
+# Explore further to do things like...
+
+# Get a word count of all of your C++ code
+find . -name *.cpp -exec cat {} \; | wc -w
+
+# Download and interact with files
+curl https://programmers.guide/book/part-0-getting-started/00-0-introduction/ > intro.html
+```
+
+</TabItem>
+<TabItem label="Windows (WSL)">
 
 ```zsh
 # move into the /home/andrew/Documents/ folder (WSL users may need to create Documents folder)
