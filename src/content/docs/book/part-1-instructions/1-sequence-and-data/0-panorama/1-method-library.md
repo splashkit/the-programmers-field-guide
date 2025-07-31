@@ -79,7 +79,7 @@ CloseAllWindows();
 Here are some method names from the SplashKit library. What do you think these methods do?
 
 1. `WriteLine`
-2. `OpenWidow`
+2. `OpenWindow`
 3. `FillRectangle`
 4. `PlaySoundEffect`
 5. `Rnd`

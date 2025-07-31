@@ -73,7 +73,7 @@ Delay(delaySeconds * 1000);
 How many method calls and how many arguments does each method have?
 
 1. `WriteLine("Hello World");`
-2. `OpenWidow("Test", 1920, 1080);`
+2. `OpenWindow("Test", 1920, 1080);`
 3. `int weight = (start + 10) * 2;`
 4. `int age = ToInt32(line);`
 5. `DrawLine(RandomColor(), x1, y1, Rnd(100), Rnd(100));`
