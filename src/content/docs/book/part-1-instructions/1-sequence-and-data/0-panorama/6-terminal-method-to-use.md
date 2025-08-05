@@ -27,6 +27,24 @@ public static double ToDouble(string value);
 
 ```
 
+:::tip
+These are method declarations - the code used to create a method. This code is in the library where these are made. You can call these in your code by using the name of the method, and passing it the values it asks for.
+
+For example:
+```cs
+# This code creates ToDouble (in the Convert part of the library)
+public static double ToDouble(string value);
+```
+
+To use it you would do something like:
+```cs
+# The method call -- assuming input is a string variable, 
+# and value is a double 
+value = ToDouble(input);
+```
+
+:::
+
 Each line above represents a method. They all have the following structure (from left to right):
 
 - They start with `public static`. In C# this can be called directly, which is what we are doing now.

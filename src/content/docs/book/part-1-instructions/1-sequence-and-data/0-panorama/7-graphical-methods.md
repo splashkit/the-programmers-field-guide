@@ -55,6 +55,22 @@ public static void DrawBitmap(string name, double x, double y);
 public static void Delay(int milliseconds);
 ```
 
+:::tip
+These are method declarations - the code used to create a method. This code is in the library where these are made. You can call these in your code by using the name of the method, and passing it the values it asks for.
+
+For example:
+```cs
+# This code creates OpenWindow - a method you can call
+public static Window OpenWindow(string caption, int width, int height);
+```
+
+To use it you would do something like:
+```cs
+# The method call -- with caption, width and height
+OpenWindow("Window Caption", 800, 600);
+```
+:::
+
 *What do the different arguments represent?*
 
 When you open a window, you create an area onto which you can draw. The `width` and `height` arguments will determine how large the window is. You could create a 4 by 3 aspect ratio with something like 800 by 600, or a widescreen using 1280 by 720 - though you can create any shape window you want.
