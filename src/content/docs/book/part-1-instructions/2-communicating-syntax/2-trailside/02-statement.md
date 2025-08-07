@@ -30,10 +30,10 @@ The following listing shows an example of method call statements in a simple C# 
 using static System.Console;
 
 // Introduce knights
-WriteLine("We are the knights who say 'Hi!'");
+WriteLine("We are the knights who say 'Ni!'");
 Write("We are the keepers of the sacred words:");
 WriteLine(" 'Ni', 'Peng', and 'Neee-wom !'");
-WriteLine("The Knights Who Say 'Hi' demand a sacrifice.");
+WriteLine("The Knights Who Say 'Ni' demand a sacrifice.");
 WriteLine("We want .... a shrubbery!");
 
 return 0;
