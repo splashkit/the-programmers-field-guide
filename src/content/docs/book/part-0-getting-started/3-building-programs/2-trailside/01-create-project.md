@@ -60,7 +60,7 @@ Before we go on, let's have a look at the structure of a C# project file (the `.
 </Project>
 ```
 
-This is an [XML](https://en.wikipedia.org/wiki/XML) document the describes a project. The entries start with the name of the setting in triangular brackets and end with a matching entry with a backslash (`/`) before the element name. So the text `<Project>` indicates the start of the project settings, this ends with the `<\Project>` tag at the end. If you have worked with HTML, this style of markup will be familiar to you.
+This is an [XML](https://en.wikipedia.org/wiki/XML) document the describes a project. The entries start with the name of the setting in triangular brackets and end with a matching entry with a forward slash (`/`) before the element name. So the text `<Project>` indicates the start of the project settings, this ends with the `<\Project>` tag at the end. If you have worked with HTML, this style of markup will be familiar to you.
 
 The Project element contains an attribute called `Sdk`, indicating the **software development kit** (SDK) associated with this project. In this case, it tells VS Code that this project is using the `"Microsoft.NET.Sdk"`. This is the SDK associated with the C# programming language.
 
