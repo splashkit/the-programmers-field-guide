@@ -14,12 +14,14 @@ Please enter a whole number
 What is your target score: 10
 
 Click 10 targets to end the game.
-// a window opens, showing number of targets
-//      show target using a "health bar" style visualisation.
-// draw a target circle...
+// a window opens, showing number of targets remaining (eg. 10, then 9, etc)
+// show target using a "health bar" style visualisation.
+// draw a target circle... (just one)
 // when it is clicked...
 //      Remove one from the number left to hit
-// end when there are no targets left to hit
+//      Change the position of the circle
+// end when after the player has hit the required number of targets
+//      i.e. when targets remaining is 0
 ```
 
 :::tip[Hints:]
