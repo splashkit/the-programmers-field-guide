@@ -39,6 +39,11 @@ struct number_data
   int size;
 };
 
+// Stub for populate array -- see next page for code
+void populate_array(number_data &data)
+{
+}
+
 int main()
 {
   // Initialise struct with an empty array and a size of 0.
@@ -47,12 +52,15 @@ int main()
   // You can pass to a procedure by reference, and have it update
   populate_array(data);
 
+  // Access elements within the struct's values field
+  // and update its size to match
   data.values[0] = read_double("Enter a value: ");
   data.size = 1;
 
   data.values[1] = read_double("Enter a value: ");
   data.size = 2;
 
+  // Output details about the size and one of the values
   printf("Size is %d\n", data.size);
   printf("Element 1 is %lf\n", data.values[0]);
 
