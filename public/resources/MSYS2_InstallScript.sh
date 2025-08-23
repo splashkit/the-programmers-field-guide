@@ -78,6 +78,11 @@ else
     echo "Visual Studio Code is already installed."
 fi
 
+# Fix issue where .bash_history is not updated with commands used in the integrated VS Code terminal
+if ! grep -q "PROMPT_COMMAND='history -a'" ~/.bashrc; then
+    echo "PROMPT_COMMAND='history -a'" >> ~/.bashrc
+fi
+
 # Define paths
 SETTINGS_JSON_PATH="$APPDATA/Code/User"
 VSCODE_PATH=$(

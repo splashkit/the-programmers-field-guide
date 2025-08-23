@@ -293,7 +293,23 @@ Once you have your code project set up, Visual Studio Code will be the main prog
     ![Image showing opening a new terminal in VS Code window](./images/setup-windows/new-terminal-vscode.png)
     <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
-8. ### Install VS Code Extensions
+8. Run the following command to enable the integrated MINGW64 terminal in VS Code to update the `.bash_history` file:
+
+    ```bash
+    echo "PROMPT_COMMAND='history -a'" >> ~/.bashrc
+    ```
+
+    Then close and reopen VS Code.
+
+    :::note[Using previous commands]
+
+    When you run a command in the terminal, you can press the *up arrow* key to scroll through your previous commands. These previous commands are stored in the `.bash_history` file.
+
+    By default, terminal commands run using the integrated MINGW64 terminal in VS Code are not added to the `.bash_history` file. The command above fixes this issue.
+
+    :::
+
+9. ### Install VS Code Extensions
 
     The final step to complete the setup of VS Code is to install a few *Extensions* in VS Code:
 
