@@ -32,8 +32,17 @@
     "C_Cpp.default.systemIncludePath": [
         "C:\\msys64\\mingw64\\bin",
         "C:\\msys64\\mingw64\\include",
+        "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/15.1.0/../../../../include/c++/15.1.0",
+        "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/15.1.0/../../../../include/c++/15.1.0/x86_64-w64-mingw32",
+        "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/15.1.0/../../../../include/c++/15.1.0/backward",
+        "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/15.1.0/include",
+        "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/15.1.0/../../../../include",
+        "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/15.1.0/include-fixed",
         "${default}"
     ],
+    "C_Cpp.default.compilerPath": "C:/msys64/mingw64/bin/gcc.exe",
+    "C_Cpp.default.intelliSenseMode": "gcc-x64",
+    "C_Cpp.default.cppStandard": "c++20",
     "files.autoSave": "afterDelay",
     "editor.formatOnSave": true
 }

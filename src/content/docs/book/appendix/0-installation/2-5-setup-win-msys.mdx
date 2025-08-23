@@ -100,13 +100,13 @@ This script will install the following applications and tools:
 
 3. Run the command `skm` to check SplashKit is installed correctly.
 
-4. Lastly, try opening a "New Terminal" in VS Code (*Terminal* > *New Terminal*).
+4. **Add MINGW64 Terminal to Visual Studio Code** (important step!):
 
-    :::tip[Add MINGW64 Terminal to Visual Studio Code]
-    If you do not see the MSYS2/MINGW64 terminal, go to the [Setup VS Code Terminal](#setup-vs-code-terminal) section to add your MSYS2/MINGW64 Terminal into VS Code.
-    :::
+    To be able to use the MSYS2/MINGW64 terminal as an integrated terminal in Visual Studio Code, follow the steps in the [Set up VS Code Terminal](#set-up-vs-code-terminal) section below.
 
-5. Then, once you're finished, you can go to the [Using MSYS2](#using-msys2) section for more information about accessing files in your C drive with the MSYS2/MINGW64 terminal.
+5. Lastly, try opening a "New Terminal" in VS Code (*Terminal* > *New Terminal*). You should now see the MINGW64 terminal integrated in VS Code.
+
+6. Then, once you're finished, you can go to the [Using MSYS2](#using-msys2) section for more information about accessing files in your C drive with the MSYS2/MINGW64 terminal.
 
 </Steps>
 
@@ -214,7 +214,7 @@ Once you have your code project set up, Visual Studio Code will be the main prog
     *You will need to close and reopen any currently open terminal windows after installing VS Code for the above commands to work.*
     :::
 
-2. ### Setup VS Code Terminal
+2. ### Set up VS Code Terminal
 
     Visual Studio Code has a built-in Terminal that you can use instead of needing to switch back and forth between VS Code and your **MINGW64** terminal window. You will need to update some settings to get this working with your **MINGW64** terminal.
 
@@ -263,8 +263,17 @@ Once you have your code project set up, Visual Studio Code will be the main prog
         "C_Cpp.default.systemIncludePath": [
             "C:\\msys64\\mingw64\\bin",
             "C:\\msys64\\mingw64\\include",
+            "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/15.1.0/../../../../include/c++/15.1.0",
+            "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/15.1.0/../../../../include/c++/15.1.0/x86_64-w64-mingw32",
+            "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/15.1.0/../../../../include/c++/15.1.0/backward",
+            "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/15.1.0/include",
+            "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/15.1.0/../../../../include",
+            "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/15.1.0/include-fixed",
             "${default}"
         ],
+        "C_Cpp.default.compilerPath": "C:/msys64/mingw64/bin/gcc.exe",
+        "C_Cpp.default.intelliSenseMode": "gcc-x64",
+        "C_Cpp.default.cppStandard": "c++20",
         "files.autoSave": "afterDelay",
         "editor.formatOnSave": true,
     ```
