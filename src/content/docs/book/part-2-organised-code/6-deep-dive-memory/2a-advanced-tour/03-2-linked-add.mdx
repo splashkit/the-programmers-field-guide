@@ -60,7 +60,7 @@ void add_node(linked_list<T> *list, T data)
     node<T> *new_node = (node<T> *) malloc(sizeof(node<T>));
     
     // Placement constructor to initialise data
-    new(new_node->data) T();
+    new(&new_node->data) T();
 
     new_node->data = data;
     new_node->next = nullptr;
