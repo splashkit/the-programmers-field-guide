@@ -24,7 +24,7 @@ There are also the data type testing and conversion functions you will need to c
 // Convert string to integer
 int stoi(string text);
 // Convert string to double
-int stod(string text);
+double stod(string text);
 // Convert ... to a string
 string to_string(...);
 
