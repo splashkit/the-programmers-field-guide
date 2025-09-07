@@ -6,14 +6,14 @@
         },
         "Command Prompt": {
             "path": [
-                "${env:windir}\\Sysnative\\cmd.exe",
-                "${env:windir}\\System32\\cmd.exe"
+                "${env:windir}/Sysnative/cmd.exe",
+                "${env:windir}/System32/cmd.exe"
             ],
-            "args": [],
+            "args": [ ],
             "icon": "terminal-cmd"
         },
         "MSYS2": {
-            "path": "C:\\msys64\\usr\\bin\\bash.exe",
+            "path": "C:/msys64/usr/bin/bash.exe",
             "args": [
                 "--login",
                 "-i"
@@ -29,9 +29,6 @@
         "MSYSTEM": "MINGW64",
         "CHERE_INVOKING": "1"
     },
-    "github.copilot.enable": {
-        "*": false
-    },
     "C_Cpp.default.systemIncludePath": [
         "C:/msys64/mingw64/bin",
         "C:/msys64/mingw64/include",
@@ -40,11 +37,18 @@
         "C:/msys64/mingw64/include/c++/15.1.0/backward",
         "C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include",
         "C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include-fixed",
+        "C:/msys64/mingw64/include/c++/15.2.0",
+        "C:/msys64/mingw64/include/c++/15.2.0/x86_64-w64-mingw32",
+        "C:/msys64/mingw64/include/c++/15.2.0/backward",
+        "C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include",
+        "C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include-fixed",
         "${default}"
     ],
     "C_Cpp.default.compilerPath": "C:/msys64/mingw64/bin/gcc.exe",
     "C_Cpp.default.intelliSenseMode": "gcc-x64",
-    "C_Cpp.default.cppStandard": "c++20",
+    "github.copilot.enable": {
+        "*": false
+    },
     "files.autoSave": "afterDelay",
     "editor.formatOnSave": true
 }
