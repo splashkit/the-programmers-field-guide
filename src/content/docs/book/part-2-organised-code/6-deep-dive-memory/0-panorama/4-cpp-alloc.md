@@ -6,7 +6,7 @@ What we have looked at so far are the lower level, C functions for allocating an
 
 ![Code showing use of new and delete to allocate space](./images/new-delete.png)
 
-In C++ you use the `new` operator to allocate space on the heap for a type. You follow the `new` keyword with the name of the time to create. C++ will work out its size and allocate the space for you, as well as ensuring that the space is initialised correctly for that type. You can allocate space for individual values, or for multiple using an array type.
+In C++ you use the `new` operator to allocate space on the heap for a type. You follow the `new` keyword with the name of the type to create. C++ will work out its size and allocate the space for you, as well as ensuring that the space is initialised correctly for that type. You can allocate space for individual values, or for multiple using an array type.
 
 Use `delete` or `delete[]` to free an allocation made with `new`. `delete` will free an individual value, while `delete[]` will free an array of values.
 
