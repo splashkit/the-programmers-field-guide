@@ -31,7 +31,7 @@ The program will need to allow the user to:
 
 - Delete a song
 
-  The user is asked to enter the name to search for, and is then shown a numbered list of all the songs that contain that text to choose from. They enter the number of the song they want, and it is removed from the system.
+  The user is asked to enter the name to search for, and is then shown a numbered list of all the songs that contain that text to choose from. They enter the number of the song they want, and it is removed from the system. (Check SplashKit's [contains](https://splashkit.io/api/utilities/#contains) function for this)
 
 - Update a song
 
@@ -66,17 +66,9 @@ The program will need to allow the user to:
 
 :::tip
 
-Use a struct for the music player data, this can contain the array, the number of songs, and the next unique id. You can then pass this to functions and procedures you create.
+Use a struct for the **music player data**, this can contain the array, the number of songs, and the next unique id. You can then pass this to functions and procedures you create.
 
-:::
-
-:::tip
-
-Also have a song data struct. You can use this to store the data for one song, and pass it as a parameter when you are working with a single song.
-
-:::
-
-:::tip
+Also have a **song data** struct. You can use this to store the data for one song, and pass it as a parameter when you are working with a single song.
 
 Several of the features will require a search function. You can return the index of the song the user selected, and then the caller can determine what to do with the song selected.
 

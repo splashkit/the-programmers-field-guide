@@ -58,7 +58,7 @@ int main()
 
     while (!is_integer(line))
     {
-      write_line("Please enter a whiole number");
+      write_line("Please enter a whole number");
       write("Enter your choice: ");
       line = read_line();
     }

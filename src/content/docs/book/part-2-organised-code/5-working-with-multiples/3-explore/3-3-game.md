@@ -60,17 +60,9 @@ The game will work as follows:
 
 :::tip
 
-Use a struct for the game data, this can contain the array, the number of rocks, position of the player, the next time a rock will appear, and score. You can then pass this to functions and procedures you create.
+Use a struct for the **game data**, this can contain the array, the number of rocks, position of the player, the next time a rock will appear, and score. You can then pass this to functions and procedures you create.
 
-:::
-
-:::tip
-
-Also have a rock data struct. You can use this to store the data for one rock, and pass it as a parameter when you are working with a single rock.
-
-:::
-
-:::tip
+Also have a **rock data** struct. You can use this to store the data for one rock, and pass it as a parameter when you are working with a single rock.
 
 You can consider using the [point_2d](https://splashkit.io/api/types/#point-2d) or [circle](https://splashkit.io/api/types/#circle) structs. If you are adventurous you could look at using bitmaps for the rocks and players.
 
