@@ -1,0 +1,580 @@
+---
+title: Explore Structs - GUI
+sidebar:
+    label: " - Explore Structs (GUI)"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+
+Now that you have seen structs in actions, let's see how they can help in building a small graphical program.
+
+In this program we are going to show a target on the screen and record the time the user takes to "hit" this target with the mouse. We can report accuracy and average time to the user as the program runs.
+
+## Target struct
+
+When starting to build this program, the first thing we should think about are the *entities* (things) we will want to work with inside the program.
+
+For this program, the main *thing* that I can see is the need for a *target*. Each target will need to know where it is on the screen (x and y) as well as its size. When I think of a target I imagine it will be a circle, so the size in this case can be a radius for the target. That gives us:
+
+|   |   |
+|---|---|
+| **Struct** | *target_data* |
+| **Fields** | `x`: Distance from the left of the window |
+|            | `y`: Distance from the top of the window |
+|            | `radius`: Size of the target |
+
+This is enough to get started building this. Here is a start to `main` that we can add the target to. The logic shown here adds in the event loop, and creates a target in main which will contain the details about the target shown to the user.
+
+Declare the `target_data` struct to get started with this change.
+
+```cpp
+#include "splashkit.h"
+
+// Declare target_data struct here
+
+int main()
+{
+  open_window("Reaction Timer", 800, 600);
+
+  target_data target;
+  
+  while (!quit_requested())
+  {
+    process_events();
+    
+    clear_screen(COLOR_WHITE);
+    refresh_screen();
+  }
+  
+  return 0;
+}
+```
+
+<Accordion>
+  <AccordionItem
+    header="Code for target data struct"
+  >
+
+```cpp
+struct target_data
+{
+  double x;
+  double y;
+  double radius;
+};
+```
+
+  </AccordionItem>
+</Accordion>
+
+When you run this it will only show a white screen, so the next step should be to add some code to initialise and draw the target.
+
+## Initialise and draw the target
+
+Before we can draw a target, we need to be able to initialise the values within the target. This requires us to set `x`, `y`, and `radius` values.
+
+Update the code in `main` so that `target` is given a value for it's x, y, and radius fields.
+
+In order to see what is happening, let's next add a `draw_target` procedure. We can start with a simple circle and make this more target like in a future iteration.
+
+|   |   |
+|---|---|
+| **Procedure** | *Draw Target* |
+| **Parameters** | `target`: The target to draw (a target_data value). |
+| **Description** | Draws a filled circle to the screen at the target's location. |
+
+Have a go at adding the code to initialise target in main, add and call the `draw_target` procedure. A start for this is shown in the code below. For drawing the target you can use SplashKit's [fill circle](https://splashkit.io/api/graphics/#fill-circle) procedure.
+
+```cpp
+#include "splashkit.h"
+
+// Declare target_data struct here
+
+// Add draw target here
+
+int main()
+{
+  open_window("Reaction Timer", 800, 600);
+
+  target_data target; // initilise target here
+  
+  while (!quit_requested())
+  {
+    process_events();
+    
+    clear_screen(COLOR_WHITE);
+    // Draw the target
+    draw_target(target);
+    refresh_screen();
+  }
+  
+  return 0;
+}
+```
+
+<Accordion>
+  <AccordionItem
+    header="Code for initialising and drawing a target"
+  >
+
+There are a couple of ways you can initialise `target`. The first is to set each of the fields separately. This would be achieved using the following code.
+
+```cpp
+// Declare and initialise a target variable
+target_data target;
+target.x = 400;
+target.y = 300;
+target.radius = 75;
+```
+
+Alternative, you can use an initialiser in the variable declaration. This type of assignment can only happen when you declare a variable. You cannot use it at a later stage to change the values in that variable.
+
+```cpp
+// Declare and initialise a target variable
+target_data target = {400, 300, 75};
+```
+
+:::caution
+With this assignment you list the values in the order they appear in the struct itself. If you ever change the order of fields in the struct, this may break these initialisers.
+:::
+
+For `draw_target` you would need something like the following code. The key parts are the parameter is a `target_data` value, and you can then access the fields of that type within the procedure itself. Notice how this accepts the target data as a whole, but can then access the parts that it needs.
+
+```cpp
+void draw_target(target_data target)
+{
+  fill_circle(COLOR_LIGHT_BLUE, target.x, target.y, target.radius);
+}
+
+```
+
+  </AccordionItem>
+</Accordion>
+
+Make sure to build and run your program. You should see the target drawn at the location where you positioned the target. Try changing the values you used to initialise the target, and you should see this reflected when you build and run the program again.
+
+## Improve target initialisation
+
+At the moment we initialise the target in main, but we really want to be able to position this to a random location. We can break this down into two related functions: `new_target` and `random_target`. The `new_target` function can initialise and return a target based on values provided to its parameters. The `random_target` function can then use `new_target` and pass in random values for the position and size of the target.
+
+|   |   |
+|---|---|
+| **Function** | *New Target* |
+| **Parameters** | `x`: The x value for the target. |
+|                | `y`: The y value for the target. |
+|                | `radius`: The target's radius. |
+| **Returns** | A target at the indicated location, with the indicated size. |
+| **Description** | New target is used to initialise a target. The passed in parameters allow the caller to adjust the location and size of the target as they desire. |
+
+Within `random_target` we can call `new_target` to perform the initialisation. This means that `random_target` can focus just on the values for the random target's position and size. SplashKit includes functions to generate random values which we can use. To keep the target on the screen it's `x` value must be larger than its radius, and less than the width of the screen minus its radius. We can apply the same logic to the `y` value and the screen height. For the radius we can declare some constants for `MIN_TARGET_RADIUS` and `MAX_TARGET_RADIUS`.
+
+Have a look at the [rnd](https://splashkit.io/api/utilities/#rnd-functions) function in SplashKit. There are several versions of this, one that generates a random value between a min and max ([rnd](https://splashkit.io/api/utilities/#rnd-range)), one that generates a random real value between 0 and 1 ([rnd](https://splashkit.io/api/utilities/#rnd)), and one that generates a random integer up to a particular value ([rnd](https://splashkit.io/api/utilities/#rnd-int)).
+
+|   |   |
+|---|---|
+| **Function** | *Random Target* |
+| **Returns** | A target at a random location and size. |
+| **Description** | Random target will return target data for a target using the current screen size as its bounds. This will ensure that the target can be drawn and seen entirely on the screen. |
+
+Have a think about how you can implement this function. You may want to add a `radius` local variable, and then use that as you calculate random values for the x and y position. Leave the initialisation of the target to `new_target`, this way if we change things in the target struct there is just one place where we initialise target values.
+
+```cpp
+#include "splashkit.h"
+
+// Declare target_data struct here
+
+// Add new target here
+
+// Add random target here
+
+// Add draw target here
+
+int main()
+{
+  open_window("Reaction Timer", 800, 600);
+
+  // Create a random target
+  target_data target = random_target();
+  
+  while (!quit_requested())
+  {
+    process_events();
+    
+    clear_screen(COLOR_WHITE);
+    // Draw the target
+    draw_target(target);
+    refresh_screen();
+  }
+  
+  return 0;
+}
+```
+
+<Accordion>
+  <AccordionItem
+    header="Code for new target and random target"
+  >
+
+For `new_target` I chose to initialise the fields one at a time. This way any future change to the struct will not negatively impact this code.
+
+```cpp
+target_data new_target(double x, double y, double radius)
+{
+  target_data result;
+  result.x = x;
+  result.y = y;
+  result.radius = radius;
+  return result;
+}
+```
+
+For `random_target` I am using two versions of the [rnd](https://splashkit.io/api/utilities/#rnd-functions) function. For the radius I am using the version that returns a random integer. To ensure we have a minimum radius, the random is up to `MAX_TARGET_RADIUS - MIN_TARGET_RADIUS`, to which I then add `MIN_TARGET_RADIUS`. For the location of the target I used the version that takes a range (a min and max). In our case, the minimum can be the radius of the circle, and the maximum is the screen width or height minus the radius. In this way we ensure that the target will be on the screen.
+
+```cpp
+target_data random_target()
+{
+  int radius = rnd(MAX_TARGET_RADIUS - MIN_TARGET_RADIUS) + MIN_TARGET_RADIUS;
+
+  return new_target(
+    rnd(radius, screen_width() - radius), 
+    rnd(radius, screen_height() - radius), 
+    radius
+  );
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+Each time you run this, you should see the target at a different location.
+
+## Hitting the target
+
+When the user clicks, we want to be able to check if they have hit the target. To implement this we can create a `mouse_over_target` function. This can check if the mouse is over the target. Main can then use this new function with an if statement, inside which it can set the target to a new target for the user to click.
+
+To implement this we can use the [point_in_circle](https://splashkit.io/api/geometry/#point-in-circle-with-values) function. This function accepts parameters for the point x and y (which we can get from [mouse_x](https://splashkit.io/api/input/#mouse-x) and [mouse_y](https://splashkit.io/api/input/#mouse-y)) and the x, y, and radius of the circle (which we can get from the target).
+
+|   |   |
+|---|---|
+| **Function** | *Mouse Over Target* |
+| **Parameters** | `target` the target we are testing |
+| **Returns** | True if the user has clicked, and their mouse is over the target. |
+| **Description** | Check and return a boolean that indicates if the mouse is over the target. |
+
+Inside `main` we can add a check to see if the mouse was clicked (using [mouse_clicked](https://splashkit.io/api/input/#mouse-clicked)) and it is over the target. When this is true, you can replace the target with new target data.
+
+Have a go at this yourself. When you get it working you should be able to click the target and have it move to a new location on the screen.
+
+<Accordion>
+  <AccordionItem
+    header="Code for main and mouse over target"
+  >
+
+```cpp
+#include "splashkit.h"
+
+// Declare target_data struct here
+
+// Add new target here
+
+// Add random target here
+
+// Add draw target here
+
+// Add mouse over target here
+
+int main()
+{
+  open_window("Reaction Timer", 800, 600);
+
+  // Create a random target
+  target_data target = random_target();
+  
+  while (!quit_requested())
+  {
+    process_events();
+
+    if (mouse_clicked(LEFT_BUTTON) && mouse_over_target(target))
+    {
+        target = random_target();
+    }
+    
+    clear_screen(COLOR_WHITE);
+    // Draw the target
+    draw_target(target);
+    refresh_screen();
+  }
+  
+  return 0;
+}
+```
+
+The `mouse_over_target` can be implemented in a single line of code - but this will still help make our code more readable.
+
+```cpp
+bool mouse_over_target(target_data target)
+{
+  return point_in_circle(mouse_x(), mouse_y(), target.x, target.y, target.radius);
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+## Recording times
+
+The final step for this walkthrough will be to start recording and outputting the times takes.
+
+We are now starting to think about a new *thing* within our program: the reaction timer itself. Rather than coding this as separate variables within our program, we can capture this within a new struct. I chose to call this **reaction_game_data**. Inside this we can put all the data we associate as being part of the reaction timer itself. For now, this can include the target and the number of hits.
+
+|   |   |
+|---|---|
+| **Struct** | *reaction_game_data* |
+| **Fields** | `target`: The target for the user to click |
+|            | `hits`: The number of times the user has successfully clicked the target |
+
+With a new struct, we should immediately think about the need to initialise this data. To help with this we can add in a `new_reaction_game` function. This can set up the program with a random target, and set hits to 0.
+
+|   |   |
+|---|---|
+| **Function** | *New Reaction Game* |
+| **Returns** | A new reaction game, with a random target and no hits. |
+| **Description** | Use new reaction game to initialise a reaction game value. This will start with a random target and 0 hits. |
+
+Main can now be updated to store the reaction game data, and will use this value to keep track of the current game state.
+
+```cpp
+#include "splashkit.h"
+
+// Declare target_data struct here
+
+// Declare reaction_game_data struct here (TODO)
+
+// Add new target here
+
+// Add random target here
+
+// Add draw target here
+
+// Add mouse over target here
+
+// Add new_reaction_game function here (TODO)
+
+int main()
+{
+  open_window("Reaction Timer", 800, 600);
+
+  // Create the game data
+  reaction_game_data game = new_reaction_game();
+  
+  while (!quit_requested())
+  {
+    process_events();
+
+    if (mouse_clicked(LEFT_BUTTON) && mouse_over_target(game.target))
+    {
+      game.target = random_target();
+      //Update hits here (TODO)
+    }
+    
+    clear_screen(COLOR_WHITE);
+    // Draw the target
+    draw_target(game.target);
+    refresh_screen();
+  }
+  
+  return 0;
+}
+```
+
+<Accordion>
+  <AccordionItem
+    header="Code to declare and use reaction game data"
+  >
+
+The code to declare the new reaction game data struct is shown below. It is good to add a documentation style comment above the declaration to help document its details.
+
+```cpp
+/**
+ * Represents the data of the reaction game, including the current target and the number of hits.
+ */
+struct reaction_game_data
+{
+  target_data target;
+  int hits;
+};
+```
+
+We can do the same style of documentation above the functions as well.
+
+```cpp
+/**
+ * @brief Creates a new reaction game with a random target and zero hits.
+ * @return The newly created reaction game
+ */
+reaction_game_data new_reaction_game()
+{
+  reaction_game_data result;
+  result.target = random_target();
+  result.hits = 0;
+  return result;
+}
+```
+
+For main, we can update this to also record the hits as they occur.
+
+```cpp
+#include "splashkit.h"
+
+using std::to_string;
+
+// Declare target_data struct here
+
+// Declare reaction_game_data struct here
+
+// Add new target here
+
+// Add random target here
+
+// Add draw target here
+
+// Add mouse over target here
+
+// Add new_reaction_game function here
+
+int main()
+{
+  open_window("Reaction Timer", 800, 600);
+
+  // Create the game data
+  reaction_game_data game = new_reaction_game();
+  
+  while (!quit_requested())
+  {
+    process_events();
+
+    if (mouse_clicked(LEFT_BUTTON) && mouse_over_target(game.target))
+    {
+      game.target = random_target();
+      game.hits++;
+    }
+    
+    draw_game(game);
+  }
+  
+  return 0;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+Make sure that the program runs again when you finish the code. While we have the game recording the hits, we don't actually see this anywhere. So to conclude, let's enhance the drawing of the game. Rather than putting this in main, this is itself a new identifiable action so we can code it into its own procedure - `draw_game`.
+
+|   |   |
+|---|---|
+| **Procedure** | *Draw Game* |
+| **Parameters** | `game` The reaction game data to draw to the screen |
+| **Description** | Draw the game to the screen by clearing the screen, drawing the game's target, and then drawing game stats to the top left of the screen. This also refreshes the screen to ensure it is shown to the user. |
+
+We have most of this code in main, so it is a case of cutting it out of there and pasting it into the new `draw_game` procedure. We can draw the text to the screen using SplashKit's [draw text](https://splashkit.io/api/graphics/#draw-text-no-font-no-size) procedure. This version of draw text takes in parameters for the text, its color, and its location on the screen. The characters are 8 pixels high, so you can draw multiple lines 10 pixels apart and it should look ok.
+
+*What text do we draw?*
+
+We can start with the number of hits on one line, and then below this the average time per hit. To calculate the average time per hit you can call [current ticks](https://splashkit.io/api/utilities/#current-ticks) which returns the number of milliseconds since the program started.
+
+Have a go at coding up these changes. They include:
+
+- Move the drawing code into a new `draw_game` procedure.
+- Make sure to call `draw_game` in `main`.
+- Extend `draw_game` to output the hits and average time per hit.
+
+Make sure to build and run your program as you work through getting this to work. The code for `main` would be:
+
+```cpp
+int main()
+{
+  open_window("Reaction Timer", 800, 600);
+
+  // Create the game data
+  reaction_game_data game = new_reaction_game();
+  
+  while (!quit_requested())
+  {
+    process_events();
+
+    if (mouse_clicked(LEFT_BUTTON) && mouse_over_target(game.target))
+    {
+      game.target = random_target();
+      game.hits++;
+    }
+    
+    draw_game(game);
+  }
+  
+  return 0;
+}
+```
+
+:::tip
+Consider adding a function to calculate the average time per hit. This could be passed the game and return this stat for you. Then you can use that inside draw game.
+:::
+
+<Accordion>
+  <AccordionItem
+    header="Code for draw game"
+  >
+
+Here is my version of `draw_game`. I decided to create a `game_average_time` function to calculate the average time. This helped with the logic to avoid divide by zero errors when the game starts.
+
+```cpp
+/**
+ * @brief Draws the game on the screen.
+ * @param game The reaction game data to draw to the screen
+ */
+void draw_game(reaction_game_data game)
+{
+  clear_screen(COLOR_WHITE);
+  draw_text("Hits: " + to_string(game.hits), COLOR_BLACK, 0, 0);
+  draw_text("Average time: " + to_string(game_average_time(game)), COLOR_BLACK, 0, 10);
+  // Draw the target
+  draw_target(game.target);
+  refresh_screen();
+}
+```
+
+My code for game average time is shown below. I use the current time when there are no hits, then after that we have the time per hit based on the current time and the number of hits.
+
+```cpp
+/**
+ * @brief Calculates the average time per hit in the reaction game.
+ * @param game The reaction game data
+ * @return The average time per hit
+ */
+int game_average_time(reaction_game_data game)
+{
+  if (game.hits == 0)
+  {
+    return current_ticks();
+  }
+  else
+  {
+    return current_ticks() / game.hits;
+  }
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+Once you finish this you should have a working reaction testing program. As you run it you should be able to see the number of hits increasing, and the average reaction time.
+
+## Test it out
+
+Generally you would build all programs in this way, no matter the domain. Business applications, games, security software, etc. In all cases, you need to think about the things that you need to capture data about in the digital reality you are building. You start by creating one type, and then build out from there. Adding a little each time as you create new things in your program in order to add new features and functionality.
+
+You could extend this program to record accuracy by also tracking misses. To do this you would update the reaction game data struct, its initialisation, the logic that records the clicks, and then how the game is drawn.
+
+You could also enhance the `draw_target` to make the target more appealing. This could simply be drawing three circles, or you could switch it out and draw and scale a bitmap. The great thing here is that when you make this change you don't need to think about the other parts of the program, you can just work on changing the way it draws.
+
+Hopefully this has helped you understand how we integrate the use of functions and procedures together with structs and enums as we build programs.

@@ -27,7 +27,7 @@ The program will need to allow the user to:
 
 - Delete a product
 
-  The user is asked to enter the name to search for, and is then shown a numbered list of all the products that contain that text to choose from. They enter the number of the product they want, and it is removed from the system.
+  The user is asked to enter the name to search for, and is then shown a numbered list of all the products that contain that text to choose from. They enter the number of the product they want, and it is removed from the system. (Check SplashKit's [contains](https://splashkit.io/api/utilities/#contains) function for this)
 
 - Update a product
 
@@ -61,17 +61,9 @@ The program will need to allow the user to:
 
 :::tip
 
-Use a struct for the store data, this can contain the array, the number of products, and the sales and profit details. You can then pass this to functions and procedures you create.
+Use a struct for the **store data**, this can contain the array, the number of products, and the sales and profit details. You can then pass this to functions and procedures you create.
 
-:::
-
-:::tip
-
-Also have a product data struct. You can use this to store the data for one product, and pass it as a parameter when you are working with a single product.
-
-:::
-
-:::tip
+Also have a **product data** struct. You can use this to store the data for one product, and pass it as a parameter when you are working with a single product.
 
 Several of the features will require a search function. You can return the index of the product the user selected, and then the caller can determine what to do with the product selected.
 
