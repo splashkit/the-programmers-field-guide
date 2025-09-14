@@ -353,7 +353,7 @@ To make this work in reality we would need to put this in a struct where we also
 
 - `realloc` allows you to *reallocate memory* for a pointer.
 - You need to include **stdlib.h** to use `realloc`.
-- `ptr` must be a`NULL`, or a pointer to a memory block on the heap, i.e. space previously allocated with `malloc`, `calloc`, or `realloc`.
+- `ptr` must be a `NULL`, or a pointer to a memory block on the heap, i.e. space previously allocated with `malloc`, `calloc`, or `realloc`.
 - `realloc` returns `NULL` if it fails to allocate memory.
 - `realloc` may need to move the memory allocation, so you need to assign the result to a pointer as it may differ from the value passed to the `ptr` parameter.
 
