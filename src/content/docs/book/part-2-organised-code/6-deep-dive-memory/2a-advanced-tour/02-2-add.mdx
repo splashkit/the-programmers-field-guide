@@ -36,6 +36,8 @@ Here are some prompts that may help.
 
 // Resize the data in the array
 
+// Call constructors on all elements added when increasing size
+
 // Update the size if the new capacity is smaller than the current size
 ```
 
@@ -87,6 +89,13 @@ bool resize(dynamic_array<T> *array, unsigned int new_capacity)
     // We failed to allocate memory, so we can't resize the array
     return false;
   }
+
+  // Initialize any new values
+  for(int i = array->capacity; i < (int)new_capacity; i++)
+  {
+    new(&result->data[i]) T();
+  }
+
 
   // Update the array's data and capacity
   array->data = new_data;
