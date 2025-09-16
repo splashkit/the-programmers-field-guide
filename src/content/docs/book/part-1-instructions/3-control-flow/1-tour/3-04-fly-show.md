@@ -142,7 +142,7 @@ Code this up and test the game a few times. The fly should appear after a short 
 - To create the game timer you can use `CreateTimer(GAME_TIMER)`.
 - Similarly, you can start the timer and get its ticks using `StartTimer(GAME_TIMER)` and `TimerTicks(GAME_TIMER)`.
 - If you are not sure how long you should wait for the fly to appear, you can print the value of `TimerTicks(GAME_TIMER)` and `appearAtTime` to the terminal while you are testing your program.
-- If you have a boolean variable, you can use it directly in the `if` statement. For example, the following code will draw the fly when the value in the `flyAppared` code is true:
+- If you have a boolean variable, you can use it directly in the `if` statement. For example, the following code will draw the fly when the value in the `flyAppeared` code is true:
 
 ```csharp
 if (flyAppeared)

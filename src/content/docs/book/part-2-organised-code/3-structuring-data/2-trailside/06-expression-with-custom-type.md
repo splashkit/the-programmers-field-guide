@@ -51,7 +51,7 @@ A **Union** has multiple fields that all give access to the same piece of memory
 
 - A union is very similar to a struct in the way that you access its values, the difference is that the union only stores one of the field values.
 - [Figure x.y](#FigureUnionExpression) shows an example of a union variable.
-- The expression `value` gives access to the union's value in the variable. This has a `my_numbwer` type and can be used anywhere a `my_numbwer` value can be accepted.
+- The expression `value` gives access to the union's value in the variable. This has a `my_number` type and can be used anywhere a `my_number` value can be accepted.
 - The expression `value.dbl_val` is a `double` value, and can be used anywhere a `double` is allowed.
 - When accessing the data in a union you are responsible for ensuring you read it using the correct field. For example, it is possible to read the data stored in `value` using `value.int_val`. This will not cause any errors during compiling or running, but the value read will be the integer interpretation of the `double` value stored in the variable.
 

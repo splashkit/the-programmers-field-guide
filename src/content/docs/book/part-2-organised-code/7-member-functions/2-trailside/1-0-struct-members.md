@@ -51,7 +51,7 @@ With C++ you can combine this by embedding the functions and procedures within t
 
 - The data appears as fields. This is the same as we have already seen.
 - Functions and procedures can be coded as **methods**. These exist within the struct, and have direct access to the struct's fields.
-- You can also add **constructors**, this is a special function that is only called when the struct is initalised (a new variable is declared, or a new value allocated on the heap).
+- You can also add **constructors**, this is a special function that is only called when the struct is initialised (a new variable is declared, or a new value allocated on the heap).
 
 :::note
 

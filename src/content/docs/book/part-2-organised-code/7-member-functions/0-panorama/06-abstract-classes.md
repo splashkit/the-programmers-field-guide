@@ -49,9 +49,9 @@ class shape
         color fill_color = COLOR_BLUE;
 
         /**
-         * @brief Virtual destructor to ensure proper cleanup of derived classes.
+         * @brief Virtual destructor to ensure proper clean up of derived classes.
          *
-         * The destructor is called when obects of the class are deleted. Making
+         * The destructor is called when objects of the class are deleted. Making
          * this virtual allows the language to ensure that objects of child
          * classes are cleaned up correctly.
          */

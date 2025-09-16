@@ -5,4 +5,4 @@ order: 3
 
 <!-- format of the stack -->
 <!-- call assembly code -->
-<!-- call C code from assember -->
+<!-- call C code from assembler -->

@@ -10,7 +10,7 @@ If you want to read more on compilation, check out:
 <!-- TODO: Review the analogy -->
 ## Taking a step back
 
-One anology for compilation could that of someone baking a cake. You assemble raw ingredients (flour, eggs, sugare, etc.) together, and bake them in an oven. The result is a cake, which is something that people can eat. In this analogy, the raw ingredients are the source code, the oven is the compiler, and the cake is the executable program. While the raw ingredients are incredibly important to the cake, they are not the cake itself. The cake is the result of the raw ingredients being assembled together and baked in an oven.
+One analogy for compilation could that of someone baking a cake. You assemble raw ingredients (flour, eggs, sugar, etc.) together, and bake them in an oven. The result is a cake, which is something that people can eat. In this analogy, the raw ingredients are the source code, the oven is the compiler, and the cake is the executable program. While the raw ingredients are incredibly important to the cake, they are not the cake itself. The cake is the result of the raw ingredients being assembled together and baked in an oven.
 
 A shared library can be thought of as a pre-baked cake, or a program that has been pre-compiled. We can then use this pre-baked cake in other programs, without having to bake it again. This is useful for a number of reasons, but the main one is that it allows us to share code between programs. If we have a function that we want to use in multiple programs, we can compile it into a library, and then link that library into each program. This means that we don't have to write the function multiple times, and if we want to change the function, we only have to change it once. It is commonly used for sharing platform-specific code between programs, and for organising large programs into smaller, more manageable chunks.
 
@@ -22,7 +22,7 @@ A shared library can be thought of as a pre-baked cake, or a program that has be
 <!-- .c -> defines things -->
 <!-- .so -> compiled library -->
 
-A simple example of a shared library are some of the standard libraries we've been using so far. The `printf` function (used to print text to the terminal) is one of the most commonly used functions in C. It's so useful that it makes little sense for C programmers to have to implement the function over and ocer. As such, the C language provides the `printf` function for us, and it is defined in the `stdio.h` library. When we write `#include <stdio.h>` at the top of our source code, we are telling the compiler to link the compiled code in `stdio.h` into our program. This means that we can use the `printf` function in our program, without having to write it ourselves.
+A simple example of a shared library are some of the standard libraries we've been using so far. The `printf` function (used to print text to the terminal) is one of the most commonly used functions in C. It's so useful that it makes little sense for C programmers to have to implement the function over and over. As such, the C language provides the `printf` function for us, and it is defined in the `stdio.h` library. When we write `#include <stdio.h>` at the top of our source code, we are telling the compiler to link the compiled code in `stdio.h` into our program. This means that we can use the `printf` function in our program, without having to write it ourselves.
 
 :::note
 Have a think of some other useful libraries (in the standard library or otherwise!)
@@ -68,7 +68,7 @@ int main() {
 
 Next, we compile our library into an object file with **position independent code**. Position independent code is code that can be executed from any memory address. This is important because we don't know where the library will be loaded into memory when we link it into another program. To compile our library into position independent code, we use the `-fpic` flag to `gcc`.
 
-We also use the `-c` flag. This tells gcc to compile the source code into an objcet file, but not to create an executable program. This is an important step in creating a shared library.
+We also use the `-c` flag. This tells gcc to compile the source code into an object file, but not to create an executable program. This is an important step in creating a shared library.
 
 ```bash
 gcc -c -fpic my_library.c

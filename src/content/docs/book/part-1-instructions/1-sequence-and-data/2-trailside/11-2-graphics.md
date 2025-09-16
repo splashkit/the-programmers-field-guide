@@ -166,7 +166,7 @@ Delay(5000);
 ```
 
 :::tip[Autocomplete]
-If you are ever unsure of what a method requires, you should be able to get Visual Studio Code to show you a list of the arguments you need to provide. To do this, type the start of the method name then press `ctrl-space`. There are usually a couple of different ways to draw a shape in SplashKit, which you can eexplore by pressing the up/down arrows to navigate the pop-up list. An example with C# is shown below. Try it out for yourself as you modify you first shape drawing program.
+If you are ever unsure of what a method requires, you should be able to get Visual Studio Code to show you a list of the arguments you need to provide. To do this, type the start of the method name then press `ctrl-space`. There are usually a couple of different ways to draw a shape in SplashKit, which you can explore by pressing the up/down arrows to navigate the pop-up list. An example with C# is shown below. Try it out for yourself as you modify you first shape drawing program.
 
 ![Use `ctrl-space` to bring up the autocomplete for procedures you want to call.](./images/auto-complete.png)
 :::

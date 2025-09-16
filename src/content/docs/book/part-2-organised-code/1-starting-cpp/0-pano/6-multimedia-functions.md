@@ -35,7 +35,7 @@ void draw_line(Color clr, double x1, double y1, double x2, double y2);
 
 
 // Key input
-// This also requiers... to get access to the KeyCode details.
+// This also requires... to get access to the KeyCode details.
 // using SplashKitSDK;
 bool key_down(KeyCode key);
 

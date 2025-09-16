@@ -9,7 +9,7 @@ In programming, polymorphism means *many forms* and refers to the ability to use
 
 Object-oriented programming and inheritance opens up a new opportunity for polymorphism. With inheritance, we can create families of related types where child classes inherit all the features of their parent class. In this case, we know that any object of a child class *must* have all features (fields, methods, etc) of the parent. As a result, objects of the child-class can be used anywhere an object of the parent class is needed.
 
-![Illustration of polymorphsim](./images/polymorphism.png)
+![Illustration of polymorphism](./images/polymorphism.png)
 
 :::note
 

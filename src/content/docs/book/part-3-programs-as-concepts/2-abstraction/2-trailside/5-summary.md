@@ -12,7 +12,7 @@ Classes have a **name**, and contain zero or more **members**.
 
 * A class member can be a:
   * field - to store data.
-  * constructor - to initalise objects when they are created.
+  * constructor - to initialise objects when they are created.
   * method - to perform an action.
   * property - to give access to data.
 

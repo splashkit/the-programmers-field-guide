@@ -21,7 +21,7 @@ We will explore inheritance much more in Part 3, for the moment we will focus ju
 - Inheritance allows you to create a class that inherits all features from another class (its parent class).
 - In the child class, you can add new features and override any virtual methods (changing how they work on objects created from this class).
 - Inheritance is used to create a hierarchy of classes.
-- Inheritance involves generalisation/specialisation - more specific classes inhert features from the more general classes. In this way, more general/common features from the parent are inherited across all child classes.
+- Inheritance involves generalisation/specialisation - more specific classes inherit features from the more general classes. In this way, more general/common features from the parent are inherited across all child classes.
 - The term *base class* can be used to describe a class from which other classes inherit. In our example, the `text_message` is a the base class from which `error_message` inherits.
 
 :::

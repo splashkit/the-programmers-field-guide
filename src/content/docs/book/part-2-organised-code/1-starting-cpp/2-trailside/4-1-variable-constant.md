@@ -11,7 +11,7 @@ Constants are also the same -- they are used to store a value that can not be ch
 Variable declaration in C/C++ is the same as in C#. You specify the name of the type first, and follow this with a comma separated list of names for the variables you want created.
 You can optionally initialise a variable with a value as well as declare it.
 
-Constant declaration is also the same -- identical to declaring a variable, just with the word `const` at the start, and you must initialise it at the same time as delcaring it.
+Constant declaration is also the same -- identical to declaring a variable, just with the word `const` at the start, and you must initialise it at the same time as declaring it.
 
 The diagram below shows the syntax for both.
 
@@ -45,7 +45,7 @@ int main()
 
     write_line("Water Bottle Volume");
     write_line();
-    write_line("Enter the radius and height of the bottle in centimeters");
+    write_line("Enter the radius and height of the bottle in centimetres");
 
     write("radius: ");
     line = read_line();
