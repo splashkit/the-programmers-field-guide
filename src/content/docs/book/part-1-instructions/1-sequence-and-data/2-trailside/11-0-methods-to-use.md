@@ -39,7 +39,7 @@ The following shows the declaration of the [Open Window](https://splashkit.io/ap
 public static Window OpenWindow(string caption, int width, int height);
 ```
 
-This is in the `SplashkitSDK.SplashKit` class, so you can call the `OpenWindow` method using the following code. This will pass "This is the caption" to the `caption` data, 800 to the `width`, and 600 to the `height`. This code will return a `Winddow` value, which we can ignore or store in a `Window` variable.
+This is in the `SplashkitSDK.SplashKit` class, so you can call the `OpenWindow` method using the following code. This will pass "This is the caption" to the `caption` data, 800 to the `width`, and 600 to the `height`. This code will return a `Window` value, which we can ignore or store in a `Window` variable.
 
 ```cs
 using static SplashkitSDK.SplashKit;

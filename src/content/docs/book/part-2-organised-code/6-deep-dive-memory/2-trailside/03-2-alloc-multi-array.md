@@ -12,7 +12,7 @@ Memory is always managed as a sequence of bytes, with each byte having an addres
 
 Let's consider an array declared as `int data[2][3];`. This array has a total of six elements in it, and can be visualised as a grid with 2 columns, each containing 3 elements. However, in memory this is stored as six elements in sequence (next to each other in memory).
 
-To calculate the location of an element, we use the indexes of each dimension. Have a look at the following image that will try to help explain how this works. If you look at the first column, we can see that for the first column the row index is all we need to identify the element. So in column 0, we can just use the row index. So the cell at `data[0][0]` is in memory at index 0 (we could call this `memory[0]`). The element at `data[0][1]` is therefor at `memory[1]`, `data[0][2]` is at `memory[2]`.
+To calculate the location of an element, we use the indexes of each dimension. Have a look at the following image that will try to help explain how this works. If you look at the first column, we can see that for the first column the row index is all we need to identify the element. So in column 0, we can just use the row index. So the cell at `data[0][0]` is in memory at index 0 (we could call this `memory[0]`). The element at `data[0][1]` is therefore at `memory[1]`, `data[0][2]` is at `memory[2]`.
 
 ![Indexing 2-dimensional array](./images/index-2d.png)
 

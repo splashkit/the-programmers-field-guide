@@ -31,7 +31,7 @@ When things go wrong, you can signal the shell and have it kill the program for 
 
 ```sh
 sleep 120
-# This will do nothing for 2 minutes - but dont wait!
+# This will do nothing for 2 minutes - but don't wait!
 # Press ctrl-c to kill sleep
 ```
 

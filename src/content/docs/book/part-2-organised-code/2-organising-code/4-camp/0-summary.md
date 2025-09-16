@@ -2,7 +2,7 @@
 title: Summary
 ---
 
-Leading up to this point, our focus has been on sequence, data, and control flow. These mechanics exist in every imperative program, but we had reached a point where we were limited in what we could do. In this chapter we have seen a range of new tools and approaches that allow us to organise our code into functions and procedures. By dividing our code into these smaller chunks we can simplify our existing programs, and start to look to build larger and more complex softare.
+Leading up to this point, our focus has been on sequence, data, and control flow. These mechanics exist in every imperative program, but we had reached a point where we were limited in what we could do. In this chapter we have seen a range of new tools and approaches that allow us to organise our code into functions and procedures. By dividing our code into these smaller chunks we can simplify our existing programs, and start to look to build larger and more complex software.
 
 :::note
 

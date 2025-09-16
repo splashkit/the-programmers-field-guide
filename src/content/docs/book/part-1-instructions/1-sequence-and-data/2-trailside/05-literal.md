@@ -9,7 +9,7 @@ This can be either a **number value** or **text value** written directly in the 
 
 The concept map below shows the concepts related to literals.
 
-![Concepts related to literals.](./images/literal-concept.png "Concepts related to iterals.")
+![Concepts related to literals.](./images/literal-concept.png "Concepts related to literals.")
 
 ## Literals -- when, why, and how
 
@@ -20,7 +20,7 @@ Your instructions need data, and one way you can provide it is by literally typi
 The diagram below shows the syntax for the different literal values you can enter into your C# code. Most of these are self-evident, so do not worry overly about studying the syntax in detail.
 
 :::tip[Syntax]
-![The syntax of a lteral.](./images/program-creation/LiteralSyntax.png "The syntax of a literal")
+![The syntax of a literal.](./images/program-creation/LiteralSyntax.png "The syntax of a literal")
 :::
 
 Data falls into one of two categories:

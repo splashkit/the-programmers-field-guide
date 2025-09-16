@@ -74,7 +74,7 @@ If you do not have the library installed globally, then you will need to tell th
 - `-Wl,-rpath,` is used to indicate where to find the library files. The `rpath` is the path that the computer will search at runtime, when it is loading libraries. You need to tell this where you have installed the SplashKit library. (Linux, macOS, and WSL only)
 
 ```zsh
-# Exampl of compiling on Linux
+# Example of compiling on Linux
 clang++ program.cpp -I ~/.splashkit/clang++/include -L ~/.splashkit/lib/linux -l SplashKit -Wl,-rpath,~/.splashkit/lib/linux -o program
 ```
 

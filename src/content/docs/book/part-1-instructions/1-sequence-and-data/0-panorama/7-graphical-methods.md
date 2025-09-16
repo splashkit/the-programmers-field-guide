@@ -89,7 +89,7 @@ using static SplashKitSDK.SplashKit;
 // Open a window, before drawing to it
 OpenWindow("A House", 800, 600);
 
-// Clear the screen to white - dont show it yet
+// Clear the screen to white - don't show it yet
 ClearScreen(ColorWhite());
 
 // Draw a hill like ellipse - only half of the ellipse is shown

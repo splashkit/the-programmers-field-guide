@@ -27,9 +27,9 @@ Welcome to my simple music player
 Option: 1
 
 What is the name of the song: Test
-Path to the file: /c/Users/andrew/Downloads/test.oggg
+Path to the file: /c/Users/andrew/Downloads/test.ogg
 
-Loading /c/Users/andrew/Downloads/test.oggg failed!
+Loading /c/Users/andrew/Downloads/test.ogg failed!
 
 1: Load song
 2: Play song

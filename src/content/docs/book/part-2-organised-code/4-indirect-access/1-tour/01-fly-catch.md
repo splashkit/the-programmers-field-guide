@@ -71,7 +71,7 @@ Update game can also be passed the current time, so that the update game code do
 
 You can implement this by copying and pasting the code from main into the new `update_game` procedure. In this case the code will only need minor changes to remove the need to access the time (replacing `timer_ticks(GAME_TIMER)` with `current_time`). The fly and spider details will still come from the `game` parameter which has the same name as the variable in main.
 
-This doesn't get to as nice a place as we were with `handle_input` where we had reduced the scope to only have the details we need. So we can berak this down further.
+This doesn't get to as nice a place as we were with `handle_input` where we had reduced the scope to only have the details we need. So we can break this down further.
 
 ### Update Fly
 

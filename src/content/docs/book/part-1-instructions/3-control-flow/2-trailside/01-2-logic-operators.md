@@ -137,7 +137,7 @@ In this case you can see that if any one of the values is true, then the result 
 
 ## In C#
 
-Because of the heritage of C#, which is based upon the C programming language, this is one area where C# uses cryptic symbols rather than clear text. Rather than using keywords for *and* and *or* orperators, C# uses **&&** for and, **||** for or, **!** for not, and **^** for xor. This is summarised in the following table.
+Because of the heritage of C#, which is based upon the C programming language, this is one area where C# uses cryptic symbols rather than clear text. Rather than using keywords for *and* and *or* operators, C# uses **&&** for and, **||** for or, **!** for not, and **^** for xor. This is summarised in the following table.
 
 |  | Description | Operator | Example |
 |---|---|---|---|

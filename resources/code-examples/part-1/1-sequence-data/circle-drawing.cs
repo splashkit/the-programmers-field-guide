@@ -12,12 +12,12 @@ WriteLine("Welcome to Circle Drawer!");
 WriteLine();
 WriteLine("Enter the radius of the circle to draw. (a whole number)");
 
-// Read value from the user and conver to double for radius
+// Read value from the user and convert to double for radius
 Write("Circle radius: ");
 line = ReadLine();
 radius = ToInt32(line);
 
-// Read value from the user and conver to double for hue
+// Read value from the user and convert to double for hue
 WriteLine("What color? Enter hue between 0 to 1");
 Write("Hue: ");
 line = ReadLine();

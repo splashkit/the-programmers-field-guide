@@ -8,7 +8,7 @@ This means that the language needed a way of *forward* declaring things. These a
 
 ## Header Files
 
-Header files are full of forward declarations of functions, procedures, and constants. If we think about the "splashkit.h" header, it tells the compiler "trust me... there is an `open_window` funtion with three parameters - a string and two doubles". This means you can call `open_window` and the linker is then told to look in the SplashKit library where it finds the code we have written to create this.
+Header files are full of forward declarations of functions, procedures, and constants. If we think about the "splashkit.h" header, it tells the compiler "trust me... there is an `open_window` function with three parameters - a string and two doubles". This means you can call `open_window` and the linker is then told to look in the SplashKit library where it finds the code we have written to create this.
 
 :::tip[In C/C++]
 

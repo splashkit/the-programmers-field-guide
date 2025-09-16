@@ -85,7 +85,7 @@ Which of the following names are valid identifiers in C# and why/why not?
 <details>
   <summary role="button">Answers</summary>
   <ul>
-    <li><strong>1: </strong>A single underscore is a valid ientifier.</li>
+    <li><strong>1: </strong>A single underscore is a valid identifier.</li>
     <li><strong>2: </strong>Two consecutive underscores is a valid identifier.</li>
     <li><strong>3: </strong>This identifier is invalid because it contains spaces.</li>
     <li><strong>4: </strong>This identifier is invalid because it begins with a number.</li>
