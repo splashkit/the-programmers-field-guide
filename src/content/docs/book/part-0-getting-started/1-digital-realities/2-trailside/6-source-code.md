@@ -19,7 +19,7 @@ In this journey we will focus on compiled languages.
 Internally, a compiler will perform a number of steps:
 
 1. **Preprocessing**: The compiler reads your code. This may involve some processing to do things like ignoring comments, which are notes written in your code files for the benefit of programmers.
-2. **Compiling**: The compiler coverts your code into assembly instructions and outputs an assembly program.
+2. **Compiling**: The compiler converts your code into assembly instructions and outputs an assembly program.
 3. **Assembling**: The assembly program is converted into machine code and stored in **object files**.
 4. **Linking**: The compiler uses a **linker**, which is another program, to join together the machine code of your program with other machine code from any **programming libraries** your program refers to. It then outputs an executable program.
 

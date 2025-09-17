@@ -53,7 +53,7 @@ Compile and run, making sure you can see the different tiles when you do randomi
 
 We want to be able to switch between editing and playing. To model this we can think of the game as being in one of two states: playing or editing. If we know this, then different things can happen when you are in these different states.
 
-Modeling this is actually very simple. We can create a `explorer_state_kind` enumeration with the two states, and place a value of this type in the `explorer_data`. Then our code in draw game and handle input can read this value to determine which things to draw and which actions to allow.
+Modelling this is actually very simple. We can create a `explorer_state_kind` enumeration with the two states, and place a value of this type in the `explorer_data`. Then our code in draw game and handle input can read this value to determine which things to draw and which actions to allow.
 
 1. Add a new enumeration with two states. One to indicate the playing state and one for the editing state.
 2. Add a field to the `explorer_data` struct to capture the program's state.

@@ -23,7 +23,7 @@ For example, even though Python is a different programming language, in this sma
 
 ```python
 name = input("What is your name: ")
-line = input("What is your favorite number: ")
+line = input("What is your favourite number: ")
 favNum = int(line)
 
 print(f"Hello {name}!")

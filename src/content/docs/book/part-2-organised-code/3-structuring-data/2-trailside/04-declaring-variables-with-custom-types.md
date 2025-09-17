@@ -77,7 +77,7 @@ union my_number
 
 int main()
 {
-  // Declare variables, strucutres, enums, and unions.
+  // Declare variables, structures, enums, and unions.
   my_struct var1;
   my_struct var2 = {1, 3.1415, "Fred"};
   my_struct var3 = var2;

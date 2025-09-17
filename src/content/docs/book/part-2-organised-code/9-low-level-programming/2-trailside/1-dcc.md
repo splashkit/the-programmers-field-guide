@@ -4,13 +4,13 @@ title: The Debugging C Compiler (DCC)
 
 ## What is a C Compiler?
 
-When working in languages such as C, there is a choice of compilers that you can use, sometimes reffered to as *implementations*. A compiler is just another program that takes your source code and converts it into machine code that can be executed by the computer. The compiler is responsible for translating your code into the correct instructions for the computer to execute.
+When working in languages such as C, there is a choice of compilers that you can use, sometimes referred to as *implementations*. A compiler is just another program that takes your source code and converts it into machine code that can be executed by the computer. The compiler is responsible for translating your code into the correct instructions for the computer to execute.
 
 today, the GCC and Clang compilers are the most popular implementations of the C language. They are both open-source, and are used to compile many of the programs you use every day. For example, GCC is used to compile the Linux kernel, and Clang is used to compile the Chrome browser.
 
 ## The Debugging C Compiler
 
-We will be using a compiler called the *Debugging C Compiler* (DCC). This compiler is based upon the GCC compiler, and is designed to help you learn good programming habbits in the C language. It is a fantastic tool to help you learn C, and we will be using it throughout this chapter.
+We will be using a compiler called the *Debugging C Compiler* (DCC). This compiler is based upon the GCC compiler, and is designed to help you learn good programming habits in the C language. It is a fantastic tool to help you learn C, and we will be using it throughout this chapter.
 
 ## Installation
 

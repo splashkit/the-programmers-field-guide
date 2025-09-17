@@ -29,7 +29,7 @@ The symbols for less than, and larger than, can be seen **visually**. With less 
 :::
 
 :::caution
-C# uses `==` for comparison and `=` for assignment. If you mix this up you may accidently be changing the value of a variable rather than comparing it.
+C# uses `==` for comparison and `=` for assignment. If you mix this up you may accidentally be changing the value of a variable rather than comparing it.
 :::
 
 :::note

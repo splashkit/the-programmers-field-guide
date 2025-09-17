@@ -26,7 +26,7 @@ In a C# project, the **using clause** lets you access the code in a library. Onc
 
 :::note[Summary]
 
-- A library is a **bulding block** that contains building blocks for others to use.
+- A library is a **building block** that contains building blocks for others to use.
 - In C#, libraries provide [methods](/book/part-1-instructions/1-sequence-and-data/2-trailside/02-method) that perform useful tasks.
 - Standard libraries typically provide methods to read and write to standard input and output, and perform data conversions. In C# we are using `System.Convert` components from the standard library.
 - SplashKit is an external library that contains code to help you build graphical programs as you start to learn.

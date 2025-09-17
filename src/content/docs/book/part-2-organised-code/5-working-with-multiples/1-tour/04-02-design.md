@@ -68,7 +68,7 @@ Constants:
 
 Struct: Map Data
 Fields:
-- tiles: a two-dimensional array of tile data organsied as columns and rows
+- tiles: a two-dimensional array of tile data organised as columns and rows
 ```
 
 :::tip
@@ -93,7 +93,7 @@ Steps:
   - Process events
 ```
 
-### Initalise map
+### initialise map
 
 The map will need to have all of its tiles initialised when it is created. As this is a two-dimensional array, we will need to loop over both the columns and rows in the map. It won't matter which way we do this, so let's stick with columns and then rows. The map can start with all grass tiles, so this loop will need to set the kind of each tile to be grass initially. It will need to accept the map as a parameter passed by reference. We can then update the map that is passed in.
 

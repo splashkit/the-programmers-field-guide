@@ -20,7 +20,7 @@ Write("Frequency: ");
 line = ReadLine();
 freq = ToDouble(line);
 
-WriteLine("What is the amplitude of its wings? (centimeters)");
+WriteLine("What is the amplitude of its wings? (centimetres)");
 Write("Amplitude: ");
 line = ReadLine();
 amp = ToDouble(line) / 100; // Convert to meters

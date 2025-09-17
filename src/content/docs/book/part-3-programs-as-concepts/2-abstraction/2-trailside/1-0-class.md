@@ -14,7 +14,7 @@ The following image captures a visualisation of the **class** concept. The key a
 - Just like a [program](/book/part-1-instructions/1-sequence-and-data/2-trailside/00-program), a class may use methods and data from one or more libraries.
 - Objects created from the class may also use methods and data from other objects they know. We will explore this further in [Part 3, Chapter 3](/book/part-3-programs-as-concepts/4-collaboration/0-overview) with the concept of **collaboration**.
 
-![Visualiation of a class as a template used to create objects.](./images/class-concept.png)
+![Visualisation of a class as a template used to create objects.](./images/class-concept.png)
 
 ## Classes: Why, When, and How
 

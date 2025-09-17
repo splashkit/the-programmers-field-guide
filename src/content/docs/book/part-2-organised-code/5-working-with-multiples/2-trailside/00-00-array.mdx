@@ -40,7 +40,7 @@ Arrays store multiple values, with an index that provides access to the individu
 
 Many languages have **0** as the index of the first element. This reflects how the values are actually stored in memory. [Figure x.y](#FigureArrayContiguousMemory) shows how an array (named `arr` in this Figure) is stored in memory. The array is a **contiguous** area in memory, with the elements next to each other. You can think of the array as starting at the first element, so you need to skip *0* elements to access the first element. The second element is accessed by skipping *1* element, so it has index *1*. The third element is accessed by skipping *2* elements, so it has the index *2*, etc.
 
-The size of each of the elements of the array can then be used to quickly locate it, given its index. If you have an array of `integer` values, then these are each 32 bits (4 bytes), so the element at index 3 is 3 × 32𝑏𝑖𝑡𝑠 (96 bits) past the start of the array.
+The size of each of the elements of the array can then be used to quickly locate it, given its index. If you have an array of `integer` values, then these are each 32 bits (4 bytes), so the element at index 3 is 3 × 32bits (96 bits) past the start of the array.
 
 The great thing is that you do not need to think about these details, but knowing this should help you remember that the first element of an array is at index 0.
 

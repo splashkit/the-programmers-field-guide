@@ -20,7 +20,7 @@ So how does this mapping occur? There many ways that we could map numbers to cha
 
 ASCII, standing for American Standard Code for Information Interchange, is a character encoding standard for electronic communication. You can represent this mapping as a table, showing which character each numeric value maps to.
 
-The ASCII table is a standardised lookup table that maps integers to charactersm and is used by all modern computers. It's is a great example of a low-level programming construct as it's a simple, efficient way to map integers to characters. Let's take a look and see what our binary sequence `01001010` maps to:
+The ASCII table is a standardised lookup table that maps integers to characters and is used by all modern computers. It's is a great example of a low-level programming construct as it's a simple, efficient way to map integers to characters. Let's take a look and see what our binary sequence `01001010` maps to:
 
 ```
 Dec Chr     Dec Chr     Dec Chr     Dec Chr     Dec  Chr

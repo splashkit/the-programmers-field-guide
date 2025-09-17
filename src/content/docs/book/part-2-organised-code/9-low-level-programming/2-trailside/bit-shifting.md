@@ -20,7 +20,7 @@ In binary, we use the digits `0` and `1` to represent numbers. Each digit is cal
 
 So this binary number represents the decimal number `11` (8 + 2 + 1).
 
-The bit manipulation we cover in this section just mean that we are interacting with data in its underlyting form, rather than its abstraction (where in the case of `1011` we would always think of the value as just being the integer `11`), we deal with the individual bits themselves.
+The bit manipulation we cover in this section just mean that we are interacting with data in its underlying form, rather than its abstraction (where in the case of `1011` we would always think of the value as just being the integer `11`), we deal with the individual bits themselves.
 
 ### Why do we care about bits?
 

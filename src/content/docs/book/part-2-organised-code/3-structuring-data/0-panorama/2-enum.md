@@ -98,7 +98,7 @@ genre_data read_genre(string prompt)
   for(raw = 0; raw < GENRE_COUNT; raw++)
   {
     // convert the raw integer value to a genre_data
-    // and then conver that to a string
+    // and then convert that to a string
     write_line(to_string(raw + 1) + ": " + to_string((genre_data)raw));
   }
 
