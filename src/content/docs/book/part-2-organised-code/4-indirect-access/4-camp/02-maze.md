@@ -11,11 +11,11 @@ using std::string;
 
 typedef struct room_data *room_ptr;
 
-struct path_struct
+struct path_data
 {
   string    description;
   room_ptr  destination;
-} path_data;
+};
 
 struct room_data
 {

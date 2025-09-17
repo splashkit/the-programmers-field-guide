@@ -93,7 +93,7 @@ bool resize(dynamic_array<T> *array, unsigned int new_capacity)
   // Initialize any new values
   for(int i = array->capacity; i < (int)new_capacity; i++)
   {
-    new(&result->data[i]) T();
+    new(&new_data[i]) T();
   }
 
 
