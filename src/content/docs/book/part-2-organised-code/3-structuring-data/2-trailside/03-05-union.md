@@ -46,14 +46,12 @@ union my_union
 {
     int int_value;
     double dbl_value;
-    string str_value;
 };
 
 enum data_tag
 {
     INT_VALUE,
-    DBL_VALUE,
-    STR_VALUE
+    DBL_VALUE
 };
 
 struct data_value
@@ -73,10 +71,6 @@ int main()
     // use it to store a double value
     val.tag = DBL_VALUE;
     val.value = 3.14;
-
-    // use it to store a string value
-    val.tag = STR_VALUE;
-    val.value = "Hello World";
 
     // Remember it only stores one value...
 }
