@@ -100,7 +100,7 @@ int read_grid_data(int *grid, int grid_index, int column_index, int row_index)
     return 0;
 }
 
-int set_grid_data(int *grid, int grid_index, int column_index, int row_index, int value)
+void set_grid_data(int *grid, int grid_index, int column_index, int row_index, int value)
 {
     int idx = grid_data_index(grid_index, column_index, row_index);
 
@@ -111,4 +111,4 @@ int set_grid_data(int *grid, int grid_index, int column_index, int row_index, in
 }
 ```
 
-Where you have variable length dimensions, you can use the same approach but you would need to capture the current size of each dimension within a struct or set of variables rather than relying upon the `MAX_` constants we have used here.
+Where you have variable length dimensions, you can use the same approach, but you would need to capture the current size of each dimension within a struct or set of variables rather than relying upon the `MAX_` constants we have used here.
