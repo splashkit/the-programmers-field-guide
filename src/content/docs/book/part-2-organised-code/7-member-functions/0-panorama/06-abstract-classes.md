@@ -95,7 +95,7 @@ class circle_shape : public shape
          */
         void draw() const override
         {
-            write_line("Drawing a circle"));
+            write_line("Drawing a circle");
             fill_circle(fill_color, center.x, center.y, radius);
         }
 };
