@@ -3,7 +3,7 @@ import starlight from "@astrojs/starlight";
 import react from "@astrojs/react";
 import starlightLinksValidator from "starlight-links-validator";
 import sitemap from "@astrojs/sitemap";
-
+import starlightAutoSidebar from 'starlight-auto-sidebar'
 
 // TODO: new structure
 //
@@ -66,126 +66,141 @@ export default defineConfig({
         starlightLinksValidator({
           errorOnRelativeLinks: true,
         }),
+        starlightAutoSidebar(),
       ],
       sidebar: [
         {
           label: "Part 0: First Steps",
           collapsed: true,
-          items: [
-            {
-              label: "0. Introduction",
-              link: "book/part-0-getting-started/00-0-introduction",
-            },
-            {
-              label: "Reading the Guide",
-              link: "book/part-0-getting-started/00-1-how-to-read",
-            },
-            {
-              label: "1. Digital Realities",
-              collapsed: true,
-              items: [
-                {
-                  label: "Introduction",
-                  link: "book/part-0-getting-started/1-digital-realities/0-overview",
-                },
-                {
-                  label: "Guided Tour",
-                  link: "book/part-0-getting-started/1-digital-realities/1-tour",
-                },
-                {
-                  label: "In Depth",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-0-getting-started/1-digital-realities/2-trailside",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Activities",
-                  link: "book/part-0-getting-started/1-digital-realities/3-explore",
-                },
-              ],
-            },
-            {
-              label: "2. Computer Use",
-              collapsed: true,
-              items: [
-                {
-                  label: "Introduction",
-                  link: "book/part-0-getting-started/2-computer-use/0-overview",
-                },
-                {
-                  label: "Overview",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-0-getting-started/2-computer-use/0-panorama",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Guided Tour",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-0-getting-started/2-computer-use/1-tour",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "In Depth",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-0-getting-started/2-computer-use/2-trailside",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Activities",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-0-getting-started/2-computer-use/3-explore",
-                    collapsed: true,
-                  },
-                },
-              ],
-            },
-            {
-              label: "3. Building Programs",
-              collapsed: true,
-              items: [
-                {
-                  label: "Introduction",
-                  link: "book/part-0-getting-started/3-building-programs/0-overview",
-                },
-                {
-                  label: "Guided Tour",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-0-getting-started/3-building-programs/1-tour",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "In Depth",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-0-getting-started/3-building-programs/2-trailside",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Activities",
-                  link: "book/part-0-getting-started/3-building-programs/3-explore",
-                },
-              ],
-            },
-          ],
+          autogenerate: 
+          {
+            directory: "book/part-0-getting-started",
+            collapsed: true
+          },
+          // items: [
+          //   {
+          //     label: "0. Introduction",
+          //     link: "book/part-0-getting-started/00-0-introduction",
+          //   },
+          //   {
+          //     label: "Reading the Guide",
+          //     link: "book/part-0-getting-started/00-1-how-to-read",
+          //   },
+          //   {
+          //     label: "1. Building Programs",
+          //     autogenerate: 
+          //     { 
+          //       directory: "book/part-0-getting-started/1-building-programs",
+          //       collapsed: true,
+          //     },
+          //   },
+
+            // {
+            //   label: "1. Digital Realities",
+            //   collapsed: true,
+            //   items: [
+            //     {
+            //       label: "Introduction",
+            //       link: "book/part-0-getting-started/1-digital-realities/0-overview",
+            //     },
+            //     {
+            //       label: "Guided Tour",
+            //       link: "book/part-0-getting-started/1-digital-realities/1-tour",
+            //     },
+            //     {
+            //       label: "In Depth",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/part-0-getting-started/1-digital-realities/2-trailside",
+            //         collapsed: true,
+            //       },
+            //     },
+            //     {
+            //       label: "Activities",
+            //       link: "book/part-0-getting-started/1-digital-realities/3-explore",
+            //     },
+            //   ],
+            // },
+            // {
+            //   label: "2. Computer Use",
+            //   collapsed: true,
+            //   items: [
+            //     {
+            //       label: "Introduction",
+            //       link: "book/appendix/2-computer-use/0-overview",
+            //     },
+            //     {
+            //       label: "Overview",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/appendix/2-computer-use/0-panorama",
+            //         collapsed: true,
+            //       },
+            //     },
+            //     {
+            //       label: "Guided Tour",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/appendix/2-computer-use/1-tour",
+            //         collapsed: true,
+            //       },
+            //     },
+            //     {
+            //       label: "In Depth",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/appendix/2-computer-use/2-trailside",
+            //         collapsed: true,
+            //       },
+            //     },
+            //     {
+            //       label: "Activities",
+            //       collapsed: true,
+            //       autogenerate: {
+            //         directory:
+            //           "book/appendix/2-computer-use/3-explore",
+            //         collapsed: true,
+            //       },
+            //     },
+            //   ],
+            // },
+          //   {
+          //     label: "3. Building Programs",
+          //     collapsed: true,
+          //     items: [
+          //       {
+          //         label: "Introduction",
+          //         link: "book/part-0-getting-started/3-building-programs/0-overview",
+          //       },
+          //       {
+          //         label: "Guided Tour",
+          //         collapsed: true,
+          //         autogenerate: {
+          //           directory:
+          //             "book/part-0-getting-started/3-building-programs/1-tour",
+          //           collapsed: true,
+          //         },
+          //       },
+          //       {
+          //         label: "In Depth",
+          //         collapsed: true,
+          //         autogenerate: {
+          //           directory:
+          //             "book/part-0-getting-started/3-building-programs/2-trailside",
+          //           collapsed: true,
+          //         },
+          //       },
+          //       {
+          //         label: "Activities",
+          //         link: "book/part-0-getting-started/3-building-programs/3-explore",
+          //       },
+          //     ],
+          //   },
+          // ],
         },
         {
           label: "Part 1: Instructions",
@@ -1502,6 +1517,52 @@ export default defineConfig({
                   "book/appendix/0-installation",
                 collapsed: true,
               },
+            },
+            {
+              label: "2. Computer Use",
+              collapsed: true,
+              items: [
+                {
+                  label: "Introduction",
+                  link: "book/appendix/2-computer-use/0-overview",
+                },
+                {
+                  label: "Overview",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/appendix/2-computer-use/0-panorama",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Guided Tour",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/appendix/2-computer-use/1-tour",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "In Depth",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/appendix/2-computer-use/2-trailside",
+                    collapsed: true,
+                  },
+                },
+                {
+                  label: "Activities",
+                  collapsed: true,
+                  autogenerate: {
+                    directory:
+                      "book/appendix/2-computer-use/3-explore",
+                    collapsed: true,
+                  },
+                },
+              ],
             },
           ],
         },
