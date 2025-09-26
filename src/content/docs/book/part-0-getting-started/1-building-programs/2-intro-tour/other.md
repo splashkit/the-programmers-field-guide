@@ -3,6 +3,29 @@ title: Other
 hidden: true
 ---
 
+### Add 'code' command to PATH
+
+You can install the `code` command to allow you to open any file or folder in a new Visual Studio Code window, right from your Terminal!
+
+1. Launch VS Code
+2. Open the Command Palette (Cmd+Shift+P). Type 'shell command', select the "Shell Command: install 'code' command in PATH".
+
+![Install code in the PATH](./images/install-path.png)
+
+:::tip[Troubleshooting tip:]
+If you are having issues with the `code` command not working after following the steps above, go to the ['zsh: command not found: code'](https://splashkit.io/troubleshoot/macos/issue-4-code-not-found/) page on the SplashKit website for to use an alternative installation process.
+:::
+
+### Install Extensions
+
+The final step to complete the setup of VS Code is to install a few *Extensions* in VS Code. Run the following command in your Terminal.
+
+```bash
+skm vscode extensions
+```
+
+
+
 ## Using MSYS2
 
 MSYS installs a minimal Linux environment on top of Windows. This will give you easy access to all of your Windows files and folder. The one challenge is that MSYS2 has its own home folder that does not map to your Windows home folder.
