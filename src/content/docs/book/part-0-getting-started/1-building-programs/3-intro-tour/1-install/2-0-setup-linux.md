@@ -6,9 +6,9 @@ sidebar:
     label: " - Linux Box"
 ---
 
-Linux is an open-source operating system that is widely used for programming and development. Being open-source, there are several versions available called distributions (distros); this guide will focus on Debian, which is the base for many popular distros such as Ubuntu and Raspberry Pi OS. If you use a different Linux distro, you may need to follow the [manual install instructions](/book/appendix//0-installation/2-0-setup-linux).
+In this guide, we will walk through the steps to install the necessary Applications and Tools on your Linux PC. This guide will focus on Debian, which is the base for many popular Linux distros such as Ubuntu and Raspberry Pi OS. If you use a different Linux distro, you may need to follow the [manual install instructions](/book/appendix/0-installation/2-0-setup-linux).
 
-In this guide, we will walk through the steps to install the necessary Applications and Tools that you will need to code in C# and C++ with SplashKit. To simplify things, we have an automated script for fresh installs that will install all the required tools and applications for you, or you can follow the manual steps.
+Now, let's get started!
 
 ## 1. Open the Terminal
 
@@ -70,13 +70,7 @@ curl -s "https://programmers.guide/resources/Linux_InstallScript.sh" | bash /dev
 This script will take a while to run (approx. 12-15 mins).
 :::
 
-When the script ends, review the output messages in the terminal. If there are errors, you will need to review the messages and try again or try the [manual install instructions](/book/appendix//0-installation/2-0-setup-linux).
-
-:::caution[Had problems?]
-
-If you had problems with the automated installation, or want to do things yourself, you can follow the [manual install instructions](/book/appendix//0-installation/2-0-setup-linux).
-
-:::
+When the script ends, review the output messages in the terminal. If there are errors, you will need to review the messages and try again or try the [manual install instructions](/book/appendix/0-installation/2-0-setup-linux).
 
 ## 5. Reopen the terminal
 
@@ -84,8 +78,16 @@ Once the automated script has finished running, close and reopen the Terminal.
 
 Run the command `skm` to check SplashKit is installed correctly.
 
+## 6. All done!
+
 If everything is working you should be all good to go!
 
 :::tip[What next?]
 Jump to the [next step](/book/part-0-getting-started/1-building-programs/3-intro-tour/2-code), where we will use these tools to build and run some programs.
+:::
+
+:::caution[Had problems?]
+
+If you had problems with the automated installation, or want to do things yourself, you can follow the [manual install instructions](/book/appendix/0-installation/2-0-setup-linux).
+
 :::
