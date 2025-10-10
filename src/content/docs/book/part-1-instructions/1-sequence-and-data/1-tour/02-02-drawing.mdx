@@ -4,6 +4,7 @@ sidebar:
   label: " - Drawing Shapes"
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
+import CodeActivity from './src/components/CodeActivity.astro'
 
 With the window appearing, the next step is to draw some shapes. To start, let's get the hill drawing.
 
@@ -87,3 +88,27 @@ The best way to plan this out is to sketch what you want and to try to figure ou
 For this program we are just wanting to draw some fixed shapes, so we can tolerate these hard-coded values for now.
 
 :::
+
+<Accordion>
+  <AccordionItem header="Try it out!">
+    <CodeActivity title="Field Guide/Sequence and Data/House Drawing/Drawing Shapes">
+    ```
+    #include "splashkit.h"
+
+    int main()
+    {
+        open_window("House Drawing by Andrew", 800, 600);
+
+        clear_screen(color_white());
+        fill_ellipse(color_bright_green(), 0, 400, 800, 400);
+
+        refresh_screen();
+
+        delay(5000);
+
+        return 0;
+    }
+    ```
+    </CodeActivity>
+  </AccordionItem>
+</Accordion>

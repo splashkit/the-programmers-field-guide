@@ -1,0 +1,39 @@
+---
+import type { Props } from "@astrojs/starlight/props";
+import { Icon } from 'astro-icon'
+const { icon, title, projectName } = Astro.props;
+
+//const srcURL = "https://thoth-tech.github.io/SplashkitOnline";
+const srcURL = "http://127.0.0.1:8000/";
+
+const codeSnippetID = `code-activity-${crypto.randomUUID()}`
+const iFrameID = `code-activity-${crypto.randomUUID()}`
+---
+<iframe id={iFrameID} src={srcURL+"?language=C++&useEmbeddedInterface=on&projectID="+projectName} class="ide-embed"/>
+<div style="display:none;" id={codeSnippetID}><slot /></div>
+
+<script data-codesnippetid={codeSnippetID} data-iframeid={iFrameID}>
+    let SKO = document.getElementById(document.currentScript.dataset.iframeid);
+    // TODO: This feels brittle...
+    let codeSnippet = document.getElementById(document.currentScript.dataset.codesnippetid).getElementsByClassName("copy")[0].getElementsByTagName("button")[0].dataset.code.replaceAll("","\n");
+
+    window.addEventListener('message', function(event) {
+        if (event.data.type === 'SplashKitOnlineListening') {
+            const message = {
+                eventType: 'InitializeProjectFromOutsideWorld',
+                files: [{ path: '/code/main.cpp', data: codeSnippet }]
+            };
+            SKO.contentWindow.postMessage(message, '*');
+        }
+    });
+</script>
+
+<style>
+    .ide-embed {
+        border:0;
+        width:100%;
+        height:500px !important; /* TODO: improve */
+        box-shadow: var(--sl-shadow-md);
+        border-radius: 0.6rem;
+    }
+</style>

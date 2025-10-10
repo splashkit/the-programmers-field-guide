@@ -4,6 +4,7 @@ sidebar:
   label: " - Read the user's name"
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
+import CodeActivity from './src/components/CodeActivity.astro'
 
 Best first step is to build something small, then we can grow the program our from that start. Let's just get the first two messages handled - reading the user's name and displaying it. So we want to see this at the end:
 
@@ -87,3 +88,26 @@ Hi Andrew.
     Notice how you have a sequence of instructions, and can use variables to store data. Try entering different names.
 
     :::
+
+<Accordion>
+  <AccordionItem header="Try it out!">
+    <CodeActivity title="Field Guide/Sequence and Data/Simple Calculator/Read name">
+    ```
+    #include "splashkit.h"
+
+    int main()
+    {
+        string name;
+        write("What is your name: ");
+        name = read_line();
+
+        write_line();
+        write_line("Hi " + name + ".");
+        write_line();
+
+        return 0;
+    }
+    ```
+    </CodeActivity>
+  </AccordionItem>
+</Accordion>
