@@ -1,7 +1,7 @@
 ---
 import type { Props } from "@astrojs/starlight/props";
 import { Accordion, AccordionItem } from 'accessible-astro-components'
-const { header, projectName, maxCodeHeight = 600, outputHeight = 300} = Astro.props;
+const { header, projectName, resources, maxCodeHeight = 600, outputHeight = 300} = Astro.props;
 
 //const srcURL = "https://thoth-tech.github.io/SplashkitOnline";
 const srcURL = "http://127.0.0.1:8000/";
@@ -66,12 +66,18 @@ const iFrameID = `code-activity-${crypto.randomUUID()}`
         SKO.src = SKO.dataset.src;
         SKO.style.opacity = "1";
 
+        let resources = undefined;
+        if (scriptData.resources){
+            resources = [{data: await (await fetch(scriptData.resources)).arrayBuffer()}];
+        }
+
         // Initialize the window with the code + editable code blocks (if there are any)
         window.addEventListener('message', function(event) {
             if (event.data.type === 'SplashKitOnlineListening') {
                 const message = {
                     eventType: 'InitializeProjectFromOutsideWorld',
                     files: [{ path: '/code/main.cpp', data: codeSnippet }],
+                    zips: resources,
                 };
                 SKO.contentWindow.postMessage(message, '*');
 
