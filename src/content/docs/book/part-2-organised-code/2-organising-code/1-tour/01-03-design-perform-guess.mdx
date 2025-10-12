@@ -4,6 +4,7 @@ sidebar:
   label: " - Perform Guess"
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
+import CodeActivity from './src/components/CodeActivity.astro'
 
 Now that we have the different functions and procedure, we can now start to design the control flow for the Guess that Number program. For the Guess that Number program we can start by designing the control flow within the `Perform Guess` function. The specification of this is shown the table below. Think about the steps that need to be performed to achieve this. If you had been asked to do this what would you need to do?
 
@@ -184,7 +185,34 @@ int main()
 :::tip
 Remember you can use the `ctrl-c` key combination to generate a signal to kill the program if you get stuck in an infinite loop!
 :::
+    <CodeActivity header="Try it out!" title="Field Guide/Sequence and Data/Simple Calculator/Read name" resources="/resources/code-activities/utilities.zip">
+    ```c++ {"userCode":7-14}
+    #include "splashkit.h"
+    // access to read_integer, read_string, etc...
+    #include "utilities.h"
 
+    using std::to_string;
+
+    // code the start of perform guess here
+
+
+
+
+
+
+
+
+    int main()
+    {
+      while ( ! perform_guess(1, 37) )
+      {
+        write_line("Try again...");
+      }
+
+      return 0;
+    }
+    ```
+    </CodeActivity>
 <Accordion>
   <AccordionItem
     header="Perform guess with result"
