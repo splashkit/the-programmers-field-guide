@@ -1,6 +1,7 @@
 ---
 import type { Props } from "@astrojs/starlight/props";
-const { projectName, maxCodeHeight = 600, outputHeight = 300} = Astro.props;
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+const { header, projectName, maxCodeHeight = 600, outputHeight = 300} = Astro.props;
 
 //const srcURL = "https://thoth-tech.github.io/SplashkitOnline";
 const srcURL = "http://127.0.0.1:8000/";
@@ -8,12 +9,14 @@ const srcURL = "http://127.0.0.1:8000/";
 const codeSnippetID = `code-activity-${crypto.randomUUID()}`
 const iFrameID = `code-activity-${crypto.randomUUID()}`
 ---
+<Accordion>
+  <AccordionItem header={header}>
 
-<iframe id={iFrameID} src={srcURL+"?language=C++&useEmbeddedInterface=on&projectID="+projectName} class="ide-embed"/>
+<iframe style="opacity: 0;" id={iFrameID} data-src={srcURL+"?language=C++&useEmbeddedInterface=on&projectID="+projectName} class="ide-embed"/>
 
 <div style="display:none;" id={codeSnippetID}><slot /></div>
 
-<script data-codesnippetid={codeSnippetID} data-iframeid={iFrameID} data-maxcodeheight={maxCodeHeight} data-outputheight={outputHeight}>
+<script data-codesnippetid={codeSnippetID} data-iframeid={iFrameID} data-maxcodeheight={maxCodeHeight} data-outputheight={outputHeight}, data-resources={resources}>
     let scriptData = document.currentScript.dataset;
 
     let SKO = document.getElementById(scriptData.iframeid);
@@ -58,27 +61,37 @@ const iFrameID = `code-activity-${crypto.randomUUID()}`
     let finalIFrameHeight = Math.min(approximateCodeHeight, parseFloat(scriptData.maxcodeheight)) + parseFloat(scriptData.outputheight);
     SKO.style.height = `${finalIFrameHeight}px`;
 
-    // Initialize the window with the code + editable code blocks (if there are any)
-    window.addEventListener('message', function(event) {
-        if (event.data.type === 'SplashKitOnlineListening') {
-            const message = {
-                eventType: 'InitializeProjectFromOutsideWorld',
-                files: [{ path: '/code/main.cpp', data: codeSnippet }]
-            };
-            SKO.contentWindow.postMessage(message, '*');
 
-            if (blocks.length > 0){
+    async function loadAndShowIDE(){
+        SKO.src = SKO.dataset.src;
+        SKO.style.opacity = "1";
+
+        // Initialize the window with the code + editable code blocks (if there are any)
+        window.addEventListener('message', function(event) {
+            if (event.data.type === 'SplashKitOnlineListening') {
                 const message = {
-                    eventType: 'EnterBlockEditMode',
-                    files: [{ path: '/code/main.cpp', blocks: blocks }],
-                    styles: ["highlight"],
+                    eventType: 'InitializeProjectFromOutsideWorld',
+                    files: [{ path: '/code/main.cpp', data: codeSnippet }],
                 };
                 SKO.contentWindow.postMessage(message, '*');
+
+                if (blocks.length > 0){
+                    const message = {
+                        eventType: 'EnterBlockEditMode',
+                        files: [{ path: '/code/main.cpp', blocks: blocks }],
+                        styles: ["highlight"],
+                    };
+                    SKO.contentWindow.postMessage(message, '*');
+                }
             }
+        });
+    }
 
-
-        }
-    });
+    // find the Accordion's button...'
+    let button = document.currentScript.parentNode.parentElement.parentElement.parentElement.getElementsByTagName("button")[0];
+    button.addEventListener("click", function(){
+        loadAndShowIDE();
+    }, {once : true});
 </script>
 
 <style>
@@ -87,5 +100,9 @@ const iFrameID = `code-activity-${crypto.randomUUID()}`
         width:100%;
         box-shadow: var(--sl-shadow-md);
         border-radius: 0.6rem;
+        transition: opacity 4s;
     }
 </style>
+
+  </AccordionItem>
+</Accordion>
