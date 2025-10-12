@@ -1,7 +1,7 @@
 ---
 import type { Props } from "@astrojs/starlight/props";
 import { Icon } from 'astro-icon'
-const { icon, title, projectName } = Astro.props;
+const { projectName, maxCodeHeight = 600, outputHeight = 300} = Astro.props;
 
 //const srcURL = "https://thoth-tech.github.io/SplashkitOnline";
 const srcURL = "http://127.0.0.1:8000/";
@@ -16,6 +16,12 @@ const iFrameID = `code-activity-${crypto.randomUUID()}`
     let SKO = document.getElementById(document.currentScript.dataset.iframeid);
     // TODO: This feels brittle...
     let codeSnippet = document.getElementById(document.currentScript.dataset.codesnippetid).getElementsByClassName("copy")[0].getElementsByTagName("button")[0].dataset.code.replaceAll("","\n");
+
+    // Compute and set iFrame height
+    const line_height = 19.5; /* computed from the IDE page */
+    let approximateCodeHeight = line_height * (codeSnippet.split("\n").length + 1);
+    let finalIFrameHeight = Math.min(approximateCodeHeight, parseFloat(scriptData.maxcodeheight)) + parseFloat(scriptData.outputheight);
+    SKO.style.height = `${finalIFrameHeight}px`;
 
     window.addEventListener('message', function(event) {
         if (event.data.type === 'SplashKitOnlineListening') {
@@ -32,7 +38,6 @@ const iFrameID = `code-activity-${crypto.randomUUID()}`
     .ide-embed {
         border:0;
         width:100%;
-        height:500px !important; /* TODO: improve */
         box-shadow: var(--sl-shadow-md);
         border-radius: 0.6rem;
     }
