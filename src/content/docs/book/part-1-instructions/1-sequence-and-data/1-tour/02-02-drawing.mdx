@@ -92,15 +92,18 @@ For this program we are just wanting to draw some fixed shapes, so we can tolera
 <Accordion>
   <AccordionItem header="Try it out!">
     <CodeActivity title="Field Guide/Sequence and Data/House Drawing/Drawing Shapes">
-    ```
+    ```c++ {8,11}
     #include "splashkit.h"
 
     int main()
     {
         open_window("House Drawing by Andrew", 800, 600);
 
-        clear_screen(color_white());
-        fill_ellipse(color_bright_green(), 0, 400, 800, 400);
+        // Try clearing the screen first
+        ####
+
+        // Then try drawing an ellipse!
+        ####
 
         refresh_screen();
 

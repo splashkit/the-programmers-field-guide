@@ -92,7 +92,7 @@ Hi Andrew.
 <Accordion>
   <AccordionItem header="Try it out!">
     <CodeActivity title="Field Guide/Sequence and Data/Simple Calculator/Read name">
-    ```
+    ```c++ {"userCode":10-10}
     #include "splashkit.h"
 
     int main()
@@ -101,9 +101,8 @@ Hi Andrew.
         write("What is your name: ");
         name = read_line();
 
-        write_line();
-        write_line("Hi " + name + ".");
-        write_line();
+        // Try adding a write_line here, to print out the name
+        ####
 
         return 0;
     }
