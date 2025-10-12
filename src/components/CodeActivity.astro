@@ -1,6 +1,5 @@
 ---
 import type { Props } from "@astrojs/starlight/props";
-import { Icon } from 'astro-icon'
 const { projectName, maxCodeHeight = 600, outputHeight = 300} = Astro.props;
 
 //const srcURL = "https://thoth-tech.github.io/SplashkitOnline";
@@ -9,13 +8,49 @@ const srcURL = "http://127.0.0.1:8000/";
 const codeSnippetID = `code-activity-${crypto.randomUUID()}`
 const iFrameID = `code-activity-${crypto.randomUUID()}`
 ---
+
 <iframe id={iFrameID} src={srcURL+"?language=C++&useEmbeddedInterface=on&projectID="+projectName} class="ide-embed"/>
+
 <div style="display:none;" id={codeSnippetID}><slot /></div>
 
-<script data-codesnippetid={codeSnippetID} data-iframeid={iFrameID}>
-    let SKO = document.getElementById(document.currentScript.dataset.iframeid);
-    // TODO: This feels brittle...
-    let codeSnippet = document.getElementById(document.currentScript.dataset.codesnippetid).getElementsByClassName("copy")[0].getElementsByTagName("button")[0].dataset.code.replaceAll("","\n");
+<script data-codesnippetid={codeSnippetID} data-iframeid={iFrameID} data-maxcodeheight={maxCodeHeight} data-outputheight={outputHeight}>
+    let scriptData = document.currentScript.dataset;
+
+    let SKO = document.getElementById(scriptData.iframeid);
+
+    // Extract code snippet + editable blocks from the hidden markdown code block
+    // This feels brittle...
+    let codeSnippet = "";
+    let blocks = [];
+
+    // Where the lines of code exist (as child nodes)
+    let codeElements = document.getElementById(scriptData.codesnippetid).getElementsByTagName("code")[0];
+    let currentBlock = null;
+    let lineIndex = 0;
+
+    for (const line of codeElements.childNodes) {
+        // empty lines textContent returns \n, handle that here
+        if (line.textContent == "\n")
+            codeSnippet += "\n";
+        else
+            codeSnippet += line.textContent.replace("####","")+"\n"; // use #### to allow leading spaces
+        lineIndex += 1;
+
+        // handle detecting editable blocks
+        if (line.classList.contains("mark")) {
+            if (currentBlock == null) {
+                let name = window.getComputedStyle(line).getPropertyValue("--tmLabel").slice(1,-1);
+                currentBlock = {lineStart: lineIndex, name: name};
+                blocks.push(currentBlock);
+            }
+            currentBlock.lineEnd = lineIndex
+        }
+        else {
+            currentBlock= null;
+        }
+    }
+
+    codeSnippet = codeSnippet.slice(0,-1); // remove trailing \n
 
     // Compute and set iFrame height
     const line_height = 19.5; /* computed from the IDE page */
@@ -23,6 +58,7 @@ const iFrameID = `code-activity-${crypto.randomUUID()}`
     let finalIFrameHeight = Math.min(approximateCodeHeight, parseFloat(scriptData.maxcodeheight)) + parseFloat(scriptData.outputheight);
     SKO.style.height = `${finalIFrameHeight}px`;
 
+    // Initialize the window with the code + editable code blocks (if there are any)
     window.addEventListener('message', function(event) {
         if (event.data.type === 'SplashKitOnlineListening') {
             const message = {
@@ -30,6 +66,17 @@ const iFrameID = `code-activity-${crypto.randomUUID()}`
                 files: [{ path: '/code/main.cpp', data: codeSnippet }]
             };
             SKO.contentWindow.postMessage(message, '*');
+
+            if (blocks.length > 0){
+                const message = {
+                    eventType: 'EnterBlockEditMode',
+                    files: [{ path: '/code/main.cpp', blocks: blocks }],
+                    styles: ["highlight"],
+                };
+                SKO.contentWindow.postMessage(message, '*');
+            }
+
+
         }
     });
 </script>
