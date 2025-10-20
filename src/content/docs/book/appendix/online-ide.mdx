@@ -1,0 +1,28 @@
+---
+title: SplashKit Online IDE
+template: splash
+---
+import { SplashKitOnlineURL } from '/src/components/SplashKitOnlineConstants'
+
+<iframe id = "sko-embed" src={ SplashKitOnlineURL }/>
+<style>{`
+  #sko-embed {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--sl-nav-height));
+
+    border: none;
+  }
+`}</style>
+<script>{`
+  let page_url = new URL(window.location.href);
+
+  // forward GET params to the iFrame
+  document.getElementById("sko-embed").src += page_url.search;
+
+  // then remove from current page (especially since the iFrame can't update them, just leads to confusion)
+  page_url.search = "";
+  window.history.replaceState(null, '', page_url.toString());
+`}</script>
