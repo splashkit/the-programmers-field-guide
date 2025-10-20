@@ -1,10 +1,9 @@
 ---
+import { SplashKitOnlineURL } from '/src/components/SplashKitOnlineConstants'
 import type { Props } from "@astrojs/starlight/props";
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 const { header, projectName, resources, maxCodeHeight = 600, outputHeight = 300} = Astro.props;
 
-const srcURL = "https://whypenguins.github.io/SplashkitOnline";
-//const srcURL = "http://127.0.0.1:8000/";
 
 const codeSnippetID = `code-activity-${crypto.randomUUID()}`
 const iFrameID = `code-activity-${crypto.randomUUID()}`
@@ -12,7 +11,7 @@ const iFrameID = `code-activity-${crypto.randomUUID()}`
 <Accordion>
   <AccordionItem header={header}>
 
-<iframe style="opacity: 0;" id={iFrameID} data-src={srcURL+"?language=C++&useEmbeddedInterface=on&projectID="+projectName} class="ide-embed"/>
+<iframe style="opacity: 0;" id={iFrameID} data-src={SplashKitOnlineURL+"?language=C++&useEmbeddedInterface=on&projectID="+projectName} class="ide-embed"/>
 
 <div style="display:none;" id={codeSnippetID}><slot /></div>
 
