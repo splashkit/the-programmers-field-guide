@@ -79,6 +79,9 @@ const iFrameID = `code-activity-${crypto.randomUUID()}`
 
         // Initialize the window with the code + editable code blocks (if there are any)
         window.addEventListener('message', function(event) {
+            if (event.source !== SKO.contentWindow)
+                return;
+
             if (event.data.type === 'SplashKitOnline') {
                 if (event.data.event === 'Listening') {
                     sendMessage({
