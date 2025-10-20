@@ -4,7 +4,6 @@ sidebar:
   label: " - Read the user's name"
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
-import CodeActivity from '/src/components/CodeActivity.astro'
 
 Best first step is to build something small, then we can grow the program our from that start. Let's just get the first two messages handled - reading the user's name and displaying it. So we want to see this at the end:
 
@@ -19,14 +18,14 @@ Hi Andrew.
     ```zsh
     # Move you your code projects folder
     cd ~/Documents/Code # or cd /c/Users/andrew/Documents/Code
-
+    
     # Create and move into a folder for the project
     mkdir TravelCalculator
     cd TravelCalculator
 
     # Create a blank dotnet project
     dotnet new console
-
+    
     # Add the SplashKit library
     dotnet add package splashkit
 
@@ -59,7 +58,7 @@ Hi Andrew.
 
 3. Add the code to create a `name` variable - then we can think about how we use this.
 4. Review the messages we want to output. To start we want to output the message `"What is your name: "`, read the text and user enters, then output a blank line and the greeting text `"Hi "` followed by the user's name.
-
+  
     Looking back at the [terminal methods](/book/part-1-instructions/1-sequence-and-data/0-panorama/6-terminal-method-to-use), we have methods to output text (`Write` and `WriteLine`), and read text from the user (`ReadLine`). Use these to display the prompt, and output the required messages.
 
     <Accordion>
@@ -88,22 +87,3 @@ Hi Andrew.
     Notice how you have a sequence of instructions, and can use variables to store data. Try entering different names.
 
     :::
-
-
-    <CodeActivity header="Try it out!" projectName="Sequence and Data/Simple Calculator/Read Name">
-    ```c++ {"userCode":10-10}
-    #include "splashkit.h"
-
-    int main()
-    {
-        string name;
-        write("What is your name: ");
-        name = read_line();
-
-        // Try adding a write_line here, to print out the name
-        ####
-
-        return 0;
-    }
-    ```
-    </CodeActivity>
