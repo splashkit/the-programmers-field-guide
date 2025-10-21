@@ -1,0 +1,173 @@
+---
+import { SplashKitOnlineURL } from '/src/components/SplashKitOnlineConstants'
+
+import type { Props } from "@astrojs/starlight/props";
+import { Icon } from '@astrojs/starlight/components';
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+const { header, projectName, resources, maxCodeHeight = 600, outputHeight = 300} = Astro.props;
+
+const codeSnippetID = `code-activity-${crypto.randomUUID()}`
+const iFrameID = `code-activity-${crypto.randomUUID()}`
+---
+<Accordion>
+  <AccordionItem header={header}>
+
+<div class="ide-embed-container">
+    <a class="open-in-ide-button" target="_blank" title="Open in full IDE">
+        <Icon name="external" color="inherit;" size="2rem" />
+    </a>
+    <iframe id={iFrameID} data-src={SplashKitOnlineURL+"?language=C++&defaultInitializeProject=off&cleanProject=on&useEmbeddedInterface=on&initializeProjectName=."+projectName} class="ide-embed"/>
+</div>
+
+<div style="display:none;" id={codeSnippetID}><slot /></div>
+
+<script data-codesnippetid={codeSnippetID} data-iframeid={iFrameID} data-maxcodeheight={maxCodeHeight} data-outputheight={outputHeight}, data-resources={resources}, data-projectname={projectName}>
+    let scriptData = document.currentScript.dataset;
+
+    let SKO = document.getElementById(scriptData.iframeid);
+
+    // Extract code snippet + editable blocks from the hidden markdown code block
+    // This feels brittle...
+    let codeSnippet = "";
+    let blocks = [];
+
+    // Where the lines of code exist (as child nodes)
+    let codeElements = document.getElementById(scriptData.codesnippetid).getElementsByTagName("code")[0];
+    let currentBlock = null;
+    let lineIndex = 0;
+
+    for (const line of codeElements.childNodes) {
+        // empty lines textContent returns \n, handle that here
+        if (line.textContent == "\n")
+            codeSnippet += "\n";
+        else
+            codeSnippet += line.textContent.replace("####","")+"\n"; // use #### to allow leading spaces
+        lineIndex += 1;
+
+        // handle detecting editable blocks
+        if (line.classList.contains("mark")) {
+            if (currentBlock == null) {
+                let name = window.getComputedStyle(line).getPropertyValue("--tmLabel").slice(1,-1);
+                currentBlock = {lineStart: lineIndex, name: name};
+                blocks.push(currentBlock);
+            }
+            currentBlock.lineEnd = lineIndex
+        }
+        else {
+            currentBlock= null;
+        }
+    }
+
+    codeSnippet = codeSnippet.slice(0,-1); // remove trailing \n
+
+    // Compute and set iFrame height
+    const line_height = 19.5; /* computed from the IDE page */
+    let approximateCodeHeight = line_height * (codeSnippet.split("\n").length + 1);
+    let finalIFrameHeight = Math.min(approximateCodeHeight, parseFloat(scriptData.maxcodeheight)) + parseFloat(scriptData.outputheight);
+    SKO.parentElement.style.height = `${finalIFrameHeight}px`;
+
+
+    async function loadAndShowIDE(){
+        SKO.src = SKO.dataset.src;
+        SKO.parentElement.style.opacity = "1";
+
+        let resources = undefined;
+        if (scriptData.resources){
+            resources = [{data: await (await fetch(scriptData.resources)).arrayBuffer()}];
+        }
+
+        function sendMessage(message){
+            SKO.contentWindow.postMessage(message, '*');
+        }
+
+        // Initialize the window with the code + editable code blocks (if there are any)
+        window.addEventListener('message', function(event) {
+            if (event.source !== SKO.contentWindow)
+                return;
+
+            if (event.data.type === 'SplashKitOnline') {
+                if (event.data.event === 'Listening') {
+                    sendMessage({
+                        eventType: 'ImportFiles',
+                        files: [{ path: '/code/main.cpp', data: codeSnippet }],
+                        zips: resources,
+                    });
+
+                    if (blocks.length > 0){
+                        sendMessage({
+                            eventType: 'EnterBlockEditMode',
+                            files: [{ path: '/code/main.cpp', blocks: blocks }],
+                            styles: ["highlight"],
+                        });
+                    }
+                }
+                if (event.data.event === 'ProjectLoaded') {
+                    // fill "Open in full IDE" button with project ID
+                    let button = SKO.parentElement.getElementsByTagName("a")[0];
+                    button.href = "/book/appendix/online-ide/?project="+event.data.projectID;
+
+                    // By default we create hidden projects (prepending a `.` to the project name)
+                    // If the user wants to experiment further, we should make it a real project
+                    // and rename it so they can load it later on from the IDE
+                    button.addEventListener("click", function(){
+                        sendMessage({
+                            eventType: 'RenameProject',
+                            name: scriptData.projectname
+                        });
+
+                        sendMessage({
+                            eventType: 'ShowMessage',
+                            title: "Opened in IDE",
+                            message: "This project has been loaded in the full IDE.\nPlease reload the page to use the embedded version again.",
+                            block: true // ensure the user can't interact anymore
+                        });
+                    });
+                    // ensure they left click (opening from context menu can't be detected...)
+                    button.addEventListener("contextmenu", function(event){
+                        event.preventDefault();
+                    });
+                }
+            }
+        });
+    }
+
+    // find the Accordion's button...'
+    let button = document.currentScript.parentNode.parentElement.parentElement.parentElement.getElementsByTagName("button")[0];
+    button.addEventListener("click", function(){
+        loadAndShowIDE();
+    }, {once : true});
+</script>
+
+<style>
+    .ide-embed-container {
+        opacity: 0; /*starts off hidden and fades in*/
+        transition: opacity 3s;
+        position: relative;
+    }
+    .ide-embed {
+        border: 0;
+        width: 100%;
+        height: 100% !important;
+        box-shadow: var(--sl-shadow-md);
+        border-radius: 0.6rem;
+    }
+    .open-in-ide-button {
+        position: absolute;
+        top: 0.5em;
+        right: 0.5em;
+        border: none;
+        background: none !important;
+        --sl-icon-color: var(--sl-color-accent);
+        cursor: pointer;
+    }
+    .open-in-ide-button:hover {
+        --sl-icon-color: var(--sl-color-accent-high);
+    }
+    svg{
+        transition: color 0.3s;
+    }
+</style>
+
+  </AccordionItem>
+</Accordion>
