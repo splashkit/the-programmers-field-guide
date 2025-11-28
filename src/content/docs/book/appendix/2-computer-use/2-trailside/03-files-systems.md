@@ -44,7 +44,7 @@ As a user, you need a way of indicating which file you want to use. This means t
 To identify a file within the file system, you can list the **path** to follow from the root to the file. The path is an ordered list of folders, separated by `/`. For example, `/home/multitool/Documents/code/program1.cs` is a path to the file "program1.cs". It describes that the file can be located by starting from the root of the file system, then travelling into the *home* folder, then into the *multitool* folder within *home*, followed by *Documents* folder, then the *code* folder. The last element on the path is the *program.cs* file itself. Here we can see that *Documents* folder is the parent of the *code* folder, and the *multitool* folder is the parent of the *Documents* folder.
 
 This is an example of an **absolute path**, which is a path that is lists out every folder from the root of the file system to a specific file or folder.
-We will discuss an alternative to absolute paths when we learn how to [navigate the file system in a terminal](/book/part-0-getting-started/2-computer-use/2-trailside/04-files-shell/#folder-shortcuts).
+We will discuss an alternative to absolute paths when we learn how to [navigate the file system in a terminal](/book/appendix/2-computer-use/2-trailside/04-files-shell/#folder-shortcuts).
 
 :::tip[Where does it start?]
 The root of the file system is the `/` folder. Therefore, `/` on its own is a valid path! It is also why the path in our example starts with `/`, to indicate that we are starting from the root.

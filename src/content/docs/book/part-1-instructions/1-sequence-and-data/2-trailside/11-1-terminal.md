@@ -4,7 +4,7 @@ sidebar:
     label: " - Terminal Methods"
 ---
 
-Interacting with the [Terminal](/book/part-0-getting-started/2-computer-use/2-trailside/01-terminal) is pretty simple in code. There are basically three methods that you need to care about: `WriteLine`, `Write`, and `ReadLine`.
+Interacting with the [Terminal](/book/appendix/2-computer-use/2-trailside/01-terminal) is pretty simple in code. There are basically three methods that you need to care about: `WriteLine`, `Write`, and `ReadLine`.
 
 ## WriteLine and Write
 

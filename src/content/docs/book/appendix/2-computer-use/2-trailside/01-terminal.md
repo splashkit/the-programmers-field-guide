@@ -20,7 +20,7 @@ Being able to interact with programs via the terminal will give you access to an
 **Scripting** is a kind of programming used for small tasks that don't require a lot of code.
 An entire script is usually contained in a single file, and is typically run through the terminal.
 
-All programming languages used for scripting are [interpreted](/book/part-0-getting-started/1-digital-realities/2-trailside/6-source-code#compilers-and-interpreters).
+All programming languages used for scripting are [interpreted](/book/part-0-getting-started/1-building-programs/5-reference/6-source-code#compilers-and-interpreters).
 This enables users to make quick changes without the overhead of recompiling an entire program.
 It also allows scripts to be easily shared, as they can be run on any device with a compatible interpreter.
 Windows, OSX, and Linux all come with in-built support for at least one scripting language.

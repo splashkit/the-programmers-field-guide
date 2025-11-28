@@ -8,7 +8,7 @@ Programs written in this language cannot be executed directly by the computer, b
 
 ## Programming in Assembly
 
-The following snippet shows an example of some assembler code. This is the assembler code that was used to generate the machine code we showed you in the [machine code](/book/part-0-getting-started/1-digital-realities/2-trailside/4-machine-code) concept. The machine code was 13,344 bytes in size, where the same program in assembler code is only 658 bytes. Before this program can be executed, we need the assembler to read these 658 bytes and translate them into the equivalent machine code.
+The following snippet shows an example of some assembler code. This is the assembler code that was used to generate the machine code we showed you in the [machine code](/book/part-0-getting-started/1-building-programs/5-reference/4-machine-code) concept. The machine code was 13,344 bytes in size, where the same program in assembler code is only 658 bytes. Before this program can be executed, we need the assembler to read these 658 bytes and translate them into the equivalent machine code.
 
 ```asm
 .cstring

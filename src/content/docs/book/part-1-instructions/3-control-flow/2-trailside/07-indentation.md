@@ -4,7 +4,7 @@ title: Indentation
 
 ## The importance of style
 
-Modern programming languages are [abstractions](/book/part-0-getting-started/1-digital-realities/2-trailside/3-digital-realities-and-abstraction) -- while they are written to instruct the computer, they are also designed to be readable by humans.
+Modern programming languages are [abstractions](/book/part-0-getting-started/1-building-programs/5-reference/3-digital-realities-and-abstraction) -- while they are written to instruct the computer, they are also designed to be readable by humans.
 Given this, it's sensible to take care to make our code as readable to humans as possible.
 
 This is where the concept of code **style** comes in.

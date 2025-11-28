@@ -50,7 +50,7 @@ This allows you to use the [methods](/book/part-1-instructions/1-sequence-and-da
 
 ## Examples
 
-The following code shows a basic Hello World C# Program. You should be able to match this up with the syntax defined above. This program uses code from `SplashKitSDK.SplashKit` to access the `WriteLine` method, which can be called to output a message to [stdout](/book/part-0-getting-started/2-computer-use/2-trailside/09-streams#input-output-and-errors). The important thing to see here is that **all** of this code is the program -- each line is a part of the program.
+The following code shows a basic Hello World C# Program. You should be able to match this up with the syntax defined above. This program uses code from `SplashKitSDK.SplashKit` to access the `WriteLine` method, which can be called to output a message to [stdout](/book/appendix/2-computer-use/2-trailside/09-streams#input-output-and-errors). The important thing to see here is that **all** of this code is the program -- each line is a part of the program.
 
 ```csharp
 using static SplashKitSDK.SplashKit;
@@ -76,7 +76,7 @@ Delay(5000);
 ```
 
 :::tip[Code Comments]
-C# source code is [abstracted](/book/part-0-getting-started/1-digital-realities/2-trailside/6-source-code/#programming-with-a-third-generation-language) to make it more understandable for humans, but ultimately it is still written for computers.
+C# source code is [abstracted](/book/part-0-getting-started/1-building-programs/5-reference/6-source-code/#programming-with-a-third-generation-language) to make it more understandable for humans, but ultimately it is still written for computers.
 Because of this, C# and virtually all programming languages include syntax for writing [**code comments**](/book/part-1-instructions/1-sequence-and-data/2-trailside/09-comments).
 
 In the code above the line starting with `//` is a code comment and will be ignored by the compiler.
