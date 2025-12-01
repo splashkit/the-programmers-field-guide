@@ -83,7 +83,7 @@ Run the command `skm` to check SplashKit is installed correctly.
 If everything is working you should be all good to go!
 
 :::tip[What next?]
-Jump to the [next step](/book/part-0-getting-started/1-building-programs/3-intro-tour/2-code), where we will use these tools to build and run some programs.
+Jump to the [next step](/book/part-0-getting-started/1-building-programs/3-guided-tour/2-first-project), where we will use these tools to build and run some programs.
 :::
 
 :::caution[Had problems?]

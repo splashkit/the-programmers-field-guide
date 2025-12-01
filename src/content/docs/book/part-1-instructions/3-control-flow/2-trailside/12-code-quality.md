@@ -21,7 +21,7 @@ Remember that getting a program working is one thing, and making sure that you c
 
 ## Naming Standards
 
-Programming is all about building [digital realities](/book/part-0-getting-started/1-digital-realities/0-overview). These abstract models that run within the computer are built from many building blocks. So far we have seen how to create [variables](/book/part-1-instructions/1-sequence-and-data/2-trailside/07-variable) and [constants](/book/part-1-instructions/1-sequence-and-data/2-trailside/07-variable#constants). Next, we will start looking at building other code constructs to help organise our code into reusable components. All of these things that we create need **names**.
+Programming is all about building our own digital realities. These abstract models that run within the computer are built from many building blocks. So far we have seen how to create [variables](/book/part-1-instructions/1-sequence-and-data/2-trailside/07-variable) and [constants](/book/part-1-instructions/1-sequence-and-data/2-trailside/07-variable#constants). Next, we will start looking at building other code constructs to help organise our code into reusable components. All of these things that we create need **names**.
 
 It may seem strange, but naming things becomes one of the main challenges as your programs grow. The name that you give something can be quite powerful, as it will shape how people see and think about that aspect of your program. Getting names right is important.
 

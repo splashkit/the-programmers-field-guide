@@ -2,7 +2,7 @@
 title: Using SplashKit
 ---
 
-As we saw in the [Digital Realities](/book/part-0-getting-started/1-digital-realities/0-overview) chapter, programming is about building code artefacts that create capabilities within the computer. Our ability to do this has been expanding over time as developers create and share different building blocks through **libraries** and **frameworks**. These are collections of these building blocks from other programmers, which we can use and build upon in our own work.
+Programming is about building code artefacts that create capabilities within the computer. Our ability to do this has been expanding over time as developers create and share different building blocks through **libraries** and **frameworks**. These are collections of these building blocks from other programmers, which we can use and build upon in our own work.
 This lets us concentrate on the unique features of our program.
 
 [SplashKit](https://splashkit.io) is a library designed to aid in learning programming by providing tools you can use to show windows, draw shapes and images, play sound effects and music, and receive inputs from users.

@@ -102,5 +102,5 @@ There is an example of this logic on the [while loop page](/book/part-1-instruct
 :::tip[Where is the game?]
 Start to think about where the game really is occurring. You will see it on the screen, but the game actually exists within the data that we have created within this program. Try to picture the spider when you read the code -- it is a little hard to see at the moment as we only have individual variables.
 
-This is the [digital reality](/book/part-0-getting-started/1-digital-realities/0-overview) we are creating. When we think about this code we can see the spider, and link it to the variables in the code. Try to see this reality in your mind. It will get easier once we can [structure our data](/book/part-2-organised-code/3-structuring-data/0-overview), but before we can do that we need to be able to work with control flow statements.
+This is the "digital reality" we are creating. When we think about this code we can see the spider, and link it to the variables in the code. Try to see this reality in your mind. It will get easier once we can [structure our data](/book/part-2-organised-code/3-structuring-data/0-overview), but before we can do that we need to be able to work with control flow statements.
 :::
