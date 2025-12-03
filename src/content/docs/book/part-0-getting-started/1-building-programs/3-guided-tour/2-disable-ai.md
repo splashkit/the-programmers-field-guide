@@ -2,7 +2,11 @@
 title: AI in VS Code
 ---
 
-VS Code includes plugins that allow it to interact with Gen AI to assist you with your code writing. This can be useful when you have mastered the basics, but for now we need to switch these off so that we can focus on how this works ourselves.
+Before we build our first program we need to make one quick change to our settings in VS Code.
+
+VS Code includes plugins that allow it to interact with Gen AI to assist you with your code writing. This can be useful when you have mastered the basics, but for now we need to switch these off so that we can focus on how this works ourselves. 
+
+Don't worry, we will look at using these features later on, but for now it will be essential to be practising the basics yourself.
 
 To disable AI for now, do the following:
 
@@ -18,5 +22,7 @@ To disable AI for now, do the following:
    - `"C_Cpp.default.cppStandard": "c++26",`
 
    This setting isn't needed for the AI, but will tell VS Code which version of C/C++ we are intending of using.
+
+   ![Updated settings in VS Code](./images/disable-ai-2.png)
 
 We will come back to look at how to work with AI productively in later chapters. For now, you want to be in control so that you are thinking through how each part of your program works.

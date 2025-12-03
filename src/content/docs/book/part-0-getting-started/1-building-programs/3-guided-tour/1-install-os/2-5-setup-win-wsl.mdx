@@ -99,16 +99,39 @@ Once the automated script has finished running, close and reopen the Terminal.
 
 Run the command `skm` to check SplashKit is installed correctly.
 
-## 5. All done!
-
-Everything should now be installed, you are all good to go!
-
-:::tip[What next?]
-Jump to the [next step](/book/part-0-getting-started/1-building-programs/3-guided-tour/2-first-project), where we will use these tools to build and run some programs.
-:::
-
 :::caution[Had problems?]
 
 If you had problems with the automated installation, or want to do things yourself, you can follow the [manual install instructions](/book/appendix/0-installation/2-0-setup-linux).
 
 :::
+
+## 5. All done!
+
+Everything should now be installed, you are all good to go!
+
+Before we can move on, you will need to know a little more about how WSL works and where you can locate the files you create.
+
+### Finding Files when Using WSL
+
+When you are running WSL, you have a Linux distribution running alongside Windows. This Linux distribution has its own file system. The good thing is that you can use the following instructions to access the files within the Linux system from within Windows.
+
+*Follow the instructions below to access your WSL folders and files in File Explorer*:
+
+In the left sidebar panel of the File Explorer, scroll to the bottom and click on the "Linux" folder (red box below), then navigated into the "Ubuntu" folder (orange box below):
+
+![Initial navigation to WSL Folder in File Explorer](./images/wsl-file-explorer-ubuntu.png)
+
+Next, go into the "home" folder (red box below):
+
+![Navigation to WSL home folder in File Explorer](./images/wsl-file-explorer-home.png)
+
+You will then see a folder with the username that you used to create your WSL/Ubuntu account. Click into this folder to see your WSL folders and files.
+
+This is the *home* (~) directory for WSL, which is the location that VS Code and your Ubuntu terminal will start in when you interact with the file system.
+
+Also, if you have issues and need to reinstall/recreate your Ubuntu account, these folders and files will be removed. Make sure to create a backup of any important folders/files beforehand.
+
+### What next
+
+Jump to the [next step](/book/part-0-getting-started/1-building-programs/3-guided-tour/2-disable-ai), where we will use these tools to build and run some programs.
+

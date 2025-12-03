@@ -49,9 +49,9 @@ Create and open a folder for your program code.
     <TabItem label="macOS">
     ![Creating a new folder using macOS](./images/macos-new-folder.png)
     </TabItem>
-    <TabItem label="Widows (MSYS2)">
+    <TabItem label="Windows (MSYS2)">
     </TabItem>
-    <TabItem label="Widows (WSL)">
+    <TabItem label="Windows (WSL)">
     </TabItem>
    </Tabs>
 </Steps>
@@ -109,26 +109,60 @@ At this stage you have the code for the program you want to create. In order to 
     <TabItem label="macOS">
     ![The terminal open in VS Code](./images/macos-terminal.png)
     </TabItem>
-    <TabItem label="Widows (MSYS2)">
+    <TabItem label="Windows (MSYS2)">
         We are going to be using Unix commands and compilers. With MSYS2, you need to make sure you get a bash shell in your Terminal. If you get a Terminal that has the text "Windows PowerShell" and/or has prompts that start with "PS" then you need to configure VS Code to open a bash shell using [MSys2](/book/appendix/0-installation/2-5-setup-win-msys/#set-up-vs-code-terminal).
         
         
     </TabItem>
-    <TabItem label="Widows (WSL)">
+    <TabItem label="Windows (WSL)">
     </TabItem>
     </Tabs>
 
 5.  In the Terminal type the following command:
 
-    ```bash
-    clang++ hello-world.cpp -l SplashKit -o my_program -Wall
+    <Tabs syncKey="terminal-type">
+    <TabItem label="Linux">
+
+    ```zsh
+    clang++ HelloWorld.cpp -o hello -l SplashKit -Wall
+    ./hello
     ```
+
+    </TabItem>
+    <TabItem label="macOS">
+
+    ```zsh
+    clang++ HelloWorld.cpp -o hello -l SplashKit -Wall
+    ./hello
+    ```
+
+    </TabItem>
+    <TabItem label="Windows (MSYS2)">
+
+    ```zsh
+    clang++ HelloWorld.cpp -o hello -l SplashKit -Wall
+    ./hello.exe
+    ```
+
+    </TabItem>
+    <TabItem label="Windows (WSL)">
+
+    ```zsh
+    clang++ HelloWorld.cpp -o hello -l SplashKit -Wall
+    ./hello
+    ```
+
+    </TabItem>
+    </Tabs>
+
+    This runs the `clang++` compiler, and tells it to read the `hello-world.cpp` files, link with the SplashKit library (`-l SplashKit`), output *my_program* (`-o my_program`), and warn for all issues it identifies (`-Wall`).
 
     You should now see something similar to what is shown in the following image. This image shows my VS Code after follow the steps up to this point. I have created a *FieldGuide* folder in which I created **hello-world.cpp**. I have copied the code above into the *hello-world.cpp* and saved the file.
 
     ![Visual showing the compiled program](./images/compiling.png)
 
-6. Run the program by typing the following command into the Terminal:
+6. Run the program you created by typing the following command into the Terminal:
+   
    ```bash
    ./my_program
    ```

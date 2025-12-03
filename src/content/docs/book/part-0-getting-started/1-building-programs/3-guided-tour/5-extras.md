@@ -25,25 +25,3 @@ VS Code includes extensions to help you work effectively with the languages that
 ```bash
 skm vscode extensions
 ```
-
-## Finding Files when Using WSL
-
-If you are using WSL in Windows you will need to know how to find your files.
-
-*Follow the instructions below to access your WSL folders and files in File Explorer*:
-
-In the left sidebar panel, scroll to the bottom and click on the "Linux" folder (red box below), then navigated into the "Ubuntu" folder (orange box below):
-
-![Initial navigation to WSL Folder in File Explorer](./images/wsl-file-explorer-ubuntu.png)
-
-Next, go into the "home" folder (red box below):
-
-![Navigation to WSL home folder in File Explorer](./images/wsl-file-explorer-home.png)
-
-You will then see a folder with the username that you used to create your WSL/Ubuntu account. Click into this folder to see your WSL folders and files.
-
-:::note
-This is the *home* (~) directory for WSL, which is the location that your Ubuntu terminal will start in when you open a new terminal.
-
-Also, if you have issues and need to reinstall/recreate your Ubuntu account, these folders and files will be removed. Make sure to create a backup of any important folders/files beforehand.
-:::
