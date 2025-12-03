@@ -77,111 +77,43 @@ export default defineConfig({
             directory: "book/part-0-getting-started",
             collapsed: true
           },
+        },
+        {
+          label: "Part 1: Instructions",
+          collapsed: true,
+          autogenerate: 
+          {
+            directory: "book/part-1-instructions",
+            collapsed: true
+          },
           // items: [
           //   {
-          //     label: "0. Introduction",
-          //     link: "book/part-0-getting-started/00-0-introduction",
+          //     label: "0. Introducing Instructions",
+          //     link: "book/part-1-instructions/00-part-1-programs-as-instructions",
           //   },
           //   {
-          //     label: "Reading the Guide",
-          //     link: "book/part-0-getting-started/00-1-how-to-read",
-          //   },
-          //   {
-          //     label: "1. Building Programs",
-          //     autogenerate: 
-          //     { 
-          //       directory: "book/part-0-getting-started/1-building-programs",
-          //       collapsed: true,
-          //     },
-          //   },
-
-            // {
-            //   label: "1. Digital Realities",
-            //   collapsed: true,
-            //   items: [
-            //     {
-            //       label: "Introduction",
-            //       link: "book/part-0-getting-started/1-digital-realities/0-overview",
-            //     },
-            //     {
-            //       label: "Guided Tour",
-            //       link: "book/part-0-getting-started/1-digital-realities/1-tour",
-            //     },
-            //     {
-            //       label: "In Depth",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/part-0-getting-started/1-digital-realities/2-trailside",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "Activities",
-            //       link: "book/part-0-getting-started/1-digital-realities/3-explore",
-            //     },
-            //   ],
-            // },
-            // {
-            //   label: "2. Computer Use",
-            //   collapsed: true,
-            //   items: [
-            //     {
-            //       label: "Introduction",
-            //       link: "book/appendix/2-computer-use/0-overview",
-            //     },
-            //     {
-            //       label: "Overview",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/appendix/2-computer-use/0-panorama",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "Guided Tour",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/appendix/2-computer-use/1-tour",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "In Depth",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/appendix/2-computer-use/2-trailside",
-            //         collapsed: true,
-            //       },
-            //     },
-            //     {
-            //       label: "Activities",
-            //       collapsed: true,
-            //       autogenerate: {
-            //         directory:
-            //           "book/appendix/2-computer-use/3-explore",
-            //         collapsed: true,
-            //       },
-            //     },
-            //   ],
-            // },
-          //   {
-          //     label: "3. Building Programs",
+          //     label: "1. Sequence and Data",
           //     collapsed: true,
           //     items: [
           //       {
           //         label: "Introduction",
-          //         link: "book/part-0-getting-started/3-building-programs/0-overview",
+          //         link: "book/part-1-instructions/1-sequence-and-data/0-overview",
+          //       },
+          //       {
+          //         label: "Overview",
+          //         collapsed: true,
+          //         autogenerate: {
+          //           directory:
+          //             "book/part-1-instructions/1-sequence-and-data/0-panorama",
+          //           collapsed: true,
+          //         },
           //       },
           //       {
           //         label: "Guided Tour",
           //         collapsed: true,
           //         autogenerate: {
           //           directory:
-          //             "book/part-0-getting-started/3-building-programs/1-tour",
+          //             "book/part-1-instructions/1-sequence-and-data/1-tour",
           //           collapsed: true,
           //         },
           //       },
@@ -190,155 +122,104 @@ export default defineConfig({
           //         collapsed: true,
           //         autogenerate: {
           //           directory:
-          //             "book/part-0-getting-started/3-building-programs/2-trailside",
+          //             "book/part-1-instructions/1-sequence-and-data/2-trailside",
           //           collapsed: true,
           //         },
           //       },
           //       {
           //         label: "Activities",
-          //         link: "book/part-0-getting-started/3-building-programs/3-explore",
+          //         collapsed: true,
+          //         autogenerate: {
+          //           directory:
+          //             "book/part-1-instructions/1-sequence-and-data/3-explore",
+          //           collapsed: true,
+          //         },
+          //       },
+          //     ],
+          //   },
+          //   {
+          //     label: "2. Communicating Syntax",
+          //     collapsed: true,
+          //     items: [
+          //       {
+          //         label: "Introduction",
+          //         link: "book/part-1-instructions/2-communicating-syntax/0-overview",
+          //       },
+          //       {
+          //         label: "Guided Tour",
+          //         link: "book/part-1-instructions/2-communicating-syntax/1-tour",
+          //       },
+          //       {
+          //         label: "In Depth",
+          //         collapsed: true,
+          //         autogenerate: {
+          //           directory:
+          //             "book/part-1-instructions/2-communicating-syntax/2-trailside",
+          //           collapsed: true,
+          //         },
+          //       },
+          //       {
+          //         label: "Activities",
+          //         link: "book/part-1-instructions/2-communicating-syntax/3-explore",
+          //       },
+          //     ],
+          //   },
+          //   {
+          //     label: "3. Control Flow",
+          //     collapsed: true,
+          //     items: [
+          //       {
+          //         label: "Introduction",
+          //         link: "book/part-1-instructions/3-control-flow/0-overview",
+          //       },
+          //       {
+          //         label: "Overview",
+          //         collapsed: true,
+          //         autogenerate: {
+          //           directory:
+          //             "book/part-1-instructions/3-control-flow/0-panorama",
+          //           collapsed: true,
+          //         },
+          //       },
+          //       {
+          //         label: "Guided Tour",
+          //         collapsed: true,
+          //         autogenerate: {
+          //           directory:
+          //             "book/part-1-instructions/3-control-flow/1-tour",
+          //           collapsed: true,
+          //         },
+          //       },
+          //       {
+          //         label: "In Depth",
+          //         collapsed: true,
+          //         autogenerate: {
+          //           directory:
+          //             "book/part-1-instructions/3-control-flow/2-trailside",
+          //           collapsed: true,
+          //         },
+          //       },
+          //       {
+          //         label: "Activities",
+          //         collapsed: true,
+          //         autogenerate: {
+          //           directory:
+          //             "book/part-1-instructions/3-control-flow/3-explore",
+          //           collapsed: true,
+          //         },
+          //       },
+          //       {
+          //         label: "Campsite Reflection",
+          //         collapsed: true,
+          //         autogenerate: {
+          //           directory:
+          //             "book/part-1-instructions/3-control-flow/4-camp",
+          //           collapsed: true,
+          //         },
           //       },
           //     ],
           //   },
           // ],
-        },
-        {
-          label: "Part 1: Instructions",
-          collapsed: true,
-          items: [
-            {
-              label: "0. Introducing Instructions",
-              link: "book/part-1-instructions/00-part-1-programs-as-instructions",
-            },
-            {
-              label: "1. Sequence and Data",
-              collapsed: true,
-              items: [
-                {
-                  label: "Introduction",
-                  link: "book/part-1-instructions/1-sequence-and-data/0-overview",
-                },
-                {
-                  label: "Overview",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-1-instructions/1-sequence-and-data/0-panorama",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Guided Tour",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-1-instructions/1-sequence-and-data/1-tour",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "In Depth",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-1-instructions/1-sequence-and-data/2-trailside",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Activities",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-1-instructions/1-sequence-and-data/3-explore",
-                    collapsed: true,
-                  },
-                },
-              ],
-            },
-            {
-              label: "2. Communicating Syntax",
-              collapsed: true,
-              items: [
-                {
-                  label: "Introduction",
-                  link: "book/part-1-instructions/2-communicating-syntax/0-overview",
-                },
-                {
-                  label: "Guided Tour",
-                  link: "book/part-1-instructions/2-communicating-syntax/1-tour",
-                },
-                {
-                  label: "In Depth",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-1-instructions/2-communicating-syntax/2-trailside",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Activities",
-                  link: "book/part-1-instructions/2-communicating-syntax/3-explore",
-                },
-              ],
-            },
-            {
-              label: "3. Control Flow",
-              collapsed: true,
-              items: [
-                {
-                  label: "Introduction",
-                  link: "book/part-1-instructions/3-control-flow/0-overview",
-                },
-                {
-                  label: "Overview",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-1-instructions/3-control-flow/0-panorama",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Guided Tour",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-1-instructions/3-control-flow/1-tour",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "In Depth",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-1-instructions/3-control-flow/2-trailside",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Activities",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-1-instructions/3-control-flow/3-explore",
-                    collapsed: true,
-                  },
-                },
-                {
-                  label: "Campsite Reflection",
-                  collapsed: true,
-                  autogenerate: {
-                    directory:
-                      "book/part-1-instructions/3-control-flow/4-camp",
-                    collapsed: true,
-                  },
-                },
-              ],
-            },
-          ],
         },
         {
           label: "Part 2: Organised Code",

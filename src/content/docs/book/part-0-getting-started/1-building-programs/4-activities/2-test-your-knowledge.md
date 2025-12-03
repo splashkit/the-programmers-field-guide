@@ -1,5 +1,5 @@
 ---
-title: Go Exploring
+title: Test Your Knowledge
 ---
 
 :::tip
