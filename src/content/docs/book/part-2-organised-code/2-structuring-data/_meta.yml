@@ -1,0 +1,4 @@
+# Set the directory sidebar label to `API Reference`.
+label: "6. Structuring Data"
+collapsed: true
+order: 3

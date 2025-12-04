@@ -1,0 +1,4 @@
+# Set the directory sidebar label to `API Reference`.
+label: "11. Deep Dive Memory"
+collapsed: true
+order: 7
