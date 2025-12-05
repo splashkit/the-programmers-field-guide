@@ -45,13 +45,17 @@ Create and open a folder for your program code.
 
    <Tabs syncKey="terminal-type">
     <TabItem label="Linux">
+    ![Creating a new folder using Linux](./images/linux-new-folder.png)
     </TabItem>
     <TabItem label="macOS">
     ![Creating a new folder using macOS](./images/macos-new-folder.png)
     </TabItem>
     <TabItem label="Windows (MSYS2)">
+    ![Creating a new folder using Windows (MSYS2)](./images/windows-msys2-new-folder.png)
     </TabItem>
     <TabItem label="Windows (WSL)">
+    ![Creating a new folder using Windows (WSL)](./images/windows-wsl-new-folder-1.png)
+    ![Creating a new folder using Windows (WSL)](./images/windows-msys2-new-folder.png)
     </TabItem>
    </Tabs>
 </Steps>
@@ -105,16 +109,19 @@ At this stage you have the code for the program you want to create. In order to 
 
     <Tabs syncKey="terminal-type">
     <TabItem label="Linux">
+    ![The terminal open in VS Code](./images/linux-terminal.png)
     </TabItem>
     <TabItem label="macOS">
     ![The terminal open in VS Code](./images/macos-terminal.png)
     </TabItem>
     <TabItem label="Windows (MSYS2)">
+    ![The terminal open in VS Code](./images/windows-msys64-terminal.png)
         We are going to be using Unix commands and compilers. With MSYS2, you need to make sure you get a bash shell in your Terminal. If you get a Terminal that has the text "Windows PowerShell" and/or has prompts that start with "PS" then you need to configure VS Code to open a bash shell using [MSys2](/book/appendix/0-installation/2-5-setup-win-msys/#set-up-vs-code-terminal).
         
         
     </TabItem>
     <TabItem label="Windows (WSL)">
+    ![The terminal open in VS Code](./images/windows-wsl-terminal.png)
     </TabItem>
     </Tabs>
 
@@ -124,7 +131,7 @@ At this stage you have the code for the program you want to create. In order to 
     <TabItem label="Linux">
 
     ```zsh
-    clang++ HelloWorld.cpp -o hello -l SplashKit -Wall
+    clang++ hello-world.cpp -o hello -l SplashKit -Wall
     ./hello
     ```
 
@@ -132,7 +139,7 @@ At this stage you have the code for the program you want to create. In order to 
     <TabItem label="macOS">
 
     ```zsh
-    clang++ HelloWorld.cpp -o hello -l SplashKit -Wall
+    clang++ hello-world.cpp -o hello -l SplashKit -Wall
     ./hello
     ```
 
@@ -140,7 +147,7 @@ At this stage you have the code for the program you want to create. In order to 
     <TabItem label="Windows (MSYS2)">
 
     ```zsh
-    clang++ HelloWorld.cpp -o hello -l SplashKit -Wall
+    clang++ hello-world.cpp -o hello -l SplashKit -Wall
     ./hello.exe
     ```
 
@@ -148,7 +155,7 @@ At this stage you have the code for the program you want to create. In order to 
     <TabItem label="Windows (WSL)">
 
     ```zsh
-    clang++ HelloWorld.cpp -o hello -l SplashKit -Wall
+    clang++ hello-world.cpp -o hello -l SplashKit -Wall
     ./hello
     ```
 
