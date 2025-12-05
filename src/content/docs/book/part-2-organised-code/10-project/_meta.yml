@@ -1,0 +1,4 @@
+# Set the directory sidebar label to `API Reference`.
+label: "12. Project"
+collapsed: true
+order: 10

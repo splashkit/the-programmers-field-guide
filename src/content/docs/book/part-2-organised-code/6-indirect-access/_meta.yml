@@ -1,0 +1,4 @@
+# Set the directory sidebar label to `API Reference`.
+label: "10. Pointers & Lists"
+collapsed: true
+order: 6

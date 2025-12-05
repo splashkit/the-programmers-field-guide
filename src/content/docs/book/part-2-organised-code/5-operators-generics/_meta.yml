@@ -1,0 +1,4 @@
+# Set the directory sidebar label to `API Reference`.
+label: "9. Generics & Operators"
+collapsed: true
+order: 6

@@ -1,0 +1,4 @@
+# Set the directory sidebar label to `API Reference`.
+label: "7. Handling Multiples"
+collapsed: true
+order: 4
