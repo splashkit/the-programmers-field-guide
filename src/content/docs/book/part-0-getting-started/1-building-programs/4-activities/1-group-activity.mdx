@@ -17,9 +17,13 @@ export let compile_command = function(){
 
 import { Steps } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from "@astrojs/starlight/components";
+import MultipleChoice from '/src/components/MultipleChoice.astro';
+import Option from '/src/components/Option.astro';
 import { Code } from 'astro-expressive-code/components'
+import Carousel from '/src/components/Carousel.astro'
+import ITO from '/src/components/InlineTextOption.astro'
 
-For this activity, try to get together into a group of 3-4 people. The idea here is to try and fill in each other's knowledge gaps regarding something that frequently gets overlooked - the **compile command**.
+For this activity, try to get together into a group of 3-4 people. The idea here is to try and fill in each other's knowledge gaps regarding something that frequently gets overlooked - the **compilation command**.
 ```sh title="For example..."
 clang++ hello-world.cpp -o hello -l SplashKit -Wall
 ```
@@ -32,16 +36,68 @@ You may have to do some extra Googling to figure this out - work together and so
 
 # Group Activity
 
-## Here's your unique random compile command!
+## Here's your unique random compilation command!
 <Code title="Note: It'll change when reloaded!" code={compile_command} lang="sh" />
 
 <Steps>
-1. Gather around one of your group members' computers, and read over the compile command above.
+1. Gather around one of your group members' computers, and read over the compilation command above.
 2. ##### Discuss the following with each other:
    1. _What_ is being compiled?
    2. _Which_ libraries are being used? (Feel free to search up their names if you're interested in what they are!)
    3. _What_ will the resulting executable be called?
    4. Are there are pieces here we haven't learned about yet? What do they do?
-3. ##### Test Yourselves! (Or perhaps "Call over a Tutor!"?)
+3. ##### Test Yourselves!
+    <Carousel>
+        <div onNextTest="Q1.checkCorrect()">
+            What part(s) define the name that the compiled executable file will have?
+            <MultipleChoice id="Q1">
+                <ITO>clang++</ITO>&nbsp;
+                <ITO>-O3</ITO>&nbsp;
+                <ITO>main.cpp</ITO>&nbsp;
+                <ITO>extra-library-things.cpp</ITO>&nbsp;
+                <ITO isCorrect>-o</ITO>&nbsp;<ITO isCorrect>blender</ITO>&nbsp;
+                <ITO>-l</ITO><ITO>X11</ITO>&nbsp;
+                <ITO>-l</ITO>&nbsp;<ITO>opengl</ITO>&nbsp;
+                <ITO>-W</ITO><ITO>all</ITO>
+            </MultipleChoice>
+        </div>
+        <div onNextTest="Q2.checkCorrect()">
+            What source files will be _compiled_?
+            <MultipleChoice id="Q2">
+                <ITO>clang++</ITO>&nbsp;
+                <ITO>-O3</ITO>&nbsp;
+                <ITO isCorrect>main.cpp</ITO>&nbsp;
+                <ITO isCorrect>extra-library-things.cpp</ITO>&nbsp;
+                <ITO>-o</ITO>&nbsp;<ITO>blender</ITO>&nbsp;
+                <ITO>-l</ITO><ITO>X11</ITO>&nbsp;
+                <ITO>-l</ITO>&nbsp;<ITO>opengl</ITO>&nbsp;
+                <ITO>-W</ITO><ITO>all</ITO>
+            </MultipleChoice>
+        </div>
+        <div onNextTest="Q3.checkCorrect()">
+            What parts _link_ `opengl`?
+            <MultipleChoice id="Q3">
+                <ITO>clang++</ITO>&nbsp;
+                <ITO>-O3</ITO>&nbsp;
+                <ITO>main.cpp</ITO>&nbsp;
+                <ITO>extra-library-things.cpp</ITO>&nbsp;
+                <ITO>-o</ITO>&nbsp;<ITO>blender</ITO>&nbsp;
+                <ITO>-l</ITO><ITO>X11</ITO>&nbsp;
+                <ITO isCorrect>-l</ITO>&nbsp;<ITO isCorrect>opengl</ITO>&nbsp;
+                <ITO>-W</ITO><ITO>all</ITO>
+            </MultipleChoice>
+        </div>
+        <div onNextTest="Q4.checkCorrect()">
+            What does `-O3` do?
+            <MultipleChoice id="Q4">
+                <Option>Names the compiled executable file `"3"`</Option>
+                <Option isCorrect>Turns on compiler optimizations, level 3</Option>
+                <Option>Links in the `"O3"` library</Option>
+            </MultipleChoice>
+        </div>
+        <div onNextTest="false">
+            And you're all done! Nice work :)
+        </div>
+    </Carousel>
 </Steps>
 

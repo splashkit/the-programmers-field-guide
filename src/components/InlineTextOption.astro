@@ -1,0 +1,46 @@
+---
+
+export interface Props {
+    isCorrect?: boolean;
+}
+
+const { isCorrect=false } = Astro.props as Props;
+const key = Math.random().toString();
+// Note, the weird spacing below is to avoid extra whitespace between pieces of text
+// TODO: If there's a cleaner way, please improve.
+---
+<input data-is-inline-text-option type="checkbox" data-is-correct={isCorrect} id={key} /><label for={key}><slot /></label><style>
+    label {
+        display: inline;
+        border: solid 1px #aad7a061;
+        border-radius: 0.4em;
+        background-color: #2c3729;
+        cursor: pointer;
+        transition: color 0.3s, background-color 0.3s;
+    }
+
+    input{
+    margin: 0em 1em 0em 0em;
+    }
+    [data-is-inline-text-option]{
+        display: none;
+    }
+    input:checked + label {
+        background-color: #aad7a0;
+        color: black;
+    }
+
+    .join-next {
+        border-radius: 0.4em 0 0 0.4em;
+    }
+    .join-next + input + label {
+        border-radius: 0 0.4em 0.4em 0;
+    }
+
+</style><script>
+    document.querySelectorAll('[data-is-inline-text-option]').forEach(function (li){
+        li.checkCorrect = function(){
+            return li.dataset.isCorrect == li.checked.toString();
+        }
+    });
+</script>

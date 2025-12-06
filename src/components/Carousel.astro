@@ -1,0 +1,129 @@
+---
+const { onNextTest="true", id="" } = Astro.props;
+---
+
+<style>
+    .carousel-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .carousel {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .track {
+        display: flex;
+        transition: transform 0.4s ease;
+    }
+
+    :global(.track > div) {
+        flex: 0 0 100%;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 0!important;
+        align-self: center;
+    }
+
+    button.arrow:hover {
+        color: var(--sl-color-white);
+        border-color: var(--sl-color-gray-2);
+    }
+
+    button.arrow {
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .arrow.left { left: 0.5rem; margin-top: 0!important; }
+    .arrow.right { right: 0.5rem; margin-top: 0!important; }
+
+    .toggle{
+        flex-shrink: 0;
+        gap: 1rem;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid var(--sl-color-gray-5);
+        border-radius: 0.5rem;
+        padding-block: 0.5rem;
+        padding-inline-start: 0.75rem;
+        padding-inline-end: 0.5rem;
+        line-height: 1;
+        background-color: var(--sl-color-black);
+        user-select: none;
+        cursor: pointer;
+    }
+</style>
+
+<div id={id} class="carousel-wrapper" data-carousel data-on-next-check={onNextTest}>
+    <button class="toggle arrow left" data-prev>‹</button>
+    <div class="carousel">
+        <div class="track" data-track>
+            <slot />
+        </div>
+    </div>
+    <button class="toggle arrow right" data-next>›</button>
+</div>
+
+<script>
+    const el = document.querySelector("[data-carousel]"); // TODO: Handle multiple
+
+    async function checkNext(){
+        let checkCommand = slides[index].getAttribute("onNextTest");
+        if (checkCommand == undefined) return true;
+
+        // We support three different options to make no-code usage easy
+        // - true/fale constant
+        // - div_id.attribute | becomes document.getElementById(div_id)[attribute]
+        // - div_id.method() | becomes document.getElementById(div_id)[attribute]()
+
+        if (checkCommand == "true") return true;
+        if (checkCommand == "false") return false;
+
+        // No sanity checking - we want to see mistakes and fix them easily.
+        // We could make the errors clearer however, later on...
+        const [id, attr] = checkCommand.split('.');
+        const element = document.getElementById(id);
+
+        if (attr.indexOf("(")>=0)
+            return await element[attr.split("(")[0]]();
+        else
+            return element[attr];
+
+        return false;
+    }
+
+    const track = el.querySelector('[data-track]');
+    const slides = Array.from(track.children);
+    const prevBtn = el.querySelector('[data-prev]');
+    const nextBtn = el.querySelector('[data-next]');
+
+    let index = 0;
+
+    function update() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        el.dispatchEvent(new CustomEvent('carousel-change', { detail: { index } }));
+
+        prevBtn.disabled = index == 0;
+        nextBtn.disabled = index == slides.length-1;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (index > 0)
+            index --;
+        update();
+    });
+
+    nextBtn.addEventListener('click', async function () {
+        if (!(await checkNext())) return;
+
+        if (index < slides.length-1)
+            index ++;
+        update();
+    });
+
+    update();
+</script>
