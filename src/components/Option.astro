@@ -1,0 +1,32 @@
+---
+
+export interface Props {
+    isCorrect?: boolean;
+}
+
+const { isCorrect=false } = Astro.props as Props;
+---
+
+<li>
+    <label>
+        <input autocomplete="off" data-is-option type="radio" data-is-correct={isCorrect} /><span><slot /></span>
+    </label>
+</li>
+
+<style>
+    label {
+        display: flex;
+    }
+
+    input{
+        margin: 0em 1em 0em 0em;
+    }
+</style>
+
+<script>
+    document.querySelectorAll('[data-is-option]').forEach(function (li){
+        li.checkCorrect = function(){
+            return li.dataset.isCorrect == li.checked.toString();
+        }
+    });
+</script>

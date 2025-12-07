@@ -7,7 +7,6 @@ import { FileTree } from '@astrojs/starlight/components';
 Hopefully now you're starting to become familiar with the steps needed to create, compile, and run a project - we'll now use these same concepts to compile something a bit different.
 
 The previous program we compiled was a _command line program_ (or CLI program - **C**ommand **L**ine **I**nterface) - it runs inside the terminal. Command line programs are awesome (we promise!), but of course we'll want to be able to develop _graphical_ programs as well. That's what we'll do now, with a GUI (**G**raphical **U**ser **I**nterface) Hello World program.
-
 <details>
   <summary>Side note - Why is the command line great?</summary>
   Command line programs might seem a bit strange at first, but they have some large benefits, particularly when it comes to _automation_. It's difficult to automate clicking through a bunch of menus and buttons, but it's very easy to join together textual commands into complex systems! Here's a simple example you can try using right away:
@@ -24,6 +23,7 @@ The previous program we compiled was a _command line program_ (or CLI program - 
 Use the up arrow key to re-use your last command! No need to type it out every time (though it is good practice at first)
 :::
 </details>
+<p style="text-align:center;">_Click me! ^_</p>
 
 ## Let's start!
 
@@ -71,41 +71,41 @@ We'll go a little more briskly this time - if you get stuck at any point you can
         clear_screen(color_white());
         draw_text("Hello World! - using SplashKit shapes:", color_black(), 50, 50);
 
-        // H
+        // Draw the H
         fill_rectangle(color_red(), 50, 100, 20, 100);
         fill_rectangle(color_red(), 70, 140, 40, 20);
         fill_rectangle(color_red(), 110, 100, 20, 100);
 
-        // E
+        // Draw the E
         fill_rectangle(color_orange(), 150, 100, 20, 100);
         fill_rectangle(color_orange(), 170, 100, 40, 20);
         fill_rectangle(color_orange(), 170, 140, 20, 20);
         fill_rectangle(color_orange(), 170, 180, 40, 20);
 
-        // L
+        // Draw the L
         fill_rectangle(color_gold(), 230, 100, 20, 100);
         fill_rectangle(color_gold(), 250, 180, 40, 20);
 
-        // L
+        // Draw the L
         fill_rectangle(color_green_yellow(), 310, 100, 20, 100);
         fill_rectangle(color_green_yellow(), 330, 180, 40, 20);
 
-        // O
+        // Draw the O
         fill_ellipse(color_lime_green(), 390, 100, 80, 100);
         fill_ellipse(color_white(), 410, 120, 40, 60);
 
-        // W
+        // Draw the W
         fill_triangle(color_green(), 50, 250, 90, 370, 120, 250);
         fill_triangle(color_green(), 90, 250, 120, 370, 160, 250);
         fill_triangle(color_white(), 70, 250, 90, 310, 110, 250);
         fill_triangle(color_white(), 100, 250, 120, 310, 140, 250);
         fill_rectangle(color_white(), 70, 350, 80, 30);
 
-        // O
+        // Draw the O
         fill_ellipse(color_blue(), 170, 250, 80, 100);
         fill_ellipse(color_white(), 190, 270, 40, 60);
 
-        // R
+        // Draw the R
         fill_triangle(color_blue_violet(), 270, 250, 270, 350, 340, 350);
         fill_triangle(color_white(), 252, 250, 252, 350, 320, 350);
         fill_ellipse(color_blue_violet(), 252, 250, 80, 60);
@@ -113,17 +113,17 @@ We'll go a little more briskly this time - if you get stuck at any point you can
         fill_rectangle(color_white(), 252, 250, 20, 100);
         fill_rectangle(color_blue_violet(), 270, 250, 20, 100);
 
-        // L
+        // Draw the L
         fill_rectangle(color_purple(), 360, 250, 20, 100);
         fill_rectangle(color_purple(), 380, 330, 40, 20);
 
-        // D
+        // Draw the D
         fill_ellipse(color_magenta(), 420, 250, 100, 100);
         fill_ellipse(color_white(), 440, 270, 60, 60);
         fill_rectangle(color_white(), 420, 250, 30, 100);
         fill_rectangle(color_magenta(), 450, 250, 20, 101);
 
-        // !
+        // Draw the !
         fill_rectangle(color_pink(), 550, 250, 20, 60);
         fill_circle(color_pink(), 560, 340, 10);
 
@@ -179,7 +179,7 @@ int main()
     clear_screen(color_white());
     draw_text("Hello World! - using SplashKit shapes:", color_black(), 50, 50);
 
-    // H
+    // Draw the H
     fill_rectangle(color_red(), 50, 100, 20, 100);
     fill_rectangle(color_red(), 70, 140, 40, 20);
     fill_rectangle(color_red(), 110, 100, 20, 100);
@@ -217,7 +217,7 @@ Have a read through those lines, and have a guess at what it's doing - how is ea
         ```
         `draw_text` is the _procedure_ we're runnning (or more commonly, _calling_), and the things inside the brackets `()` are the parameters. `draw_text` then also goes and _does something_ (in this case, it, unsurprisingly, draws text)
 
-        The underlying technical aspects between the two are quite different, but conceptual they are very similar. Understanding this pattern early on will make reading code much easier :)
+        The underlying technical aspects between the two are quite different, but conceptually they are very similar. Understanding this pattern early on will make reading code much easier :)
     </details>
 </details>
 
@@ -236,41 +236,41 @@ Have a go now at reading through the rest of the code - hopefully you can see ho
         clear_screen(color_white());
         draw_text("Hello World! - using SplashKit shapes:", color_black(), 50, 50);
 
-        // H
+        // Draw the H
         fill_rectangle(color_red(), 50, 100, 20, 100);
         fill_rectangle(color_red(), 70, 140, 40, 20);
         fill_rectangle(color_red(), 110, 100, 20, 100);
 
-        // E
+        // Draw the E
         fill_rectangle(color_orange(), 150, 100, 20, 100);
         fill_rectangle(color_orange(), 170, 100, 40, 20);
         fill_rectangle(color_orange(), 170, 140, 20, 20);
         fill_rectangle(color_orange(), 170, 180, 40, 20);
 
-        // L
+        // Draw the L
         fill_rectangle(color_gold(), 230, 100, 20, 100);
         fill_rectangle(color_gold(), 250, 180, 40, 20);
 
-        // L
+        // Draw the L
         fill_rectangle(color_green_yellow(), 310, 100, 20, 100);
         fill_rectangle(color_green_yellow(), 330, 180, 40, 20);
 
-        // O
+        // Draw the O
         fill_ellipse(color_lime_green(), 390, 100, 80, 100);
         fill_ellipse(color_white(), 410, 120, 40, 60);
 
-        // W
+        // Draw the W
         fill_triangle(color_green(), 50, 250, 90, 370, 120, 250);
         fill_triangle(color_green(), 90, 250, 120, 370, 160, 250);
         fill_triangle(color_white(), 70, 250, 90, 310, 110, 250);
         fill_triangle(color_white(), 100, 250, 120, 310, 140, 250);
         fill_rectangle(color_white(), 70, 350, 80, 30);
 
-        // O
+        // Draw the O
         fill_ellipse(color_blue(), 170, 250, 80, 100);
         fill_ellipse(color_white(), 190, 270, 40, 60);
 
-        // R
+        // Draw the R
         fill_triangle(color_blue_violet(), 270, 250, 270, 350, 340, 350);
         fill_triangle(color_white(), 252, 250, 252, 350, 320, 350);
         fill_ellipse(color_blue_violet(), 252, 250, 80, 60);
@@ -278,17 +278,17 @@ Have a go now at reading through the rest of the code - hopefully you can see ho
         fill_rectangle(color_white(), 252, 250, 20, 100);
         fill_rectangle(color_blue_violet(), 270, 250, 20, 100);
 
-        // L
+        // Draw the L
         fill_rectangle(color_purple(), 360, 250, 20, 100);
         fill_rectangle(color_purple(), 380, 330, 40, 20);
 
-        // D
+        // Draw the D
         fill_ellipse(color_magenta(), 420, 250, 100, 100);
         fill_ellipse(color_white(), 440, 270, 60, 60);
         fill_rectangle(color_white(), 420, 250, 30, 100);
         fill_rectangle(color_magenta(), 450, 250, 20, 101);
 
-        // !
+        // Draw the !
         fill_rectangle(color_pink(), 550, 250, 20, 60);
         fill_circle(color_pink(), 560, 340, 10);
 
@@ -301,3 +301,34 @@ Have a go now at reading through the rest of the code - hopefully you can see ho
 </details>
 
 Now let's try changing it! See you in the [next section](../5-2-hello-world-gui-edit).
+
+----
+
+&nbsp;
+<details>
+<summary> -- Extra -- <br/> But wait, what are the numbers for?</summary>
+Good question! Let's look at one example:
+```c++
+draw_text("Hello World! - using SplashKit shapes:", color_black(), 50, 50);
+```
+You may have guessed this already, but the numbers, `50, 50` here represent the _position_ the text will be drawn at on the screen.
+ - The first number is the `x` coordinate - from the left edge of the window, how far to the right?
+ - The second number is the `y` coordinate - from the top edge of the window, how far down?
+
+They are measured in _pixels_. Similarly, `fill_rectangle` also uses pixel coordinates:
+```c++
+fill_rectangle(color_red(), 50, 100, 20, 100);
+```
+The `50, 100` are again the x/y coordinates. The last two numbers are the _width_ and _height_, again in pixels.
+
+Take a look a the diagram below for a visualization - hopefully you can see how each number specifies a position or size on the screen:
+![A diagram showing how the pixel coordinates map to the screen.](./images/splashkit-gui-shapes-hello-world-diagram-coords.png)
+
+:::tip
+Think about a 2D game you've played recently - the player's position was likely represented as `x`/`y` coordinates within the game world! When you moved right or left, the `x` coordinate will have increased or decreased.
+
+Have a think about how this might work in 3D!
+:::
+
+If you're interested in learning more about drawing graphics, have a check over the guide [here!](https://splashkit.io/guides/graphics/drawing-using-procedures/) It's a little advanced right now, but it might be something you can keep re-reading as you learn more :)
+</details>

@@ -1,0 +1,283 @@
+---
+/*MIT License
+
+Copyright (c) 2022 withastro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Modified afterwards by others.
+*/
+Astro.locals.multipleChoice = {};
+Astro.locals.multipleChoice.defaultCorrect = "Yep!";
+Astro.locals.multipleChoice.defaultIncorrect = "Not quite!";
+Astro.locals.multipleChoice.submitLabel = "Check!";
+const { id="" } = Astro.props;
+---
+
+<multiple-choice id={id}
+    data-correct-label={Astro.locals.multipleChoice.defaultCorrect}
+    data-incorrect-label={Astro.locals.multipleChoice.defaultIncorrect}
+>
+    <form onsubmit="event.preventDefault()">
+        <ol class="opt-list not-content"><slot /></ol>
+        <div class="footer not-content">
+            <button class="submit" type="submit" disabled>
+                {Astro.locals.multipleChoice.submitLabel}
+            </button>
+            <div class="answer sr-only" role="alert"></div>
+        </div>
+    </form>
+</multiple-choice>
+
+<style>
+    multiple-choice {
+        display: block;
+        padding-bottom: 1rem;
+        color: var(--sl-color-text-accent);
+    }
+
+    form > * + * {
+        margin-top: 1rem;
+    }
+
+    .opt-list {
+        list-style: none;
+        padding-inline-start: 0;
+    }
+
+    .footer {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .submit,
+    .answer {
+        /*padding: 0.8rem;*/
+        border-radius: 1.5rem;
+        line-height: 1.4;
+    }
+
+    .submit {
+        cursor: pointer;
+        color: var(--sl-color-accent);
+        background-color: white;
+    }
+
+    .submit:focus {
+        background-color: hsl(224, 20%, 94%);
+        outline: 3px solid var(--sl-color-accent);
+        outline-offset: -3px;
+    }
+
+    .submit:not(:focus-visible) {
+        outline: none;
+    }
+
+    .submit:hover {
+        background: var(--sl-color-text-accent);
+        color: var(--sl-color-black);
+        border-color: transparent;
+    }
+
+    .submit:disabled,
+    .submit:active {
+        transform: translateY(0.05rem);
+    }
+
+    .submit:disabled {
+        background-color: hsl(224, 20%, 94%);
+        color: hsl(224, 7%, 36%);
+        opacity: 0.65;
+        cursor: not-allowed;
+    }
+
+    .answer {
+        text-align: center;
+        transition-property: color, background-color;
+        transition-duration: 250ms;
+        transition-timing-function: ease-out;
+        border-color: transparent;
+        margin-top: 0rem;
+    }
+
+    .correct {
+        color: var(--sl-color-green-low);
+        background-color: var(--sl-color-green);
+        animation: tada 0.3s 0;
+    }
+
+    .wrong {
+        color: var(--sl-color-red-low);
+        background-color: var(--sl-color-red);
+        animation: nope 0.3s 0;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        .submit {
+            transition-property: box-shadow, transform;
+            transition-duration: 0.15s;
+            transition-timing-function: cubic-bezier(0.4, 2.5, 0.6, 1);
+        }
+
+        .correct,
+        .wrong {
+            animation-iteration-count: 1;
+        }
+    }
+
+    @keyframes tada {
+        0%,
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+        20%,
+        60% {
+            transform: translate3d(0, -0.5rem, 0);
+        }
+        40%,
+        80% {
+            transform: translate3d(0, 0.5rem, 0);
+        }
+    }
+
+    @keyframes nope {
+        0%,
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+        20%,
+        60% {
+            transform: translate3d(-0.5rem, 0, 0);
+        }
+        40%,
+        80% {
+            transform: translate3d(0.5rem, 0, 0);
+        }
+    }
+</style>
+
+<script>
+    class MultipleChoice extends HTMLElement {
+        #defaultCorrectLabel: string;
+        #defaultIncorrectLabel: string;
+        #key: string;
+        #submitEl: HTMLButtonElement;
+        #answerEl: HTMLParagraphElement;
+
+        constructor() {
+            super();
+            this.#defaultCorrectLabel = this.dataset.correctLabel!;
+            this.#defaultIncorrectLabel = this.dataset.incorrectLabel!;
+            this.#key = Math.random().toString();
+            this.#submitEl = this.querySelector('.submit')!;
+            this.#answerEl = this.querySelector('.answer')!;
+            this.querySelectorAll('.opt-list > li').forEach((li) => this.#upgradeListItem(li));
+
+
+            let all_children  = this.getElementsByTagName('*');
+
+            let isCorrect = true;
+            for (let child of all_children) {
+                if (child.checkCorrect == undefined) continue;
+
+                child.addEventListener('change', () => {
+                    this.#clearAnswer();
+                    this.#enableSubmit();
+                });
+            }
+        }
+
+        #upgradeListItem(li: Element) {
+            const option = li.querySelector('input[type="radio"]') as HTMLInputElement | null;
+            if (!option) return;
+
+            option.removeAttribute('disabled');
+            option.setAttribute('name', this.#key);
+            option.addEventListener('change', () => {
+                this.#clearAnswer();
+                this.#enableSubmit();
+            });
+            if (option.checked) this.#enableSubmit();
+        }
+
+        /** Clear the answer text and hide its container visually. */
+        #clearAnswer() {
+            this.#answerEl.innerText = '';
+            this.#answerEl.classList.remove('wrong', 'correct');
+            this.#answerEl.classList.add('sr-only');
+        }
+
+        /** Show the answer result to the user. */
+        #setAnswer(isCorrect: boolean) {
+            const answerTemplate = this.querySelector(
+                'input:checked ~ template'
+            ) as HTMLTemplateElement | null;
+            if (answerTemplate) {
+                this.#answerEl.replaceChildren(answerTemplate.content.cloneNode(true));
+            } else {
+                this.#answerEl.innerText = isCorrect
+                    ? this.#defaultCorrectLabel
+                    : this.#defaultIncorrectLabel;
+            }
+            this.#answerEl.classList.remove('sr-only', 'wrong', 'correct');
+            this.#answerEl.classList.add(isCorrect ? 'correct' : 'wrong');
+            this.isCorrect = isCorrect;
+        }
+
+        /** Activate the submit button, preparing it to evaluate the form when clicked. */
+        #enableSubmit() {
+            this.#submitEl.removeAttribute('disabled');
+            this.#submitEl.classList.remove('sr-only');
+            this.#submitEl.onclick = () => this.#submitAnswer();
+        }
+
+        /** Disable the submit button and hide it visually. */
+        #disableSubmit() {
+            this.#submitEl.setAttribute('disabled', '');
+            this.#submitEl.classList.add('sr-only');
+            this.#submitEl.onclick = null;
+        }
+
+        /** Check if the selected option is correct and display the result. */
+        #submitAnswer() {
+            this.#disableSubmit();
+
+            let all_children  = this.getElementsByTagName('*');
+
+            let isCorrect = true;
+            for (let child of all_children) {
+                if (child.checkCorrect == undefined) continue;
+                if (child.checkCorrect() == false){
+                    isCorrect = false;
+                    break;
+                }
+            }
+            this.#setAnswer(isCorrect);
+        }
+
+        checkCorrect(){
+            if (this.#submitEl.onclick)
+                this.#submitAnswer();
+            return this.isCorrect;
+        }
+    }
+
+    customElements.define('multiple-choice', MultipleChoice);
+</script>
