@@ -26,6 +26,7 @@ const { onNextTest="true", id="" } = Astro.props;
         box-sizing: border-box;
         margin-top: 0!important;
         align-self: center;
+        padding: 0em 1em;
     }
 
     button.arrow:hover {
@@ -36,6 +37,7 @@ const { onNextTest="true", id="" } = Astro.props;
     button.arrow {
         cursor: pointer;
         z-index: 1;
+        transition: opacity 1s;
     }
 
     .arrow.left { left: 0.5rem; margin-top: 0!important; }
@@ -58,7 +60,7 @@ const { onNextTest="true", id="" } = Astro.props;
     }
 </style>
 
-<div id={id} class="carousel-wrapper" data-carousel data-on-next-check={onNextTest}>
+<div id={id} class="not-content carousel-wrapper" data-carousel data-on-next-check={onNextTest}>
     <button class="toggle arrow left" data-prev>‹</button>
     <div class="carousel">
         <div class="track" data-track>
@@ -108,7 +110,9 @@ const { onNextTest="true", id="" } = Astro.props;
         el.dispatchEvent(new CustomEvent('carousel-change', { detail: { index } }));
 
         prevBtn.disabled = index == 0;
+        prevBtn.style.opacity = index == 0?"0":"1";
         nextBtn.disabled = index == slides.length-1;
+        nextBtn.style.opacity = index == slides.length-1?"0":"1";
     }
 
     prevBtn.addEventListener('click', () => {
