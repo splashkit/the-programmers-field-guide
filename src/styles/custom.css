@@ -121,7 +121,7 @@
 
 @font-face {
   font-family: "codicon";
-  src: url("/src/fonts/codicon.ttf") format("ttf");
+  src: url("/src/fonts/codicon.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -209,6 +209,29 @@ a.windows:after {
   padding: 0px 5px 0px 5px;
 }
 
+/* html[data-theme="dark"] a.construct:after {
+  border: 1px solid black;
+} */
+
+a.construct:after {
+  font-family: "codicon";
+  content: "\eaf8";
+  float: right;
+  /* border-radius: 5px;
+  border: 1px solid white; */
+  padding: 0px 5px 0px 5px;
+}
+
+a.action:after {
+  font-family: "codicon";
+  content: "\ea6b";
+  float: right;
+  /* border-radius: 5px;
+  border: 1px solid white; */
+  padding: 0px 5px 0px 5px;
+}
+
+
 html[data-theme="dark"] a.linux:after {
   border: 1px solid black;
 }
@@ -222,31 +245,6 @@ a.linux:after {
   padding: 0px 5px 0px 5px;
 }
 
-html[data-theme="dark"] a.vscode:after {
-  border: 1px solid black;
-}
-
-a.vscode:after {
-  font-family: "codicon";
-  content: "\ec29";
-  float: right;
-  border-radius: 5px;
-  border: 1px solid white;
-  padding: 0px 5px 0px 5px;
-}
-
-html[data-theme="dark"] a.vm-box:after {
-  border: 1px solid black;
-}
-
-a.vm-box:after {
-  font-family: "codicon";
-  content: "\ea8c";
-  float: right;
-  border-radius: 5px;
-  border: 1px solid white;
-  padding: 0px 5px 0px 5px;
-}
 
 img {
   display: block;
