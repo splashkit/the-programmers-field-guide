@@ -9,7 +9,7 @@ const { isCorrect=false } = Astro.props as Props;
 
 <li>
     <label>
-        <input data-is-option type="radio" data-is-correct={isCorrect} /><span><slot /></span>
+        <input autocomplete="off" data-is-option type="radio" data-is-correct={isCorrect} /><span><slot /></span>
     </label>
 </li>
 

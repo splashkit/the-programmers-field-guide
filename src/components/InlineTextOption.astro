@@ -2,22 +2,28 @@
 
 export interface Props {
     isCorrect?: boolean;
+    joinNext?: boolean;
 }
 
-const { isCorrect=false } = Astro.props as Props;
+const { isCorrect=false, joinNext=false } = Astro.props as Props;
 const key = Math.random().toString();
-// Note, the weird spacing below is to avoid extra whitespace between pieces of text
-// TODO: If there's a cleaner way, please improve.
 ---
-<input data-is-inline-text-option type="checkbox" data-is-correct={isCorrect} id={key} /><label for={key}><slot /></label><style>
+<>
+    <input autocomplete="off" data-is-inline-text-option type="checkbox" data-is-correct={isCorrect} id={key} />
+    <label for={key} class:list={[{ 'join-next': joinNext }]}><slot /></label>
+</>
+
+<style>
     label {
-        display: inline;
+        display: inline-block;
         border: solid 1px #aad7a061;
         border-radius: 0.4em;
         background-color: var(--ec-frm-trmBg);
         cursor: pointer;
         transition: color 0.3s, background-color 0.3s;
         white-space: nowrap;
+        margin-right: 0.3em;
+        user-select: none;
     }
 
     input{
@@ -34,12 +40,15 @@ const key = Math.random().toString();
 
     .join-next {
         border-radius: 0.4em 0 0 0.4em;
+        margin-right: 0em;
     }
     .join-next + input + label {
         border-radius: 0 0.4em 0.4em 0;
     }
 
-</style><script>
+</style>
+
+<script>
     document.querySelectorAll('[data-is-inline-text-option]').forEach(function (li){
         li.checkCorrect = function(){
             return li.dataset.isCorrect == li.checked.toString();

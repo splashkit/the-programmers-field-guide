@@ -51,40 +51,40 @@ You may have to do some extra Googling to figure this out - work together and so
         <div onNextTest="Q1.checkCorrect()">
             What part(s) define the name that the compiled executable file will have?
             <MultipleChoice id="Q1">
-                <ITO>clang++</ITO>&nbsp;
-                <ITO>-O3</ITO>&nbsp;
-                <ITO>main.cpp</ITO>&nbsp;
-                <ITO>extra-library-things.cpp</ITO>&nbsp;
-                <ITO isCorrect>-o</ITO>&nbsp;<ITO isCorrect>blender</ITO>&nbsp;
-                <ITO>-l</ITO><ITO>X11</ITO>&nbsp;
-                <ITO>-l</ITO>&nbsp;<ITO>opengl</ITO>&nbsp;
-                <ITO>-W</ITO><ITO>all</ITO>
+                <ITO>clang++</ITO>
+                <ITO>-O3</ITO>
+                <ITO>main.cpp</ITO>
+                <ITO>extra-library-things.cpp</ITO>
+                <ITO isCorrect>-o</ITO><ITO isCorrect>blender</ITO>
+                <ITO joinNext>-l</ITO><ITO>X11</ITO>
+                <ITO>-l</ITO><ITO>opengl</ITO>
+                <ITO joinNext>-W</ITO><ITO>all</ITO>
             </MultipleChoice>
         </div>
         <div onNextTest="Q2.checkCorrect()">
             What source files will be _compiled_?
             <MultipleChoice id="Q2">
-                <ITO>clang++</ITO>&nbsp;
-                <ITO>-O3</ITO>&nbsp;
-                <ITO isCorrect>main.cpp</ITO>&nbsp;
-                <ITO isCorrect>extra-library-things.cpp</ITO>&nbsp;
-                <ITO>-o</ITO>&nbsp;<ITO>blender</ITO>&nbsp;
-                <ITO>-l</ITO><ITO>X11</ITO>&nbsp;
-                <ITO>-l</ITO>&nbsp;<ITO>opengl</ITO>&nbsp;
-                <ITO>-W</ITO><ITO>all</ITO>
+                <ITO>clang++</ITO>
+                <ITO>-O3</ITO>
+                <ITO isCorrect>main.cpp</ITO>
+                <ITO isCorrect>extra-library-things.cpp</ITO>
+                <ITO>-o</ITO><ITO>blender</ITO>
+                <ITO joinNext>-l</ITO><ITO>X11</ITO>
+                <ITO>-l</ITO><ITO>opengl</ITO>
+                <ITO joinNext>-W</ITO><ITO>all</ITO>
             </MultipleChoice>
         </div>
         <div onNextTest="Q3.checkCorrect()">
             What parts _link_ `opengl`?
             <MultipleChoice id="Q3">
-                <ITO>clang++</ITO>&nbsp;
-                <ITO>-O3</ITO>&nbsp;
-                <ITO>main.cpp</ITO>&nbsp;
-                <ITO>extra-library-things.cpp</ITO>&nbsp;
-                <ITO>-o</ITO>&nbsp;<ITO>blender</ITO>&nbsp;
-                <ITO>-l</ITO><ITO>X11</ITO>&nbsp;
-                <ITO isCorrect>-l</ITO>&nbsp;<ITO isCorrect>opengl</ITO>&nbsp;
-                <ITO>-W</ITO><ITO>all</ITO>
+                <ITO>clang++</ITO>
+                <ITO>-O3</ITO>
+                <ITO>main.cpp</ITO>
+                <ITO>extra-library-things.cpp</ITO>
+                <ITO>-o</ITO><ITO>blender</ITO>
+                <ITO joinNext>-l</ITO><ITO>X11</ITO>
+                <ITO isCorrect>-l</ITO><ITO isCorrect>opengl</ITO>
+                <ITO joinNext>-W</ITO><ITO>all</ITO>
             </MultipleChoice>
         </div>
         <div onNextTest="Q4.checkCorrect()">
