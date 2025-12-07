@@ -1,19 +1,8 @@
 ---
 title: Group Activity
-draft: true
 ---
 
-export let compile_command = function(){
-
-	//TODO: Dynamically generate command + questions
-	let files = ["main.cpp", "my-program.cpp", "extra-library-things.cpp", "hopefully_this_works.cpp"];
-	let programNames = ["blender", "testProgram", "fixed", "abc123", "tempBuild"];
-	let libraries = ["X11","opengl","SplashKit","SDL2","utils"];
-	let compilers = ["g++", "clang++", "clang"];
-
-	return `clang++ -O3 main.cpp extra-library-things.cpp \n\
-        -o blender -lX11 -l opengl -Wall`;
-}();
+export let compile_command = `clang++ -O3 main.cpp extra-library-things.cpp \n\-o blender -lX11 -l opengl -Wall`;
 
 import { Steps } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from "@astrojs/starlight/components";
@@ -23,7 +12,7 @@ import { Code } from 'astro-expressive-code/components'
 import Carousel from '/src/components/Carousel.astro'
 import ITO from '/src/components/InlineTextOption.astro'
 
-For this activity, try to get together into a group of 3-4 people. The idea here is to try and fill in each other's knowledge gaps regarding something that frequently gets overlooked - the **compilation command**.
+For this activity, try to join into a group of 3-4 people. The idea here is to fill in each other's knowledge gaps on a topic that frequently gets overlooked - the **compilation command**.
 ```sh title="For example..."
 clang++ hello-world.cpp -o hello -l SplashKit -Wall
 ```
@@ -36,11 +25,9 @@ You may have to do some extra Googling to figure this out - work together and so
 
 # Group Activity
 
-## Here's your unique random compilation command!
-<Code title="Note: It'll change when reloaded!" code={compile_command} lang="sh" />
-
 <Steps>
-1. Gather around one of your group members' computers, and read over the compilation command above.
+1. Gather around one of your group members' computers, and read over the compilation command below.
+   <Code code={compile_command} lang="sh" />
 2. ##### Discuss the following with each other:
    1. _What_ is being compiled?
    2. _Which_ libraries are being used? (Feel free to search up their names if you're interested in what they are!)
@@ -62,7 +49,7 @@ You may have to do some extra Googling to figure this out - work together and so
             </MultipleChoice>
         </div>
         <div onNextTest="Q2.checkCorrect()">
-            What source files will be _compiled_?
+            What source file(s) will be _compiled_?
             <MultipleChoice id="Q2">
                 <ITO>clang++</ITO>
                 <ITO>-O3</ITO>
@@ -96,7 +83,7 @@ You may have to do some extra Googling to figure this out - work together and so
             </MultipleChoice>
         </div>
         <div onNextTest="false">
-            And you're all done! Nice work :)
+            Looks like you know your stuff! Nice work :)
         </div>
     </Carousel>
 </Steps>
