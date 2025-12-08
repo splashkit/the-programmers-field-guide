@@ -4,7 +4,7 @@ sidebar:
     label: " - Link errors"
 ---
 
-Error messages with the C/C++ compiler can be more challenging to decipher. One of the new kinds of error you may encounter are linker errors. These occur during the compilation process where you refer to a function coded elsewhere, such as in a library.
+Error messages from the C/C++ compiler can be challenging to decipher. We'll be covering how to read these errors in the next chapter, but at this point one kind of error you may encounter are linker errors. These occur during the compilation process where you refer to a function coded elsewhere, such as in a library.
 
 When you get these errors you will get a message from `ld`, the linker tool. An example is shown below, where we removed the `-l SplashKit` library reference. This means the linker cannot find the SplashKit functions we used.
 

@@ -3,58 +3,11 @@ title: Building a C/C++ Program
 ---
 import { YouTube } from 'astro-embed';
 
-C/C++ are **compiled** languages. Unlike C#, they do not need a runtime environment. This means that you compile and then directly run the resulting program.
+C/C++ are **compiled** languages - this means that you compile, and then directly run the resulting program. If you're not already familiar with the general steps, check out the [guided tour](http://192.168.1.101:3001/book/part-0-getting-started/1-building-programs/3-guided-tour/0-overview) first! On this page we'll look more in-depth at the commands we're using.
 
-To get started, let's build a Hello World program.
-For now, we will use the SplashKit library to handle user input and output, as they are a bit easier to work with.
-[Later on](/book/part-2-organised-code/9-low-level-programming/0-overview) you will understand the concepts needed to use the native C input and output functions, which are very primitive.
+## Compile your program
 
-The following steps go through the necessary actions to build and run programs using C/C++.
-These steps assume that you have followed the [Installation instructions from part 0](/book/appendix/0-installation/0-overview) on setting up the C/C++ tools for your operating system.
-
-## Hello World in C/C++
-
-To get started, we need to:
-
-1. Create a new folder for the project.
-2. Open the folder in VS Code.
-3. Create a new **program.cpp** file.
-
-The following shell commands should achieve this, assuming your code is stored in the `~/Documents/Code` path:
-
-```zsh
-cd ~/Documents/Code
-mkdir HelloWorldCPP
-cd HelloWorldCPP
-touch program.cpp
-code .
-```
-
-:::tip[File extensions]
-Source code is written in text files, but we use different extension for these files to help indicate which language we are using. The **.cs** extension indicated a C# code file, whereas now we use the **.cpp** extension to indicate that this is a C++ source code file.
-:::
-
-In VS Code, open the **program.cpp** file, and enter the following code:
-
-```cpp
-#include "splashkit.h"
-
-int main()
-{
-    write_line("Hello World!");
-    return 0;
-}
-```
-
-:::tip
-You should be able to connect the `#include` with C#'s `using`, and the call to `write_line` should also look familiar.
-:::
-
-## Compile and Run
-
-Compiling in C/C++ is a little more involved. This is because the C# and dotnet tools include features that take care of many small details for us, whereas the C/C++ compiler gives you a lot more control.
-
-### Compile your program
+![Illustration of compiling C++ code, and running the resulting program](./images/compile-cpp.png)
 
 As the C/C++ compiler works differently on each platform, we will need slightly different shell instructions for each of them. In general, you need to provide the following options:
 
@@ -64,7 +17,7 @@ As the C/C++ compiler works differently on each platform, we will need slightly 
 If you have SplashKit installed globally it will be installed in paths that the compiler should search automatically. Given this, you should be able to compile your program using the following command:
 
 ```zsh
-clang++ program.cpp -l SplashKit -o program
+clang++ source_code.cpp -l SplashKit -o program
 ```
 
 If you do not have the library installed globally, then you will need to tell the compiler where to find the different files you are referring to. This can be achieved using the following command line options:
@@ -75,37 +28,45 @@ If you do not have the library installed globally, then you will need to tell th
 
 ```zsh
 # Example of compiling on Linux
-clang++ program.cpp -I ~/.splashkit/clang++/include -L ~/.splashkit/lib/linux -l SplashKit -Wl,-rpath,~/.splashkit/lib/linux -o program
+clang++ source_code.cpp -I ~/.splashkit/clang++/include -L ~/.splashkit/lib/linux -l SplashKit -Wl,-rpath,~/.splashkit/lib/linux -o program
 ```
 
 If you are using MSys2, there are a few more options that you can also include if you want to be able to run the program by double-clicking it in the Windows explorer instead of only from within MSys2. These settings ensure that the program will embed aspects of MSys2 needed to run it independently.
 
 ```zsh
-clang++ program.cpp -Wl,--as-needed -static-libstdc++ -static-libgcc -lSplashKit -Wl,-Bstatic -lstdc++ -lpthread -o program
+clang++ source_code.cpp -Wl,--as-needed -static-libstdc++ -static-libgcc -lSplashKit -Wl,-Bstatic -lstdc++ -lpthread -o program
 ```
 
 :::tip[When all else fails...]
 When you install splashkit it includes `skm` a set of scripts to help compile and run programs. If you get stuck, you can use `skm` to compile your program and this will add in the necessary compiler options for you.
 
 ```zsh
-skm clang++ program.cpp -o program
+skm clang++ source_code.cpp -o program
 ```
 
 :::
 
-### Run your program
+## Run your program
 
-When the compiler runs successfully it will output an executable file: the program. With the above commands, we used the `-o` option to indicate the name of the file to create. So, when you compile your code you should see a **program** file appear. This is the machine code for the program all ready to go, so you can run this directly from the terminal. For example, the following shell commands would build and run out hello world program on the Raspberry Pi.
+When the compiler runs successfully it will output an executable file: the program. With the above commands, we used the `-o` option to indicate the name of the file to create. So, when you compile your code you should see a **program** file appear. This is the machine code for the program all ready to go, so you can run this directly from the terminal. For example, the following shell commands would build and run a hello world program.
 
 ```zsh
-clang++ program.cpp -l SplashKit -o program
+# Lets list the files in our directory - we start off with only source_code.cpp
 ls -lha
-# Notice the program file
+
+# Now we compile
+clang++ source_code.cpp -l SplashKit -o program
+
+# Now let's list the files again
+ls -lha
+# Notice a `program` file now exists?
+
+# Now we can run it
 ./program
 ```
 
 :::tip[Program's path]
-When you want to run the program, you need to specify the path to it even though it is in the current folder. This is why we have the **./** in front of the filename here. If your programming isn't running, make sure you included this.
+When you want to run the program, you need to specify the path to it even though it is in the current folder. This is why we have the **./** in front of the filename here. If your program isn't running, make sure you included this.
 :::
 
 Once this is working, you have everything set up and ready to go. Getting this to work can be a bit finicky, as the C/C++ tools were designed for a professional audience and do not include much to make this a user-friendly process. If you have others you are studying with, make sure to ask for help if you get stuck.
@@ -116,8 +77,30 @@ Remember to make sure you save, compile, and then run your program as you make c
 Remember: **save**, **compile**, and then **run**.
 :::
 
+## Activities
+
+Do these commands work? How do you run the programs created using the following commands?
+
+1. `clang++ test.cpp -l SplashKit -o test`
+2. `g++ program.cpp -o my_program`
+3. `clang++ program.cpp -o my_program`
+4. `clang++ program.cpp utilities.cpp -o program`
+
+<details>
+  <summary role="button">Answers</summary>
+  <ul>
+    <li><strong>1: </strong>Compiles test.cpp into a program called "test". You run using `./test`.</li>
+    <li><strong>2: </strong>This compiles program.cpp into "my_program". This does not link with SplashKit, so this will only work if you do not use any SplashKit code in your project. You run the program using `./my_program`</li>
+    <li><strong>3: </strong>This is the same as 2.</li>
+    <li><strong>4: </strong>This compiles program.cpp and utilities.cpp into a program called "program". You can run this using `./program`.</li>
+  </ul>
+</details>
+
+
+{/* TODO: Update video to remove C# references
 ## Video Walkthrough
 In this video we'll step through how to compile a C++ program manually.
 <div class="not-content">
   <YouTube id="uWj4MmbnlJQ" params="fs=1&modestbranding=1&rel=0"/>
 </div>
+*/}

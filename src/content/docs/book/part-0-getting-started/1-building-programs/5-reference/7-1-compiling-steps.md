@@ -8,7 +8,7 @@ Understanding how the C/C++ compiler works will help you better understand some 
 
 ## How the compiler works
 
-The C/C++ compilers work four stages:
+C/C++ compilers work in the four stages outlined in [Source Code](../6-source-code/):
 
 1. **Preprocessing**: the code is read from your source code files.
     This may involve some processing of the text itself, which includes
@@ -22,7 +22,7 @@ The C/C++ compilers work four stages:
     code you have used from the programming libraries. This then outputs
     an executable program.
 
-We talked briefly about compiling and assembling in [Part 0](/book/part-0-getting-started/1-building-programs/5-reference/6-source-code) so lets just quickly look over the two steps new with C/C++ compared to C#.
+We talked briefly about compiling and assembling in [Source Code](/book/part-0-getting-started/1-building-programs/5-reference/6-source-code), so let's just quickly look over the other two steps.
 
 ### Pre-processing
 
