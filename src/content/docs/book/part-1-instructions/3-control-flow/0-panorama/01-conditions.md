@@ -10,7 +10,7 @@ Control flow is all about controlling that flow of instructions (hence the name 
 
 :::note[Control flow...]
 
-- still means that instructions run in [sequence](/book/part-1-instructions/1-sequence-and-data/2-trailside/01-sequence).
+- still means that instructions run in [sequence](/book/part-1-instructions/1-sequence/2-trailside/01-sequence).
 - allow you to selective run code - also known as branching.
 - allow to to repeat code - also known as looping.
 - use conditions to determine which path is taken.

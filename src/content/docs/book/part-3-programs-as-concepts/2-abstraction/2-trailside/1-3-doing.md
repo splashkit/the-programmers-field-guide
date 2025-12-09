@@ -9,7 +9,7 @@ These responsibilities are coded as **methods** within the class, in the same wa
 
 A class can have any number of methods.
 Methods inside a class are very similar to the [functions and procedure](/book/part-2-organised-code/2-organising-code/2-trailside/00-0-functions-and-procedures) we coded in procedural programs: they still have an identifier, can have parameters, and can return a value.
-Within a class we can also [overload](/book/part-1-instructions/1-sequence-and-data/2-trailside/03-method-call#overloading) methods, just like we could with functions and procedures in C++.
+Within a class we can also [overload](/book/part-1-instructions/1-sequence/2-trailside/03-method-call#overloading) methods, just like we could with functions and procedures in C++.
 The only real difference between functions and procedures, and methods is that the methods are inside a class. As the methods are inside a class, they can directly access everything within the class - the things it knows in its fields and the other things it can do with its other methods.
 This means that all methods within the same class can call each other.
 

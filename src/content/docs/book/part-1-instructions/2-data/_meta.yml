@@ -1,0 +1,4 @@
+# Set the directory sidebar label to `API Reference`.
+label: "3. Data"
+collapsed: true
+order: 2

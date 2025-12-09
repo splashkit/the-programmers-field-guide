@@ -16,7 +16,7 @@ In your code, structs can be used to model data associated with the *things*, th
 :::note
 
 - A struct type is a kind of **building block** you can declare.
-- You can create your own struct types, these can then be used to define the data stored in [variables](/book/part-1-instructions/1-sequence-and-data/2-trailside/07-variable) in your code.
+- You can create your own struct types, these can then be used to define the data stored in [variables](/book/part-1-instructions/1-sequence/2-trailside/07-variable) in your code.
 - Remember that a type declaration is declaring a new data format, not declaring a new data value. You use a variable to store values, and types to define the format of these values.
 - The **size** of a record is based on the sum of the sizes of its fields
 

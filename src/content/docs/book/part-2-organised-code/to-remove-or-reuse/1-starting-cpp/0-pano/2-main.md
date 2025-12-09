@@ -16,7 +16,7 @@ In C++ you have to place your instructions within a function or procedure. This 
 
 ## Example
 
-Here is a C++ version of the test program from the [method call](/book/part-1-instructions/1-sequence-and-data/0-panorama/2-method-call) page. This includes a sequence of method calls.
+Here is a C++ version of the test program from the [method call](/book/part-1-instructions/1-sequence/0-panorama/2-method-call) page. This includes a sequence of method calls.
 
 ```cpp
 // Give us access to methods in SplashKit library

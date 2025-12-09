@@ -1,0 +1,4 @@
+# Set the directory sidebar label to `API Reference`.
+label: "2. Sequence"
+collapsed: true
+order: 1

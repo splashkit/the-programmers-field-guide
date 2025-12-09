@@ -14,7 +14,7 @@ With the addition of the custom types you can now also store values in **fields*
 :::note
 
 - The assignment statement is an **instruction**, you can command the computer to store a value in a variable, record’s field, or union’s field.
-- Enumeration values store a single value, so they work in the same way as described in the original [assignment statement](/book/part-1-instructions/1-sequence-and-data/2-trailside/08-assignment-statement).
+- Enumeration values store a single value, so they work in the same way as described in the original [assignment statement](/book/part-1-instructions/1-sequence/2-trailside/08-assignment-statement).
 - With a struct, you can assign values to its fields individually, or you can assign all the values from another matching struct.
 - A union can have its value set via its fields, or you can copy the value from another matching union.
 
