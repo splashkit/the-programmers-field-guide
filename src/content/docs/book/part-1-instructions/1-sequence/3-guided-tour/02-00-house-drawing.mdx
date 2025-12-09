@@ -3,38 +3,25 @@ title: House Drawing
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 
-As with the travel calculator, we want to get started quickly. So kick things off with a new folder, and a dotnet project called House Drawing.
+As with the chat bot, we want to get started quickly. So kick things off with a new folder and source code file.
 
-1. Open your terminal, and set up your project
+1. Open a folder in VS Code, and create a new `.cpp` file.
 
-    ```zsh
-    # Move you your code projects folder
-    cd ~/Documents/Code # or cd /c/Users/andrew/Documents/Code
-    
-    # Create and move into a folder for the project
-    mkdir HouseDrawing
-    cd HouseDrawing
-
-    # Create a blank dotnet project
-    dotnet new console
-    
-    # Add the SplashKit library
-    dotnet add package splashkit
-
-    # Open in VS Code
-    code .
-    ```
-
-2. Add the [using directives](/book/part-1-instructions/1-sequence/0-panorama/1-method-library) to access the SplashKit and Convert code.
+2. Start by adding the [#include directive](/book/part-1-instructions/1-sequence/0-panorama/1-method-library) to access the SplashKit library, and an empty [`main` function](TODO).
 
     <Accordion>
-      <AccordionItem header="Code with using directives">
+      <AccordionItem header="Initial code">
 
-    At this point you should just have these two lines of code.
+    At this point you should just have these lines of code.
 
-    ```csharp
-    using static System.Convert;
-    using static SplashKitSDK.SplashKit;
+    ```c++
+    #include "splashkit.h"
+
+    int main()
+    {
+        // Our main code will go here!
+        return 0;
+    }
     ```
 
       </AccordionItem>

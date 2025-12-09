@@ -1,0 +1,42 @@
+---
+title: Step 4 - Finish the house
+sidebar:
+  label: " - Finish the house"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+![House output](./images/house-shown.png)
+
+Complete the house by adding in the rectangle and triangle. Here are the relevant coordinates:
+
+- Rectangle: use `color_gray()`, draw at 300,300, with a width of 200, and a height of 200.
+- Triangle: use `color_red()`, draw with points at 250,300, and 400,150, and 550,300.
+
+
+<Accordion>
+  <AccordionItem header="House drawn">
+
+  ```c++ {9-10}
+  #include "splashkit.h"
+
+  int main()
+  {
+      open_window("House Drawing by Andrew", 800, 600);
+
+      clear_screen(color_white());
+      fill_ellipse(color_bright_green(), 0, 400, 800, 400);
+      fill_rectangle(color_gray(), 300, 300, 200, 200);
+      fill_triangle(color_red(), 250, 300, 400, 150, 550, 300);
+
+      refresh_screen();
+
+      delay(5000);
+
+      return 0;
+  }
+  ```
+
+  </AccordionItem>
+</Accordion>
+
+Compile and run your program and check that you can see the house.

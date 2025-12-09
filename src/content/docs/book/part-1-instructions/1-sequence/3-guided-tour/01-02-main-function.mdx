@@ -1,0 +1,81 @@
+---
+title: Main function
+sidebar:
+    label: " - Main function"
+---
+import { Steps } from '@astrojs/starlight/components';
+
+Now we have all our pieces, let's start writing our chatbot!
+
+## How do we start writing it?
+In C++, all the code we write is organised into groups.
+
+Since there can be many groups (called functions/procedures) in the one program, we also need to indicate where the program starts. The `main` function forms the starting point for a C/C++ program. The code within the braces (`{ ... }`) is what runs when the program starts.
+
+![Illustration of main](./images/main-function-pano.png)
+
+:::note[Main...]
+
+- is a function that contains our program's code.
+- runs when the program is started.
+- should end with `return 0;`
+
+:::
+
+## Let's write it
+Let's start writing our chatbot by getting our `main` function set up!
+
+<Steps>
+1. Open a folder in VS Code, create a new `.cpp` file, and open it. Refer [here](/book/part-0-getting-started/1-building-programs/3-guided-tour/3-first-project/) if you get stuck.
+
+2. Let's add the [#include directive](/book/part-1-instructions/1-sequence/0-panorama/1-method-library) to access the SplashKit library, and an empty `main` function. Below is some code you can use:
+    ```cpp
+    #include "splashkit.h"
+
+    int main()
+    {
+        // The code within these braces is run when the program starts
+        return 0;
+    }
+    ```
+    We will go into details on how the `main` function works in the [next part](/book/part-2-organised-code/1-structuring-code/0-overview). For now, you will just need to enter this code as is, and make sure any instructions you want to run occur between the starting `{` and the `return 0; }` command that appears at the end.
+
+    We now have an empty program set up - on the next page we'll start writing things to the terminal.
+</Steps>
+
+
+<details>
+<summary>Why `return 0;`? What does that do?</summary>
+This is a little advanced, but may be of interest (you can always come back to it later!).
+
+The `return 0;` is a statement that literally _returns_ the number 0 as the final result of our `main()` function - the same way that `read_line()` _returns_ the string a user typed. In other words, when our _program_ is ran, it returns 0. The shell (where we called the program from) receives this value and can make decisions based on it.
+
+ - 0 means all went well
+ - Anything else means something went wrong
+
+
+`&&` in the terminal is a great example of how this is used - remember this example command?
+```sh
+clang++ hello-world.cpp -l SplashKit -o my_program -Wall && ./my_program
+```
+
+The `&&` first runs the left hand side (`clang++ ...`), and then if it succeeds, runs the right hand side (`./my_program`). How does the shell know if compilation succeeded? By checking if the error code `clang++` returned was `0`!
+
+-----
+
+If you want to try this out, you can view the value the last program returned by printing it with `echo $?`.
+
+For instance:
+```sh
+    # this runs fine
+    ls
+    # so if we print out the returned value, we get 0 - this means no error
+    echo "First error code (should be 0): " $?
+
+    # this command will error (since ls has no --- option)
+    ls ---
+    # and so now we can see it returned 2, which is one of the various error numbers it can return
+    echo "Second error code (should be 2): "$?
+```
+
+</details>

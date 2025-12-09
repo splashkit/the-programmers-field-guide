@@ -1,0 +1,15 @@
+---
+
+---
+
+<div class="no-copy"><slot /></div>
+
+<style>
+.no-copy ::global(.copy){
+  display: none !important;
+}
+.no-copy ::global(*){
+  user-select: none;
+  -webkit-user-select: none;
+}
+</style>

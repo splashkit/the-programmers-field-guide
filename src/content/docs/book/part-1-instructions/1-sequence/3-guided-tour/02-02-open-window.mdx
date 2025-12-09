@@ -5,13 +5,13 @@ sidebar:
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 
-![Illustration of window dimensions](../2-trailside/images/window-dimensions.png)
+![Illustration of window dimensions](../5-reference/images/window-dimensions.png)
 
 The first step in building a graphical program is to open a window. We can then draw onto this. In order to see the picture, we need to also keep the window around for a few seconds before the program ends.
 
 1. Add a call to open a window that we can draw onto.
 
-    In SplashKit you can open a window to draw onto. To open the window you call the `OpenWindow` method, and pass it the window’s title, its width and its height.
+    In SplashKit you can open a window to draw onto. To open the window you call the `open_window` method, and pass it the window’s title, its width and its height.
 
     :::tip[Title and size?]
     You can give the window any title and size. Common sizes are usually in 4:3 such as 640x480, 800x600, 1024x768, or widescreen at 16:9 such as 1280x720, or 1920x1080.
@@ -19,18 +19,22 @@ The first step in building a graphical program is to open a window. We can then 
     For this use the title "House Drawing by ..." and add your name, with a width of 800 and a height of 600.
     :::
 
-2. If the program ends after the window is open, then it wont be around for long enough for the user to see. To fix this we can use the `Delay` method. You pass it an integer argument for the number of milliseconds to delay. Try delaying for 5000 milliseconds.
+2. If the program ends after the window is open, then it wont be around for long enough for the user to see. To fix this we can use the `delay` method. You pass it an integer argument for the number of milliseconds to delay. Try delaying for 5000 milliseconds.
 
     <Accordion>
       <AccordionItem header="Open a window and delay">
 
-      ```cs {3-6}
-      using static System.Convert;
-      using static SplashKitSDK.SplashKit;
+      ```c++ {5-7}
+      #include "splashkit.h"
 
-      OpenWindow("House Drawing by Andrew", 800, 600);
+      int main()
+      {
+          open_window("House Drawing by Andrew", 800, 600);
 
-      Delay(5000);
+          delay(5000);
+
+          return 0;
+      }
       ```
 
       </AccordionItem>

@@ -27,44 +27,48 @@ Your average speed is 44.57142857142857 km/h
 2. Add the code to calculate the speed and output the speed.
 
     :::tip
-    Code `MINUTES_PER_HOUR` above the other variables. It is good to keep constants and variables together. Remember to watch the case you use `camelCase` for variables, and `UPPER_CASE` for constants.
+    Code `MINUTES_PER_HOUR` above the other variables. It is good to keep constants and variables together. Remember to watch the case you use: `snake_case` for variables, and `UPPER_CASE` for constants. This helps keep our code clear.
     :::
 
     <Accordion>
       <AccordionItem header="Calculating speed">
 
-    ```cs {4-5,27-31}
-    using static System.Convert;
-    using static SplashKitSDK.SplashKit;
+    ```c++ {3-4,28-32}
+    #include "splashkit.h"
 
     const int MINUTES_PER_HOUR = 60;
 
-    string name;
-    string userInput;
-    double distance, time;
-    double speed;
+    int main()
+    {
+        string name;
+        string user_input;
+        double distance, time;
+        double speed;
 
-    Write("What is your name: ");
-    name = ReadLine();
+        write("What is your name: ");
+        name = read_line();
 
-    WriteLine();
+        write_line();
 
-    WriteLine($"Hi {name}.");
+        write_line("Hi " + name + ".");
 
-    WriteLine();
+        write_line();
 
-    Write("How far have you travelled so far? Enter km: ");
-    userInput = ReadLine();
-    distance = ToDouble(userInput);
+        write("How far have you travelled so far? Enter km: ");
+        user_input = read_line();
+        distance = to_double(user_input);
 
-    Write("How long has it taken? Enter minutes: ");
-    userInput = ReadLine();
-    time = ToDouble(userInput);
+        write("How long has it taken? Enter minutes: ");
+        user_input = read_line();
+        time = to_double(user_input);
 
-    speed = distance / (time / MINUTES_PER_HOUR);
+        speed = distance / (time / MINUTES_PER_HOUR);
 
-    WriteLine();
-    WriteLine($"Your average speed is {speed} km/h");
+        write_line();
+        write_line("Your average speed is " + to_string(speed) + " km/h");
+
+        return 0;
+    }
     ```
 
       </AccordionItem>

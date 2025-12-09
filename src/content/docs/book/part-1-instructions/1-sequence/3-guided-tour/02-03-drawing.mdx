@@ -28,23 +28,27 @@ The best way to plan this out is to sketch what you want and to try to figure ou
 1. Start by clearing the screen and drawing the filled ellipse.
 
     :::tip
-    - `ClearScreen` needs a color argument - you could pass it `ColorWhite()`.
-    - `FillEllipse` needs a color (use `ColorBrightGreen`) then four numbers - the top left coordinate (0, 400), and then the width and height (800, 400)
+    - `clear_screen` needs a color argument - you could pass it `color_white()`.
+    - `fill_ellipse` needs a color (use `color_bright_green()`) then four numbers - the top left coordinate (0, 400), and then the width and height (800, 400)
     :::
 
     <Accordion>
       <AccordionItem header="Drawing the hill">
 
-      ```cs {6-7}
-      using static System.Convert;
-      using static SplashKitSDK.SplashKit;
+      ```c++ {7-8}
+      #include "splashkit.h"
 
-      OpenWindow("House Drawing by Andrew", 800, 600);
+      int main()
+      {
+          open_window("House Drawing by Andrew", 800, 600);
 
-      ClearScreen(ColorWhite());
-      FillEllipse(ColorBrightGreen(), 0, 400, 800, 400);
+          clear_screen(color_white());
+          fill_ellipse(color_bright_green(), 0, 400, 800, 400);
 
-      Delay(5000);
+          delay(5000);
+
+          return 0;
+      }
       ```
 
       </AccordionItem>
@@ -54,7 +58,7 @@ The best way to plan this out is to sketch what you want and to try to figure ou
     Don't panic when you compile and run this... there is one more thing we need to do to show the scene to the user.
     :::
 
-2. Compile and run this... you should not see the shape! Why? SplashKit gives you the control of when things are shown to the user. To show the image you have created you need to call `RefreshScreen`. This will show the user what you have drawn.
+2. Compile and run this... you should not see the shape! Why? SplashKit gives you the control of when things are shown to the user. To show the image you have created you need to call `refresh_screen`. This will show the user what you have drawn.
 
     :::tip[Think sequence!]
     Make sure to refresh the screen **before** you delay.
@@ -63,18 +67,22 @@ The best way to plan this out is to sketch what you want and to try to figure ou
     <Accordion>
       <AccordionItem header="Making it appear!">
 
-      ```cs {9}
-      using static System.Convert;
-      using static SplashKitSDK.SplashKit;
+      ```c++ {10}
+      #include "splashkit.h"
 
-      OpenWindow("House Drawing by Andrew", 800, 600);
+      int main()
+      {
+          open_window("House Drawing by Andrew", 800, 600);
 
-      ClearScreen(ColorWhite());
-      FillEllipse(ColorBrightGreen(), 0, 400, 800, 400);
+          clear_screen(color_white());
+          fill_ellipse(color_bright_green(), 0, 400, 800, 400);
 
-      RefreshScreen();
+          refresh_screen();
 
-      Delay(5000);
+          delay(5000);
+
+          return 0;
+      }
       ```
 
       </AccordionItem>

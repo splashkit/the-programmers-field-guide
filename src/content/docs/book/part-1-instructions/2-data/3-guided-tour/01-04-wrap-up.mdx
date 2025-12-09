@@ -1,0 +1,83 @@
+---
+title: Step 5 - Finish off
+sidebar:
+  label: " - Finish off"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+You now have seen how to work with values in the terminal. Have a go at finishing off this program now. The remaining output needs you to get the distance remaining, to show the time remaining in the trip, the total distance covered, and the total time taken.
+
+:::tip
+
+Do this in steps! First get the remaining distance and time to destination, then add the final calculations.
+
+:::
+
+<Accordion>
+      <AccordionItem header="Final code">
+
+    ```c++ {11-12,33-47}
+    #include "splashkit.h"
+
+    const int MINUTES_PER_HOUR = 60;
+
+    int main()
+    {
+        string name;
+        string user_input;
+        double distance, time;
+        double speed;
+        double remaining_distance, time_to_destination;
+        double total_distance, total_time;
+
+        write("What is your name: ");
+        name = read_line();
+
+        write_line();
+        write_line("Hi " + name + ".");
+        write_line();
+
+        write("How far have you travelled so far? Enter km: ");
+        user_input = read_line();
+        distance = to_double(user_input);
+
+        write("How long has it taken? Enter minutes: ");
+        user_input = read_line();
+        time = to_integer(user_input);
+
+        speed = distance / (time / MINUTES_PER_HOUR);
+
+        write_line();
+        write_line("Your average speed is " + to_string(speed) + " km/h");
+        write_line();
+
+        write("How far do you have to go? Enter km: ");
+        user_input = read_line();
+        remaining_distance = to_double(user_input);
+
+        time_to_destination = remaining_distance / speed * MINUTES_PER_HOUR;
+
+        write_line("You will take another " + to_string(time_to_destination) + " minutes before you arrive");
+
+        total_distance = distance + remaining_distance;
+        total_time = time + time_to_destination;
+
+        write_line("Total distance will be " + to_string(total_distance) + " km");
+        write_line("Total time will be " + to_string(total_time) + " minutes");
+
+        return 0;
+    }
+    ```
+
+      </AccordionItem>
+    </Accordion>
+
+Make sure to test your program and make sure that the values output are correct.
+
+:::note
+
+Building this all in steps is **very** important! There is lots going on in the code, so at the start you don't want to plan too far ahead. As you gain more practice and experience you can then start to design larger part of the code, but you still end up coding it a little at a time and adjusting your plans as you go.
+
+:::
+
+When you finish this you should feel confident that you can build some small terminal calculation programs on your own.
