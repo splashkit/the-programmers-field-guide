@@ -1,0 +1,55 @@
+---
+title: Simple Chatbot
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import NoCopy from '/src/components/NoCopy.astro'
+import { Steps } from '@astrojs/starlight/components';
+
+Let's get started with our first program! We'll begin with a simple terminal program that greets the user and responds back to them. This sounds complex, but we'll be using some basic traditional techniques - it'll be fun :)
+
+## Step 1: Understand what we want
+
+    To build a program you must know what you are trying to create. So what do we want as output from this program? The following is an example of what we are after:
+
+    <NoCopy>
+    ```txt
+    Welcome to the very basic bot experience!
+    Please answer using single words :)
+    ----------------------------------------
+
+    Bot: Hello! What's your name?
+    > Sean
+    Bot: Hi Sean, nice to meet you!
+    Bot: What's your favourite TV show?
+    > Serial Experiments Lain
+    Bot: I don't like Serial Experiments Lain that much sorry.
+    Bot: What about food? Favourite meal?
+    > Lasagna
+    Bot: lasanga is a better choice at least...
+    Bot: anyway bye!
+
+    The bot has left the chat.
+    ```
+    </NoCopy>
+
+    - The bot will always ask the same questions and reply in the same way - we'll just mix in the words the user types to make it _seem_ like it's actually replying.
+    - We'll slightly adjust the user's reply at times - for instance we can make the favourite food reply _lowercase_ to make it seem more casual.
+    - We'll also add slight _delays_ between each message, to make them seem like they took time to type.
+
+## Step 2: Understand what we need
+
+    So what are the main functions and procedures we need to be able to write this program? Have a think about _what_ the program is doing, and see if you can list four or five things - for instance, "writing text to the terminal". Write them down :)
+
+    <details>
+    <summary>Have you noted them down? Let's compare.</summary>
+    The main five things we need, are to be able to...
+    1. _write_ text to the terminal.
+    2. _read_ the user's reply.
+    3. _combine_ the user's reply with the pre-written messages
+    4. _change_ the user's reply to be lowercase (for the last reply)
+    5. _delay_ between each message
+
+    Once we have these five pieces in place, we can combine them together to make our program :)
+    </details>
+
+    Now that we know what we need, let's go and have a look at the terminal functions and procedures we can use to achieve this!

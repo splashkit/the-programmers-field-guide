@@ -1,0 +1,115 @@
+---
+title: Initial Greeting
+sidebar:
+  label: " - Initial Greeting"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import NoCopy from '/src/components/NoCopy.astro'
+import { Steps } from '@astrojs/starlight/components';
+
+Now that we have our `main` function ready, let's start making our program output some messages.
+
+<Steps>
+1. Let's review the initial messages we want to output:
+    ```txt
+    Welcome to the very basic bot experience!
+    Please answer using single words :)
+    ----------------------------------------
+
+    Bot: Hello! What's your name?
+    ```
+
+    (feel free to customize the text!).
+
+    Looking back at the [terminal methods](../01-01-terminal/), we have methods to output text (`write` and `write_line`) - one of these will be useful here. Try using that procedure to write out each of these lines.
+
+    <Accordion>
+      <AccordionItem header="Writing out the opening messages">
+
+    ```c++ {5-10}
+    #include "splashkit.h"
+
+    int main()
+    {
+        write_line("Welcome to the very basic bot experience!");
+        write_line("Please answer using single words :)");
+        write_line("----------------------------------------");
+        write_line();
+
+        write_line("Bot: Hello! What's your name?");
+
+        return 0;
+    }
+    ```
+    Hopefully it's clear how the code is flowing from top to bottom - each `write_line` prints a line, and each `delay` makes the program pause for a short time before continuing.
+      </AccordionItem>
+    </Accordion>
+
+    :::tip
+    Make sure to compile and run your program at each step! Making small changes each time makes it much easier to fix bugs and develop smoothly.
+    :::
+
+2. Now let's add a short delay between each line - I'd recommend somewhere between 200-400 milliseconds. Simply insert a new statement that calls the `delay` procedure between each line.
+
+    <Accordion>
+      <AccordionItem header="Adding delays">
+
+    ```c++ {7, 9, 12}
+    #include "splashkit.h"
+
+    int main()
+    {
+        write_line("Welcome to the very basic bot experience!");
+        write_line("Please answer using single words :)");
+        delay(200);
+        write_line("----------------------------------------");
+        delay(200);
+        write_line();
+
+        delay(200);
+        write_line("Bot: Hello! What's your name?");
+
+        return 0;
+    }
+    ```
+    Hopefully it's clear how the code is flowing from top to bottom - each `write_line` prints a line, and each `delay` makes the program pause for a short time before continuing.
+      </AccordionItem>
+    </Accordion>
+
+3. Let's _start_ allowing the user to type. We'll get this working properly on the next page, but for now let's consider how we want it to look and what functions/procedures we can use.
+    ```txt
+    > User input goes here
+    ```
+
+    To accomplish this, we want to write out the `> `, and _then_ call `read_line()`. `read_line()` will allow us to type at the end of the last piece of text written, so this time we _don't_ want to move to the next line. Consider: do we want to use `write_line` still, or is there a better option for this?
+
+    **Note:** We're not _using_ the value that `read_line()` returns yet - we're just calling the function so the user can type something in.
+
+    <Accordion>
+      <AccordionItem header="Allowing the user to type">
+
+    ```c++ {14-15}
+    #include "splashkit.h"
+
+    int main()
+    {
+        write_line("Welcome to the very basic bot experience!");
+        write_line("Please answer using single words :)");
+        delay(200);
+        write_line("----------------------------------------");
+        delay(200);
+        write_line();
+
+        delay(200);
+        write_line("Bot: Hello! What's your name?");
+        write("> ");
+        read_line(); // returned value goes nowhere for now
+
+        return 0;
+    }
+    ```
+      </AccordionItem>
+    </Accordion>
+</Steps>
+
+Right now we're outputting our messages, and the user is able to type something. Now let's see how we can use what the user typed, to change our responses in a simple way.

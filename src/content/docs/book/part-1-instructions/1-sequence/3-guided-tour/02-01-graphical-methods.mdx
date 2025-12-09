@@ -1,0 +1,107 @@
+---
+title: Graphical method to use
+sidebar:
+    label: " - Graphical method to use"
+---
+
+Drawing things to the screen can help you make much more interactive programs. The following methods will give you a start building graphical programs.
+
+You can use the same terminal methods as described previously to read values from the user in the terminal. Then you also have access to the following methods to perform drawing actions:
+
+```c++
+// Open a window to draw to
+window open_window(string caption, int width, int height);
+
+// Clear the current window to the indicated color
+void clear_screen(color clr);
+// Show updated drawing
+void refresh_screen();
+
+// Get a color
+color color_white();
+color color_blue();
+// and many others...
+
+// Draw the outline or fill a circular area
+void fill_circle(color clr, double x, double y, double radius);
+void draw_circle(color clr, double x, double y, double radius);
+
+// Draw the outline or fill a rectangular area
+void fill_rectangle(color clr, double x, double y, double width, double height);
+void draw_rectangle(color clr, double x, double y, double width, double height);
+
+// Draw the outline or fill a elliptical area
+void fill_ellipse(color clr, double x, double y, double width, double height);
+void draw_ellipse(color clr, double x, double y, double width, double height);
+
+// Draw the outline or fill a triangular area
+void fill_triangle(color clr, double x1, double y1, double x2, double y2, double x3, double y3);
+void draw_triangle(color clr, double x1, double y1, double x2, double y2, double x3, double y3);
+
+// Draw a line (1 pixel wide)
+void draw_line(color clr, double x1, double y1, double x2, double y2);
+
+// Load an image and assign it a name
+bitmap load_bitmap(string name, string filename);
+// Draw a loaded image - using its name
+void draw_bitmap(string name, double x, double y);
+
+// Delay - waiting for a number of milliseconds before continuing
+void delay(int milliseconds);
+```
+
+:::tip
+These are method declarations - the code used to create a method. This code is in the library where these are made. You can call these in your code by using the name of the method, and passing it the values it asks for.
+
+For example:
+```cs
+# This code creates open_window - a method you can call
+window open_window(string caption, int width, int height);
+```
+
+To use it you would do something like:
+```cs
+# The method call -- with caption, width and height
+open_window("Window Caption", 800, 600);
+```
+:::
+
+*What do the different arguments represent?*
+
+When you open a window, you create an area onto which you can draw. The `width` and `height` arguments will determine how large the window is. You could create a 4 by 3 aspect ratio with something like 800 by 600, or a widescreen using 1280 by 720 - though you can create any shape window you want.
+
+Shape drawing methods need a color to know what color shape to draw. You can get a color value by calling the different `Color...` methods such as `color_red()`, and pass that as the color argument value. Following the color, the methods indicate where the shape should appear, and its size. The position is indicated use `x` and `y` coordinates. The `x` value represents the distance from the left side of the window, while `y` is the distance from the *top* of the window. Size values will depend on the shape, a rectangle has a width and height, a circle has a radius, triangles have three points, etc.
+
+We will explore this further as we go. For now, it is enough to remember that these methods exist.
+
+## Example
+
+The following example draws a house in a rectangular window.
+
+```c++
+#include "splashkit.h"
+
+int main()
+{
+    // Open a window, before drawing to it
+    open_window("A House", 800, 600);
+
+    // Clear the screen to white - don't show it yet
+    clear_screen(color_white());
+
+    // Draw a hill like ellipse - only half of the ellipse is shown
+    fill_ellipse(color_bright_green(), 0, 400, 800, 400);
+
+    // Draw a house shape - rectangular walls, triangular roof
+    fill_rectangle(color_gray(), 300, 300, 200, 200);
+    fill_triangle(color_red(), 250, 300, 400, 150, 550, 300);
+
+    // Now show the picture we have drawn to the user
+    refresh_screen();
+
+    // Wait for 5 seconds
+    delay(5000);
+
+    return 0;
+}
+```
