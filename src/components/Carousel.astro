@@ -75,7 +75,7 @@ const { onNextTest="true", id="" } = Astro.props;
 </div>
 
 <script>
-    const el = document.querySelector("[data-carousel]"); // TODO: Handle multiple
+document.querySelectorAll("[data-carousel]").forEach(el =>{
 
     async function checkNext(){
         let checkCommand = slides[index].getAttribute("onNextTest");
@@ -134,4 +134,6 @@ const { onNextTest="true", id="" } = Astro.props;
     });
 
     update();
+
+});
 </script>
