@@ -28,14 +28,14 @@ My plan for this program involves the following steps:
 3. Calculate min and max speeds.
 4. Output results.
 
-When the program starts, we can output a few messages to let the user know what the program does. This can be a sequence of calls to `WriteLine`.
+When the program starts, we can output a few messages to let the user know what the program does. This can be a sequence of calls to `write_line`.
 
 Reading in the bird's name will be relatively straightforward.
-We can use `Write` to display a prompt asking the user to enter a bird name, and then use `ReadLine` to get a value we then store in a variable.
+We can use `write` to display a prompt asking the user to enter a bird name, and then use `read_line` to get a value we then store in a variable.
 
-With frequency and amplitude, we will require the extra step to convert the user's input to a number. These will need to be `double` values, and any loss of precision will not cause issues. To do the conversion we can call `ToDouble` from C#'s `System.Convert`.
+With frequency and amplitude, we will require the extra step to convert the user's input to a number. These will need to be `double` values, and any loss of precision will not cause issues. To do the conversion we can call `to_double` from SplashKit.
 
-To calculate the min and max speeds we can use the equation that we noted above, using variables to store the results. These can then be used in the "output results" step, where we can call `WriteLine` to output the calculated details.
+To calculate the min and max speeds we can use the equation that we noted above, using variables to store the results. These can then be used in the "output results" step, where we can call `write_line` to output the calculated details.
 
 ## The Building Blocks
 
@@ -46,12 +46,12 @@ Reviewing this plan, we can identify which constants and variables we will need 
   - `STROUHAL_HIGH_EFFICIENCY` to store 0.2.
 - Six variables:
   - Two strings:
-    - `birdName` to capture the name of the bird the user enters.
+    - `bird_name` to capture the name of the bird the user enters.
     - A `line` to store the numbers they enter until we can convert them to a double.
   - Four double values:
     - `freq` to store the frequency of the bird's wing stroke in beats per second.
     - `amp` to store the amplitude in meters.
-    - `resultMax` and `resultMin` to store the two speed calculations based on the low and high efficiency Strouhal values.
+    - `result_max` and `result_min` to store the two speed calculations based on the low and high efficiency Strouhal values.
 
 ## Pseudocode
 
@@ -63,7 +63,7 @@ Declare constants:
  - STROUHAL_HIGH_EFFICIENCY = 0.2
 
 Declare variables:
- - birdName, line to store string data
+ - bird_name, line to store string data
  - freq, amp to store double data
 
 Display program details
@@ -73,11 +73,11 @@ Read in the name of the bird from the user
 Read the frequency and amplitude - converting from string to double
 
 Declare variables:
-  - resultMax, resultMin to store double data
+  - result_max, result_min to store double data
 
 Calculate the airspeed, given the fixed Strouhal values
-  resultMax = freq * amp / STROUHAL_HIGH_EFFICIENCY
-  resultMin = freq * amp / STROUHAL_LOW_EFFICIENCY
+  result_max = freq * amp / STROUHAL_HIGH_EFFICIENCY
+  result_min = freq * amp / STROUHAL_LOW_EFFICIENCY
 
 Output the bird's name, and its min and max airspeed
 ```

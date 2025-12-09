@@ -9,27 +9,31 @@ import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 Complete the house by adding in the rectangle and triangle. Here are the relevant coordinates:
 
-- Rectangle: use `ColorGray()`, draw at 300,300, with a width of 200, and a height of 200.
-- Triangle: use `ColorRed()`, draw with points at 250,300, and 400,150, and 550,300.
+- Rectangle: use `color_gray()`, draw at 300,300, with a width of 200, and a height of 200.
+- Triangle: use `color_red()`, draw with points at 250,300, and 400,150, and 550,300.
 
 
 <Accordion>
   <AccordionItem header="House drawn">
 
-  ```cs {8-9}
-  using static System.Convert;
-  using static SplashKitSDK.SplashKit;
+  ```c++ {9-10}
+  #include "splashkit.h"
 
-  OpenWindow("House Drawing by Andrew", 800, 600);
+  int main()
+  {
+      open_window("House Drawing by Andrew", 800, 600);
 
-  ClearScreen(ColorWhite());
-  FillEllipse(ColorBrightGreen(), 0, 400, 800, 400);
-  FillRectangle(ColorGray(), 300, 300, 200, 200);
-  FillTriangle(ColorRed(), 250, 300, 400, 150, 550, 300);
+      clear_screen(color_white());
+      fill_ellipse(color_bright_green(), 0, 400, 800, 400);
+      fill_rectangle(color_gray(), 300, 300, 200, 200);
+      fill_triangle(color_red(), 250, 300, 400, 150, 550, 300);
 
-  RefreshScreen();
+      refresh_screen();
 
-  Delay(5000);
+      delay(5000);
+
+      return 0;
+  }
   ```
 
   </AccordionItem>

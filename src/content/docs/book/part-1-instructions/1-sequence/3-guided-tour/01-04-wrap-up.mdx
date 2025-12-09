@@ -16,53 +16,57 @@ Do this in steps! First get the remaining distance and time to destination, then
 <Accordion>
       <AccordionItem header="Final code">
 
-    ```cs {10-11,32-46}
-    using static System.Convert;
-    using static SplashKitSDK.SplashKit;
+    ```c++ {11-12,33-47}
+    #include "splashkit.h"
 
     const int MINUTES_PER_HOUR = 60;
 
-    string name;
-    string userInput;
-    double distance, time;
-    double speed;
-    double remainingDistance, timeToDestination;
-    double totalDistance, totalTime;
+    int main()
+    {
+        string name;
+        string user_input;
+        double distance, time;
+        double speed;
+        double remaining_distance, time_to_destination;
+        double total_distance, total_time;
 
-    Write("What is your name: ");
-    name = ReadLine();
+        write("What is your name: ");
+        name = read_line();
 
-    WriteLine();
-    WriteLine($"Hi {name}.");
-    WriteLine();
+        write_line();
+        write_line("Hi " + name + ".");
+        write_line();
 
-    Write("How far have you travelled so far? Enter km: ");
-    userInput = ReadLine();
-    distance = ToDouble(userInput);
+        write("How far have you travelled so far? Enter km: ");
+        user_input = read_line();
+        distance = to_double(user_input);
 
-    Write("How long has it taken? Enter minutes: ");
-    userInput = ReadLine();
-    time = ToInt32(userInput);
+        write("How long has it taken? Enter minutes: ");
+        user_input = read_line();
+        time = to_integer(user_input);
 
-    speed = distance / (time / MINUTES_PER_HOUR);
+        speed = distance / (time / MINUTES_PER_HOUR);
 
-    WriteLine();
-    WriteLine($"Your average speed is {speed} km/h");
-    WriteLine();
+        write_line();
+        write_line("Your average speed is " + to_string(speed) + " km/h");
+        write_line();
 
-    Write("How far do you have to go? Enter km: ");
-    userInput = ReadLine();
-    remainingDistance = ToDouble(userInput);
+        write("How far do you have to go? Enter km: ");
+        user_input = read_line();
+        remaining_distance = to_double(user_input);
 
-    timeToDestination = remainingDistance / speed * MINUTES_PER_HOUR;
+        time_to_destination = remaining_distance / speed * MINUTES_PER_HOUR;
 
-    WriteLine($"You will take another {timeToDestination} minutes before you arrive");
+        write_line("You will take another " + to_string(time_to_destination) + " minutes before you arrive");
 
-    totalDistance = distance + remainingDistance;
-    totalTime = time + timeToDestination;
+        total_distance = distance + remaining_distance;
+        total_time = time + time_to_destination;
 
-    WriteLine($"Total distance will be {totalDistance} km");
-    WriteLine($"Total time will be {totalTime} minutes");
+        write_line("Total distance will be " + to_string(total_distance) + " km");
+        write_line("Total time will be " + to_string(total_time) + " minutes");
+
+        return 0;
+    }
     ```
 
       </AccordionItem>

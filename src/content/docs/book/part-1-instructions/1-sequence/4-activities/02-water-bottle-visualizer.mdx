@@ -28,11 +28,11 @@ Once we have a percentage value from the user, we can convert it to a value betw
 If the user enters the percent fill as an integer, then we can divide the value they entered by 100 to achieve this.
 For example, 15% full would be stored as `15 / 100` = `0.15`, and a bottle height of 100 pixels would then result in a water height of `0.15 * 100` = `15` pixels.
 
-Opening the window is a call to the `OpenWindow` method in SplashKit, so it is straight forward. We just need to think about the title we want, and how large it will be.
+Opening the window is a call to the `open_window` method in SplashKit, so it is straight forward. We just need to think about the title we want, and how large it will be.
 
 The main logic will come in the drawing of the water bottle. Drawing up a visual plan should help you with this. You need to think through the steps the computer will need to draw individual shapes to form a larger picture. Here are a few notes:
 
-- We can **fill** to show the water, but can **draw** over the top to get an outline. So we will use both `FillCircle` and `DrawCircle`, as well as `DrawLine` and `FillRectangle`.
+- We can **fill** to show the water, but can **draw** over the top to get an outline. So we will use both `fill_circle` and `draw_circle`, as well as `draw_line` and `fill_rectangle`.
 - We need to draw the rectangle over the bottom circle. Then it will draw over the part of the circle that should be behind the water.
 - The order of drawing will need to be:
   - Circle for the top of the water
@@ -89,7 +89,7 @@ Notice how you can form a general plan for how to achieve certain things, like r
 
 ## The Building Blocks
 
-As you can see from above, we will need a whole range of constants and variables for our program. We can use constants to set up the dimensions of the bottle, and a variable to store the user's input for what `percentFull` the bottle should be.
+As you can see from above, we will need a whole range of constants and variables for our program. We can use constants to set up the dimensions of the bottle, and a variable to store the user's input for what `percent_full` the bottle should be.
 
 For the bottle drawing we will need to capture the following. These can be constants as we won't change these as the program runs.
 
@@ -102,9 +102,9 @@ For the bottle drawing we will need to capture the following. These can be const
 
 For the water height, we need a few variables as this can change.
 
-- `percentFull` will capture how full the bottle is. This can be an integer. We can then divide this by 100 to get the proportion to apply to the bottle's height to calculate the water height.
-- When we know the `percentFull`, we can calculate the `waterHeight`.
-- We need to know where the water should be drawn. When we know its height, we can use that to calculate a `waterY` value. This will represent where the water is up to within the bottle.
+- `percent_full` will capture how full the bottle is. This can be an integer. We can then divide this by 100 to get the proportion to apply to the bottle's height to calculate the water height.
+- When we know the `percent_full`, we can calculate the `water_height`.
+- We need to know where the water should be drawn. When we know its height, we can use that to calculate a `water_y` value. This will represent where the water is up to within the bottle.
 
 As with the previous program, we also need a string (we called it `line`) to store the text data from the user before we convert it to a number for us to use.
 
@@ -129,9 +129,9 @@ To help communicate how this works, we can capture this in a comment in the code
 |   |    |             |
 |   |    | ___________ |
 |   |    |/           \|
-|   |    |             | <-- waterY
+|   |    |             | <-- water_y
 |   |    |\___________/| ^
-|   |    | ___________ | | waterHeight
+|   |    | ___________ | | water_height
 |   |    |/           \| v
 |   v    |             | <-- BOTTLE_BASE_Y
 |         \___________/
