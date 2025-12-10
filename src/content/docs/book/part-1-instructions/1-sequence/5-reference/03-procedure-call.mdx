@@ -1,15 +1,16 @@
 ---
-title: "Method Call"
+title: "Procedure Call"
 ---
-import MySwiper from '../../../../../../components/react/myswiper.jsx';
-import Slide1 from './images/method-call-in-depth/Slide1.png';
-import Slide2 from './images/method-call-in-depth/Slide2.png';
-import Slide3 from './images/method-call-in-depth/Slide3.png';
-import Slide4 from './images/method-call-in-depth/Slide4.png';
-import Slide5 from './images/method-call-in-depth/Slide5.png';
-import Slide6 from './images/method-call-in-depth/Slide6.png';
-import Slide7 from './images/method-call-in-depth/Slide7.png';
-import Slide8 from './images/method-call-in-depth/Slide8.png';
+import MySwiper from '/src/components/react/myswiper.jsx';
+import Slide1 from './images/procedure-call/Slide1.png';
+import Slide2 from './images/procedure-call/Slide2.png';
+import Slide3 from './images/procedure-call/Slide3.png';
+import Slide4 from './images/procedure-call/Slide4.png';
+import Slide5 from './images/procedure-call/Slide5.png';
+import Slide6 from './images/procedure-call/Slide6.png';
+import Slide7 from './images/procedure-call/Slide7.png';
+import Slide8 from './images/procedure-call/Slide8.png';
+import Slide9 from './images/procedure-call/Slide9.png';
 
 export const sliderImages = [
   {
@@ -18,72 +19,81 @@ export const sliderImages = [
     tipStart: 1,
     tips: [
       "The program has been loaded by the operating system and its first instruction is ready to be executed.",
-      "Instruction 1 is a method call with three arguments. Each method call has two steps: evaluate and load the arguments, then call the method.",
-      "For this call we need to evaluate all three arguments, then execute the method. This means the one instruction (the method call) actually has four steps - a, b, c, and d.",
+      "Instruction 1 is a procedure call with three arguments. Each procedure call has two steps: evaluate and load the arguments, then call the procedure.",
+      "For this call we need to evaluate all three arguments, then execute the procedure. This means the one instruction (the procedure call) actually has four steps - a, b, c, and d.",
     ]
   },
   {
     src: Slide2.src,
-    altText: "Instruction 1 shows a method call with three arguments",
+    altText: "Instruction 1 shows a procedure call with three arguments",
     tipStart: 5,
     tips: [
-      "All arguments are literal values in this call. They need to be loaded into registers 0, 1, and 2, so they are in the CPU when the method starts. The first argument is the string literal \"Random Color\". It is loaded into the first register.",
+      "All arguments are literal values in this call. They need to be loaded into registers 0, 1, and 2, so they are in the CPU when the procedure starts. The first argument is the string literal \"Test Color\". It is loaded into the first register.",
       "As with sequence before, the instruction counter is incremented as we step through each instruction. So 1a becomes 1b for our visualisation."
     ]
   },
   {
     src: Slide3.src,
-    altText: "Evaluate and load arguments 2 and 3",
+    altText: "Evaluate and load arguments 2",
     tipStart: 7,
     tips: [
       "The second argument is loaded into register 1, then the program counter is incremented to 1c.",
-      "At 1c, we load the third argument into register 2. Then, the program counter is incremented to 1d."
     ]
   },
   {
     src: Slide4.src,
-    altText: "Save the old program counter so we can resume here when the call is done",
-    tipStart: 9,
+    altText: "Evaluate and load arguments 3",
+    tipStart: 7,
     tips: [
-      "Instruction 1d will now start the method call. There are a few steps at this point that the compiler takes care of, but it is good to see how this works.",
-      "First, we need to save the old program counter into memory. When the method returns this will be used to resume the code from where the method was called."
+      "The third argument is loaded into register 2, then the program counter is incremented to 1d.",
     ]
   },
   {
     src: Slide5.src,
-    altText: "Shows the CPU switching into the instructions of the called method",
-    tipStart: 11,
+    altText: "Save the old program counter, so we can resume here when the call returns",
+    tipStart: 9,
     tips: [
-      "The code for this method was also loaded into memory when the program started. So to execute the method we can just set the program counter to the address of the first instruction in the Open Window method.",
-      "As the program counter is now in Open Windows instructions, those will run in sequence.",
-      "By convention, the method arguments are loaded into the CPU registers in order. So, Open Window knows that it can access the title of the window in register 0, its width in register 1, and its height in register 2."
+      "Instruction 1d starts the procedure call. There are a few steps at this point that the compiler takes care of, but it is good to see how this works.",
+      "First, we need to save the old program counter into memory. When the procedure returns this will be used to resume the code from where the procedure was called."
     ]
   },
   {
     src: Slide6.src,
-    altText: "Shows the CPU at the end of Open Window's instructions",
-    tipStart: 14,
+    altText: "Shows the CPU switching into the instructions of the called procedure",
+    tipStart: 11,
     tips: [
-      "At this point, the method has done its work. In this case, a window should have appeared for the user.",
-      "The program counter is now up to an instruction telling the computer that the method is finished."
+      "The code for this procedure was also loaded into memory when the program started. So we can just set the program counter to the address of the first instruction in the open window procedure.",
+      "As the program counter is now in open window's instructions, the sequence will run from there.",
+      "By convention, the procedure's arguments are loaded into the CPU registers in order. So, Open Window knows that it can access the title of the window in register 0, its width in register 1, and its height in register 2."
     ]
   },
   {
     src: Slide7.src,
-    altText: "Shows the CPU restoring the old program counter from memory",
-    tipStart: 16,
+    altText: "Shows the CPU at the end of Open Window's instructions",
+    tipStart: 14,
     tips: [
-      "To get back to the code where the method was called, the compiler reads in the old program counter value from memory."
+      "At this point, the procedure has done its work. In this case, a window has appeared for the user.",
+      "The program counter is now up to an instruction telling the computer that the procedure is finished."
     ]
   },
   {
     src: Slide8.src,
+    altText: "Shows the CPU restoring the old program counter from memory",
+    tipStart: 16,
+    tips: [
+      "To get back to the code where the procedure was called, the compiler reads in the old program counter value from memory.",
+      "The value read from memory is now loaded into the program counter.",
+      "The sequence will now continue from here."
+    ]
+  },
+  {
+    src: Slide9.src,
     altText: "Shows the CPU continuing within the code we wrote",
     tipStart: 17,
     tips: [
-      "The first instruction has now been executed, so we add one to the program counter.",
-      "We are now onto the next method call.",
-      "This method will be executed in the same way: evaluate and load the arguments, then call the method. Again, the value of the program counter will be saved to memory so we can return once the method is finished.",
+      "The instructions on line 1 have now been executed, so we add one to the program counter.",
+      "We are now running the code on line 2.",
+      "This procedure will be executed in the same way: evaluate and load the arguments, then call the procedure. Again, the value of the program counter will be saved to memory, so we can return once the procedure is finished.",
       "This process will repeat until the program is finished."
     ]
   },
@@ -194,19 +204,19 @@ The following code demonstrates the use of the values returned by the `RandomCol
 ```csharp
 using static SplashKitSDK.SplashKit;
 
-OpenWindow("Random Color", 800, 600);
+OpenWindow("Test Color", 800, 600);
 ClearScreen(RandomColor());
 RefreshScreen();
 Delay(1000 * Rnd(10));
 ```
 
-Line 4 demonstrates the use of the result from calling `RandomColor` within the call to `ClearScreen`. In this case, the value returned from the `RandomColor` method becomes the value for the argument passed to `ClearScreen`. As you would expect, this will clear the screen to a random color.
+Line 4 demonstrates the use of the result from calling `RandomColor` within the call to `ClearScreen`. In this case, the value returned from the `RandomColor` method becomes the value for the argument passed to `ClearScreen`. As you would expect, this will clear the screen to a Test color.
 
 Line 6 demonstrates this again, where the result of `1000 * Rnd(10)` is passed to `Delay`. The easiest way to approach this is to consider each value independently. `Rnd(10)` will return a random value between 0 and 10 -- let us imagine this returns `6`. In this case, `1000 * Rnd(10)` would become `1000 * 6`, as the value **returned** by `Rnd(10)` was `6`. This is then evaluated, and `Delay` will be passed the argument `6000`, causing it to delay for 6 seconds.
 
-## Method Calls Up Close
+## Procedure Calls Up Close
 
-Review the following images to explore how method calls work within the computer.
+Review the following images to explore how procedure calls work within the computer.
 
 <MySwiper client:only height="" images={sliderImages}></MySwiper>
 
