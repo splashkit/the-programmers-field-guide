@@ -1,7 +1,7 @@
 ---
-title: Graphics Methods
+title: Graphics Procedures
 sidebar:
-    label: " - Graphics Methods"
+    label: " - Graphics Procedures"
 ---
 
 This journey should be fun. While reading and writing text from the terminal can demonstrate all the programming features, it doesn't have as much of a *fun factor*. Creating visual and interactive programs will help you **see** that your programs are working as you expected.
@@ -33,7 +33,7 @@ To draw, you need something to draw onto. The base interactive component in Spla
 | [open_window](https://splashkit.io/api/windows/#open-window) | the title, width, and height of the window | Opens a window for you to draw to. |
 | [clear_screen](https://splashkit.io/api/graphics/#clear-screen) | a color | Clears everything on the current window, making it the indicated color. |
 | [delay](https://splashkit.io/api/utilities/#delay) | an integer | Delays for the number of milliseconds from the argument. |
-These methods have the following declarations.
+These procedures have the following declarations.
 
 ```c++
 // These need:
@@ -86,7 +86,7 @@ The answer is simply **history**. The original monitors were based on Cathode Ra
 
 ### Double Buffering
 
-In a graphical program the computer still executes code in [sequence](/book/part-1-instructions/1-sequence/2-trailside/01-sequence).
+In a graphical program the computer still executes code in [sequence](/book/part-1-instructions/1-sequence/5-reference/01-sequence).
 If we were to show the result of every drawing instruction immediately, we would get some very odd looking programs.
 
 For example, to draw a house on a hill we might combine an ellipse, a triangle, and a rectangle.
@@ -99,7 +99,7 @@ It then waits for a command to display that surface to the user. With SplashKit,
 
 ![Illustration of double buffering, and the need to call refresh screen.](./images/refresh-screen.png)
 
-| <div style="width:70px">**Method**</div> | **Required Arguments** | **Description** |
+| <div style="width:70px">**Procedure**</div> | **Required Arguments** | **Description** |
 |-----------|------------------------|----------------|
 | [refresh_screen](https://splashkit.io/api/graphics/#refresh-screen) | none | Present what has been drawn to the user. |
 
@@ -117,7 +117,7 @@ Now that we understand how to refer to positions on the screen, and how SplashKi
 There are several procedures in SplashKit that you can use to draw shapes to the window.
 These procedures typically require arguments that allow you to control where the shape appears, its size, and its color.
 
-| <div style="width:70px">**procedure**</div> | **required arguments** | **description** |
+| <div style="width:70px">**Procedure**</div> | *Required Arguments** | **Description** |
 |-----------|------------------------|----------------|
 | [color_white](https://splashkit.io/api/color/#color-white), [color_blue](https://splashkit.io/api/color/#color-blue), ... | None | Returns a value that represents the color indicated in the name of the procedure. See the [dolor](https://splashkit.io/api/color/) page for the complete list.  |
 | [fill_circle](https://splashkit.io/api/graphics/#fill-circle), [draw_circle](https://splashkit.io/api/graphics/#draw-circle) | A color and three numeric values for the location (x and y) and radius of the circle. | Draws a filled or hollow circle to the screen. |
@@ -149,7 +149,6 @@ void fill_triangle(color clr, double x1, double y1, double x2, double y2, double
 void draw_triangle(color clr, double x1, double y1, double x2, double y2, double x3, double y3);
 
 void draw_line(color clr, double x1, double y1, double x2, double y2);
-
 }
 ```
 The following code draws a house on a hill using some basic shapes in SplashKit.  
@@ -169,14 +168,13 @@ int main()
     refresh_screen();
 
     delay(5000);
-
 }
 ```
 
 :::tip[Autocomplete]
-If you are ever unsure of what a procedure requires, you should be able to get Visual Studio Code to show you a list of the arguments you need to provide. To do this, type the start of the procedure name then press `ctrl-space`. There are usually a couple of different ways to draw a shape in SplashKit, which you can explore by pressing the up/down arrows to navigate the pop-up list. An example with C# is shown below. Try it out for yourself as you modify you first shape drawing program.
+If you are ever unsure of what a procedure requires, you should be able to get Visual Studio Code to show you a list of the arguments you need to provide. To do this, type the start of the procedure name then press `ctrl-space`. There are usually a couple of different ways to draw a shape in SplashKit, which you can explore by pressing the up/down arrows to navigate the pop-up list. An example with C++ is shown below. Try it out for yourself as you modify you first shape drawing program.
 
-![Use `ctrl-space` to bring up the autocomplete for procedures you want to call.](./images/auto-complete.png)
+![Use `ctrl-space` to bring up the autocomplete for procedures you want to call.](./images/auto-complete.png "TODO: replace with C++ example")
 :::
 
 ## Working with Resources
@@ -187,7 +185,7 @@ SplashKit organises these files in a **Resources** folder containing sub-folders
 
 ### Drawing images
 
-| <div style="width:100px">**Method**</div> | **Required Arguments** |**Description** |
+| <div style="width:100px">**Procedure**</div> | **Required Arguments** |**Description** |
 |-----------|------------------------|----------------|
 | [load_bitmap](https://splashkit.io/api/graphics/#load-bitmap) | the name of the bitmap and its filename | This loads the image (bitmap) into your program. You can use the name to access this bitmap in other procedure calls. The filename can be the full path to a file, or the filename of a file in the **Resources/images** folder.  |
 | [draw_bitmap](https://splashkit.io/api/graphics/#draw-bitmap-named) | the image name, and two numbers for the coordinate to draw to | This draws the image you loaded with the given name, at the coordinates you provided (x and y). The coordinates indicate the top left corner of the bitmap when it is drawn. |
@@ -225,7 +223,6 @@ int main()
     refresh_screen();
 
     delay(5000);
-
 }
 ```
 
@@ -233,7 +230,7 @@ int main()
 
 You might want to be able to draw text to the screen to display messages to the user. For static text, you are best to embed this within an image, as drawing an image is easier and faster than drawing text. For dynamic text (i.e., any text that changes as the program runs) you will need to use a text drawing procedure. In SplashKit you can draw simple text with fixed characters, or load a font and use that to draw the text.
 
-| <div style="width:100px">**Method**</div> | **Required Arguments** |**Description** |
+| <div style="width:100px">**Procedure**</div> | **Required Arguments** |**Description** |
 |-----------|------------------------|----------------|
 | [load_font](https://splashkit.io/api/graphics/#load-font) | the name of the font and its filename | This loads the font into your program. You can use the name to access this font in other procedure calls. The filename can be the full path to a file, or the filename of a file in the **Resources/fonts** folder. |
 | [draw_text](https://splashkit.io/api/graphics/#draw-text-no-font-no-size) | some text, a color, x, and y | This draws the provided text in the indicated color at the given coordinates (x and y). The coordinates indicate the top left of the text. This will draw using the built-in font. |
@@ -241,7 +238,7 @@ You might want to be able to draw text to the screen to display messages to the 
 
 These procedures have the following declarations:
 
-```cs
+```c++
 // These need:
 // #include "splashkit.h"
 
@@ -272,7 +269,6 @@ int main()
 
     refresh_screen();
     delay(5000);
-
 }
 ```
 

@@ -4,7 +4,7 @@ title: Procedures to Use
 
 At this point the programs we create will include sequences of procedure calls, with variables that we can use to work with data within our program.
 
-To build programs we will need to have some [procedures](/book/part-1-instructions/1-sequence/2-trailside/02-procedure) that we can [call](/book/part-1-instructions/1-sequence/2-trailside/03-procedure-call). The great this is that [library](/book/part-1-instructions/1-sequence/2-trailside/10-library) creators will describe the procedures that they have created so that we can find and use them. In order to use this documentation we need to know how these procedures will be described.
+To build programs we will need to have some [procedures](/book/part-1-instructions/1-sequence/5-reference/02-procedure) that we can [call](/book/part-1-instructions/1-sequence/5-reference/03-procedure-call). The great this is that [library](/book/part-1-instructions/1-sequence/5-reference/10-library) creators will describe the procedures that they have created so that we can find and use them. In order to use this documentation we need to know how these procedures will be described.
 
 ## Procedure Declarations
 
@@ -15,7 +15,7 @@ Procedures are usually communicated using part of their declaration. We will loo
 The above image helps show the components of a procedure declaration. The key parts are:
 
 - The *name* of the procedure. Remember, to call the procedure you use its name.
-- The variables and types of any *arguments* you will need to pass when you call the procedure. These will be listed as variables after the procedure name in parentheses.
+- The names and types of any *arguments* you will need to pass when you call the procedure. These will be listed after the procedure name in parentheses.
 - You can also see the type of data that is returned (where `void` means none).
 
 The following code snippets show example procedure declarations.
@@ -39,7 +39,7 @@ The following shows the declaration of the [Open Window](https://splashkit.io/ap
 window open_window(string caption, int width, int height);
 ```
 
-You can call the `open_window` procedure using the following code. It will pass "This is the caption" to the `caption` data, 800 to the `width`, and 600 to the `height`. The code will return a `window` value, which we can ignore or store in a `window` variable.
+You can call the `open_window` procedure using the following code. It will pass "This is the caption" to the `caption` data, 800 to the `width`, and 600 to the `height`. The code will return a `window` value, which for now we can ignore. We _could_ also store it in a `window` variable, which we'll check out in the next chapter.
 
 ```c++
 #include "splashkit.h"

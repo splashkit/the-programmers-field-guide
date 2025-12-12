@@ -1,10 +1,10 @@
 ---
-title: Graphical methods to use
+title: Graphical procedures to use
 sidebar:
-    label: " - Graphical methods to use"
+    label: " - Graphical procedures to use"
 ---
 
-Here's a list of some useful graphical methods SplashKit provides. You'll find these come in handy when going through future tasks, feel free to refer to this page whenever needed.
+Here's a list of some useful graphical procedures SplashKit provides. You'll find these come in handy when going through future tasks, feel free to refer to this page whenever needed.
 
 ```c++
 // Open a window to draw to
@@ -49,17 +49,17 @@ void delay(int milliseconds);
 ```
 
 :::tip
-These are method declarations - the code used to create a method. This code is in the library where these are made. You can call these in your code by using the name of the method, and passing it the values it asks for.
+These are procedure declarations - the code used to create a procedure. This code is in the library where these are made. You can call these in your code by using the name of the procedure, and passing it the values it asks for.
 
 For example:
-```cs
-# This code creates open_window - a method you can call
+```c++
+# This code creates open_window - a procedure you can call
 window open_window(string caption, int width, int height);
 ```
 
 To use it you would do something like:
-```cs
-# The method call -- with caption, width and height
+```c++
+# The procedure call -- with caption, width and height
 open_window("Window Caption", 800, 600);
 ```
 :::
@@ -68,9 +68,9 @@ open_window("Window Caption", 800, 600);
 
 When you open a window, you create an area onto which you can draw. The `width` and `height` arguments will determine how large the window is. You could create a 4 by 3 aspect ratio with something like 800 by 600, or a widescreen using 1280 by 720 - though you can create any shape window you want.
 
-Shape drawing methods need a color to know what color shape to draw. You can get a color value by calling the different `Color...` methods such as `color_red()`, and pass that as the color argument value. Following the color, the methods indicate where the shape should appear, and its size. The position is indicated use `x` and `y` coordinates. The `x` value represents the distance from the left side of the window, while `y` is the distance from the *top* of the window. Size values will depend on the shape, a rectangle has a width and height, a circle has a radius, triangles have three points, etc.
+Shape drawing procedures need a color to know what color shape to draw. You can get a color value by calling the different `Color...` procedures such as `color_red()`, and pass that as the color argument value. Following the color, the procedures indicate where the shape should appear, and its size. The position is indicated use `x` and `y` coordinates. The `x` value represents the distance from the left side of the window, while `y` is the distance from the *top* of the window. Size values will depend on the shape, a rectangle has a width and height, a circle has a radius, triangles have three points, etc.
 
-We will explore this further as we go. For now, it is enough to remember that these methods exist.
+We will explore this further as we go. For now, it is enough to remember that these procedures exist.
 
 ## Example
 

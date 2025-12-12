@@ -5,7 +5,7 @@ title: "Procedure"
 The computer is unintelligent, so performing anything meaningful requires a lot of instructions. Coding all of these directly would be slow and time-consuming. To avoid this, programming languages offer the capability to group instructions into a **procedure**.
 
 A procedure is a list of instructions that gets the computer to perform a specific task.
-We can [call a procedure](/book/part-1-instructions/1-sequence/2-trailside/03-procedure-call), which gives it control of the computer, allowing it to instruct the computer.
+We can [call a procedure](/book/part-1-instructions/1-sequence/5-reference/03-procedure-call), which gives it control of the computer, allowing it to instruct the computer.
 Often these instructions require data, so a procedure may need to be passed data when it is called.
 This data is called the procedure's **arguments**.
 When the procedure finishes its task, control is given back to the code that called the procedure.
@@ -81,7 +81,7 @@ Once you have thought of a task, consider the following questions:
 
 * A procedure is a **building block**, something that can be created in code.
 * A procedure can be called to perform a certain task, or calculate or return a certain value.
-* [Libraries](/book/part-1-instructions/1-sequence/2-trailside/10-library) can contain many procedures to perform common tasks.
+* [Libraries](/book/part-1-instructions/1-sequence/5-reference/10-library) can contain many procedures to perform common tasks.
 * The standard library of every language will include procedures to write values to, and read values from, the terminal.
 * The SplashKit library contains procedures that can draw images on the screen, play sounds, and perform other tasks needed to create small games.
 

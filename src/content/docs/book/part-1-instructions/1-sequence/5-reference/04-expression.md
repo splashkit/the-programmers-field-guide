@@ -10,11 +10,9 @@ The concepts related to expressions are shown below.
 
 ## Expressions -- when, why, and how
 
-Whenever an instruction needs data, an expression is needed to provide it. This lets you put whatever data you want in that instruction. Data can be hard-coded as a [literal](/book/part-1-instructions/1-sequence/2-trailside/05-literal), use [variables](/book/part-1-instructions/1-sequence/2-trailside/07-variable), and contain mathematical operators to calculate a value.
+Whenever an instruction needs data, an expression is needed to provide it. This lets you put whatever data you want in that instruction. For now our data can be be hard-coded as a [literal](/book/part-1-instructions/1-sequence/5-reference/05-literal), and contain mathematical operators to calculate a fixed value. In the next chapter we'll look into [variables](/book/part-1-instructions/2-data/5-reference/07-variable) which allow us to have values that _change_.
 
-When you code an expression, you need to think about the value you need and how you can get it. You could provide a fixed value using a literal, read a value stored in a variable, or combine values with standard mathematical operators. If you are unsure, draw out the details you have on paper and think through how you can calculate the value you need.
-
-If you do not have the details you need, you may need to think about adding extra variables to capture these values when they are available. You can then use them to get the value you need.
+When you code an expression, you need to think about the value you need and how you can get it. You could provide a fixed value using a literal, or combine values with standard mathematical operators. If you are unsure, draw out the details you have on paper and think through how you can calculate the value you need.
 
 ## In C++
 
@@ -91,7 +89,7 @@ What values do the following expressions evaluate to?
     <li><strong>4:</strong><code>32</code></li>
     <li><strong>5:</strong><code>3</code>. There are no numbers with decimal places in this expression, so C++ will use integer division.</li>
     <li><strong>6:</strong><code>3.5</code>. C++ won't use integer division here because one of the values in the expression does have a decimal place, even if that decimal value is 0!</li>
-    <li><strong>7:</strong><code>1</code>. Order of operations means that C# will evaluate the brackets first, then the multiplication, then the subtraction.</li>
+    <li><strong>7:</strong><code>1</code>. Order of operations means that C++ will evaluate the brackets first, then the multiplication, then the subtraction.</li>
   </ul>
 </details>
 

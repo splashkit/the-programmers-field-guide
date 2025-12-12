@@ -11,7 +11,7 @@ The first step in building a graphical program is to open a window. We can then 
 
 1. Add a call to open a window that we can draw onto.
 
-    In SplashKit you can open a window to draw onto. To open the window you call the `open_window` method, and pass it the window’s title, its width and its height.
+    In SplashKit you can open a window to draw onto. To open the window you call the `open_window` procedure, and pass it the window’s title, its width and its height.
 
     :::tip[Title and size?]
     You can give the window any title and size. Common sizes are usually in 4:3 such as 640x480, 800x600, 1024x768, or widescreen at 16:9 such as 1280x720, or 1920x1080.
@@ -19,7 +19,7 @@ The first step in building a graphical program is to open a window. We can then 
     For this use the title "House Drawing by ..." and add your name, with a width of 800 and a height of 600.
     :::
 
-2. If the program ends after the window is open, then it wont be around for long enough for the user to see. To fix this we can use the `delay` method. You pass it an integer argument for the number of milliseconds to delay. Try delaying for 5000 milliseconds.
+2. If the program ends after the window is open, then it wont be around for long enough for the user to see. To fix this we can use the `delay` procedure. You pass it an integer argument for the number of milliseconds to delay. Try delaying for 5000 milliseconds.
 
     <Accordion>
       <AccordionItem header="Open a window and delay">

@@ -1,10 +1,10 @@
 ---
-title: Audio Methods
+title: Audio Procedures
 sidebar:
-  label: " - Audio Methods"
+  label: " - Audio Procedures"
 ---
 
-SplashKit also provides methods you can use to load and play sound effects and music. You can use sound effects to play multiple different sounds that are mixed together when played, while music is designed for longer running background sound for your applications with only one music track being able to be played at once.
+SplashKit also provides procedures you can use to load and play sound effects and music. You can use sound effects to play multiple different sounds that are mixed together when played, while music is designed for longer running background sound for your applications with only one music track being able to be played at once.
 
 ### Playing sound effects
 
@@ -12,18 +12,18 @@ Sound effects are designed to be used for short sounds that are triggered by act
 
 SplashKit can handle several file formats for sound effects, but the best and most reliable is [Ogg Vorbis](https://xiph.org/vorbis/). You can use programs like [Audacity](https://www.audacityteam.org) to edit and convert sound effects to the Ogg Vorbis format.
 
-| <div style="width:130px">**Method**</div> | **Required Arguments** |**Description** |
+| <div style="width:130px">**Procedure**</div> | **Required Arguments** |**Description** |
 |-----------|------------------------|----------------|
-| [Load Sound Effect](https://splashkit.io/api/audio/#load-sound-effect) | the name of the sound effect and its filename | As with `load_bitmap`, but this loads the sound effect into your program. You can use the name to access this sound effect in other method calls. The filename can be the full path to a file, or the filename of a file in the **Resources/sounds** folder.  |
+| [Load Sound Effect](https://splashkit.io/api/audio/#load-sound-effect) | the name of the sound effect and its filename | As with `load_bitmap`, but this loads the sound effect into your program. You can use the name to access this sound effect in other procedure calls. The filename can be the full path to a file, or the filename of a file in the **Resources/sounds** folder.  |
 | [Play Sound Effect](https://splashkit.io/api/audio/#play-sound-effect-named) | the name of a loaded sound effect | Plays the sound effect once at its full volume.  |
 | [Play Sound Effect](https://splashkit.io/api/audio/#play-sound-effect-named-with-volume) | the name of a loaded sound effect, volume (`double`) | Plays the sound effect once at a percentage of its full volume. The volume should be between 0 and 1.0  |
 | [Play Sound Effect](https://splashkit.io/api/audio/#play-sound-effect-named-with-times) | the name of a loaded sound effect, times (`int`) | Plays the sound effect multiple times in a row at full volume.  |
 | [Play Sound Effect](https://splashkit.io/api/audio/#play-sound-effect-named-with-times-and-volume) | the name of a loaded sound effect, times (`int`), volume (`double`) | Plays the sound effect multiple times in a row at a percentage of its full volume. |
 | [Stop Sound Effect](https://splashkit.io/api/audio/#stop-sound-effect-named) | the name of a loaded sound effect | Stops playing the indicated sound effect. |
 
-These methods have the following declaration:
+These procedures have the following declaration:
 
-```cs
+```c++
 // These need:
 // #include "splashkit.h"
 
@@ -53,7 +53,6 @@ int main()
 
     play_sound_effect("hello", 2, 0.2f); // Play it twice, quietly
     delay(2500);
-
 }
 ```
 
@@ -69,9 +68,9 @@ Music is designed to work with long playing background audio. Unlike sound effec
 
 As with sound effects, The Ogg Vorbis format works best with SplashKit for music.
 
-| <div style="width:130px">**Method**</div> | **Required Arguments** |**Description** |
+| <div style="width:130px">**Procedure**</div> | **Required Arguments** |**Description** |
 |-----------|------------------------|----------------|
-| [Load Music](https://splashkit.io/api/audio/#load-music) | the name of the music and its filename | As with `load_bitmap`, but this loads the music into your program. You can use the name to access this music in other method calls. The filename can be the full path to a file, or the filename of a file in the **Resources/sounds** folder. |
+| [Load Music](https://splashkit.io/api/audio/#load-music) | the name of the music and its filename | As with `load_bitmap`, but this loads the music into your program. You can use the name to access this music in other procedure calls. The filename can be the full path to a file, or the filename of a file in the **Resources/sounds** folder. |
 | [Play Music](https://splashkit.io/api/audio/#play-music-named) | the name of the loaded music | Plays the indicated music track once. This will switch tracks if other music was already playing. |
 | [Play Music](https://splashkit.io/api/audio/#play-music-named-with-times) | the name of the loaded music, a number of times to play | Plays the indicated music track the number of times indicated (-1 means infinitely). |
 | [Fade Music In](https://splashkit.io/api/audio/#fade-music-in-named) | the name of the loaded music, and a number of milliseconds (int) | Plays the indicated music track, starting softly and increasing to full volume over the indicated time. |
@@ -79,7 +78,7 @@ As with sound effects, The Ogg Vorbis format works best with SplashKit for music
 | [Set Music Volume](https://splashkit.io/api/audio/#set-music-volume) | a value between 0 and 1.0 (float) | Set the volume to a proportion of full volume. |
 | [Stop Music](https://splashkit.io/api/audio/#stop-music) | none | Stops the music playing. |
 
-These have the following declarations in C#:
+These have the following declarations in C++:
 
 ```c++
 // These need:
@@ -129,7 +128,6 @@ int main()
 
     stop_music();
     delay(2500);
-
 }
 ```
 
