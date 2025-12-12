@@ -1,6 +1,7 @@
 ---
 title: "Comments"
 ---
+import CommmonLink from '/src/components/CommonLink.astro'
 
 A program's source code contains instructions for the computer to perform. Although code is ultimately written for the computer, it is also written, read, and maintained by people. Because of this, it is useful to be able to place comments in our code to help anyone reading it understand how it works. These comments are not something to be translated into machine code, it is for us humans.
 
@@ -19,6 +20,7 @@ Some good practices include adding comments outlining the steps within your code
 The following diagram shows the syntax for code comments in C++.
 
 ![The syntax for code comments in C++.](./images/program-creation/CommentsSyntax.png "The syntax of comments")
+<CommmonLink type="syntaxDiagramGuide"/>
 :::
 
 
@@ -67,7 +69,7 @@ int main()
 <details>
   <summary role="button">Answers</summary>
   <ul>
-    <li><strong>1: </strong>No, this is not a valid code comment in C++. Let's break down why. The first <code>/*</code> will start the comment as expected. The second <code>/*</code> will then be considered part of the comment text, as will the text "my comment". This is all fine, but then the first <code>*/</code> will end the comment. This means the second <code>*/</code> will not be considered part of the comment text. It also won't be considered valid syntax to end a comment, because there is technically no matching syntax to start a comment, so the computer will try to interpret it as an instruction. Because <code>*/</code> on its own is not a valid instruction, this will crash your program. Try it out and see!</li>
+    <li><strong>1: </strong>No, this is not a valid code comment in C++. Let's break down why. The first `/*` will start the comment as expected. The second `/*` will then be considered part of the comment text, as will the text "my comment". This is all fine, but then the first `*/` will end the comment. This means the second `*/` will not be considered part of the comment text. It also won't be considered valid syntax to end a comment, because there is technically no matching syntax to start a comment, so the computer will try to interpret it as an instruction. Because `*/` on its own is not a valid instruction, this will crash your program. Try it out and see!</li>
   </ul>
 </details>
 
