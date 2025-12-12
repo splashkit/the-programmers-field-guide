@@ -6,8 +6,10 @@ This chapter is all about the tools you need to build and run your own programs.
 
 ## Approaching the Chapter
 
-- Review the [Concept Inventory](/book/part-0-getting-started/1-building-programs/1-concept-inventory) to see how concepts connect together.
-- Work through the [Intro Tour](/book/part-0-getting-started/1-building-programs/3-guided-tour/1-install) to install the tools you need, and see how to use them.
+- Walk through the [Intro Tour](/book/part-0-getting-started/1-building-programs/3-guided-tour/1-install) to see how to build and run programs.
+- Install the tools you need, and test these out yourself by following the [Guided Tour](/book/part-0-getting-started/1-building-programs/3-guided-tour/0-overview).
+- Try out the [Activities](/book/part-0-getting-started/1-building-programs/4-activities/1-group-activity) to explore the idea with others and to see that you can reproduce these steps yourself!
+- Review the [Reference](/book/part-0-getting-started/1-building-programs/5-reference/1-programs) section to go into this more deeply, or to get extra information as needed.
 
 ## Learning Goals
 
