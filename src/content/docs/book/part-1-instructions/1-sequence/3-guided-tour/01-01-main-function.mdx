@@ -1,0 +1,44 @@
+---
+title: Main function
+sidebar:
+    label: " - Main function"
+---
+import { Steps } from '@astrojs/starlight/components';
+
+Before we start writing our house drawing instructions, first we need to briefly understand how instructions are organised in C++.
+
+## Where do we start from?
+In C++, all the instructions we write are organised into groups, called functions or procedures (we'll learn a lot more about these in [Part 2](/book/part-2-organised-code/1-structuring-code/0-overview)!).
+
+There can be many functions/procedures in the one program, so we also need to indicate which one the program starts from. This is where the `main` function comes in - it forms the starting point for a C/C++ program. Have a look at the diagram below - the code within the braces (`{ ... }`) is what runs when the program starts.
+
+![Illustration of main](./images/main-function-pano.png)
+
+:::note[Main...]
+
+- is a function that contains our program's code.
+- runs when the program is started.
+- should end with `return 0;`
+
+:::
+
+## Let's write it
+Let's start writing our program by getting our `main` function set up!
+
+<Steps>
+1. Open a folder in VS Code, create a new `.cpp` file, and open it. Refer [here](/book/part-0-getting-started/1-building-programs/3-guided-tour/3-first-project/) if you get stuck.
+
+2. Let's add the [#include directive](/book/part-1-instructions/1-sequence/0-panorama/1-method-library) to access the SplashKit library, and an empty `main` function. Below is some code you can use:
+    ```cpp
+    #include "splashkit.h"
+
+    int main()
+    {
+        // The code within these braces is run when the program starts
+        return 0;
+    }
+    ```
+    We will go into details on how the `main` function works in the [next part](/book/part-2-organised-code/1-structuring-code/0-overview). For now, you will just need to enter this code as is, and make sure any instructions you want to run occur between the starting `{` and the `return 0; }` command that appears at the end.
+
+    We now have an empty program set up, ready for us to add instructions in to.
+</Steps>
