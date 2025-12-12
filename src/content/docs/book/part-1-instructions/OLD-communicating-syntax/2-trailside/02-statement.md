@@ -35,8 +35,6 @@ Write("We are the keepers of the sacred words:");
 WriteLine(" 'Ni', 'Peng', and 'Neee-wom !'");
 WriteLine("The Knights Who Say 'Ni' demand a sacrifice.");
 WriteLine("We want .... a shrubbery!");
-
-return 0;
 ```
 
 :::note[Summary]
