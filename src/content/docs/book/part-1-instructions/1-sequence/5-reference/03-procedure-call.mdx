@@ -99,65 +99,65 @@ export const sliderImages = [
   },
 ]
 
-A method call is an instruction that gets the computer to run the code in a [method](/book/part-1-instructions/1-sequence/2-trailside/02-method). You use the name of the method to identify which method you want to run. Some methods require data, which you must pass as **arguments** to the method as part of the method call.
+A procedure call is an instruction that gets the computer to run the code in a [procedure](/book/part-1-instructions/1-sequence/2-trailside/02-procedure). You use the name of the procedure to identify which procedure you want to run. Some procedures require data, which you must pass as **arguments** to the procedure as part of the procedure call.
 
-![A method calls runs a method, passing in values for the method to use](./images/method-call-concept.png "A method calls runs a method, passing in values for the method to use")
+![A procedure calls runs a procedure, passing in values for the procedure to use](./images/procedure-call-concept.png "A procedure calls runs a procedure, passing in values for the procedure to use")
 
-## Method Call -- when, why, and how
+## Procedure Call -- when, why, and how
 
-As you have seen, [methods](/book/part-1-instructions/1-sequence/2-trailside/02-method) are building blocks that contain instructions that do a task -- sort of like mini-programs. A large part of your code will be calling methods to get them to do things you need done, in the order you need them done.
+As you have seen, [procedures](/book/part-1-instructions/1-sequence/2-trailside/02-procedure) are building blocks that contain instructions that do a task -- sort of like mini-programs. A large part of your code will be calling procedures to get them to do things you need done, in the order you need them done.
 
-When you are thinking about calling a method, you need to know what it does, what to give it, and what it will give you back. Writing the code to call a method is then simple: you just provide the name, and a list of values for arguments.
+When you are thinking about calling a procedure, you need to know what it does, what to give it, and what it will give you back. Writing the code to call a procedure is then simple: you just provide the name, and a list of values for arguments.
 
-:::note[Method Call]
+:::note[Procedure Call]
 
-- Know what the method does
+- Know what the procedure does
 - Know what arguments you need to give it
 - Know what it gives you back
 
 :::
 
-The name of a method should help you know what that method does, and the method's documentation will help you understand what you need to provide the method for it to do its job.
+The name of a procedure should help you know what that procedure does, and the procedure's documentation will help you understand what you need to provide the procedure for it to do its job.
 
 ### Arguments
 
-When you call a Method, you need to pass a value for each argument. This value can be a [literal](/book/part-1-instructions/1-sequence/2-trailside/05-literal) or calculated value known as an [expression](/book/part-1-instructions/1-sequence/2-trailside/04-expression).
+When you call a Procedure, you need to pass a value for each argument. This value can be a [literal](/book/part-1-instructions/1-sequence/2-trailside/05-literal) or calculated value known as an [expression](/book/part-1-instructions/1-sequence/2-trailside/04-expression).
 
 ### Overloading
 
-Languages like C# support something called **overloading**. Overloading lets programmers create multiple methods with the same name but different arguments. Each method with the same name should do the same general action, but provide a different option for the data you can pass in. For example, library might provide two versions of a method to print data to the terminal -- one where you can pass in text, and another where you can pass in a number.
+Languages like C# support something called **overloading**. Overloading lets programmers create multiple procedures with the same name but different arguments. Each procedure with the same name should do the same general action, but provide a different option for the data you can pass in. For example, library might provide two versions of a procedure to print data to the terminal -- one where you can pass in text, and another where you can pass in a number.
 
-Overloading gives programmers even more flexibility in how they ask the computer to do things. If you look at the [SplashKit documentation](https://splashkit.io/api/) you will see several examples of overloaded methods. So make sure to pay attention to which version of a method you want to call, and the arguments you will need to pass for that version.
+Overloading gives programmers even more flexibility in how they ask the computer to do things. If you look at the [SplashKit documentation](https://splashkit.io/api/) you will see several examples of overloaded procedures. So make sure to pay attention to which version of a procedure you want to call, and the arguments you will need to pass for that version.
 
-### Method Calls and Sequence
+### Procedure Calls and Sequence
 
-Method calls are one instruction that gives you control of the **program counter**. A method call will save the current state of your program, and then set the program counter to the first instruction within the method. The sequence will then progress through the method, and when it ends, the location of the next instruction after the method call will be put into the program counter. In this way, the method is called and then **returns** to where it was called from. This allows us to maintain our focus on **sequence**. A method call lets you *direct* the sequence into the method and then back to your next instruction. As you read, design, or work with code for your program, you can focus on the program's **sequence** and not worry about what happens within the methods you call.
+Procedure calls are one instruction that gives you control of the **program counter**. A procedure call will save the current state of your program, and then set the program counter to the first instruction within the procedure. The sequence will then progress through the procedure, and when it ends, the location of the next instruction after the procedure call will be put into the program counter. In this way, the procedure is called and then **returns** to where it was called from. This allows us to maintain our focus on **sequence**. A procedure call lets you *direct* the sequence into the procedure and then back to your next instruction. As you read, design, or work with code for your program, you can focus on the program's **sequence** and not worry about what happens within the procedures you call.
 
 ## In C#
 
-A method call allows you to run the code in a [method](/book/part-1-instructions/1-sequence/2-trailside/02-method), getting its instructions to run before control returns to the point where the method was called.
+A procedure call allows you to run the code in a [procedure](/book/part-1-instructions/1-sequence/2-trailside/02-procedure), getting its instructions to run before control returns to the point where the procedure was called.
 
 :::tip[Syntax]
-A method call looks like a single instruction in your source code.
+A procedure call looks like a single instruction in your source code.
 The C# syntax for one is structured like this:
 
-![The syntax of a method call](./images/method-call.png "The syntax of a method call")
+![The syntax of a procedure call](./images/procedure-call.png "The syntax of a procedure call")
 :::
 
-A method call consists of a method's name followed by an opening parenthesis, zero or more arguments (delimited by commas), a closing parenthesis, then a semicolon.
+A procedure call consists of a procedure's name followed by an opening parenthesis, zero or more arguments (delimited by commas), a closing parenthesis, then a semicolon.
 
 ## Examples
 
 ### Basic Example
 
-The code below contains a C# program with four method calls. Each method call runs the `WriteLine` method to output text to the terminal.
+The code below contains a C# program with four procedure calls. Each procedure call runs the `WriteLine` procedure to output text to the terminal.
 
-The method call starts with the method's name that indicates the method to be called is `WriteLine`.
+The procedure call starts with the procedure's name that indicates the procedure to be called is `WriteLine`.
 Following the identifier is a list of values within parenthesis.
-These are the arguments passed to the method for it to use.
+These are the arguments passed to the procedure for it to use.
 
-As the `WriteLine` method comes from the `SplashKitSDK.SplashKit`, this example program starts with a [using directive](/book/part-1-instructions/1-sequence/2-trailside/00-program/#in-c) to tell the compiler to look in the `SplashKitSDK.SplashKit` library for any methods that are called.
-Remember that programs run in [sequence](/book/part-1-instructions/1-sequence/2-trailside/01-sequence), so we need to provide this directive *before* writing any code that calls a method from this library.
+As the `WriteLine` procedure comes from the `SplashKitSDK.SplashKit`, this example program starts with a [using directive](/book/part-1-instructions/1-sequence/2-trailside/00-program/#in-c) to tell the compiler to look in the `SplashKitSDK.SplashKit` library for any procedures that are called.
+Remember that programs run in [sequence](/book/part-1-instructions/1-sequence/2-trailside/01-sequence), so we need to provide this directive *before* writing any code that calls a procedure from this library.
 This is why it is convention to put using directives at the start of a program's source code.
 
 :::caution
@@ -175,7 +175,7 @@ WriteLine(0);
 
 ### SplashKit Example
 
-The following code uses three different methods from the [SplashKit](https://splashkit.io) library. You can see the details for these on the [methods page](/book/part-1-instructions/1-sequence/2-trailside/02-method#examples), but the names should give you a good idea of what this does.
+The following code uses three different procedures from the [SplashKit](https://splashkit.io) library. You can see the details for these on the [procedures page](/book/part-1-instructions/1-sequence/2-trailside/02-procedure#examples), but the names should give you a good idea of what this does.
 
 ```csharp
 using static SplashKitSDK.SplashKit;
@@ -189,7 +189,7 @@ All of the arguments in this code are using literal values.
 
 ### Example using result
 
-Some methods return data, which you can use within any calculated value ([expression](/book/part-1-instructions/1-sequence/2-trailside/04-expression)) within your code. The following code demonstrates the use of this with the ReadLine method. The result of this is being stored in a variable and then used to output a message.
+Some procedures return data, which you can use within any calculated value ([expression](/book/part-1-instructions/1-sequence/2-trailside/04-expression)) within your code. The following code demonstrates the use of this with the ReadLine procedure. The result of this is being stored in a variable and then used to output a message.
 
 ```cs
 string name;
@@ -199,7 +199,7 @@ name = ReadLine();
 WriteLine($"Hello {name}!");
 ```
 
-The following code demonstrates the use of the values returned by the `RandomColor` and `Rnd` methods.
+The following code demonstrates the use of the values returned by the `RandomColor` and `Rnd` procedures.
 
 ```csharp
 using static SplashKitSDK.SplashKit;
@@ -210,7 +210,7 @@ RefreshScreen();
 Delay(1000 * Rnd(10));
 ```
 
-Line 4 demonstrates the use of the result from calling `RandomColor` within the call to `ClearScreen`. In this case, the value returned from the `RandomColor` method becomes the value for the argument passed to `ClearScreen`. As you would expect, this will clear the screen to a Test color.
+Line 4 demonstrates the use of the result from calling `RandomColor` within the call to `ClearScreen`. In this case, the value returned from the `RandomColor` procedure becomes the value for the argument passed to `ClearScreen`. As you would expect, this will clear the screen to a Test color.
 
 Line 6 demonstrates this again, where the result of `1000 * Rnd(10)` is passed to `Delay`. The easiest way to approach this is to consider each value independently. `Rnd(10)` will return a random value between 0 and 10 -- let us imagine this returns `6`. In this case, `1000 * Rnd(10)` would become `1000 * 6`, as the value **returned** by `Rnd(10)` was `6`. This is then evaluated, and `Delay` will be passed the argument `6000`, causing it to delay for 6 seconds.
 
@@ -222,9 +222,9 @@ Review the following images to explore how procedure calls work within the compu
 
 :::note[Summary]
 
-- A method call is an **instruction** that commands the computer to run the code in a method.
-- Use a method's name to identify the method to run.
-- Data values passed to a method are called **arguments**. These are put between parentheses after the method name.
-- When a method’s task is complete the program continues with the next instruction after the method call.
+- A procedure call is an **instruction** that commands the computer to run the code in a procedure.
+- Use a procedure's name to identify the procedure to run.
+- Data values passed to a procedure are called **arguments**. These are put between parentheses after the procedure name.
+- When a procedure’s task is complete the program continues with the next instruction after the procedure call.
 
 :::

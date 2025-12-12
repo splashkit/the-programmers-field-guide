@@ -13,58 +13,52 @@ Comments do not change how your program runs, so why bother? Well, getting thing
 
 Some good practices include adding comments outlining the steps within your code. This becomes more important as your programs get bigger and more complex.
 
-## In C#
+## In C++
 
 :::tip[Syntax]
-The following diagram shows the syntax for code comments in C#.
+The following diagram shows the syntax for code comments in C++.
 
-![The syntax for code comments in C#.](./images/program-creation/CommentsSyntax.png "The syntax of comments")
+![The syntax for code comments in C++.](./images/program-creation/CommentsSyntax.png "The syntax of comments")
 :::
 
 
-There are two types of comments in C#:
+There are two types of comments in C++:
 
 1. **Block comments** begin with `/*` and end with `*/` and contain any text in between these, including new lines.
 2. **Line comments** begin with `//` and end with a new line.
 
 ## Example
 
-The following code shows an example of both block and line comments in C#.
+The following code shows an example of both block and line comments in C++.
 
-```csharp
-/* 
- * This program calculates the area of a circle based on the radius. 
- * Variables:
- *  - the radius as a double
- *  - the area as a double
- *  - a line string to read text from the user
- */
+```c++
+#include "splashkit.h"
 
-using static System.Convert;
-using static SplashKitSDK.SplashKit;
+int main()
+{
+    /*
+     * This program greets the user.
+     * Data literals:
+     *  - the initial greeting and message at the end
+     *  - the delay between the two
+     */
 
-// Setup constants and variables
-const double PI = 3.1415;
-string line;
-double radius, area;
+    // Say hi to the user
+    write_line("Hello there!");
 
-// Get data from the user
-Write("Radius: ");
-line = ReadLine();
-radius = ToDouble(line);
+    // Delay 1 second
+    delay(1000);
 
-// Calculate area
-area = PI * radius * radius;
-
-// Output area
-WriteLine(area);
+    // Say bye to the user
+    write_line("Well, bye!");
+}
 ```
 
 ## Activities
 
-1. Is the following a valid comment in C#? Why/why not?
+1. Is the following a valid comment in C++? Why/why not?
 
-```csharp
+```c++
 /* 
   /* my comment */ 
 */
@@ -73,7 +67,7 @@ WriteLine(area);
 <details>
   <summary role="button">Answers</summary>
   <ul>
-    <li><strong>1: </strong>No, this is not a valid code comment in C#. Let's break down why. The first <code>/*</code> will start the comment as expected. The second <code>/*</code> will then be considered part of the comment text, as will the text "my comment". This is all fine, but then the first <code>*/</code> will end the comment. This means the second <code>*/</code> will not be considered part of the comment text. It also won't be considered valid syntax to end a comment, because there is technically no matching syntax to start a comment, so the computer will try to interpret it as an instruction. Because <code>*/</code> on its own is not a valid instruction, this will crash your program. Try it out and see!</li>
+    <li><strong>1: </strong>No, this is not a valid code comment in C++. Let's break down why. The first <code>/*</code> will start the comment as expected. The second <code>/*</code> will then be considered part of the comment text, as will the text "my comment". This is all fine, but then the first <code>*/</code> will end the comment. This means the second <code>*/</code> will not be considered part of the comment text. It also won't be considered valid syntax to end a comment, because there is technically no matching syntax to start a comment, so the computer will try to interpret it as an instruction. Because <code>*/</code> on its own is not a valid instruction, this will crash your program. Try it out and see!</li>
   </ul>
 </details>
 

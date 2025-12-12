@@ -13,11 +13,11 @@ The concept map below shows the concepts related to literals.
 
 ## Literals -- when, why, and how
 
-Your instructions need data, and one way you can provide it is by literally typing data into the code itself. A literal on its own is a valid expression (though you may also want to look at using [constants](/book/part-1-instructions/1-sequence/2-trailside/07-variable/#constants) to make this clearer), but literals can also be combined with values from variables to help you calculate new values. Literals can also be used in expressions just with other literals if you want.
+Your instructions need data, and one way you can provide it is by literally typing data into the code itself. A literal on its own is a valid expression (though in the next chapter we'll find out how to give them names to make this clearer, using [constants](/book/part-1-instructions/1-data/2-trailside/07-variable/#constants TODO)), but literals can also be combined with values from variables to help you calculate new values. Literals can also be used in expressions just with other literals if you want.
 
-## In C#
+## In C++
 
-The diagram below shows the syntax for the different literal values you can enter into your C# code. Most of these are self-evident, so do not worry overly about studying the syntax in detail.
+The diagram below shows the syntax for the different literal values you can enter into your C++ code. Most of these are self-evident, so do not worry overly about studying the syntax in detail.
 
 :::tip[Syntax]
 ![The syntax of a literal.](./images/program-creation/LiteralSyntax.png "The syntax of a literal")
@@ -26,7 +26,7 @@ The diagram below shows the syntax for the different literal values you can ente
 Data falls into one of two categories:
 
 1. **Numbers**: a number can have a sign, and can be whole or real. Whole numbers have no decimal places, and real numbers can have decimal places. For example, `127`, `-8711`, and `+10` are all whole numbers. An example of a real number is `3.1415` or `-2.78349`.
-2. **Text**: text is anything typed within double quotes, and a character is a single alphanumeric value typed between single quotes. Within text data, you can use the `\` character to indicate that the next character has a special meaning. We call this '*escaping*' a character. The following list includes the most useful special characters in C#:
+2. **Text**: text is anything typed within double quotes, and a character is a single alphanumeric value typed between single quotes. Within text data, you can use the `\` character to indicate that the next character has a special meaning. We call this '*escaping*' a character. The following list includes the most useful special characters in C++:
    * `\n` creates a new line
    * `\"` creates a double quote character
    * `\\` creates a `\` character
@@ -67,6 +67,6 @@ For each of the follow, identify if the value listed or used in an instruction i
 * A literal is a number or text value entered directly into a program's source code.
 * A literal can be part or all of an [expression](/book/part-1-instructions/1-sequence/2-trailside/04-expression).
 * Literal values are **hard-coded** into a program, meaning they do not change when it is run.
-* The backslash character `\` in C# is used to indicate that the character that directly follows it has a special meaning.
+* The backslash character `\` in C++ is used to indicate that the character that directly follows it has a special meaning.
 
 :::

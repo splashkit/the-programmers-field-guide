@@ -1,75 +1,79 @@
 ---
-title: Methods to Use
+title: Procedures to Use
 ---
 
-At this point the programs we create will include sequences of method calls, with variables that we can use to work with data within our program.
+At this point the programs we create will include sequences of procedure calls, with variables that we can use to work with data within our program.
 
-To build programs we will need to have some [methods](/book/part-1-instructions/1-sequence/2-trailside/02-method) that we can [call](/book/part-1-instructions/1-sequence/2-trailside/03-method-call). The great this is that [library](/book/part-1-instructions/1-sequence/2-trailside/10-library) creators will describe the methods that they have created so that we can find and use them. In order to use this documentation we need to know how these methods will be described.
+To build programs we will need to have some [procedures](/book/part-1-instructions/1-sequence/2-trailside/02-procedure) that we can [call](/book/part-1-instructions/1-sequence/2-trailside/03-procedure-call). The great this is that [library](/book/part-1-instructions/1-sequence/2-trailside/10-library) creators will describe the procedures that they have created so that we can find and use them. In order to use this documentation we need to know how these procedures will be described.
 
-## Method Declarations
+## Procedure Declarations
 
-Methods are usually communicated using part of their declaration. We will look at building these ourselves in [Part 2](/book/part-2-organised-code/2-organising-code/0-overview), but for now we need to know some basics so that we can start calling methods.
+Procedures are usually communicated using part of their declaration. We will look at building these ourselves in [Part 2](/book/part-2-organised-code/2-organising-code/0-overview), but for now we need to know some basics so that we can start calling procedures.
 
-![Method declaration visualisation](./images/method-decl.png)
+![Procedure declaration visualisation](./images/procedure-decl.png)
 
-The above image helps show the components of a method declaration. The key parts are:
+The above image helps show the components of a procedure declaration. The key parts are:
 
-- The *name* of the method. Remember, to call the method you use its name.
-- The variables and types of any *arguments* you will need to pass when you call the method. These will be listed as variables after the method name in parentheses.
+- The *name* of the procedure. Remember, to call the procedure you use its name.
+- The variables and types of any *arguments* you will need to pass when you call the procedure. These will be listed as variables after the procedure name in parentheses.
 - You can also see the type of data that is returned (where `void` means none).
-- You also need to check that the method is `public` and `static`. We can call these directly if you have `using static ClassName;` at the top of your code file. For example, `WriteLine` is in the `SplashKitSDK.SplashKit` code, so you can call it if you have `using static SplashKitSDK.SplashKit` at the top of the code.
 
-The following code snippets show example method declarations.
+The following code snippets show example procedure declarations.
 
-```cs
-public static void WriteLine (string value);
+```c++
+void write_line(string value);
 ```
 
-This is available to call directly, as it is `public` and `static`. We can use this in our code using:
+```c++
+#include "splashkit.h"
 
-```cs
-using static SplashKitSDK.SplashKit;
-
-WriteLine("Hello World");
+int main()
+{
+    write_line("Hello World");
+}
 ```
 
-The following shows the declaration of the [Open Window](https://splashkit.io/api/windows/#open-window) method from the SplashKit documentation. It is similar to the code above, but also includes the class name so that you know where the method exists. We can call it directly as it is `public` and `static`.
+The following shows the declaration of the [Open Window](https://splashkit.io/api/windows/#open-window) procedure from the SplashKit documentation.
 
-```cs
-public static Window OpenWindow(string caption, int width, int height);
+```c++
+window open_window(string caption, int width, int height);
 ```
 
-This is in the `SplashkitSDK.SplashKit` class, so you can call the `OpenWindow` method using the following code. It will pass "This is the caption" to the `caption` data, 800 to the `width`, and 600 to the `height`. The code will return a `Window` value, which we can ignore or store in a `Window` variable.
+You can call the `open_window` procedure using the following code. It will pass "This is the caption" to the `caption` data, 800 to the `width`, and 600 to the `height`. The code will return a `window` value, which we can ignore or store in a `window` variable.
 
-```cs
-using static SplashkitSDK.SplashKit;
+```c++
+#include "splashkit.h"
 
-OpenWindow("This is the caption", 800, 600);
+int main()
+{
+    open_window("This is the caption", 800, 600);
+
+    delay(1000); // show the window for 1 second
+}
 ```
 
 For the final example let's look at [Fill Circle](https://splashkit.io/api/graphics/#fill-circle) and [Color Red](https://splashkit.io/api/color/#color-red). These have the following declaration on the SplashKit website.
 
-```cs
-public static void FillCircle(Color clr, double x, double y, double radius);
-public static Color ColorRed();
+```c++
+void fill_circle(color clr, double x, double y, double radius);
+color color_red();
 ```
 
-We can see from its declaration that we can call these (they are public and static). Their names are `FillCircle` and `ColorRed`. Will `FillCircle` we need to pass it a Color, and three double values. `ColorRed` does not need to be passed anything, and will return a Color value. The following is an example of calling this method. Here we use the result of `ColorRed()` as the value passed into the color for `FillCircle`.
+We can see that their names are `fill_circle` and `color_red`. Will `fill_circle` we need to pass it a `color`, and three `double` values. `color_red` does not need to be passed anything, and will return a `color` value. The following is an example of calling this procedure. Here we use the result of `color_red()` as the value passed into the color for `fill_circle`.
 
-```cs
-using static SplashkitSDK.SplashKit;
+```c++
+#include "splashkit.h"
 
-OpenWindow("This is the caption", 800, 600);
-ClearScreen(ColorWhite());
+int main()
+{
+    open_window("This is the caption", 800, 600);
+    clear_screen(color_white());
 
-FillCircle(ColorRed(), 400, 300, 100);
-RefreshScreen();
+    fill_circle(color_red(), 400, 300, 100);
+    refresh_screen();
+
+    delay(1000); // show the window for 1 second
+}
 ```
 
-In the next pages we will list the different methods that you will use to complete the activities in this chapter both for terminal and graphical programs.
-
-## Other Websites
-
-You can call these methods on the *class* in which they are defined, and we will work up to this over the next few parts. To simplify things, we want to avoid doing this for now and instead call these directly as we have seen here.
-
-When you read other websites, you will often see them calling methods like this: `Console.WriteLine();`. This is the equivalent of calling `WriteLine();` when you have `using static System.Console;` at the top of your code. When you find code like this, you will need to convert it so that you can call the method directly. We are not using the `System.Console` version of `WriteLine` as it uses language features we have not covered yet.
+In the next pages we will list the different procedures that you will use to complete the activities in this chapter both for terminal and graphical programs.
