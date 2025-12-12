@@ -4,6 +4,7 @@ import react from "@astrojs/react";
 import starlightLinksValidator from "starlight-links-validator";
 import sitemap from "@astrojs/sitemap";
 import starlightAutoSidebar from 'starlight-auto-sidebar'
+import starlightImageZoom from 'starlight-image-zoom'
 
 // TODO: new structure
 //
@@ -67,6 +68,7 @@ export default defineConfig({
           errorOnRelativeLinks: true,
         }),
         starlightAutoSidebar(),
+        starlightImageZoom(),
       ],
       sidebar: [
         {
