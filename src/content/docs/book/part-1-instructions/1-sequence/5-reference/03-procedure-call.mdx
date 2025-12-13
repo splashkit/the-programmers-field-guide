@@ -211,7 +211,7 @@ int main()
 }
 ```
 
-The following code demonstrates the use of the values returned by the `RandomColor` and `Rnd` procedures.
+The following code demonstrates the use of the values returned by the `random_color` and `rnd` procedures.
 
 ```c++
 #include "splashkit.h"
@@ -225,9 +225,9 @@ int main()
 }
 ```
 
-Line 4 demonstrates the use of the result from calling `RandomColor` within the call to `ClearScreen`. In this case, the value returned from the `RandomColor` procedure becomes the value for the argument passed to `ClearScreen`. As you would expect, this will clear the screen to a Test color.
+Line 4 demonstrates the use of the result from calling `random_color` within the call to `clear_screen`. In this case, the value returned from the `random_color` procedure becomes the value for the argument passed to `clear_screen`. As you would expect, this will clear the screen to a Test color.
 
-Line 6 demonstrates this again, where the result of `1000 * Rnd(10)` is passed to `Delay`. The easiest way to approach this is to consider each value independently. `Rnd(10)` will return a random value between 0 and 10 -- let us imagine this returns `6`. In this case, `1000 * Rnd(10)` would become `1000 * 6`, as the value **returned** by `Rnd(10)` was `6`. This is then evaluated, and `Delay` will be passed the argument `6000`, causing it to delay for 6 seconds.
+Line 6 demonstrates this again, where the result of `1000 * rnd(10)` is passed to `delay`. The easiest way to approach this is to consider each value independently. `rnd(10)` will return a random value between 0 and 10 -- let us imagine this returns `6`. In this case, `1000 * rnd(10)` would become `1000 * 6`, as the value **returned** by `rnd(10)` was `6`. This is then evaluated, and `delay` will be passed the argument `6000`, causing it to delay for 6 seconds.
 </div>
 
 ## Procedure Calls Up Close
