@@ -1,21 +1,21 @@
 ---
-title: Terminal Methods
+title: Terminal Procedures/Functions
 sidebar:
-    label: " - Terminal Methods"
+    label: " - Terminal Procedures/Functions"
 ---
 
-Interacting with the terminal is pretty simple in code. There are basically three methods that you need to care about: `write_line`, `write`, and `read_line`.
+Interacting with the terminal is pretty simple in code. There are basically three procedures/functions that you need to care about: `write_line`, `write`, and `read_line`.
 
 ## Writing to the terminal
 
-When you want to display something on the terminal, you use either the `write_line` or `write` method. There are lots of different versions of these methods which will allow you to pass many values to be output - so we can think of these as having this declaration, where `...` is replaced with data of the different basic data types (integers, numbers, text):
+When you want to display something on the terminal, you use either the `write_line` or `write` procedure. There are lots of different versions of these procedures which will allow you to pass many values to be output - so we can think of these as having this declaration, where `...` is replaced with data of the different basic data types (integers, numbers, text):
 
 ```c++
 void write_line(...);
 void write(...);
 ```
 
-These methods differ only slightly. `write_line` writes your text, and then starts a new line. `write` on the other hand just stays on the same line. Here's a table showing the difference:
+These procedures differ only slightly. `write_line` writes your text, and then starts a new line. `write` on the other hand just stays on the same line. Here's a table showing the difference:
 <table style="margin: auto; display: table;">
   <tr><th>Example code</th><th>Output</th></tr>
   <tr><td>
@@ -53,9 +53,9 @@ These methods differ only slightly. `write_line` writes your text, and then star
 
 ## Reading from the terminal
 
-You can use the Terminal for input as well as output. The `read_line` method allows you to read data from the Terminal, capturing the text the user types, placing it in a string, and returning it to you in a string when the user hits the enter or return key.
+You can use the Terminal for input as well as output. The `read_line` function allows you to read data from the Terminal, capturing the text the user types, placing it in a string, and returning it to you in a string when the user hits the enter or return key.
 
-You can think of this as having the following method declaration:
+You can think of this as having the following function declaration:
 
 ```c++
 string read_line();
@@ -73,21 +73,11 @@ double to_double(string value);
 string to_string(...);
 ```
 
-SplashKit also has some string manipulation functions - the following two will come in handy:
+SplashKit also has some string manipulation functions - the following two might come in handy:
 
 ```c++
 string to_lowercase(string value);
 string to_uppercase(string value);
 ```
 
-As you can probably guess, `to_lower` return an all-lowercase version of the input string, while `to_upper` returns an all-uppercase version.
-
-## Delaying
-
-For delays, we can use the aptly named `delay` procedure. It pauses the program for the number of milliseconds provided - for reference, 1000 milliseconds is one second.
-
-```c++
-void delay(int milliseconds);
-```
-
-Hopefully you can recall this from the Guided Tour in the previous section :)
+As you can probably guess, `to_lowercase` return an all-lowercase version of the input string, while `to_uppercase` returns an all-uppercase version.
