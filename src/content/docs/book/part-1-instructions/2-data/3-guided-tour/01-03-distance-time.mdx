@@ -4,6 +4,7 @@ sidebar:
   label: " - Read distance and time"
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from '@astrojs/starlight/components';
 
 Now you have a start, you keep progressing in the same way. Building up the code in small increments. For the next step, let's read in the distance and time. This will need us to convert the data entered from text (what we read from the user) to numbers we can work with in the code.
 
@@ -18,6 +19,7 @@ How far have you travelled so far? Enter km: 5.2
 How long has it taken? Enter minutes: 7
 ```
 
+<Steps>
 1. What new things do we have that changing now?
 
     Both the distance and time may be different. These are numeric values, so they could either be `int` or `double` values. Integers are whole numbers, doubles are real values.
@@ -73,3 +75,4 @@ How long has it taken? Enter minutes: 7
     The program will crash is you enter something other than a number for distance and time. This is ok for now. We will see how to fix this later.
 
     :::
+</Steps>

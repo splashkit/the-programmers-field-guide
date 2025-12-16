@@ -1,14 +1,16 @@
 ---
-title: Step 2 - Open Window
+title: Step 3 - Open Window
 sidebar:
   label: " - Open Window"
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from '@astrojs/starlight/components';
 
 ![Illustration of window dimensions](../5-reference/images/window-dimensions.png)
 
 The first step in building a graphical program is to open a window. We can then draw onto this. In order to see the picture, we need to also keep the window around for a few seconds before the program ends.
 
+<Steps>
 1. Add a call to open a window that we can draw onto.
 
     In SplashKit you can open a window to draw onto. To open the window you call the `open_window` procedure, and pass it the window’s title, its width and its height.
@@ -39,4 +41,4 @@ The first step in building a graphical program is to open a window. We can then 
     </Accordion>
 
 3. Compile and run your program. You should see a window open. It should be rectangular, and have the title you set. After five seconds it should close.
-
+</Steps>
