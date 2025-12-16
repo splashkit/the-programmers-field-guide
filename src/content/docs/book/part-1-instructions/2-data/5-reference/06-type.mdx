@@ -125,8 +125,8 @@ For example, `stoi("73")` will give you the integer 73 as its result. Similarly,
 
 SplashKit also provides convenient helper functions for this:
 
-- [ToInteger](https://splashkit.io/api/utilities/#to-integer) - can be used to convert a string to an integer.
-- [ToDouble](https://splashkit.io/api/utilities/#to-double) - can be used to convert a string to a double.
+- [`to_integer`](https://splashkit.io/api/utilities/#to-integer) - can be used to convert a string to an integer.
+- [`to_double`](https://splashkit.io/api/utilities/#to-double) - can be used to convert a string to a double.
 
 For simple conversions, mostly between different number formats, languages usually also provide an alternate option called **type casting**. With this you can ask the language to reinterpret data in a new format. This is achieved by placing the type within brackets (parenthesis) before the value to be converted. For example, `(int)73.5` will give you the integer 70.
 
@@ -150,8 +150,8 @@ Let's revisit our table of example expressions, this time adding another column 
 | `11 % 3`                    | 2                                       |  int     |
 | `3 / 2.0`                   | 1.5                                     |  double  |
 | `1 + (3 / 2.0) + 6 * 2 - 8` | 6.5                                     |  double  |
-| `ToInt32("81")` | 81                                     |  int  |
-| `ToDouble("27.5")` | 27.5                                     |  double  |
+| `to_integer("81")`          | 81                                      |  int     |
+| `to_double("27.5")`         | 27.5                                    |  double  |
 | `(int)27.5` | 27                                     |  int  |
 
 ## Activities
