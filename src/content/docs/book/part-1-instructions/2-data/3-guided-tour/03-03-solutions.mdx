@@ -5,52 +5,53 @@ import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 ## Airspeed Velocity
 
-Here is our version of the Airspeed velocity program code. When building your own version of this program, you can use this if you get stuck. Remember that your code may be a little different to this, and that is ok. The most important thing is that you create your own version, have a good understanding of how it works, and have developed the knowledge and skills necessary to create similar programs using variable and constant declarations, assignment statements, method calls, and an iterative process.
+Here is our version of the Airspeed velocity program code. When building your own version of this program, you can use this if you get stuck. Remember that your code may be a little different to this, and that is ok. The most important thing is that you create your own version, have a good understanding of how it works, and have developed the knowledge and skills necessary to create similar programs using variable and constant declarations, assignment statements, procedure/function calls, and an iterative process.
 
 <Accordion>
     <AccordionItem header="Airspeed Velocity Code">
 
-    ```csharp
-    using static SplashKitSDK.SplashKit;
-    using static System.Convert;
+    ```c++
+    #include "splashkit.h"
 
     const double STROUHAL_LOW_EFFICIENCY = 0.4;
     const double STROUHAL_HIGH_EFFICIENCY = 0.2;
 
-    string birdName, line;
-    double freq, amp;
+    int main()
+    {
+        string bird_name, line;
+        double freq, amp;
 
-    // Display program details
-    WriteLine("Welcome to the Airspeed Calculator");
-    WriteLine();
+        // Display program details
+        write_line("Welcome to the Airspeed Calculator");
+        write_line();
 
-    // Read in the name, frequency and amplitude
-    WriteLine("What is the name of the bird?");
-    Write("Name: ");
-    birdName = ReadLine();
+        // Read in the name, frequency and amplitude
+        write_line("What is the name of the bird?");
+        write("Name: ");
+        bird_name = read_line();
 
-    WriteLine("What is the frequency of its wing stroke? (beats per second)");
-    Write("Frequency: ");
+        write_line("What is the frequency of its wing stroke? (beats per second)");
+        write("Frequency: ");
 
-    // Read and convert frequency to double
-    line = ReadLine();
-    freq = ToDouble(line);
+        // Read and convert frequency to double
+        line = read_line();
+        freq = to_double(line);
 
-    WriteLine("What is the amplitude of its wings? (centi)");
-    Write("Amplitude: :");
-    line = ReadLine();
-    amp = ToDouble(line);
+        write_line("What is the amplitude of its wings? (centi)");
+        write("Amplitude: :");
+        line = read_line();
+        amp = to_double(line);
 
-    // calculate the airspeed, given a fixed Strouhal value
-    double resultMax, resultMin;
-    resultMax = freq * amp / STROUHAL_HIGH_EFFICIENCY;
-    resultMin = freq * amp / STROUHAL_LOW_EFFICIENCY;
+        // calculate the airspeed, given a fixed Strouhal value
+        double result_max, result_min;
+        result_max = freq * amp / STROUHAL_HIGH_EFFICIENCY;
+        result_min = freq * amp / STROUHAL_LOW_EFFICIENCY;
 
-    // output the airspeed of the bird
-    WriteLine($"Bird {birdName} ");
-    WriteLine($" - f: {freq} A: {amp} Speed: {resultMax} m/s");
-    WriteLine($" - f: {freq} A: {amp} Speed: {resultMin} m/s");
-
+        // output the airspeed of the bird
+        write_line("Bird " + bird_name + " ");
+        write_line(" - f: " + to_string(freq) + " A: " + to_string(amp) + " Speed: " + to_string(result_max) + " m/s");
+        write_line(" - f: " + to_string(freq) + " A: " + to_string(amp) + " Speed: " + to_string(result_min) + " m/s");
+    }
     ```
 
     </AccordionItem>
@@ -63,86 +64,88 @@ As with the Airspeed Velocity code, this is our version of the water bottle visu
 <Accordion>
     <AccordionItem header="Watter Bottle Code">
 
-    ```csharp
-    using static System.Convert;
-    using static SplashKitSDK.SplashKit;
+    ```c++
+    #include "splashkit.h"
 
     const int WINDOW_WIDTH = 600;
     const int WINDOW_HEIGHT = 600;
 
-    /*-------------------------------------\
-    | Water bottle shape...
-    |
-    | BOTTLE_LEFT_X     BOTTLE_RIGHT_X
-    |        |             | 
-    |        v             v 
-    |          ___________
-    |         /           \
-    |   ^    |      x      | <-- x = BOTTLE_CENTER_X
-    |   |    |\___________/|       + BOTTLE_TOP_Y
-    |   |    |             |
-    |   |    | ___________ |
-    |   |    |/           \|
-    |   |    |             | <-- waterY
-    |   |    |\___________/| ^
-    |   |    | ___________ | | waterHeight
-    |   |    |/           \| v
-    |   v    |             | <-- BOTTLE_BASE_Y
-    |         \___________/
-    | BOTTLE_HEIGHT
-    |         <-----x-----> BOTTLE_RADIUS
-    |        BOTTLE_DIAMETER        
-    \-------------------------------------*/
+    int main()
+    {
+        /*-------------------------------------\
+        | Water bottle shape...
+        |
+        | BOTTLE_LEFT_X     BOTTLE_RIGHT_X
+        |        |             |
+        |        v             v
+        |          ___________
+        |         /           \
+        |   ^    |      x      | <-- x = BOTTLE_CENTER_X
+        |   |    |\___________/|       + BOTTLE_TOP_Y
+        |   |    |             |
+        |   |    | ___________ |
+        |   |    |/           \|
+        |   |    |             | <-- water_y
+        |   |    |\___________/| ^
+        |   |    | ___________ | | water_height
+        |   |    |/           \| v
+        |   v    |             | <-- BOTTLE_BASE_Y
+        |         \___________/
+        | BOTTLE_HEIGHT
+        |         <-----x-----> BOTTLE_RADIUS
+        |        BOTTLE_DIAMETER
+        \-------------------------------------*/
 
-    const int BOTTLE_RADIUS = 80;
-    const int BOTTLE_HEIGHT = 400;
-    const int BOTTLE_DIAMETER = BOTTLE_RADIUS * 2; 
-    const int BOTTLE_CENTER_X = WINDOW_WIDTH / 2;
-    const int BOTTLE_LEFT_X = BOTTLE_CENTER_X - BOTTLE_RADIUS;
-    const int BOTTLE_RIGHT_X = BOTTLE_CENTER_X + BOTTLE_RADIUS;
-    const int BOTTLE_BASE_Y = WINDOW_HEIGHT - BOTTLE_RADIUS - 5; // 5 pixel gap
-    const int BOTTLE_TOP_Y = BOTTLE_BASE_Y - BOTTLE_HEIGHT;
+        const int BOTTLE_RADIUS = 80;
+        const int BOTTLE_HEIGHT = 400;
+        const int BOTTLE_DIAMETER = BOTTLE_RADIUS * 2;
+        const int BOTTLE_CENTER_X = WINDOW_WIDTH / 2;
+        const int BOTTLE_LEFT_X = BOTTLE_CENTER_X - BOTTLE_RADIUS;
+        const int BOTTLE_RIGHT_X = BOTTLE_CENTER_X + BOTTLE_RADIUS;
+        const int BOTTLE_BASE_Y = WINDOW_HEIGHT - BOTTLE_RADIUS - 5; // 5 pixel gap
+        const int BOTTLE_TOP_Y = BOTTLE_BASE_Y - BOTTLE_HEIGHT;
 
-    string line;
-    int percentFull;
+        string line;
+        int percent_full;
 
-    WriteLine("Water Bottle Visualiser!");
-    WriteLine();
-    WriteLine("How full us your bottle? (0-100)");
-    WriteLine();
-    Write("Percent: ");
-    line = ReadLine();
+        write_line("Water Bottle Visualiser!");
+        write_line();
+        write_line("How full us your bottle? (0-100)");
+        write_line();
+        write("Percent: ");
+        line = read_line();
 
-    // Convert the text entered to a double
-    percentFull = ToInt32(line);
+        // Convert the text entered to a double
+        percent_full = to_integer(line);
 
-    double waterHeight = BOTTLE_HEIGHT * (percentFull / 100.0);
-    double waterY = BOTTLE_BASE_Y - waterHeight;
+        double water_height = BOTTLE_HEIGHT * (percent_full / 100.0);
+        double water_y = BOTTLE_BASE_Y - water_height;
 
-    OpenWindow("Your Water Bottle", WINDOW_WIDTH, WINDOW_HEIGHT);
-    ClearScreen(ColorWhite());
+        open_window("Your Water Bottle", WINDOW_WIDTH, WINDOW_HEIGHT);
+        clear_screen(color_white());
 
-    // Draw the water
-    // Circle at the top of the water
-    FillCircle(ColorBlue(),  BOTTLE_CENTER_X, waterY, BOTTLE_RADIUS);
+        // Draw the water
+        // Circle at the top of the water
+        fill_circle(color_blue(),  BOTTLE_CENTER_X, water_y, BOTTLE_RADIUS);
 
-    // Circle at the bottom of the bottle
-    FillCircle(ColorBlue(),  BOTTLE_CENTER_X, BOTTLE_BASE_Y, BOTTLE_RADIUS);
-    DrawCircle(ColorBlack(), BOTTLE_CENTER_X, BOTTLE_BASE_Y, BOTTLE_RADIUS);
+        // Circle at the bottom of the bottle
+        fill_circle(color_blue(),  BOTTLE_CENTER_X, BOTTLE_BASE_Y, BOTTLE_RADIUS);
+        draw_circle(color_black(), BOTTLE_CENTER_X, BOTTLE_BASE_Y, BOTTLE_RADIUS);
 
-    // Draw the rest of the water
-    FillRectangle(ColorBlue(), BOTTLE_LEFT_X, waterY, BOTTLE_DIAMETER, waterHeight);
-    DrawCircle(ColorBlack(), BOTTLE_CENTER_X, waterY, BOTTLE_RADIUS);
+        // Draw the rest of the water
+        fill_rectangle(color_blue(), BOTTLE_LEFT_X, water_y, BOTTLE_DIAMETER, water_height);
+        draw_circle(color_black(), BOTTLE_CENTER_X, water_y, BOTTLE_RADIUS);
 
-    // Outline bottle
-    // Draw the left wall of the bottle
-    DrawLine(ColorBlack(), BOTTLE_LEFT_X, BOTTLE_BASE_Y, BOTTLE_LEFT_X, BOTTLE_TOP_Y);
-    // Draw the right wall of the bottle
-    DrawLine(ColorBlack(), BOTTLE_RIGHT_X, BOTTLE_BASE_Y, BOTTLE_RIGHT_X, BOTTLE_TOP_Y);
-    DrawCircle(ColorBlack(), BOTTLE_CENTER_X, BOTTLE_TOP_Y, BOTTLE_RADIUS);
+        // Outline bottle
+        // Draw the left wall of the bottle
+        draw_line(color_black(), BOTTLE_LEFT_X, BOTTLE_BASE_Y, BOTTLE_LEFT_X, BOTTLE_TOP_Y);
+        // Draw the right wall of the bottle
+        draw_line(color_black(), BOTTLE_RIGHT_X, BOTTLE_BASE_Y, BOTTLE_RIGHT_X, BOTTLE_TOP_Y);
+        draw_circle(color_black(), BOTTLE_CENTER_X, BOTTLE_TOP_Y, BOTTLE_RADIUS);
 
-    RefreshScreen();
-    Delay(5000);
+        refresh_screen();
+        delay(5000);
+    }
     ```
 
     </AccordionItem>

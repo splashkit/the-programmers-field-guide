@@ -1,9 +1,10 @@
 ---
-title: Step 3 - Drawing Shapes
+title: Step 4 - Drawing Shapes
 sidebar:
   label: " - Drawing Shapes"
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from '@astrojs/starlight/components';
 
 With the window appearing, the next step is to draw some shapes. To start, let's get the hill drawing.
 
@@ -11,7 +12,7 @@ With the window appearing, the next step is to draw some shapes. To start, let's
 
 *How do you position a shape on the screen?*
 
-Your window is organised to have a number of discrete picture elements (small dots called pixels) that you can draw to. When you created the window you said how many pixels wide it will be, and how many pixels high. The different drawing methods will all need you to pass in coordinates for where the shape should appear.
+Your window is organised to have a number of discrete picture elements (small dots called pixels) that you can draw to. When you created the window you said how many pixels wide it will be, and how many pixels high. The different drawing procedures will all need you to pass in coordinates for where the shape should appear.
 
 ![Pixel locations are based on x and y locations](../5-reference/images/window-pixels.png)
 
@@ -25,6 +26,7 @@ The best way to plan this out is to sketch what you want and to try to figure ou
 
 ![House plan illustration](./images/house-plan.png)
 
+<Steps>
 1. Start by clearing the screen and drawing the filled ellipse.
 
     :::tip
@@ -46,8 +48,6 @@ The best way to plan this out is to sketch what you want and to try to figure ou
           fill_ellipse(color_bright_green(), 0, 400, 800, 400);
 
           delay(5000);
-
-          return 0;
       }
       ```
 
@@ -80,8 +80,6 @@ The best way to plan this out is to sketch what you want and to try to figure ou
           refresh_screen();
 
           delay(5000);
-
-          return 0;
       }
       ```
 
@@ -89,9 +87,11 @@ The best way to plan this out is to sketch what you want and to try to figure ou
     </Accordion>
 
 3. Compile and run again. You should now see the white background and the green hill.
+</Steps>
 
 :::note[Are these hard-coded values ok?]
 
 For this program we are just wanting to draw some fixed shapes, so we can tolerate these hard-coded values for now.
 
+We'll look at improving this later on, in [Dynamic House Drawing](/book/part-1-instructions/2-data/3-guided-tour/02-00-house-drawing/).
 :::

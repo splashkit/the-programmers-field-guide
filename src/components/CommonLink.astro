@@ -1,0 +1,23 @@
+---
+const { type } = Astro.props;
+
+const commonLinks = {
+
+  "syntaxDiagramGuide" : {
+    text: "How should I read this?",
+    link: "/book/appendix/1-syntax/01-how-to-read/",
+    class: "rightSmall",
+  },
+
+};
+
+---
+
+<p class={commonLinks[type].class}><a target="_blank" href={commonLinks[type].link}>{commonLinks[type].text}</a></p>
+
+<style>
+.rightSmall {
+    font-size: 0.9em;
+    text-align: right;
+}
+</style>

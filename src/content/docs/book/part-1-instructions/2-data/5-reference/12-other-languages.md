@@ -16,7 +16,7 @@ Here is an example Python program. Notice the key concepts are the same. These a
 For example, even though Python is a different programming language, in this small program:
 
 - There is a sequence.
-- It has method calls.
+- It has procedure and function calls.
 - There are variables (created when you first use them).
 - Things have a type -- you just can't see what it is as easily.
 - Expressions are calculated before they are used.
@@ -33,7 +33,7 @@ print(f"I like {favNum} too. It is almost as good as {favNum + 1}")
 The differences are smaller things. These little things change between each language, which means learning a language is really about picking up this kind of detail. When you know how to program by focusing on the things above, then you can usually pick up a new language in a few hours with some searching or the use of generative AI to help you find these details.
 For example, some differences in our small Python program are:
 
-- The methods have different names.
+- The procedures and functions have different names.
 - No `;` at the end of each instruction.
 - String interpolation uses `f""` instead of `$""`.
 

@@ -1,6 +1,18 @@
 ---
-title: "Grammar"
+title: "How to read syntax diagrams"
 ---
+import { YouTube } from 'astro-embed';
+
+:::note[Summary]
+Here's a video that summarizes the main points:
+<div class="not-content">
+  <YouTube id="8KeyfyVdsD0" params="fs=1&modestbranding=1&rel=0"/>
+</div>
+
+_Note: This video mentions C# rather than C++ -- luckily the syntax we cover here is identical!_
+
+:::
+
 
 Programming languages are driven by the compilers and interpreters that read and convert your code to machine code instructions. The developers who create these tools have the challenge of writing programs to read and make sense of the code you write. To help with this, they create a **grammar** that describes how code must be written to work with the compiler or interpreter. This section looks at how grammar will be expressed in this guide.
 
@@ -46,7 +58,7 @@ stuff to write in the code
 
 Let's have a look at a more realistic example. The syntax diagram for an identifier is shown below.
 
-![Figure 5.12 The syntax of an Identifier.](./images/program-creation/IdentifierSyntax.png "The syntax of an Identifier")
+![Figure 5.12 The syntax of an Identifier.](./images/identifier.png "The syntax of an Identifier")
 
 There are three **rules** in this diagram: the **identifier** rule
 itself and rules for **letter** and **digit**. These rules show arrows

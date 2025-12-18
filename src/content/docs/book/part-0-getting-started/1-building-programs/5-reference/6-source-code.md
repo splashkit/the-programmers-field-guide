@@ -43,7 +43,6 @@ to the command line.
 int main()
 {
     write_line("Hello");
-    return 0;
 }
 ```
 

@@ -1,17 +1,19 @@
 ---
-title: Step 2 - Open Window
+title: Step 3 - Open Window
 sidebar:
   label: " - Open Window"
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from '@astrojs/starlight/components';
 
 ![Illustration of window dimensions](../5-reference/images/window-dimensions.png)
 
 The first step in building a graphical program is to open a window. We can then draw onto this. In order to see the picture, we need to also keep the window around for a few seconds before the program ends.
 
+<Steps>
 1. Add a call to open a window that we can draw onto.
 
-    In SplashKit you can open a window to draw onto. To open the window you call the `open_window` method, and pass it the window’s title, its width and its height.
+    In SplashKit you can open a window to draw onto. To open the window you call the `open_window` procedure, and pass it the window’s title, its width and its height.
 
     :::tip[Title and size?]
     You can give the window any title and size. Common sizes are usually in 4:3 such as 640x480, 800x600, 1024x768, or widescreen at 16:9 such as 1280x720, or 1920x1080.
@@ -19,7 +21,7 @@ The first step in building a graphical program is to open a window. We can then 
     For this use the title "House Drawing by ..." and add your name, with a width of 800 and a height of 600.
     :::
 
-2. If the program ends after the window is open, then it wont be around for long enough for the user to see. To fix this we can use the `delay` method. You pass it an integer argument for the number of milliseconds to delay. Try delaying for 5000 milliseconds.
+2. If the program ends after the window is open, then it wont be around for long enough for the user to see. To fix this we can use the `delay` procedure. You pass it an integer argument for the number of milliseconds to delay. Try delaying for 5000 milliseconds.
 
     <Accordion>
       <AccordionItem header="Open a window and delay">
@@ -32,8 +34,6 @@ The first step in building a graphical program is to open a window. We can then 
           open_window("House Drawing by Andrew", 800, 600);
 
           delay(5000);
-
-          return 0;
       }
       ```
 
@@ -41,4 +41,4 @@ The first step in building a graphical program is to open a window. We can then 
     </Accordion>
 
 3. Compile and run your program. You should see a window open. It should be rectangular, and have the title you set. After five seconds it should close.
-
+</Steps>

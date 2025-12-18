@@ -6,7 +6,7 @@ sidebar:
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { Steps } from '@astrojs/starlight/components';
 
-Best first step is to build something small, then we can grow the program our from that start. Let's just get the first two messages handled - reading the user's name and displaying it. So we want to see this at the end:
+Now that we know what functions/procedures we can use, let's get started. Best first step is to build something small, then we can grow the program our from that start. Let's just get the first two messages handled - reading the user's name and displaying it. So we want to see this at the end:
 
 ```txt
 What is your name: Andrew
@@ -18,7 +18,7 @@ Hi Andrew.
 
 1. Open a folder in VS Code, and create a new `.cpp` file.
 
-2. Start by adding the [#include directive](/book/part-1-instructions/1-sequence/0-panorama/1-method-library) to access the SplashKit library, and an empty [`main` function](/book/part-1-instructions/1-sequence/3-guided-tour/01-02-main-function/).
+2. Start by adding the [#include directive](/book/part-1-instructions/1-sequence/5-reference/10-library/#in-c) to access the SplashKit library, and an empty [`main` function](/book/part-1-instructions/1-sequence/3-guided-tour/01-01-main-function/).
 
     <Accordion>
       <AccordionItem header="Code with #include directive">
@@ -31,14 +31,13 @@ Hi Andrew.
     int main()
     {
         // Our main code will go here!
-        return 0;
     }
     ```
 
       </AccordionItem>
     </Accordion>
 
-4. As you look at this you, think about whether there are any values that will change. We will need to create [variables](/book/part-1-instructions/1-sequence-and-data/0-panorama/3-variables) to store these.
+4. As you look at this you, think about whether there are any values that will change. We will need to create [variables](/book/part-1-instructions/2-data/5-reference/07-variable/) to store these.
 
     Looking at the first lines, I imagine that we may have different users run this. So their name may change.
 
@@ -50,7 +49,7 @@ Hi Andrew.
 
 6. Review the messages we want to output. To start we want to output the message `"What is your name: "`, read the text and user enters, then output a blank line and the greeting text `"Hi "` followed by the user's name.
   
-    Looking back at the [terminal methods](/book/part-1-instructions/1-sequence/0-panorama/6-terminal-method-to-use), we have methods to output text (`write` and `write_line`), and read text from the user (`read_line`). Use these to display the prompt, and output the required messages.
+    Looking back at the [terminal procedures/functions](/book/part-1-instructions/2-data/3-guided-tour/01-01-terminal), we have procedures to output text (`write` and `write_line`), and functions to read text from the user (`read_line`). Use these to display the prompt, and output the required messages.
 
     <Accordion>
       <AccordionItem header="Reading and using the user name">
@@ -67,8 +66,6 @@ Hi Andrew.
         write_line();
         write_line("Hi " + name + ".");
         write_line();
-
-        return 0;
     }
     ```
 

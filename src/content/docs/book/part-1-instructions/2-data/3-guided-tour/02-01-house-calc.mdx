@@ -1,16 +1,20 @@
 ---
-title: Step 5 - Calculated Size
+title: Calculated Size
 sidebar:
   label: " - Calculated Size"
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from '@astrojs/starlight/components';
 
 ![House output](./images/house-small.png)
 
-Lastly, let's look at adding some constants and variables to make this more dynamic. We will let the user tell us what size the house should be, then calculate the positions for the shapes.
+Let's look at adding some constants and variables to make this more dynamic. We will let the user tell us what size the house should be, then calculate the positions for the shapes.
 
 ![House plan illustration](./images/house-plan-calc.png)
 
+---
+
+<Steps>
 1. Start with positioning the walls. Determine what we need to calculate.
 
     We will need to determine:
@@ -68,8 +72,6 @@ Lastly, let's look at adding some constants and variables to make this more dyna
           refresh_screen();
 
           delay(5000);
-
-          return 0;
       }
       ```
 
@@ -139,12 +141,11 @@ Lastly, let's look at adding some constants and variables to make this more dyna
           refresh_screen();
 
           delay(5000);
-
-          return 0;
       }
       ```
 
       </AccordionItem>
     </Accordion>
+</Steps>
 
 When you have this working you should feel confident that you can start working with graphical programs.

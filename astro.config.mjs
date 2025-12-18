@@ -128,6 +128,15 @@ export default defineConfig({
               },
             },
             {
+              label: "1. Syntax Diagrams",
+              collapsed: true,
+              autogenerate:
+              {
+                directory: "book/appendix/1-syntax",
+                collapsed: true
+              },
+            },
+            {
               label: "2. Computer Use",
               collapsed: true,
               items: [

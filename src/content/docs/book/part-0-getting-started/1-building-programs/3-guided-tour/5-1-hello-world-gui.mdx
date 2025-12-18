@@ -3,6 +3,7 @@ title: A Graphical Program
 ---
 import { Steps } from '@astrojs/starlight/components';
 import { FileTree } from '@astrojs/starlight/components';
+import CodeScroll from '/src/components/CodeScroll.astro'
 
 Hopefully now you're starting to become familiar with the steps needed to create, compile, and run a project - we'll now use these same concepts to compile something a bit different.
 
@@ -54,13 +55,7 @@ We'll go a little more briskly this time - if you get stuck at any point you can
 
 
 2. Copy the following code and paste it into your C++ file:
-    <style>{`
-    .scroll-snippet pre {
-        max-height: 350px;
-        overflow-y: auto;
-    }
-    `}</style>
-    <div class="scroll-snippet">
+    <CodeScroll maxHeight="350px">
     ```cpp
     #include "splashkit.h"
 
@@ -129,11 +124,9 @@ We'll go a little more briskly this time - if you get stuck at any point you can
 
         refresh_screen();
         delay(5000);
-
-        return 0;
     }
     ```
-    </div>
+    </CodeScroll>
     _It's a bit longer than the last one! We'll take a look at what it does in a moment..._
 
 4. Now compile and run it!
@@ -294,8 +287,6 @@ Have a go now at reading through the rest of the code - hopefully you can see ho
 
         refresh_screen();
         delay(5000);
-
-        return 0;
     }
     ```
 </details>

@@ -4,6 +4,7 @@ sidebar:
   label: " - Calculating speed"
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from '@astrojs/starlight/components';
 
 Next, let's calculate the current average speed.
 
@@ -18,6 +19,7 @@ How long has it taken? Enter minutes: 7
 Your average speed is 44.57142857142857 km/h
 ```
 
+<Steps>
 1. New variables and constants?
 
     We will need to store the speed. We can calculate this as `distance` divided by, `time` divided by 60. Where 60 represents minutes per hour.
@@ -66,8 +68,6 @@ Your average speed is 44.57142857142857 km/h
 
         write_line();
         write_line("Your average speed is " + to_string(speed) + " km/h");
-
-        return 0;
     }
     ```
 
@@ -81,3 +81,4 @@ Your average speed is 44.57142857142857 km/h
     Make sure to check your calculations. Is the output correct?
 
     :::
+</Steps>

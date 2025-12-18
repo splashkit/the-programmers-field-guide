@@ -4,12 +4,12 @@ banner:
   content: This is an optional tour - use it to extend your understanding.
 ---
 
-In the section on [variables](/book/part-1-instructions/1-sequence/2-trailside/07-variable#example-using-multiple-variables) we saw how to calculate the volume of water in a bottle. For this program, let's see how we could use SplashKit to draw this to the screen.
+In the section on [variables](/book/part-1-instructions/2-data/5-reference/07-variable#example-using-multiple-variables) we saw how to calculate the volume of water in a bottle. For this program, let's see how we could use SplashKit to draw this to the screen.
 This will help you practice how to think through algorithms to draw shapes.
 
 ## The Algorithm
 
-Drawing something to the screen needs us to think through the algorithm. In the [multimedia primer](/book/part-1-instructions/1-sequence/2-trailside/11-2-graphics) there is a list of different methods that we can call to perform the drawing for us, so we just need to work out what values we need to provide these methods.
+Drawing something to the screen needs us to think through the algorithm. In the [multimedia primer](/book/part-1-instructions/1-sequence/2-trailside/11-2-graphics) there is a list of different procedures that we can call to perform the drawing for us, so we just need to work out what values we need to provide these procedures.
 
 We can start by planning out the algorithm at a high level, and then work out the details. The plan we came up within involves the following steps:
 
@@ -30,7 +30,7 @@ Once we have a percentage value from the user, we can convert it to a value betw
 If the user enters the percent fill as an integer, then we can divide the value they entered by 100 to achieve this.
 For example, 15% full would be stored as `15 / 100` = `0.15`, and a bottle height of 100 pixels would then result in a water height of `0.15 * 100` = `15` pixels.
 
-Opening the window is a call to the `open_window` method in SplashKit, so it is straight forward. We just need to think about the title we want, and how large it will be.
+Opening the window is a call to the `open_window` function in SplashKit, so it is straight forward. We just need to think about the title we want, and how large it will be.
 
 The main logic will come in the drawing of the water bottle. Drawing up a visual plan should help you with this. You need to think through the steps the computer will need to draw individual shapes to form a larger picture. Here are a few notes:
 
