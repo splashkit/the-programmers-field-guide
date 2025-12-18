@@ -33,13 +33,13 @@ int main()
 }
 ```
 
-The following shows the declaration of the [Open Window](https://splashkit.io/api/windows/#open-window) procedure from the SplashKit documentation.
+Functions are similar to procedures, and there are a few that you will need to use for now. One is the [Open Window](https://splashkit.io/api/windows/#open-window) function. We will introduce other things you can do with functions in the next chapter. Open Window has the following signature:
 
 ```c++
 window open_window(string caption, int width, int height);
 ```
 
-You can call the `open_window` procedure using the following code. It will pass "This is the caption" to the `caption` data, 800 to the `width`, and 600 to the `height`. The code will return a `window` value, which for now we can ignore. We _could_ also store it in a `window` variable, which we'll check out in the next chapter.
+You can call the `open_window` as if it were a procedure using the following code. It will pass the text "This is the caption" to the `caption`, 800 to the `width`, and 600 to the `height`.
 
 ```c++
 #include "splashkit.h"
@@ -48,18 +48,17 @@ int main()
 {
     open_window("This is the caption", 800, 600);
 
-    delay(1000); // show the window for 1 second
+    delay(1000); // delay for 1 second
 }
 ```
 
-For the final example let's look at [Fill Circle](https://splashkit.io/api/graphics/#fill-circle) and [Color Red](https://splashkit.io/api/color/#color-red). These have the following declaration on the SplashKit website.
+For the final example let's look at [Fill Circle](https://splashkit.io/api/graphics/#fill-circle). This has the following signature:
 
 ```c++
 void fill_circle(color clr, double x, double y, double radius);
-color color_red();
 ```
 
-We can see that their names are `fill_circle` and `color_red`. Will `fill_circle` we need to pass it a `color`, and three `double` values. `color_red` does not need to be passed anything, and will return a `color` value. The following is an example of calling this procedure. Here we use the result of `color_red()` as the value passed into the color for `fill_circle`.
+We can see it is named `fill_circle`, and that we need to pass it a `color`, and three `double` values. The following is an example of calling this procedure, along with some others to create a window and draw a circle on it.
 
 ```c++
 #include "splashkit.h"
@@ -67,9 +66,9 @@ We can see that their names are `fill_circle` and `color_red`. Will `fill_circle
 int main()
 {
     open_window("This is the caption", 800, 600);
-    clear_screen(color_white());
+    clear_screen(COLOR_WHITE);
 
-    fill_circle(color_red(), 400, 300, 100);
+    fill_circle(COLOR_RED, 400, 300, 100);
     refresh_screen();
 
     delay(1000); // show the window for 1 second

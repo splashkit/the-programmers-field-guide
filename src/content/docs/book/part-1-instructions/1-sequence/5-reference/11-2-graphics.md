@@ -119,7 +119,6 @@ These procedures typically require arguments that allow you to control where the
 
 | <div style="width:70px">**Procedure**</div> | *Required Arguments** | **Description** |
 |-----------|------------------------|----------------|
-| [color_white](https://splashkit.io/api/color/#color-white), [color_blue](https://splashkit.io/api/color/#color-blue), ... | None | Returns a value that represents the color indicated in the name of the procedure. See the [dolor](https://splashkit.io/api/color/) page for the complete list.  |
 | [fill_circle](https://splashkit.io/api/graphics/#fill-circle), [draw_circle](https://splashkit.io/api/graphics/#draw-circle) | A color and three numeric values for the location (x and y) and radius of the circle. | Draws a filled or hollow circle to the screen. |
 | [fill_rectangle](https://splashkit.io/api/graphics/#fill-rectangle), [draw_rectangle](https://splashkit.io/api/graphics/#draw-rectangle) | A color and four numeric values for the location (x and y), width, and height of the rectangle | Draws a filled or hollow rectangle to the screen. |
 | [fill_ellipse](https://splashkit.io/api/graphics/#fill-ellipse), [draw_ellipse](https://splashkit.io/api/graphics/#draw-ellipse) | A color and four numeric values for the location (x and y), width, and height of the ellipse | Draws a filled or hollow ellipse to the screen. |
@@ -131,10 +130,6 @@ These procedures have the following declarations:
 ```c++
 // These need:
 // #include "splashkit.h"
-
-color color_white();
-color color_blue();
-// and many others...
 
 void fill_circle(color clr, double x, double y, double radius);
 void draw_circle(color clr, double x, double y, double radius);
@@ -149,8 +144,8 @@ void fill_triangle(color clr, double x1, double y1, double x2, double y2, double
 void draw_triangle(color clr, double x1, double y1, double x2, double y2, double x3, double y3);
 
 void draw_line(color clr, double x1, double y1, double x2, double y2);
-}
 ```
+
 The following code draws a house on a hill using some basic shapes in SplashKit.  
 Try running it, then modify the drawing to make it your own.
 
@@ -161,10 +156,10 @@ int main()
 {
     open_window("Shapes by ...", 800, 600);
 
-    clear_screen(color_white());
-    fill_ellipse(color_bright_green(), 0, 400, 800, 400);
-    fill_rectangle(color_gray(), 300, 300, 200, 200);
-    fill_triangle(color_red(), 250, 300, 400, 150, 550, 300);
+    clear_screen(COLOR_WHITE);
+    fill_ellipse(COLOR_BRIGHT_GREEN, 0, 400, 800, 400);
+    fill_rectangle(COLOR_GRAY, 300, 300, 200, 200);
+    fill_triangle(COLOR_RED, 250, 300, 400, 150, 550, 300);
     refresh_screen();
 
     delay(5000);
@@ -218,7 +213,7 @@ int main()
     open_window("Drawing Test", 800, 600);
 
     load_bitmap("bkg", "background.png");
-    clear_screen(color_white());
+    clear_screen(COLOR_WHITE);
     draw_bitmap("bkg", 10, 20);
     refresh_screen();
 
@@ -262,10 +257,10 @@ int main()
 
     load_font("main", "Roboto-Light.ttf");
 
-    clear_screen(color_white());
+    clear_screen(COLOR_WHITE);
 
-    draw_text("Hello World", color_black(), 10, 20);
-    draw_text("Hello World", color_black(), "main", 20 /*font size*/, 20, 30);
+    draw_text("Hello World", COLOR_BLACK, 10, 20);
+    draw_text("Hello World", COLOR_BLACK, "main", 20 /*font size*/, 20, 30);
 
     refresh_screen();
     delay(5000);

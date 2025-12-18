@@ -9,8 +9,8 @@ import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 Complete the house by adding in the rectangle and triangle. Here are the relevant coordinates:
 
-- Rectangle: use `color_gray()`, draw at 300,300, with a width of 200, and a height of 200.
-- Triangle: use `color_red()`, draw with points at 250,300, and 400,150, and 550,300.
+- Rectangle: use `COLOR_GRAY`, draw at 300,300, with a width of 200, and a height of 200.
+- Triangle: use `COLOR_RED`, draw with points at 250,300, and 400,150, and 550,300.
 
 
 <Accordion>
@@ -23,10 +23,10 @@ Complete the house by adding in the rectangle and triangle. Here are the relevan
   {
       open_window("House Drawing by Andrew", 800, 600);
 
-      clear_screen(color_white());
-      fill_ellipse(color_bright_green(), 0, 400, 800, 400);
-      fill_rectangle(color_gray(), 300, 300, 200, 200);
-      fill_triangle(color_red(), 250, 300, 400, 150, 550, 300);
+      clear_screen(COLOR_WHITE);
+      fill_ellipse(COLOR_BRIGHT_GREEN, 0, 400, 800, 400);
+      fill_rectangle(COLOR_GRAY, 300, 300, 200, 200);
+      fill_triangle(COLOR_RED, 250, 300, 400, 150, 550, 300);
 
       refresh_screen();
 

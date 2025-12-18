@@ -69,12 +69,12 @@ The following program uses SplashKit to open a window and draw some shapes to it
 int main()
 {
     open_window("A House", 800, 600);
-    clear_screen(color_white());
+    clear_screen(COLOR_WHITE);
 
     // Draw a house shape
-    fill_ellipse(color_bright_green(), 0, 400, 800, 400);
-    fill_rectangle(color_gray(), 300, 300, 200, 200);
-    fill_triangle(color_red(), 250, 300, 400, 150, 550, 300);
+    fill_ellipse(COLOR_BRIGHT_GREEN, 0, 400, 800, 400);
+    fill_rectangle(COLOR_GRAY, 300, 300, 200, 200);
+    fill_triangle(COLOR_RED, 250, 300, 400, 150, 550, 300);
 
     refresh_screen();
     delay(5000);

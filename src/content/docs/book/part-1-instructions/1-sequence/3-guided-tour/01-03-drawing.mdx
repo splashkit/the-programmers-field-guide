@@ -30,8 +30,8 @@ The best way to plan this out is to sketch what you want and to try to figure ou
 1. Start by clearing the screen and drawing the filled ellipse.
 
     :::tip
-    - `clear_screen` needs a color argument - you could pass it `color_white()`.
-    - `fill_ellipse` needs a color (use `color_bright_green()`) then four numbers - the top left coordinate (0, 400), and then the width and height (800, 400)
+    - `clear_screen` needs a color argument - you could pass it `COLOR_WHITE`.
+    - `fill_ellipse` needs a color (use `COLOR_BRIGHT_GREEN`) then four numbers - the top left coordinate (0, 400), and then the width and height (800, 400)
     :::
 
     <Accordion>
@@ -44,8 +44,8 @@ The best way to plan this out is to sketch what you want and to try to figure ou
       {
           open_window("House Drawing by Andrew", 800, 600);
 
-          clear_screen(color_white());
-          fill_ellipse(color_bright_green(), 0, 400, 800, 400);
+          clear_screen(COLOR_WHITE);
+          fill_ellipse(COLOR_BRIGHT_GREEN, 0, 400, 800, 400);
 
           delay(5000);
       }
@@ -74,8 +74,8 @@ The best way to plan this out is to sketch what you want and to try to figure ou
       {
           open_window("House Drawing by Andrew", 800, 600);
 
-          clear_screen(color_white());
-          fill_ellipse(color_bright_green(), 0, 400, 800, 400);
+          clear_screen(COLOR_WHITE);
+          fill_ellipse(COLOR_BRIGHT_GREEN, 0, 400, 800, 400);
 
           refresh_screen();
 

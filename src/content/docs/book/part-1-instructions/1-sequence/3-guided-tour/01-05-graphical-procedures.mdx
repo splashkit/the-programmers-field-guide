@@ -8,17 +8,13 @@ Here's a list of some useful graphical procedures SplashKit provides. You'll fin
 
 ```c++
 // Open a window to draw to
+// It is actually a function, but you can call it like a procedure
 window open_window(string caption, int width, int height);
 
 // Clear the current window to the indicated color
 void clear_screen(color clr);
 // Show updated drawing
 void refresh_screen();
-
-// Get a color
-color color_white();
-color color_blue();
-// and many others...
 
 // Draw the outline or fill a circular area
 void fill_circle(color clr, double x, double y, double radius);
@@ -40,6 +36,7 @@ void draw_triangle(color clr, double x1, double y1, double x2, double y2, double
 void draw_line(color clr, double x1, double y1, double x2, double y2);
 
 // Load an image and assign it a name
+// This is also a function, but you can call it like a procedure
 bitmap load_bitmap(string name, string filename);
 // Draw a loaded image - using its name
 void draw_bitmap(string name, double x, double y);
@@ -49,26 +46,33 @@ void delay(int milliseconds);
 ```
 
 :::tip
-These are procedure declarations - the code used to create a procedure. This code is in the library where these are made. You can call these in your code by using the name of the procedure, and passing it the values it asks for.
+These are **signatures** of the procedures from the library. You can call these in your code by using the name of the procedure, and passing it the values it asks for.
 
 For example:
+
 ```c++
-# This code creates open_window - a procedure you can call
-window open_window(string caption, int width, int height);
+// This is the signature of a procedure to fill a circle
+void fill_circle(color clr, double x, double y, double radius);
 ```
 
 To use it you would do something like:
+
 ```c++
-# The procedure call -- with caption, width and height
-open_window("Window Caption", 800, 600);
+// The procedure call -- with its color, x, y, and its radius
+fill_circle(COLOR_GREEN, 400, 300, 100);
 ```
+
 :::
 
-*What do the different arguments represent?*
+### Color values
+
+The color type is defined within SplashKit, and will be needed for many of the drawing operations. When you need a color, use of the many values defined in the library. These are documented on the Colors page, starting with [COLOR_ALICE_BLUE](https://splashkit.io/api/color/#color-alice-blue).
+
+### What do the different arguments represent?
 
 When you open a window, you create an area onto which you can draw. The `width` and `height` arguments will determine how large the window is. You could create a 4 by 3 aspect ratio with something like 800 by 600, or a widescreen using 1280 by 720 - though you can create any shape window you want.
 
-Shape drawing procedures need a color to know what color shape to draw. You can get a color value by calling the different `Color...` procedures such as `color_red()`, and pass that as the color argument value. Following the color, the procedures indicate where the shape should appear, and its size. The position is indicated use `x` and `y` coordinates. The `x` value represents the distance from the left side of the window, while `y` is the distance from the *top* of the window. Size values will depend on the shape, a rectangle has a width and height, a circle has a radius, triangles have three points, etc.
+Shape drawing procedures need a color to know what color shape to draw. You can get a color value using a `COLOR_...` value such as `COLOR_RED`, and pass that as the color argument value. Following the color, the procedures indicate where the shape should appear, and its size. The position is indicated use `x` and `y` coordinates. The `x` value represents the distance from the left side of the window, while `y` is the distance from the *top* of the window. Size values will depend on the shape, a rectangle has a width and height, a circle has a radius, triangles have three points, etc.
 
 We will explore this further as we go. For now, it is enough to remember that these procedures exist.
 
@@ -85,14 +89,14 @@ int main()
     open_window("A House", 800, 600);
 
     // Clear the screen to white - don't show it yet
-    clear_screen(color_white());
+    clear_screen(COLOR_WHITE);
 
     // Draw a hill like ellipse - only half of the ellipse is shown
-    fill_ellipse(color_bright_green(), 0, 400, 800, 400);
+    fill_ellipse(COLOR_BRIGHT_GREEN, 0, 400, 800, 400);
 
     // Draw a house shape - rectangular walls, triangular roof
-    fill_rectangle(color_gray(), 300, 300, 200, 200);
-    fill_triangle(color_red(), 250, 300, 400, 150, 550, 300);
+    fill_rectangle(COLOR_GRAY, 300, 300, 200, 200);
+    fill_triangle(COLOR_RED, 250, 300, 400, 150, 550, 300);
 
     // Now show the picture we have drawn to the user
     refresh_screen();
