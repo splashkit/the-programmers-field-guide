@@ -122,7 +122,38 @@ The name of a procedure should help you know what that procedure does, and the p
 
 ### Arguments
 
+![Illustration of arguments](./images/arguments.png)
+
 When you call a procedure, you need to pass a value for each argument. This value can be a [literal](/book/part-1-instructions/1-sequence/5-reference/05-literal) or calculated value known as an [expression](/book/part-1-instructions/1-sequence/5-reference/04-expression).
+
+You can determine the arguments that are needed from a procedure's signature.
+
+### Signature
+
+The signature of a procedure lists its name and arguments. The following is an example procedure signature, and its components.
+
+```c++
+// void indicates a procedure
+// fill_circle is its name (an identifier)
+// it needs 4 arguments:
+//  - a color
+//  - a double for the x value
+//  - a double for the y value
+//  - a double for the radius
+void fill_circle(color clr, double x, double y, double radius);
+```
+
+The void at the start of the signature indicates that this is a procedure that does something. When you are checking documentation you may see other types in this location. These are functions, which we will look at in the next chapter. In many cases you can call functions as if they are procedures. This can be useful if the function does something, as well as calculating or returning something. The following is a signature of the `open_window` function.
+
+```c++
+// window indicates that this returns details of the window created
+// open_window is the name of the function
+// it needs 3 arguments:
+//  - a string for its caption (title)
+//  - a integer for its width 
+//  - a integer for its height
+window open_window(string caption, int width, int height);
+```
 
 ### Overloading
 
