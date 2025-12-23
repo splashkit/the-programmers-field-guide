@@ -6,19 +6,19 @@ At this point the programs we create will include sequences of procedure calls, 
 
 To build programs we will need to have some [procedures](/book/part-1-instructions/1-sequence/5-reference/02-procedure) that we can [call](/book/part-1-instructions/1-sequence/5-reference/03-procedure-call). The great this is that [library](/book/part-1-instructions/1-sequence/5-reference/10-library) creators will describe the procedures that they have created so that we can find and use them. In order to use this documentation we need to know how these procedures will be described.
 
-## Procedure Declarations
+## Procedure Signatures
 
-Procedures are usually communicated using part of their declaration. We will look at building these ourselves in [Part 2](/book/part-2-organised-code/2-organising-code/0-overview), but for now we need to know some basics so that we can start calling procedures.
+Procedures are usually communicated using part of their declaration - the signature. We will look at building these ourselves in [Part 2](/book/part-2-organised-code/2-organising-code/0-overview), but for now we need to know some basics so that we can start calling procedures.
 
-![Procedure declaration visualisation](./images/procedure-decl.png)
+![Procedure signature visualisation](./images/procedure-decl.png)
 
-The above image helps show the components of a procedure declaration. The key parts are:
+The above image helps show the components of a procedure's signature. The key parts are:
 
 - The *name* of the procedure. Remember, to call the procedure you use its name.
 - The names and types of any *arguments* you will need to pass when you call the procedure. These will be listed after the procedure name in parentheses.
-- You can also see the type of data that is returned (where `void` means none).
+- The `void` at the start indicates this is a procedure - it does something and returns nothing.
 
-The following code snippets show example procedure declarations.
+The following code snippets show example procedure signature.
 
 ```c++
 void write_line(string value);

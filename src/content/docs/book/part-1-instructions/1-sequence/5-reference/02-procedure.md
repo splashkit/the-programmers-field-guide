@@ -16,7 +16,7 @@ The following diagram shows the concepts related to procedures.
 
 ## Procedure -- when, why, and how
 
-For now we will focus on using procedures that others have created.
+For now, we will focus on using procedures that others have created.
 This allows you to write programs that take advantage of code written by other programmers.
 By doing this you are really just applying another layer of abstraction, enabling yourself to think about small tasks rather than the individual steps they require.
 You are also saving yourself time, avoiding having to write everything in your program from scratch.

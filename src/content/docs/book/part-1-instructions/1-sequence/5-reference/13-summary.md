@@ -9,13 +9,13 @@ Programming with sequence involves the following:
 
 Break down your problems into small discrete steps, each of which gets you a little closer toward your goal.
 
-An overview of these concepts is shown in the concept map below. The next section will look at how you can use these concepts to design some small programs.
+An overview of these concepts is shown in the concept map below.
 
-![Key concepts from the sequence and data chapter](./images/sequence-data-summary.png "Summary of Sequence")
+![Key concepts from the sequence and data chapter](./images/sequence-summary.png "Summary of Sequence")
 
 :::note[Summary]
 
-- Building blocks are things that go into building your digital reality. You can create and use these within your code.
+- Constructs, or building blocks, are things that exist inside a program or library that you can use.
 - Instructions capture the different *things* you can command the computer to perform.
 - Your program is a **sequence** of instructions that use **data** (for now just literals) that get the computer to do something when it is run.
 
