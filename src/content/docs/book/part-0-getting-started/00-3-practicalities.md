@@ -36,8 +36,26 @@ However, the examples and activities in this book will use a specific language. 
 
 The book starts with C/C++ in Part 1 and Part 2, then switches to C# for Part 3. This will ensure you are using an appropriate language when learning each concept. Mixing the two will give us an easier journey, while still allowing us to explore all the necessary paths. The good thing is, both languages have a common syntax, known as "C-style", meaning the transition shouldn’t be too challenging.
 
-While the guide uses these languages to demonstrate programming concepts, it will not explore either one in depth. It will not focus on or examine things that are *not* common elsewhere. This means that you will need further study and practice after finishing this book to say that you have *learnt* C# or C/C++ in detail. But the great thing is that after finishing this book you will have all the skills and understanding you need to learn C#, C/C++, and many other languages using resources available online and through things like generative artificial intelligence.
+While the guide uses these languages to demonstrate programming concepts, it will not explore either one in depth. It will not focus on, or examine, things that are *not* common elsewhere. This means that you will need further study and practice after finishing this book to say that you have *learnt* C# or C/C++ in detail.
 
-Most modern systems are built using multiple programming languages, because different languages are better at different things. There is no one best language, so our approach aims to show you the common features across languages and set you up to quickly pick up the language that best fits your needs. This is something we draw upon in Part 4, where we will use different programming languages to build a variety of real-world programs.
+Most modern systems are built using multiple programming languages, because different languages are better at different things. There is no one best language, so our approach aims to show you the common features across languages and set you up to quickly pick up the language that best fits your needs.
+
+Our goal is that, after finishing this book, you will have all the skills and understanding you need to learn C#, C/C++, and many other programming languages using resources available online and through interacting with things like generative artificial intelligence.
+
+### *What kinds of programs will I create?*
+
+This journey should be fun. While reading and writing text from the terminal can demonstrate all the programming features, it doesn't have as much of a *fun factor*. Creating visual and interactive programs will help you **see** that your programs are working as you expected.
+
+To help you achieve this, we created the [SplashKit](https://splashkit.io) library. This library is designed to support your journey as you learn to program. It does not take any control away from you but empowers you to make interactive, multimedia programs. It is also designed to utilise common programming features and patterns, enabling you to focus on the fundamentals.
+
+#### Why Games?
+
+Programming is about getting the computer to do what you want it to do. This will involve calculations and data manipulation. For many programs, these values are what is important. For example, we want to calculate values for our bank account balance in a banking application, or record marks for a grading system. When things go wrong it requires you to be able to see what the expected value was, and then think through these calculations to see what happened.
+
+With games, we make it much easier to **see** problems. You still need to go back through the code and understand why, but you can **see** that it is wrong. The player is in the wrong location. They didn't pick up the item when they should have, or they did when they shouldn't have. This **visual** aspect *should* help you engage with your program. You will be drawing your digital reality to the screen, which helps you connect with these abstractions in your code.
+
+The programming knowledge and coding skills you gain by building these games will *directly* apply to building any other kind of program. So we encourage you to build some games and have some fun while you are learning.
+
+Don't worry if you are not interested, or able, to engage with these visuals. We provide examples and projects that do not require you to use these ideas.
 
 Now that we have this part of the journey mapped out, let's get going.

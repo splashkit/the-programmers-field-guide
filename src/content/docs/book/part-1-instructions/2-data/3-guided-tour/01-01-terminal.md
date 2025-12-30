@@ -1,7 +1,5 @@
 ---
-title: Terminal Procedures/Functions
-sidebar:
-    label: " - Terminal Procedures/Functions"
+title: Terminal Interaction
 ---
 
 Interacting with the terminal is pretty simple in code. There are basically three procedures/functions that you need to care about: `write_line`, `write`, and `read_line`.

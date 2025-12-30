@@ -1,0 +1,234 @@
+---
+title: Explore Enums
+sidebar:
+    label: " - Explore Enums"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+To get started with structuring data, explore working with an enumeration.
+
+## Days
+
+Enumerations allow you to capture a list of options within a program. To test this out let's create an enumeration to represent days of the week. We can call this enumeration `day`, and it can have options for Monday, Tuesday, etc.
+
+To test this out create a new C++ program and declare within this the new enumeration. For the moment, we need to declare the new type and use it to create a variable in `main`.
+
+Complete the following code by declaring the `day` enumeration, and ensuring it has a value for each day. Remember that these values are like constants, so in C/C++ our coding convention would be to use UPPER_CASE. We can make use of our [utilities](/book/part-2-organised-code/2-organising-code/1-tour/04-00-utilities) to help with reading details from the user.
+
+```cpp
+#include "splashkit.h"
+#include "utilities.h"
+
+using std::to_string;
+
+// add enumeration here called 'day'
+
+int main()
+{
+    // Enum variable declaration
+    day today;
+
+    // Assigning a value to the enum variable
+    today = WEDNESDAY;
+
+    // Print the value of today
+    write_line("Today is day number " + to_string(today));
+
+    return 0;
+}
+```
+
+<Accordion>
+  <AccordionItem
+    header="Code for day enum"
+  >
+
+```cpp
+// Enum declaration
+enum day
+{
+    SUNDAY,
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
+    SATURDAY
+};
+```
+
+  </AccordionItem>
+</Accordion>
+
+## Converting to string
+
+At the moment the output is less than ideal, as we can only have the numeric value of the enum. To change this we can develop a function to convert an enum value to a string.
+
+|   |   |
+|---|---|
+| **Function** | *to string* |
+| **Parameters** | `d`: The day to convert |
+| **Returns** | A string representation of the day to convert |
+| **Description** | Convert the day (d) to a string. |
+
+We can implement `to_string` using a [switch](/book/part-1-instructions/3-control-flow/2-trailside/03-2-case) statement, with one branch per value in the enumeration.
+
+Naming this `to_string` also means `main` will not need to be changed. When you compile and run this it should output the day of the week, rather than the enum's raw integer value.
+
+```cpp
+#include "splashkit.h"
+#include "utilities.h"
+
+using std::to_string;
+
+// add enumeration here called 'day'
+
+// add to_string here
+
+int main()
+{
+    // Enum variable declaration
+    day today;
+
+    // Assigning a value to the enum variable
+    today = WEDNESDAY;
+
+    // Print the value of today
+    write_line("Today is " + to_string(today));
+
+    return 0;
+}
+```
+
+<Accordion>
+  <AccordionItem
+    header="Code to convert day to string"
+  >
+
+```cpp
+/**
+ * Converts the given day enum value to a string representation.
+ *
+ * @param d The day enum value to convert.
+ * @return The string representation of the day.
+ */
+string to_string(day d)
+{
+  switch (d)
+  {
+    case SUNDAY:
+      return "Sunday";
+    case MONDAY:
+      return "Monday";
+    case TUESDAY:
+      return "Tuesday";
+    case WEDNESDAY:
+      return "Wednesday";
+    case THURSDAY:
+      return "Thursday";
+    case FRIDAY:
+      return "Friday";
+    case SATURDAY:
+      return "Saturday";
+    default:
+      return "Invalid day";
+  }
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+While we are using this here to convert an enum value to a string, the same style of logic can be used elsewhere in your code. With the enum you know the potential range of values, so these will work well in conditional logic.
+
+*What about invalid day?*
+
+Each enumeration is implemented as an integer value, this means it is possible that the value does not match to one of the enum values. As a result you must always make sure to cover the case where your value does not match the expected options.
+
+## Reading data from the user
+
+To wrap up this test, we can also look at converting data in the other direction. This function can be called to read a day from the user. This will display the list of days, and their values allowing the user to select the day they are after.
+
+|   |   |
+|---|---|
+| **Function** | *read day* |
+| **Parameters** | `prompt`: The message to display when reading the day |
+| **Returns** | The day entered by the user |
+| **Description** | Displays the prompt, and list of days for the user to select from. Data input is validated, and the selected day value is returned. |
+
+The following is a start of the `main` to test this, with `read_day` being called to populate the today variable.
+
+When implementing `read_day`, you can use a loop to simplify printing each of the days manually. Inside the loop you can convert the integer to the enum value and then convert that to a string. This way you could apply the same style of logic to enumerations with any number of options.
+
+Have a go at implementing this, and then test the ability to read and write enumeration values using the main below.
+
+```cpp
+#include "splashkit.h"
+#include "utilities.h"
+
+using std::to_string;
+
+// add enumeration here called 'day'
+
+// add a constant NUM_DAYS to capture number of days in a week
+
+// add to_string here
+
+// add read day here
+
+int main()
+{
+    // Enum variable declaration
+    day today;
+
+    // Assigning a value to the enum variable
+    today = read_day("What day is it today? ");
+
+    // Print the value of today
+    write_line("Today is " + to_string(today));
+
+    return 0;
+}
+```
+
+<Accordion>
+  <AccordionItem
+    header="Code for read day"
+  >
+
+```cpp
+const int NUM_DAYS = (int)SATURDAY + 1;
+
+/**
+ * Reads a day from the user.
+ *
+ * @return The day entered by the user.
+ */
+day read_day(string prompt)
+{
+    int day_number;
+    write_line(prompt);
+
+    // Output the list of day options
+    for (int i = 0; i < NUM_DAYS; i++)
+    {
+        day current_day = (day)i;
+        write_line(to_string(i + 1) + ": " + to_string(current_day));
+    }
+
+    // Read day as a number - 1 to 7
+    // Subtract 1 so that it is 0 to 6
+    // Use read integer with range if you have it!
+    day_number = read_integer("Enter a day number (1-7): ") - 1;
+    return (day)day_number;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+With these functions implemented you have seen the different ways of working with enumeration values. These provide convenient types for cases where a value should be selected from a list of options.
+
+## Test it out
+
+Enumerations are fairly simple types, but they can be useful in helping make your code more readable. At this stage you could have a quick look at the [mouse_input.h](https://github.com/splashkit/splashkit-core/blob/develop/coresdk/src/coresdk/mouse_input.h) file that is part of the SplashKit library. Near the top of this code you will find the `mouse_button` enumeration. Notice how this helps document the different buttons that are supported by the SplashKit library.

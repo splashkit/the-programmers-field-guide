@@ -4,25 +4,9 @@ sidebar:
     label: " - Graphics Procedures"
 ---
 
-This journey should be fun. While reading and writing text from the terminal can demonstrate all the programming features, it doesn't have as much of a *fun factor*. Creating visual and interactive programs will help you **see** that your programs are working as you expected.
+SplashKit provides procedures you can call to create windows and draw images and shapes for the user to see. For the moment, we can use these in sequences to create scenes and shapes.
 
-To help you achieve this, we created the [SplashKit](https://splashkit.io) library. This library is designed to support your journey as you learn to program. It does not take any control away from you but empowers you to make interactive, multimedia programs.
-
-Let's detour briefly to explore how graphics work, and how you can use them within SplashKit. There are additional articles about this on the [splashkit.io](https://splashkit.io) website.
-
-:::tip[Why Games?]
-Programming is about getting the computer to do what you want it to do. This will involve calculations and data manipulation. For many programs, these values are what is important. For example, we want to calculate values for our bank account balance in a banking application, or record marks for a grading system. When things go wrong it requires you to be able to see what the expected value was, and then think through these calculations to see what happened.
-
-With games, we make it much easier to **see** problems. You still need to go back through the code and understand why, but you can **see** that it is wrong. The player is in the wrong location. They didn't pick up the item when they should have, or they did when they shouldn't have. This **visual** aspect *should* help you engage with your program. You will be drawing your digital reality to the screen, which helps you connect with these abstractions in your code.
-
-The programming knowledge and coding skills you gain by building these games will *directly* apply to building any other kind of program. So we encourage you to build some games and have some fun while you are learning.
-
-Don't worry if you are not interested, or able, to engage with these visuals. We provide examples and projects that do not require you to use these ideas.
-:::
-
-## Graphics
-
-SplashKit provides procedures you can call to create windows and draw images and shapes for the user to see.
+## Drawing Basics
 
 ### Open a Window
 
@@ -33,12 +17,10 @@ To draw, you need something to draw onto. The base interactive component in Spla
 | [open_window](https://splashkit.io/api/windows/#open-window) | the title, width, and height of the window | Opens a window for you to draw to. |
 | [clear_screen](https://splashkit.io/api/graphics/#clear-screen) | a color | Clears everything on the current window, making it the indicated color. |
 | [delay](https://splashkit.io/api/utilities/#delay) | an integer | Delays for the number of milliseconds from the argument. |
-These procedures have the following declarations.
+
+These procedures have the following signatures.
 
 ```c++
-// These need:
-// #include "splashkit.h";
-
 window open_window(string caption, int width, int height);
 void clear_screen(color clr);
 void delay(int milliseconds);
@@ -58,7 +40,6 @@ int main()
     open_window("Window title to change", 800, 600);
 
     delay(5000); // wait 5 sections (5000 milliseconds)
-
 }
 ```
 
@@ -81,7 +62,7 @@ The magenta outlined rectangle is drawn 10 pixels from the left of the screen, 1
 ![Pixel locations are based on x and y locations](./images/window-pixels.png)
 
 :::tip[Why the top down?]
-The answer is simply **history**. The original monitors were based on Cathode Ray Tubes (CRTs) and drew to the screen from left to right, and top to bottom, matching the writing style of Western cultures.
+The answer is simply, **history**. The original monitors were based on Cathode Ray Tubes (CRTs) and drew to the screen from left to right, and top to bottom, matching the writing style of Western cultures.
 :::
 
 ### Double Buffering
@@ -104,9 +85,6 @@ It then waits for a command to display that surface to the user. With SplashKit,
 | [refresh_screen](https://splashkit.io/api/graphics/#refresh-screen) | none | Present what has been drawn to the user. |
 
 ```c++
-// These need:
-// #include "splashkit.h"
-
 void refresh_screen();
 ```
 
@@ -125,12 +103,9 @@ These procedures typically require arguments that allow you to control where the
 | [fill_triangle](https://splashkit.io/api/graphics/#fill-triangle), [draw_triangle](https://splashkit.io/api/graphics/#draw-triangle) | A color and six numeric values for the location (x and y) or each point of the triangle. | Draws a filled or hollow triangle to the screen. |
 |[draw_line](https://splashkit.io/api/graphics/#draw-line) | A color and four numeric values for the location (x and y) of the start and end of the line. | Draws a line from one point to another. |
 
-These procedures have the following declarations:
+These procedures have the following signatures:
 
 ```c++
-// These need:
-// #include "splashkit.h"
-
 void fill_circle(color clr, double x, double y, double radius);
 void draw_circle(color clr, double x, double y, double radius);
 
@@ -172,6 +147,10 @@ If you are ever unsure of what a procedure requires, you should be able to get V
 ![Use `ctrl-space` to bring up the autocomplete for procedures you want to call.](./images/auto-complete.png "TODO: replace with C++ example")
 :::
 
+### Color Values
+
+The color type is defined within SplashKit, and will be needed for many of the drawing operations. When you need a color, use one of the many values defined in the library. These are documented on the colors page, starting with [COLOR_ALICE_BLUE](https://splashkit.io/api/color/#color-alice-blue). However, it is easy to find these with autocomplete. Type `COLOR_` then you can scroll through the options in VS Code.
+
 ## Working with Resources
 
 SplashKit provides procedures to help you work with resources such as images, sounds, fonts, and animations. There are procedures to load these into your program, and draw them to the screen or play them from your speakers.
@@ -185,12 +164,9 @@ SplashKit organises these files in a **Resources** folder containing sub-folders
 | [load_bitmap](https://splashkit.io/api/graphics/#load-bitmap) | the name of the bitmap and its filename | This loads the image (bitmap) into your program. You can use the name to access this bitmap in other procedure calls. The filename can be the full path to a file, or the filename of a file in the **Resources/images** folder.  |
 | [draw_bitmap](https://splashkit.io/api/graphics/#draw-bitmap-named) | the image name, and two numbers for the coordinate to draw to | This draws the image you loaded with the given name, at the coordinates you provided (x and y). The coordinates indicate the top left corner of the bitmap when it is drawn. |
 
-These procedures have the following declarations:
+These procedures have the following signatures:
 
 ```c++
-// These need:
-// #include "splashkit.h"
-
 bitmap load_bitmap(string name, string filename);
 void draw_bitmap(string name, double x, double y);
 ```
@@ -231,12 +207,9 @@ You might want to be able to draw text to the screen to display messages to the 
 | [draw_text](https://splashkit.io/api/graphics/#draw-text-no-font-no-size) | some text, a color, x, and y | This draws the provided text in the indicated color at the given coordinates (x and y). The coordinates indicate the top left of the text. This will draw using the built-in font. |
 | [draw_text](https://splashkit.io/api/graphics/#draw-text-font-as-string) | some text, a color, a loaded font's name, font size (int), x, and y | This draws the provided text in the indicated color, with the named font, at the indicated size. The coordinates (x and y) will be the top left of the text. |
 
-These procedures have the following declarations:
+These procedures have the following signatures:
 
 ```c++
-// These need:
-// #include "splashkit.h"
-
 void draw_text(string text, color clr, double x, double y);
 void draw_text(string text, color clr, string fnt, int font_size, double x, double y);
 font load_font(string name, string filename);

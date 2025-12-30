@@ -6,7 +6,7 @@ sidebar:
 
 SplashKit also provides procedures you can use to load and play sound effects and music. You can use sound effects to play multiple different sounds that are mixed together when played, while music is designed for longer running background sound for your applications with only one music track being able to be played at once.
 
-### Playing sound effects
+## Playing sound effects
 
 Sound effects are designed to be used for short sounds that are triggered by actions in your program. You can play several sound effects at the same time.
 
@@ -62,7 +62,7 @@ You will need to provide your own sound effect and music files to test out these
 You could download the [hello world](https://programmers.guide/resources/code-examples/part-0/hello-world-snippet-saddle-club.ogg) audio from the examples in this chapter and use that as a start if you want. This would work for both sound effects and music. If you use this file then remember to change the code to match the filename.
 :::
 
-### Playing music
+## Playing music
 
 Music is designed to work with long playing background audio. Unlike sound effects, you can only play one music track at a time. This means you can have one music track playing and several sound effects.
 

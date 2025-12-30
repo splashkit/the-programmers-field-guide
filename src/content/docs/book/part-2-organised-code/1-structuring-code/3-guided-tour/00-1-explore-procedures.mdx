@@ -1,0 +1,218 @@
+---
+title: Explore procedures
+sidebar:
+  label: " - Explore Procedures"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+To get started with structuring our code, let's create a couple of useful procedures. We can build some small utilities that may be useful elsewhere, and create a test programs to explore how they work.
+
+## Print Line
+
+Let's start by creating a procedure to print a line of '-' characters to the Terminal. This could be useful when we create some terminal programs later, and we want to output something like a menu. The menu could have section separated by these lines.
+
+*How long should the line be?*
+
+Great question. We don't have to have this set. Instead, we could add a `length` parameter to allow the caller to say how long the line should be.
+
+The following table provides an overview of the desired functionality of our print line procedure
+
+|   |   |
+|---|---|
+| **Procedure** | *Print Line* |
+| **Parameters** | `length`: The number of characters to print. Represents the length of the line. |
+| **Description** | Writes a number of ‘-’ characters to the Terminal. The number of characters to write is specified in the `length` parameter. |
+
+<div class="caption">Specification for the <code>print line</code> procedure</div>
+
+The flowchart and pseudocode for this procedure are shown below.
+
+![Flowchart for the logic in Print Line code](./images/guess-that-number-print-line-blocks.png)
+<div class="caption">Flowchart for the logic in print line code, with blocks highlighted</div><br/>
+
+```text
+Procedure: Print Line
+-------------------------------
+Parameters:
+  - Length (Integer)
+Local Variables:
+  - i (Integer)
+Steps
+  Assign i the value 0
+  While i < length
+    Output '-'
+    Increase i by 1
+  Output a new line
+```
+
+<div class="caption">Pseudocode for Print Line</div>
+
+:::note
+
+- This code includes a local variable `i` to track the number of iterations through the loop.
+- `i` is used to count the number of times the loop has executed, allowing it to stop when it has printed enough dashes
+- You can implement this with a for loop
+
+:::
+
+### Write Code and Test
+
+We can code this up in a small test program. The following is a good start. The main function tests printing a few lines, and then gets the user to enter a length and uses that to print a final line. Have a go at this yourself, and refer to the code below if you get stuck.
+
+```cpp
+#include "splashkit.h"
+
+// Add print line code here...
+
+int main()
+{
+  string input;
+  int test_length;
+
+  print_line(20);
+  write_line("| Line print test  |");
+  print_line(20);
+
+  write("Enter a length for a test line: ");
+  input = read_line();
+  test_length = stoi(input);
+
+  print_line(test_length);
+}
+
+```
+
+<Accordion>
+  <AccordionItem
+    header="Code For Print Line"
+  >
+
+```cpp
+/**
+ * Print a line onto the Terminal.
+ *
+ * @param length the length of the line to print
+ */
+void print_line(int length)
+{
+  int i = 0;
+  while (i < length)
+  {
+    write("-");
+    i++;
+  }
+
+  write_line("\n");
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+:::tip[for?]
+Try changing the while loop to a for loop. This would be nicer as a for loop.
+:::
+
+## Generalising Further
+
+If we think about this, we could create a more general procedure that prints any character, or string, a number of times to the terminal. This could then be used to print repeated patterns or repeated text when needed, and we could use it to implement the print line procedure.
+
+The following table provides an overview of a print repeated procedure. Have a go at implementing this, and using it to simplify the code in your `print_line` procedure.
+
+|   |   |
+|---|---|
+| **Procedure** | *Print Repeated* |
+| **Parameters** | `text`: The text to repeat (a string). |
+|                | `times`: The number of times to print this. |
+|                | `with_newline`: A boolean to indicate if a new line should be added to the end. |
+| **Description** | Writes the text to the Terminal a given number of times, adding a new line when with_newline is true. |
+
+Here is our updated test program - notice we want to keep print line, but you should be able to simplify it to a single line when you are done creating print repeated.
+
+```cpp
+#include "splashkit.h"
+
+// Add print repeated here...
+
+// Add print line code here...
+
+int main()
+{
+  string input;
+  int test_length;
+
+  print_line(20);
+  write_line("| Line print test  |");
+  print_line(20);
+
+  print_repeated("--+--+", 5, true);
+  print_repeated("Hello World\n", 5, false);
+  print_repeated("--+--+", 5, true);
+
+  write("Enter a length for a test line: ");
+  input = read_line();
+  test_length = stoi(input);
+
+  print_line(test_length);
+}
+```
+
+<Accordion>
+  <AccordionItem
+    header="Code For Print Repeated and Print Line"
+  >
+
+```cpp
+/**
+ * Print text to the terminal a number of times, allowing repeated patterns.
+ *
+ * @param text  the text to repeat printing
+ * @param times the number of times to repeat the text
+ * @param with_newline when true, this adds a newline to the end of the output
+ */
+void print_repeated(string text, int times, bool with_newline)
+{
+  int i = 0;
+  while (i < times)
+  {
+    write(text);
+    i++;
+  }
+
+  if(with_newline)
+  {
+    write_line("\n");
+  }
+}
+
+/**
+ * Print a line onto the Terminal.
+ *
+ * @param length the length of the line to print
+ */
+void print_line(int length)
+{
+  print_repeated("-", length, true);
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+## Test it out
+
+See if you can create a print menu header. This could print a heading to the terminal in a box. For example, this could appear something like one of these options:
+
+```text
+---------
+ Heading  
+---------
+
++---------+
+| Heading |
++---------+
+```
+
+:::tip
+You can get the length of a string using its `length` method. You call this on a string variable `text` by calling `text.length()`. You could use this to work out the length of the lines around the text.
+:::

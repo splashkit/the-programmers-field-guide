@@ -1,0 +1,85 @@
+---
+title: The Stack
+---
+import MySwiper from '../../../../../../components/react/myswiper.jsx'
+
+import sliderStack00 from './images/stack-0.png';
+import sliderStack01 from './images/stack-1.png';
+import sliderStack01a from './images/stack-1a.png';
+import sliderStack02 from './images/stack-2.png';
+import sliderStack03 from './images/stack-3.png';
+import sliderStack04 from './images/stack-4.png';
+
+export const sliderImagesStack = [
+  {
+    src: sliderStack00.src,
+    altText: "The program has started, and main starts at the top of the stack",
+    tips: [
+      "At the start, main is at the top of the stack",
+      "When `a` is declared, it gets added to the top of the stack",
+      "`a` is within main's stack frame",
+    ]
+  },
+  {
+    src: sliderStack01.src,
+    altText: "When f1 is called, a new stack frame is started at the top of the stack",
+    tips: [
+      "main called f1, adding a new frame to the stack for f1",
+      "f1 is now at the top of the stack",
+    ]
+  },
+  {
+    src: sliderStack01a.src,
+    altText: "The program has declared a new variable b",
+    tips: [
+      "f1 declared local variable `b` which is stored at the top of the stack.",
+      "`b` is within f1's stack frame",
+    ]
+  },
+  {
+    src: sliderStack02.src,
+    altText: "Calling f2 adds it to the stack",
+    tips: [
+      "When f2 is called, a new stack frame is created",
+      "f2 declares `c` which is added to its stack frame",
+      "f2 then declares `d` which is to the top of the stack",
+      "Both `c` and `d` are within f2's stack frame",
+    ]
+  },
+  {
+    src: sliderStack03.src,
+    altText: "When f2 ends, its stack frame is removed",
+    tips: [
+      "When f2 ends, its stack frame is removed",
+      "`c` and `d` no longer exist - they were within f2's stack frame",
+      "Any new variables declared in f1 now will be added above `b` within f1's stack frame",
+    ]
+  },
+  {
+    src: sliderStack04.src,
+    altText: "f1 ends, returning to main",
+    tips: [
+      "When f1 ends, its stack frame is removed.",
+      "`b` no longer exists - it was within f1 which has ended",
+    ]
+  },
+];
+
+
+As we saw in the control flow chapter, [the stack](/book/part-1-instructions/3-control-flow/2-trailside/02-1-scope) is the name of a location in memory where the computer stores local variables. Each block creates a new scope that allows local variables to be added to the top of the stack. When the block ends, its memory allocation in the stack is freed to be used by other variables.
+
+<MySwiper client:only height="" images={sliderImagesStack}></MySwiper>
+
+Usually, when we picture the stack we are thinking about function and procedure calls. When a function/procedure is called, it is added to the top of the stack. If it calls another function/procedure then that is added to the top of the stack. Only one of these is running at a time -- whichever is at the top. When a function or procedure ends, control returns to the calling function or procedure, as the old function/procedure is removed from the top of the stack.
+
+With function and procedure calls, we add a new kind of block that can be added to the stack. In addition to local variables, the stack maintains all the data needed to make function and procedure calls work. We saw this a little in the original details on [method calls](/book/part-1-instructions/1-sequence/2-trailside/03-method-call) where we saw how the program counter was maintained on the stack for a single method call.
+
+## The Stack in the Debugger
+
+When you are in the debugger, you should be able to get a view of the stack. This will show you the current list of function/procedure calls, and will allow you to "walk" up and down the stack looking at the different local variables and their values at this point in the program.
+
+More modern languages than C/C++ will also output a **stack trace** when a program crashes. This is a list that shows the state of the stack when the program crashed, which can help you identify the location of the issue. The first line in the stack trace will be the function/procedure that was running when it crashed, and then each line below this will show you the other functions and procedures that were on the stack at the time.
+
+## Key Things to Remember
+
+The main thing to remember for now is the **lifetime** of the variables in the stack. When a function or procedure ends, the data it has on the stack is lost. It will be overwritten by the next function or procedure that executes and needs to store local variables.

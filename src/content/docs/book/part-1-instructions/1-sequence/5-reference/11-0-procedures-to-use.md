@@ -1,10 +1,12 @@
 ---
 title: Procedures to Use
+sidebar:
+    label: " - Procedure to Use"
 ---
 
 At this point the programs we create will include sequences of procedure calls, with variables that we can use to work with data within our program.
 
-To build programs we will need to have some [procedures](/book/part-1-instructions/1-sequence/5-reference/02-procedure) that we can [call](/book/part-1-instructions/1-sequence/5-reference/03-procedure-call). The great this is that [library](/book/part-1-instructions/1-sequence/5-reference/10-library) creators will describe the procedures that they have created so that we can find and use them. In order to use this documentation we need to know how these procedures will be described.
+To build programs we will need to have some [procedures](/book/part-1-instructions/1-sequence/5-reference/03-procedure) that we can [call](/book/part-1-instructions/1-sequence/5-reference/04-procedure-call). The great this is that [library](/book/part-1-instructions/1-sequence/5-reference/10-library) creators will describe the procedures that they have created so that we can find and use them. In order to use this documentation we need to know how these procedures will be described.
 
 ## Procedure Signatures
 
@@ -18,11 +20,13 @@ The above image helps show the components of a procedure's signature. The key pa
 - The names and types of any *arguments* you will need to pass when you call the procedure. These will be listed after the procedure name in parentheses.
 - The `void` at the start indicates this is a procedure - it does something and returns nothing.
 
-The following code snippets show example procedure signature.
+The following code snippets show example procedure signature:
 
 ```c++
 void write_line(string value);
 ```
+
+The following is an example of a program with a call to the `write_line` procedure:
 
 ```c++
 #include "splashkit.h"
@@ -33,26 +37,7 @@ int main()
 }
 ```
 
-Functions are similar to procedures, and there are a few that you will need to use for now. One is the [Open Window](https://splashkit.io/api/windows/#open-window) function. We will introduce other things you can do with functions in the next chapter. Open Window has the following signature:
-
-```c++
-window open_window(string caption, int width, int height);
-```
-
-You can call the `open_window` as if it were a procedure using the following code. It will pass the text "This is the caption" to the `caption`, 800 to the `width`, and 600 to the `height`.
-
-```c++
-#include "splashkit.h"
-
-int main()
-{
-    open_window("This is the caption", 800, 600);
-
-    delay(1000); // delay for 1 second
-}
-```
-
-For the final example let's look at [Fill Circle](https://splashkit.io/api/graphics/#fill-circle). This has the following signature:
+Let's look at [Fill Circle](https://splashkit.io/api/graphics/#fill-circle), it has the following signature:
 
 ```c++
 void fill_circle(color clr, double x, double y, double radius);
@@ -76,3 +61,13 @@ int main()
 ```
 
 In the next pages we will list the different procedures that you will use to complete the activities in this chapter both for terminal and graphical programs.
+
+:::tip[Functions?]
+[Functions](/book/part-1-instructions/2-data/5-reference/01-function) are similar to procedures, and will be covered in the next chapter. For now, there are some functions that you will need to use. One is the [Open Window](https://splashkit.io/api/windows/#open-window) function. Open Window has the following signature:
+
+```c++
+window open_window(string caption, int width, int height);
+```
+
+Notice that it starts with `window` and not `void`. This indicates it is actually a function, not a procedure. The good thing is that a procedure call can call both functions and procedures. So you can treat these as procedures for now.
+:::
