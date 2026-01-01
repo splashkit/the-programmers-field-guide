@@ -133,10 +133,11 @@ The great thing about parameters is that they really help you **generalise** wha
 - A function is a **construct** that you can create and use in your code.
 - A function contains code to calculate a value. When you want this value, you call the function.
 - Pure functions should have side effects, and always return the same value for the same input.
-- A function is defined by its **name**, the **steps** it performs, and its **return type**.
-- The syntax for a function is just like a [procedure](/book/part-2-organised-code/2-organising-code/2-trailside/02-procedures), with a data type instead of `void`.
 - Each function's instructions are **isolated** from the other code in your program.
-- Parameter is the **term** given to a [variable](/book/part-1-instructions/1-sequence/2-trailside/07-variable) declared to accept the value from an argument passed to a [function or procedure](/book/part-2-organised-code/2-organising-code/2-trailside/00-0-functions-and-procedures) when it is called.
+- Functions are very similar to [procedures](/book/part-2-organised-code/2-organising-code/2-trailside/02-procedures):
+  - The syntax for is similar. The only change is that the function starts with a data type indicating what it returns, instead of `void`.
+  - They both have parameters to accept the arguments.
+  - They are called in the same way, except that a procedure call is a [statement](/book/part-1-instructions/1-sequence/5-reference/01-sequence) while a function call can also be used in an experssion.
 - The **procedure or function call** must provide argument values for each of the function or procedure's parameters.
 - Within the function or procedure, the parameters can be used in the same way as any other
 variables.

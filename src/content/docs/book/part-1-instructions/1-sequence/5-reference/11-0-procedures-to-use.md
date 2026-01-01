@@ -63,7 +63,7 @@ int main()
 In the next pages we will list the different procedures that you will use to complete the activities in this chapter both for terminal and graphical programs.
 
 :::tip[Functions?]
-[Functions](/book/part-1-instructions/2-data/5-reference/01-function) are similar to procedures, and will be covered in the next chapter. For now, there are some functions that you will need to use. One is the [Open Window](https://splashkit.io/api/windows/#open-window) function. Open Window has the following signature:
+[Functions](/book/part-1-instructions/2-data/5-reference/30-function) are similar to procedures, and will be covered in the next chapter. For now, there are some functions that you will need to use. One is the [Open Window](https://splashkit.io/api/windows/#open-window) function. Open Window has the following signature:
 
 ```c++
 window open_window(string caption, int width, int height);

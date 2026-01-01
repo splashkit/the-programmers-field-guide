@@ -12,13 +12,48 @@ To interact with the user via the terminal you will need the following using dir
 #include "splashkit.h";
 ```
 
-Then you will have access to the following procedures for interacting with using in the terminal:
+When you want to display something on the terminal, you use either the `write_line` or `write` procedure. There are lots of different versions of these procedures which will allow you to pass many values to be output - so we can think of these as having the following signatures, where `...` is replaced with data of the different basic data types (integers, numbers, text):
 
-```cs
-// Output data to the terminal using
+```c++
 void write_line(...);
 void write(...);
 ```
+
+These procedures differ only slightly. `write_line` writes your text, and then starts a new line. `write` on the other hand just stays on the same line. Here's a table showing the difference:
+<table style="margin: auto; display: table;">
+  <tr><th>Example code</th><th>Output</th></tr>
+  <tr><td>
+
+  ```c++
+  write_line("A");
+  write_line("B");
+  write_line("C");
+  ```
+
+  </td><td>
+
+  ```txt
+  A
+  B
+  C
+  ```
+
+  </td></tr><tr><td>
+
+  ```c++
+  write("A");
+  write("B");
+  write("C");
+  ```
+
+  </td><td>
+
+  ```txt
+  ABC
+  ```
+
+  </td></tr>
+</table>
 
 :::tip
 These are procedure declarations - the code used to create a procedure. This code is in the library where these are made. You can call these in your code by using the procedure's name, and passing it the values it asks for.
