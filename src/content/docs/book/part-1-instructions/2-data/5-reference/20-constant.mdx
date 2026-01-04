@@ -4,25 +4,9 @@ title: Constant
 import CommmonLink from '/src/components/CommonLink.astro'
 import { YouTube } from 'astro-embed';
 
-While fixed literal values are useful, to make programs dynamic you need to be able to work with values that change.
-
-A **variable** is a **building block** you can use to store a value that you can change as the program runs. You can picture a variable as a **container** into which you can store a value and retrieve it later.
-
-![Variables store a value that can be read and changed](./images/variable-concept.png "Variables store a value that can be read and changed")
-
-## Variables -- when, why, and how
-
-Variables are an invaluable tool to help you build digital realities.
-They allow you to capture simple values, associate them with a name -- the variable's **identifier** -- and change the value within your code.
-You can also use the variable to retrieve (i.e., read) the value it contains.
-
-Whenever you have information in your program that you want to be able to change, you create a variable to store it. Every variable has a [data type](/book/part-1-instructions/2-data/5-reference/06-type/), which needs to match the kind of data you want to store.
-After you define a variable with an **identifier** and [**data type**](/book/part-1-instructions/2-data/5-reference/06-type/), you need to **initialise** it with a starting value.
-Then, you can then read the current value and store new values in the variable as the program runs and the information the variable represents changes.
-
 ## Constants
 
-A **constant** is similar to a variable, in that they have a name and a data type. Constants are declared within a program and must be given a value when they are created. However, they differ from a variable because once they are created the value within a constant cannot be changed. This is useful for data that should not change during the program's execution.
+A **constant** is similar to a variable, in that they have a name and a data type. Constants are declared within a program and must be given a value when they are created. However, they differ from a variable because once they are created, **the value within a constant cannot be changed**. This is useful for data that should not change during the program's execution.
 
 ![Constants have a value that cannot be changed](./images/constant-concept.png "Constants have a value that cannot be changed")
 
@@ -37,62 +21,25 @@ Another advantage of using a constant is that you can change the value in one pl
 ## In C++
 
 :::tip[Syntax]
-Variables can be declared in C++ using the following syntax:
-
-![The syntax for variable declarations in C++.](./images/variable-declaration.png "The syntax for variable declarations in C++")
-
-The syntax for declaring a constant is very similar:
+The syntax for declaring a constant is very similar to declaring variables:
 ![The syntax for constant declarations in C++.](./images/constant-declaration.png "The syntax for constant declarations in C++")
 <div class="caption">The syntax for constant declarations in C++</div><br/>
 <CommmonLink type="syntaxDiagramGuide"/>
 :::
 
-Variable and constant declarations use almost identical syntax in C++. The main difference between a variable and a constant is the `const` keyword at the start of the declaration. If you include `const`, you are creating constants. Without it, you are creating variables.
+Variable and constant declarations use almost identical syntax in C++. The main difference between a variable and a constant is the `const` keyword at the start of the declaration. If you include `const`, you are creating constants. Without it, you are creating variables. A constant must also be given a value when created.
 
-Both variables and constant declarations need to include the [type](/book/part-1-instructions/2-data/5-reference/06-type/) of data you want to store.Then, you provide a name (identifier) for the variable or constant.
-A variable can optionally be given a value when it is declared, but a constant must be given a value.
-You can also declare multiple variables or constants in the one line of code, as long as they are of the same data type.
+Just like variables, constant declarations need to include the [type](/book/part-1-instructions/1-sequence/5-reference/06-type/) of data you want to store, a name, and also _require_ a value.
 
 By convention, all constants should have an **UPPERCASE** name. Where the name has multiple words, separate them with underscores (`_`). For example: `MAX_ITEMS`.
-Variables should have a **snake_case** name, where the first letter is lowercase and each new word in the identifier is separated with an underscore character (`_`). For example, `bottle_volume`.
 
 ## Examples
 
-### Basic Example
+### Example using constants
 
-In this program, we want to capture the user's name and greet them using it. We need a variable for the name, as it may change each time the program runs. Within the program, the variable will represent the name of the user.
+This example will help us calculate the volume of our water bottles, assuming they are cylinders. To achieve this, we need the following variables and constants:
 
-```c++
-#include "splashkit.h"
-
-// Create a constant called message
-const string MESSAGE = "Welcome to The Greeting";
-
-int main()
-{
-    // Create a variable called name
-    // it can store a string
-    string name;
-
-    // Output the message
-    write_line(MESSAGE);
-    write_line();
-    write_line("What is your name?");
-    write("name: ");
-
-    // Read user input and store it in the name variable
-    name = read_line();
-
-    write_line();
-    write_line("Hello " + name);
-}
-```
-
-### Example using multiple variables
-
-The next example will help us calculate the volume of our water bottles, assuming they are cylinders. To achieve this, we need the following variables:
-
-- A `PI` constant for the calculation.
+- `PI` and `CUBIC_CENTIMETRES_PER_LITRE` constants for the calculation.
 - Numbers for `radius` and `height` which the user will enter.
 - A string `line` to store the text the user enters before we convert it to a number.
 - Numbers for `bottle_volume` and `litres` to store calculated values.
@@ -102,10 +49,11 @@ The next example will help us calculate the volume of our water bottles, assumin
 
 // Create a const called PI
 const double PI = 3.1415;
+// ...and another called CUBIC_CENTIMETRES_PER_LITRE
+const int CUBIC_CENTIMETRES_PER_LITRE = 1000;
 
 int main()
 {
-
     // Create variables radius, height, line, bottle_volume, and litres
     double radius, height;
     string line;
@@ -125,7 +73,7 @@ int main()
 
     bottle_volume = PI * radius * radius * height;
 
-    litres = bottle_volume / 1000;
+    litres = bottle_volume / CUBIC_CENTIMETRES_PER_LITRE;
 
     write_line();
     write_line("Volume " + to_string( bottle_volume ) + " cm^3");
@@ -134,50 +82,10 @@ int main()
 ```
 
 :::tip
-Notice how the names of the variables help us understand how the program works. In this, we are building the things we need in the digital reality that exists as the program runs.
+By giving our constants names such as `PI` and `CUBIC_CENTIMETRES_PER_LITRE`, we make our code easier to understand later on.
 
-Adding in additional line breaks also helps group the steps in our code to make it more readable.
+We can also use the same constant many times throughout our program, which is great - if we need to add more digits of precision to `PI`, or want to change the maximimum number of items a player can have, we can change it in just one place!
 :::
-
-### Circle Drawing Example
-
-Let's use SplashKit to look how variables can be used in a graphical program. The following program captures a radius for a circle and uses that to draw to the screen. To achieve this we need two variables, `line` and `radius`. We use `read_line` to read a `string` from the user, and `to_double` to convert the text read into a `double` value. This value is stored in the `radius` variable, which can then be used in the call to `fill_radius`.
-
-```c++
-#include "splashkit.h"
-
-const double SATURATION = 0.8;
-const double BRIGHTNESS = 0.8;
-
-int main()
-{
-    string line;
-    int radius;
-    double hue;
-
-    write_line("Welcome to Circle Drawer!");
-    write_line();
-    write_line("Enter the radius of the circle to draw. (a whole number)");
-
-    // Read value from the user and convert to double for radius
-    write("Circle radius: ");
-    line = read_line();
-    radius = to_integer(line);
-
-    // Read value from the user and convert to double for hue
-    write_line("What color? Enter hue between 0 to 1");
-    write("Hue: ");
-    line = read_line();
-    hue = to_double(line);
-
-    // Draw scene and delay
-    open_window("Circle Drawing", 800, 600);
-    clear_screen(color_white());
-    fill_circle(h_s_b_color(hue, SATURATION, BRIGHTNESS), 400, 300, radius);
-    refresh_screen();
-    delay(5000);
-}
-```
 
 ## Activities
 
@@ -185,34 +93,28 @@ For each piece of information, identify whether it would make the most sense to 
 
 1. The number of hours in a day.
 2. The amount of water, in litres, left in your water bottle.
-3. The number of meters walked so far in the day.
-4. The name of the species of wildlife you have most recently seen.
+3. The name of the species of wildlife you have most recently seen.
+4. The maximum number of tabs that can be opened at once.
 
 <details>
   <summary role="button">Answers</summary>
-  There are other acceptable answers for the identifiers.
-  The key to a good identifier is that it is short and meaningful.
-  It should also follow the C++ conventions, by using all upper case letters with words separated by underscores for constants, and snake_case for variables.
+  Same as with variables, there are other acceptable answers for the identifiers. Make sure to follow the C++ conventions, by using all upper case letters with words separated by underscores for constants (and snake_case for variables)
   <ul>
     <li><strong>1: </strong>Constant, because this value will not change. <code>const int HOURS_IN_DAY = 24;</code></li>
     <li><strong>2: </strong>Variable, because it will change if you drink from or fill up your bottle. <code>double water_left;</code></li>
-    <li><strong>3: </strong>Variable, because it will increase as you walk. <code>int meters_walked;</code></li>
-    <li><strong>4: </strong>Variable, because it will change when you see something new. <code>string last_species_seen;</code></li>
+    <li><strong>3: </strong>Variable, because it will change when you see something new. <code>string last_species_seen;</code></li>
+    <li><strong>4: </strong>Constant, because the program only supports at most this specific value. <code>const int MAX_TABS = 500;</code></li>
   </ul>
 </details>
 
 :::note[Summary]
 
-- Variables and constants are **building blocks** you can create to store values in your programs.
-- You can think of a variable or constant as a box. The variable or constant is the box, and its value is stored within it.
-- Each variable and constant has a ...
+- Constants share many similarities with variables. Each constant has a ...
   - **name** (identifier) that can be used to refer to it.
   - **type** that determines its size and how its value is interpreted.
   - **value** that it is storing.
-- The first time you assign a value to a variable or constant, you are **initialising** it.
-- Constants are just like variables, but you can only assign them a value once, when they are created.
-- You can **read** the value from variables and constants in your instructions.
-- A variable **is not** its value -- it is a container that stores a value, but its value can change over time as you write new values into the variable.
+- However, you can only assign them a value once, when they are created. After this they cannot be changed.
+- You can **read** the value from constants in your instructions.
 
 :::
 
