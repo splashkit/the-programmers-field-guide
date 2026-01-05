@@ -2,7 +2,7 @@
 title: Expression
 ---
 
-[Expressions](/book/part-1-instructions/1-sequence/2-trailside/05-expression) were covered in the previous chapter, so this is just a quick recap as expressions are a key component of programming language syntax.
+[Expressions](/book/part-1-instructions/1-sequence/5-reference/05-expression) were covered in the previous chapter, so this is just a quick recap as expressions are a key component of programming language syntax.
 
 ## Expressions -- when, why, and how
 

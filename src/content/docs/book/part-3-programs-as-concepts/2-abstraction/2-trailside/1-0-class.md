@@ -11,7 +11,7 @@ This can be a big shift, so we need to spend time focusing on both the syntax an
 The following image captures a visualisation of the **class** concept. The key aspects include:
 
 - A class describes the **responsibilities**, which can either be **knowing** something or **doing** something, for the objects we create from the class.
-- Just like a [program](/book/part-1-instructions/1-sequence/2-trailside/00-program), a class may use methods and data from one or more libraries.
+- Just like a [program](/book/part-1-instructions/1-sequence/5-reference/00-program), a class may use methods and data from one or more libraries.
 - Objects created from the class may also use methods and data from other objects they know. We will explore this further in [Part 3, Chapter 3](/book/part-3-programs-as-concepts/4-collaboration/0-overview) with the concept of **collaboration**.
 
 ![Visualisation of a class as a template used to create objects.](./images/class-concept.png)

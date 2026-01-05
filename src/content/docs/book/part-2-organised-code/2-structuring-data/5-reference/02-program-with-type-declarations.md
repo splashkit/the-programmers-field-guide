@@ -31,6 +31,6 @@ Type declarations are often created in header files so that they can easily be s
 
 - A program is a **building block**, it is the container within which you code your functions, procedures, constants, and now types.
 - The types you declare in your program will be available for use within the program’s code, within your functions and procedures.
-- You will be able to create [variables](/book/part-1-instructions/1-sequence/2-trailside/07-variable) of the types you create. They will store the values in the format you specified. This includes [parameters](/book/part-2-organised-code/2-organising-code/2-trailside/04-parameter) and [local variables](/book/part-2-organised-code/2-organising-code/2-trailside/03-local-variable).
+- You will be able to create [variables](/book/part-1-instructions/1-sequence/5-reference/07-variable) of the types you create. They will store the values in the format you specified. This includes [parameters](/book/part-2-organised-code/2-organising-code/2-trailside/04-parameter) and [local variables](/book/part-2-organised-code/2-organising-code/2-trailside/03-local-variable).
 
 :::

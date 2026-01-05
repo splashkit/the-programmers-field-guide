@@ -1,9 +1,8 @@
 ---
 title: Airspeed Velocity
-banner:
-  content: This is an optional tour - use it to extend your understanding.
 ---
 import { YouTube } from 'astro-embed';
+import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 On your journey, you encountered a strange person who mentioned something about coconuts and queries you vigorously about the airspeed velocity of unladen swallows.
 
@@ -39,7 +38,7 @@ With frequency and amplitude, we will require the extra step to convert the user
 
 To calculate the min and max speeds we can use the equation that we noted above, using variables to store the results. These can then be used in the "output results" step, where we can call `write_line` to output the calculated details.
 
-## The Building Blocks
+## Variables and Constants
 
 Reviewing this plan, we can identify which constants and variables we will need to create within our program. We have a few set values, and some values that we want to be able to be different each time the program runs. We can create the following building blocks to help us work with this into our program:
 
@@ -100,3 +99,55 @@ Build and run this in small steps:
 ## Wrap Up
 
 Think about the algorithm, identify any things you need in the code (variables and constants), then code by building out the plan little by little. As you write more programs you will get very used to this process.
+
+Here is our version of the Airspeed velocity program code. Remember that your code may be a little different to this, and that is ok. The most important thing is that you create your own version, have a good understanding of how it works, and have developed the knowledge and skills necessary to create similar programs using variable and constant declarations, assignment statements, procedure/function calls, and an iterative process.
+
+<Accordion>
+    <AccordionItem header="Airspeed Velocity Code">
+
+    ```c++
+    #include "splashkit.h"
+
+    const double STROUHAL_LOW_EFFICIENCY = 0.4;
+    const double STROUHAL_HIGH_EFFICIENCY = 0.2;
+
+    int main()
+    {
+        string bird_name, line;
+        double freq, amp;
+
+        // Display program details
+        write_line("Welcome to the Airspeed Calculator");
+        write_line();
+
+        // Read in the name, frequency and amplitude
+        write_line("What is the name of the bird?");
+        write("Name: ");
+        bird_name = read_line();
+
+        write_line("What is the frequency of its wing stroke? (beats per second)");
+        write("Frequency: ");
+
+        // Read and convert frequency to double
+        line = read_line();
+        freq = to_double(line);
+
+        write_line("What is the amplitude of its wings? (centimeters)");
+        write("Amplitude: :");
+        line = read_line();
+        amp = to_double(line);
+
+        // calculate the airspeed, given a fixed Strouhal value
+        double result_max, result_min;
+        result_max = freq * amp / STROUHAL_HIGH_EFFICIENCY;
+        result_min = freq * amp / STROUHAL_LOW_EFFICIENCY;
+
+        // output the airspeed of the bird
+        write_line("Bird " + bird_name + " ");
+        write_line(" - f: " + to_string(freq) + " A: " + to_string(amp) + " Speed: " + to_string(result_max) + " m/s");
+        write_line(" - f: " + to_string(freq) + " A: " + to_string(amp) + " Speed: " + to_string(result_min) + " m/s");
+    }
+    ```
+
+    </AccordionItem>
+</Accordion>

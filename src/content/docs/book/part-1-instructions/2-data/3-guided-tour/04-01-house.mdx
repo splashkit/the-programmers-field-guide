@@ -1,10 +1,20 @@
 ---
-title: Calculated Size
-sidebar:
-  label: " - Calculated Size"
+title: Drawing Challenge
+banner:
+  content: This challenge involves manual calculations for shape drawing
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { Steps } from '@astrojs/starlight/components';
+
+:::note[Skip this if you want]
+Challenge pages offer you an opportunity to try out the things we have covered so far, but are generally more involved and not essential to developing the required understanding.
+
+Move on to the [activities](/book/part-1-instructions/2-data/4-activities/1-group-activity) if you want.
+:::
+
+In the last chapter we worked on a [House Drawing program](/book/part-1-instructions/1-sequence/3-guided-tour/01-00-house-drawing/), but identified that our house is currently drawn using hard-coded values for each shape. It would be difficult to resize or move the house without manually re-calculating each of the coordinates.
+
+We'll now upgrade our House Drawing program to _dynamically calculate_ the positions and sizes of the shapes we draw, by using variables and expressions! This is the first step to creating much more interesting graphical programs - such as ones with graphical interfaces - or games.
 
 ![House output](./images/house-small.png)
 
@@ -37,7 +47,7 @@ Let's look at adding some constants and variables to make this more dynamic. We 
     - Compile and run and try different wall sizes.
 
     <Accordion>
-      <AccordionItem header="Calculated walls">
+      <AccordionItem header="Code to calculate walls - if you get stuck">
 
       As I coded this I realised I needed an extra constant - `BOTTOM_GAP`. When you find you are hard-coding values you should think if there is a meaningful name to describe the value. Naming the "bottom gap" helps make it clearer what that 100 was about, whereas the 2 does not need a different name. We are dividing by 2 to get half the value.
 
@@ -95,57 +105,65 @@ Let's look at adding some constants and variables to make this more dynamic. We 
 5. Finally, adjust the code so that the size of the hill is calculated from the size of the screen. It is as wide as the screen, appears 2/3rds of the way down the screen, and is 2/3rds the height of the screen. 
 
     Once you change this, try different screen sizes!
-
-    <Accordion>
-      <AccordionItem header="Final code">
-
-      ```c++ {5,14-15,24-29,34,37}
-      #include "splashkit.h"
-
-      const int SCREEN_WIDTH = 1280;
-      const int SCREEN_HEIGHT = 720;
-      const int HILL_HEIGHT = SCREEN_HEIGHT * 2 / 3;
-
-      const int BOTTOM_GAP = 100;
-
-      int main()
-      {
-          int house_size;
-          string user_input;
-          int wall_x, wall_y;
-          int roof_left, roof_middle, roof_right, roof_top;
-          int roof_overhang, roof_height;
-
-          write("Enter the size of the house: ");
-          user_input = read_line();
-          house_size = to_integer(user_input);
-
-          wall_x = (SCREEN_WIDTH - house_size) / 2;
-          wall_y = SCREEN_HEIGHT - BOTTOM_GAP - house_size;
-
-          roof_overhang = house_size / 4;
-          roof_height = house_size * 3 / 4;
-          roof_left = wall_x - roof_overhang;
-          roof_middle = wall_x + house_size / 2;
-          roof_right = wall_x + house_size + roof_overhang;
-          roof_top = wall_y - roof_height;
-
-          open_window("House Drawing by Andrew", SCREEN_WIDTH, SCREEN_HEIGHT);
-
-          clear_screen(color_white());
-          fill_ellipse(color_bright_green(), 0, HILL_HEIGHT, SCREEN_WIDTH, HILL_HEIGHT);
-
-          fill_rectangle(color_gray(), wall_x, wall_y, house_size, house_size);
-          fill_triangle(color_red(), roof_left, wall_y, roof_middle, roof_top, roof_right, wall_y);
-
-          refresh_screen();
-
-          delay(5000);
-      }
-      ```
-
-      </AccordionItem>
-    </Accordion>
 </Steps>
 
-When you have this working you should feel confident that you can start working with graphical programs.
+When you have this working you should feel confident that you can achieve anything when working with basic shapes in graphical programs.
+
+Here is out version of the code. Remember that it is ok if your version differs from this. The main thing is to understand how to work with variables and constants, how to call functions and procedures, and how to sequence these to achieve a goal.
+
+<Accordion>
+  <AccordionItem header="Final code">
+
+  ```c++ {5,14-15,24-29,34,37}
+  #include "splashkit.h"
+
+  const int SCREEN_WIDTH = 1280;
+  const int SCREEN_HEIGHT = 720;
+  const int HILL_HEIGHT = SCREEN_HEIGHT * 2 / 3;
+
+  const int BOTTOM_GAP = 100;
+
+  int main()
+  {
+      int house_size;
+      string user_input;
+      int wall_x, wall_y;
+      int roof_left, roof_middle, roof_right, roof_top;
+      int roof_overhang, roof_height;
+
+      write("Enter the size of the house: ");
+      user_input = read_line();
+      house_size = to_integer(user_input);
+
+      wall_x = (SCREEN_WIDTH - house_size) / 2;
+      wall_y = SCREEN_HEIGHT - BOTTOM_GAP - house_size;
+
+      roof_overhang = house_size / 4;
+      roof_height = house_size * 3 / 4;
+      roof_left = wall_x - roof_overhang;
+      roof_middle = wall_x + house_size / 2;
+      roof_right = wall_x + house_size + roof_overhang;
+      roof_top = wall_y - roof_height;
+
+      open_window("House Drawing by Andrew", SCREEN_WIDTH, SCREEN_HEIGHT);
+
+      clear_screen(color_white());
+      fill_ellipse(color_bright_green(), 0, HILL_HEIGHT, SCREEN_WIDTH, HILL_HEIGHT);
+
+      fill_rectangle(color_gray(), wall_x, wall_y, house_size, house_size);
+      fill_triangle(color_red(), roof_left, wall_y, roof_middle, roof_top, roof_right, wall_y);
+
+      refresh_screen();
+
+      delay(5000);
+  }
+  ```
+
+  </AccordionItem>
+</Accordion>
+
+:::tip[Are all programs this mathematical?]
+
+This program has been focused on mathematical calculations in order to position shapes. This is not all we can do with computing. Most of the code in your programs will not involve this level of mathematical modelling, and this is about as complex as the calculations will get in this guide.
+:::
+

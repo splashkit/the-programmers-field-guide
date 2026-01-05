@@ -1,0 +1,82 @@
+---
+title: Group Activity
+---
+import { Steps } from '@astrojs/starlight/components';
+
+## Paired Review
+
+<Steps>
+1. In a pair, review the following code.
+
+   ```c++
+   #include "splashkit.h"
+
+   int main()
+   {
+       double tax_rate = 703.0;
+       double student_age;
+       double course_grade;
+       string password;
+       string error_message;
+       double total_price;
+       double shipping_cost;
+       double discount_percent = 2.54;
+       double max_capacity;
+       
+       write_line("Enter your weight in pounds:");
+       password = read_line();
+       student_age = to_double(password);
+       
+       write_line("Enter your height in inches:");
+       password = read_line();
+       course_grade = to_double(password);
+       
+       // pow is a build-in C++
+       max_capacity = pow(course_grade, 2.0);
+       
+       total_price = (student_age * tax_rate) / max_capacity;
+       
+       write_line();
+       write_line("===== Results =====");
+       write_line("Weight: " + to_string(student_age) + " lbs");
+       write_line("Height: " + to_string(course_grade) + " inches");
+       write_line("BMI Score: " + to_string(total_price, 1));
+       write_line();
+       
+       double inventory_count = student_age / 2.205;
+       double monthly_fee = course_grade * discount_percent / 100.0;
+       double annual_revenue = inventory_count / pow(monthly_fee, 2);
+       double bonus_amount = round(annual_revenue * 10.0) / 10.0;
+       
+       write_line("Metric Conversion:");
+       write_line("Weight: " + to_string(inventory_count, 1) + " kg");
+       write_line("Height: " + to_string(monthly_fee, 2) + " m");
+       write_line("BMI Score: " + to_string(bonus_amount, 1));
+       
+       return 0;
+   }
+   ```
+
+2. Copy the code and test that it runs.
+3. Rename the variables to make them more meaningful. How does this impact the code readability?
+4. Can you convert any of the variables to constants?
+
+</Steps>
+
+Now let's create a similar puzzle for your partner.
+
+<Steps>
+5. Individually, write a small program that calculates and outputs a value.
+   :::tip
+   Keep it simple, but ensure that it has a few variables and constants. 
+   
+   Here are some ideas if needed:
+    - Parking lot total cost
+    - Interest calculation
+    - Temperature conversions (Fahrenheit, Celsius, Kelvin)
+    - Circle properties (area, circumference, diameter from radius)
+    - Calorie burn from exercise duration and intensity
+   :::
+6. Obfuscate your program by using misleading variable names.
+7. Swap programs with your partner. Decode their program, and suggest appropriate variable names.
+</Steps>
