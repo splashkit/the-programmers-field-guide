@@ -118,6 +118,8 @@ Notice how the names of the variables help us understand how the program works. 
 
 Let's use SplashKit to look how variables can be used in a graphical program. The following program captures a radius for a circle and uses that to draw to the screen. To achieve this we need two variables, `line` and `radius`. We use `read_line` to read a `string` from the user, and `to_double` to convert the text read into a `double` value. This value is stored in the `radius` variable, which can then be used in the call to `fill_radius`.
 
+Here we also have a `color` variable to store the fill color for the circle. `color` comes from the SplashKit library, and is used to represent color values. In this case we call the `hsb_color` function to calculate the color of the [hue](https://en.wikipedia.org/wiki/Hue) specified by the user.
+
 ```c++
 #include "splashkit.h"
 
@@ -126,6 +128,7 @@ int main()
     string line;
     int radius;
     double hue;
+    color fill_color;
 
     write_line("Welcome to Circle Drawer!");
     write_line();
@@ -141,11 +144,12 @@ int main()
     write("Hue: ");
     line = read_line();
     hue = to_double(line);
+    fill_color = hsb_color(hue, 0.8, 0.8);
 
     // Draw scene and delay
     open_window("Circle Drawing", 800, 600);
-    clear_screen(color_white());
-    fill_circle(hsb_color(hue, 0.8, 0.8), 400, 300, radius);
+    clear_screen(COLOR_WHITE);
+    fill_circle(fill_color, 400, 300, radius);
     refresh_screen();
     delay(5000);
 }
