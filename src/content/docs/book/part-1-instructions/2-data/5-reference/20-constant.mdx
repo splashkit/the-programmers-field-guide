@@ -33,9 +33,7 @@ Just like variables, constant declarations need to include the [type](/book/part
 
 By convention, all constants should have an **UPPERCASE** name. Where the name has multiple words, separate them with underscores (`_`). For example: `MAX_ITEMS`.
 
-## Examples
-
-### Example using constants
+## Example
 
 This example will help us calculate the volume of our water bottles, assuming they are cylinders. To achieve this, we need the following variables and constants:
 
@@ -43,6 +41,8 @@ This example will help us calculate the volume of our water bottles, assuming th
 - Numbers for `radius` and `height` which the user will enter.
 - A string `line` to store the text the user enters before we convert it to a number.
 - Numbers for `bottle_volume` and `litres` to store calculated values.
+
+Constants are generally coded outside `main`, at the top of the file. This way they are accessible throughout the program. We will explore this further when we look at tools for [organising our code](/book/part-2-organised-code/1-structuring-code/0-overview).
 
 ```c++
 #include "splashkit.h"
@@ -84,7 +84,7 @@ int main()
 :::tip
 By giving our constants names such as `PI` and `CUBIC_CENTIMETRES_PER_LITRE`, we make our code easier to understand later on.
 
-We can also use the same constant many times throughout our program, which is great - if we need to add more digits of precision to `PI`, or want to change the maximimum number of items a player can have, we can change it in just one place!
+We can also use the same constant many times throughout our program, which is great - if we need to add more digits of precision to `PI`, or want to change the maximum number of items a player can have, we can change it in just one place!
 :::
 
 ## Activities
@@ -115,14 +115,6 @@ For each piece of information, identify whether it would make the most sense to 
   - **value** that it is storing.
 - However, you can only assign them a value once, when they are created. After this they cannot be changed.
 - You can **read** the value from constants in your instructions.
+- Generally we code constants *outside* `main`. This way they are accessible throughout your program.
 
 :::
-
-<div style="display: none" todo="TODO: Update video? Or just remove?">
-## Debugging
-Variables are fundamental and powerful tools in programming, but with that power comes the possibility for new types of bugs to emerge. Let's see how to view and manipulate variables in VS Code's debugger!
-
-<div class="not-content">
-  <YouTube id="N_lgAN7lVHM" params="fs=1&modestbranding=1&rel=0"/>
-</div>
-</div>
