@@ -13,7 +13,7 @@ We can get this going pretty quickly by:
 
 1. Work out where you are going to save this project, create the folder if needed, and open it in VS Code.
 2. Create a new **stats-calc.cpp** code file.
-3. Copy in your *utilities.h* and *utilities.cpp* files from the [shared utilities](/book/part-2-organised-code/2-organising-code/1-tour/04-00-utilities) activity. This will contain the `read_integer` and `read_double` functions we need. If either of these are missing, you should code them in your utilities files.
+3. Copy in your *utilities.h* and *utilities.cpp* files from the [shared utilities](/book/part-2-organised-code/1-structuring-code/3-guided-tour/04-00-utilities) activity. This will contain the `read_integer` and `read_double` functions we need. If either of these are missing, you should code them in your utilities files.
 4. Add the following code to your **stats-calc.cpp** file to kick things off:
 
 ```cpp
@@ -52,7 +52,7 @@ Fields:
 - size: an integer for the current number of values
 ```
 
-Have a go at coding this. Replace the `//todo: add struct here` comment with the code needed to declare the struct. You should recall how to do this from the [organised data](/book/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct) chapter. In this case, you will need to include the array declaration within the struct. Look back at the [array declaration](/book/part-2-organised-code/5-working-with-multiples/2-trailside/00-01-array-declaration) section if you need. If you get stuck you can check the solution below.
+Have a go at coding this. Replace the `//todo: add struct here` comment with the code needed to declare the struct. You should recall how to do this from the [organised data](/book/part-2-organised-code/2-structuring-data/5-reference/03-01-struct) chapter. In this case, you will need to include the array declaration within the struct. Look back at the [array declaration](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-01-array-declaration) section if you need. If you get stuck you can check the solution below.
 
 <Accordion>
   <AccordionItem
@@ -104,7 +104,7 @@ int main()
 :::
 
 :::caution
-If you are having trouble doing this yourself, make sure to go back and review [structuring data](/book/part-2-organised-code/3-structuring-data/0-overview) or the concepts earlier in this chapter.
+If you are having trouble doing this yourself, make sure to go back and review [structuring data](/book/part-2-organised-code/2-structuring-data/0-overview) or the concepts earlier in this chapter.
 :::
 
   </AccordionItem>
@@ -139,7 +139,7 @@ The first part of the procedure reads in the number of elements the user wants t
 
 Following this, we have the loop to read in values from the user. There are two key things to notice about the pseudocode:
 
-1. The [for loop](/book/part-1-instructions/3-control-flow/2-trailside/04-3-for-loop) is used to repeat the loop once for each element in the array.
+1. The [for loop](/book/part-1-instructions/3-control-flow/5-reference/04-3-for-loop) is used to repeat the loop once for each element in the array.
 2. `i` moves through the valid indexes of the array - so inside the loop `i` will be the index of the current element being processed. In this case, we store a value into this element.
 
 Have a go at implementing this yourself. We will need to update `main` so that it contains a `number_data` variable that we can pass to `populate_array`. We can then call `populate_array` to read in the values from the user. If you get stuck, you can check the solution below.
@@ -149,7 +149,7 @@ Have a go at implementing this yourself. We will need to update `main` so that i
 - Don't forget to include the *utilities.h* file, and to compile the *utilities.cpp* file with your program.
 - Think through the steps you need to take to implement this.
 - Make sure to also think about invalid data that could be entered.
-- Use a [for loop](/book/part-2-organised-code/5-working-with-multiples/0-panorama/1-array-iteration) to perform an action *for each* element in the array.
+- Use a [for loop](/book/part-2-organised-code/3-working-with-multiples/move-0-panorama/1-array-iteration) to perform an action *for each* element in the array.
 
 :::
 
@@ -235,7 +235,7 @@ Have a go at this yourself.
 
 :::tip
 
-- As before, use a [for loop](/book/part-2-organised-code/5-working-with-multiples/0-panorama/1-array-iteration) to perform the action for each element in the array.
+- As before, use a [for loop](/book/part-2-organised-code/3-working-with-multiples/move-0-panorama/1-array-iteration) to perform the action for each element in the array.
 - Use the standard C `printf` function to output the details. The `%d` format specifier can be used for the index (it is an integer) and `%lf` can be used for the value from the array (it is a double). Something like `"%d: %lf\n"` where `%d` is replaced by the index value, and `%lf` is replaced by the value stored in the array at that index.
 
 :::

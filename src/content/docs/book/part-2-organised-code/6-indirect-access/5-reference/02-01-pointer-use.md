@@ -18,7 +18,7 @@ You need to be able to perform certain actions to make pointers useful. These in
 
 :::note
 
-- You can get the address of values in [Local Variables](/book/part-2-organised-code/2-organising-code/2-trailside/03-local-variable), [Global Variables](/book/part-2-organised-code/2-organising-code/2-trailside/06-global-variables), [Parameters](/book/part-2-organised-code/2-organising-code/2-trailside/04-parameter), fields of [Structs](/book/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct) and [Unions](/book/part-2-organised-code/3-structuring-data/2-trailside/03-05-union). Basically, you can get the address of any value you can read.
+- You can get the address of values in [Local Variables](/book/part-2-organised-code/1-structuring-code/5-reference/03-local-variable), [Global Variables](/book/part-2-organised-code/1-structuring-code/5-reference/06-global-variables), [Parameters](/book/part-2-organised-code/1-structuring-code/5-reference/04-function-decl#examples), fields of [Structs](/book/part-2-organised-code/2-structuring-data/5-reference/03-01-struct) and [Unions](/book/part-2-organised-code/2-structuring-data/5-reference/03-05-union). Basically, you can get the address of any value you can read.
 - Once you have the address (the Pointer value), you can store, or you can use it.
 - You need to follow the pointer, called **dereferencing** the pointer, to read its value or to assign a new value to the location it refers to.
 - Remember there are two values with pointers:

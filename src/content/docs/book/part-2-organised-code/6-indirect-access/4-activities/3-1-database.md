@@ -86,6 +86,6 @@ Remember that 1 / 2 is 0, while 1 / 2.0 is 0.5.
 
 Make sure to have an account struct and use procedures for each kind of transaction. You can then use pass-by-reference to allow the account to be updated within the procedure. Test out what occurs if you remove the `&`.
 
-Ideally, your program should also include functions to [read and validate data from the user](/book/part-2-organised-code/2-organising-code/1-tour/00-2-explore-functions), and use an enum for the action/menu options, as well as a function that returns one of the enum values based on what the user chose (read menu option).
+Ideally, your program should also include functions to [read and validate data from the user](/book/part-2-organised-code/1-structuring-code/3-guided-tour/00-2-explore-functions), and use an enum for the action/menu options, as well as a function that returns one of the enum values based on what the user chose (read menu option).
 
 :::

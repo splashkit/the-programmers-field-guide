@@ -25,7 +25,7 @@ The following image shows the code needed to allocate space on the heap.
 :::
 
 :::tip
-You can change the size of the space allocated to a pointer using [realloc](/book/part-2-organised-code/6-deep-dive-memory/2-trailside/03-4-realloc).
+You can change the size of the space allocated to a pointer using [realloc](/book/part-2-organised-code/7-deep-dive-memory/5-reference/03-4-realloc).
 :::
 
 ## Example Code

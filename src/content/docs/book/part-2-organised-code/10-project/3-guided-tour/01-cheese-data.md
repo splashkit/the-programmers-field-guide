@@ -8,7 +8,7 @@ The first step we should do is to think up how we want to model the entities/dat
 
 :::tip
 
-As we transition into object-oriented programming, we will combine the data and functionality into objects (coded using classes) as we explored in the [Member Functions](/book/part-2-organised-code/7-member-functions/0-overview) chapter. For the moment, focus on the *entities* and this should help set the foundation for objects when we look at them more specifically. For now, focus on how you want to organise the data using structs and enumerations.
+As we transition into object-oriented programming, we will combine the data and functionality into objects (coded using classes) as we explored in the [Member Functions](/book/part-2-organised-code/4-member-functions/0-overview) chapter. For the moment, focus on the *entities* and this should help set the foundation for objects when we look at them more specifically. For now, focus on how you want to organise the data using structs and enumerations.
 
 :::
 
@@ -23,7 +23,7 @@ If we then think about the program a little more, we should see that we need a w
 
 3. Cheese Shop
 
-Within the shop we will need to track multiple cheese or order values. For this you can use your dynamic array () or you can use the [vector](/book/part-2-organised-code/10-project/0-panorama/5-cpp-utilities/#vector) class from the standard C++ library. Either way, this will help to take care of managing memory needed to work with these.
+Within the shop we will need to track multiple cheese or order values. For this you can use your dynamic array () or you can use the [vector](/book/part-2-organised-code/10-project/move-0-panorama/5-cpp-utilities/#vector) class from the standard C++ library. Either way, this will help to take care of managing memory needed to work with these.
 
 Now let's capture our ideas before we move on to think about how we use these entities.
 

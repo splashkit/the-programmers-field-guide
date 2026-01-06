@@ -4,7 +4,7 @@ banner:
   content: This is an optional tour - use it to extend your understanding.
 ---
 
-The change calculator is at a reasonable place where we left it in the [structuring code](/book/part-2-organised-code/2-organising-code/0-overview) chapter. However, we can think through the code to see where we can make some improvements by incorporating structs and enums.
+The change calculator is at a reasonable place where we left it in the [structuring code](/book/part-2-organised-code/1-structuring-code/0-overview) chapter. However, we can think through the code to see where we can make some improvements by incorporating structs and enums.
 
 ## Coin Kind
 

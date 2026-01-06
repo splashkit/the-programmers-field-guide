@@ -51,7 +51,7 @@ Steps:
 
 ## Loop until quit
 
-With the basic details drawn, we can now place this within an [event loop](/book/part-1-instructions/3-control-flow/2-trailside/04-1-while-loop#event-loops---dynamic-graphical-programs). This will loop **while** the user has not asked to quit, with each loop clearing the screen, drawing the game, and processing any events the user has performed. This is captured in the following flowchart.
+With the basic details drawn, we can now place this within an [event loop](/book/part-1-instructions/3-control-flow/5-reference/04-1-while-loop#event-loops---dynamic-graphical-programs). This will loop **while** the user has not asked to quit, with each loop clearing the screen, drawing the game, and processing any events the user has performed. This is captured in the following flowchart.
 
 ![The flow chart showing the event loop for the fly catch game](./images/fly-catch-events.png)
 
@@ -97,10 +97,10 @@ public static bool QuitRequested();
 public static void ProcessEvents();
 ```
 
-There is an example of this logic on the [while loop page](/book/part-1-instructions/3-control-flow/2-trailside/04-1-while-loop/#event-loops---dynamic-graphical-programs), and remember you can check our version of the code in the [campsite reflections](/book/part-1-instructions/3-control-flow/4-camp/3-fly-catch-events) section if you get stuck.
+There is an example of this logic on the [while loop page](/book/part-1-instructions/3-control-flow/5-reference/04-1-while-loop/#event-loops---dynamic-graphical-programs), and remember you can check our version of the code in the [campsite reflections](/book/part-1-instructions/3-control-flow/move-camp/3-fly-catch-events) section if you get stuck.
 
 :::tip[Where is the game?]
 Start to think about where the game really is occurring. You will see it on the screen, but the game actually exists within the data that we have created within this program. Try to picture the spider when you read the code -- it is a little hard to see at the moment as we only have individual variables.
 
-This is the "digital reality" we are creating. When we think about this code we can see the spider, and link it to the variables in the code. Try to see this reality in your mind. It will get easier once we can [structure our data](/book/part-2-organised-code/3-structuring-data/0-overview), but before we can do that we need to be able to work with control flow statements.
+This is the "digital reality" we are creating. When we think about this code we can see the spider, and link it to the variables in the code. Try to see this reality in your mind. It will get easier once we can [structure our data](/book/part-2-organised-code/2-structuring-data/0-overview), but before we can do that we need to be able to work with control flow statements.
 :::

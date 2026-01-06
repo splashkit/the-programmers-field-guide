@@ -299,7 +299,7 @@ The while loop is a common feature of most programming languages. It is a pre-te
 
 The while loop is a flexible way to have code repeated and will be used a lot in your programs. It should be your first thought when you want something to be repeated.
 
-As with [branching](/book/part-1-instructions/3-control-flow/2-trailside/03-0-branching), a while loop is a form of control flow because it literally controls the flow of instructions to the CPU.
+As with [branching](/book/part-1-instructions/3-control-flow/5-reference/03-0-branching), a while loop is a form of control flow because it literally controls the flow of instructions to the CPU.
 See the image below for a visualisation of this.
 Overall, the instructions are still being processed in sequence -- there are just two paths to choose from (repeating or ending the loop).
 
@@ -331,7 +331,7 @@ The following diagram shows the C# syntax for a while loop.
 ![While loop syntax.](./images/while-loop.png)
 :::
 
-In C# the while loop starts with the `while` keyword followed by the condition within parenthesis. The statement to be repeated follows this, which in almost all cases will be a [compound statement](/book/part-1-instructions/3-control-flow/2-trailside/02-0-compound-statement).
+In C# the while loop starts with the `while` keyword followed by the condition within parenthesis. The statement to be repeated follows this, which in almost all cases will be a [compound statement](/book/part-1-instructions/3-control-flow/5-reference/02-0-compound-statement).
 
 ## How does `while` work?
 
@@ -344,7 +344,7 @@ The following code provides a simple example of how to work with a while loop. I
 These steps are coded into the program below.
 The user is asked to enter a number, which we store in the `target` variable, and we create a second variable (`i`) that we use to count the number of times the loop runs. Before the loop, `i` is set to 0 as we generally count from 0 in our code.
 
-The while loop runs **while** `i` is less than the `target`. Within the loop, we use the `i++` [assignment statement](/book/part-1-instructions/1-sequence/5-reference/08-assignment-statement) to increase the value of `i`. This means that the value of `i` will eventually be larger than or equal to the `target`, thereby ensuring the loop will end.
+The while loop runs **while** `i` is less than the `target`. Within the loop, we use the `i++` [assignment statement](/book/part-1-instructions/2-data/5-reference/11-assignment-statement) to increase the value of `i`. This means that the value of `i` will eventually be larger than or equal to the `target`, thereby ensuring the loop will end.
 
 ```csharp
 using static System.Console;

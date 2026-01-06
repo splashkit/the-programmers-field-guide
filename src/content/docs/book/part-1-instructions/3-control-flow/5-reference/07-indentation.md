@@ -25,7 +25,7 @@ Just like it would be distracting to read a novel which changed font every few w
 
 Indentation -- the spaces at the beginning of a line of code -- is an important part of code style.
 Its primary purpose is to help communicate the structure of your code.
-Now that you have added [compound statements](/book/part-1-instructions/3-control-flow/2-trailside/02-0-compound-statement) to your tool kit, indentation is something you will need to consider.
+Now that you have added [compound statements](/book/part-1-instructions/3-control-flow/5-reference/02-0-compound-statement) to your tool kit, indentation is something you will need to consider.
 
 The style we use for indentation is **four spaces**.
 That is, every time we start a new block the lines of code within it are written with four additional spaces at the start.
@@ -53,7 +53,7 @@ The most important thing is to be consistent with the conventions of the project
 :::
 
 Regardless of the specific style being used, the purpose of indentation is the same -- to visually communicate the different blocks of code.
-This helps us to see the flow of the program logic, and the different levels of [scope](/book/part-1-instructions/3-control-flow/2-trailside/02-1-scope).
+This helps us to see the flow of the program logic, and the different levels of [scope](/book/part-1-instructions/3-control-flow/5-reference/02-1-scope).
 
 As you continue on your journey, pay attention to code indentation and make sure you are using a consistent style.
 You may also want to review the other rules in our [style guide](/style).

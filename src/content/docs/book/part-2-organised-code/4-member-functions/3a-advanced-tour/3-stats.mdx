@@ -7,13 +7,13 @@ import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 Now that our dynamic array looks and feels more like an array, we should be able to use it with ease across our other programs.
 
-In the [Working with Multiples](/book/part-2-organised-code/5-working-with-multiples/0-overview) chapter, we built a [stats calculator](/book/part-2-organised-code/5-working-with-multiples/1-tour/01-01-stats-design) using an array embedded within a struct. This program can easily be rebuilt now to incorporate the dynamic array you have created.
+In the [Working with Multiples](/book/part-2-organised-code/3-working-with-multiples/0-overview) chapter, we built a [stats calculator](/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/01-01-stats-design) using an array embedded within a struct. This program can easily be rebuilt now to incorporate the dynamic array you have created.
 
 ## Refactor `number_data`
 
 In our original program, we had created a `number_data` struct that contained a fixed-size array of doubles. Now that we have our more general dynamic array, we can remove our `number_data` struct altogether and just use a `dynamic_array<double>`.
 
-1. Locate your **stats.cpp** project code, or revisit it from the [Working with Multiples](/book/part-2-organised-code/5-working-with-multiples/1-tour/01-07-stats-remove#summary) chapter.
+1. Locate your **stats.cpp** project code, or revisit it from the [Working with Multiples](/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/01-07-stats-remove#summary) chapter.
 
 2. Add a `#include` to provide access to your dynamic array.
 3. Delete the `MAX_NUMBERS` and the `number_data` declarations.

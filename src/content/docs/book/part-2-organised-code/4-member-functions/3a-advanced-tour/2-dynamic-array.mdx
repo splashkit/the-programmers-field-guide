@@ -3,7 +3,7 @@ title: Dynamic Array (v2)
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 
-In [Chapter 2.6](/book/part-2-organised-code/6-deep-dive-memory/2a-advanced-tour/02-0-dynamic-array) we built out a dynamic array that captured the code needed to dynamically allocate memory. The main issue was that our dynamic array did not look like an array. We had to use functions and procedures to access it.
+In [Chapter 2.6](/book/part-2-organised-code/7-deep-dive-memory/3a-advanced-tour/02-0-dynamic-array) we built out a dynamic array that captured the code needed to dynamically allocate memory. The main issue was that our dynamic array did not look like an array. We had to use functions and procedures to access it.
 
 Now that we have member functions, we can refactor this code so that everything for the dynamic array is nicely packaged with the struct. Other programmers can then easily see the features of the dynamic array as they use it. What is more, we can override the array access modifiers so that our dynamic array *looks like* a normal array. Once we have this in place, the dynamic array can easily be added to our existing projects where we previously had fixed length arrays.
 
@@ -34,7 +34,7 @@ In this case we have:
     - Set - changes a value in the array at a given index.
     - Operator[] returning both a T reference (`T&`) and a constant T reference (`const T&`).
 
-The great thing is that we already have all the logic for this in the functions and procedures we build in the [previous chapter](/book/part-2-organised-code/6-deep-dive-memory/2a-advanced-tour/02-0-dynamic-array). So our task is mostly about moving things around.
+The great thing is that we already have all the logic for this in the functions and procedures we build in the [previous chapter](/book/part-2-organised-code/7-deep-dive-memory/3a-advanced-tour/02-0-dynamic-array). So our task is mostly about moving things around.
 
 ## Moving to Methods
 

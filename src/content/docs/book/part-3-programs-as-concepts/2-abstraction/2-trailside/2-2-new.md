@@ -5,9 +5,9 @@ sidebar:
 ---
 
 You create an object using the `new` operator.
-This is much the same as we discussed in [member functions](/book/part-2-organised-code/7-member-functions/2-trailside/1-1-constructor) in that it will do three things:
+This is much the same as we discussed in [member functions](/book/part-2-organised-code/4-member-functions/5-reference/1-1-constructor) in that it will do three things:
 
-1. Assigns space in memory for the object on the [heap](/book/part-2-organised-code/6-deep-dive-memory/2-trailside/01-heap).
+1. Assigns space in memory for the object on the [heap](/book/part-2-organised-code/7-deep-dive-memory/5-reference/01-heap).
 2. Executes the constructor.
 3. Returns a reference to the new object's location in memory.
 

@@ -11,7 +11,7 @@ In this program we will use a struct to represent a student's result in a unit a
 
 ## Unit result struct
 
-As we have seen [the previous task](/book/part-2-organised-code/3-structuring-data/1-tour/0-2-explore-struct), we need to first consider what entities we want to work with.
+As we have seen [the previous task](/book/part-2-organised-code/2-structuring-data/3-guided-tour/0-2-explore-struct), we need to first consider what entities we want to work with.
 
 In our case, want to be able to see a student's results in a unit. This tells me that I likely want the unit's name, code, and somewhere to store the numerical score the student achieved in the unit.
 
@@ -70,7 +70,7 @@ Running this by itself won't work yet just, because we still need to declare our
 
 ## Defining a function to read a unit result
 
-For this, we can reuse the `read_string`, and `read_integer` functions we created in our [utilities](/book/part-2-organised-code/2-organising-code/1-tour/04-00-utilities). Add the necessary `#include` or copy these in if needed.
+For this, we can reuse the `read_string`, and `read_integer` functions we created in our [utilities](/book/part-2-organised-code/1-structuring-code/3-guided-tour/04-00-utilities). Add the necessary `#include` or copy these in if needed.
 
 Now we can build a `read_unit_result` function. This function will contain the code needed to read in values for all the fields in a `unit_result` and return this to the caller. You can think of it like `read_string` or `read_integer`, just in this case it is reading a `unit_result` value. Here is a description of what this will need to do.
 
@@ -84,7 +84,7 @@ Have a go at creating this function, and call it from within `main`. Store the d
 
 :::tip
 
-Make use of the functions you created in your [utilities](/book/part-2-organised-code/2-organising-code/1-tour/04-00-utilities). These can handle reading in the individual field data for the struct.
+Make use of the functions you created in your [utilities](/book/part-2-organised-code/1-structuring-code/3-guided-tour/04-00-utilities). These can handle reading in the individual field data for the struct.
 
 :::
 

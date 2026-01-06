@@ -9,19 +9,19 @@ Now that we have the dynamic array we can start to use it within our projects. I
 
 ## Moving it to a header
 
-In the [structuring code](/book/part-2-organised-code/2-organising-code/0-overview) chapter we saw how to use [header files](/book/part-2-organised-code/2-organising-code/2-trailside/07-forward-declarations/#header-files) to share code we have created. The dynamic array is the perfect example of something that can be shared. If we put this in a header file, then we can include that header in our statistics calculator code and our fly catch code.
+In the [structuring code](/book/part-2-organised-code/1-structuring-code/0-overview) chapter we saw how to use [header files](/book/part-2-organised-code/1-structuring-code/5-reference/07-forward-declarations/#header-files) to share code we have created. The dynamic array is the perfect example of something that can be shared. If we put this in a header file, then we can include that header in our statistics calculator code and our fly catch code.
 
 As this is C++ code, and it won't work in C, we can put this in a file with a **.hpp** extension. This helps indicate that it is C++.
 
 With C++ templates, the compiler needs all the code when the template is used. It needs to be able to generate the code from the template for the different type options that we use. As a result, you will need to copy the declarations, and their implementations into the header file.
 
-Remember to add the header guard, to ensure that we do not include this code more than once. Review the previous [header files](/book/part-2-organised-code/2-organising-code/2-trailside/07-forward-declarations/#header-files) page for the code to handle this.
+Remember to add the header guard, to ensure that we do not include this code more than once. Review the previous [header files](/book/part-2-organised-code/1-structuring-code/5-reference/07-forward-declarations/#header-files) page for the code to handle this.
 
 If you cut and paste the code from the original test, then you can include your new header and make sure that things still work. Once the test runs, you know the header has everything that it needs.
 
 ## Statistics Calculator
 
-When we were [Designing the Statistics Calculator](/book/part-2-organised-code/5-working-with-multiples/1-tour/01-01-stats-design/) in the previous chapter, we used a fixed size array within the `number_data` struct. This limited the user to an arbitrary number of elements. With the dynamic array this limitation could have been avoided. We also remove the need to have a separate `number_data` struct. This can be replaced with our `dynamic_array` which keeps track of the number of elements it is managing.
+When we were [Designing the Statistics Calculator](/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/01-01-stats-design/) in the previous chapter, we used a fixed size array within the `number_data` struct. This limited the user to an arbitrary number of elements. With the dynamic array this limitation could have been avoided. We also remove the need to have a separate `number_data` struct. This can be replaced with our `dynamic_array` which keeps track of the number of elements it is managing.
 
 As a thought exercise, here are the steps I followed to convert the code to using our dynamic array. You could try implementing these yourself to see it in action, but you can probably achieve the same result by extending your test program. When you can see how the dynamic array works, then you can think through how it can apply in a range of different program contexts.
 

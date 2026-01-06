@@ -4,7 +4,7 @@ sidebar:
   label: " - Returning Arrays"
 ---
 
-Returning arrays from functions seems like something you may want to do, but is a challenging problem. As we saw, [copying arrays](/book/part-2-organised-code/5-working-with-multiples/2-trailside/00-04-clone-array) requires you to copy each element to the destination array. This means that it is not possible to directly copy the array into a destination using an assignment statement.
+Returning arrays from functions seems like something you may want to do, but is a challenging problem. As we saw, [copying arrays](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-04-clone-array) requires you to copy each element to the destination array. This means that it is not possible to directly copy the array into a destination using an assignment statement.
 
 Instead of returning an array, the general way to approach this is to pass the array by reference (or as a pointer) and have the function or procedure populate the array. This way the caller is responsible for allocating the space for the array, and the parameter can then refer to this space and update it with the values it can provide.
 

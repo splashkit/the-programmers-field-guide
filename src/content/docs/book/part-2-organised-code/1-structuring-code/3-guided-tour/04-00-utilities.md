@@ -2,7 +2,7 @@
 title: Shared Utilities
 ---
 
-To wrap up this section, let's consider how we can share some of our code across different projects. In the [forward declaration](/book/part-2-organised-code/2-organising-code/2-trailside/07-forward-declarations) section we looked at how to share functions and procedures by using header files. So let's create our own *utilities.h* header inside which we can put functions and procedures we want to share.
+To wrap up this section, let's consider how we can share some of our code across different projects. In the [forward declaration](/book/part-2-organised-code/1-structuring-code/5-reference/07-forward-declarations) section we looked at how to share functions and procedures by using header files. So let's create our own *utilities.h* header inside which we can put functions and procedures we want to share.
 
 ## What can we share with other projects?
 

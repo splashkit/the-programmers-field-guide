@@ -20,9 +20,9 @@ import imgArray from './images/mmv-array.png';
 - The elements of an array are accessed via an index.
 - The first element has the index **0**, the second has the index **1**, etc.
 - Individual elements of an array are much like a standard variable.
-- You can store a value in an element of an array using an [assignment statement](/book/part-2-organised-code/5-working-with-multiples/2-trailside/00-02-assign-element).
-- You can use the value from an element of an array in an [expression](/book/part-2-organised-code/5-working-with-multiples/2-trailside/00-03-expressions-with-arrays).
-- The [for loop](/book/part-2-organised-code/5-working-with-multiples/2-trailside/01-for-loop) works perfectly with an array, you can repeat an action *for each element of an array*.
+- You can store a value in an element of an array using an [assignment statement](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-02-assign-element).
+- You can use the value from an element of an array in an [expression](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-03-expressions-with-arrays).
+- The [for loop](/book/part-2-organised-code/3-working-with-multiples/5-reference/01-for-loop) works perfectly with an array, you can repeat an action *for each element of an array*.
 
 :::
 
@@ -36,7 +36,7 @@ One challenge we currently have is that our arrays will have a **fixed size**. W
 
 ## Arrays in Memory
 
-Arrays store multiple values, with an index that provides access to the individual elements within the array. Conceptually this can be viewed as a [variable](/book/part-1-instructions/1-sequence/5-reference/07-variable) that contains multiple slots (the elements) into which the values are stored.
+Arrays store multiple values, with an index that provides access to the individual elements within the array. Conceptually this can be viewed as a [variable](/book/part-1-instructions/2-data/5-reference/10-variable) that contains multiple slots (the elements) into which the values are stored.
 
 Many languages have **0** as the index of the first element. This reflects how the values are actually stored in memory. [Figure x.y](#FigureArrayContiguousMemory) shows how an array (named `arr` in this Figure) is stored in memory. The array is a **contiguous** area in memory, with the elements next to each other. You can think of the array as starting at the first element, so you need to skip *0* elements to access the first element. The second element is accessed by skipping *1* element, so it has index *1*. The third element is accessed by skipping *2* elements, so it has the index *2*, etc.
 

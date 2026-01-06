@@ -2,7 +2,7 @@
 title: Member Scope
 ---
 
-Object-oriented programming has opened up new [scoping](/book/part-1-instructions/3-control-flow/2-trailside/02-1-scope) options -- with the ability to mark struct and class members as either *public* or *private*. With inheritance, we open up further opportunities in this space.
+Object-oriented programming has opened up new [scoping](/book/part-1-instructions/3-control-flow/5-reference/02-1-scope) options -- with the ability to mark struct and class members as either *public* or *private*. With inheritance, we open up further opportunities in this space.
 
 When defining a struct or class, we have seen that you can indicate if members are public or private. Public members are accessible outside the class, while private members are only accessible within the class or struct's code. In this context, a child class will only be able to access *public* members of its parent class -- even though these members are part of the object itself.
 

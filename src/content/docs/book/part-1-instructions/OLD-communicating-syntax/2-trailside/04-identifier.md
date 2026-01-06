@@ -41,7 +41,7 @@ The following diagram shows the C# syntax for an identifier.
 ![The C# syntax of an identifier.](./images/program-creation/IdentifierSyntax.png "The C# syntax of an identifier")
 :::
 
-We used this as our example when discussing [how to read syntax diagrams](/book/part-1-instructions/2-communicating-syntax/2-trailside/01-grammar#example).
+We used this as our example when discussing [how to read syntax diagrams](/book/appendix/1-syntax/01-how-to-read#example).
 For a quick recap, in C#:
 
 - Identifiers must start with an underscore (`_`) or a letter. This is because the compiler needs a way of distinguishing identifiers from numbers entered directly into the code.
@@ -101,8 +101,8 @@ Which of the following names are valid identifiers in C# and why/why not?
 :::note[Summary]
 
 - Identifiers are used to **name** things in our programs.
-- When you create a [variable](/book/part-1-instructions/1-sequence/5-reference/07-variable) or [constant](/book/part-1-instructions/1-sequence/5-reference/07-variable#constants), you name it using an identifier.
-- When you [call a method](/book/part-1-instructions/1-sequence/5-reference/03-method-call) you specify which method you want to execute by using its identifier.
+- When you create a [variable](/book/part-1-instructions/2-data/5-reference/10-variable) or [constant](/book/part-1-instructions/2-data/5-reference/20-constant), you name it using an identifier.
+- When you [call a method](/book/part-1-instructions/2-data/5-reference/31-function-call) you specify which method you want to execute by using its identifier.
 - To read the value from a variable or constant, you use its identifier in an [expression](/book/part-1-instructions/1-sequence/5-reference/05-expression).
 
 :::

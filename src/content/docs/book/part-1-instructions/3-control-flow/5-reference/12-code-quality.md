@@ -21,7 +21,7 @@ Remember that getting a program working is one thing, and making sure that you c
 
 ## Naming Standards
 
-Programming is all about building our own digital realities. These abstract models that run within the computer are built from many building blocks. So far we have seen how to create [variables](/book/part-1-instructions/1-sequence/5-reference/07-variable) and [constants](/book/part-1-instructions/1-sequence/5-reference/07-variable#constants). Next, we will start looking at building other code constructs to help organise our code into reusable components. All of these things that we create need **names**.
+Programming is all about building our own digital realities. These abstract models that run within the computer are built from many building blocks. So far we have seen how to create [variables](/book/part-1-instructions/2-data/5-reference/10-variable) and [constants](/book/part-1-instructions/2-data/5-reference/20-constant). Next, we will start looking at building other code constructs to help organise our code into reusable components. All of these things that we create need **names**.
 
 It may seem strange, but naming things becomes one of the main challenges as your programs grow. The name that you give something can be quite powerful, as it will shape how people see and think about that aspect of your program. Getting names right is important.
 
@@ -29,7 +29,7 @@ It may seem strange, but naming things becomes one of the main challenges as you
 Always try to name the things in your code in a way that will help others understand what you intend that aspect to be used for.
 :::
 
-Associated with deciding on a name is the name's styling. As we saw with [identifiers](/book/part-1-instructions/2-communicating-syntax/2-trailside/04-identifier), the names we give things can't have spaces in them. So, languages usually have preferred ways for you to express identifiers based on what is being named. This helps ensure that people can easily get started with different programs written in the same language.
+Associated with deciding on a name is the name's styling. As we saw with [identifiers](/book/part-1-instructions/2-communicating-syntax/5-reference/04-identifier), the names we give things can't have spaces in them. So, languages usually have preferred ways for you to express identifiers based on what is being named. This helps ensure that people can easily get started with different programs written in the same language.
 
 As you learn each language, these subtle differences in identifiers will help you understand what each thing is, without having to find where it is declared. This will become second nature as you progress, so breaking these conventions is a real problem.
 
@@ -47,9 +47,9 @@ As we explore new language features, we will make sure to highlight the correct 
 ## Indentation
 
 Indentation is another important aspect that goes alongside naming conventions.
-We have [already discussed indentation](/book/part-1-instructions/3-control-flow/2-trailside/07-indentation), but let's recap.
+We have [already discussed indentation](/book/part-1-instructions/3-control-flow/5-reference/07-indentation), but let's recap.
 
-The goal of indentation is to make sure each [block](/book/part-1-instructions/3-control-flow/2-trailside/02-0-compound-statement) in our code is clearly visible.
+The goal of indentation is to make sure each [block](/book/part-1-instructions/3-control-flow/5-reference/02-0-compound-statement) in our code is clearly visible.
 For example, the following code illustrates indentation within the blocks of an `if` statement. Notice how, by indenting the code, you can see easily where the block starts and where it ends. This simple act of indenting the code is critically important, as it helps **show** you the structure of the algorithm.
 
 ```csharp

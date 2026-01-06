@@ -146,7 +146,7 @@ Make sure to test this out before moving on.
 
 What we have so far is effective, but it can be more efficient.
 
-In C/C++, the standard library provides a `memcpy` function. We can use this to copy the memory efficiently. In this case, it can copy all the elements after the removed element, back over the elements starting at the element being removed. This is the same idea as option 2, just using the memory copy function we saw in [copying arrays](/book/part-2-organised-code/5-working-with-multiples/2-trailside/00-04-clone-array). In this case we only copy part of the array, and copying it over the array itself.
+In C/C++, the standard library provides a `memcpy` function. We can use this to copy the memory efficiently. In this case, it can copy all the elements after the removed element, back over the elements starting at the element being removed. This is the same idea as option 2, just using the memory copy function we saw in [copying arrays](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-04-clone-array). In this case we only copy part of the array, and copying it over the array itself.
 
 ![Overview of option 3](./images/remove-option-3.png)
 

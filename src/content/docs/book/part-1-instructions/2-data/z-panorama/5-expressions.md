@@ -4,7 +4,7 @@ title: Expressions
 
 We need values to work within the instructions in our code. In programming terminology the code for a value is known as an **expression**. So far we can have values (expressions) in our method calls and assignment statements. Each assignment statement has an expression that is the value to be assigned to the variable. In each method call, you have expressions for each argument.
 
-Expressions allow you to calculate the value to be used. This can include standard mathematical operator (addition, subtraction, multiplication, and division), and work with values typed into the code (called **literals**), values read from [variables and constants](/book/part-1-instructions/1-sequence/0-panorama/3-variables), and values returned from [method calls](/book/part-1-instructions/1-sequence/0-panorama/2-method-call).
+Expressions allow you to calculate the value to be used. This can include standard mathematical operator (addition, subtraction, multiplication, and division), and work with values typed into the code (called **literals**), values read from [variables and constants](/book/part-1-instructions/2-data/2-intro-tour/1-variables), and values returned from [method calls](/book/part-1-instructions/2-data/2-intro-tour/5-functions).
 
 ![An illustration of expressions in code](./images/expression-pano.png)
 

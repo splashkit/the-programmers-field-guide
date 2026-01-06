@@ -2,7 +2,7 @@
 title: Main Function
 ---
 
-In C++ you have to place your instructions within a function or procedure. This allows you to structure your solution, which we look at in [Organising Code](/book/part-2-organised-code/2-organising-code/0-overview). For now, we just need to create a main function.
+In C++ you have to place your instructions within a function or procedure. This allows you to structure your solution, which we look at in [Organising Code](/book/part-2-organised-code/1-structuring-code/0-overview). For now, we just need to create a main function.
 
 ![Illustration of main](./images/main-function-pano.png)
 
@@ -16,7 +16,7 @@ In C++ you have to place your instructions within a function or procedure. This 
 
 ## Example
 
-Here is a C++ version of the test program from the [method call](/book/part-1-instructions/1-sequence/0-panorama/2-method-call) page. This includes a sequence of method calls.
+Here is a C++ version of the test program from the [method call](/book/part-1-instructions/2-data/z-panorama/2-method-call) page. This includes a sequence of method calls.
 
 ```cpp
 // Give us access to methods in SplashKit library

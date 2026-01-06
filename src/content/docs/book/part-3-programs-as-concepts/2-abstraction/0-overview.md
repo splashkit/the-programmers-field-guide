@@ -2,9 +2,9 @@
 title: Overview
 ---
 
-In [Part 2, Chapter 2](/book/part-2-organised-code/2-organising-code/0-overview) we learned how to organise the instructions in our code into named groups called **functions** and **procedures**.
-Then, in [Part 2, Chapter 3](/book/part-2-organised-code/3-structuring-data/0-overview) we learned how we can use **custom data types** to organise the data in our programs.
-These two ideas were combined in [Part 2, Chapter 7](/book/part-2-organised-code/7-member-functions/0-overview) where we explored adding member functions to our structs.
+In [Part 2, Chapter 2](/book/part-2-organised-code/1-structuring-code/0-overview) we learned how to organise the instructions in our code into named groups called **functions** and **procedures**.
+Then, in [Part 2, Chapter 3](/book/part-2-organised-code/2-structuring-data/0-overview) we learned how we can use **custom data types** to organise the data in our programs.
+These two ideas were combined in [Part 2, Chapter 7](/book/part-2-organised-code/4-member-functions/0-overview) where we explored adding member functions to our structs.
 
 Classes combine functions, procedures, and data into a single entity in the same way as we saw in Part 2. 
 They are a powerful tool, and open up new and exciting capabilities for building digital realities.

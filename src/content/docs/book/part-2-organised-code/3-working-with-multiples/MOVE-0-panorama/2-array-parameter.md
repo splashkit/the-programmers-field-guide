@@ -2,7 +2,7 @@
 title: Array Parameters
 ---
 
-In C and C++, arrays are passed as pointers. This means that array parameters can be used to update the values in the passed in arrays, as we saw with pass-by-reference in [indirect access](/book/part-2-organised-code/4-indirect-access/0-overview).
+In C and C++, arrays are passed as pointers. This means that array parameters can be used to update the values in the passed in arrays, as we saw with pass-by-reference in [indirect access](/book/part-2-organised-code/6-indirect-access/0-overview).
 
 The following image illustrates how array parameters work.
 

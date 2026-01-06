@@ -2,7 +2,7 @@
 title: "Heap"
 ---
 
-When your program is executed, it is allocated memory to work with. To help ensure system security, this memory is divided into different areas based on the different kinds of values that need to be stored in memory. Previously, our programs' data was housed on the [stack](/book/part-2-organised-code/2-organising-code/2-trailside/05-the-stack) which is reserved for local variables and the data needed to keep track of function and procedure calls.
+When your program is executed, it is allocated memory to work with. To help ensure system security, this memory is divided into different areas based on the different kinds of values that need to be stored in memory. Previously, our programs' data was housed on the [stack](/book/part-2-organised-code/1-structuring-code/5-reference/05-the-stack) which is reserved for local variables and the data needed to keep track of function and procedure calls.
 
 The stack is an essential part of every program. The fact that it is managed by the compiler means that you do not need to think too much about memory allocation for these variables.
 
@@ -21,8 +21,8 @@ To work with the heap you will need to learn how to allocate, access, and free s
 
 - [Figure x.y](#FigureTheHeap) includes the following areas:
   1. Your program’s machine code is loaded into the code area.
-  2. [The stack](/book/part-2-organised-code/2-organising-code/2-trailside/05-the-stack) is used to manage the execution of the program’s functions and procedures.
-  3. [Global variables](/book/part-2-organised-code/2-organising-code/2-trailside/06-global-variables) are allocated their own space.
+  2. [The stack](/book/part-2-organised-code/1-structuring-code/5-reference/05-the-stack) is used to manage the execution of the program’s functions and procedures.
+  3. [Global variables](/book/part-2-organised-code/1-structuring-code/5-reference/06-global-variables) are allocated their own space.
   4. The new area is the **heap**. This is used to store all dynamically allocated values.
 - Values can be stored in the global variables, in local variables on the *stack*, and on the *heap* using dynamic memory allocation functions and procedures.
 - The space taken up by the global and local variables is fixed based on the size of the variables you have declared
@@ -56,7 +56,7 @@ These are the two basic actions that exist for performing dynamic memory managem
 
 ## Accessing dynamically allocated memory
 
-By its very nature, dynamic memory allocation must work a little differently to the way we have been working with values so far. So far, when you wanted to work with a value you declared a variable, or an array. This would have been a [local variable](/book/part-2-organised-code/2-organising-code/2-trailside/03-local-variable), with its value allocated on the stack along with the other variables you were working with in the current function or procedure. The variable and its value can be seen as one, with the value being located within the variable. With dynamic memory allocation, the values you are allocated are on the heap. This means that their values are not bound within a variable, they exist entirely outside any variables that appears in your code.
+By its very nature, dynamic memory allocation must work a little differently to the way we have been working with values so far. So far, when you wanted to work with a value you declared a variable, or an array. This would have been a [local variable](/book/part-2-organised-code/1-structuring-code/5-reference/03-local-variable), with its value allocated on the stack along with the other variables you were working with in the current function or procedure. The variable and its value can be seen as one, with the value being located within the variable. With dynamic memory allocation, the values you are allocated are on the heap. This means that their values are not bound within a variable, they exist entirely outside any variables that appears in your code.
 
 One of the challenges of working with dynamically allocated memory is that you can no longer *‘see’* these values in your code. When you were working with variables, they were in the code, you could see them and think about the value they stored. With dynamically allocated memory, you cannot do this. Dynamically allocated values will be allocated as a result of the operations that are performed while the code is running. This is why it is called **dynamically** allocated memory. It is not memory allocated to variables, it is **memory allocated upon request**.
 
@@ -64,7 +64,7 @@ This raises one very important question, as illustrated in [Figure x.y](#FigureA
 
 > If the values exist outside of variables, how do you access them?
 
-The answer to this is via [pointers](/book/part-2-organised-code/4-indirect-access/2-trailside/02-00-pointer). As we have seen, pointers allow you to store a value that tells you where the data you want is located. We have used this to access variables stored in other functions/procedures on the stack, and we can use these now to also access values on the heap.
+The answer to this is via [pointers](/book/part-2-organised-code/6-indirect-access/5-reference/02-00-pointer). As we have seen, pointers allow you to store a value that tells you where the data you want is located. We have used this to access variables stored in other functions/procedures on the stack, and we can use these now to also access values on the heap.
 
 <a id="FigureAccessingMemory"></a>
 

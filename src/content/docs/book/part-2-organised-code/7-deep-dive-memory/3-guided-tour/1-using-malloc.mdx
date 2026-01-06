@@ -3,7 +3,7 @@ title: "Using Malloc"
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 
-In this tour we will explore the use of `malloc` to create an array of double's in memory. We are focusing on the basics of using `malloc` and `free` here, and how these can be used to allocate space in memory. The program we create will be very simple, just creating an array of a variable size, populate it with double values, and then print these values out. In the [advanced tour](/book/part-2-organised-code/6-deep-dive-memory/2a-advanced-tour/01-overview) we will look at making this into a more usable utility, so focus on the mechanics here.
+In this tour we will explore the use of `malloc` to create an array of double's in memory. We are focusing on the basics of using `malloc` and `free` here, and how these can be used to allocate space in memory. The program we create will be very simple, just creating an array of a variable size, populate it with double values, and then print these values out. In the [advanced tour](/book/part-2-organised-code/7-deep-dive-memory/3a-advanced-tour/01-overview) we will look at making this into a more usable utility, so focus on the mechanics here.
 
 ## Create your project
 
@@ -11,7 +11,7 @@ We can get started as we have with other projects:
 
 1. Work out where you are going to save this project, create the folder if needed, and open it in VS Code.
 2. Create a new **dynamic-test.cpp** code file.
-3. Copy in your *utilities.h* and *utilities.cpp* files from the [shared utilities](/book/part-2-organised-code/2-organising-code/1-tour/04-00-utilities) activity. This will contain the `read_integer` and `read_double` functions we need. If either of these are missing, you should code them in your utilities files.
+3. Copy in your *utilities.h* and *utilities.cpp* files from the [shared utilities](/book/part-2-organised-code/1-structuring-code/3-guided-tour/04-00-utilities) activity. This will contain the `read_integer` and `read_double` functions we need. If either of these are missing, you should code them in your utilities files.
 4. Add the following code to your **dynamic-test.cpp** file to kick things off:
 
 ```cpp
@@ -82,7 +82,7 @@ int main()
 ```
 
 :::caution
-If you are having trouble doing this yourself, make sure to go back and review [indirect access](/book/part-2-organised-code/4-indirect-access/0-overview) or the concepts earlier in this chapter.
+If you are having trouble doing this yourself, make sure to go back and review [indirect access](/book/part-2-organised-code/6-indirect-access/0-overview) or the concepts earlier in this chapter.
 :::
 
   </AccordionItem>
@@ -148,7 +148,7 @@ You really should be able to do this without hints, but the solution is here if 
     header="Populate and print"
   >
 
-If you really need this you should probably go back and work through the earlier chapters, either in [control flow](/book/part-1-instructions/3-control-flow/0-overview) or in [working with multiples](/book/part-2-organised-code/5-working-with-multiples/0-overview). Remember with all of this, the main thing is to really understand each step as you progress. If it isn't making sense, then talk with others who are studying this or connect with others who really understand programming. Talking through your understanding should help reinforce things.
+If you really need this you should probably go back and work through the earlier chapters, either in [control flow](/book/part-1-instructions/3-control-flow/0-overview) or in [working with multiples](/book/part-2-organised-code/3-working-with-multiples/0-overview). Remember with all of this, the main thing is to really understand each step as you progress. If it isn't making sense, then talk with others who are studying this or connect with others who really understand programming. Talking through your understanding should help reinforce things.
 
 ```cpp {24-28,30-34}
 /* dynamic-test.cpp - from the field guide. written by ... */

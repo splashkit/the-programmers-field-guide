@@ -10,7 +10,7 @@ To build programs we will need to have some [procedures](/book/part-1-instructio
 
 ## Procedure Signatures
 
-Procedures are usually communicated using part of their declaration - the signature. We will look at building these ourselves in [Part 2](/book/part-2-organised-code/2-organising-code/0-overview), but for now we need to know some basics so that we can start calling procedures.
+Procedures are usually communicated using part of their declaration - the signature. We will look at building these ourselves in [Part 2](/book/part-2-organised-code/1-structuring-code/0-overview), but for now we need to know some basics so that we can start calling procedures.
 
 ![Procedure signature visualisation](./images/procedure-decl.png)
 

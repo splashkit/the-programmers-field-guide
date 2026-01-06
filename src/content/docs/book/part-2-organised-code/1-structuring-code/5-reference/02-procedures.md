@@ -27,7 +27,7 @@ The syntax for a basic C/C++ procedure declaration is shown below.
 :::
 
 A **procedure declaration** starts with `void`. This indicates to the compiler that the next bit of code is a procedure declaration because it will return no data.
-The **procedure name** can be any valid [identifier](/book/part-1-instructions/2-communicating-syntax/2-trailside/04-identifier) that has not been used before in the same scope.
+The **procedure name** can be any valid [identifier](/book/part-1-instructions/2-communicating-syntax/5-reference/04-identifier) that has not been used before in the same scope.
 The empty parenthesis must appear after the procedure’s name, and before the *block* which contains the statements that define the procedure's logic.
 
 :::note
@@ -38,7 +38,7 @@ In C/C++, `void` is a data type used to indicate the absence of return data.
 
 There are three procedures declared in the code below: `find_what_to_cook`, `purchase_missing_ingredients`, and `get_ingredients`. Following these there is also the declaration of the `main` function where the program starts executing. In `main` we call two of the procedures. The third procedure is called inside the `get_ingredients` procedure.
 
-The **block** of a procedure declaration should look familiar, as it is the same as the syntax of a [compound statement](/book/part-1-instructions/3-control-flow/2-trailside/02-0-compound-statement) and functions the same (i.e., groups a sequence of statements).
+The **block** of a procedure declaration should look familiar, as it is the same as the syntax of a [compound statement](/book/part-1-instructions/3-control-flow/5-reference/02-0-compound-statement) and functions the same (i.e., groups a sequence of statements).
 When looking at this example take note of how each procedure is declared, and match it to the syntax above.
 Find each of the procedure calls, and think about what happens on the stack when these lines are executed.
 Also note that we are now using the conventions of C/C++ -- procedure names are written in **snake_case**, with underscores (`_`) used to separate words.

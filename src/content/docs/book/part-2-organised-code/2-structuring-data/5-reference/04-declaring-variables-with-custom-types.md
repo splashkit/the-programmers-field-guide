@@ -2,7 +2,7 @@
 title: "Variables with Custom Types"
 ---
 
-The custom types allow you to specify new data formats. To make use of this format you must declare variables that use the types you have created. You can use your new types when you declare [local variables](/book/part-2-organised-code/2-organising-code/2-trailside/03-local-variable) and [parameters](/book/part-2-organised-code/2-organising-code/2-trailside/04-parameter), allowing you to store values in this format and pass the around between your functions and procedures.
+The custom types allow you to specify new data formats. To make use of this format you must declare variables that use the types you have created. You can use your new types when you declare [local variables](/book/part-2-organised-code/1-structuring-code/5-reference/03-local-variable) and [parameters](/book/part-2-organised-code/1-structuring-code/5-reference/04-function-decl#examples), allowing you to store values in this format and pass the around between your functions and procedures.
 
 <a id="FigureDeclaringVariablesWithCustomTypes"></a>
 
@@ -16,7 +16,7 @@ The custom types allow you to specify new data formats. To make use of this form
 - You can use your custom type when you declare a variable.
 - In [Figure x.y](#FigureDeclaringVariablesWithCustomTypes) there are the following examples:
   - `Mouse Pos`: A Variable that stores a `point_2d` structured data value containing an x and y value.
-  - `Accessory`: Parameter that passes in an [enumeration](/book/part-2-organised-code/3-structuring-data/2-trailside/03-02-enum) value of the `accessories_flag` type.
+  - `Accessory`: Parameter that passes in an [enumeration](/book/part-2-organised-code/2-structuring-data/5-reference/03-02-enum) value of the `accessories_flag` type.
 - You can combine these types in a huge variety of ways. The best idea is to try and model the entities related to your program.
 
 :::
