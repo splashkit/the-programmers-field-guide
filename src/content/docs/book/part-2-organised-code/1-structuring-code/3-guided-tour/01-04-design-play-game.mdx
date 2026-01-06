@@ -64,7 +64,7 @@ The implementation of this procedure will require us to store some data. I think
 - `Guess Number`: This will store the current guess the user is at, allowing the computer to stop looping when the number of guesses exceeds 7.
 - `Got It`: A Boolean value to indicate if the user did guess the number, allowing the computer to stop looping when the user guesses the number.
 
-The flowchart below shows the logic for play game. This has a *loop* to ask the user to perform up to 7 guesses. The condition on this loop occurs *after* the loop body as the user must have at least one guess - so we can use a [do while](/book/part-1-instructions/3-control-flow/2-trailside/04-2-do-while) loop.
+The flowchart below shows the logic for play game. This has a *loop* to ask the user to perform up to 7 guesses. The condition on this loop occurs *after* the loop body as the user must have at least one guess - so we can use a [do while](/book/part-1-instructions/3-control-flow/5-reference/04-2-do-while) loop.
 
 There is also a *selection* after the loop to output the answer if the user ran out of guesses. This is only done when the user has not guessed it themselves. This does not need to perform any other actions when the user did guess the number, so the false branch is empty. We added `got it` as a variable so that we can do this, otherwise we could have just used `perform guess` in the condition as we did when we were testing it.
 

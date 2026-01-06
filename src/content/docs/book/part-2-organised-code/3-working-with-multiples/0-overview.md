@@ -14,24 +14,24 @@ This is another big chapter. Unlocking these ideas will open up a world of new p
 
 ## Concepts related to managing multiple values
 
-Data is an important part of any program. Earlier chapters have shown how to store and work with data. These chapters covered both the [types](/book/part-1-instructions/1-sequence/5-reference/15-type) of data you can work with, and means of storing and exchanging data using [variables](/book/part-1-instructions/1-sequence/5-reference/07-variable). So far, each variable has stored a single value, making it difficult to work with multiple values. This chapter introduces the concepts needed start working more effectively with multiple values.
+Data is an important part of any program. Earlier chapters have shown how to store and work with data. These chapters covered both the [types](/book/part-1-instructions/1-sequence/5-reference/15-type) of data you can work with, and means of storing and exchanging data using [variables](/book/part-1-instructions/2-data/5-reference/10-variable). So far, each variable has stored a single value, making it difficult to work with multiple values. This chapter introduces the concepts needed start working more effectively with multiple values.
 
 The chapter introduces the following building blocks:
 
-- [Array](/book/part-2-organised-code/5-working-with-multiples/2-trailside/00-00-array): A kind of variable that is used to store multiple values. The individual values in the array are called *elements*.
-- [String](/book/part-2-organised-code/5-working-with-multiples/2-trailside/02-00-string): We will see how strings are achieved using arrays. This will help you understand the existing string type we have been using.
+- [Array](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-00-array): A kind of variable that is used to store multiple values. The individual values in the array are called *elements*.
+- [String](/book/part-2-organised-code/3-working-with-multiples/5-reference/02-00-string): We will see how strings are achieved using arrays. This will help you understand the existing string type we have been using.
 
 We will revise the following instructions to see how they work with arrays:
 
-- [For Loop](/book/part-2-organised-code/5-working-with-multiples/2-trailside/01-for-loop): A loop that can be used to easily repeat a block of code for each element of an array.
-- [Expressions](/book/part-2-organised-code/5-working-with-multiples/2-trailside/00-03-expressions-with-arrays): Expressions can read the value from the element of an array.
-- [Assignment Statement](/book/part-2-organised-code/5-working-with-multiples/2-trailside/00-02-assign-element): The assignment statement can be used to assign a value to an element in an array.
+- [For Loop](/book/part-2-organised-code/3-working-with-multiples/5-reference/01-for-loop): A loop that can be used to easily repeat a block of code for each element of an array.
+- [Expressions](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-03-expressions-with-arrays): Expressions can read the value from the element of an array.
+- [Assignment Statement](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-02-assign-element): The assignment statement can be used to assign a value to an element in an array.
 
 You may need to revise the following building blocks:
 
-- [Variable](/book/part-1-instructions/1-sequence/5-reference/07-variable): The idea of storing data within your code.
-- [Local Variable](/book/part-2-organised-code/2-organising-code/2-trailside/03-local-variable): Storing data in a function or procedure.
-- [Parameter](/book/part-2-organised-code/2-organising-code/2-trailside/04-parameter): Passing data to a function or procedure.
+- [Variable](/book/part-1-instructions/2-data/5-reference/10-variable): The idea of storing data within your code.
+- [Local Variable](/book/part-2-organised-code/1-structuring-code/5-reference/03-local-variable): Storing data in a function or procedure.
+- [Parameter](/book/part-2-organised-code/1-structuring-code/5-reference/04-function-decl#examples): Passing data to a function or procedure.
 
 We will use a simple statistics calculator as an example in this chapter. Using this calculator, the user will be able to enter a number of values, and the program calculates some statistics. An example of this program executing is shown in [Listing x.y](#ListingStatsCalculatorTerminalRun)
 

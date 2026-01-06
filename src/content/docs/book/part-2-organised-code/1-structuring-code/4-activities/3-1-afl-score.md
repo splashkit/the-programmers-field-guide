@@ -84,7 +84,7 @@ Bye!
 
 Here are some functions and procedures you may want to consider adding:
 
-- Functions to [read and validate data from the user](/book/part-2-organised-code/2-organising-code/1-tour/00-2-explore-functions) (strings, numbers, boolean).
+- Functions to [read and validate data from the user](/book/part-2-organised-code/1-structuring-code/3-guided-tour/00-2-explore-functions) (strings, numbers, boolean).
 - A procedure to output calculated details of each team (taking in the names and score details of the two teams).
 - A procedure to print the menu (taking in the names of the two teams).
 - A function to calculate a score from a number of goals and behinds.

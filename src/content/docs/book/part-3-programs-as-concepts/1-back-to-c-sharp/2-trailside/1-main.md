@@ -2,7 +2,7 @@
 title: Main Method
 ---
 
-When we were programming with C# in Part 1 we were using a language feature called [Top Level Statements](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/program-structure/top-level-statements). This feature lets you program instructions without needing to explicitly create a Main method - the C# equivalent of [main](/book/part-2-organised-code/1-starting-cpp/2-trailside/2-main-function) in C/C++.
+When we were programming with C# in Part 1 we were using a language feature called [Top Level Statements](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/program-structure/top-level-statements). This feature lets you program instructions without needing to explicitly create a Main method - the C# equivalent of [main](/book/part-1-instructions/1-sequence/3-guided-tour/01-01-main) in C/C++.
 
 Generally, these top level statements would only be used for small program scripts. Usually we would create a C# program that includes a Main method coded into a class.
 
@@ -30,11 +30,11 @@ Let's have a look at this line by line:
 
 This code shouldn't look too strange, and we can connect this with things we have already learnt:
 
-- The class is similar to the [structs](/book/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct) we have been coding in C/C++ with [member functions](/book/part-2-organised-code/7-member-functions/0-overview).
-- The main [method](/book/part-1-instructions/1-sequence/5-reference/02-method) is like a [procedure](/book/part-2-organised-code/2-organising-code/2-trailside/00-0-functions-and-procedures) in C/C++. We call this a **method** as it is coded into a class.
-- `Console.WriteLine("Hello World");` is a [method call](/book/part-1-instructions/1-sequence/5-reference/03-method-call).
+- The class is similar to the [structs](/book/part-2-organised-code/2-structuring-data/5-reference/03-01-struct) we have been coding in C/C++ with [member functions](/book/part-2-organised-code/4-member-functions/0-overview).
+- The main [method](/book/part-1-instructions/1-sequence/5-reference/03-procedure) is like a [procedure](/book/part-2-organised-code/1-structuring-code/5-reference/00-0-functions-and-procedures) in C/C++. We call this a **method** as it is coded into a class.
+- `Console.WriteLine("Hello World");` is a [method call](/book/part-1-instructions/2-data/5-reference/31-function-call).
 
-Once you get into a method things are very much the same as we coded before - you still use control flow statements to code the logic of the program. As methods exist within classes, these will be accessed as we saw in [member functions](/book/part-2-organised-code/7-member-functions/0-overview).
+Once you get into a method things are very much the same as we coded before - you still use control flow statements to code the logic of the program. As methods exist within classes, these will be accessed as we saw in [member functions](/book/part-2-organised-code/4-member-functions/0-overview).
 
 For the moment, you can code up a C# program and code your logic in Main.
 

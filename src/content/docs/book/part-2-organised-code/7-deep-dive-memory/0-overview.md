@@ -12,17 +12,17 @@ Using these tools you will be able to go beyond the limitations of the stack, wi
 
 This chapter introduces these new ideas:
 
-- The [heap](/book/part-2-organised-code/6-deep-dive-memory/2-trailside/01-heap) is an area in memory that the operating system reserves for dynamic memory allocation.
+- The [heap](/book/part-2-organised-code/7-deep-dive-memory/5-reference/01-heap) is an area in memory that the operating system reserves for dynamic memory allocation.
 
 To access this you may need to revise:
 
-- Review how memory is allocated on the [stack](/book/part-2-organised-code/2-organising-code/2-trailside/05-the-stack).
-- [Pointers](/book/part-2-organised-code/4-indirect-access/2-trailside/02-00-pointer) to allow you to indirectly access things values in memory.
-- [Arrays](/book/part-2-organised-code/5-working-with-multiples/2-trailside/00-00-array) so that you can store and work with multiple values with ease.
+- Review how memory is allocated on the [stack](/book/part-2-organised-code/1-structuring-code/5-reference/05-the-stack).
+- [Pointers](/book/part-2-organised-code/6-indirect-access/5-reference/02-00-pointer) to allow you to indirectly access things values in memory.
+- [Arrays](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-00-array) so that you can store and work with multiple values with ease.
 
 We will see the instructions needed to:
 
-- [Allocate memory](/book/part-2-organised-code/6-deep-dive-memory/2-trailside/03-0-allocating-memory) for our program to use.
-- [Free memory](/book/part-2-organised-code/6-deep-dive-memory/2-trailside/04-freeing-memory) to return memory you have been allocated when you have finished with it.
+- [Allocate memory](/book/part-2-organised-code/7-deep-dive-memory/5-reference/03-0-allocating-memory) for our program to use.
+- [Free memory](/book/part-2-organised-code/7-deep-dive-memory/5-reference/04-freeing-memory) to return memory you have been allocated when you have finished with it.
 
 We will also explore revisit the issues around the use of pointers, and explore the new problems that arise from being responsible for memory allocation.

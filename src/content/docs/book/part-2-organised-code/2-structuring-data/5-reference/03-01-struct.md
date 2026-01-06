@@ -16,7 +16,7 @@ In your code, structs can be used to model data associated with the *things*, th
 :::note
 
 - A struct type is a kind of **building block** you can declare.
-- You can create your own struct types, these can then be used to define the data stored in [variables](/book/part-1-instructions/1-sequence/5-reference/07-variable) in your code.
+- You can create your own struct types, these can then be used to define the data stored in [variables](/book/part-1-instructions/2-data/5-reference/10-variable) in your code.
 - Remember that a type declaration is declaring a new data format, not declaring a new data value. You use a variable to store values, and types to define the format of these values.
 - The **size** of a record is based on the sum of the sizes of its fields
 
@@ -54,7 +54,7 @@ This is the syntax for declaring your own custom struct in C/C++.
 The following code shows an example of a struct in C/C++. The `person` struct contains a `name`, and an integer called `age`. Remember that the type declaration is creating a new type. After declaring the struct, you can now create variables of the person_struct type.
 
 :::note
-The contents of the `utilities.h` file mentioned in the code below (and accompanying `utilities.cpp` file) were given in the previous chapter, on the [Shared Utilities](/book/part-2-organised-code/2-organising-code/1-tour/04-00-utilities) page.
+The contents of the `utilities.h` file mentioned in the code below (and accompanying `utilities.cpp` file) were given in the previous chapter, on the [Shared Utilities](/book/part-2-organised-code/1-structuring-code/3-guided-tour/04-00-utilities) page.
 
 If you have created these files already, you can copy and paste them into any new project folder where you want to use them.
 :::

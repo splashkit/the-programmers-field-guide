@@ -1,0 +1,243 @@
+---
+title: Stats Using Dynamic Array
+sidebar:
+    label: " - Stat Revisited"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+Now that our dynamic array looks and feels more like an array, we should be able to use it with ease across our other programs.
+
+In the [Working with Multiples](/book/part-2-organised-code/3-working-with-multiples/0-overview) chapter, we built a [stats calculator](/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/01-01-stats-design) using an array embedded within a struct. This program can easily be rebuilt now to incorporate the dynamic array you have created.
+
+## Refactor `number_data`
+
+In our original program, we had created a `number_data` struct that contained a fixed-size array of doubles. Now that we have our more general dynamic array, we can remove our `number_data` struct altogether and just use a `dynamic_array<double>`.
+
+1. Locate your **stats.cpp** project code, or revisit it from the [Working with Multiples](/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/01-07-stats-remove#summary) chapter.
+
+2. Add a `#include` to provide access to your dynamic array.
+3. Delete the `MAX_NUMBERS` and the `number_data` declarations.
+4. Replace all instances of `number_data` with `dynamic_array<double>`.
+5. Replace all `data.values` with `data` - as you can now access the values using the `[]` operator.
+6. Locate and remove all range checks.
+7. Change the code that adds to the array to call the `add` method.
+
+You should have a working version of the stats program that makes use of your dynamic array. This will now allow you to grow the size of the array beyond the original limit.
+
+Have a go at this yourself, you can check your progress against the code in the following drop down. Most of the changes can be achieved with a search and replace.
+
+<Accordion>
+  <AccordionItem
+    header="Stats with dynamic array"
+  >
+
+```cpp {6,8,15,18,23,32,36,46,53,65,79,86,91,93,105,107,111,113,121,131,160}
+/* stats-calc.cpp - from the field guide. written by ... */
+
+#include <cstdio>
+#include <cstdlib>
+#include "utilities.h"
+#include "dynamic-array.hpp"
+
+// Remove MAX_NUMBERS and number_data struct from here
+
+/**
+ * Populate the array with values entered by the user
+ *
+ * @param data the array of values (passed by reference)
+ */
+void populate_array(dynamic_array<double> &data)
+{
+  int size = read_integer("How many values do you want to enter? ");
+  // Remove limit checks here, and the code that altered the size
+
+  // Populate each element - up to data.size
+  for (int i = 0; i < data.size; i++)
+  {
+    data[i] = read_double("Enter value: ");
+  }
+}
+
+/**
+ * Output the values in the array
+ *
+ * @param data the array of values
+ */
+void print(const dynamic_array<double> &data)
+{
+  for (int i = 0; i < data.size; i++)
+  {
+    printf("%d: %lf\n", i, data[i]);
+  }
+}
+
+/**
+ * Calculate the sum of the values in the array
+ *
+ * @param data the array of values
+ * @return the sum of the values
+ */
+double sum(const dynamic_array<double> &data)
+{
+  int i;
+  double result = 0;
+
+  for (i = 0; i < data.size; i++)
+  {
+    result += data[i];
+  }
+
+  return result;
+}
+
+/**
+ * Calculate the mean of the values in the array
+ *
+ * @param data the array of values
+ * @returns the mean of the values
+ */
+double mean(const dynamic_array<double> &data)
+{
+  if (data.size > 0)
+    return sum(data) / data.size;
+  else
+    return 0;
+}
+
+/**
+ * Calculate the largest value in the array
+ *
+ * @param data the array of values
+ * @returns the largest value, or 0 if there are no values
+ */
+double max(const dynamic_array<double> &data)
+{
+  // Ensure there is data
+  if (data.size == 0)
+    return 0;
+
+  // Assume the first value is the largest
+  double result = data[0];
+
+  // Check the rest of the values
+  for (int i = 1; i < data.size; i++)
+  {
+    if (data[i] > result)
+    {
+      result = data[i];
+    }
+  }
+
+  return result;
+}
+
+/**
+ * Add a value to the array
+ *
+ * @param data the array of values
+ */
+void add_data(dynamic_array<double> &data)
+{
+  // Remove size checks here
+
+  // Update to use add, and remove changes to size
+  double value = read_double("Enter a value to add: ");
+  data.add(value);
+
+  // Remove else branch reporting size limit
+}
+
+/**
+ * Remove a value from the array
+ *
+ * @param data the array of values
+ */
+void remove_value(dynamic_array<double> &data)
+{
+  print(data);
+
+  int index = read_integer("Enter the index of the value to remove: ");
+
+  if (index >= 0 && index < data.size)
+  {
+    for (int i = index; i < data.size - 1; i++)
+    {
+      data[i] = data[i + 1];
+    }
+    data.size--;
+  }
+  else
+  {
+    printf("Sorry, that is not a valid index.\n");
+  }
+}
+
+/**
+ * Print the menu of options
+ */
+void print_menu()
+{
+  printf("\nMenu\n");
+  printf("1. Add a value\n");
+  printf("2. Remove a value\n");
+  printf("3. Print the values\n");
+  printf("4. Calculate stats\n");
+  printf("5. Quit\n");
+
+}
+
+/**
+ * The main entry point
+ */
+int main()
+{
+  dynamic_array<double> data = {{},0};
+  int option;
+
+  populate_array(data);
+
+  print_menu();
+  option = read_integer("Enter an option: ", 1, 5);
+
+  while(option != 5)
+  {
+    switch(option)
+    {
+      case 1:
+        add_data(data);
+        break;
+      case 2:
+        remove_value(data);
+        break;
+      case 3:
+        printf("\nYou entered...\n\n");
+        print(data);
+        break;
+      case 4:
+        printf("\nCalculating statistics...\n\n");
+
+        printf("Sum:        %4.2lf\n", sum(data));
+        printf("Mean:       %4.2lf\n", mean(data));
+        printf("Max:        %4.2lf\n", max(data));
+        break;
+    }
+    read_string("Press Enter to continue...");
+
+    print_menu();
+    option = read_integer("Enter an option: ", 1, 5);
+  }
+
+  printf("Goodbye!\n");
+
+  return 0;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+:::tip
+
+Notice how the main logic has not changed, but now most of the code to manage the array has been moved to the array itself.
+
+:::

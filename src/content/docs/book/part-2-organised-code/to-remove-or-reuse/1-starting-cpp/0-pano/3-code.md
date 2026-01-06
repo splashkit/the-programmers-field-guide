@@ -36,7 +36,7 @@ We are focusing on building your mental model of programming, so the features we
 
 ## Example
 
-The following code is the C++ version of the [menu code](/book/part-1-instructions/3-control-flow/1-tour/1-3-menu) from the control flow chapter.
+The following code is the C++ version of the [menu code](/book/part-1-instructions/3-control-flow/3-guided-tour/1-3-menu) from the control flow chapter.
 
 ```cpp
 #include "splashkit.h"

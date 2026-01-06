@@ -131,9 +131,9 @@ The case statement is the second kind of branching statement. It allows you to c
 
 ## `Case` Statement -- when, why, and how
 
-The case statement is a more specialised way of branching in code, so it tends to be used less frequently than the [if statement](/book/part-1-instructions/3-control-flow/2-trailside/03-1-if). To use a case statement you need to have a single expression. Each branch of the case statement has a value it tests the expression against, and only executes if the two values match.
+The case statement is a more specialised way of branching in code, so it tends to be used less frequently than the [if statement](/book/part-1-instructions/3-control-flow/5-reference/03-1-if). To use a case statement you need to have a single expression. Each branch of the case statement has a value it tests the expression against, and only executes if the two values match.
 
-Looking back at the [example](/book/part-1-instructions/3-control-flow/2-trailside/03-1-if#multiple-if-statements-combined) we gave for using multiple if statements, we could convert this code to a single case statement. Each branch would test if the language entered by the user matched a fixed value. When the language is "C#", our case statement would run one block; when it is "C" or "C++" our case statement would run another block. There are no limits to the number of cases a single case statement can have, as long as every branch has a unique value to test for.
+Looking back at the [example](/book/part-1-instructions/3-control-flow/5-reference/03-1-if#multiple-if-statements-combined) we gave for using multiple if statements, we could convert this code to a single case statement. Each branch would test if the language entered by the user matched a fixed value. When the language is "C#", our case statement would run one block; when it is "C" or "C++" our case statement would run another block. There are no limits to the number of cases a single case statement can have, as long as every branch has a unique value to test for.
 
 :::tip[If or case?]
 You can code any case statement as a series of if statements. However, the case statement is a bit neater and generally preferred if possible. The if statement is the more flexible of the branching statements, so you will use it for most things.
@@ -159,19 +159,19 @@ You might be wondering why -- surely when the computer encounters the next `case
 It might seem unintuitive, but once a case has been matched, the computer basically just ignores all other "case" tests in the same case statement.
 This allows the computer to "drop through" into other cases, which can be used to combine multiple branches.
 
-If you want the computer to skip to the end of a case statement, you must use the [break](/book/part-1-instructions/3-control-flow/2-trailside/05-1-break) statement.
+If you want the computer to skip to the end of a case statement, you must use the [break](/book/part-1-instructions/3-control-flow/5-reference/05-1-break) statement.
 Break is used to jump to the end of the case statement, ensuring that you skip over paths you do not want to run.
 We will explore the break statement in more detail soon, but for now you just need to know that it will tell the computer to jump to the end of a case statement, and without it the code from the following cases will be executed.
 
 ## How does `case` work?
 
-The case statement works in a very similar way to the if statement we worked through previously. The following code will achieve the same output as the [last example](/book/part-1-instructions/3-control-flow/2-trailside/03-1-if#multiple-if-statements-combined) from the if statement page.
+The case statement works in a very similar way to the if statement we worked through previously. The following code will achieve the same output as the [last example](/book/part-1-instructions/3-control-flow/5-reference/03-1-if#multiple-if-statements-combined) from the if statement page.
 
 In this example, the value we want to check is whatever the user entered, which has been stored in the `language` variable.
 So, `language` goes in parentheses right after the `switch` keyword.
  Within the body of the case statement you then have the separate cases you want to match.
 
-Notice that we have used the [break](/book/part-1-instructions/3-control-flow/2-trailside/05-1-break) statement at the end of the "C#" and "C++" branches to indicate the end of the instructions for these individual cases. Also notice how we intentionally do not use a break statement in the "C" case. This means that when the "C" path is matched, the control will flow through into the same set of statements that exist for the "C++" branch, and we have avoided needing to repeat the same code in both branches.
+Notice that we have used the [break](/book/part-1-instructions/3-control-flow/5-reference/05-1-break) statement at the end of the "C#" and "C++" branches to indicate the end of the instructions for these individual cases. Also notice how we intentionally do not use a break statement in the "C" case. This means that when the "C" path is matched, the control will flow through into the same set of statements that exist for the "C++" branch, and we have avoided needing to repeat the same code in both branches.
 
 ```csharp
 using static System.Console;

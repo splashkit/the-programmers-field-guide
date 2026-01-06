@@ -4,12 +4,15 @@ sidebar:
   label: " - Identifier"
 ---
 
+import CommmonLink from '/src/components/CommonLink.astro'
+
 **Identifier** is the term for the name/word that *identifies* something for the compiler. This could be the **name** of a building block (such as a variable, constant, or method) or words that have special meaning for the compiler. You use identifiers to name the things (building blocks) you create, and to refer to those you want to use.
 
 As identifiers are used to name building blocks, the overall concept relates to many others.
 The concept map below shows some of the key relations based on what we have learned so far.
 
 ![An identifier is the name of a thing](./images/identifier-concept.png "An identifier is the name of a thing")
+<CommmonLink type="syntaxDiagramGuide"/>
 
 ## Identifiers -- when, why, and how
 
@@ -51,7 +54,7 @@ While you can name the building blocks in your program almost anything, there ar
 
 Most of the time this doesn't cause any issues, but sometimes you have to work around it. For example `class` is taken, so you can't call anything a `class` which can be a pain if you are building education related software.
 
-The keywords in C# are listed in the table below.
+The keywords in C++ are listed in the table below.
 All of these are valid identifiers according to our syntax rule, you just can't use them to name things.
 
 | Reserved Identifiers (Keywords)  |
@@ -92,8 +95,7 @@ Which of the following names are valid identifiers in C++ and why/why not?
     <li><strong>8: </strong>This is a valid identifier, but you cannot use it to name anything you create as it is a keyword.</li>
   </ul>
 </details>
-</span>
-<br>
+<br/>
 
 :::note[Summary]
 

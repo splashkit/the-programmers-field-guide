@@ -1,0 +1,327 @@
+---
+title: Populating and Printing the Data
+sidebar:
+    label: " - Populate and Print"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+With the plan in place, we can now start to code this up. In this section we can look at building `number_data` struct and coding the `populate_array` and `print` procedures with a basic `main` to coordinate these. These will allow us to read the data in from the user, and then display the data entered to make sure it works.
+
+## Create your project
+
+We can get this going pretty quickly by:
+
+1. Work out where you are going to save this project, create the folder if needed, and open it in VS Code.
+2. Create a new **stats-calc.cpp** code file.
+3. Copy in your *utilities.h* and *utilities.cpp* files from the [shared utilities](/book/part-2-organised-code/1-structuring-code/3-guided-tour/04-00-utilities) activity. This will contain the `read_integer` and `read_double` functions we need. If either of these are missing, you should code them in your utilities files.
+4. Add the following code to your **stats-calc.cpp** file to kick things off:
+
+```cpp
+/* stats-calc.cpp - from the field guide. written by ... */
+
+#include <cstdio>
+
+// The maximum number of values we can store
+const int MAX_NUMBERS = 20;
+
+//todo: add struct here
+//todo: add populate_array here
+//todo: add print here
+//todo: add max here
+//todo: add sum here
+//todo: add mean here
+
+int main()
+{
+  //todo: create variable here to manage data
+  //todo: populate and print input
+  return 0;
+}
+```
+
+## Create the `number_data` struct
+
+Our plan was to create the following:
+
+```plaintext
+Const: MAX_NUMBERS int with value 20
+
+Struct: number data
+Fields:
+- values: array of MAX_NUMBERS double values
+- size: an integer for the current number of values
+```
+
+Have a go at coding this. Replace the `//todo: add struct here` comment with the code needed to declare the struct. You should recall how to do this from the [organised data](/book/part-2-organised-code/2-structuring-data/5-reference/03-01-struct) chapter. In this case, you will need to include the array declaration within the struct. Look back at the [array declaration](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-01-array-declaration) section if you need. If you get stuck you can check the solution below.
+
+<Accordion>
+  <AccordionItem
+    header="Code for the struct"
+  >
+
+The resulting code should look something like this:
+
+```cpp {8-18}
+/* stats-calc.cpp - from the field guide. written by ... */
+
+#include <cstdio>
+
+// The maximum number of values we can store
+const int MAX_NUMBERS = 20;
+
+/**
+ * The data structure to store the numbers
+ *
+ * @field values the array of values
+ * @field size the number of values in the array - up to MAX_NUMBERS
+ */
+struct number_data
+{
+  double values[MAX_NUMBERS];
+  int size;
+};
+
+//todo: add populate_array here
+//todo: add print here
+//todo: add max here
+//todo: add sum here
+//todo: add mean here
+
+int main()
+{
+  //todo: create variable here to manage data
+  //todo: populate and print input
+  return 0;
+}
+```
+
+:::note
+
+- We used `MAX_NUMBERS` to set the size of the array within the struct.
+- Each element will be a `double` value.
+- We use the `size` to store the number of elements in the array we are currently using.
+
+:::
+
+:::caution
+If you are having trouble doing this yourself, make sure to go back and review [structuring data](/book/part-2-organised-code/2-structuring-data/0-overview) or the concepts earlier in this chapter.
+:::
+
+  </AccordionItem>
+</Accordion>
+
+## Populating the array
+
+Now we have the struct in place, we can start to work on the `populate_array` procedure. This will be responsible for reading in the values from the user and storing them in the array. The procedure will need to take the `number_data` struct by reference, so that it can update the values in the array and the size of the array. We can use the `read_integer` and `read_double` functions from the utilities we have created to read in the number of values to store, and to read in each value to store in the array.
+
+```plaintext
+Procedure: populate array
+-------------------------------
+Parameters:
+- data (reference to number data) - the data to sum
+Local Variables:
+- size (int): the number of values to read in
+- i (int): to store the index of the current element in the array
+Steps
+1. Call read_integer to get the number of values to enter - store in size
+2. If size is greater than MAX_NUMBERS
+3.      Output an error message
+4.      Set size to MAX_NUMBERS
+5. Else if size is less than 0
+6.      Set size to 0
+7. Set data.size to size
+8. For i. starts at 0 and loops while i < data.size
+9.      call read_double to get the value to store in the data.values at index i
+4. Return the result total.
+```
+
+The first part of the procedure reads in the number of elements the user wants to populate. We need to make sure that this is not larger than the maximum capacity of the array, or negative. This is stored in the `size` field within `data` so that it contains both the number of elements and the data itself.
+
+Following this, we have the loop to read in values from the user. There are two key things to notice about the pseudocode:
+
+1. The [for loop](/book/part-1-instructions/3-control-flow/5-reference/04-3-for-loop) is used to repeat the loop once for each element in the array.
+2. `i` moves through the valid indexes of the array - so inside the loop `i` will be the index of the current element being processed. In this case, we store a value into this element.
+
+Have a go at implementing this yourself. We will need to update `main` so that it contains a `number_data` variable that we can pass to `populate_array`. We can then call `populate_array` to read in the values from the user. If you get stuck, you can check the solution below.
+
+:::tip
+
+- Don't forget to include the *utilities.h* file, and to compile the *utilities.cpp* file with your program.
+- Think through the steps you need to take to implement this.
+- Make sure to also think about invalid data that could be entered.
+- Use a [for loop](/book/part-2-organised-code/3-working-with-multiples/move-0-panorama/1-array-iteration) to perform an action *for each* element in the array.
+
+:::
+
+<Accordion>
+  <AccordionItem
+    header="Code for populate array"
+  >
+
+```cpp {21-46,55,58}
+/* stats-calc.cpp - from the field guide. written by ... */
+
+#include <cstdio>
+#include "utilities.h"
+
+// The maximum number of values we can store
+const int MAX_NUMBERS = 20;
+
+/**
+ * The data structure to store the numbers
+ *
+ * @field values the array of values
+ * @field size the number of values in the array - up to MAX_NUMBERS
+ */
+struct number_data
+{
+  double values[MAX_NUMBERS];
+  int size;
+};
+
+/**
+ * Populate the array with values entered by the user
+ *
+ * @param data the array of values (passed by reference)
+ */
+void populate_array(number_data &data)
+{
+  int size = read_integer("How many values do you want to enter? ");
+  if (size > MAX_NUMBERS)
+  {
+    printf("Sorry, you can only enter %d values.\n", MAX_NUMBERS);
+    size = MAX_NUMBERS;
+  }
+  else if (size < 0)
+  {
+    size = 0;
+  }
+
+  data.size = size;
+
+  // Populate each element - up to data.size
+  for (int i = 0; i < data.size; i++)
+  {
+    data.values[i] = read_double("Enter value: ");
+  }
+}
+
+//todo: add print here
+//todo: add max here
+//todo: add sum here
+//todo: add mean here
+
+int main()
+{
+  number_data data = {{},0};
+
+  //todo: populate and print input
+  populate_array(data);
+
+  return 0;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+Make sure to compile and test your program. What happens if you ask to enter more than 20 values? What happens if you ask to enter a negative number of values?
+
+## Printing the data
+
+When you run this, it should accept the values we enter, but we can't see that they are actually stored in the array. So let's fix this by adding the `print` procedure. This will display the values in the array to the user. We can use a loop to go through each element in the array and print out the index and the value stored at that index.
+
+Have a go at this yourself.
+
+:::tip
+
+- As before, use a [for loop](/book/part-2-organised-code/3-working-with-multiples/move-0-panorama/1-array-iteration) to perform the action for each element in the array.
+- Use the standard C `printf` function to output the details. The `%d` format specifier can be used for the index (it is an integer) and `%lf` can be used for the value from the array (it is a double). Something like `"%d: %lf\n"` where `%d` is replaced by the index value, and `%lf` is replaced by the value stored in the array at that index.
+
+:::
+
+<Accordion>
+  <AccordionItem
+    header="Code for print"
+  >
+
+```cpp {48-59,70}
+/* stats-calc.cpp - from the field guide. written by ... */
+
+#include <cstdio>
+#include "utilities.h"
+
+// The maximum number of values we can store
+const int MAX_NUMBERS = 20;
+
+/**
+ * The data structure to store the numbers
+ *
+ * @field values the array of values
+ * @field size the number of values in the array - up to MAX_NUMBERS
+ */
+struct number_data
+{
+  double values[MAX_NUMBERS];
+  int size;
+};
+
+/**
+ * Populate the array with values entered by the user
+ *
+ * @param data the array of values (passed by reference)
+ */
+void populate_array(number_data &data)
+{
+  int size = read_integer("How many values do you want to enter? ");
+  if (size > MAX_NUMBERS)
+  {
+    printf("Sorry, you can only enter %d values.\n", MAX_NUMBERS);
+    size = MAX_NUMBERS;
+  }
+  else if (size < 0)
+  {
+    size = 0;
+  }
+
+  data.size = size;
+
+  // Populate each element - up to data.size
+  for (int i = 0; i < data.size; i++)
+  {
+    data.values[i] = read_double("Enter value: ");
+  }
+}
+
+/**
+ * Output the values in the array
+ *
+ * @param data the array of values
+ */
+void print(const number_data &data)
+{
+  for (int i = 0; i < data.size; i++)
+  {
+    printf("%d: %lf\n", i, data.values[i]);
+  }
+}
+
+//todo: add sum here
+//todo: add mean here
+//todo: add max here
+
+int main()
+{
+  number_data data = {{},0};
+
+  populate_array(data);
+  print(data);
+
+  return 0;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+Test your program, making sure that you can see the values you entered displayed back to you. If you have any issues, check back through the code and make sure you have implemented both `print` and `populate_array` correctly.

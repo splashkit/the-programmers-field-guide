@@ -4,7 +4,7 @@ sidebar:
   label: " - Comparisons"
 ---
 
-Comparisons are a common way of generating a boolean value in your code. These [expressions](/book/part-1-instructions/2-communicating-syntax/2-trailside/03-expression) allow you to compare two values and determine the *truth* of a given condition. For example, the expression `area > 23.5` is asking if the value in the `area` variable is larger than `23.5`. The result of this expression will be either `true` or `false` depending on the current value stored in `area`. The table below lists some example values for this expression, given different values stored in the `area` variable.
+Comparisons are a common way of generating a boolean value in your code. These [expressions](/book/part-1-instructions/2-data/5-reference/40-expression) allow you to compare two values and determine the *truth* of a given condition. For example, the expression `area > 23.5` is asking if the value in the `area` variable is larger than `23.5`. The result of this expression will be either `true` or `false` depending on the current value stored in `area`. The table below lists some example values for this expression, given different values stored in the `area` variable.
 
 | Value in `area` | `area > 23.5` |
 |---|---|
@@ -35,7 +35,7 @@ C# uses `==` for comparison and `=` for assignment. If you mix this up you may a
 :::note
 
 - Comparisons can only be performed between two values.
-- The values on either side of the comparison are [expressions](/book/part-1-instructions/2-communicating-syntax/2-trailside/03-expression), allowing you to calculate the values being compared.
+- The values on either side of the comparison are [expressions](/book/part-1-instructions/2-data/5-reference/40-expression), allowing you to calculate the values being compared.
 
 :::
 

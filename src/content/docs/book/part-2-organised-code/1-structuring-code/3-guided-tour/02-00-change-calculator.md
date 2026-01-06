@@ -2,7 +2,7 @@
 title: Change Calculator Revisited
 ---
 
-In the [control flow chapter](/book/part-1-instructions/3-control-flow/0-overview) we looked at designing the [change calculator](/book/part-1-instructions/3-control-flow/1-tour/2-0-change-calculator). As part of this, we looked to remove duplication of logic. We can revisit this now that we have new ways of organising our code. We can now have two objectives: (1) review duplication and see what else we can refine, (2) review the structure to see if we can simplify the code further.
+In the [control flow chapter](/book/part-1-instructions/3-control-flow/0-overview) we looked at designing the [change calculator](/book/part-1-instructions/3-control-flow/3-guided-tour/2-0-change-calculator). As part of this, we looked to remove duplication of logic. We can revisit this now that we have new ways of organising our code. We can now have two objectives: (1) review duplication and see what else we can refine, (2) review the structure to see if we can simplify the code further.
 
 ## Removing Duplication
 

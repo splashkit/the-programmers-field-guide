@@ -25,7 +25,7 @@ To test when the spider is over the fly we can give the spider and the fly a bou
 
 ### The Fly
 
-Like the spider, the fly needs a location and a bounding circle. We also need to know if the fly has appeared. This can be a [boolean](/book/part-1-instructions/3-control-flow/2-trailside/01-0-boolean-data) variable that we can toggle when it appears, escapes, or is eaten.
+Like the spider, the fly needs a location and a bounding circle. We also need to know if the fly has appeared. This can be a [boolean](/book/part-1-instructions/3-control-flow/5-reference/01-0-boolean-data) variable that we can toggle when it appears, escapes, or is eaten.
 
 When the fly appears, we can set its location. We should only draw the fly when it has appeared. In this way it won't be drawn for the user to see until we toggle the appeared value.
 
@@ -38,7 +38,7 @@ The game will run on an event loop. This loop can check for events like user int
 - Is it time for the fly to appear? Show the fly.
 - Is it time for the fly to escape? Hide the fly.
 
-Have a look at the details on how to code the event loop on the [while loop page](/book/part-1-instructions/3-control-flow/2-trailside/04-1-while-loop/#event-loops---dynamic-graphical-programs).
+Have a look at the details on how to code the event loop on the [while loop page](/book/part-1-instructions/3-control-flow/5-reference/04-1-while-loop/#event-loops---dynamic-graphical-programs).
 
 ### Time
 

@@ -9,7 +9,7 @@ There are four basic flowchart symbols, shown in the figure below:
 - **Start/Stop**: represents the start and end of the process. Typically, the start node has text to indicate the part of the code that is being visualised.
 - **Flow**: point from one symbol to another to represent which action is to be performed next.
 - **Process**: represents a task being performed. In our case this will be one or more simple statements (assignment statements or method calls). Each process can only have a single flow leaving it, as processes are performed in sequence, and should have text indicating what task is being performed.
-- **Decision**: represents a point where the code needs to make a decision. This represents a location where we have a [branching](/book/part-1-instructions/3-control-flow/2-trailside/03-0-branching) or [looping](/book/part-1-instructions/3-control-flow/2-trailside/04-0-looping) statement. The text in the decision represents the condition that will determine which path is taken. A decision **must** have more than one flow coming out of it, and each flow should indicate the condition that triggers that path.
+- **Decision**: represents a point where the code needs to make a decision. This represents a location where we have a [branching](/book/part-1-instructions/3-control-flow/5-reference/03-0-branching) or [looping](/book/part-1-instructions/3-control-flow/5-reference/04-0-looping) statement. The text in the decision represents the condition that will determine which path is taken. A decision **must** have more than one flow coming out of it, and each flow should indicate the condition that triggers that path.
 
 import guessThatNumberFlowChartSymbols from './images/guess-that-number-flowchart-symbols.png';
 
@@ -30,9 +30,9 @@ The image below shows a **structured** version of the same flow chart. Notice th
 ![Structured Flowchart](./images/guess-that-number-structured-flowchart.png "Structured Flowchart")
 
 The structured programming principles indicate that code within our programs should be organised into **blocks**.
-These blocks match to the structured statements in modern programming languages: [branching](/book/part-1-instructions/3-control-flow/2-trailside/03-0-branching) and [looping](/book/part-1-instructions/3-control-flow/2-trailside/04-0-looping) statements.
+These blocks match to the structured statements in modern programming languages: [branching](/book/part-1-instructions/3-control-flow/5-reference/03-0-branching) and [looping](/book/part-1-instructions/3-control-flow/5-reference/04-0-looping) statements.
 Each block has a **single entry point** and a **single exit point**, allowing them to be combined in a way that is easy to follow in the code.
-The addition of [jumping](/book/part-1-instructions/3-control-flow/2-trailside/05-0-jumping) statements to the language allows the blocks to have **multiple exit points**: one at the end of the block's code, another at a break or continue statement.
+The addition of [jumping](/book/part-1-instructions/3-control-flow/5-reference/05-0-jumping) statements to the language allows the blocks to have **multiple exit points**: one at the end of the block's code, another at a break or continue statement.
 This provides extra flexibility, but still works within the general goals of the structured programming principles to help create readable code.
 
 Hopefully you can see these principles as you compare the two flowcharts.
@@ -52,7 +52,7 @@ In structured programming there are three kinds of blocks:
 
 Designing a program's logic is all about figuring out how to combine these blocks to achieve the desired behaviour from your code.
 
-You have already seen flowcharts for two of the blocks -- the pages on [branching](/book/part-1-instructions/3-control-flow/2-trailside/03-0-branching) showed selection via the [if](/book/part-1-instructions/3-control-flow/2-trailside/03-1-if) and [case](/book/part-1-instructions/3-control-flow/2-trailside/03-2-case) statements, and the pages on [looping](/book/part-1-instructions/3-control-flow/2-trailside/04-0-looping) showed repetition via the [while](/book/part-1-instructions/3-control-flow/2-trailside/04-1-while-loop), [do while](/book/part-1-instructions/3-control-flow/2-trailside/04-2-do-while), and [for](/book/part-1-instructions/3-control-flow/2-trailside/04-3-for-loop) loop statements.
+You have already seen flowcharts for two of the blocks -- the pages on [branching](/book/part-1-instructions/3-control-flow/5-reference/03-0-branching) showed selection via the [if](/book/part-1-instructions/3-control-flow/5-reference/03-1-if) and [case](/book/part-1-instructions/3-control-flow/5-reference/03-2-case) statements, and the pages on [looping](/book/part-1-instructions/3-control-flow/5-reference/04-0-looping) showed repetition via the [while](/book/part-1-instructions/3-control-flow/5-reference/04-1-while-loop), [do while](/book/part-1-instructions/3-control-flow/5-reference/04-2-do-while), and [for](/book/part-1-instructions/3-control-flow/5-reference/04-3-for-loop) loop statements.
 
 The flow chart snippet below shows what **sequence** looks like in a flowchart.
 

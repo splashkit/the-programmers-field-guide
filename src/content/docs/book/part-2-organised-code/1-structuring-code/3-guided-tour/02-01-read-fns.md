@@ -43,7 +43,7 @@ Other than this, the code is the same.
 
 ## What is it?
 
-This looks like our [read integer](/book/part-2-organised-code/2-organising-code/1-tour/00-2-explore-functions) code. All of this duplicated code can be removed and replaced with calls to read integer. The result will look much simpler!
+This looks like our [read integer](/book/part-2-organised-code/1-structuring-code/3-guided-tour/00-2-explore-functions) code. All of this duplicated code can be removed and replaced with calls to read integer. The result will look much simpler!
 
 Using read integer, all of that code above can now be achieved in the following two lines:
 

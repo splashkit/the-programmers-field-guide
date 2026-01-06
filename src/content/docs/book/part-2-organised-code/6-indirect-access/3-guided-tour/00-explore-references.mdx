@@ -1,0 +1,259 @@
+---
+title: Explore References
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+References provide a means to indirectly access a variable - creating a variable that is an alias that can be used to refer to another variable or value in memory.
+
+*Why is this useful?*
+
+This isn't useful if you think about the code within a single function or procedure, but it becomes very useful when you think about using it within parameters or more complex data structures. For the moment, let's explore how we can use these with parameters to create procedures that update data for us.
+
+## Account database
+
+For this example, lets walk through creating a simple account database. This database can keep track of usernames and their associated system role.
+
+The first step, as always, should be to think about the entities we will need within this program. We can start in this case with users and roles. Have a think about how you would represent these, and the coding structures you would use for this.
+
+Make sure your user has at least a username, password, and permission level. Have roles: no access, user, admin, and super-user.
+
+Once you have a plan, have a go at creating this in a new project file. We can make use of the utilities we created earlier to make it easier to read and write values via the terminal.
+
+:::tip
+Try not to look at the solution we provide until you have had a go at this yourself. The objective should not be to have exactly the same code, so if yours is a little different that is great.
+:::
+
+<Accordion>
+  <AccordionItem
+    header="Plan and code for user and permissions"
+  >
+
+For this I modelled a user using a struct, and the permissions using an enumeration.
+
+|   |   |
+|---|---|
+| **Struct** | *user_data* |
+| **Fields** | `username`: A string representing the user's username |
+|            | `password`: A string representing the user's password |
+|            | `role`: The level of access they have |
+
+We can use an enum to model the role levels.
+
+|   |   |
+|---|---|
+| **Enum** | *role_level* |
+| **Values** | `NO_ACCESS`, `USER`, `ADMIN`, `SUPER_USER` |
+
+You should be able to code these yourself by now, but if you get stuck you can have a look at the code below.
+
+:::caution
+If you are having trouble with this, you should go back and revise the material on how to [structure your data](/book/part-2-organised-code/2-structuring-data/0-overview). It's ok to check how you went, but avoid just copying and pasting things as this won't help you learn how to do this yourself.
+:::
+
+Here is what I created for the role level and user data. Notice we have to declare the role level before the user data.
+
+```cpp
+#include "splashkit.h"
+#include "utilities.h"
+
+/**
+ * @brief Enum representing the role levels of a user.
+ * 
+ */
+enum role_level {
+  NO_ACCESS, /**< No access role level */
+  USER, /**< User role level */
+  ADMIN /**< Admin role level */
+};
+
+/**
+ * @brief Struct representing a user within the system.
+ * 
+ */
+struct user_data {
+  string username; /**< User's username */
+  role_level role; /**< User's role level */
+};
+```
+
+  </AccordionItem>
+</Accordion>
+
+## Create functions to support types
+
+Along with the data types, we will need to create some functions and procedures to work with these. For this example, all we should need are the following:
+
+- A `read_role` function to read a role from the user and return it to the caller.
+- `to_string` function to convert a role level to a string value.
+- `print_user` procedure to output the details of a user. Showing their username and role.
+
+You can then test this with something like the following `main`. Make sure to adjust the struct name and enum values if you used different things in your version.
+
+```cpp
+int main()
+{
+  user_data user = {
+    "my_user_name",
+    USER
+  };
+
+  print_user(user);
+
+  return 0;
+}
+```
+<Accordion>
+  <AccordionItem
+    header="Code for functions"
+  >
+
+:::caution
+If you are having trouble doing this yourself, make sure to go back and review [structuring code](/book/part-2-organised-code/1-structuring-code/0-overview) and [structuring data](/book/part-2-organised-code/2-structuring-data/0-overview).
+:::
+
+This is a partial solution - if you can't create your own see if you can extend this to match the full features described for this program.
+
+Make sure you have implemented the [read integer with a range](/book/part-2-organised-code/1-structuring-code/3-guided-tour/00-2-explore-functions/#read-integer---with-a-range) function in your shared utilities.
+
+```cpp
+/** 
+ * @brief Reads the role level from the user.
+ * 
+ * @return role_level The role level entered by the user.
+ */
+role_level read_role()
+{
+  int role_input = read_integer("Enter role level (0 for NONE, 1 for USER, 2 for ADMIN): ", 0, 2);
+  
+  switch (role_input) {
+    case 0:
+      return NO_ACCESS;
+    case 1:
+      return USER;
+    case 2:
+      return ADMIN;
+    default:
+      write_line("Invalid role level. Setting role to NONE.");
+      return NO_ACCESS;
+  }
+}
+
+/**
+ * @brief Converts the role level to a string representation.
+ * 
+ * @param role The role level to convert.
+ * @return string The string representation of the role level.
+ */
+string to_string(role_level role)
+{
+  switch (role)
+  {
+    case NO_ACCESS:
+      return "None";
+    case USER:
+      return "User";
+    case ADMIN:
+      return "Admin";
+    default:
+      return "Unknown";
+  }
+}
+
+/**
+ * @brief Prints the details of a user.
+ * 
+ * @param user The user to print.
+ */
+void print_user(const user_data& user) 
+{
+  write_line("User details:");
+  write_line("  Username: " + user.username);
+  write_line("  Role: " + to_string(user.role));
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+## Use references to update a user
+
+Now that we have the main building blocks in place, we can add an `update_user` procedure. Update user can be passed a user **by reference**, allowing it to update the user data by accessing it via a reference. This reference is an alias of the argument passed to it. When you read or write to this variable, you are indirectly accessing the data in the variable that was passed to this as the argument.
+
+|   |   |
+|---|---|
+| **Procedure** | *update user* |
+| **Parameters** | `user`: The user data to update - passed as a reference to a user data value |
+| **Description** | Allow the user to update the username, password, or role of the user data passed in |
+
+Have a go at implementing this. For the moment, have this print out the user's details and then update their username. Test this using the following main, and you should see that the changes you make in `update_user` are actually made to the `user` variable in main. How? The parameter is a reference (alias) of the argument passed to it. So when you read or change this value, you are actually reading or changing the value in `main`.
+
+```cpp
+int main()
+{
+  user_data user = {
+    "my_user_name",
+    USER // add missing password details...
+  };
+
+  update_user(user);
+  print_user(user);
+
+  return 0;
+}
+```
+
+:::tip
+Remember that to pass by reference you add an `&` before the parameter name in your list of parameters.
+:::
+
+When you have this basic version working, have a go at extending how `update_user` works. Inside update user, you could print out the user data then ask the user which value they want to update. Based on what they select, you then get the computer to read in a new value from the user and update the appropriate field in the user. This could loop until the user chooses to exit.
+
+<Accordion>
+  <AccordionItem
+    header="Code for update user"
+  >
+
+This is a partial solution - if you can't create your own see if you can extend this to match the full features described for this program.
+
+```cpp
+/**
+ * @brief Updates the details of a user.
+ * 
+ * @param user The user to update.
+ */
+void update_user(user_data& user) 
+{
+  bool updating = true;
+  while (updating) 
+  {
+    print_user(user);
+    write_line("What would you like to update?");
+    write_line("1. Username");
+    write_line("2. Role");
+    write_line("0. Exit");
+
+    int choice = read_integer("Enter your choice: ", 0, 2);
+
+    switch (choice) 
+    {
+      case 0:
+        updating = false;
+        break;
+      case 1:
+        user.username = read_string("Enter new username: ");
+        break;
+      case 2:
+        user.role = read_role();
+        break;
+      default:
+        write_line("Invalid choice. Please try again.");
+        break;
+    }
+  }
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+The ability to use pass by reference can really help you break up your code. You can now create procedures where you pass in a reference to the data that needs to be changed, which was something that is not possible without references (or pointers).

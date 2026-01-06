@@ -8,7 +8,7 @@ Initially, you will explore how instructions in the computer work at the lower l
 
 ## The Parts
 
-**Part 0**, which sets the background for the book. In this part, the introduction outlines the approach of the book, and the remaining chapter on [Building Programs](/book/part-0-getting-started/3-building-programs/0-overview) will help you start working with the tools you need to build and run your own programs.
+**Part 0**, which sets the background for the book. In this part, the introduction outlines the approach of the book, and the remaining chapter on [Building Programs](/book/part-0-getting-started/1-building-programs/0-overview) will help you start working with the tools you need to build and run your own programs.
 
 **Part 1** of the book focuses on *programs as instructions*. This part will help you understand how the most basic elements work within the computer. Understanding how these elements work individually will help you see how they are combined to create programs. The programs you make in this section will be relatively small, enabling you to focus on the mechanics and effects of each individual instruction. Your learning from this part will give you a solid foundation upon which to start building larger programs.
 
