@@ -27,7 +27,7 @@ You will use function calls throughout your program. The key thing is to know a 
 ## In C++
 
 :::tip[Syntax]
-The C++ syntax for a function call is almost identical to a procedure call - the only difference is that the [identifier](/book/part-1-instructions/1-sequence/5-reference/) (the function name) refers to a function not a procedure:
+The C++ syntax for a function call is almost identical to a procedure call - the only difference is that the [identifier](/book/part-1-instructions/1-sequence/5-reference/16-identifier) (the function name) refers to a function not a procedure:
 
 ![The syntax of a function call](./images/function-call.png "The syntax of a function call")
 

@@ -30,7 +30,7 @@ The following diagram shows the list of things we have seen so far that can exis
 
 - A statement is a single instruction in code.
 - **Simple Statements** that perform an action. The actions you can perform are:
-  - [Method Call](/book/part-1-instructions/2-data/5-reference/31-function-call): run the code in a method.
+  - [Procedure Call](/book/part-1-instructions/1-sequence/5-reference/11-procedure-call): run the code in a method.
   - [Assignment Statement](/book/part-1-instructions/2-data/5-reference/11-assignment-statement): store a value in a variable.
   - [Jump Statements](/book/part-1-instructions/3-control-flow/5-reference/05-0-jumping): alter which instruction will be performed next.
   This includes:

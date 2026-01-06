@@ -2,7 +2,7 @@
 title: "Parameter"
 ---
 
-You can require callers to pass values to a function or procedure you are creating by adding **parameters**. A parameter is a [variable](/book/part-1-instructions/2-data/5-reference/10-variable) that has its value set by an [argument](/book/part-1-instructions/1-sequence/5-reference/03-procedure#arguments) in the function/procedure call. The caller must provide a value for each parameter in the function or procedure call.
+You can require callers to pass values to a function or procedure you are creating by adding **parameters**. A parameter is a [variable](/book/part-1-instructions/2-data/5-reference/10-variable) that has its value set by an [argument](/book/part-1-instructions/1-sequence/5-reference/10-procedure#arguments) in the function/procedure call. The caller must provide a value for each parameter in the function or procedure call.
 
 ![Annotated code for a parameter](./images/param-pano.png)
 
