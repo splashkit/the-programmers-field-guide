@@ -102,13 +102,13 @@ export const sliderImages = [
   },
 ]
 
-A procedure call is an instruction that gets the computer to run the code in a [procedure](/book/part-1-instructions/1-sequence/5-reference/03-procedure). You use the name of the procedure to identify which procedure you want to run. Some procedures require data, which you must pass as [arguments](#arguments) to the procedure as part of the procedure call.
+A procedure call is an instruction that gets the computer to run the code in a [procedure](/book/part-1-instructions/1-sequence/5-reference/10-procedure). You use the name of the procedure to identify which procedure you want to run. Some procedures require data, which you must pass as [arguments](#arguments) to the procedure as part of the procedure call.
 
 ![A procedure calls runs a procedure, passing in values for the procedure to use](./images/procedure-call-concept.png "A procedure calls runs a procedure, passing in values for the procedure to use")
 
 ## Procedure Call -- when, why, and how
 
-As you have seen, [procedures](/book/part-1-instructions/1-sequence/5-reference/03-procedure) are constructs that contain instructions to do a task -- sort of like mini-programs. A large part of your code will be calling procedures to get them to do things you need done, in the order you need them done.
+As you have seen, [procedures](/book/part-1-instructions/1-sequence/5-reference/10-procedure) are constructs that contain instructions to do a task -- sort of like mini-programs. A large part of your code will be calling procedures to get them to do things you need done, in the order you need them done.
 
 When you are thinking about calling a procedure, you need to know what it does, what it is called, and what to give it. Writing the code to call a procedure is then simple: you just provide the name, and a list of values for the [arguments](#arguments).
 
@@ -128,6 +128,7 @@ The name of a procedure should help you know what that procedure does, and the p
 The C++ syntax for a procedure call is structured like this:
 
 ![The syntax of a procedure call](./images/procedure-call.png "The syntax of a procedure call")
+
 <CommmonLink type="syntaxDiagramGuide"/>
 :::
 
@@ -139,9 +140,17 @@ A procedure call consists of a procedure's name followed by an opening parenthes
 
 ![Illustration of arguments](./images/arguments.png)
 
-When you call a procedure, you need to pass a value for each argument. This value can be a [literal](/book/part-1-instructions/1-sequence/5-reference/05-literal) or calculated value known as an [expression](/book/part-1-instructions/1-sequence/5-reference/05-expression).
+When you call a procedure, you need to pass a value for each argument. This value can be a [literal](/book/part-1-instructions/1-sequence/5-reference/14-literal) or calculated value known as an [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression).
 
 You can determine the arguments that are needed from a procedure's signature.
+
+:::note[Describing arguments]
+There are a few different ways to describe a procedure that has arguments.
+Three ways we have already used are to say that you can **pass** or **give** arguments to a method, and that a procedure can **take** arguments.
+Other ways of saying the same thing are to say that a procedure **accepts**, **requires**, or **receives** arguments.
+
+These different phrases all mean the same thing and can be used interchangeably depending on personal preference and sentence flow.
+:::
 
 ## Signature
 
@@ -149,7 +158,7 @@ The signature of a procedure lists its name and details of the arguments you nee
 
 ```c++
 // void indicates a procedure
-// fill_circle is its name (an identifier)
+// fill_circle is its name (known as an identifier)
 // it needs 4 arguments:
 //  - a color
 //  - a double for the x value
@@ -180,8 +189,8 @@ For example, there are many versions of `write_line` to allow you to pass in dif
 
 ```c++
 // Example overloaded procedures - all called write_line
-void write_line(char data);
 void write_line();
+void write_line(char data);
 void write_line(double data);
 void write_line(int data);
 void write_line(string line);
@@ -219,7 +228,7 @@ int main()
 
 ### Graphical Example
 
-The following code uses three different procedures from the [SplashKit](https://splashkit.io) library. You can see the details for these on the [procedures page](/book/part-1-instructions/1-sequence/5-reference/03-procedure#examples), but the names should give you a good idea of what this does.
+The following code uses three different procedures from the [SplashKit](https://splashkit.io) library. You can see the details for these on the [procedures page](/book/part-1-instructions/1-sequence/5-reference/10-procedure#examples), but the names should give you a good idea of what this does.
 
 ```c++
 #include "splashkit.h"
@@ -237,7 +246,7 @@ All of the arguments in this code are using literal values.
 <div style = "display: none" TODO Move to Data section in Functions>
 ### Example using result
 
-Some procedures return data, which you can use within any calculated value ([expression](/book/part-1-instructions/1-sequence/5-reference/05-expression)) within your code. The following code demonstrates the use of this with the ReadLine procedure. The result of this is being stored in a variable and then used to output a message.
+Some procedures return data, which you can use within any calculated value ([expression](/book/part-1-instructions/1-sequence/5-reference/13-expression)) within your code. The following code demonstrates the use of this with the ReadLine procedure. The result of this is being stored in a variable and then used to output a message.
 
 ```c++
 int main()

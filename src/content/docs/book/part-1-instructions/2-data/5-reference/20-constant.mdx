@@ -29,62 +29,52 @@ The syntax for declaring a constant is very similar to declaring variables:
 
 Variable and constant declarations use almost identical syntax in C++. The main difference between a variable and a constant is the `const` keyword at the start of the declaration. If you include `const`, you are creating constants. Without it, you are creating variables. A constant must also be given a value when created.
 
-Just like variables, constant declarations need to include the [type](/book/part-1-instructions/1-sequence/5-reference/06-type/) of data you want to store, a name, and also _require_ a value.
+Just like variables, constant declarations need to include the [type](/book/part-1-instructions/1-sequence/5-reference/15-type/) of data you want to store, a name, and also _require_ a value.
 
 By convention, all constants should have an **UPPERCASE** name. Where the name has multiple words, separate them with underscores (`_`). For example: `MAX_ITEMS`.
 
 ## Example
 
-This example will help us calculate the volume of our water bottles, assuming they are cylinders. To achieve this, we need the following variables and constants:
+This example will calculate and output the area of a few circles. It will use:
 
-- `PI` and `CUBIC_CENTIMETRES_PER_LITRE` constants for the calculation.
-- Numbers for `radius` and `height` which the user will enter.
-- A string `line` to store the text the user enters before we convert it to a number.
-- Numbers for `bottle_volume` and `litres` to store calculated values.
+- A `PI` constant for the calculation.
+- A number for `radius`.
+- Numbers for `circumference` and `area` to store calculated values.
 
-Constants are generally coded outside `main`, at the top of the file. This way they are accessible throughout the program. We will explore this further when we look at tools for [organising our code](/book/part-2-organised-code/1-structuring-code/0-overview).
+Constants are generally coded outside `main`, at the top of the file. This way they are accessible throughout the program. So we will code `PI` between the `#include` and the start of `main`.
 
 ```c++
 #include "splashkit.h"
 
 // Create a const called PI
 const double PI = 3.1415;
-// ...and another called CUBIC_CENTIMETRES_PER_LITRE
-const int CUBIC_CENTIMETRES_PER_LITRE = 1000;
 
 int main()
 {
-    // Create variables radius, height, line, bottle_volume, and litres
-    double radius, height;
-    string line;
-    double bottle_volume, litres;
+    // Create variables radius, circumference, and area
+    double radius;
+    double circumference, area;
 
-    write_line("Water Bottle Volume");
-    write_line();
-    write_line("Enter the radius and height of the bottle in centimetres");
+    // Start with radius 5.25
+    radius = 5.25;
+    write("radius is ");
+    write_line(radius);
 
-    write("radius: ");
-    line = read_line();
-    radius = to_double(line);
+    circumference = PI * radius;
+    area = PI * radius * radius;
 
-    write("height: ");
-    line = read_line();
-    height = to_double(line);
+    write("Circumference:");
+    write_line(circumference);
 
-    bottle_volume = PI * radius * radius * height;
-
-    litres = bottle_volume / CUBIC_CENTIMETRES_PER_LITRE;
-
-    write_line();
-    write_line("Volume " + to_string( bottle_volume ) + " cm^3");
-    write_line("       " + to_string( litres ) + " litres");
+    write("Area:");
+    write_line(area);
 }
 ```
 
 :::tip
-By giving our constants names such as `PI` and `CUBIC_CENTIMETRES_PER_LITRE`, we make our code easier to understand later on.
+By giving our constants names such as `PI`, we make our code easier to understand.
 
-We can also use the same constant many times throughout our program, which is great - if we need to add more digits of precision to `PI`, or want to change the maximum number of items a player can have, we can change it in just one place!
+We can also use the same constant many times throughout our program, which is great. If we need to add more digits of precision to `PI`, or want to change the maximum number of items a player can have, we can change it in just one place!
 :::
 
 ## Activities

@@ -14,7 +14,7 @@ This is another big chapter. Unlocking these ideas will open up a world of new p
 
 ## Concepts related to managing multiple values
 
-Data is an important part of any program. Earlier chapters have shown how to store and work with data. These chapters covered both the [types](/book/part-1-instructions/1-sequence/5-reference/06-type) of data you can work with, and means of storing and exchanging data using [variables](/book/part-1-instructions/1-sequence/5-reference/07-variable). So far, each variable has stored a single value, making it difficult to work with multiple values. This chapter introduces the concepts needed start working more effectively with multiple values.
+Data is an important part of any program. Earlier chapters have shown how to store and work with data. These chapters covered both the [types](/book/part-1-instructions/1-sequence/5-reference/15-type) of data you can work with, and means of storing and exchanging data using [variables](/book/part-1-instructions/1-sequence/5-reference/07-variable). So far, each variable has stored a single value, making it difficult to work with multiple values. This chapter introduces the concepts needed start working more effectively with multiple values.
 
 The chapter introduces the following building blocks:
 

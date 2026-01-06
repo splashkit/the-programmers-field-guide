@@ -259,7 +259,7 @@ The assignment statement is an **instruction** that stores a value in a [variabl
 
 ![An assignment statements assigns a value to a variable](./images/assignment-statement-concept.png "An assignment statements assigns a value to a variable")
 
-The assignment statement performs two actions. First, it calculates the value of the [expression](/book/part-1-instructions/1-sequence/5-reference/05-expression/) (calculation) on the right-hand side of the assignment operator (the `=`). Once it has the value, it stores the value (assigns it) to the variable on the left-hand side of the assignment operator.
+The assignment statement performs two actions. First, it calculates the value of the [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression/) (calculation) on the right-hand side of the assignment operator (the `=`). Once it has the value, it stores the value (assigns it) to the variable on the left-hand side of the assignment operator.
 
 ## Assignment Statement -- when, why, and how
 
@@ -268,23 +268,17 @@ Whenever you have a new value, you update the variable by using an **assignment 
 
 The assignment statement uses the **assignment operator** `=`.
 Whatever is on the right-hand side of `=` represents the value to be assigned.
-This could be a [literal](/book/part-1-instructions/1-sequence/5-reference/05-literal), a [function call](/book/part-1-instructions/2-data/5-reference/03-function), or any other [expression](/book/part-1-instructions/1-sequence/5-reference/05-expression).
+This could be a [literal](/book/part-1-instructions/1-sequence/5-reference/14-literal), a [function call](/book/part-1-instructions/2-data/5-reference/03-function), or any other [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression).
 On the left-hand side you write the identifier of the variable you want to store this value in.
 
-For example, you might decide to ask the user for their name.
-We do not know the value of this at the start of the program, so it is something that will change.
-To manage this, you need a variable to store the value.
-You might decide to call this variable `name`.
-Then, you can use an assignment statement to read a response from the user and store it in the variable.
-In this case, the **right-hand side** of the assignment would be a call to `read_line`, which reads input from [standard in](/book/appendix/2-computer-use/2-trailside/09-streams/#standard-input-stdin) and returns it to you.
-The **left-hand side** would be the identifier of our variable, `name`. Something like this:
+The following code creates a variable called `name` and assigns it the value "Fred":
 
 ```c++
 // Create the variable
 string name;
 
 // Call read line and store the result in name
-name = read_line();
+name = "Fred";
 ```
 
 It is important to remember that every assignment statement has **2 actions**:
@@ -292,10 +286,13 @@ It is important to remember that every assignment statement has **2 actions**:
 1. Calculate the value on the right-hand side
 2. Store it in the variable on the left-hand side.
 
-The ordering of these actions allow you to update the value of a variable using an expression involving the variable being updated. This can be very useful. For example, you might want to update the value of a variable storing the number of steps you have taken today. For example, the following code created count and then updates its value.
+The ordering of these actions allow you to update the value of a variable. This can be very useful. For example, you might want to update the value of a variable storing the number of steps you have taken today. The following code creates a variable called `count`, initialises it to 0, and then updates its value.
 
 ```c++
+// Create and initialise count
 int count = 0;
+
+// Increment the value of count
 count = count + 1;
 ```
 
@@ -306,9 +303,9 @@ count = count + 1;
 <CommmonLink type="syntaxDiagramGuide"/>
 :::
 
-In C++ the assignment operator is `=`, with an identifier on the left-hand side and an [expression](/book/part-1-instructions/1-sequence/5-reference/05-expression) on the right-hand side.
+In C++ the assignment operator is `=`, with an identifier on the left-hand side and an [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression) on the right-hand side.
 
-The assignment operator can optionally be modified with `+`, `-`, `*`, or `/`, which are shorthand for adding to, subtracting from, multiplying, and dividing the variable identified on the left-hand side of the statement.
+The assignment operator can optionally be modified with `+`, `-`, `*`, or `/`, which are shorthand for adding to, subtracting from, multiplying, or dividing the variable identified on the left-hand side of the statement.
 
 ```c++
 int count = 0;
@@ -325,14 +322,13 @@ For example, `x = x - 1`, `x -= 1`, and `x--` are all assignment statements whic
 ```c++
 int count = 10;
 
+// Subtract one from count, and store new value back in count
 count = count - 1;
 
-\\ is the same as
-
+// is the same as
 count -= 1;
 
-\\ is the same as
-
+// is the same as
 count--;
 ```
 
@@ -340,7 +336,7 @@ count--;
 
 ### Basic assignment statement
 
-In this example we use `read_line` to get input from the user and store it in a `name` variable.
+In this example we create a `name` and a `message` variable, and assign these values.
 
 ```c++
 #include "splashkit.h"
@@ -349,17 +345,21 @@ int main()
 {
     // Declare a variable - somewhere we can store a string
     string name;
-
-    write("Enter your name: ");
+    // Create a second variable
+    string message;
 
     // Assign a value to name
     //
     // name is the left-hand side - where to store the value
     // |
-    // |   read_line() is the right-hand side. It is called
-    // |      |        to get a value to assign to name
+    // |   "Niroshinie" is the right hand side, a string literal.
     // v      v
-    name = read_line();
+    name = "Niroshinie";
+
+    // Assign a value to message
+    message = "Hello " + name;
+
+    write_line(message);
 }
 ```
 
@@ -372,18 +372,10 @@ The following code shows an example of how to use the shorthand assignment state
 
 int main()
 {
-    string line;
-    int count;
+    int count = 17;
 
-    write("What is the start count: ");
-
-    // Read in a line from the user
-    line = read_line();
-
-    // Initialise the count to a user-provided value.
-    count = to_integer(line);
-
-    write_line("Count is " + to_string(count) + "");
+    write("Count is ");
+    write_line(count);
 
     // Add one to count
     //
@@ -391,10 +383,11 @@ int main()
     // |
     // |    count + 1 is calculated first
     // |      |
-    // v      v
+    // v <--- v
     count = count + 1;
 
-    write_line("After count = count + 1...count is now " + to_string(count) + "");
+    write("After count = count + 1...count is now ");
+    write_line(count);
 
     // We can use shorthand to do this too
     //
@@ -405,9 +398,10 @@ int main()
     // v  v
     count += 5;
 
-    write_line("After count += 5...count is now " + to_string(count) + "");
+    write("After count += 5...count is now ");
+    write_line(count);
 
-    // We can make this shorter for + 1
+    // We can make this shorter version for + 1
     //
     // count is the left-hand side - where to store the value
     // |
@@ -416,18 +410,32 @@ int main()
     // v v
     count++;
 
-    write_line("After count++ ...count is now " + to_string(count) + "");
+    write("After count++ ...count is now ");
+    write_line(count);
+
+    // You can also use shorthand with -
+    count -= 3;
+
+    write("After count -= 3 ...count is now ");
+    write_line(count);
+
+    // With -- to subtract 1
+    count--;
+
+    write("After count-- ...count is now ");
+    write_line(count);
 }
 ```
 
-If you ran the above code and entered **17** as the start count you should get this output:
+If you ran the above code you should get this output:
 
-```bash
-What is the start count: 17
+```txt
 Count is 17
 After count = count + 1...count is now 18
 After count += 5...count is now 23
 After count++...count is now 24
+After count -= 3...count is now 21
+After count--...count is now 20
 ```
 
 ## Assignment statement up close
@@ -436,11 +444,11 @@ The following sliders show how the assignment statement works in detail.
 These are both relatively simple programs, but notice how much is going on behind the scenes!
 The good thing is that you do not need to think overly about these smaller steps, as long as you remember that the assignment statement works by evaluating the expression on the right-hand side of the `=` and then stores the result in the variable on the left-hand side.
 
-### Assigning an int division result to an int variable
+### Assigning an integer
 
 <MySwiper client:only height="" images={sliderImagesAssignInt}></MySwiper>
 
-### Assigning an int division result to a double variable
+### Assigning a double
 
 <MySwiper client:only height="" images={sliderImagesAssignDouble}></MySwiper>
 
@@ -448,7 +456,7 @@ The good thing is that you do not need to think overly about these smaller steps
 
 - An assignment statement is an **instruction** you can get the computer to perform.
 - The assignment statement uses an **assignment operator**.
-- The right-hand side of the assignment operator is an [expression](/book/part-1-instructions/1-sequence/5-reference/05-expression) calculating the value to be stored.
+- The right-hand side of the assignment operator is an [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression) calculating the value to be stored.
 - The left-hand side of the assignment operator is the [variable](/book/part-1-instructions/2-data/5-reference/07-variable/) into which the value is stored.
 - When the assignment statement is executed the expression is evaluated first, and then the resulting value is stored in the variable.
 - The variable on the left-hand side of the assignment operator can be used as part of the expression on the right-hand side.

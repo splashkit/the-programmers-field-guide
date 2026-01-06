@@ -1,14 +1,14 @@
 ---
-title: Procedures to Use
+title: Procedure Signatures
 sidebar:
-    label: " - Procedure to Use"
+    label: " - Procedure Signatures"
 ---
 
 At this point the programs we create will include sequences of procedure calls, with variables that we can use to work with data within our program.
 
-To build programs we will need to have some [procedures](/book/part-1-instructions/1-sequence/5-reference/03-procedure) that we can [call](/book/part-1-instructions/1-sequence/5-reference/04-procedure-call). The great this is that [library](/book/part-1-instructions/1-sequence/5-reference/10-library) creators will describe the procedures that they have created so that we can find and use them. In order to use this documentation we need to know how these procedures will be described.
+To build programs we will need to have some [procedures](/book/part-1-instructions/1-sequence/5-reference/10-procedure) that we can [call](/book/part-1-instructions/1-sequence/5-reference/11-procedure-call). The great this is that [library](/book/part-1-instructions/1-sequence/5-reference/30-library) creators will describe the procedures that they have created so that we can find and use them. In order to use this documentation we need to know how these procedures will be described.
 
-## Procedure Signatures
+## Using Signatures
 
 Procedures are usually communicated using part of their declaration - the signature. We will look at building these ourselves in [Part 2](/book/part-2-organised-code/2-organising-code/0-overview), but for now we need to know some basics so that we can start calling procedures.
 

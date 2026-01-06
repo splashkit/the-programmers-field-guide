@@ -29,7 +29,7 @@ It may seem strange, but naming things becomes one of the main challenges as you
 Always try to name the things in your code in a way that will help others understand what you intend that aspect to be used for.
 :::
 
-Associated with deciding on a name is the name's styling. As we saw with [identifiers](/book/part-1-instructions/2-communicating-syntax/2-trailside/04-identifier), the names we give things can't have spaces in them. So, languages usually have preferred ways for you to express identifiers based on what is being named. This helps ensure that people can easily get started with different programs written in the same language.
+Associated with deciding on a name is the name's styling. As we saw with [identifiers](/book/part-1-instructions/1-sequence/5-reference/12-identifier), the names we give things can't have spaces in them. So, languages usually have preferred ways for you to express identifiers based on what is being named. This helps ensure that people can easily get started with different programs written in the same language.
 
 As you learn each language, these subtle differences in identifiers will help you understand what each thing is, without having to find where it is declared. This will become second nature as you progress, so breaking these conventions is a real problem.
 
@@ -82,7 +82,7 @@ The importance of indentation can be seen in the Python programming language. Th
 ## Commenting
 
 Lastly we have commenting.
-We have also [mentioned this before](/book/part-1-instructions/1-sequence/5-reference/09-comments), but it is important enough to reiterate.
+We have also [mentioned this before](/book/part-1-instructions/1-sequence/5-reference/20-comments), but it is important enough to reiterate.
 
 Comments are a great way of capturing your thoughts as you build out an algorithm. You can start with comments to outline the steps and then write the code to flesh these out, or you can add in some comments once you have the first working version. The important thing is make sure your comments capture things not necessarily evident in the code itself. Don't say what each line does, unless what you are saying adds something that is not immediately evident. The best comments capture the *intent* of the code rather than explain the syntax.
 

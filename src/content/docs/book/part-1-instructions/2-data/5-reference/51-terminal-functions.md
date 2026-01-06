@@ -111,8 +111,8 @@ int main()
   // read in the user input input a string
   user_input = read_line();
 
-  // convert it to an integer or double
-  weight_in_kg = to_integer(user_input); 
+  // convert it to an integer
+  count = to_integer(user_input); 
 
   // You can now use the number
   write_line( "One third of " + to_string(count) + 
@@ -125,6 +125,7 @@ If we imagine that the user enters the value 5, then when this runs the expressi
 <table style="margin: auto; display: table;">
   <tr><th>Steps to calculate the value of the expression</th></tr>
   <tr><td><code>"One third of " + to_string(count) + " is " + to_string(count / 3.0, 2)</code></td></tr>
+  <tr><td>Count is </td></tr>
   <tr><td><code>"One third of " + to_string(5) + " is " + to_string(count / 3.0, 2)</code></td></tr>
   <tr><td><code>"One third of " + "5" + " is " + to_string(count / 3.0, 2)</code></td></tr>
   <tr><td><code>"One third of 5" + " is " + to_string(count / 3.0, 2)</code></td></tr>

@@ -1,5 +1,7 @@
 ---
 title: "Identifier"
+sidebar:
+  label: " - Identifier"
 ---
 
 **Identifier** is the term for the name/word that *identifies* something for the compiler. This could be the **name** of a building block (such as a variable, constant, or method) or words that have special meaning for the compiler. You use identifiers to name the things (building blocks) you create, and to refer to those you want to use.
@@ -23,26 +25,21 @@ Programming languages require you to name things without spaces so that the comp
 - **PascalCase**: use an upper case character at the start of each word.
 - **kebab-case**: all lower case letters with hyphens (`-`) to separate words.
 
-Every programming language has **coding conventions** that indicate which format to use for identifiers for different building blocks. In C# the conventions are to use:
-
-- PascalCase for methods.
-- camelCase for variables.
-- UPPER_CASE for constants.
+Every programming language has **coding conventions** that indicate which format to use for identifiers for different building blocks. In C++ we will use snake_case for procedure names.
 
 :::tip
 Following the coding convention of the language is really important. This makes your code look and feel like other code from that language. Doing this will make it easier for others to engage with what you do. Break the convention, and others will doubt the quality of your code and contributions.
 :::
 
-## In C#
+## In C++
 
 :::tip[Syntax]
-The following diagram shows the C# syntax for an identifier.
+The following diagram shows the C++ syntax for an identifier.
 
-![The C# syntax of an identifier.](./images/program-creation/IdentifierSyntax.png "The C# syntax of an identifier")
+![The C++ syntax of an identifier.](./images/program-creation/IdentifierSyntax.png "The C++ syntax of an identifier")
+
+<CommmonLink type="syntaxDiagramGuide"/>
 :::
-
-We used this as our example when discussing [how to read syntax diagrams](/book/part-1-instructions/2-communicating-syntax/2-trailside/01-grammar#example).
-For a quick recap, in C#:
 
 - Identifiers must start with an underscore (`_`) or a letter. This is because the compiler needs a way of distinguishing identifiers from numbers entered directly into the code.
 - An identifier can not contain spaces, or special characters other than underscores.
@@ -59,7 +56,7 @@ All of these are valid identifiers according to our syntax rule, you just can't 
 
 | Reserved Identifiers (Keywords)  |
 |----------------------------------|
-| `abstract`, `as`, `base`, `bool`, `break`, `byte`, `case`, `catch`, `char`, `checked`, `class`, `const`, `continue`, `decimal`, `default`, `delegate`, `do`, `double`, `else`, `enum`, `event`, `explicit`, `extern`, `false`, `finally`, `fixed`, `float`, `for`, `foreach`, `goto`, `if`, `implicit`, `in`, `int`, `interface`, `internal`, `is`, `lock`, `long`, `namespace`, `new`, `null`, `object`, `operator`, `out`, `override`, `params`, `private`, `protected`, `public`, `readonly`, `ref`, `return`, `sbyte`, `sealed`, `short`, `sizeof`, `stackalloc`, `static`, `string`, `struct`, `switch`, `this`, `throw`, `true`, `try`, `typeof`, `uint`, `ulong`, `unchecked`, `unsafe`, `ushort`, `using`, `virtual`, `void`, `volatile`, `while` |
+| `alignas`,`alignof`,`and`,`and_eq`,`asm`,`atomic_cancel`,`atomic_commit`,`atomic_noexcept`,`auto`,`bitand`,`bitor`,`bool`,`break`,`case`,`catch`,`char`,`char8_t`,`char16_t`,`char32_t`,`class`,`compl`,`concept`,`const`,`consteval`,`constexpr`,`constinit`,`const_cast`,`continue`,`contract_assert`,`co_await`,`co_return`,`co_yield`,`decltype`,`default`,`delete`,`do`,`double`,`dynamic_cast`,`else`,`enum`,`explicit`,`export`,`extern`,`false`,`float`,`for`,`friend`,`goto`,`if`,`inline`,`int`,`long`,`mutable`,`namespace`,`new`,`noexcept`,`not`,`not_eq`,`nullptr`,`operator`,`or`,`or_eq`,`private`,`protected`,`public`,`reflexpr`,`register`,`reinterpret_cast`,`requires`,`return`,`short`,`signed`,`sizeof`,`static`,`static_assert`,`static_cast`,`struct`,`switch`,`synchronized`,`template`,`this`,`thread_local`,`throw`,`true`,`try`,`typedef`,`typeid`,`typename`,`union`,`unsigned`,`using`,`virtual`,`void`,`volatile`,`wchar_t`,`while`,`xor`,`xor_eq` |
 
 ## Examples
 
@@ -67,11 +64,11 @@ Some example valid identifiers that may be useful for naming things:
 
 | Example Identifiers |
 |----------------------------------|
-| `DrawGame`, `PlaySplashScreen`, `AirSpeed`, `WriteLine`, `ReadLine`, `Bitmap`, `SoundEffect`, `name`, `DrawBitmap`, `age`, `player`, `height`, `test`, `cost`, `name3`, `_23`, `i`
+| `draw_game`, `play_splash_screen`, `air_speed`, `write_line`, `read_line`, `bitmap`, `sound_effect`, `name`, `draw_bitmap`, `age`, `player`, `height`, `test`, `cost`, `name3`, `_23`, `i` |
 
 ## Activities
 
-Which of the following names are valid identifiers in C# and why/why not?
+Which of the following names are valid identifiers in C++ and why/why not?
 
 1. `_`
 2. `__`
@@ -101,8 +98,6 @@ Which of the following names are valid identifiers in C# and why/why not?
 :::note[Summary]
 
 - Identifiers are used to **name** things in our programs.
-- When you create a [variable](/book/part-1-instructions/1-sequence/5-reference/07-variable) or [constant](/book/part-1-instructions/1-sequence/5-reference/07-variable#constants), you name it using an identifier.
-- When you [call a method](/book/part-1-instructions/1-sequence/5-reference/03-method-call) you specify which method you want to execute by using its identifier.
-- To read the value from a variable or constant, you use its identifier in an [expression](/book/part-1-instructions/1-sequence/5-reference/05-expression).
+- When you [call a procedure](/book/part-1-instructions/1-sequence/5-reference/11-procedure-call) you specify which procedure you want to execute by using its identifier (name).
 
 :::
