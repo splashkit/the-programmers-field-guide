@@ -69,7 +69,7 @@ The [enumeration](/book/part-2-organised-code/2-structuring-data/5-reference/03-
 :::note
 
 - Accessing a value of an enumeration type is just like accessing an integer value.
-- In [Figure x.y](#FigureEnumerationExpression) the `accessories` variable is storing an `accessories_flag` value. This value can be read from the variable using the variable’s name (its [identifier](/book/part-1-instructions/2-communicating-syntax/5-reference/04-identifier)).
+- In [Figure x.y](#FigureEnumerationExpression) the `accessories` variable is storing an `accessories_flag` value. This value can be read from the variable using the variable’s name (its [identifier](/book/part-1-instructions/2-data/5-reference/12-identifier)).
 
 :::
 

@@ -43,7 +43,7 @@ To do this:
     example back to the rule that created it.
 5. Now look up any related rules that are not explained in this rule's
     diagram. For example, a [method call](/book/part-1-instructions/2-data/5-reference/31-function-call) has an identifier. The rule for an identifier
-    has its [own page](/book/part-1-instructions/old-communicating-syntax/2-trailside/04-identifier).
+    has its [own page](/book/part-1-instructions/2-data/5-reference/12-identifier).
 
 As you follow this process it is also a good idea to take notes and to try to use these rules in your own programs. Have your code editor open, and see if you can follow the rules or mimic the examples. You can also try typing in some of the examples to see how they work.
 
