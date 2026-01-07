@@ -261,15 +261,19 @@ The assignment statement is an **instruction** that stores a value in a [variabl
 
 The assignment statement performs two actions. First, it calculates the value of the [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression/) (calculation) on the right-hand side of the assignment operator (the `=`). Once it has the value, it stores the value (assigns it) to the variable on the left-hand side of the assignment operator.
 
+![Illustration of assignment code and actions](./images/assignment-statement-pano.png)
+
 ## Assignment Statement -- when, why, and how
 
 You will have created a variable as you have identified a piece of information that you want to be able to change as your program runs.
 Whenever you have a new value, you update the variable by using an **assignment statement**.
 
 The assignment statement uses the **assignment operator** `=`.
-Whatever is on the right-hand side of `=` represents the value to be assigned.
+The [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression) right-hand side of `=` determines the value to be stored.
 This could be a [literal](/book/part-1-instructions/1-sequence/5-reference/14-literal), a [function call](/book/part-1-instructions/2-data/5-reference/30-function), or any other [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression).
-On the left-hand side you write the identifier of the variable you want to store this value in.
+On the left-hand side, you write the identifier of the variable you want to store this value in.
+
+### Assigning a string value
 
 The following code creates a variable called `name` and assigns it the value "Fred":
 
@@ -277,16 +281,13 @@ The following code creates a variable called `name` and assigns it the value "Fr
 // Create the variable
 string name;
 
-// Call read line and store the result in name
+// Store "Fred" in name
 name = "Fred";
 ```
 
-It is important to remember that every assignment statement has **2 actions**:
+### Updating an integer value
 
-1. Calculate the value on the right-hand side
-2. Store it in the variable on the left-hand side.
-
-The ordering of these actions allow you to update the value of a variable. This can be very useful. For example, you might want to update the value of a variable storing the number of steps you have taken today. The following code creates a variable called `count`, initialises it to 0, and then updates its value.
+The order of the actions in the assignment statement allows you to update the value of a variable. The following code creates a variable called `count`, initialises it to 0, and then updates its value by adding 1 to its current value.
 
 ```c++
 // Create and initialise count
@@ -299,42 +300,14 @@ count = count + 1;
 ## In C++
 
 :::tip[Syntax]
-![The C++ syntax for an assignment statement](./images/assignment-statement.png "The syntax for an assignment statement")
+![The C++ basic syntax for an assignment statement](./images/simple-assignment.png "The syntax for an assignment statement")
+
 <CommmonLink type="syntaxDiagramGuide"/>
 :::
 
-In C++ the assignment operator is `=`, with an identifier on the left-hand side and an [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression) on the right-hand side.
+At the basic level, the assignment statement uses `=` operator. To the left you put the variable name, to the right you put the value.
 
-The assignment operator can optionally be modified with `+`, `-`, `*`, or `/`, which are shorthand for adding to, subtracting from, multiplying, or dividing the variable identified on the left-hand side of the statement.
-
-```c++
-int count = 0;
-
-// The following is the same as count = count + 1;
-count += 1;
-```
-
-Some assignment statements are written without `=`.
-These are assignment statements using increment (`++`) or decrement (`--`), which allow you to add or remove one from a variable's current value.
-
-For example, `x = x - 1`, `x -= 1`, and `x--` are all assignment statements which do the same thing -- assign the variable `x` a new value that is one lower than its current value.
-
-```c++
-int count = 10;
-
-// Subtract one from count, and store new value back in count
-count = count - 1;
-
-// is the same as
-count -= 1;
-
-// is the same as
-count--;
-```
-
-## Examples
-
-### Basic assignment statement
+## Example
 
 In this example we create a `name` and a `message` variable, and assign these values.
 
@@ -351,91 +324,17 @@ int main()
     // Assign a value to name
     //
     // name is the left-hand side - where to store the value
-    // |
-    // |   "Niroshinie" is the right hand side, a string literal.
+    // |   "Niroshinie" is the right-hand side, a string literal.
+    // |      |
     // v      v
     name = "Niroshinie";
 
-    // Assign a value to message
+    // Assign a value to message. The right-hand side concatenates
+    // a string literal, with the value from the name variable.
     message = "Hello " + name;
 
     write_line(message);
 }
-```
-
-### Shorthand assignment statements
-
-The following code shows an example of how to use the shorthand assignment statements.
-
-```c++
-#include "splashkit.h"
-
-int main()
-{
-    int count = 17;
-
-    write("Count is ");
-    write_line(count);
-
-    // Add one to count
-    //
-    // count is the left-hand side - where to store the value
-    // |
-    // |    count + 1 is calculated first
-    // |      |
-    // v <--- v
-    count = count + 1;
-
-    write("After count = count + 1...count is now ");
-    write_line(count);
-
-    // We can use shorthand to do this too
-    //
-    // count is the left-hand side - where to store the value
-    // |
-    // |  This is the same as count = count + 5
-    // |  |
-    // v  v
-    count += 5;
-
-    write("After count += 5...count is now ");
-    write_line(count);
-
-    // We can make this shorter version for + 1
-    //
-    // count is the left-hand side - where to store the value
-    // |
-    // | This is the same as count = count + 1
-    // | |
-    // v v
-    count++;
-
-    write("After count++ ...count is now ");
-    write_line(count);
-
-    // You can also use shorthand with -
-    count -= 3;
-
-    write("After count -= 3 ...count is now ");
-    write_line(count);
-
-    // With -- to subtract 1
-    count--;
-
-    write("After count-- ...count is now ");
-    write_line(count);
-}
-```
-
-If you ran the above code you should get this output:
-
-```txt
-Count is 17
-After count = count + 1...count is now 18
-After count += 5...count is now 23
-After count++...count is now 24
-After count -= 3...count is now 21
-After count--...count is now 20
 ```
 
 ## Assignment statement up close

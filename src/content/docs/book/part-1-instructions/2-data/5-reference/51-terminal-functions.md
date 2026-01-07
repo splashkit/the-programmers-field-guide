@@ -4,7 +4,7 @@ sidebar:
     label: " - Terminal Functions"
 ---
 
-Interacting with the terminal is pretty simple in code. In addition to the `write` and `write_line` procedures, there is also the function `read_line`, along with some data conversion functions. Let's go over these now.
+Interacting with the terminal is pretty simple in code. In addition to the `write` and `write_line` procedures, there is the function `read_line` and some data conversion functions that we need. Let's go over these now.
 
 ## Reading from the terminal
 
@@ -36,36 +36,38 @@ int main()
 
 :::tip
 
-When working with a terminal based program, you will output prompts and messages and use `read_line` to read text from the user.
+When working with a terminal based program, you will output messages and use `read_line` to read text from the user. A common pattern will be to use `write` to output a prompt, and then use `read_line` to read the user's response.
 
 :::
 
 ## Converting data
 
-As you can see above, `read_line` only returns string data. When you need this to be a number, you need to convert it. SplashKit provides a few conversion functions we can use with `read_line` to convert data the user enters into either an integer (int) or a double.
+As you can see above, `read_line` only returns string data. What can you do when you want to read a number from the user? SplashKit provides a few conversion functions we can use with `read_line` to convert data the user enters into either an integer (int) or a double.
 
 ```c++
+// Functions to convert from a string to a number (int or double)
 int to_integer(string value);
 double to_double(string value);
 
-// You can convert back to a string with this:
+// Function to convert back to a string:
 string to_string(int value);
 string to_string(double value);
 string to_string(double value, int precision);
 ```
 
-SplashKit also has some string manipulation functions - the following two might come in handy:
+SplashKit also has some string manipulation functions - the following might come in handy:
 
 ```c++
 string to_lowercase(string value);
 string to_uppercase(string value);
+string trim(string value);
 ```
 
-As you can probably guess, `to_lowercase` return an all-lowercase version of the input string, while `to_uppercase` returns an all-uppercase version.
+As you can probably guess, `to_lowercase` return an all-lowercase version of the input string, while `to_uppercase` returns an all-uppercase version, and `trim` returns a string with the spaces from the start and end.
 
 ### Input Conversions
 
-`read_line` will always return the user input as a string. So if they type 78, then the value returned is the string `"78"`. If you want this as a number you need to convert it using either `to_integer` or `to_double`. This means that when you want to read in a number, you will have input code that looks like this:
+`read_line` will always return the user input as a string. So if they type 78, then the value returned is the string `"78"` - character `'7'` then character `'8'`. If you want this as a number you need to convert it using either `to_integer` or `to_double`. This means that when you want to read in a number, you will have input code that looks like this:
 
 ```c++
 #include "splashkit.h"
@@ -125,10 +127,14 @@ If we imagine that the user enters the value 5, then when this runs the expressi
 <table style="margin: auto; display: table;">
   <tr><th>Steps to calculate the value of the expression</th></tr>
   <tr><td><code>"One third of " + to_string(count) + " is " + to_string(count / 3.0, 2)</code></td></tr>
-  <tr><td>Count is </td></tr>
+  <tr><td>To concatenate the first two parts - we need to evaluate <code>to_string(count)</code></td></tr>
+  <tr><td>To do that we need to first evaluate <code>count</code></td></tr>
   <tr><td><code>"One third of " + to_string(5) + " is " + to_string(count / 3.0, 2)</code></td></tr>
+  <tr><td>Then evaluate <code>to_string(5)</code></td></tr>
   <tr><td><code>"One third of " + "5" + " is " + to_string(count / 3.0, 2)</code></td></tr>
+  <tr><td>Then we can concatenate the two string</td></tr>
   <tr><td><code>"One third of 5" + " is " + to_string(count / 3.0, 2)</code></td></tr>
+  <tr><td>Continue with the next concatenation... and so on</td></tr>
   <tr><td><code>"One third of 5 is " + to_string(count / 3.0, 2)</code></td></tr>
   <tr><td><code>"One third of 5 is " + to_string(5 / 3.0, 2)</code></td></tr>
   <tr><td><code>"One third of 5 is " + to_string(1.33333333333, 2)</code></td></tr>
@@ -140,40 +146,44 @@ This is then the text that is passed to `write_line`, and what will appear in th
 
 ## Example
 
-The following code calculates a body mass index by reading the details from the user in the terminal.
+This example will help us calculate the volume of a water bottle, assuming it is a cylinder. It reads and converts data from the user, and then concatenates the values in the response.
 
 ```c++
 #include "splashkit.h"
 
+// Create a const called PI
+const double PI = 3.1415;
+// ...and another called CUBIC_CENTIMETRES_PER_LITRE
+const int CUBIC_CENTIMETRES_PER_LITRE = 1000;
+
 int main()
 {
-  string name, user_input;
-  double weight_in_kg, height_in_m;
-  double bmi;
+    // Create variables radius, height, line, bottle_volume, and litres
+    double radius, height;
+    string line;
+    double bottle_volume, litres;
 
-  write_line("Welcome to the bmi calculator");
+    write_line("Water Bottle Volume");
+    write_line();
+    write_line("Enter the radius and height of the bottle in centimetres");
 
-  // Read user name
-  write("Please enter your name: ");
-  name = read_line();
+    write("radius: ");
+    line = read_line();  // Call readline - assign the result to line
+    radius = to_double(line); // Call to_double to convert line to a number
 
-  write_line("Hello " + name);
+    // Read in and convert line to a double for height
+    write("height: ");
+    line = read_line();
+    height = to_double(line);
 
-  // Read weight
-  write("Please enter your weight in kilograms: ");
-  user_input = read_line();   // read in the user input
-  weight_in_kg = to_double(user_input); // convert it to a double
+    // Calculate the bottle volume - using pow to square radius
+    bottle_volume = PI * pow(radius, 2) * height;
 
-  // Read height
-  write("please enter your height in meters: ");
-  user_input = read_line();   // read in the input
-  height_in_m = to_double(user_input); // convert it
+    litres = bottle_volume / CUBIC_CENTIMETRES_PER_LITRE;
 
-  // Calculate bmi
-  bmi = weight_in_kg / (height_in_m * height_in_m);
-
-  // Now output the calculated BMI
-  // Use to_string to convert the data to text - with 2 decimal places
-  write_line($"the BMI of the data entered is: " + to_string(bmi, 2));
+    // Use to_string to convert numbers to text for output
+    write_line();
+    write_line("Volume " + to_string( bottle_volume, 4 ) + " cm^3");
+    write_line("       " + to_string( litres ) + " litres");
 }
 ```

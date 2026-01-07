@@ -40,11 +40,13 @@ You can also declare multiple variables of the same type in the one line of code
 
 By convention, variables should use **snake_case** for their name. This is where the first letter is lowercase and each new word in the identifier is separated with an underscore character (`_`). For example, `bottle_volume`, `my_name`, and `this_is_a_long_name` are all in snake case.
 
+![Illustration of variable code](./images/variable-pano.png)
+
 ## Examples
 
 ### Basic Example
 
-In this program, we want to capture the user's name and greet them using it. We need a variable for the name, as it may change each time the program runs. Within the program, the variable will represent the name of the user.
+In this program, we create a name variable and initialise it with a value.
 
 ```c++
 #include "splashkit.h"
@@ -53,16 +55,7 @@ int main()
 {
     // Create a variable called name
     // it can store a string
-    string name;
-
-    // Output the message
-    write_line("Welcome to The Greeting");
-    write_line();
-    write_line("What is your name?");
-    write("name: ");
-
-    // Read user input and store it in the name variable
-    name = read_line();
+    string name = "Jingyu";
 
     write_line();
     write_line("Hello " + name);
@@ -71,11 +64,7 @@ int main()
 
 ### Example using multiple variables
 
-The next example will help us calculate the area of a rectangle:
-
-- Numbers for `width` and `height` which the user will enter.
-- A string `user_input` to store the text the user enters before we convert it to a number.
-- Number for `area` to store calculated values.
+This calculates the area of a rectangle, it creates and initialises variables for width, height, and area.
 
 ```c++
 #include "splashkit.h"
@@ -83,88 +72,12 @@ The next example will help us calculate the area of a rectangle:
 int main()
 {
     // Create variables width, height, user_input, and area
-    double width, height;
-    string user_input;
-    double area;
-
-    write_line("Rectangle Area");
-    write_line();
-    write_line("Enter the width and height of the rectangle");
-
-    // read in width and convert to a double
-    write("width: ");
-    user_input = read_line();
-    radius = to_double(user_input);
-
-    // read in width and convert to a double
-    write("height: ");
-    // we can re-use user_input
-    user_input = read_line();
-    height = to_double(user_input);
-
-    // calculate area
-    area = width * height;
+    double width = 100.0, height = 53.2;
+    double area = width * height;
 
     write_line();
-    write_line("Area " + to_string(area, 2) + " cm^2");
+    write("Area ");
+    write(area);
+    write_line(" cm^2");
 }
 ```
-
-:::tip
-Notice how the names of the variables help us understand how the program works. Also, adding in additional line breaks helps group the steps in our code to make it more readable.
-:::
-
-### Circle Drawing Example
-
-Let's use SplashKit to look how variables can be used in a graphical program. The following program captures a radius for a circle and uses that to draw to the screen. To achieve this we need two variables, `line` and `radius`. We use `read_line` to read a `string` from the user, and `to_double` to convert the text read into a `double` value. This value is stored in the `radius` variable, which can then be used in the call to `fill_radius`.
-
-Here we also have a `color` variable to store the fill color for the circle. `color` comes from the SplashKit library, and is used to represent color values. In this case we call the `hsb_color` function to calculate the color of the [hue](https://en.wikipedia.org/wiki/Hue) specified by the user.
-
-```c++
-#include "splashkit.h"
-
-int main()
-{
-    string line;
-    int radius;
-    double hue;
-    color fill_color;
-
-    write_line("Welcome to Circle Drawer!");
-    write_line();
-    write_line("Enter the radius of the circle to draw. (a whole number)");
-
-    // Read value from the user and convert to double for radius
-    write("Circle radius: ");
-    line = read_line();
-    radius = to_double(line);
-
-    // Read value from the user and convert to double for hue
-    write_line("What color? Enter hue between 0 to 1");
-    write("Hue: ");
-    line = read_line();
-    hue = to_double(line);
-    fill_color = hsb_color(hue, 0.8, 0.8);
-
-    // Draw scene and delay
-    open_window("Circle Drawing", 800, 600);
-    clear_screen(COLOR_WHITE);
-    fill_circle(fill_color, 400, 300, radius);
-    refresh_screen();
-    delay(5000);
-}
-```
-
-:::note[Summary]
-
-- Variables are **constructs** you can create to store values in your programs.
-- You can think of a variable as a box. The variable is the box, and its value is stored within it.
-- Each variable and constant has a ...
-  - **name** (identifier) that can be used to refer to it.
-  - **type** that determines its size and how its value is interpreted.
-  - **value** that it is storing.
-- The first time you assign a value to a variable or constant, you are **initialising** it.
-- You can **read** the value from variables in your instructions.
-- A variable **is not** its value -- it is a container that stores a value, where its value can change over time as you write new values into the variable.
-
-:::

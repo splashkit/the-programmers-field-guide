@@ -34,82 +34,76 @@ The C++ syntax for a function call is almost identical to a procedure call - the
 <CommmonLink type="syntaxDiagramGuide"/>
 :::
 
-## Examples
+### Function call illustration
 
-### Reading Input
+The following illustration shows a function call in an expression used to initialise a variable. When this runs, `sqrt` is called and passed the value 4. This returns the value 2 (the square root of 4), which becomes the value of the expression. 2 is then stored in the `root` variable.
 
-In this example we use the `read_line` function, with an assignment statement to get input from the user and store it in a `name` variable.
+![Illustration of nested function call evaluation](./images/fn-call-expr.png)
 
-```c++
-#include "splashkit.h"
+### Nested function calls
+The following illustration shows two function calls: `to_double` and `read_line`. Each of these is called as part of two different expressions:
 
-int main()
-{
-    // Declare a variable - somewhere we can store a string
-    string name;
+- `to_double` is called in the expression of an [assignment statement](/book/part-1-instructions/2-data/5-reference/11-assignment-statement). Its value will be stored in the `weight_in_kg` variable.
+- `read_line` is called as an argument in a function call. Its value will be passed to `to_double` as its first argument.
 
-    write("Enter your name: ");
+This will be evaluated as follows:
 
-    // Assign a value to name
-    //
-    // name is the left-hand side - where to store the value
-    // |
-    // |   read_line() is the right-hand side. It is called
-    // |      |        to get a value to assign to name
-    // v      v
-    name = read_line();
+- `to_double` has one argument, the argument value must be calculated before it can run.
+  - `read_line` runs and returns a string, meaning it becomes a string value.
+  - `to_double` runs and accepts the string value returned by `read_line`.
+  - When `to_double` ends, it returns a double value.
+- Finally, the value returned from `to_double` is stored in `weight_in_kg`.
 
-    // We can now use the value read and stored in name
-    write_line("Hello " + name);
-}
-```
+![Illustration of nested function call evaluation](./images/fn-call-expr-2.png)
 
-### Conversion and Simple Mathematical Functions
+## Example
 
-This example will help us calculate the volume of our water bottles, assuming they are cylinders. To achieve this, we need to use the following functions:
+This example makes use of a number of functions from SplashKit and the maths library.
 
-- [read_line](https://splashkit.io/api/terminal/#read-line): a SplashKit function to read a string from the Terminal.
-- [to_double](https://splashkit.io/api/utilities/#to-double): a SplashKit function to convert a string into a double value.
-- `to_string`: a SplashKit function to convert a number into a string, with overloads to format double values to a number of decimal places.
-- [pow](https://cplusplus.com/reference/cmath/pow/): a built-in C++ function to calculate the value of the first argument to the power of the second argument.
+- [sqrt](https://cplusplus.com/reference/cmath/sqrt/?kw=sqrt): gets the square root of a number.
+- [rnd](https://splashkit.io/api/utilities/#rnd): get a random double value between 0.0 and 1.0.
+- [fabs](https://cplusplus.com/reference/cmath/fabs/?kw=fabs): gets the absolute value for a double.
+- [pow](https://cplusplus.com/reference/cmath/pow/?kw=pow): calculates the first argument raised to the power of the second.
+- [sin](https://cplusplus.com/reference/cmath/sin/?kw=sin): computes the sine of an angle in radians.
+- [cos](https://cplusplus.com/reference/cmath/cos/?kw=cos): computes the cosine of an angle in radians.
 
 ```c++
 #include "splashkit.h"
 
-// Create a const called PI
+// Create a constant called PI
 const double PI = 3.1415;
-// ...and another called CUBIC_CENTIMETRES_PER_LITRE
-const int CUBIC_CENTIMETRES_PER_LITRE = 1000;
 
 int main()
 {
-    // Create variables radius, height, line, bottle_volume, and litres
-    double radius, height;
-    string line;
-    double bottle_volume, litres;
+    double x = 4.0, y = 3.0;
+    double angle, hypotenuse, result1, result2;
+    
+    // Function call in variable initialisation
+    double root = sqrt(x);
+    
+    // Get a random angle - radians between 0 and 2π
+    angle = rnd() * 2 * PI;
 
-    write_line("Water Bottle Volume");
-    write_line();
-    write_line("Enter the radius and height of the bottle in centimetres");
+    // Function calls as arguments to other functions
+    hypotenuse = sqrt(pow(x, 2) + pow(y, 2));
 
-    write("radius: ");
-    line = read_line();  // Call readline - assign the result to line
-    radius = to_double(line); // Call to_double to convert line to a number
+    // More examples
+    result1 = sin(angle) + cos(angle);
+    result2 = pow(x, 3) / fabs(y);
+    
+    // Multiple function calls combined
+    double complex = pow(sin(angle), 2) + pow(cos(angle), 2);
+    double distance = sqrt(pow(fabs(x - y), 2) + pow(angle, 2));
+    
+    write_line(root);
+    write_line(angle);
+    write_line(hypotenuse);
+    write_line(result1);
+    write_line(result2);
+    write_line(complex);
+    write_line(distance);
 
-    // Read in and convert line to a double for height
-    write("height: ");
-    line = read_line();
-    height = to_double(line);
-
-    // Calculate the bottle volume - using pow to square radius
-    bottle_volume = PI * pow(radius, 2) * height;
-
-    litres = bottle_volume / CUBIC_CENTIMETRES_PER_LITRE;
-
-    // Use to_string to convert numbers to text for output
-    write_line();
-    write_line("Volume " + to_string( bottle_volume, 4 ) + " cm^3");
-    write_line("       " + to_string( litres ) + " litres");
+    return 0;
 }
 ```
 

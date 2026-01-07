@@ -4,15 +4,13 @@ title: Constant
 import CommmonLink from '/src/components/CommonLink.astro'
 import { YouTube } from 'astro-embed';
 
-## Constants
-
-A **constant** is similar to a variable, in that they have a name and a data type. Constants are declared within a program and must be given a value when they are created. However, they differ from a variable because once they are created, **the value within a constant cannot be changed**. This is useful for data that should not change during the program's execution.
+A **constant** is similar to a [variable](/book/part-1-instructions/2-data/5-reference/10-variable), in that they have a name and a data type. Constants are declared within a program and must be given a value when they are created. However, they differ from a variable because once they are created, **the value within a constant cannot be changed**. This is useful for data that should not change during the program's execution.
 
 ![Constants have a value that cannot be changed](./images/constant-concept.png "Constants have a value that cannot be changed")
 
 ## Constants -- Why, When, and How
 
-*Literals are values that are fixed within the code, so why do we need constants?*
+*[Literals](/book/part-1-instructions/1-sequence/5-reference/14-literal) are values that are fixed within the code, so why do we need constants?*
 
 With programming, the biggest challenge is making sure your code is **understandable**. Scattering your program with literal values becomes confusing very quickly. When you see a value like `10` in code it doesn't mean much, and potentially could represent anything. There will often be lots of these values that are easy to lose track of. Using a constant lets you name the value, which gives it meaning. When you see `MAX_ITEMS` in the code instead of `10`, you are reminded of its meaning.
 
@@ -31,7 +29,7 @@ Variable and constant declarations use almost identical syntax in C++. The main 
 
 Just like variables, constant declarations need to include the [type](/book/part-1-instructions/1-sequence/5-reference/15-type/) of data you want to store, a name, and also _require_ a value.
 
-By convention, all constants should have an **UPPERCASE** name. Where the name has multiple words, separate them with underscores (`_`). For example: `MAX_ITEMS`.
+By convention, constants have an **UPPERCASE** name. Where the name has multiple words, separate them with underscores (`_`). For example: `MAX_ITEMS`.
 
 ## Example
 
@@ -46,7 +44,7 @@ Constants are generally coded outside `main`, at the top of the file. This way t
 ```c++
 #include "splashkit.h"
 
-// Create a const called PI
+// Create a constant called PI
 const double PI = 3.1415;
 
 int main()
