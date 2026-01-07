@@ -12,13 +12,13 @@ Now we have the spider moving it's going to need a target -- the fly. We can get
 
 What will we need in the digital reality to help us create the fly?
 
-- It will need a position: `flyX` and `flyY`.
+- It will need a position: `fly_x` and `fly_y`.
 - It will need a constant size: let's stick with circles, so `FLY_RADIUS`.
 
 That should be enough to get something to appear. You should be able to plan this out yourself. Review the details on how we added the spider as this will be very similar. Pick a different color, so that you can tell the fly and spider apart.
 
 The one thing that will need some thought is how to position the fly.
-We don't want the fly always being in the center of the screen -- we need to randomise its location. To do this you can use the `Rnd` method from SplashKit. For example, `Rnd(SCREEN_WIDTH)` will give you a random value from 0 to SCREEN_WIDTH - 1.
+We don't want the fly always being in the center of the screen -- we need to randomise its location. To do this you can use the `Rnd` method from SplashKit. For example, `rnd(SCREEN_WIDTH)` will give you a random value from 0 to SCREEN_WIDTH - 1.
 
 ## Timing Appearing
 
@@ -27,7 +27,7 @@ One of the game features we wanted was that the fly should not appear straight a
 :::tip[Boolean Variables]
 Boolean variables are a great way to remember if something has or should happen. This feature can then exist as something within your digital reality.
 
-In C# you use the `bool` type for these variables.
+In C++ you use the `bool` type for these variables.
 :::
 
 To get this working we need to think a little about how we can work with time.
@@ -38,10 +38,10 @@ SplashKit provides timer functionality that we can use to track time for now. In
 
 | <div style="width:100px">**Method**</div> | **Required Arguments** |**Description** |
 |-----------|------------------------|----------------|
-|`CreateTimer`| A name for the timer. | Creates a timer. |
-|`StartTimer`| The name of the timer to use | Records the current time, so that it can work out how much time has passed. |
-|`StopTimer`| The name of the timer to use. | Resets the timer so that it is not recording time. |
-|`TimerTicks`| The name of the timer to use. | Returns you the time that has passed in milliseconds since `StartTimer` was called. |
+|`create_timer`| A name for the timer. | Creates a timer. |
+|`start_timer`| The name of the timer to use | Records the current time, so that it can work out how much time has passed. |
+|`stop_timer`| The name of the timer to use. | Resets the timer so that it is not recording time. |
+|`timer_ticks`| The name of the timer to use. | Returns you the time that has passed in milliseconds since `start_timer` was called. |
 
 We will need to code these steps somewhere within the event loop. They are not really about handing input, so we can create a new logical group for the steps related to **updating the game**. This can be the code for the fly appearing, escaping, and being eaten.
 
@@ -63,10 +63,10 @@ Steps:
 To make this work we will need:
 
 - A game timer -- we can create a constant to keep track of its name `GAME_TIMER`.
-- A variable to track how long needs to pass before we show the fly: `appearAtTime`.
-- A boolean to capture if the fly has appeared: `flyAppeared`.
+- A variable to track how long needs to pass before we show the fly: `appear_at_time`.
+- A boolean to capture if the fly has appeared: `fly_appeared`.
 
-These can be initialised as shown below. We can also change the initialisation of `flyX` and `flyY`, as these values should now be set when the fly appears.
+These can be initialised as shown below. We can also change the initialisation of `fly_x` and `fly_y`, as these values should now be set when the fly appears.
 
 ```txt
 Constants:
@@ -81,17 +81,17 @@ Constants:
     GAME_TIMER = "Game Timer"
 
 Variables:
-    spiderX (an int) = SCREEN_WIDTH / 2
-    spiderY (an int) = SCREEN_HEIGHT / 2
+    spider_x (an int) = SCREEN_WIDTH / 2
+    spider_y (an int) = SCREEN_HEIGHT / 2
     
-    flyX (an integer) = 0
-    flyY (an integer) = 0
-    flyAppeared (a bool) = false
-    appearAtTime (a long) = 1000 + Rnd(2000)
+    fly_x (an integer) = 0
+    fly_y (an integer) = 0
+    fly_appeared (a bool) = false
+    appear_at_time (a long) = 1000 + rnd(2000)
 ```
 
 :::caution[The long type]
-In this case you will need to use C#'s `long` data type for the time. This is an integer value with a larger range than `int`.
+In this case you will need to use C++'s `long` data type for the time. This is an integer value with a larger range than `int`.
 :::
 
 With these new variables added, we can make use of them in our steps.
@@ -99,11 +99,11 @@ With these new variables added, we can make use of them in our steps.
 - We need to create and start the timer before the event loop. This way we are tracking time from the start of the game.
 - In update game we will need to:
   - Check if the fly has not appeared, and if the required time is elapsed. If this is true, we then:
-    - set `flyAppeared` to be true.
-    - assign `flyX` a random x value (`Rnd(SCREEN_WIDTH)`).
-    - assign `flyY` a random y value (`Rnd(SCREEN_HEIGHT)`).
+    - set `fly_appeared` to be true.
+    - assign `fly_x` a random x value (`rnd(SCREEN_WIDTH)`).
+    - assign `fly_y` a random y value (`rnd(SCREEN_HEIGHT)`).
 - In draw game we can:
-  - Only draw the fly if `flyAppeared` is true.
+  - Only draw the fly if `fly_appeared` is true.
 
 These ideas translate into pseudocode as follows:
 
@@ -118,16 +118,16 @@ Steps:
         Handle Input
 
         Update the game
-            if not fly appeared, and Timer Ticks of the GAME_TIMER > appearAtTime
-                Make the fly appear - set flyAppeared to true
-                Give it a new position - set flyX/Y to a new random x/y value
+            if not fly appeared, and Timer Ticks of the GAME_TIMER > appear_at_time
+                Make the fly appear - set fly_appeared to true
+                Give it a new position - set fly_x/y to a new random x/y value
 
         Draw the game
             Clear the screen white
-            Fill a black circle using spiderX, spiderY, and SPIDER_RADIUS
+            Fill a black circle using spider_x, spider_y, and SPIDER_RADIUS
 
             if fly appeared
-                Fill a dark green circle using flyX, flyY, and FLY_RADIUS
+                Fill a dark green circle using fly_x, fly_y, and FLY_RADIUS
 
             Refresh the screen to show it to the user
 
@@ -138,20 +138,20 @@ Code this up and test the game a few times. The fly should appear after a short 
 
 :::tip[Coding tips]
 
-- In C#, the "not" operator is the `!` character. So "not flyAppeared" is `!flyAppeared`.
-- To create the game timer you can use `CreateTimer(GAME_TIMER)`.
-- Similarly, you can start the timer and get its ticks using `StartTimer(GAME_TIMER)` and `TimerTicks(GAME_TIMER)`.
-- If you are not sure how long you should wait for the fly to appear, you can print the value of `TimerTicks(GAME_TIMER)` and `appearAtTime` to the terminal while you are testing your program.
-- If you have a boolean variable, you can use it directly in the `if` statement. For example, the following code will draw the fly when the value in the `flyAppeared` code is true:
+- In C++, the "not" operator is the `!` character. So "not fly_appeared" is `!fly_appeared`.
+- To create the game timer you can use `create_timer(GAME_TIMER)`.
+- Similarly, you can start the timer and get its ticks using `start_timer(GAME_TIMER)` and `timer_ticks(GAME_TIMER)`.
+- If you are not sure how long you should wait for the fly to appear, you can print the value of `timer_ticks(GAME_TIMER)` and `appear_at_time` to the terminal while you are testing your program.
+- If you have a boolean variable, you can use it directly in the `if` statement. For example, the following code will draw the fly when the value in the `fly_appeared` code is true:
 
-```csharp
-if (flyAppeared)
+```c++
+if (fly_appeared)
 {
     // Draw the fly
     // ...
 }
 ```
 
-You do **not** need to code it as `flyAppeared == true`. This would work, but is unnecessary.
+You do **not** need to code it as `fly_appeared == true`. This would work, but is unnecessary.
 
 :::

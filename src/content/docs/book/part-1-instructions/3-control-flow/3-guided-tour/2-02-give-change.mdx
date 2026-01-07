@@ -31,7 +31,7 @@ Let's quickly think through the steps needed to give change. We can think of thi
 
 ```txt
 Give $2 coins - the largest value coin first!
-    Calculate the number of $2 coins to give (changeValue / 200)
+    Calculate the number of $2 coins to give (change_value / 200)
     Update the amount of change remaining to give
     Output the number of $2
 
@@ -64,84 +64,86 @@ Give 5c coins
 Notice that each coin we give has the same steps. The only difference is the **value** of the coin and the **text** that is used when this is output. For example, with the 20c coin we need to know the value of the coin is 20 and the text is "20c". So the steps can be:
 
 ```txt
-Calculate the number of coins to give using the coinValue.
+Calculate the number of coins to give using the coin_value.
 Update the amount of change remaining
 Output the number of coins with the coin text
 ```
 
-This can be implemented in C# using variables as:
+This can be implemented in C++ using variables as:
 
-```csharp
-// Calculate the number of coins to give using the coinValue.
-toGive = changeValue / coinValue;
+```c++
+// Calculate the number of coins to give using the coin_value.
+to_give = change_value / coin_value;
 
 // Update the amount of change remaining
-changeValue = changeValue - toGive * coinValue;
+change_value = change_value - to_give * coin_value;
 
 // Output the number of coins with the coin text
-Write($"{toGive} x {coinText}");
+write(to_string(to_give) + " x " + to_string(coin_text));
 ```
 
 Notice this does not mention any specific coin or literal value, and allows us to work with *any* coin value.
 
 Let's put this in our code and calculate how many $2 coins to give.
 
-1. Create the `toGive`, `coinValue`, and `coinText` variables.
-2. After calculating the change value, initialise `coinValue` to 200 and `coinText` to "$2". Then add the above code to calculate how many coins to give.
+1. Create the `to_give`, `coin_value`, and `coin_text` variables.
+2. After calculating the change value, initialise `coin_value` to 200 and `coin_text` to "$2". Then add the above code to calculate how many coins to give.
 
     Compile and run your program, and then test that it can output the right number of $2 coins for a range of different change values.
 
     <Accordion>
       <AccordionItem header="Code to give $2 coins">
 
-      ```cs {8-10,37-47}
-      using static SplashKitSDK.SplashKit;
-      using static System.Convert;
+      ```c++ {9-11,38-48}
+      #include "splashkit.h"
 
-      string line;
-      int costOfItem;
-      int amountPaid;
-      int changeValue;
-      int toGive;
-      int coinValue;
-      string coinText;
-
-      Write("Cost of item in cents: ");
-      line = ReadLine();
-      while (!IsInteger(line))
+      int main()
       {
-          WriteLine("Please enter a whole number.");
-          Write("Cost of item in cents: ");
-          line = ReadLine();
+          string line;
+          int cost_of_item;
+          int amount_paid;
+          int change_value;
+          int to_give;
+          int coin_value;
+          string coin_text;
+
+          write("Cost of item in cents: ");
+          line = read_line();
+          while (!is_integer(line))
+          {
+              write_line("Please enter a whole number.");
+              write("Cost of item in cents: ");
+              line = read_line();
+          }
+
+          cost_of_item = to_integer(line);
+
+          write("Payment in cents: ");
+          line = read_line();
+          while (!is_integer(line))
+          {
+              write_line("Please enter a whole number.");
+              write("Payment in cents: ");
+              line = read_line();
+          }
+
+          amount_paid = to_integer(line);
+
+          change_value = amount_paid - cost_of_item;
+          write_line("Change to give " + to_string(change_value));
+
+          coin_value = 200;
+          coin_text = "$2";
+
+          // Calculate the number of coins to give using the coin_value.
+          to_give = change_value / coin_value;
+
+          // Update the amount of change remaining
+          change_value = change_value - to_give * coin_value;
+
+          // Output the number of coins with the coin text
+          write(to_string(to_give) + " x " + coin_text);
       }
-
-      costOfItem = ToInt32(line);
-
-      Write("Payment in cents: ");
-      line = ReadLine();
-      while (!IsInteger(line))
-      {
-          WriteLine("Please enter a whole number.");
-          Write("Payment in cents: ");
-          line = ReadLine();
-      }
-
-      amountPaid = ToInt32(line);
-
-      changeValue = amountPaid - costOfItem;
-      WriteLine($"Change to give {changeValue}");
-
-      coinValue = 200;
-      coinText = "$2";
-
-      // Calculate the number of coins to give using the coinValue.
-      toGive = changeValue / coinValue;
-
-      // Update the amount of change remaining
-      changeValue = changeValue - toGive * coinValue;
-
-      // Output the number of coins with the coin text
-      Write($"{toGive} x {coinText}");
       ```
 
       </AccordionItem>
@@ -161,9 +163,8 @@ Let's put this in our code and calculate how many $2 coins to give.
     <Accordion>
       <AccordionItem header="Constants for coins">
 
-      ```cs {4-11,46}
-      using static SplashKitSDK.SplashKit;
-      using static System.Convert;
+      ```c++ {3-10,47}
+      #include "splashkit.h"
 
       const int NUM_COIN_TYPES = 6;
 
@@ -174,50 +175,53 @@ Let's put this in our code and calculate how many $2 coins to give.
       const int TEN_CENTS = 10;
       const int FIVE_CENTS = 5;
 
-      string line;
-      int costOfItem;
-      int amountPaid;
-      int changeValue;
-      int toGive;
-      int coinValue;
-      string coinText;
-
-      Write("Cost of item in cents: ");
-      line = ReadLine();
-      while (!IsInteger(line))
+      int main()
       {
-          WriteLine("Please enter a whole number.");
-          Write("Cost of item in cents: ");
-          line = ReadLine();
+          string line;
+          int cost_of_item;
+          int amount_paid;
+          int change_value;
+          int to_give;
+          int coin_value;
+          string coin_text;
+
+          write("Cost of item in cents: ");
+          line = read_line();
+          while (!is_integer(line))
+          {
+              write_line("Please enter a whole number.");
+              write("Cost of item in cents: ");
+              line = read_line();
+          }
+
+          cost_of_item = to_integer(line);
+
+          write("Payment in cents: ");
+          line = read_line();
+          while (!is_integer(line))
+          {
+              write_line("Please enter a whole number.");
+              write("Payment in cents: ");
+              line = read_line();
+          }
+
+          amount_paid = to_integer(line);
+
+          change_value = amount_paid - cost_of_item;
+          write_line("Change to give " + to_string(change_value));
+
+          coin_value = TWO_DOLLARS;
+          coin_text = "$2";
+
+          // Calculate the number of coins to give using the coin_value.
+          to_give = change_value / coin_value;
+
+          // Update the amount of change remaining
+          change_value = change_value - to_give * coin_value;
+
+          // Output the number of coins with the coin text
+          write(to_string(to_give) + " x " + coin_text);
       }
-
-      costOfItem = ToInt32(line);
-
-      Write("Payment in cents: ");
-      line = ReadLine();
-      while (!IsInteger(line))
-      {
-          WriteLine("Please enter a whole number.");
-          Write("Payment in cents: ");
-          line = ReadLine();
-      }
-
-      amountPaid = ToInt32(line);
-
-      changeValue = amountPaid - costOfItem;
-      WriteLine($"Change to give {changeValue}");
-
-      coinValue = TWO_DOLLARS;
-      coinText = "$2";
-
-      // Calculate the number of coins to give using the coinValue.
-      toGive = changeValue / coinValue;
-
-      // Update the amount of change remaining
-      changeValue = changeValue - toGive * coinValue;
-
-      // Output the number of coins with the coin text
-      Write($"{toGive} x {coinText}");
       ```
 
       </AccordionItem>
@@ -228,9 +232,9 @@ Let's put this in our code and calculate how many $2 coins to give.
     ```txt
     for each kind of coin
         ...
-        Calculate the number of coins to give using the coinValue.
+        Calculate the number of coins to give using the coin_value.
         Update the amount of change remaining
-        Output the number of coins with the coinText
+        Output the number of coins with the coin_text
     ```
 
     Have a go at adding this loop in, and for the moment it can give $2 multiple times. You will need to add in an `i` variable to keep track of the number of times through the loop.
@@ -238,9 +242,8 @@ Let's put this in our code and calculate how many $2 coins to give.
     <Accordion>
       <AccordionItem header="Constants with coins loop">
 
-        ```csharp {46-47,59}
-        using static SplashKitSDK.SplashKit;
-        using static System.Convert;
+        ```c++ {47-48,60}
+        #include "splashkit.h"
 
         const int NUM_COIN_TYPES = 6;
 
@@ -251,53 +254,56 @@ Let's put this in our code and calculate how many $2 coins to give.
         const int TEN_CENTS = 10;
         const int FIVE_CENTS = 5;
 
-        string line;
-        int costOfItem;
-        int amountPaid;
-        int changeValue;
-        int toGive;
-        int coinValue;
-        string coinText;
-
-        Write("Cost of item in cents: ");
-        line = ReadLine();
-        while (!IsInteger(line))
+        int main()
         {
-            WriteLine("Please enter a whole number.");
-            Write("Cost of item in cents: ");
-            line = ReadLine();
-        }
+            string line;
+            int cost_of_item;
+            int amount_paid;
+            int change_value;
+            int to_give;
+            int coin_value;
+            string coin_text;
 
-        costOfItem = ToInt32(line);
+            write("Cost of item in cents: ");
+            line = read_line();
+            while (!is_integer(line))
+            {
+                write_line("Please enter a whole number.");
+                write("Cost of item in cents: ");
+                line = read_line();
+            }
 
-        Write("Payment in cents: ");
-        line = ReadLine();
-        while (!IsInteger(line))
-        {
-            WriteLine("Please enter a whole number.");
-            Write("Payment in cents: ");
-            line = ReadLine();
-        }
+            cost_of_item = to_integer(line);
 
-        amountPaid = ToInt32(line);
+            write("Payment in cents: ");
+            line = read_line();
+            while (!is_integer(line))
+            {
+                write_line("Please enter a whole number.");
+                write("Payment in cents: ");
+                line = read_line();
+            }
 
-        changeValue = amountPaid - costOfItem;
-        WriteLine($"Change to give {changeValue}");
+            amount_paid = to_integer(line);
 
-        for(int i = 0; i < NUM_COIN_TYPES; i++)
-        {
+            change_value = amount_paid - cost_of_item;
+            write_line("Change to give " + to_string(change_value));
 
-            coinValue = TWO_DOLLARS;
-            coinText = "$2";
+            for(int i = 0; i < NUM_COIN_TYPES; i++)
+            {
 
-            // Calculate the number of coins to give using the coinValue.
-            toGive = changeValue / coinValue;
+                coin_value = TWO_DOLLARS;
+                coin_text = "$2";
 
-            // Update the amount of change remaining
-            changeValue = changeValue - toGive * coinValue;
+                // Calculate the number of coins to give using the coin_value.
+                to_give = change_value / coin_value;
 
-            // Output the number of coins with the coin text
-            Write($"{toGive} x {coinText}");
+                // Update the amount of change remaining
+                change_value = change_value - to_give * coin_value;
+
+                // Output the number of coins with the coin text
+                write(to_string(to_give) + " x " + coin_text);
+            }
         }
         ```
       </AccordionItem>
@@ -311,23 +317,23 @@ Let's put this in our code and calculate how many $2 coins to give.
 
     When you run this it should output 6 coin values, but they are all $2.
 
-5. To wrap this up we need to set the values for `coinValue` and `coinText`. We can use the control variable `i` to determine which values to use. When `i` is 0, we need to use $2, when it is 1 we need to use $1, and so on.
+5. To wrap this up we need to set the values for `coin_value` and `coin_text`. We can use the control variable `i` to determine which values to use. When `i` is 0, we need to use $2, when it is 1 we need to use $1, and so on.
 
     This is a great example of where we can use a [case statement](/book/part-1-instructions/3-control-flow/5-reference/03-2-case). The following pseudocode shows how this might look:
 
     ```txt
     for each kind of coin (i loops 0 to 5... while < 6)
         Switch based on i
-            when 0, coinValue is 200, and coinText is "$2"
-            when 1, coinValue is 100, and coinText is "$1"
-            when 2, coinValue is 50, and coinText is "50c"
-            when 3, coinValue is 20, and coinText is "20c"
-            when 4, coinValue is 10, and coinText is "10c"
-            when 5, coinValue is 5, and coinText is "5c"
+            when 0, coin_value is 200, and coin_text is "$2"
+            when 1, coin_value is 100, and coin_text is "$1"
+            when 2, coin_value is 50, and coin_text is "50c"
+            when 3, coin_value is 20, and coin_text is "20c"
+            when 4, coin_value is 10, and coin_text is "10c"
+            when 5, coin_value is 5, and coin_text is "5c"
 
-        Calculate the number of coins to give using the coinValue.
+        Calculate the number of coins to give using the coin_value.
         Update the amount of change remaining
-        Output the number of coins with the coinText
+        Output the number of coins with the coin_text
     ```
 
     Have a go at adding this logic to your program.
@@ -335,9 +341,8 @@ Let's put this in our code and calculate how many $2 coins to give.
     <Accordion>
       <AccordionItem header="Selecting the coin value">
 
-    ```cs {48-78}
-    using static SplashKitSDK.SplashKit;
-    using static System.Convert;
+    ```c++ {49-79}
+    #include "splashkit.h"
 
     const int NUM_COIN_TYPES = 6;
 
@@ -348,81 +353,84 @@ Let's put this in our code and calculate how many $2 coins to give.
     const int TEN_CENTS = 10;
     const int FIVE_CENTS = 5;
 
-    string line;
-    int costOfItem;
-    int amountPaid;
-    int changeValue;
-    int toGive;
-    int coinValue;
-    string coinText;
-
-    Write("Cost of item in cents: ");
-    line = ReadLine();
-    while (!IsInteger(line))
+    int main()
     {
-        WriteLine("Please enter a whole number.");
-        Write("Cost of item in cents: ");
-        line = ReadLine();
-    }
+        string line;
+        int cost_of_item;
+        int amount_paid;
+        int change_value;
+        int to_give;
+        int coin_value;
+        string coin_text;
 
-    costOfItem = ToInt32(line);
-
-    Write("Payment in cents: ");
-    line = ReadLine();
-    while (!IsInteger(line))
-    {
-        WriteLine("Please enter a whole number.");
-        Write("Payment in cents: ");
-        line = ReadLine();
-    }
-
-    amountPaid = ToInt32(line);
-
-    changeValue = amountPaid - costOfItem;
-    WriteLine($"Change to give {changeValue}");
-
-    for(int i = 0; i < NUM_COIN_TYPES; i++)
-    {
-        switch (i)
+        write("Cost of item in cents: ");
+        line = read_line();
+        while (!is_integer(line))
         {
-            case 0:
-                coinValue = TWO_DOLLARS;
-                coinText = "$2, ";
-                break;
-            case 1:
-                coinValue = ONE_DOLLAR;
-                coinText = "$1, ";
-                break;
-            case 2:
-                coinValue = FIFTY_CENTS;
-                coinText = "50c, ";
-                break;
-            case 3:
-                coinValue = TWENTY_CENTS;
-                coinText = "20c, ";
-                break;
-            case 4:
-                coinValue = TEN_CENTS;
-                coinText = "10c, ";
-                break;
-            case 5:
-                coinValue = FIVE_CENTS;
-                coinText = "5c";
-                break;
-            default:
-                coinValue = 1;
-                coinText = "ERROR";
-                break;
+            write_line("Please enter a whole number.");
+            write("Cost of item in cents: ");
+            line = read_line();
         }
 
-        // Calculate the number of coins to give using the coinValue.
-        toGive = changeValue / coinValue;
+        cost_of_item = to_integer(line);
 
-        // Update the amount of change remaining
-        changeValue = changeValue - toGive * coinValue;
+        write("Payment in cents: ");
+        line = read_line();
+        while (!is_integer(line))
+        {
+            write_line("Please enter a whole number.");
+            write("Payment in cents: ");
+            line = read_line();
+        }
 
-        // Output the number of coins with the coin text
-        Write($"{toGive} x {coinText}");
+        amount_paid = to_integer(line);
+
+        change_value = amount_paid - cost_of_item;
+        write_line("Change to give " + to_string(change_value));
+
+        for(int i = 0; i < NUM_COIN_TYPES; i++)
+        {
+            switch (i)
+            {
+                case 0:
+                    coin_value = TWO_DOLLARS;
+                    coin_text = "$2, ";
+                    break;
+                case 1:
+                    coin_value = ONE_DOLLAR;
+                    coin_text = "$1, ";
+                    break;
+                case 2:
+                    coin_value = FIFTY_CENTS;
+                    coin_text = "50c, ";
+                    break;
+                case 3:
+                    coin_value = TWENTY_CENTS;
+                    coin_text = "20c, ";
+                    break;
+                case 4:
+                    coin_value = TEN_CENTS;
+                    coin_text = "10c, ";
+                    break;
+                case 5:
+                    coin_value = FIVE_CENTS;
+                    coin_text = "5c";
+                    break;
+                default:
+                    coin_value = 1;
+                    coin_text = "ERROR";
+                    break;
+            }
+
+            // Calculate the number of coins to give using the coin_value.
+            to_give = change_value / coin_value;
+
+            // Update the amount of change remaining
+            change_value = change_value - to_give * coin_value;
+
+            // Output the number of coins with the coin text
+            write(to_string(to_give) + " x " + coin_text);
+        }
     }
     ```
 

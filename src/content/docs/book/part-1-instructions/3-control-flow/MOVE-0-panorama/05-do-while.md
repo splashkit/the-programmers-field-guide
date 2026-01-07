@@ -30,35 +30,37 @@ Most of the time you will use a while loop, but in some cases the do while can b
 
 The following example shows a menu in the terminal. This is one place where a do while loop can work well.
 
-```cs
-using static SplashKitSDK.SplashKit;
-using static System.Convert;
+```c++
+#include "splashkit.h"
 
-string line;
-
-do
+int main()
 {
-    WriteLine("1: Say hello");
-    WriteLine("2: ...");
-    WriteLine("3: Quit");
+    string line;
 
-    line = ReadLine();
-
-    switch(line)
+    do
     {
-        case "1":
-            WriteLine("Hello!");
-            break;
-        case "2":
-            WriteLine("...");
-            break;
-        case "3":
-            break;
-        default:
-            WriteLine("Please enter a menu option");
-            break;
-    }
-} while(line != "3");
+        write_line("1: Say hello");
+        write_line("2: ...");
+        write_line("3: Quit");
+
+        line = read_line();
+
+        switch(line)
+        {
+            case "1":
+                write_line("Hello!");
+                break;
+            case "2":
+                write_line("...");
+                break;
+            case "3":
+                break;
+            default:
+                write_line("Please enter a menu option");
+                break;
+        }
+    } while(line != "3");
 
 
+}
 ```

@@ -22,42 +22,45 @@ You will use the if statement much more than switch/case, but switch/case can be
 
 ## Example
 
-```cs
-using static SplashKitSDK.SplashKit;
+```c++
+#include "splashkit.h"
 
-// You can create boolean variables to store true/false values.
-// There are also keywords for true and false
-bool ready = false;
-
-
-WriteLine(" a - say hello");
-WriteLine(" b - say bye");
-WriteLine(" c - say Ni!");
-WriteLine();
-Write("Enter option: ");
-string line = ReadLine();
-
-// Switch to the case that matches the value in line
-switch(line)
+int main()
 {
-  case "A":
-  case "a":
-    WriteLine("Hello");
-    break;
-  case "B":
-  case "b":
-    WriteLine("Bye");
-    break;
-  case "C":
-  case "c":
-    WriteLine("Ni!");
-    break;
-  case "D":
-  case "d":
-    WriteLine("Superpowers unlocked!");
-    break;
-  default:
-    WriteLine("Please choose one of the indicated options");
-    break;
+    // You can create boolean variables to store true/false values.
+    // There are also keywords for true and false
+    bool ready = false;
+
+
+    write_line(" a - say hello");
+    write_line(" b - say bye");
+    write_line(" c - say Ni!");
+    write_line();
+    write("Enter option: ");
+    char line = read_char();
+
+    // Switch to the case that matches the value in line
+    switch(line)
+    {
+      case 'A':
+      case 'a':
+        write_line("Hello");
+        break;
+      case 'B':
+      case 'b':
+        write_line("Bye");
+        break;
+      case 'C':
+      case 'c':
+        write_line("Ni!");
+        break;
+      case 'D':
+      case 'd':
+        write_line("Superpowers unlocked!");
+        break;
+      default:
+        write_line("Please choose one of the indicated options");
+        break;
+    }
 }
 ```

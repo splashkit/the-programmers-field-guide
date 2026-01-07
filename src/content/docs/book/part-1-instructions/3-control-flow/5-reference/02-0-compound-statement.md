@@ -17,32 +17,33 @@ Have a look at the following figure to see a visualisation of this idea.
 
 You will use compound statements regularly within control flow statements. It simply provides you with a way of clearly showing which statements belong within the group, and then embedding that group within the flow of control.
 
-## In C#
+## In C++
 
 :::tip[Syntax]
-The following diagram shows the syntax for a compound statement in C#.
+The following diagram shows the syntax for a compound statement in C++.
 
 ![Syntax for the compound statement showing a 0 or more statements between braces](./images/compound-statement.png)
 :::
 
-In C# you use curly braces (`{...}`) to bring together a list of statements. The group starts with the open brace (`{`) and end with the closing brace (`}`), with everything in between the two braces being part of the group. There are no restrictions on how many statements can be in a compound statement.
+In C++ you use curly braces (`{...}`) to bring together a list of statements. The group starts with the open brace (`{`) and end with the closing brace (`}`), with everything in between the two braces being part of the group. There are no restrictions on how many statements can be in a compound statement.
 
 ## Example
 
 You can use compound statements anywhere in your code, such as in the following example.
 
-```csharp
-using static System.Console;
-
-WriteLine("Statement 1");
-
-// The next 4 lines are all part of the one compound statement
+```c++
+int main()
 {
-    WriteLine("In the compound statement - statement 2.1");
-    WriteLine("This would be statement 2.2");
-}
+    write_line("Statement 1");
 
-WriteLine("Statement 3");
+    // The next 4 lines are all part of the one compound statement
+    {
+        write_line("In the compound statement - statement 2.1");
+        write_line("This would be statement 2.2");
+    }
+
+    write_line("Statement 3");
+}
 ```
 
 There isn't any reason to do this though -- compound statements really make the most sense when combined with the control flow statements.

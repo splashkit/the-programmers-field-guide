@@ -139,15 +139,15 @@ Looking back at the [example](/book/part-1-instructions/3-control-flow/5-referen
 You can code any case statement as a series of if statements. However, the case statement is a bit neater and generally preferred if possible. The if statement is the more flexible of the branching statements, so you will use it for most things.
 :::
 
-## In C#
+## In C++
 
 :::tip[Syntax]
-The following diagram shows the C# syntax for a case statement.
+The following diagram shows the C++ syntax for a case statement.
 
 ![The case statement showing switch, then an expression, and a list of cases](./images/case-statement.png)
 :::
 
-The syntax for the case statement in C# uses the keyword **switch** followed by the expression to test.
+The syntax for the case statement in C++ uses the keyword **switch** followed by the expression to test.
 Within the curly braces you then have a list of cases.
 Each case has a value to match followed by a colon (`:`) and a list of statements.
 The final case is labelled with the `default` keyword.
@@ -173,29 +173,37 @@ So, `language` goes in parentheses right after the `switch` keyword.
 
 Notice that we have used the [break](/book/part-1-instructions/3-control-flow/5-reference/05-1-break) statement at the end of the "C#" and "C++" branches to indicate the end of the instructions for these individual cases. Also notice how we intentionally do not use a break statement in the "C" case. This means that when the "C" path is matched, the control will flow through into the same set of statements that exist for the "C++" branch, and we have avoided needing to repeat the same code in both branches.
 
-```csharp
-using static System.Console;
+```c++
+#include "splashkit.h"
 
-string language;
-
-Write("What language do you use? ");
-language = ReadLine();
-
-switch (language)
+int main()
 {
-    case "C#":
-        WriteLine("Good choice, C# is a fine language.");
-        break;
-    case "C":
-    case "C++":
-        WriteLine("These are great languages.");
-        break;
-    default:
-        WriteLine("Well... good luck with that!");
-        break;
-}
+    int language;
 
-WriteLine("Great chat!");
+    write_line("What language do you use?");
+    write_line("1. C#");
+    write_line("2. C++");
+    write_line("3. C");
+    write_line("4. Other");
+    write("(Please enter a number): ");
+    language = to_integer(read_line());
+
+    switch (language)
+    {
+        case 1: // C#
+            write_line("Good choice, C# is a fine language.");
+            break;
+        case 2: // C++
+        case 3: // C
+            write_line("These are great languages.");
+            break;
+        default: // Other/Any other number
+            write_line("Well... good luck with that!");
+            break;
+    }
+
+    write_line("Great chat!");
+}
 ```
 
 Use the following images to see how this code runs.
@@ -203,7 +211,9 @@ Use the following images to see how this code runs.
 <MySwiper client:only height="" images={sliderImagesCaseStatement}></MySwiper>
 
 :::tip[Attention]
-Grouping cases as shown here is okay, but to help avoid unexpected fall through the C# language will give you an error if you have some code in a branch without a break statement. You can jump to another case at the end of any given case by using `goto case` and specifying the case you want to jump to, or `goto default` to jump to the default case.
+Allowing the `break` statement to be omitted in C++ makes `switch` statements more flexible -- for instance it allows us to intentionally fall through multiple `case` labels, as in the example above. However we also need to be careful.
+
+If we forget to include a `break` where we _do_ want it, the compiler won't warn us -- we'll unexpectedly fall through multiple of the cases.
 :::
 
 :::note[Summary]

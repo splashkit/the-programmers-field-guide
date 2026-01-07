@@ -14,8 +14,8 @@ You could calculate this manually, but to help with these checks SplashKit inclu
 
 | <div style="width:140px">**Method**</div> | **Required Arguments** |**Description** |
 |-----------|------------------------|----------------|
-|`CirclesIntersect`| The x, y, and radius of 2 circles (6 arguments) | Returns true if the two circles intersect (overlap) each other. |
-|`CircleAtPoint`| The x, y, and radius of a circle, and the x and y value for a point | Returns true if the point is within the circle. |
+|`circles_intersect`| The x, y, and radius of 2 circles (6 arguments) | Returns true if the two circles intersect (overlap) each other. |
+|`circle_at_point`| The x, y, and radius of a circle, and the x and y value for a point | Returns true if the point is within the circle. |
 
 <!-- **TODO: Add CircleAtPoint to SplashKit** -->
 
@@ -36,14 +36,14 @@ Constants:
     GAME_TIMER = "Game Timer"
 
 Variables:
-    spiderX (an int) = SCREEN_WIDTH / 2
-    spiderY (an int) = SCREEN_HEIGHT / 2
+    spider_x (an int) = SCREEN_WIDTH / 2
+    spider_y (an int) = SCREEN_HEIGHT / 2
     
-    flyX (an integer) = 0
-    flyY (an integer) = 0
-    flyAppeared (a bool) = false
-    appearAtTime (a long) = 1000 + Rnd(2000)
-    escapeAtTime (a long) = 0
+    fly_x (an integer) = 0
+    fly_y (an integer) = 0
+    fly_appeared (a bool) = false
+    appear_at_time (a long) = 1000 + Rnd(2000)
+    escape_at_time (a long) = 0
 
 Steps:
     Open the window - use SCREEN_WIDTH and SCREEN_HEIGHT
@@ -55,18 +55,18 @@ Steps:
         Handle Input
 
         Update the game
-            if not fly appeared, and Timer Ticks of the GAME_TIMER > appearAtTime
+            if not fly appeared, and Timer Ticks of the GAME_TIMER > appear_at_time
                 Make the fly appear
                 Give it a new position
-                Set escapeAtTime to a random time 2 to 7 seconds in the future
-            else if the fly has appeared, and the GAME_TIMER ticks are > escapeAtTime
-                Remove the fly - set flyAppeared to false
-                Set appearAtTime to a random time 1 to 3 seconds in the future
+                Set escape_at_time to a random time 2 to 7 seconds in the future
+            else if the fly has appeared, and the GAME_TIMER ticks are > escape_at_time
+                Remove the fly - set fly_appeared to false
+                Set appear_at_time to a random time 1 to 3 seconds in the future
 
             If the fly has appeared, and the spider and fly circles intersect
                 The fly is caught
-                Set flyAppeared to false
-                Set new appearAtTime  
+                Set fly_appeared to false
+                Set new appear_at_time
 
         Draw the game
         Process Events
@@ -82,8 +82,8 @@ To fix this we could add a score. This requires a few changes:
 
 - Add a new variable, initialised to 0 at the start.
 - Add code to *draw game* to draw the value of this variable to the screen.
-  - You can draw this without a font using [DrawText](https://splashkit.io/api/graphics/#draw-text-no-font-no-size) and passing in the text, color, and position. For example, `DrawText($"Flies Caught: {score}", ColorBlack(), 0, 0);`.
-  - Alternatively, you can [load a font](https://splashkit.io/api/graphics/#load-font) and then use the font name and a size to draw using [DrawText](https://splashkit.io/api/graphics/#draw-text-font-as-string) which needs arguments for text, color, font name, font size, and position (x and y). For example, `DrawText($"Flies Caught: {score}", ColorBlack(), GAME_FONT, 18, 0, 0);`.
+  - You can draw this without a font using [draw_text](https://splashkit.io/api/graphics/#draw-text-no-font-no-size) and passing in the text, color, and position. For example, `draw_text("Flies Caught: " + to_string(score), COLOR_BLACK, 0, 0);`.
+  - Alternatively, you can [load a font](https://splashkit.io/api/graphics/#load-font) and then use the font name and a size to draw using [draw_text](https://splashkit.io/api/graphics/#draw-text-font-as-string) which needs arguments for text, color, font name, font size, and position (x and y). For example, `draw_text("Flies Caught: " + to_string(score), COLOR_BLACK, GAME_FONT, 18, 0, 0);`.
 - Increase the `score` when the fly is caught.
 
 Have a go at implementing this now.

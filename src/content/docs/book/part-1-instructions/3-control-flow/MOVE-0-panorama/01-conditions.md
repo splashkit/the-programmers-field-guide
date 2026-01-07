@@ -20,7 +20,7 @@ Control flow is all about controlling that flow of instructions (hence the name 
 
 :::note[Boolean values...]
 
-- use the `bool` type in C#.
+- use the `bool` type in C++.
 - are used in control flow statements to determine which path to take.
 - include only the values `true` and `false`.
 - can be created using comparisons:
@@ -45,28 +45,30 @@ With control flow you will always be thinking about the condition under which so
 
 ## Example
 
-```cs
-using static SplashKitSDK.SplashKit;
-using static System.Convert;
+```c++
+#include "splashkit.h"
 
-// You can create boolean variables to store true/false values.
-// There are also keywords for true and false
-bool ready = false;
+int main()
+{
+    // You can create boolean variables to store true/false values.
+    // There are also keywords for true and false
+    bool ready = false;
 
-Write("Enter a number: ");
-string line = ReadLine();
-int value = ToInt32(line);
+    write("Enter a number: ");
+    string line = read_line();
+    int value = to_integer(line);
 
-// You can calculate boolean values using comparisons like this
-bool bigValue = value > 100;
+    // You can calculate boolean values using comparisons like this
+    bool big_value = value > 100;
 
-Write("Is that a big value for you? [y/n]: ");
-line = ReadLine();
+    write("Is that a big value for you? [y/n]: ");
+    line = read_line();
 
-// You can join boolean values using logical operators
-// It is big for the user if they entered 'y' or 'Y'
-bool bigForUser = (line == "y") || (line == "Y");
+    // You can join boolean values using logical operators
+    // It is big for the user if they entered 'y' or 'Y'
+    bool big_for_user = (line == "y") || (line == "Y");
 
-// You can join any boolean value using the logical operators
-bool bigForBoth = bigForUser && bigValue;
+    // You can join any boolean value using the logical operators
+    bool big_for_both = big_for_user && big_value;
+}
 ```

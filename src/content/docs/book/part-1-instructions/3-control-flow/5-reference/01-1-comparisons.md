@@ -13,7 +13,7 @@ Comparisons are a common way of generating a boolean value in your code. These [
 | 23.5 | false |
 | 23.501 | true |
 
-Programming languages offer a range of different comparison operators. These typically include comparisons to check if values are the same or different, and to check if one value is larger or small than another. The different operators for C# are listed in the following table.
+Programming languages offer a range of different comparison operators. These typically include comparisons to check if values are the same or different, and to check if one value is larger or small than another. The different operators for C++ are listed in the following table.
 
 | Kind | Description | Operator |
 |---|---|---|
@@ -29,7 +29,7 @@ The symbols for less than, and larger than, can be seen **visually**. With less 
 :::
 
 :::caution
-C# uses `==` for comparison and `=` for assignment. If you mix this up you may accidentally be changing the value of a variable rather than comparing it.
+C++ uses `==` for comparison and `=` for assignment. If you mix this up you may accidentally be changing the value of a variable rather than comparing it.
 :::
 
 :::note
@@ -49,9 +49,9 @@ Boolean values are core to control flow, and comparisons are the main tool you w
 - `guess > target`: is the guess larger than the target?
 - `guess <= target`: is the guess smaller than, or equal to, the target?
 
-You can also use comparisons for user interaction in SplashKit. For example, you could use the `MouseX` and `MouseY` SplashKit methods to compare the mouse's position to the location of a button on the window.
+You can also use comparisons for user interaction in SplashKit. For example, you could use the `mouse_x` and `mouse_y` SplashKit methods to compare the mouse's position to the location of a button on the window.
 
-- `MouseX() > 50`: is the mouse more than 50 pixels from the left of the window?
-- `MouseX() <= 75`: is the mouse less than or equal to 75 pixels from the left of the window?
+- `mouse_x() > 50`: is the mouse more than 50 pixels from the left of the window?
+- `mouse_x() <= 75`: is the mouse less than or equal to 75 pixels from the left of the window?
 
 In order to determine if the mouse was over something like a button, we would need to be able to combine  multiple boolean values together in meaningful ways. **Logical operators** allow us to do this, so let's look at them next.

@@ -56,7 +56,7 @@ I hope you got the information you are after!
 :::caution
 Make sure the calculations work with entry of any valid number (that can be stored in a double).
 
-For minimum and maximum, see if you can achieve this using control flow rather than setting the initial values to anything in particular. Don't use `double.MinValue` or `double.MaxValue`.
+For minimum and maximum, see if you can achieve this using control flow rather than setting the initial values to anything in particular. Don't use `DBL_MAX`/`std::numeric_limits<double>::max()` or `DBL_MIN`/`std::numeric_limits<double>::lowest()`.
 :::
 
 :::tip[Hint]

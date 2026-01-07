@@ -28,7 +28,7 @@ Have a look at the four tables and make sure you understand how each value was c
 
 You often want to check multiple conditions when you are making a decision. For example, to check if the user has clicked something on the screen, you need to check if they have clicked *and* the mouse cursor is over that area. This is a case where **and** is useful.
 
-We could achieve this using the condition like `MouseClicked(MouseButton.LeftButton) and MouseX() >= 5 and MouseX() <= 10`. This will be true when the left button was clicked, and the mouse is between 5 and 10 pixels from the left of the window. You can explore conditions like this in a table as shown below.
+We could achieve this using the condition like `mouse_clicked(LEFT_BUTTON) and mouse_x() >= 5 and mouse_x() <= 10`. This will be true when the left button was clicked, and the mouse is between 5 and 10 pixels from the left of the window. You can explore conditions like this in a table as shown below.
 
 <table>
   <thead>
@@ -41,10 +41,10 @@ We could achieve this using the condition like `MouseClicked(MouseButton.LeftBut
   <tbody>
     <tr>
       <td style="font-weight:bold">Clicked?</td>
-      <td style="font-weight:bold">MouseX</td>
-      <td style="font-weight:bold">MouseClicked</td>
-      <td style="font-weight:bold">MouseX >= 5</td>
-      <td style="font-weight:bold">MouseX <= 10</td>
+      <td style="font-weight:bold">Mouse X</td>
+      <td style="font-weight:bold">Mouse Clicked</td>
+      <td style="font-weight:bold">Mouse X >= 5</td>
+      <td style="font-weight:bold">Mouse X <= 10</td>
       <td style="font-weight:bold"></td>
     </tr>
     <tr>
@@ -84,7 +84,7 @@ We could achieve this using the condition like `MouseClicked(MouseButton.LeftBut
 
 Notice that in this case we need to have all parts of the condition being true for the overall result to be true. This matches what we asked for -- the mouse must be clicked and the mouse `x` between 5 and 10.
 
-With **or** you can check if **any** of a number of conditions are true. For example, has the user asked to quit or have they typed the escape key. This can be achieved with a condition like `QuitRequested() or KeyTyped(KeyCode.EscapeKey)`, which is expanded in the following truth table.
+With **or** you can check if **any** of a number of conditions are true. For example, has the user asked to quit or have they typed the escape key. This can be achieved with a condition like `quit_requested() or key_typed(ESCAPE_KEY)`, which is expanded in the following truth table.
 
 <table>
   <thead>
@@ -98,8 +98,8 @@ With **or** you can check if **any** of a number of conditions are true. For exa
     <tr>
       <td style="font-weight:bold">Quit?</td>
       <td style="font-weight:bold">Escape key?</td>
-      <td style="font-weight:bold">QuitRequested</td>
-      <td style="font-weight:bold">KeyTyped(Escape)</td>
+      <td style="font-weight:bold">Quit Requested</td>
+      <td style="font-weight:bold">Key Typed(Escape)</td>
       <td style="font-weight:bold"></td>
     </tr>
     <tr>
@@ -135,9 +135,9 @@ With **or** you can check if **any** of a number of conditions are true. For exa
 
 In this case you can see that if any one of the values is true, then the result is true. So, if you ask to quit *or* you type the escape key, then this condition will be true. If you manage to do both at the same time, that will be true as well.
 
-## In C#
+## In C++
 
-Because of the heritage of C#, which is based upon the C programming language, this is one area where C# uses cryptic symbols rather than clear text. Rather than using keywords for *and* and *or* operators, C# uses **&&** for and, **||** for or, **!** for not, and **^** for xor. This is summarised in the following table.
+Because of the heritage of C++, which is based upon the C programming language, this is one area where C++ typically uses cryptic symbols rather than clear text. Rather than using keywords for *and* and *or* operators, C++ uses **&&** for and, **||** for or, **!** for not, and **^** for xor. This is summarised in the following table.
 
 |  | Description | Operator | Example |
 |---|---|---|---|
@@ -146,9 +146,7 @@ Because of the heritage of C#, which is based upon the C programming language, t
 | **Xor** | Is one value true, and the other false? | `^` | `a ^ b` |
 | **Not** | Is the value false? | `!` | `! a` |
 
-:::caution
-To make matters worse, new versions of C# have added in **and** and **or** keywords for pattern matching expressions. These differ from boolean operators, so avoid their use.
-:::
+C++ does also support using keywords like `and` and `or`, however these aren't commonly used -- it will be useful to understand both forms.
 
 ## Example
 

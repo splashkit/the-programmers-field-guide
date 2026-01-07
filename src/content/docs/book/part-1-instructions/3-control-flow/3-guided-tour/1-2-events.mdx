@@ -7,42 +7,38 @@ import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 Now we have the circle moving, but do we *always* want the circle to move? No, let's change it so that we *only* update the position *if* the user is holding down an arrow key.
 
-Add an [if statement](/book/part-1-instructions/3-control-flow/move-0-panorama/02-branches) that will check if the right arrow key is held down. You can put the code that adds to the `playerX` value within the if statement so that it is only run *if* the arrow key is held down.
-
-:::tip
-
-You need to add `using SplashKitSDK;` so that you can access `KeyCode.RightKey`.
-
-:::
+Add an [if statement](/book/part-1-instructions/3-control-flow/move-0-panorama/02-branches) that will check if the right arrow key is held down. You can put the code that adds to the `player_x` value within the if statement so that it is only run *if* the arrow key is held down.
 
 <Accordion>
   <AccordionItem header="Code with if">
 
-    ```cs {1,19-22}
-    using SplashKitSDK;
-    using static SplashKitSDK.SplashKit;
+    ```c++ {1,20-23}
+    #include "splashkit.h"
 
     const int PLAYER_RADIUS = 50;
     const int PLAYER_SPEED = 3;
 
-    int playerX = 640;
-
-    OpenWindow("Circle Moving", 1280, 720);
-
-    while( ! QuitRequested() )
+    int main()
     {
-        ClearScreen(ColorWhite());
-        FillCircle(ColorTurquoise(), playerX, 360, PLAYER_RADIUS);
-        RefreshScreen(60);
+        int player_x = 640;
 
-        ProcessEvents();
+        open_window("Circle Moving", 1280, 720);
 
-        if ( KeyDown(KeyCode.RightKey) )
+        while( ! quit_requested() )
         {
-            playerX += PLAYER_SPEED;
-        }
-    }
+            clear_screen(COLOR_WHITE);
+            fill_circle(COLOR_TURQUOISE, player_x, 360, PLAYER_RADIUS);
+            refresh_screen(60);
 
+            process_events();
+
+            if ( key_down(RIGHT_KEY) )
+            {
+                player_x += PLAYER_SPEED;
+            }
+        }
+
+    }
     ```
 
   </AccordionItem>
@@ -62,40 +58,38 @@ Remember it is still running in sequence, so here we have the while loop repeati
 
 Now we have it moving right, let's get it so we can move left as well.
 
-Add another if statement to check if the left key is held down. Inside this if statement, add the code to subtract the speed from the `playerX` variable.
+Add another if statement to check if the left key is held down. Inside this if statement, add the code to subtract the speed from the `player_x` variable.
 
 <Accordion>
   <AccordionItem header="Code to move left">
 
-    ```cs {23-26}
-    using SplashKitSDK;
-    using static SplashKitSDK.SplashKit;
+    ```c++ {22-25}
+    #include "splashkit.h"
 
     const int PLAYER_RADIUS = 50;
     const int PLAYER_SPEED = 3;
 
-    int playerX = 640;
+    int player_x = 640;
 
-    OpenWindow("Circle Moving", 1280, 720);
+    open_window("Circle Moving", 1280, 720);
 
-    while( ! QuitRequested() )
+    while( ! quit_requested() )
     {
-        ClearScreen(ColorWhite());
-        FillCircle(ColorTurquoise(), playerX, 360, PLAYER_RADIUS);
-        RefreshScreen(60);
+        clear_screen(COLOR_WHITE);
+        fill_circle(COLOR_TURQUOISE, player_x, 360, PLAYER_RADIUS);
+        refresh_screen(60);
 
-        ProcessEvents();
+        process_events();
 
-        if ( KeyDown(KeyCode.RightKey) )
+        if ( key_down(RIGHT_KEY) )
         {
-            playerX += PLAYER_SPEED;
+            player_x += PLAYER_SPEED;
         }
-        else if ( KeyDown(KeyCode.LeftKey) )
+        else if ( key_down(LEFT_KEY) )
         {
-            playerX -= PLAYER_SPEED;
+            player_x -= PLAYER_SPEED;
         }
     }
-
     ```
 
   </AccordionItem>
@@ -112,36 +106,38 @@ Notice the logic is not quite right. Try removing the `else` and instead have tw
 <Accordion>
   <AccordionItem header="Code to move left (fixed)">
 
-    ```cs {23-24}
-    using SplashKitSDK;
-    using static SplashKitSDK.SplashKit;
+    ```c++ {24-25}
+    #include "splashkit.h"
 
     const int PLAYER_RADIUS = 50;
     const int PLAYER_SPEED = 3;
 
-    int playerX = 640;
-
-    OpenWindow("Circle Moving", 1280, 720);
-
-    while( ! QuitRequested() )
+    int main()
     {
-        ClearScreen(ColorWhite());
-        FillCircle(ColorTurquoise(), playerX, 360, PLAYER_RADIUS);
-        RefreshScreen(60);
+        int player_x = 640;
 
-        ProcessEvents();
+        open_window("Circle Moving", 1280, 720);
 
-        if ( KeyDown(KeyCode.RightKey) )
+        while( ! quit_requested() )
         {
-            playerX += PLAYER_SPEED;
+            clear_screen(COLOR_WHITE);
+            fill_circle(COLOR_TURQUOISE, player_x, 360, PLAYER_RADIUS);
+            refresh_screen(60);
+
+            process_events();
+
+            if ( key_down(RIGHT_KEY) )
+            {
+                player_x += PLAYER_SPEED;
+            }
+
+            if ( key_down(LEFT_KEY) )
+            {
+                player_x -= PLAYER_SPEED;
+            }
         }
-        
-        if ( KeyDown(KeyCode.LeftKey) )
-        {
-            playerX -= PLAYER_SPEED;
-        }
+
     }
-
     ```
 
   </AccordionItem>

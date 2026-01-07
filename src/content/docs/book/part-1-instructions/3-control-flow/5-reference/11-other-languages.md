@@ -10,7 +10,7 @@ If we consider a language like Python, you will find it has basically the same c
 
 - Branches include the
   - [if statement](https://docs.python.org/3/reference/compound_stmts.html#if)
-  - [match statement](https://docs.python.org/3/reference/compound_stmts.html#the-match-statement) which is equivalent to C#'s switch.
+  - [match statement](https://docs.python.org/3/reference/compound_stmts.html#the-match-statement) which is equivalent to C++'s switch.
 - Loops include:
   - [while loop](https://docs.python.org/3/reference/compound_stmts.html#while)
   - [for loop](https://docs.python.org/3/tutorial/controlflow.html#for-statements)

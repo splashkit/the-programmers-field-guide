@@ -192,12 +192,12 @@ Like [break](/book/part-1-instructions/3-control-flow/5-reference/05-1-break), t
 
 When you use continue in a [for loop](/book/part-1-instructions/3-control-flow/5-reference/04-3-for-loop), the post-loop increment will still be executed to ensure that you move to the next value in the control variable. In a [while loop](/book/part-1-instructions/3-control-flow/5-reference/04-1-while-loop), you need to make sure you have updated the condition before the continue statement so that you do not end up in an infinite loop.
 
-## In C#
+## In C++
 
 :::tip[Syntax]
-The C# syntax for a break statement is shown in the following diagram.
+The C++ syntax for a break statement is shown in the following diagram.
 
-![C# syntax for a break statement](./images/continue-statement.png)
+![C++ syntax for a break statement](./images/continue-statement.png)
 :::
 
 The continue statement is simply the `continue` keyword terminated by a semicolon (`;`).
@@ -208,17 +208,19 @@ The continue statement is simply the `continue` keyword terminated by a semicolo
 
 The following code loops from 0 to 10, skipping all loops where `i` is larger than 0 and divisible by 3. Therefore, this will print 0, 1, 2, 4, 5, 7, 8, and 10 (skipping 3, 6, and 9).
 
-```csharp
-using static System.Console;
-using static System.Convert;
+```c++
+#include "splashkit.h"
 
-for (int i = 0; i < 11; i++)
+int main()
 {
-    if( i > 0 && i % 3 == 0)
+    for (int i = 0; i < 11; i++)
     {
-        continue;
+        if( i > 0 && i % 3 == 0)
+        {
+            continue;
+        }
+        write_line(i);
     }
-    WriteLine(i);
 }
 ```
 
@@ -233,22 +235,24 @@ Note that this code also has an increment (`i++`) in the if statement.
 This makes sure that even when continue is executed the loop counter is incremented so that our code does not have an infinite loop.
 See if you can step through this code yourself and understand how it works the same way as the for loop above.
 
-```csharp
-using static System.Console;
-using static System.Convert;
+```c++
+#include "splashkit.h"
 
-int i = 0;
-
-while (i < 11)
+int main()
 {
-    if ( i > 0 && i % 3 == 0 )
-    {
-        i++;
-        continue;
-    }
+    int i = 0;
 
-    WriteLine(i);
-    i++;
+    while (i < 11)
+    {
+        if ( i > 0 && i % 3 == 0 )
+        {
+            i++;
+            continue;
+        }
+
+        write_line(i);
+        i++;
+    }
 }
 ```
 

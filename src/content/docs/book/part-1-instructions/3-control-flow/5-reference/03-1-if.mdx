@@ -290,15 +290,15 @@ The if statement will be a regular feature in your programs. You will use this a
 
 Remember that things still run in **sequence**, so you have to position the if statement within your sequence at the right location. The only change to sequence from what you have seen before is in the choice of branch, which depends on the value of the condition.
 
-## In C#
+## In C++
 
 :::tip[Syntax]
-The following diagram shows the C# syntax for an if statement.
+The following diagram shows the C++ syntax for an if statement.
 
-![The C# syntax for an if statement](./images/if-statement.png)
+![The C++ syntax for an if statement](./images/if-statement.png)
 :::
 
-The keyword for an if statement in C# is `if`.
+The keyword for an if statement in C++ is `if`.
 This is followed by the condition in brackets, and then the statement to run when the condition is true.
 This can optionally be followed by the `else` keyword and a statement to run when the condition is false.
 To run more than one statement in either branch you can use a [compound statement](/book/part-1-instructions/3-control-flow/5-reference/02-0-compound-statement).
@@ -317,20 +317,23 @@ Control flow statements all utilise the **conditional jump**. This is a very sim
 
 The most basic use of an if statement is to selectively run a block of code when a condition is true. In the following code, we ask the user to tell us which language they use. Then the **if** allows us to check *if* the language is "C#", and when that is true have the computer output a custom message. If anything else is entered, then the condition will be false and these statements will be skipped over.
 
-```csharp
-using static System.Console;
+```c++
+#include "splashkit.h"
 
-string language;
-
-Write("What language do you use? ");
-language = ReadLine();
-
-if (language == "C#")
+int main()
 {
-    WriteLine("Good choice, C# is a fine language.");
-}
+    string language;
 
-WriteLine("Great chat!");
+    write("What language do you use? ");
+    language = read_line();
+
+    if (language == "C++")
+    {
+        write_line("Good choice, C++ is a great language.");
+    }
+
+    write_line("Great chat!");
+}
 ```
 
 Step through the following images to see key points about how this runs within the computer. Pay attention to the actions of the if statement itself.
@@ -347,24 +350,27 @@ That is all the `if` does.
 
 We can add `else` to have a second branch that gets run only when the condition is false. The following code adds an else branch to output a different message when the user enters anything other than "C#".
 
-```csharp
-using static System.Console;
+```c++
+#include "splashkit.h"
 
-string language;
-
-Write("What language do you use? ");
-language = ReadLine();
-
-if (language == "C#")
+int main()
 {
-    WriteLine("Good choice, C# is a fine language.");
-}
-else
-{
-    WriteLine("Well... good luck with that!");
-}
+    string language;
 
-WriteLine("Great chat!");
+    write("What language do you use? ");
+    language = read_line();
+
+    if (language == "C++")
+    {
+        write_line("Good choice, C++ is a great language.");
+    }
+    else
+    {
+        write_line("Well... good luck with that!");
+    }
+
+    write_line("Great chat!");
+}
 ```
 
 The `else` adds to the actions the if statement needs to perform. Review the following images to see how this works.
@@ -392,28 +398,31 @@ When thinking through your code, you need to do the same in your head.
 
 In many cases you will want more than two paths. To achieve this, you need to combine multiple if statements. This is shown in the following code, which gives different outputs for C and C++ as well.
 
-```csharp
-using static System.Console;
+```c++
+#include "splashkit.h"
 
-string language;
-
-Write("What language do you use? ");
-language = ReadLine();
-
-if (language == "C#")
+int main()
 {
-    WriteLine("Good choice, C# is a fine language.");
-}
-else if ((language == "C") || (language == "C++"))
-{
-    WriteLine("These are great languages.");
-}
-else
-{
-    WriteLine("Well... good luck with that!");
-}
+    string language;
 
-WriteLine("Great chat!");
+    write("What language do you use? ");
+    language = read_line();
+
+    if (language == "C#")
+    {
+        write_line("Good choice, C# is a fine language.");
+    }
+    else if ((language == "C") || (language == "C++"))
+    {
+        write_line("These are great languages.");
+    }
+    else
+    {
+        write_line("Well... good luck with that!");
+    }
+
+    write_line("Great chat!");
+}
 ```
 
 Review the following images to see how the two if statements work together.

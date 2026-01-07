@@ -323,15 +323,15 @@ It is important to remember these actions that are performed. The while is just 
 Remember everything is always in sequence. The word "while" seems to indicate that the code in the loop's body will only keep executing when the condition is true. If this were the case, our programs would suddenly be a lot more complex. For example, what happens if we are halfway through the body of a loop and the condition is suddenly false? Fortunately for us, this isn't how it works, so we don't need to worry. The condition is only checked when it is the instruction that is being run. So, you can retain the sequential, stepwise, thinking process as you picture how a loop works.
 :::
 
-## In C#
+## In C++
 
 :::tip[Syntax]
-The following diagram shows the C# syntax for a while loop.
+The following diagram shows the C++ syntax for a while loop.
 
 ![While loop syntax.](./images/while-loop.png)
 :::
 
-In C# the while loop starts with the `while` keyword followed by the condition within parenthesis. The statement to be repeated follows this, which in almost all cases will be a [compound statement](/book/part-1-instructions/3-control-flow/5-reference/02-0-compound-statement).
+In C++ the while loop starts with the `while` keyword followed by the condition within parenthesis. The statement to be repeated follows this, which in almost all cases will be a [compound statement](/book/part-1-instructions/3-control-flow/5-reference/02-0-compound-statement).
 
 ## How does `while` work?
 
@@ -346,21 +346,23 @@ The user is asked to enter a number, which we store in the `target` variable, an
 
 The while loop runs **while** `i` is less than the `target`. Within the loop, we use the `i++` [assignment statement](/book/part-1-instructions/2-data/5-reference/11-assignment-statement) to increase the value of `i`. This means that the value of `i` will eventually be larger than or equal to the `target`, thereby ensuring the loop will end.
 
-```csharp
-using static System.Console;
-using static System.Convert;
+```c++
+#include "splashkit.h"
 
-int target;
-
-Write("Count to: ");
-target = ToInt32(ReadLine());
-
-int i =  0;
-
-while (i < target)
+int main()
 {
-    WriteLine(i);
-    i++;
+    int target;
+
+    write("Count to: ");
+    target = to_integer(read_line());
+
+    int i =  0;
+
+    while (i < target)
+    {
+        write_line(i);
+        i++;
+    }
 }
 ```
 
@@ -374,22 +376,25 @@ Use the following images to see how this runs.
 
 ### Event Loops - Dynamic graphical programs
 
-Now let's look at how we can use a while loop to keep a window open in SplashKit. In this case, we can use the `QuitRequested` method from SplashKit to find out if the user has asked to quit the program by closing the SplashKit window on their screen. `QuitRequested` will return `false` if the user has not asked to quit, so we need to loop **while** quit is **not** requested. Remember, in C# we use `!` for "not", giving us a condition `!QuitRequested()` for our loop.
+Now let's look at how we can use a while loop to keep a window open in SplashKit. In this case, we can use the `quit_requested` method from SplashKit to find out if the user has asked to quit the program by closing the SplashKit window on their screen. `quit_requested` will return `false` if the user has not asked to quit, so we need to loop **while** quit is **not** requested. Remember, in C++ we use `!` for "not", giving us a condition `!quit_requested()` for our loop.
 
-Within the loop, we need to tell SplashKit to respond to any events the user has performed. This is achieved with the `ProcessEvents()` method. It reads things like key presses, mouse movements, and window closes, and retains this information so that you can access it using other methods. In this case, it will record if the user has asked to quit, and we're accessing this information when we call `QuitRequested` in the condition. If you forget to add the call to `ProcessEvents` then you will not be able to close the window. In these cases, switch to the terminal and kill the program with [ctrl-c](/book/appendix/2-computer-use/2-trailside/10-signals).
+Within the loop, we need to tell SplashKit to respond to any events the user has performed. This is achieved with the `process_events()` method. It reads things like key presses, mouse movements, and window closes, and retains this information so that you can access it using other methods. In this case, it will record if the user has asked to quit, and we're accessing this information when we call `quit_requested` in the condition. If you forget to add the call to `process_events` then you will not be able to close the window. In these cases, switch to the terminal and kill the program with [ctrl-c](/book/appendix/2-computer-use/2-trailside/10-signals).
 
-```csharp
-using static SplashKitSDK.SplashKit;
+```c++
+#include "splashkit.h"
 
-OpenWindow("Circle Test", 400, 400);
-ClearScreen(ColorWhite());
-
-while (!QuitRequested())
+int main()
 {
-    FillCircle(RandomColor(), Rnd(ScreenWidth()), Rnd(ScreenHeight()), Rnd(50));
-    RefreshScreen();
+    open_window("Circle Test", 400, 400);
+    clear_screen(COLOR_WHITE);
 
-    ProcessEvents();
+    while (!quit_requested())
+    {
+        fill_circle(random_color(), rnd(screen_width()), rnd(screen_height()), rnd(50));
+        refresh_screen();
+
+        process_events();
+    }
 }
 ```
 

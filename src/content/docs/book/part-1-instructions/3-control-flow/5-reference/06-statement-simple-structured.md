@@ -17,7 +17,7 @@ We have already seen that a [program](/book/part-1-instructions/1-sequence/5-ref
 
 The great thing to see now is that you can **combine** these in lots of different ways. An `if` statement can contain a `while` loop, that contains a `case` statement. Anywhere you can put a statement, you can now choose between any of these different statements to create a sequence of actions that get the computer to do what you want.
 
-## In C#
+## In C++
 
 :::tip[Syntax]
 The following diagram shows the list of things we have seen so far that can exist as statements.
