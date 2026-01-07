@@ -217,12 +217,12 @@ Sometimes you get part-way through a loop and know that the remainder of the loo
 
 This isn't something you will use often, but is good to know exists.
 
-## In C#
+## In C++
 
 :::tip[Syntax]
-The C# syntax for a break statement is shown in the following diagram.
+The C++ syntax for a break statement is shown in the following diagram.
 
-![C# syntax for a break statement](./images/break-statement.png)
+![C++ syntax for a break statement](./images/break-statement.png)
 :::
 
 The break statement is simply the `break` keyword terminated with a semicolon.
@@ -233,22 +233,25 @@ The break statement is simply the `break` keyword terminated with a semicolon.
 
 The following code demonstrates the use of the break statement in an event driven program. Here the `if` statement checks whether the user has hit the escape key on their keyboard, and it breaks the event loop when that is true.
 
-```csharp
-using static SplashKitSDK.SplashKit;
+```c++
+#include "splashkit.h"
 
-OpenWindow("Circle Test", 400, 400);
-ClearScreen(ColorWhite());
-
-while (!QuitRequested())
+int main()
 {
-    FillCircle(RandomColor(), Rnd(ScreenWidth()), Rnd(ScreenHeight()), Rnd(50));
-    RefreshScreen();
+    open_window("Circle Test", 400, 400);
+    clear_screen(COLOR_WHITE);
 
-    ProcessEvents();
-
-    if (KeyTyped(KeyCode.EscapeKey))
+    while (!quit_requested())
     {
-        break;  // end the loop
+        fill_circle(random_color(), rnd(screen_width()), rnd(screen_height()), rnd(50));
+        refresh_screen();
+
+        process_events();
+
+        if (key_typed(ESCAPE_KEY))
+        {
+            break;  // end the loop
+        }
     }
 }
 ```
@@ -261,29 +264,31 @@ The following images show how this works.
 
 You can create intentionally infinite loops, and use `break` statements within the code to terminate the loop. The following program uses an infinite loop, with a break in an `if` statement to terminate the loop.
 
-```csharp
-using static System.Console;
-using static System.Convert;
+```c++
+#include "splashkit.h"
 
-WriteLine("Before you stands a 12 foot tall Knight...");
-WriteLine();
-WriteLine("\"We are the Knights who say 'Ni'.\"");
-WriteLine("\"I will say Ni to you again if you do not appease us!\"");
-
-while(true)
+int main()
 {
-    WriteLine("\"Ni!\"");
+    write_line("Before you stands a 12 foot tall Knight...");
+    write_line();
+    write_line("\"We are the Knights who say 'ni'.\"");
+    write_line("\"I will say Ni to you again if you do not appease us!\"");
 
-    Write("Submit? ");
-    
-    if (ReadLine() == "y")
+    while(true)
     {
-        break;
+        write_line("\"Ni!\"");
+
+        write("Submit? ");
+
+        if (read_line() == "y")
+        {
+            break;
+        }
+
     }
 
+    write_line("\"Bring us a Shrubbery!\"");
 }
-
-WriteLine("\"Bring us a Shrubbery!\"");
 ```
 
 :::caution[Use your power wisely]

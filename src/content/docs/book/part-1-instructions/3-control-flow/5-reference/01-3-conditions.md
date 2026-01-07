@@ -6,20 +6,20 @@ sidebar:
 
 You can mix the [logical operators](/book/part-1-instructions/3-control-flow/5-reference/01-2-logic-operators) within a single condition. In this case, you should use brackets to clearly show the **order** you want the different elements evaluated in. For example, with the following expression do we want the *or* (`||`) or the *and* (`&&`) to be evaluated first?
 
-- `KeyDown(KeyCode.SpaceKey) || MouseX() > 50 && MouseClicked(MouseButton.LeftButton)`
+- `key_down(SPACE_KEY) || mouse_x() > 50 && mouse_clicked(LEFT_BUTTON)`
 
 The results are different depending on the order, so it is important to think this through.
 We have two options here:
 
-1. `(KeyDown(KeyCode.SpaceKey) || MouseX() > 50) && MouseClicked(MouseButton.LeftButton)`
-2. `KeyDown(KeyCode.SpaceKey) || (MouseX() > 50 && MouseClicked(MouseButton.LeftButton))`
+1. `(key_down(SPACE_KEY) || mouse_x() > 50) && mouse_clicked(LEFT_BUTTON)`
+2. `key_down(SPACE_KEY) || (mouse_x() > 50 && mouse_clicked(LEFT_BUTTON))`
 
-Let's start with the first option where `or` is evaluated first. That means `(KeyDown(KeyCode.SpaceKey) || MouseX() > 50)` will be evaluated first (we can then call this `result`). The overall value of the condition is then determined when the computer evaluates `result && MouseClicked(MouseButton.LeftButton)`. Thinking about this, you may be able to see that this condition will only be true when the left mouse button is clicked, and the space key is down or the mouse's x position is larger than 50.
+Let's start with the first option where `or` is evaluated first. That means `(key_down(SPACE_KEY) || mouse_x() > 50)` will be evaluated first (we can then call this `result`). The overall value of the condition is then determined when the computer evaluates `result && mouse_clicked(LEFT_BUTTON)`. Thinking about this, you may be able to see that this condition will only be true when the left mouse button is clicked, and the space key is down or the mouse's x position is larger than 50.
 
 If you can't see that, don't worry.
 We can show you why this is the case by expanding the condition into a truth table.
 
-| Space Key? | MouseX > 50? | Clicked? | Space Key or Mouse X > 50? (A) | A and clicked? |
+| Space Key? | Mouse X > 50? | Clicked? | Space Key or Mouse X > 50? (A) | A and clicked? |
 | --- | --- | --- | --- | --- |
 | false | false | false | false | false |
 | true | false | false | true | false |
@@ -31,7 +31,7 @@ We can show you why this is the case by expanding the condition into a truth tab
 
 We can compare this to a truth table for the second option, which shows us that it will have an overall value of true when the space key is down, or the mouse x is larger than 50 and the left button is clicked.
 
-| Space Key? | MouseX > 50? | Clicked? | MouseX > 50 and Clicked? (A) | Space Key or A? |
+| Space Key? | Mouse X > 50? | Clicked? | Mouse X > 50 and Clicked? (A) | Space Key or A? |
 | --- | --- | --- | --- | --- |
 | false | false | false | false | false |
 | true | false | false | true | true |

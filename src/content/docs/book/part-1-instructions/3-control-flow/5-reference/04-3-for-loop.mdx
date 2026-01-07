@@ -241,7 +241,7 @@ The for loop itself is controlled by three aspects: an initialiser, condition, a
 
 Any time you have some code that you want to repeat a set number of times, a for loop is most likely what you want to use. It provides you with the mechanics you need to achieve this in a more compact and clear format than a while loop.
 
-## In C#
+## In C++
 
 {/*TODO: syntax diagram for this?*/}
 
@@ -254,7 +254,7 @@ The standard format of a for loop is: `for (i = 0; i < size; i++) {...}`. This c
 This will then give you a loop that runs `size` times.
 
 The example above (`for (i = 0; i < size; i++) {...}`) assumes that the variable `i` has already been declared.
-Many languages, including C#, allow you to declare loop's control variable within the loop itself, not just initialise it.
+Many languages, including C++, allow you to declare loop's control variable within the loop itself, not just initialise it.
 This is the most common way control variables are created, and neatly packages all of the loop's data within the loop structure.
 Using this approach, our previous example would become `for (int i = 0; i < size; i++) {...}`.
 
@@ -273,30 +273,35 @@ This is not done often, but the flexibility can be useful.
 
 The example we used for the [while loop](/book/part-1-instructions/3-control-flow/5-reference/04-1-while-loop) was a counting loop, so it is perfect to transform to a for loop. The looping part of this example is shown below, with comments pointing out the three aspects we need to code into the for loop.
 
-```csharp
-int i =  0; // initialiser
-
-while (i < target) // condition
+```c++
+int main()
 {
-    WriteLine(i);
-    i++; // increment
+    int i =  0; // initialiser
+
+    while (i < target) // condition
+    {
+        write_line(i);
+        i++; // increment
+    }
 }
 ```
 
 The following code shows the example translated to use a for loop instead of a while loop. Notice that you can match up the initialiser, condition, and increment with the code in the while loop. This will run in the same way as the while loop did, it just brings these three parts together more clearly.
 
-```csharp
-using static System.Console;
-using static System.Convert;
+```c++
+#include "splashkit.h"
 
-int target;
-
-Write("Count to: ");
-target = ToInt32(ReadLine());
-
-for(int i =  0; i < target; i++)
+int main()
 {
-   WriteLine(i);
+    int target;
+
+    write("Count to: ");
+    target = to_integer(read_line());
+
+    for(int i =  0; i < target; i++)
+    {
+       write_line(i);
+    }
 }
 ```
 
@@ -315,18 +320,20 @@ Compare the `for` loop shown above with that below, which moves in a numerically
 In this case the post-loop increment element subtracts 1 from the control variable, (incrementing it by a negative number).
 We have also changed the initialisation to ask for input from the user, rather than being a hard-coded value.
 
-```csharp
-using static System.Console;
-using static System.Convert;
+```c++
+#include "splashkit.h"
 
-int target;
-
-Write("Count down from: ");
-target = ToInt32(ReadLine());
-
-for(int i = target; i > 0; i--)
+int main()
 {
-   WriteLine(i);
+    int target;
+
+    write("Count down from: ");
+    target = to_integer(read_line());
+
+    for(int i = target; i > 0; i--)
+    {
+       write_line(i);
+    }
 }
 ```
 

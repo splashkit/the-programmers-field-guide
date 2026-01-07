@@ -63,10 +63,9 @@ while( !QuitRequested() )
 
 The following code shows an example of using the mouse, and its position as part of a program. This uses the distance from the player to the mouse to set the direction of a ball which is thrown when the mouse is clicked.
 
-```cs
+```c++
 // Code in the program is all lined up on the left...
-using static SplashKitSDK.SplashKit;
-using SplashKitSDK;
+#include "splashkit.h"
 
 const int BALL_RADIUS = 5;
 const int PLAYER_RADIUS = 20;
@@ -77,76 +76,81 @@ const double DIST_TO_SPEED_RATIO = 30;
 // as above for the line drawn to show direction of shot
 const double DIST_LINE_RATIO = 10;
 
-OpenWindow("Ball Throw", 800, 600);
-
-bool ballFired = false;
-
-double playerX = 400, playerY = 300;
-double ballX = playerX;
-double ballY = playerY;
-double ballXSpeed = 0;
-double ballYSpeed = 0;
-
-while (!QuitRequested())
+int main()
 {
-  // Code in this while loop is indented one tab
-  ProcessEvents();
+    // Code in the main function is indented one tab
 
-  if (MouseClicked(MouseButton.LeftButton) && !ballFired)
-  {
-    // This is inside the if inside the while...
-    // So this is indented two tabs
-    ballFired = true;
+    open_window("Ball Throw", 800, 600);
 
-    ballXSpeed = (MouseX() - playerX) / DIST_TO_SPEED_RATIO;
-    ballYSpeed = (MouseY() - playerY) / DIST_TO_SPEED_RATIO;
-  }
+    bool ball_fired = false;
 
-  // Here we are back in the while... indented one tab
+    double player_x = 400, player_y = 300;
+    double ball_x = player_x;
+    double ball_y = player_y;
+    double ball_x_speed = 0;
+    double ball_y_speed = 0;
 
-  if (ballFired)
-  {
-    // inside the if in the while... so two tabs
-    ballX += ballXSpeed;
-    ballY += ballYSpeed;
-
-    // check if off screen
-    if (ballX + BALL_RADIUS < 0 || // off left
-        ballX - BALL_RADIUS > ScreenWidth() || // off right
-        ballY + BALL_RADIUS < 0 || // off top
-        ballY - BALL_RADIUS > ScreenHeight()
-        ) // off bottom
+    while (!quit_requested())
     {
-      // Inside an if in an if in a while... so 3 tabs
-      ballFired = false;
-      ballX = playerX;
-      ballY = playerY;
+      // Code in this while loop is indented again, so two tabs
+      process_events();
+
+      if (mouse_clicked(LEFT_BUTTON) && !ball_fired)
+      {
+        // This is inside the if inside the while inside main...
+        // So this is indented three tabs
+        ball_fired = true;
+
+        ball_x_speed = (mouse_x() - player_x) / DIST_TO_SPEED_RATIO;
+        ball_y_speed = (mouse_y() - player_y) / DIST_TO_SPEED_RATIO;
+      }
+
+      // Here we are back in the while... indented two tab
+
+      if (ball_fired)
+      {
+        // inside the if in the while inside main... so three tabs
+        ball_x += ball_x_speed;
+        ball_y += ball_y_speed;
+
+        // check if off screen
+        if (ball_x + BALL_RADIUS < 0 || // off left
+            ball_x - BALL_RADIUS > screen_width() || // off right
+            ball_y + BALL_RADIUS < 0 || // off top
+            ball_y - BALL_RADIUS > screen_height()
+            ) // off bottom
+        {
+          // Inside an if in an if in a while inside main... so 4 tabs
+          ball_fired = false;
+          ball_x = player_x;
+          ball_y = player_y;
+        }
+      }
+
+      // back just in the while in main... two tabs
+
+      clear_screen(COLOR_WHITE);
+      fill_circle(COLOR_LIGHT_GREEN, player_x, player_y, PLAYER_RADIUS);
+      fill_circle(COLOR_BLACK, ball_x, ball_y, BALL_RADIUS);
+
+      if ( ! ball_fired )
+      {
+        // indented 3 tabs...
+
+        // Show direction of travel
+        draw_line(COLOR_BLACK,
+          player_x, player_y,
+          player_x + (mouse_x() - player_x) / DIST_LINE_RATIO,
+          player_y + (mouse_y() - player_y) / DIST_LINE_RATIO
+        );
+      }
+
+      // indented 2 tab
+
+      refresh_screen(60);
     }
-  }
 
-  // back just in the while... one tab
-
-  ClearScreen(ColorWhite());
-  FillCircle(ColorLightGreen(), playerX, playerY, PLAYER_RADIUS);
-  FillCircle(ColorBlack(), ballX, ballY, BALL_RADIUS);
-
-  if ( ! ballFired )
-  {
-    // indented 2 tabs...
-
-    // Show direction of travel
-    DrawLine(ColorBlack(), 
-      playerX, playerY, 
-      playerX + (MouseX() - playerX) / DIST_LINE_RATIO,
-      playerY + (MouseY() - playerY) / DIST_LINE_RATIO
-    );
-  }
-
-  // indented 1 tab
-
-  RefreshScreen(60);
+    // Back in the main function - indented 1 tabs
+    write_line("I hope you enjoyed this program!");
 }
-
-// Back in the program - indented 0 tabs
-WriteLine("I hope you enjoyed this program!");
 ```

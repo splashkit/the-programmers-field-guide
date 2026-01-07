@@ -130,10 +130,10 @@ So, with the do while loop, a repetition of the loop's body means "rewinding" th
 
 ![A do while loop is still seen as a sequence of instructions to the CPU](./images/post-test-flow.png)
 
-## In C#
+## In C++
 
 :::tip[Syntax]
-The following diagram shows the C# syntax for a do while loop.
+The following diagram shows the C++ syntax for a do while loop.
 
 ![Syntax of the do while](./images/do-while-loop.png)
 :::
@@ -146,18 +146,21 @@ Following the statement there is the keyword `while`, followed by a condition in
 
 The following code demonstrates the use of a do while loop to repeat some code. The body of the loop will run once, and at the end check if `again` is "y" or "Y". When it is, the computer will move back to the start of the statement after the `do` keyword, repeating that code, and checking the condition again. This will repeat until the condition is false (i.e., the user enters "y" or "Y").
 
-```csharp
-using static System.Console;
+```c++
+#include "splashkit.h"
 
-string again;
-
-do
+int main()
 {
-    WriteLine("Hello");
+    string again;
 
-    Write("Again: ");
-    again = ReadLine();
-} while (again == "y" || again == "Y");
+    do
+    {
+        write_line("Hello");
+
+        write("Again: ");
+        again = read_line();
+    } while (again == "y" || again == "Y");
+}
 ```
 
 Use the following images to see how this works.

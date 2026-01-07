@@ -13,7 +13,7 @@ The following comic demonstrates the hazards of using the goto statement.
 ![The dangers of using goto, from http://xcd.com/292](https://imgs.xkcd.com/comics/goto.png "The dangers of using goto, from http://xkcd.com/292")
 <div class="caption">Image from <a href="http://xkcd.com/292" target="_blank">XKCD</a>, licensed under <a href="https://creativecommons.org/licenses/by-nc/2.5/">Creative Commons Attribution-NonCommercial 2.5</a> (CC-BY-NC 2.5)</div>
 
-Seriously, the goto statement isn't something that you are ever likely to need. It breaks the sequence of code, and makes it much harder to reads. If you ever think you need it, there will be other better ways to achieve your goals.
+Seriously, the goto statement isn't something that you are ever likely to need. It breaks the sequence of code, and makes it much harder to read. If you ever think you need it, there will be other better ways to achieve your goals.
 
 :::note[Summary]
 

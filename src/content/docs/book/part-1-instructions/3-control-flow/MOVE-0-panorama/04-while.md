@@ -22,43 +22,45 @@ Remember that the instructions still run in sequence. So the condition is only c
 
 ## Example
 
-```cs
-using static SplashKitSDK.SplashKit;
-using static System.Convert;
+```c++
+#include "splashkit.h"
 
-string line;
-int value;
-int i;
-
-Write("Enter a number: ");
-line = ReadLine();
-value = ToInt32(line);
-
-// Use a counter variable (i for historic reasons)
-i = 0;
-
-// Loop while i is less than the user's value
-while( i < value )
+int main()
 {
-  WriteLine("Hello World! " + i);
+    string line;
+    int value;
+    int i;
 
-  // Making sure to change i so that we eventually end!
-  i++; // i = i + 1;
-}
+    write("Enter a number: ");
+    line = read_line();
+    value = to_integer(line);
 
-// For graphical applications
-OpenWindow("Test Window", 400, 300);
+    // Use a counter variable (i for historic reasons)
+    i = 0;
 
-// You can loop while the user has not asked to quit
-while( ! QuitRequested() )
-{
-  // We can update what the user sees...
-  FillCircle(RandomColor(), Rnd(400), Rnd(300), Rnd(50));
-  RefreshScreen();
+    // Loop while i is less than the user's value
+    while( i < value )
+    {
+      write_line("Hello World! " + i);
 
-  // Then check if the quit condition has changed
-  // Inside ProcessEvents, SplashKit checks if the user has asked to quit
-  // So this will ensure that `QuitRequested` will eventually be true.
-  ProcessEvents();
+      // Making sure to change i so that we eventually end!
+      i++; // i = i + 1;
+    }
+
+    // For graphical applications
+    open_window("Test Window", 400, 300);
+
+    // You can loop while the user has not asked to quit
+    while( ! quit_requested() )
+    {
+      // We can update what the user sees...
+      fill_circle(random_color(), rnd(400), rnd(300), rnd(50));
+      refresh_screen();
+
+      // Then check if the quit condition has changed
+      // Inside ProcessEvents, SplashKit checks if the user has asked to quit
+      // So this will ensure that `QuitRequested` will eventually be true.
+      process_events();
+    }
 }
 ```

@@ -35,11 +35,11 @@ As you learn each language, these subtle differences in identifiers will help yo
 
   :::note[Syntax]
 
-In C# the convention is to use the following naming styles:
+In C++ the convention is to use the following naming styles:
 
-- **Variables**: camelCase
+- **Variables**: snake_case
 - **Constants**: UPPER_CASE
-- **Methods**: PascalCase
+- **Functions/Procedures**: snake_case
 
 As we explore new language features, we will make sure to highlight the correct convention for the language we are using.
 :::
@@ -52,26 +52,31 @@ We have [already discussed indentation](/book/part-1-instructions/3-control-flow
 The goal of indentation is to make sure each [block](/book/part-1-instructions/3-control-flow/5-reference/02-0-compound-statement) in our code is clearly visible.
 For example, the following code illustrates indentation within the blocks of an `if` statement. Notice how, by indenting the code, you can see easily where the block starts and where it ends. This simple act of indenting the code is critically important, as it helps **show** you the structure of the algorithm.
 
-```csharp
-WriteLine("Demonstrating indentation");
-if (name == "Test")
+```c++
+int main()
 {
-    WriteLine("See how this is indented");
-}
-else
-{
-    //..
+    write_line("Demonstrating indentation");
+    if (name == "Test")
+    {
+        write_line("See how this is indented");
+    }
+    else
+    {
+        //..
+    }
 }
 ```
 
-An alternate style that achieves the same effect is to have the open brace on the same line as the statement within which the block is being nested. The code below shows an example of this. Both styles are good, but the C# language recommends the above style with the braces on their own lines, so this is what we follow in [our style guide](/style). Although it takes up more lines, this style has the nice feature of allowing us to see the start and end brace for a block within a single vertical line.
+An alternate style that achieves the same effect is to have the open brace on the same line as the statement within which the block is being nested. The code below shows an example of this. Both styles are good, but we recommend the above style with the braces on their own lines, and this is what we follow in [our style guide](/style). Although it takes up more lines, this style has the nice feature of allowing us to see the start and end brace for a block within a single vertical line.
 
-```csharp
-WriteLine("Demonstrating indentation");
-if (name == "Test") {
-    WriteLine("See how this is indented");
-} else {
-    //..
+```c++
+int main() {
+    write_line("Demonstrating indentation");
+    if (name == "Test") {
+        write_line("See how this is indented");
+    } else {
+        //..
+    }
 }
 ```
 

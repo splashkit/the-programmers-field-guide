@@ -79,7 +79,7 @@ to_give = change_value / coin_value;
 change_value = change_value - to_give * coin_value;
 
 // Output the number of coins with the coin text
-write("" + to_string(to_give) + " x " + to_string(coin_text));
+write(to_string(to_give) + " x " + to_string(coin_text));
 ```
 
 Notice this does not mention any specific coin or literal value, and allows us to work with *any* coin value.
@@ -142,7 +142,7 @@ Let's put this in our code and calculate how many $2 coins to give.
           change_value = change_value - to_give * coin_value;
 
           // Output the number of coins with the coin text
-          write("" + to_string(to_give) + " x " + coin_text);
+          write(to_string(to_give) + " x " + coin_text);
       }
       ```
 
@@ -220,7 +220,7 @@ Let's put this in our code and calculate how many $2 coins to give.
           change_value = change_value - to_give * coin_value;
 
           // Output the number of coins with the coin text
-          write("" + to_string(to_give) + " x " + coin_text);
+          write(to_string(to_give) + " x " + coin_text);
       }
       ```
 
@@ -302,7 +302,7 @@ Let's put this in our code and calculate how many $2 coins to give.
                 change_value = change_value - to_give * coin_value;
 
                 // Output the number of coins with the coin text
-                write("" + to_string(to_give) + " x " + coin_text);
+                write(to_string(to_give) + " x " + coin_text);
             }
         }
         ```
@@ -429,7 +429,7 @@ Let's put this in our code and calculate how many $2 coins to give.
             change_value = change_value - to_give * coin_value;
 
             // Output the number of coins with the coin text
-            write("" + to_string(to_give) + " x " + coin_text);
+            write(to_string(to_give) + " x " + coin_text);
         }
     }
     ```

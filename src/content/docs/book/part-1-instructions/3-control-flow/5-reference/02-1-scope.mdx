@@ -20,7 +20,7 @@ export const sliderImagesStack = [
     tips: [
       "The program has started.",
       "The 'name' variable has been allocated on the stack.",
-      "The WriteLine() statement runs and prints to the terminal."
+      "The write_line() statement runs and prints to the terminal."
     ]
   },
   {
@@ -38,7 +38,7 @@ export const sliderImagesStack = [
     tips: [
       "The 'i' variable is added to the top of the stack within the new block.",
       "You can still access 'name', as we are still within that block.",
-      "The WriteLine() statement runs and prints to the terminal."
+      "The write_line() statement runs and prints to the terminal."
     ]
   },
   {
@@ -55,7 +55,7 @@ export const sliderImagesStack = [
     tipStart: 5,
     tips: [
       "Because the new block has ended you can no longer access the variable 'i'. It is gone.",
-      "The WriteLine() statement completes, and the program ends."
+      "The write_line() statement completes, and the program ends."
     ]
   },
 ];
@@ -68,31 +68,36 @@ With [compound statements](/book/part-1-instructions/3-control-flow/5-reference/
 
 ## Block Level Scope
 
-Languages like C# limit the lifetime and access of variables to the *block* in which they are declared. Let's work through this with some examples.
+Languages like C++ limit the lifetime and access of variables to the *block* in which they are declared. Let's work through this with some examples.
 
-```csharp
-string name = "My Name";
-WriteLine($"We can access {name} here");
+```c++
+#include "splashkit.h"
 
+int main()
 {
-    // We are in a new block - one nested in the program's block
-    int i = 0;
-    WriteLine($"{name} and {i} are accessible here");
-}
+    string name = "My Name";
+    write_line("We can access " + name + " here");
 
-// We are back in the program's block - i is now "out of scope"
-WriteLine($"{name} is accessible here - but i no longer exists");
+    {
+        // We are in a new block - one nested in the program's block
+        int i = 0;
+        write_line(name + " and " + to_string(i) + " are accessible here");
+    }
 
-{
-    // We are in a new block.. and can create a new i variable
-    int i = 1;
-    WriteLine($"{name} and a new/different {i} are accessible here");
+    // We are back in the program's block - i is now "out of scope"
+    write_line(name + " is accessible here - but i no longer exists");
+
+    {
+        // We are in a new block.. and can create a new i variable
+        int i = 1;
+        write_line(name + " and a new/different " + to_string(i) + " are accessible here");
+    }
 }
 ```
 
 Each compound statement creates a new block, beginning at the open brace (`{`) and ending at the close brace (`}`). Any variable or constant declared within that block will live until the block ends, at which time the variable is destroyed. As a result, these variables are only accessible within that block's code, including in any new blocks created within that block.
 
-In the above code, the comments and `WriteLine` messages indicate which variables are accessible. Notice how `name` is accessible throughout the program, from when it is declared in the program's main block to when the program ends. Within the two additional blocks, new `i` variables are created. These are only accessible within the block in which they are declared.
+In the above code, the comments and `write_line` messages indicate which variables are accessible. Notice how `name` is accessible throughout the program, from when it is declared in the program's main block to when the program ends. Within the two additional blocks, new `i` variables are created. These are only accessible within the block in which they are declared.
 
 ## The Stack
 

@@ -20,24 +20,26 @@ public static bool SplashKit.IsInteger(string text);
 
 These methods will allow you to test if a string can be converted to an integer or a double. You can use these to perform simple validations, by using this as the condition in a loop. For example, the following validates the entry of a double value.
 
-```cs
-using static SplashKitSDK.SplashKit;
-using static System.Convert;
+```c++
+#include "splashkit.h"
 
-string line;
-double value;
-
-Write("Please enter a number: ");
-line = ReadLine();
-while (!IsDouble(line))
+int main()
 {
-  WriteLine($"Sorry, I cannot convert {line} to a number.");
-  Write("Please enter a number: ");
-  line = ReadLine();
-}
-value = ToDouble(line);
+    string line;
+    double value;
 
-WriteLine($"Thanks you I got {value}");
+    write("Please enter a number: ");
+    line = read_line();
+    while (!is_double(line))
+    {
+      write_line("Sorry, I cannot convert " + line + " to a number.");
+      write("Please enter a number: ");
+      line = read_line();
+    }
+    value = to_double(line);
+
+    write_line("Thanks you I got " + to_string(value));
+}
 ```
 
 :::caution
