@@ -14,8 +14,8 @@ The spider needs a location, size, and shape.
 
 - We can use a circle as the shape for now, and later replace this with an image.
 - The location will need a distance from the left and top of the screen. To achieve this we can add two variables:
-  1. `spiderX` to store the distance from the left of the screen. This can start at half the width of the screen.
-  2. `spiderY` to store the distance from the top of the screen. This can start at half the height of the screen.
+  1. `spider_x` to store the distance from the left of the screen. This can start at half the width of the screen.
+  2. `spider_y` to store the distance from the top of the screen. This can start at half the height of the screen.
 - The size will not change, so we can set it as a constant called `SPIDER_RADIUS`.
 
 As we will need the screen width and height, we can code these in constants called `SCREEN_WIDTH` and `SCREEN_HEIGHT`. We can then use these when we open the window, and when we initialise the spider's location. These will also be useful later when we need to set the location of the fly.
@@ -35,15 +35,15 @@ Constants:
     SPIDER_RADIUS = 25
 
 Variables:
-    spiderX (an int) = SCREEN_WIDTH / 2
-    spiderY (an int) = SCREEN_HEIGHT / 2
+    spider_x (an int) = SCREEN_WIDTH / 2
+    spider_y (an int) = SCREEN_HEIGHT / 2
 
 Steps:
     Open the window - use SCREEN_WIDTH and SCREEN_HEIGHT
   
     Draw the game
         Clear the screen to white
-        Fill a black circle using spiderX, spiderY, and SPIDER_RADIUS
+        Fill a black circle using spider_x, spider_y, and SPIDER_RADIUS
         Refresh the screen to show it to the user
 
     Delay 5000ms to let the user see
@@ -64,8 +64,8 @@ Constants:
     SPIDER_RADIUS = 25
 
 Variables:
-    spiderX (an int) = SCREEN_WIDTH / 2
-    spiderY (an int) = SCREEN_HEIGHT / 2
+    spider_x (an int) = SCREEN_WIDTH / 2
+    spider_y (an int) = SCREEN_HEIGHT / 2
 
 Steps:
     Open the window - use SCREEN_WIDTH and SCREEN_HEIGHT
@@ -73,7 +73,7 @@ Steps:
     While not quit
         Draw the game
             Clear the screen white
-            Fill a black circle using spiderX, spiderY, and SPIDER_RADIUS
+            Fill a black circle using spider_x, spider_y, and SPIDER_RADIUS
             Refresh the screen to show it to the user
         Process Events
 ```
@@ -89,12 +89,12 @@ We will need to use the following SplashKit methods to get this working:
 
 These methods have the following signatures:
 
-```cs
+```c++
 // These need:
-// using static SplashKitSDK.SplashKit;
+// #include "splashkit.h"
 
-public static bool QuitRequested();
-public static void ProcessEvents();
+bool quit_requested();
+void process_events();
 ```
 
 There is an example of this logic on the [while loop page](/book/part-1-instructions/3-control-flow/5-reference/04-1-while-loop/#event-loops---dynamic-graphical-programs), and remember you can check our version of the code in the [campsite reflections](/book/part-1-instructions/3-control-flow/move-camp/3-fly-catch-events) section if you get stuck.

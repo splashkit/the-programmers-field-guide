@@ -7,21 +7,23 @@ Let's switch back to the terminal now, and we can use control flow to create a s
 
 We can use the following starter code to get things going.
 
-```cs
-using static SplashKitSDK.SplashKit;
-using static System.Convert;
+```c++
+#include "splashkit.h"
 
-string line;
-int choice;
+int main()
+{
+    string line;
+    int choice;
 
-WriteLine("1: Addition");
-WriteLine("2: Subtraction");
-WriteLine("3: Multiplication");
-WriteLine("4: Division");
-WriteLine("5: Quit");
-Write("Enter your choice: ");
-line = ReadLine();
-choice = ToInt32(line);
+    write_line("1: Addition");
+    write_line("2: Subtraction");
+    write_line("3: Multiplication");
+    write_line("4: Division");
+    write_line("5: Quit");
+    write("Enter your choice: ");
+    line = read_line();
+    choice = to_integer(line);
+}
 ```
 
 ## Creating a menu
@@ -33,44 +35,46 @@ Have a go at adding in a `switch` statement for the above code. For now, just ou
 <Accordion>
   <AccordionItem header="Code for menu">
 
-    ```cs {16-36}
-    using static SplashKitSDK.SplashKit;
-    using static System.Convert;
+    ```c++ {17-37}
+    #include "splashkit.h"
 
-    string line;
-    int choice;
-
-    WriteLine("1: Addition");
-    WriteLine("2: Subtraction");
-    WriteLine("3: Multiplication");
-    WriteLine("4: Division");
-    WriteLine("5: Quit");
-    Write("Enter your choice: ");
-    line = ReadLine();
-    choice = ToInt32(line);
-
-    switch (choice)
+    int main()
     {
-        case 1:
-            WriteLine("Addition");
-            break;
-        case 2:
-            WriteLine("Subtraction");
-            break;
-        case 3:
-            WriteLine("Multiplication");
-            break;
-        case 4:
-            WriteLine("Division");
-            break;
-        case 5:
-            WriteLine("Quit");
-            break;
-        default:
-            WriteLine("Invalid choice");
-            break;
-    }
+        string line;
+        int choice;
 
+        write_line("1: Addition");
+        write_line("2: Subtraction");
+        write_line("3: Multiplication");
+        write_line("4: Division");
+        write_line("5: Quit");
+        write("Enter your choice: ");
+        line = read_line();
+        choice = to_integer(line);
+
+        switch (choice)
+        {
+            case 1:
+                write_line("Addition");
+                break;
+            case 2:
+                write_line("Subtraction");
+                break;
+            case 3:
+                write_line("Multiplication");
+                break;
+            case 4:
+                write_line("Division");
+                break;
+            case 5:
+                write_line("Quit");
+                break;
+            default:
+                write_line("Invalid choice");
+                break;
+        }
+
+    }
     ```
 
   </AccordionItem>
@@ -85,46 +89,48 @@ Have a go at embedding the code that shows the menu and performs its actions ins
 <Accordion>
   <AccordionItem header="Code for menu">
 
-    ```cs {7,8,39}
-    using static SplashKitSDK.SplashKit;
-    using static System.Convert;
+    ```c++ {8,9,40}
+    #include "splashkit.h"
 
-    string line;
-    int choice;
-
-    do
+    int main()
     {
-        WriteLine("1: Addition");
-        WriteLine("2: Subtraction");
-        WriteLine("3: Multiplication");
-        WriteLine("4: Division");
-        WriteLine("5: Quit");
-        Write("Enter your choice: ");
-        line = ReadLine();
-        choice = ToInt32(line);
+        string line;
+        int choice;
 
-        switch (choice)
+        do
         {
-            case 1:
-                WriteLine("Addition");
-                break;
-            case 2:
-                WriteLine("Subtraction");
-                break;
-            case 3:
-                WriteLine("Multiplication");
-                break;
-            case 4:
-                WriteLine("Division");
-                break;
-            case 5:
-                WriteLine("Quit");
-                break;
-            default:
-                WriteLine("Invalid choice");
-                break;
-        }
-    } while (choice != 5);
+            write_line("1: Addition");
+            write_line("2: Subtraction");
+            write_line("3: Multiplication");
+            write_line("4: Division");
+            write_line("5: Quit");
+            write("Enter your choice: ");
+            line = read_line();
+            choice = to_integer(line);
+
+            switch (choice)
+            {
+                case 1:
+                    write_line("Addition");
+                    break;
+                case 2:
+                    write_line("Subtraction");
+                    break;
+                case 3:
+                    write_line("Multiplication");
+                    break;
+                case 4:
+                    write_line("Division");
+                    break;
+                case 5:
+                    write_line("Quit");
+                    break;
+                default:
+                    write_line("Invalid choice");
+                    break;
+            }
+        } while (choice != 5);
+    }
     ```
 
   </AccordionItem>
@@ -136,7 +142,7 @@ Compile and run the program and make sure that you can repeat the menu actions.
 
 Now try entering something other than a number. Something like "one". The program will crash. Why, we attempted to convert this into a number. When the library cannot do this, it raises an error that causes the program to crash.
 
-We can avoid this if we test the string before we try to convert it to a number. SplashKit provides an [IsInteger](https://splashkit.io/api/utilities/#is-integer) function that will test if the string you pass it is an integer. There is also an [IsDouble](https://splashkit.io/api/utilities/#is-double) for testing if the values are valid doubles.
+We can avoid this if we test the string before we try to convert it to a number. SplashKit provides an [is_integer](https://splashkit.io/api/utilities/#is-integer) function that will test if the string you pass it is an integer. There is also an [is_double](https://splashkit.io/api/utilities/#is-double) for testing if the values are valid doubles.
 
 Have a think about how you could validate the user input. Will this be a branch or a loop?
 
@@ -145,55 +151,57 @@ Have a think about how you could validate the user input. Will this be a branch 
 
     Here we need to use a loop. This way we can require the user to provide us with a valid number. Without this we will not know which path to take in the menu. If you had used a branch, then the user may still enter an invalid number and the program will then crash when you attempt to convert this.
 
-    ```cs {17-22}
-    using static SplashKitSDK.SplashKit;
-    using static System.Convert;
+    ```c++ {18-23}
+    #include "splashkit.h"
 
-    string line;
-    int choice;
-
-    do
+    int main()
     {
-        WriteLine("1: Addition");
-        WriteLine("2: Subtraction");
-        WriteLine("3: Multiplication");
-        WriteLine("4: Division");
-        WriteLine("5: Quit");
-        Write("Enter your choice: ");
-        line = ReadLine();
+        string line;
+        int choice;
 
-        while ( ! IsInteger(line) )
+        do
         {
-            WriteLine("Please enter a whole number");
-            Write("Enter your choice: ");
-            line = ReadLine();
-        }
+            write_line("1: Addition");
+            write_line("2: Subtraction");
+            write_line("3: Multiplication");
+            write_line("4: Division");
+            write_line("5: Quit");
+            write("Enter your choice: ");
+            line = read_line();
 
-        choice = ToInt32(line);
+            while ( ! is_integer(line) )
+            {
+                write_line("Please enter a whole number");
+                write("Enter your choice: ");
+                line = read_line();
+            }
 
-        switch (choice)
-        {
-            case 1:
-                WriteLine("Addition");
-                break;
-            case 2:
-                WriteLine("Subtraction");
-                break;
-            case 3:
-                WriteLine("Multiplication");
-                break;
-            case 4:
-                WriteLine("Division");
-                break;
-            case 5:
-                WriteLine("Quit");
-                break;
-            default:
-                WriteLine("Invalid choice");
-                break;
-        }
-    } while (choice != 5);
+            choice = to_integer(line);
 
+            switch (choice)
+            {
+                case 1:
+                    write_line("Addition");
+                    break;
+                case 2:
+                    write_line("Subtraction");
+                    break;
+                case 3:
+                    write_line("Multiplication");
+                    break;
+                case 4:
+                    write_line("Division");
+                    break;
+                case 5:
+                    write_line("Quit");
+                    break;
+                default:
+                    write_line("Invalid choice");
+                    break;
+            }
+        } while (choice != 5);
+
+    }
     ```
   </AccordionItem>
 </Accordion>

@@ -42,11 +42,11 @@ Have a look at the details on how to code the event loop on the [while loop page
 
 ### Time
 
-We will need code to track how much time has elapsed. You get the number of milliseconds (as a `long` - which is a 64bit integer) that have passed since the program started using the `CurrentTicks` method in SplashKit.
+We will need code to track how much time has elapsed. You get the number of milliseconds (as a `long` - which is a 64bit integer) that have passed since the program started using the `current_ticks` method in SplashKit.
 
-We can use an `appearAt` variable to track the time when the fly should appear. This can start as the current time plus a random amount of time. When the current time is larger than the `appearAt` time, we toggle the `appeared` variable and give the fly a random location on the screen.
+We can use an `appear_at` variable to track the time when the fly should appear. This can start as the current time plus a random amount of time. When the current time is larger than the `appear_at` time, we toggle the `appeared` variable and give the fly a random location on the screen.
 
-When the fly appears, we can set a second time tracking variable `escapeAt` to be the current time plus another random amount. This sets the time when the fly escapes. If the current time is larger than `escapeAt`, then the fly can disappear, and we can set the `appearAt` to a new random time.
+When the fly appears, we can set a second time tracking variable `escape_at` to be the current time plus another random amount. This sets the time when the fly escapes. If the current time is larger than `escape_at`, then the fly can disappear, and we can set the `appear_at` to a new random time.
 
 ## Iterations
 

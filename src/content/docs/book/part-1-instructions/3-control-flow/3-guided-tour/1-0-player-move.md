@@ -6,18 +6,21 @@ To begin, let's explore control flow concepts one at a time as we build up a sma
 
 Let's start with the following code. This sequence contains the instructions to open a window and draw the player's character.
 
-```cs
-using static SplashKitSDK.SplashKit;
+```c++
+#include "splashkit.h"
 
 const int PLAYER_RADIUS = 50;
 
-OpenWindow("Circle Moving", 1280, 720);
+int main()
+{
+    open_window("Circle Moving", 1280, 720);
 
-ClearScreen(ColorWhite());
+    clear_screen(COLOR_WHITE);
 
-FillCircle(ColorTurquoise(), 640, 360, PLAYER_RADIUS);
+    fill_circle(COLOR_TURQUOISE, 640, 360, PLAYER_RADIUS);
 
-RefreshScreen(60);
+    refresh_screen(60);
 
-Delay(5000);
+    delay(5000);
+}
 ```

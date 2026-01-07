@@ -6,44 +6,46 @@ sidebar:
 
 This code adds in the details to move the spider left and right on the screen.
 
-```csharp
-using SplashKitSDK;
-using static SplashKitSDK.SplashKit;
+```c++
+#include "splashkit.h"
 
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
 const int SPIDER_RADIUS = 25;
 const int SPIDER_SPEED = 3;
 
-// Set the spider in the center of the screen
-int spiderX = SCREEN_WIDTH / 2;
-int spiderY = SCREEN_HEIGHT / 2;
-
-OpenWindow("Fly Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
-
-// The event loop
-while (!QuitRequested())
+int main()
 {
-    // Handle Input
-    if (KeyDown(KeyCode.RightKey) && spiderX + SPIDER_RADIUS < SCREEN_WIDTH)
+    // Set the spider in the center of the screen
+    int spider_x = SCREEN_WIDTH / 2;
+    int spider_y = SCREEN_HEIGHT / 2;
+
+    open_window("Fly Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
+
+    // The event loop
+    while (!quit_requested())
     {
-        spiderX += SPIDER_SPEED;
+        // Handle Input
+        if (key_down(RIGHT_KEY) && spider_x + SPIDER_RADIUS < SCREEN_WIDTH)
+        {
+            spider_x += SPIDER_SPEED;
+        }
+
+        if (key_down(LEFT_KEY) && spider_x - SPIDER_RADIUS > 0)
+        {
+           spider_x -= SPIDER_SPEED;
+        }
+
+        // Draw the game
+        clear_screen(COLOR_WHITE);
+        // Draw the spider
+        fill_circle(COLOR_BLACK, spider_x, spider_y, SPIDER_RADIUS);
+        // Show it to  the user
+        refresh_screen(60);
+
+        // Get any new user interactions
+        process_events();
     }
-
-    if (KeyDown(KeyCode.LeftKey) && spiderX - SPIDER_RADIUS > 0)
-    {
-       spiderX -= SPIDER_SPEED;
-    }
-
-    // Draw the game
-    ClearScreen(ColorWhite());
-    // Draw the spider
-    FillCircle(ColorBlack(), spiderX, spiderY, SPIDER_RADIUS);
-    // Show it to  the user
-    RefreshScreen(60);
-
-    // Get any new user interactions
-    ProcessEvents();
 }
 ```
 
