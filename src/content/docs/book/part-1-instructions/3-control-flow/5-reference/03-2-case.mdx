@@ -23,13 +23,13 @@ export const sliderImagesCaseStatement = [
     altText: "",
     tipStart: 1,
     tips: [
-      "Lines 1 - 4 get the user's input (in this case we'll say the user entered 'C'), and stores it in the variable 'language' on the stack.",
+      "Lines 1 - 4 get the user's input (in this case we'll say the user entered '2', which is the option for C#), converts it to an integer, and stores it in the variable 'language' on the stack.",
       "The program counter is incremented to 5, ready to run the 'switch' statement."
     ]
   },
   {
     src: caseStatementSlide02.src,
-    altText: "On line 5, the switch statement asks the computer to compare the value in the variable 'language' ('C'), to the value of all the case statements in it's scope (which is defined by the opening and closing braces of the switch statement) until a match is found. It increments the program counter to point to the first case statement on line 7.",
+    altText: "On line 5, the switch statement asks the computer to compare the value in the variable 'language' (2), to the value of all the case statements in it's scope (which is defined by the opening and closing braces of the switch statement) until a match is found. It increments the program counter to point to the first case statement on line 7.",
     tipStart: 2,
     tips: [
       "On line 5, the switch statement starts to compare the value in the variable 'language' to the value of all the cases until a match is found.",
@@ -37,20 +37,20 @@ export const sliderImagesCaseStatement = [
   },
   {
     src: caseStatementSlide03.src,
-    altText: "Line 7 encounters the first case statement, and compares the value of 'language' ('C') to the value of the case statement ('C#'). The comparison is false ('C' != 'C#'). So the program counter jumps to the next 'case' statement (line 10).",
+    altText: "Line 7 encounters the first case statement, and compares the value of 'language' (2) to the value of the case statement (1). The comparison is false (2 != 1). So the program counter jumps to the next 'case' statement (line 10).",
     tipStart: 3,
     tips: [
       "The first case is on line 7.",
-      "This compares the loaded value ('C') to the value of the case ('C#').",
-      "The comparison is <span class='booleanFalse'>false</span> ('C' != 'C#'), so the program counter jumps to the next case (line 10)."
+      "This compares the loaded value (2) to the value of the case (1).",
+      "The comparison is <span class='booleanFalse'>false</span> (2 != 1), so the program counter jumps to the next case (line 10)."
     ]
   },
   {
     src: caseStatementSlide04.src,
-    altText: "On line 10 the comparison is 'true' ('C' == 'C'). The program counter then increments to line 11.",
+    altText: "On line 10 the comparison is 'true' (2 == 2). The program counter then increments to line 11.",
     tipStart: 4,
     tips: [
-      "On line 10 the comparison is <span class='booleanTrue'>true</span> ('C' == 'C').",
+      "On line 10 the comparison is <span class='booleanTrue'>true</span> (2 == 2).",
       "The sequence starts running here.",
       "The program counter then increments to line 11."
     ]
@@ -96,10 +96,10 @@ export const sliderImagesCaseStatement = [
   },
   {
     src: caseStatementSlide09.src,
-    altText: "This time the user has input 'Fortran'",
+    altText: "This time the user has input 4",
     tipStart: 9,
     tips: [
-      "Let's rewind back to line 4, this time pretending that the user has input 'Fortran'."
+      "Let's rewind back to line 4, this time pretending that the user has input 4 (for \"Other\")."
     ]
   },
   {
@@ -181,8 +181,8 @@ int main()
     int language;
 
     write_line("What language do you use?");
-    write_line("1. C#");
-    write_line("2. C++");
+    write_line("1. C++");
+    write_line("2. C#");
     write_line("3. C");
     write_line("4. Other");
     write("(Please enter a number): ");
@@ -190,12 +190,12 @@ int main()
 
     switch (language)
     {
-        case 1: // C#
-            write_line("Good choice, C# is a fine language.");
+        case 1: // C++
+            write_line("C++ is a great language.");
             break;
-        case 2: // C++
+        case 2: // C#
         case 3: // C
-            write_line("These are great languages.");
+            write_line("These are fine languages.");
             break;
         default: // Other/Any other number
             write_line("Well... good luck with that!");

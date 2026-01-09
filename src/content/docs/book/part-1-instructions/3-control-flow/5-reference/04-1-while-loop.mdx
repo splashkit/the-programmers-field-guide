@@ -150,7 +150,7 @@ export const sliderImagesWhileSplashKitLoop = [
     tips: [
       "Lines 1 and 2 use the SplashKit library to open a new window.",
       "The window is created in memory before opening on the user's desktop.",
-      "The window has the title 'Circle Test' and dimensions 400x400px as given by the parameters to the <code>OpenWindow()</code> method."
+      "The window has the title 'Circle Test' and dimensions 400x400px as given by the parameters to the <code>open_window()</code> method."
     ]
   },
   {
@@ -174,10 +174,10 @@ export const sliderImagesWhileSplashKitLoop = [
   },
   {
     src: whileLoopSplashkitImg04.src,
-    altText: "At line 6 the FillCircle() function creates a new circle in the main window area (in memory only) with random dimensions",
+    altText: "At line 6 the fill_circle() function creates a new circle in the main window area (in memory only) with random dimensions",
     tipStart: 4,
     tips: [
-      "At line 6, the <code>FillCircle()</code> method draws a circle on the window.",
+      "At line 6, the <code>fill_circle()</code> method draws a circle on the window.",
       "It does this in memory only, not in the window created on the desktop.",
       "The parameters specify a circle with a random color, position, and radius.",
       "The max values for the circle's position are the screen width and height.",
@@ -186,18 +186,18 @@ export const sliderImagesWhileSplashKitLoop = [
   },
   {
     src: whileLoopSplashkitImg05.src,
-    altText: "The call to RefreshScreen() on line 7 then updates the window on the user's desktop with the previous operations performed on the window in memory (lines 3 and 6)",
+    altText: "The call to refresh_screen() on line 7 then updates the window on the user's desktop with the previous operations performed on the window in memory (lines 3 and 6)",
     tipStart: 5,
     tips: [
-      "The call to <code>RefreshScreen()</code> on line 7 then updates the window on the user's desktop with the image stored in memory."
+      "The call to <code>refresh_screen()</code> on line 7 then updates the window on the user's desktop with the image stored in memory."
     ]
   },
   {
     src: whileLoopSplashkitImg06.src,
-    altText: "Line 8 calls ProcessEvents() which processes any events on the event queue, including looking for user quit events",
+    altText: "Line 8 calls process_events() which processes any events on the event queue, including looking for user quit events",
     tipStart: 6,
     tips: [
-      "Line 8 calls <code>ProcessEvents()</code>, which processes any events on the event queue (including requests from the user to quit).",
+      "Line 8 calls <code>process_events()</code>, which processes any events on the event queue (including requests from the user to quit).",
       "Execution then moves back to line 4, the start of the while loop."
     ]
   },
@@ -228,10 +228,10 @@ export const sliderImagesWhileSplashKitLoop = [
   },
   {
     src: whileLoopSplashkitImg10.src,
-    altText: "Line 8 calls ProcessEvents() which processes any events on the event queue, including looking for user quit events",
+    altText: "Line 8 calls process_events() which processes any events on the event queue, including looking for user quit events",
     tipStart: 10,
     tips: [
-      "Line 8 calls <code>ProcessEvents()</code>, which processes any events on the event queue (including requests from the user to quit).",
+      "Line 8 calls <code>process_events()</code>, which processes any events on the event queue (including requests from the user to quit).",
       "Execution then moves back to line 4, the start of the while loop."
     ]
   },
@@ -265,10 +265,10 @@ export const sliderImagesWhileSplashKitLoop = [
   },
   {
     src: whileLoopSplashkitImg14.src,
-    altText: "Now, the 'Close Window' event that was triggered previously, will be processed by the call to ProcessEvents(), which makes it available to our program",
+    altText: "Now, the 'Close Window' event that was triggered previously, will be processed by the call to process_events(), which makes it available to our program",
     tipStart: 14,
     tips: [
-      "Now, the 'Close Window' (quit) event that was triggered previously will be processed by the call to <code>ProcessEvents()</code>, which makes it available to our program."
+      "Now, the 'Close Window' (quit) event that was triggered previously will be processed by the call to <code>process_events()</code>, which makes it available to our program."
     ]
   },
   {
