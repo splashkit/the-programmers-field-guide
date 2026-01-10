@@ -23,13 +23,13 @@ export const sliderImagesCaseStatement = [
     altText: "",
     tipStart: 1,
     tips: [
-      "Lines 1 - 4 get the user's input (in this case we'll say the user entered 'C'), and stores it in the variable 'language' on the stack.",
+      "Lines 1 - 4 get the user's input (in this case we'll say the user entered '2', which is the option for C#), converts it to an integer, and stores it in the variable 'language' on the stack.",
       "The program counter is incremented to 5, ready to run the 'switch' statement."
     ]
   },
   {
     src: caseStatementSlide02.src,
-    altText: "On line 5, the switch statement asks the computer to compare the value in the variable 'language' ('C'), to the value of all the case statements in it's scope (which is defined by the opening and closing braces of the switch statement) until a match is found. It increments the program counter to point to the first case statement on line 7.",
+    altText: "On line 5, the switch statement asks the computer to compare the value in the variable 'language' (2), to the value of all the case statements in it's scope (which is defined by the opening and closing braces of the switch statement) until a match is found. It increments the program counter to point to the first case statement on line 7.",
     tipStart: 2,
     tips: [
       "On line 5, the switch statement starts to compare the value in the variable 'language' to the value of all the cases until a match is found.",
@@ -37,20 +37,20 @@ export const sliderImagesCaseStatement = [
   },
   {
     src: caseStatementSlide03.src,
-    altText: "Line 7 encounters the first case statement, and compares the value of 'language' ('C') to the value of the case statement ('C#'). The comparison is false ('C' != 'C#'). So the program counter jumps to the next 'case' statement (line 10).",
+    altText: "Line 7 encounters the first case statement, and compares the value of 'language' (2) to the value of the case statement (1). The comparison is false (2 != 1). So the program counter jumps to the next 'case' statement (line 10).",
     tipStart: 3,
     tips: [
       "The first case is on line 7.",
-      "This compares the loaded value ('C') to the value of the case ('C#').",
-      "The comparison is <span class='booleanFalse'>false</span> ('C' != 'C#'), so the program counter jumps to the next case (line 10)."
+      "This compares the loaded value (2) to the value of the case (1).",
+      "The comparison is <span class='booleanFalse'>false</span> (2 != 1), so the program counter jumps to the next case (line 10)."
     ]
   },
   {
     src: caseStatementSlide04.src,
-    altText: "On line 10 the comparison is 'true' ('C' == 'C'). The program counter then increments to line 11.",
+    altText: "On line 10 the comparison is 'true' (2 == 2). The program counter then increments to line 11.",
     tipStart: 4,
     tips: [
-      "On line 10 the comparison is <span class='booleanTrue'>true</span> ('C' == 'C').",
+      "On line 10 the comparison is <span class='booleanTrue'>true</span> (2 == 2).",
       "The sequence starts running here.",
       "The program counter then increments to line 11."
     ]
@@ -96,10 +96,10 @@ export const sliderImagesCaseStatement = [
   },
   {
     src: caseStatementSlide09.src,
-    altText: "This time the user has input 'Fortran'",
+    altText: "This time the user has input 4",
     tipStart: 9,
     tips: [
-      "Let's rewind back to line 4, this time pretending that the user has input 'Fortran'."
+      "Let's rewind back to line 4, this time pretending that the user has input 4 (for \"Other\")."
     ]
   },
   {
@@ -148,6 +148,7 @@ The following diagram shows the C++ syntax for a case statement.
 :::
 
 The syntax for the case statement in C++ uses the keyword **switch** followed by the expression to test.
+In C++, case statements are limited to only testing integers and single characters. Any integral [types](/book/part-1-instructions/1-sequence/5-reference/15-type/) such as `int`, `bool`, and `char`  are valid, however `double` and `string` are not.
 Within the curly braces you then have a list of cases.
 Each case has a value to match followed by a colon (`:`) and a list of statements.
 The final case is labelled with the `default` keyword.
@@ -165,13 +166,14 @@ We will explore the break statement in more detail soon, but for now you just ne
 
 ## How does `case` work?
 
-The case statement works in a very similar way to the if statement we worked through previously. The following code will achieve the same output as the [last example](/book/part-1-instructions/3-control-flow/5-reference/03-1-if#multiple-if-statements-combined) from the if statement page.
+The case statement works in a very similar way to the if statement we worked through previously. The following code will achieve a similar output as the [last example](/book/part-1-instructions/3-control-flow/5-reference/03-1-if#multiple-if-statements-combined) from the if statement page.
+It has been adjusted so that the user chooses from a numbered list of languages, by entering its number - remember, case statements in C++ cannot compare strings.
 
 In this example, the value we want to check is whatever the user entered, which has been stored in the `language` variable.
 So, `language` goes in parentheses right after the `switch` keyword.
  Within the body of the case statement you then have the separate cases you want to match.
 
-Notice that we have used the [break](/book/part-1-instructions/3-control-flow/5-reference/05-1-break) statement at the end of the "C#" and "C++" branches to indicate the end of the instructions for these individual cases. Also notice how we intentionally do not use a break statement in the "C" case. This means that when the "C" path is matched, the control will flow through into the same set of statements that exist for the "C++" branch, and we have avoided needing to repeat the same code in both branches.
+Notice that we have used the [break](/book/part-1-instructions/3-control-flow/5-reference/05-1-break) statement at the end of the "C++" and "C" branches to indicate the end of the instructions for these individual cases. Also notice how we intentionally do not use a break statement in the "C#" case. This means that when the "C#" path is matched, the control will flow through into the same set of statements that exist for the "C" branch, and we have avoided needing to repeat the same code in both branches.
 
 ```c++
 #include "splashkit.h"
@@ -181,8 +183,8 @@ int main()
     int language;
 
     write_line("What language do you use?");
-    write_line("1. C#");
-    write_line("2. C++");
+    write_line("1. C++");
+    write_line("2. C#");
     write_line("3. C");
     write_line("4. Other");
     write("(Please enter a number): ");
@@ -190,12 +192,12 @@ int main()
 
     switch (language)
     {
-        case 1: // C#
-            write_line("Good choice, C# is a fine language.");
+        case 1: // C++
+            write_line("C++ is a great language.");
             break;
-        case 2: // C++
+        case 2: // C#
         case 3: // C
-            write_line("These are great languages.");
+            write_line("These are fine languages.");
             break;
         default: // Other/Any other number
             write_line("Well... good luck with that!");
@@ -220,7 +222,7 @@ If we forget to include a `break` where we _do_ want it, the compiler won't warn
 
 - The case statement is a kind of **instruction**. It allows you to command the computer to select a path based on the value of an expression.
 - Each path within the case statement has a value. The computer compares the case statement's expression to each path's value to determine which path to take.
-- Older languages limit the case statement to work only with integers and individual characters.
+- Older languages like C++ limit the case statement to work only with integers and individual characters.
 - The case statement has one entry point, multiple paths, and then one exit point.
 
 :::

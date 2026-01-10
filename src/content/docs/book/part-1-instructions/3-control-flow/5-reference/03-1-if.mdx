@@ -15,20 +15,20 @@ import Slide06if from './images/control-flow-statements-in-depth/control-flow-if
 export const sliderImagesIfStatement = [
   {
     src: Slide01if.src,
-    altText: "Shows the state in the computer where the language variable has the data 'C#' and the code is about to run line 4.",
+    altText: "Shows the state in the computer where the language variable has the data 'C++' and the code is about to run line 4.",
     tipStart: 1,
     tips: [
-      "Lines 1-3 get the user's input (which in this case we'll say is 'C#'), and store it in the variable 'language' on the stack.",
+      "Lines 1-3 get the user's input (which in this case we'll say is 'C++'), and store it in the variable 'language' on the stack.",
       "The program counter is incremented to line 4, ready to run the 'if' statement."
     ]
   },
   {
     src: Slide02if.src,
-    altText: "Shows the state in the computer with C# in the language, and the code starting to run the if statement.",
+    altText: "Shows the state in the computer with C++ in the language, and the code starting to run the if statement.",
     tipStart: 2,
     tips: [
-      "When executing an if statement, the computer first checks the condition. In this case, the condition checks if the value of 'language' is 'C#'.",
-      "The value in language is 'C#', so the condition is <span class='booleanTrue'>true</span>. This meaning that the program counter increments by one to move into the associated 'if' block of code."
+      "When executing an if statement, the computer first checks the condition. In this case, the condition checks if the value of 'language' is 'C++'.",
+      "The value in language is 'C++', so the condition is <span class='booleanTrue'>true</span>. This meaning that the program counter increments by one to move into the associated 'if' block of code."
     ]
   },
   {
@@ -37,7 +37,7 @@ export const sliderImagesIfStatement = [
     tipStart: 3,
     tips: [
       "The compound statement groups lines 5 to 7.",
-      "Line 6 outputs the string 'Good choice. C# is a fine language.' to the terminal.",
+      "Line 6 outputs the string 'Good choice. C++ is a great language.' to the terminal.",
       "Line 7 indicates the end of the compound statement, so the end of the if statement."
     ]
   },
@@ -52,11 +52,11 @@ export const sliderImagesIfStatement = [
   },
   {
     src: Slide05if.src,
-    altText: "Shows the state of the computer back at line 4 with 'C++' in the language.",
+    altText: "Shows the state of the computer back at line 4 with 'C#' in the language.",
     tipStart: 5,
     tips: [
       "Let's rewind back to the start of the if statement and try different input.",
-      "This time, we'll say the user has input 'C++'.",
+      "This time, we'll say the user has input 'C#'.",
       "Now at line 4, the condition is <span class='booleanFalse'>false</span>.",
       "As the condition is false, the if statement sets the program counter to 8, skipping the compound statement."
     ]
@@ -83,11 +83,11 @@ import Slide07ifelse from './images/control-flow-statements-in-depth/control-flo
 export const sliderImagesIfElseStatement = [
   {
     src: Slide01ifelse.src,
-    altText: "Shows the state of the computer at line 4 with 'C#' in the language variable.",
+    altText: "Shows the state of the computer at line 4 with 'C++' in the language variable.",
     tipStart: 1,
     tips: [
-      "Let's assume that the user enters 'C#' when asked for input.",
-      "Lines 1-3 result in the user input 'C#' being stored in the variable 'language' on the stack.",
+      "Let's assume that the user enters 'C++' when asked for input.",
+      "Lines 1-3 result in the user input 'C++' being stored in the variable 'language' on the stack.",
       "At line 4, the condition evaluates to <span class='booleanTrue'>true</span>.",
       "The program steps into the true branch as before."
     ]
@@ -98,7 +98,7 @@ export const sliderImagesIfElseStatement = [
     tipStart: 2,
     tips: [
       "The compound statement on lines 5-7 runs.",
-      "Line 6 outputs the message 'Good choice, C# is a fine language' to the terminal.",
+      "Line 6 outputs the message 'Good choice, C++ is a great language' to the terminal.",
     ]
   },
   {
@@ -121,10 +121,10 @@ export const sliderImagesIfElseStatement = [
   },
   {
     src: Slide05ifelse.src,
-    altText: "Shows the program back to line 4, with 'C++' in the language",
+    altText: "Shows the program back to line 4, with 'C#' in the language",
     tipStart: 5,
     tips: [
-      "Let's reset back to line 4 to see what happens if the user enters 'C++'.",
+      "Let's reset back to line 4 to see what happens if the user enters 'C#'.",
       "The condition is <span class='booleanFalse'>false</span>, so the if statement jumps to the statement that follows the 'else'.",
       "This means the program counter will increment to line 9."
     ]
@@ -169,8 +169,8 @@ export const sliderImagesIfElseIfStatement = [
     altText: "Shows the language is set to C# after running lines 1 to 3",
     tipStart: 1,
     tips: [
-      "Let's start by running through what happens if the user enters 'C#'.",
-      "Lines 1 to 3 have run, and the value 'C#' is stored in the 'language' variable."
+      "Let's start by running through what happens if the user enters 'C++'.",
+      "Lines 1 to 3 have run, and the value 'C++' is stored in the 'language' variable."
     ]
   },
   {
@@ -197,7 +197,7 @@ export const sliderImagesIfElseIfStatement = [
     altText: "Back to the start, with C++ now in the language",
     tipStart: 4,
     tips: [
-      "Let's rewind to line 3 and see what happens if the user enters 'C++'."
+      "Let's rewind to line 3 and see what happens if the user enters 'C#'."
     ]
   },
   {
@@ -408,13 +408,13 @@ int main()
     write("What language do you use? ");
     language = read_line();
 
-    if (language == "C#")
+    if (language == "C++")
     {
-        write_line("Good choice, C# is a fine language.");
+        write_line("Good choice, C++ is a great language.");
     }
-    else if ((language == "C") || (language == "C++"))
+    else if ((language == "C") || (language == "C#"))
     {
-        write_line("These are great languages.");
+        write_line("These are fine languages.");
     }
     else
     {
