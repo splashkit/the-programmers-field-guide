@@ -1,0 +1,440 @@
+---
+title: Array Class
+draft: true
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from '@astrojs/starlight/components';
+
+<style type="text/css">{`
+    .alpha-list > ol {
+        list-style-type: lower-alpha;
+    }
+    .starlight-aside__title > code {
+        position: relative;
+        top: 0.17em;
+        padding: 0;
+    }
+`}</style>
+
+Now that we're more familiar with working with member functions, let's try improving how we handle arrays, by encapsulating them into a re-usable class.
+
+In the [previous chapter](/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/01-00-designing-statistics-calculator/) we:
+ - Used arrays to store a fixed number of elements
+ - Used a second variable to keep track of the number of _active_ elements within that array, to allow us to have a variable count.
+ - Stored the array and count together inside a struct, to keep the data together.
+
+However, we had to re-write a new "array" struct for each of our projects, despite the overall code being very similar. We also tended to mix together our program specific logic, with the logic for adding/removing items from the array, which makes it harder to re-use the code.
+
+As a part of this chapter and going foward, we'll begin building a _generic_ array class, that allows us to store a variable number of elements, of any homogenous (single) type - it will be re-usable in any project. This will give us a deep understanding of how languages implement their dynamic arrays (for instance `list` in Python, or `vector<T>` in C++).
+
+
+We will take our first step here, by writing a Double Array class we can use whenever we need to store lists of numbers. We'll use member functions to package everything for the array inside the class.
+
+
+## Design Overview
+Have a read of the code below - for our first iteration, we'll aim to write a `double_array` class that allows us to write code like this:
+```c++
+#include "splashkit.h"
+
+// Your double_array class goes here!
+
+int main()
+{
+    double_array numbers;
+
+    // add some numbers
+    numbers.add(10); // 10
+    numbers.add(23.7); // 10, 23.7
+    numbers.add(30); // 10, 23.7, 30
+
+    // print out the numbers
+    for(int i = 0; i < numbers.count(); i ++)
+    {
+        write_line(numbers.get(i));
+    }
+}
+```
+
+:::tip
+Think back to the structs you created to hold your arrays in the previous chapter.
+ - What member functions should they have?
+ - Can you see those in the example above?
+ - Can you think of any others that might be helpful?
+:::
+
+We can visually capture the design for our `double_array` class, making it easier to communicate how the code should work. The following is a basic **UML class diagram**, which we can use to capture the details of our class.
+
+![Overview of the double array struct](./images/double-array-design.png)
+
+The diagram shows the details of our class in a rectangle that is divided into three sections. At the top we have its name. The middle section indicates the things objects of this type will know - the fields of the class. The bottom third lists the constructors, destructor, and methods that capture what the objects can do.
+
+In this case we have:
+
+1. At the top:
+    - The name of the type: Integer Array - which we will code as `double_array`
+2. In the middle, fields for:
+    - Size, which is an `int` - coded as `int size;`
+    - Data, an array of `double` - coded as `double data[MAX_CAPACITY];`
+3. At the bottom, methods for:
+    - Constructor with no parameters (for an empty array).
+    - Add - which adds an element to the data in the double array.
+    - Get - retrieves an element from the array, as a reference.
+    - Count - returns the current number of elements in the array.
+
+The great thing is that we've already written a struct like this before, with a MAX_CAPACITY constant, size, and data, back in [Handling Multiples](/book/part-2-organised-code/3-working-with-multiples/move-0-panorama/4-0-array-struct/) - we'll just be taking this logic, _generalising_ it, and adding some member functions.
+
+:::tip
+We'll make our class's fields _private_, and our class's methods _public_. You can check [here](/book/part-2-organised-code/4-member-functions/move-0-panorama/05-protected/) for the syntax.
+:::
+
+## Let's get started!
+<Steps>
+
+1. ### Setting up the Data
+   First, let's just set up the data for the class - this should be very similar to the structs you wrote in the previous chapter, especially the [Statistics Calculator](/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/01-00-designing-statistics-calculator/).
+
+   Start by creating a `MAX_CAPACITY` global constant (I'll make mine equal `50`). Then, create a `class` (rather than a `struct`), and write in the fields we need - `size`, and `data`. No need to do anything with them yet.
+
+   Unlike previously, the `size` and `data` will be _private_ fields, since class fields are private by default. Instead, we will provide public methods for adding/getting elements. This will make it easier to ensure the class is used correctly.
+
+   :::tip
+   We'll also keep the names more general this time - the array _could_ be storing dice rolls, scores, sales, or anything else that can be represented with a series of `double`s. We want to be able to re-use the code, so it's good to keep the names more generic.
+   :::
+
+   <Accordion>
+     <AccordionItem header="I'm stuck!">
+
+    Here's something to help get you un-stuck, see if you can finish it off from here:
+
+    ```c++
+
+    const int MAX_...
+
+    class double_array
+    {
+        int size;
+        ...
+    };
+
+    int main()
+    {
+        double_...
+    }
+    ```
+
+     </AccordionItem>
+   </Accordion>
+
+2. ### Adding a Constructor
+   Now we have the skeleton of our class ready - we know what it _stores_, now we can define what it _does_. Let's start by adding a simple [constructor](/book/part-2-organised-code/4-member-functions/5-reference/1-1-constructor/), that takes no parameters, and sets the `size` field to 0 (since we start with 0 elements). We want our constructor and methods to be _public_, so make sure to add the `public:` [access specififer](/book/part-2-organised-code/4-member-functions/move-0-panorama/05-protected/).
+
+    <Accordion>
+    <AccordionItem
+        header="Double array simple constructor"
+    >
+
+    Inside the `double_array` class I added the following method:
+
+    ```c++ {5-9}
+    class double_array
+    {
+        ...
+
+        public:
+        double_array()
+        {
+            size = 0;
+        }
+    }
+    ```
+
+    This [constructor](/book/part-2-organised-code/4-member-functions/5-reference/1-1-constructor/) is just setting the object's `size` field to 0. Remember, if we don't set it to 0, it could start off with anything!
+
+    </AccordionItem>
+    </Accordion>
+
+   Now that we've done this, we can safely declare `double_array` variables and know that they are starting in a valid state. However, since all the fields are private, we can't do much with the class yet! Let's add some public methods next.
+
+   :::tip
+   Remember to build this program in an iterative manner. Right now you should already have a program that compiles, with a `main` that declares a `double_array`. For reference, mine looks like this:
+
+    <Accordion>
+    <AccordionItem header="double_array class with constructor">
+    ```c++
+    #include "splashkit.h"
+
+    const int MAX_CAPACITY = 50;
+
+    class double_array
+    {
+        int size;
+        double data[MAX_CAPACITY];
+
+        public:
+        double_array()
+        {
+            size = 0;
+        }
+    };
+
+    int main()
+    {
+        double_array numbers;
+    }
+
+    ```
+    </AccordionItem>
+    </Accordion>
+
+   As you add more methods, add some simple code to test them in `main`!
+   :::
+
+3. ### Add a method
+   Next we'll create the Count method, since it's fairly straightforward. All this method needs to do, is return the current `size`.
+
+   :::tip[Why not just use `.size`?]
+   By making the `size` field private and adding a `count()` function instead, we ensure that code outside the class can never change the `size` directly, which will protect us from a variety of bugs and errors.
+   :::
+
+   Have a go at adding this method, and also add a `write_line` in `main` to check that it's working right. If you see `0` on the terminal, you'll know you're on the right track!
+
+   Make sure to have a go at this yourself. If you get stuck, here is our attempt at this. Use it to check how we achieved these changes.
+   <Accordion>
+    <AccordionItem header="Double array member function">
+
+    Inside the `double_array` class I added the following method:
+
+    ```cpp {9-12, 18-19}
+    class double_array
+    {
+        ...
+
+        public:
+
+        ...
+
+        int count()
+        {
+            return size;
+        }
+    }
+
+    int main()
+    {
+        double_array numbers;
+        // Is the count 0?
+        write_line(numbers.count());
+    }
+
+    ```
+
+    `return size;` is just returning the value of the object's `size` field - this way we can _read_ the value from outside the class, but we cannot change it directly (which would generally be a bug).
+    </AccordionItem>
+   </Accordion>
+
+4. ### Add the `add` method
+   Now that we're warmed up, let's try adding a slightly more interesting method, the `add` method. This method adds a new element to the array - it should take a `double`, and return a `bool`. The return value should be `true` if there was space in the array, and `false` if there wasn't. Make sure to only add the element if there's space!
+
+   Have a go at adding this method, and then add some tests in `main` to see if it's working. We don't have a way to access elements once they're in the array, so for now try just adding a few elements and checking if the `count()` looks right.
+
+   <Accordion>
+    <AccordionItem header="Double array add function" >
+
+    Inside the `double_array` class I added the following method, along with tests in `main`:
+
+    ```cpp {6-10, 17-27}
+    class double_array
+    {
+
+        ...
+
+        bool add(double value)
+        {
+            ... // this should be basically identical to last chapter :)
+                // just keep in mind what the return value should be
+        }
+    }
+
+    int main()
+    {
+        double_array numbers;
+
+        write("This should be 0: ");
+        write_line(numbers.count());
+
+        numbers.add(7.5);
+        numbers.add(3);
+        numbers.add(24);
+
+        write("This should be 3: ");
+        write_line(numbers.count());
+
+        // You could add a test for what happens when the array is filled to MAX_CAPACITY as well
+    }
+
+    ```
+    </AccordionItem>
+   </Accordion>
+   :::tip[Multiple `double_array`]
+   Hopefully you can already see our array class taking shape! Feel free to try declaring multiple `double_array`s as well, and seeing how each one can hold a different set of elements.
+   :::
+
+4. ### Finally, add the `get` method
+   Now let's add the ability to access our data! We'll add a `get` method, that takes one argument - the `index` of the element to access. We _could_ just return the element as a `double` directly, but instead we'll return a [reference](/book/part-2-organised-code/6-indirect-access/5-reference/02-02-pointers-ref/) to the `double`. This...
+   <div class="alpha-list">
+   1. Avoids copying the element to return it (doesn't matter for a `double`, but will when we store larger types)
+   2. Allows the user to _modify_ the value of the element returned!
+   </div>
+
+   If we design this right, the user of our `double_array` (probably us...), will be able to write code like:
+    ```c++
+    my_number_array.get(2) = 24;
+    ```
+   which is getting very close to being able to do
+    ```c++
+    my_number_array[2] = 24;
+    ```
+    again. We'll see how to do _that_ next chapter, but keep it in mind :)
+
+    :::caution[What if the index given is invalid?]
+    This is up to you to decide :) Right now we have limited ways to handle this. You could provide the user a warning message, wrap the index around, or just not even check!
+
+    Later on we'll see other ways we can deliberately throw errors when given invalid inputs.
+    :::
+
+   <Accordion>
+    <AccordionItem header="Double array get function" >
+
+    Inside the `double_array` class I added the following method. I chose to provide a warning to the user if they put in an invalid index, but otherwise didn't try to fix the issue or avoid crashing. I also added more tests in `main`:
+
+    ```cpp {6-13, 31-38}
+    class double_array
+    {
+
+        ...
+
+        double& get(int index)
+        {
+            if (index < 0 || index >= size)
+            {
+                write_line("Accessed invalid array index " + to_string(index));
+            }
+            return data[index];
+        }
+    }
+
+    int main()
+    {
+        double_array numbers;
+
+        write("This should be 0: ");
+        write_line(numbers.count());
+
+        numbers.add(7);
+        numbers.add(3);
+        numbers.add(24);
+        numbers.get(2) = -8.5; // Change the 24 to -8.5
+
+        write("This should be 3: ");
+        write_line(numbers.count());
+
+        write_line("Printing elements:");
+        for(int i = 0; i < numbers.count(); i ++)
+        {
+            write_line(to_string(i) + ". " + to_string(numbers.get(i)));
+        }
+
+        write("Testing accessing an invalid index (should error):");
+        numbers.get(-4);
+    }
+
+    ```
+    </AccordionItem>
+   </Accordion>
+</Steps>
+
+At this point we have a usable `double_array` class! You should be able to see how we _encapsulated_ the behaviour of our arrays in a class, so that we can treat them as an object we can interact with, rather than pure data to be managed directly. The `double_array` manages _its own_ data, and instead provides us with an _interface_ that we can use to interact with it.
+
+Our class is still a bit limited however. There are some things we can improve already - like adding the ability to remove elements. For others, we will need to learn further. Here are some fairly easy extension ideas:
+
+- `Remove Element` method - should just take an index, and remove the element using any of the techniques from the previous chapter. You could even have multiple methods, one for each technique!
+- `Set Element` method - this could take an index, and a value to set it to. It could then also return a `bool` based on whether that index was valid or not.
+
+Here's some test code if you want to try things out more thoroughly:
+<Accordion>
+<AccordionItem header="Final test code" >
+
+```cpp
+
+// convenience procedure for testing
+void test_value(double value, double expected, string fail_message)
+{
+    if (value != expected)
+    {
+        write_line(to_string(value) + " != " + to_string(expected) + " | " + fail_message);
+    }
+}
+
+int main()
+{
+    double_array numbers;
+
+    write_line("Running tests - no output means no errors :)");
+    write_line("===Tests Start===");
+
+    test_value(numbers.count(), 0, "0 Count failed");
+
+    numbers.add(7);
+    test_value(numbers.get(0), 7, "1st Add or Get failed");
+
+    numbers.add(3);
+    test_value(numbers.get(1), 3, "2nd Add or Get failed");
+
+    numbers.add(24);
+    test_value(numbers.get(2), 24, "3rd Add or Get failed");
+
+    numbers.get(2) = -8.5; // Change the 24 to -8.5
+    test_value(numbers.get(2), -8.5, "Change value via Get failed");
+
+    test_value(numbers.count(), 3, "3 Count failed");
+
+    // fill up the array to test capacity handling
+    while(numbers.count() < MAX_CAPACITY)
+    {
+        if (numbers.add(0) == false)
+        {
+            write_line("Add stopped adding elements before reaching capacity");
+        }
+    }
+    if (numbers.add(0) == true)
+    {
+        write_line("Add continued adding elements past max capacity");
+    }
+
+    write_line("Testing accessing an invalid index (should error twice):");
+    numbers.get(-4);
+    numbers.get(MAX_CAPACITY);
+
+    // Uncomment if you added remove(int index) - assuming using the "shift" approach
+    /*
+    numbers.remove(1);
+    test_value(numbers.count(), MAX_CAPACITY - 1, "3 Remove failed (count didn't decrease)");
+    test_value(numbers.get(1), -8.5, "Remove failed (element didn't shift)");
+    */
+
+    write_line("===Tests End===");
+}
+
+```
+_I found three bugs in my `double_array` while writing these tests... Always test your code!_
+</AccordionItem>
+</Accordion>
+
+
+:::tip[What if I want a `book` or `int` array?]
+Great question! Right now with our current knowledge, the answer is basically just copy/paste, unfortunately :/
+
+We'd copy the class, rename it, and then change all the `double` to, for instance, `book`.
+
+In the [next chapter](/book/part-2-organised-code/5-operators-generics/0-overview/) however, we'll learn a way to write the code _once_, and make it usable with _any_ type.
+:::
