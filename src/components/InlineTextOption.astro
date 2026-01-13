@@ -3,14 +3,16 @@
 export interface Props {
     isCorrect?: boolean;
     joinNext?: boolean;
+    seamless?: boolean;
+    group?: string;
+    optional?: boolean;
 }
 
-const { isCorrect=false, joinNext=false } = Astro.props as Props;
-const key = Math.random().toString();
+const { isCorrect=false, joinNext=false, seamless=false, group="", optional=false } = Astro.props as Props;
 ---
 <>
-    <input autocomplete="off" data-is-inline-text-option type="checkbox" data-is-correct={isCorrect} id={key} />
-    <label for={key} class:list={[{ 'join-next': joinNext }]}><slot /></label>
+    <input autocomplete="off" data-is-inline-text-option type="checkbox" data-is-correct={isCorrect} group={group} optional={optional}/>
+    <label class:list={[{ 'join-next': joinNext, 'seamless': seamless }]}><slot /></label>
 </>
 
 <style>
@@ -24,6 +26,22 @@ const key = Math.random().toString();
         white-space: nowrap;
         margin-right: 0.3em;
         user-select: none;
+    }
+
+    .seamless {
+        border: none;
+        background: none;
+        transition: background-color 0.15s, box-shadow 0.15s;
+        padding: 0 0.3em;
+        margin: 0 -0.3em;
+    }
+    input:checked + label.seamless {
+        border: none;
+        background: var(--ec-tm-insBg);
+        box-shadow: 0 0 0px 1px var(--ec-tm-insBrdCol);
+    }
+    input:hover + label.seamless {
+        box-shadow: 0 0 0px 1px var(--ec-tm-insBrdCol);
     }
 
     input{
@@ -49,9 +67,16 @@ const key = Math.random().toString();
 </style>
 
 <script>
+    const TERN_POS = 1, TERN_NEUT = 0, TERN_NEG = -1;
+
     document.querySelectorAll('[data-is-inline-text-option]').forEach(function (li){
-        li.checkCorrect = function(){
-            return li.dataset.isCorrect == li.checked.toString();
+        let id = "ITO" + Math.random().toString();
+        li.setAttribute("id", id);
+        li.nextSibling.setAttribute("for", id);
+        li.checkCorrect = function() {
+            if (!li.checked)
+                return li.dataset.isCorrect=="true" ? TERN_NEUT : TERN_POS;
+            return li.dataset.isCorrect=="true" ? TERN_POS : TERN_NEG;
         }
     });
 </script>
