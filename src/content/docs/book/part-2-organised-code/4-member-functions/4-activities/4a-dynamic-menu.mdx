@@ -3,6 +3,7 @@ title: Dynamic Menu
 sidebar: 
     label: " - Dynamic Menu"
 ---
+import NoCopy from '/src/components/NoCopy.astro'
 
 In this activity you want to demonstrate that you can use classes, inheritance, and polymorphism to create a more dynamic program. Supporting new higher level abstractions.
 
@@ -23,6 +24,7 @@ The user then enters the number of the action they want to perform.
 
 With objects, inheritance, and polymorphism we can now replace this with a list of "action" objects. If each action can output itself to the terminal, then we can assign each a number and use that number to select the action object we tell to `run` when the user chooses it.
 
+<NoCopy>
 ## Creating User Actions
 
 To do this, we will create the following User Action abstract class and a couple of child classes. Each user action will represent an item in the menu shown the user. We will be able to draw the menu from a list of user actions by calling each action's show method. The user will then be able to select the action to perform, and the code will call that user action's run method -- letting it perform what ever steps it required.
@@ -72,3 +74,4 @@ At this point there are a couple of ways we can extend this.
 2: Data: Wondering how to handle data? You could store references/pointers within fields of a user object. This would then allow its run and show methods to access the data when they are called.
 
 Have a go at coding up at least one of these options. That will help you think about how objects works, and the ways we may interact with this kind of code.
+</NoCopy>

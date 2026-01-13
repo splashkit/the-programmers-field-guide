@@ -3,6 +3,7 @@ title: "Incrementing"
 sidebar:
   label: " - Incrementing"
 ---
+import CodeScroll from '/src/components/CodeScroll.astro'
 import CommmonLink from '/src/components/CommonLink.astro'
 
 To help further, C++ provides increment and decrement operators that allow you to add one, or subtract one, from a variable. You will find these options very useful when performing any kind of counting action.
@@ -32,6 +33,7 @@ count--;
 
 The following code shows an example of how to use the shorthand assignment statements.
 
+<CodeScroll maxHeight="500px">
 ```c++
 #include "splashkit.h"
 
@@ -91,6 +93,7 @@ int main()
     write_line(count);
 }
 ```
+</CodeScroll>
 
 If you ran the above code you should get this output:
 
