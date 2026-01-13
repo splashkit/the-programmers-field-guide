@@ -1,0 +1,319 @@
+---
+title: TODO-Array with Operator Overloads
+draft: true
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from '@astrojs/starlight/components';
+
+## Adding Index Operators
+
+Operators are one new feature we can now add into this design. We can make our dynamic array really look and feel like an array by allowing others to use the standard array access operator `[]`.
+
+If you look at the design above, you will see we plan to add two versions of this operator. One that returns a reference and another that returns a const reference. This relates to the two ways in which the access operator may be used.
+
+When the array access operator is used to *read* a value (i.e. when it is used in an expression like `int d = array[0];`) the compiler will use the version with a `const T&` result. If you want to update the value, such as in an assignment statement or using an increment operator (e.g. `array[0] = 5;` or `array[1]++;`), then the `T&` version is returned so that the code updates the value within the array (via the reference we return).
+
+Implementing only one of these operators will result in the other usage scenario not being supported. So in order to support both, we need to provide the two implementations.
+
+We already have a `get` method with the code that we will need to access an individual element. The problem with `get` at the moment is that it requires the index and a default to return if the index is invalid.
+
+If you look at the above design, the plan now is to move the default value into the struct itself. By doing this, `get` does not need to be told what value to return when the index is invalid, it can get it from the field in these cases. To make this change, add the `default_value` field and initialise it in the constructor to a value provided by the caller.
+
+Now you can go ahead and create the operators. Copilot should be able to help you with this, though for me, it didn't add any array bounds checks, so I had to do that myself. The code for one version is shown below, you will need to duplicate this for the other version as you cannot get these operators to call each other.
+
+```cpp
+/**
+ * Provide array style access to the dynamic array.
+ *
+ * @param index the index of the element to get
+ * @return const T& the element at the given index
+ */
+const T &operator[](unsigned int index) const
+{
+  // Check if the index is out of bounds
+  if (index >= size)
+  {
+    // The index is out of bounds, so return the default value
+    return default_value;
+  }
+
+  return data[index];
+}
+```
+
+<Accordion>
+  <AccordionItem
+    header="Dynamic array with [] operators"
+  >
+
+```cpp {22,28,30,34,125,128-144,146-162}
+#ifndef DYNAMIC_ARRAY_HEADER
+#define DYNAMIC_ARRAY_HEADER
+
+#include <cstdlib>
+
+/**
+ * @brief A dynamic array struct that contains the size, capacity,
+ *        and data pointer used to implement this dynamic structure.
+ *
+ * @tparam T the type of data to store in the dynamic array
+ * @field data a pointer to the data in the dynamic array on the heap
+ * @field size the number of elements used in the dynamic array
+ * @field capacity the number of elements the dynamic array can hold
+ * @field default_value the default value to use when getting an element
+ */
+template <typename T>
+struct dynamic_array
+{
+    T *data;
+    unsigned int size;
+    unsigned int capacity;
+    T default_value;
+
+    /**
+     * @brief Create a new dynamic array with the indicated initial capacity.
+     *
+     * @param capacity its initial capacity
+     * @param default_value the value to return if the index is out of bounds
+     */
+    dynamic_array(unsigned int capacity, T default_value)
+    {
+        data = (T *)malloc(sizeof(T) * capacity);
+        size = 0;
+        this->default_value = default_value;
+
+        // Make sure that data was allocated, if not set capacity to 0
+        if (data == nullptr)
+        {
+            this->capacity = 0;
+        }
+        else
+        {
+            this->capacity = capacity;
+        }
+    }
+
+    /**
+     * @brief Free the memory allocated to the dynamic array. Once freed
+     *        the data in the array will no longer be accessible.
+     */
+    ~dynamic_array()
+    {
+        // Clear to ensure we remove any data from memory before freeing it
+        size = 0;
+        capacity = 0;
+
+        // Free the data and the array itself
+        free(data);
+        // Ensure we don't have a dangling pointer
+        data = nullptr;
+    }
+
+    /**
+     * @brief Resize the capacity of the dynamic array.
+     *
+     * If the new capacity is smaller than the current size, the size will be updated to match the new capacity.
+     *
+     * @param new_capacity the new capacity of the dynamic array
+     * @returns true if this succeeded, or false if it could not reallocate memory
+     */
+    bool resize(unsigned int new_capacity)
+    {
+        // Resize the data in the array
+        T *new_data = (T *)realloc(data, sizeof(T) * new_capacity);
+        // Check if the allocation failed
+        if (new_data == nullptr)
+        {
+            // We failed to allocate memory, so we can't resize the array
+            return false;
+        }
+
+        // Update the array's data and capacity
+        data = new_data;
+        capacity = new_capacity;
+
+        // Update the size if the new capacity is smaller than the current size
+        if (new_capacity < size)
+        {
+            size = new_capacity;
+        }
+
+        return true;
+    }
+
+    /**
+     * @brief Add an element to the end of the dynamic array
+     *
+     * @param value the value to add to the end of the dynamic array
+     */
+    bool add(T value)
+    {
+        // Check if we need to resize the array, and if we failed to resize the array
+        if (size >= capacity && !resize(capacity * 2))
+        {
+            // We didn't have space, and we failed to resize the array!
+            return false;
+        }
+
+        // Add the value to the end of the array
+        data[size] = value;
+        size++;
+
+        return true;
+    }
+
+    /**
+     * @brief read and return the value of the indicated element from the dynamic array.
+     *
+     * If the index is out of bounds, the function will return the indicated default value.
+     *
+     * @param index the index of the element to remove
+     */
+    T &get(unsigned int index)
+    {
+        return (*this)[index];
+    }
+
+    /**
+     * Provide array style access to the dynamic array.
+     *
+     * @param index the index of the element to get
+     * @return T& the element at the given index
+     */
+    const T &operator[](unsigned int index) const
+    {
+        // Check if the index is out of bounds
+        if (index >= size)
+        {
+            // The index is out of bounds, so return the default value
+            return default_value;
+        }
+
+        return data[index];
+    }
+
+    /**
+     * Provide array style access to the dynamic array.
+     *
+     * @param index the index of the element to get
+     * @return T& the element at the given index
+     */
+    T &operator[](unsigned int index)
+    {
+        // Check if the index is out of bounds
+        if (index >= size)
+        {
+            // The index is out of bounds, so return the default value
+            return default_value;
+        }
+
+        return data[index];
+    }
+
+    /**
+     * @brief set the value of the indicated element from the dynamic array.
+     *
+     * If the index is out of bounds, the function will do nothing and return false.
+     *
+     * @param index the index of the element to change
+     * @param value the value to set the element to
+     * @returns true when the value is set, or false if this failed
+     */
+    bool set(unsigned int index, T value)
+    {
+        // Check if the index is out of bounds
+        if (index >= size)
+        {
+            // The index is out of bounds, so do nothing
+            return false;
+        }
+
+        data[index] = value;
+        return true;
+    }
+};
+
+#endif
+```
+
+  </AccordionItem>
+</Accordion>
+
+## Testing array-like access
+
+Now let's extend the test program again. The problem at the moment is the `array` in main is a pointer. We cannot use the array access operator directly with the pointer, as the compiler will then treat this as if it were an array of dynamic arrays... Not what we want.
+
+There are a few ways to get around this:
+
+1. Change to an object on the stack and pass things around by reference.
+2. Dereference the pointer to use the array access. So `array->get(i)` would become `(*array)[i]`. The `(*array)` gets you to the dynamic array object, so the `[i]` will now call our operator code.
+3. Give up and just use `array->get(i)`, it isn't that bad.
+
+Ideally we could work with these language features together, but this is a limitation of C/C++. When we switch to C#, which is a newer language, it does not have pointers but uses references to make this all work a little more smoothly.
+
+For now, I suggest you add a separate test to the end of the code where we allocate a second dynamic array on the stack and test out the array access operator there.
+
+<Accordion>
+  <AccordionItem
+    header="Final test code"
+  >
+
+```cpp
+#include <cstdio>
+#include "dynamic-array-2.hpp"
+
+int main()
+{
+  // Create a dynamic array of int
+  // and initialise it to a new dynamic array of 10 elements
+  dynamic_array<int> *array = new dynamic_array<int>(10, 0);
+
+  //...
+
+  // Print and update the values in the array, using the get and set functions
+  for(int i = 0; i < array->size; i++)
+  {
+    // Get the data from the array - using the array access operator
+    // Though it is probably worse then using array->get(i)!
+    printf("array[%d] =  %d\n", i, (*array)[i]);
+    array->set(i, i * 2);
+  }
+
+  //...
+
+  // Free the array and ensure we do not have a dangling pointer
+  delete array;
+  array = nullptr;
+
+  // Test an array on the stack
+  dynamic_array<int> array2(5, 0);
+
+  array2.add(1);
+  array2.add(2);
+  array2.add(3);
+
+  array2[1] = 20;
+
+  for(int i = 0; i < array2.size; i++)
+  {
+    printf("array2[%d] = %d\n", i, array2[i]);
+  }
+
+  return 0;
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+:::note
+
+If you want to skip ahead, the next enhancement for our dynamic array would be to incorporate exceptions. This will allow us to remove the need for the default value entirely, and instead we can cause an error to occur in a controlled manner.
+
+:::
+
+## Using vector
+
+Building your own dynamic array is a fantastic way to understand how things work at a relatively low level in your programs. However, for real systems you do not want to be building these things from scratch. C++ includes a library with classes that are designed for this purpose. For example, the [vector](https://cplusplus.com/reference/vector/vector/) class is the C++ version of our dynamic array.
+
+If you go on to do more C++ programming, you should spend some time learning to use the language's class library. For now, our objective is learning to program (not learning C/C++). So add this as a future to-do, and stay focused on thinking about how all of these things work within any program code.
