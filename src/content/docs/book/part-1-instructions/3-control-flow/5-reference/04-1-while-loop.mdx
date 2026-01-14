@@ -3,6 +3,7 @@ title: While Loop
 sidebar:
   label: " - While Loop"
 ---
+import { Aside } from '@astrojs/starlight/components';
 import MySwiper from '../../../../../../components/react/myswiper.jsx'
 
 import whileLoopSlide01 from './images/control-flow-statements-in-depth/control-flow-while-loop/Slide1.png';
@@ -290,6 +291,22 @@ export const sliderImagesWhileSplashKitLoop = [
     ]
   }
 ];
+
+<Aside type="note" title="In Brief">
+  ![Example while loop](./images/while-code.png)
+
+  #### The while loop...
+
+  - checks its condition and either goes into the loop, or jumps to the next instruction.
+  - will jump back to the condition when it gets to the end of the loop's instructions.
+  - runs the body 0 or more times.
+
+  :::tip
+
+  Remember that the instructions still run in sequence. So the condition is only checked once at the start of each loop.
+
+  :::
+</Aside>
 
 The while loop is a common feature of most programming languages. It is a pre-test loop, meaning that the statement starts with a condition, then a statement to be repeated. This means the code inside the loop will be repeated zero or more times, depending on the value of the condition. This is visualised in the following diagram.
 

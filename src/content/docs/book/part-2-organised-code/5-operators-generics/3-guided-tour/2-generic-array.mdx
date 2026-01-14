@@ -1,0 +1,312 @@
+---
+title: Generic Array
+draft: true
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from '@astrojs/starlight/components';
+import NoCopy from '/src/components/NoCopy.astro'
+import TemplateInjector from '/src/components/TemplateInjector.astro'
+import MultipleChoice from '/src/components/MultipleChoice.astro';
+import ITO from '/src/components/InlineTextOption.astro'
+
+Now that we've tried out using generics, let's see how we can apply them to the `double_array` class we made in [Member Functions](/book/part-2-organised-code/4-member-functions/3-guided-tour/3-array/).
+
+First, consider:
+- What parts of our `double_array` are fixed at _compile time_?
+- What parts do we want to make more flexible?
+
+#### Activity
+Here's the condensed code for the `double_array` we have currently. Try selecting the **two** specific things we can _generalize_ by using generics. You can try as many times as you need, see if you can figure it out :)
+
+<NoCopy>
+<MultipleChoice id="PreTest" checkOnClick checkingMode="groupLatched">
+
+<TemplateInjector replace={[
+    {selector: "del", template: 0, contains: "int"},
+    {selector: "del", template: 1, contains: "bool"},
+    {selector: "del", template: 2, contains: "class"},
+    {selector: "del", template: 3, contains: "public"},
+    {selector: "del", template: 4, contains: "const"},
+    {selector: "del", template: 5, contains: "MAX_CAPACITY"},
+    {selector: "ins", template: 6, contains: "double_array"},
+    {selector: "ins", template: 7, contains: "double"},
+    {selector: "ins", template: 8, contains: "50"}
+    ]}>
+    ```c++ frame="terminal" title="Select Inside this Code!" ins="double" ins="double_array" del="MAX_CAPACITY" ins="50" del="public" del="int" del="bool" del="class" del="const"
+    const int MAX_CAPACITY = 50;
+
+    class double_array
+    {
+        int size;
+        double data[MAX_CAPACITY];
+
+        public:
+        double_array() { ... }
+
+        int count() { ... }
+
+        bool add(double value) { ... }
+        bool remove(int index) { ... }
+
+        double& get(int index) { ... }
+    };
+    ```
+    <template> <ITO seamless group="int"><slot/></ITO></template>
+    <template> <ITO seamless group="bool"><slot/></ITO></template>
+    <template> <ITO seamless group="class"><slot/></ITO></template>
+    <template> <ITO seamless group="public"><slot/></ITO></template>
+    <template> <ITO seamless group="const"><slot/></ITO></template>
+    <template> <ITO seamless group="max_capacity"><slot/></ITO></template>
+
+    <template> <ITO seamless isCorrect optional group="double_array"><slot/></ITO></template>
+    <template> <ITO seamless isCorrect group="double"><slot/></ITO></template>
+    <template> <ITO seamless isCorrect group="50"><slot/></ITO></template>
+</TemplateInjector>
+
+<mistake-reason group="int">
+:::note[Not Quite]
+    We don't need to change the type of our indexes (`int`), since that's just what we use to index into our array - it's not the type of the data within each element.
+
+    Note: We could also use `unsigned int` instead of `int`, which is typically more correct! But no need to currently :)
+:::
+</mistake-reason>
+<mistake-reason group="bool">
+:::note[Not Quite]
+    We'll still want these functions to return success/fail with a `bool` :)
+:::
+</mistake-reason>
+<mistake-reason group="class">
+:::note[Not Quite]
+    We'll still want this to be a class :)
+:::
+</mistake-reason>
+<mistake-reason group="public">
+:::note[Not Quite]
+    No need to hide/show any extra methods or fields for this.
+:::
+</mistake-reason>
+<mistake-reason group="const">
+:::note[Not Quite]
+    You're on the right track! However, our array class will still have a fixed capacity, so technically the size is const. There might be something else we can generalize about `MAX_CAPACITY`.
+:::
+</mistake-reason>
+<mistake-reason group="max_capacity">
+:::note[Not Quite]
+    On the right track! Indeed we'll need to change `MAX_CAPACITY`, but we don't need to change its name, nor the fact that our `data` array uses it.
+:::
+</mistake-reason>
+<answer-reason group="double_array">
+:::tip[Exactly!]
+    Indeed we should change the name of our class :)
+
+    See if you can find the other two changes as well - what are we trying to generalize?
+:::
+</answer-reason>
+<answer-reason group="double">
+:::tip[Exactly!]
+    We can make the type of elements stored (currently `double`) a template parameter! This way, each variable declared with our `generic_array` type can have a different type of element - we could have `generic_array`s that stores `int`s, and `generic_array`s that store `book`s.
+:::
+</answer-reason>
+<answer-reason group="50">
+:::tip[Exactly!]
+    We can make the value of MAX_CAPACITY itself a template parameter! This way, each variable declared with our `generic_array` will be able to have a different capacity as needed. Note that we'll still _have_ a MAX_CAPACITY, and it'll still be constant within each version of the class.
+:::
+</answer-reason>
+
+</MultipleChoice>
+</NoCopy>
+
+We'll continue working from the code you wrote in the [last chapter]((/book/part-2-organised-code/4-member-functions/3-guided-tour/3-array/)), with the same test `main` as well. Feel free to make a copy of the file to continue working from.
+
+:::tip
+You can often approach writing templated classes by first writing them with a fixed concrete type instead. Once that's working, you can substitute the fixed type for a template type parameter - this is exactly what we're doing here.
+::::
+
+<Steps>
+
+1. ### Making it generic
+
+    Let's start by generalizing the class to hold any one type, rather than only `double`.
+
+    Start by adding the template parameter list above the `double_array` class definition (check [here](/book/part-2-organised-code/5-operators-generics/5-reference/07-generics/) for the syntax). For now we'll want a single template parameter, which will be a `typename` called `T`.
+
+    We should also go ahead and rename the class to something more fitting. Just `array` could work, but C++ already has a type called `array`, so let's call ours `bounded_array`.
+
+    :::tip
+        Declaring a template parameter list looks like:
+        ```c++
+        template< ... parameters here ... >
+        class bounded_array
+        {
+            ...
+        ```
+    :::
+
+2. If we try to compile now, we'll have errors wherever we used `double_array`. We can fix this by replacing the `double_array` with `bounded_array`, and providing a type for the template between angle brackets (`<>`). Considering it used to store `double`s, that would be a good type to put in :)
+
+    Hopefully now it should be compiling again! We haven't started using the templated type `T` yet, but this is a good start.
+
+    Make sure to have a go at this yourself - if you get stuck, check here to understand the changes needed, and compare it with what you tried.
+    <Accordion>
+    <AccordionItem header="Adding a template type">
+
+    ```cpp {1,2,6,13}
+    template<typename T>
+    class bounded_array
+    {
+        ...
+
+        bounded_array() { ... }
+
+        ...
+    }
+
+    int main()
+    {
+        bounded_array<double> numbers;
+
+        ...
+    }
+
+    ```
+    </AccordionItem>
+    </Accordion>
+
+3. Now comes the easy part! Right now our `bounded_array` is still using `double` everywhere as the type for the elements - we can just switch that to be `T` now. Have a go at that and try re-compiling - if all goes well, it should behave identically.
+
+    <Accordion>
+    <AccordionItem header="Using the template type">
+
+    ```cpp ins="T " ins="T&"
+    template<typename T>
+    class bounded_array
+    {
+        int size;
+        T data[MAX_CAPACITY];
+
+        public:
+        bounded_array() { ... }
+
+        int count() { ... }
+
+        bool add(T value) { ... }
+        bool remove(int index) { ... }
+
+        T& get(int index) { ... }
+    };
+
+    ```
+
+    `T` will be substituted with `double` whenever we write `bounded_array<double>`. But now we'll be able to write `bounded_array<color>`, or `bounded_array<int>`, as well.
+    </AccordionItem>
+    </Accordion>
+
+    Already we can use our `bounded_array` with any type! We could store `book`s, `enemy`s, `color`s, `price`s, etc. Try modifying your test code to try out some different types.
+
+    :::tip[An fun example]
+        To visualize things, you could try creating an array of rectangle and colours, then draw these to the screen:
+
+        <Accordion>
+        <AccordionItem header="Drawing rectangle array">
+
+        ```cpp
+        #included "splashkit.h"
+
+        //  ===== bounded_array declared here ====
+        //
+        //  ======================================
+
+        struct color_rectangle
+        {
+            color col;
+            rectangle rect;
+        };
+
+        int main()
+        {
+            bounded_array<color_rectangle> rects;
+
+            // add some rectangles
+            rects.add({COLOR_GREEN, rectangle_from(0, 600, 1280, 120)});
+            rects.add({COLOR_LIGHT_BLUE, rectangle_from(0,0, 1280, 600)});
+            rects.add({COLOR_WHITE, rectangle_from(800, 100, 300, 150)});
+            rects.add({COLOR_RED, rectangle_from(1280/2-300/2, 350, 300, 300)});
+
+            open_window("Shapes!", 1280, 720);
+
+            while(!quit_requested())
+            {
+                process_events();
+                clear_screen(COLOR_WHITE);
+
+                // draw our rectangles
+                for(int i = 0; i < rects.count(); i ++)
+                {
+                    fill_rectangle(rects.get(i).col, rects.get(i).rect);
+                }
+
+                refresh_screen();
+            }
+
+            close_all_windows();
+        }
+        ```
+        </AccordionItem>
+        </Accordion>
+        Previously we would have written these as separate `fill_rectangle(...)` function calls. Now, we can easily store the rectangles as _data_ rather than code, and write code to iterate over the data.
+    :::
+
+4. ### Generalizing the capacity
+    We can also make the capacity itself a template parameter. This way, one `bounded_array` might reserve space for `10` elements, while another one could reserve space for `1000`, depending on requirements.
+
+    First let's delete the `const int MAX_CAPACITY ...` definition outside the class, since we won't be needing it.
+
+    Now, let's add another template parameter to the parameter list above the class. This time, it'll be of type `int`, and we can re-use `MAX_CAPACITY` as the parameter name. This is handy, since the rest of the class is already expecting a constant with this name - we don't have to change anything else, and the code will start using our `MAX_CAPACITY` template parameter instead.
+
+    Now just update any variables using the `bounded_array` type to also provide the capacity. For instance, `bounded_array<double>` could become `bounded_array<double, 70>` to have a capacity of up to 70 `double`s.
+
+    :::tip[Also...]
+        We should also add an `int capacity()` method to the class as well, which we can use to access the maximum capacity from the outside - have a go at adding this as well.
+    :::
+
+    <Accordion>
+    <AccordionItem header="Generic capacity">
+
+    ```cpp ins={13-16,26} del="const int MAX_CAPACITY = 50;" ins=", int MAX_CAPACITY"
+    const int MAX_CAPACITY = 50;
+
+    template<typename T, int MAX_CAPACITY>
+    class bounded_array
+    {
+        int size;
+        T data[MAX_CAPACITY];
+
+        public:
+        bounded_array() { ... }
+
+        int count() { ... }
+        int capacity()
+        {
+            return MAX_CAPACITY;
+        }
+
+        bool add(T value) { ... }
+        bool remove(int index) { ... }
+
+        T& get(int index) { ... }
+    };
+
+    int main()
+    {
+        bounded_array<double, 50> numbers;
+
+        ...
+    }
+    ```
+
+    We can view this as moving `MAX_CAPACITY` from being a global constant, to being a constant (template) parameter within the class.
+    </AccordionItem>
+    </Accordion>
+</Steps>
+
+And we're done! Our `bounded_array` class is now much more re-usable - we can store any type in it, and have any (fixed) capacity depending on our needs. The last step for the class in this chapter, will be to improve its ease-of-use as an array. On the next page, we'll use operator overloads to add the ability to access elements in our array with square brackets `[]`.

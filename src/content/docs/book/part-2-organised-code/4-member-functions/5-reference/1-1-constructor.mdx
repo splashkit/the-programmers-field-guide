@@ -3,6 +3,7 @@ title: Constructors
 sidebar:
     label: " - Constructors"
 ---
+import CodeScroll from '/src/components/CodeScroll.astro'
 
 The constructors are probably the trickiest of the members to consider, but let's start with them anyway as we need to see how objects (struct values) are initialised before we start to perform other actions on them.
 
@@ -57,6 +58,7 @@ Remember that `new` creates an object from a struct, and `delete` must then be u
 
 Here is another example of a struct with some fields, a constructor, and a method.
 
+<CodeScroll maxHeight="650px">
 ```cpp
 #include "splashkit.h"
 
@@ -125,10 +127,11 @@ int main()
     return 0;
 }
 ```
+</CodeScroll>
 
 When you look at this, notice that the combination of `new` and the constructor perform the same steps as we had previously coded within something like a `new_stock` function. The `new` takes care of the memory allocation and the constructor takes care of initialising the data within the value created.
 
 Notice in the above code that you can also use the constructor for stack allocated stock. The syntax for this is a little strange, and makes the variable declaration look like a function call. You have to remember that in these cases you are calling the constructor. In this case, you *have to* call the constructor as there is not a constructor with no parameter (which is also known as the **default constructor**). If you want to be able to declare a stock variable without having to pass in the stock id and value, then you can add a second constructor that takes no parameters and initialises the id and value to some set defaults.
 
-<!-- TODO: add slider -->
+[/* TODO: add slider */]:#
 

@@ -4,6 +4,7 @@ sidebar:
   label: " - Do While Loop"
 ---
 
+import { Aside } from '@astrojs/starlight/components';
 import MySwiper from '../../../../../../components/react/myswiper.jsx'
 
 import doWhileLoopSlide01 from './images/control-flow-statements-in-depth/control-flow-do-while-loop/Slide1.png';
@@ -104,6 +105,22 @@ export const sliderImagesDoWhileLoop = [
     ]
   }
 ];
+
+<Aside type="note" title="In Brief">
+  ![Illustration of a do while loop](./images/do-while-code.png)
+
+  #### The do while loop...
+
+  - runs its instructions and then checks its condition and either goes back the to the start of its instructions, or continues to the next instruction after the loop.
+  - runs the body 1 or more times.
+  - is less common than the while loop.
+
+  :::tip
+
+  As with the while loop, remember that the instructions still run in sequence. So the condition is only checked once at the end of each loop.
+
+  :::
+</Aside>
 
 The do while loop is a post-test loop, meaning it starts with a statement to be repeated, then a condition.
 As the condition is after the body of the loop, the code inside the loop will be repeated one or more times depending on the value of the condition.

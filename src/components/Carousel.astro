@@ -75,6 +75,7 @@ const { onNextTest="true", id="" } = Astro.props;
 </div>
 
 <script>
+const TERN_POS = 1, TERN_NEUT = 0, TERN_NEG = -1;
 document.querySelectorAll("[data-carousel]").forEach(el =>{
 
     async function checkNext(){
@@ -82,7 +83,7 @@ document.querySelectorAll("[data-carousel]").forEach(el =>{
         if (checkCommand == undefined) return true;
 
         // We support three different options to make no-code usage easy
-        // - true/fale constant
+        // - true/false constant
         // - div_id.attribute | becomes document.getElementById(div_id)[attribute]
         // - div_id.method() | becomes document.getElementById(div_id)[attribute]()
 
@@ -126,7 +127,7 @@ document.querySelectorAll("[data-carousel]").forEach(el =>{
     });
 
     nextBtn.addEventListener('click', async function () {
-        if (!(await checkNext())) return;
+        if (!(await checkNext() == TERN_POS)) return;
 
         if (index < slides.length-1)
             index ++;

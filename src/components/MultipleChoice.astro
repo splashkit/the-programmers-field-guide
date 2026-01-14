@@ -27,10 +27,14 @@ Astro.locals.multipleChoice = {};
 Astro.locals.multipleChoice.defaultCorrect = "Yep!";
 Astro.locals.multipleChoice.defaultIncorrect = "Not quite!";
 Astro.locals.multipleChoice.submitLabel = "Check!";
-const { id="" } = Astro.props;
+
+/*checkingMode: strict, groupLatched*/
+const { id="", checkOnClick=false, checkingMode="strict"} = Astro.props;
 ---
 
 <multiple-choice id={id}
+    check-on-click={checkOnClick}
+    checking-mode={checkingMode}
     data-correct-label={Astro.locals.multipleChoice.defaultCorrect}
     data-incorrect-label={Astro.locals.multipleChoice.defaultIncorrect}
 >
@@ -171,9 +175,60 @@ const { id="" } = Astro.props;
             transform: translate3d(0.5rem, 0, 0);
         }
     }
+
+    ::global(aside[aria-label="Not Quite"]) {
+        border-inline-start: inherit;
+        border-radius: 8px;
+        border: 2px solid #a56386;
+        color: var(--sl-color-text);
+    }
+
+    ::global(aside[aria-label="Not Quite"]) {
+        background: none;
+    }
+
+    ::global(html[data-theme="light"] aside[aria-label="Not Quite"] .starlight-aside__title) {
+        color: #c32177;
+        font-weight: 800;
+    }
+
+    ::global(html[data-theme="dark"] aside[aria-label="Not Quite"] .starlight-aside__title) {
+        color: #debbc7;
+        font-weight: 800;
+    }
+
+    ::global(aside[aria-label="Exactly!"]) {
+        border-inline-start: inherit;
+        border-radius: 8px;
+        border: 2px solid #96d716;
+        color: var(--sl-color-text);
+    }
+
+    ::global(aside[aria-label="Exactly!"]) {
+        background: none;
+    }
+
+    ::global(html[data-theme="light"] aside[aria-label="Exactly!"] .starlight-aside__title) {
+        color: #6e991e;
+        font-weight: 800;
+    }
+
+    ::global(html[data-theme="dark"] aside[aria-label="Exactly!"] .starlight-aside__title) {
+        color: #bfd399;
+        font-weight: 800;
+    }
+
+    ::global(answer-reason, mistake-reason){
+        height: 0px;
+        overflow: clip;
+        display: block;
+        transition: height 0.3s;
+    }
 </style>
 
 <script>
+    const TERN_POS = 1, TERN_NEUT = 0, TERN_NEG = -1;
+
     class MultipleChoice extends HTMLElement {
         #defaultCorrectLabel: string;
         #defaultIncorrectLabel: string;
@@ -200,6 +255,9 @@ const { id="" } = Astro.props;
                 child.addEventListener('change', () => {
                     this.#clearAnswer();
                     this.#enableSubmit();
+
+                    if (this.getAttribute("check-on-click") == "true")
+                        this.#submitAnswer(true);
                 });
             }
         }
@@ -245,7 +303,7 @@ const { id="" } = Astro.props;
         #enableSubmit() {
             this.#submitEl.removeAttribute('disabled');
             this.#submitEl.classList.remove('sr-only');
-            this.#submitEl.onclick = () => this.#submitAnswer();
+            this.#submitEl.onclick = () => this.#submitAnswer(false);
         }
 
         /** Disable the submit button and hide it visually. */
@@ -256,26 +314,74 @@ const { id="" } = Astro.props;
         }
 
         /** Check if the selected option is correct and display the result. */
-        #submitAnswer() {
+        #submitAnswer(auto_submitted) {
             this.#disableSubmit();
 
-            let all_children  = this.getElementsByTagName('*');
+            let checkingMode = this.getAttribute("checking-mode");
 
-            let isCorrect = true;
+            if (checkingMode != "strict" && checkingMode != "groupLatched")
+                throw new Error("Bad checkingMode");
+
+            let all_children  = this.getElementsByTagName('*');
+            let reasons  = this.querySelectorAll('answer-reason,mistake-reason');
+            for (let ar of reasons) {
+                ar.style.height = "0px";
+            }
+
+            let groupCorrect = new Map();
+
             for (let child of all_children) {
                 if (child.checkCorrect == undefined) continue;
-                if (child.checkCorrect() == false){
-                    isCorrect = false;
-                    break;
+
+                let childIsCorrect = child.checkCorrect();
+
+                if (((child.getAttribute("optional") ?? "false") == "false") || childIsCorrect == TERN_POS)
+                {
+                    let groupName = child.getAttribute("group") ?? "";
+                    if (!groupCorrect.has(groupName)) {
+                        if (checkingMode == "strict")
+                            groupCorrect.set(groupName, TERN_POS);
+                        else
+                            groupCorrect.set(groupName, TERN_NEUT);
+                    }
+
+                    if (checkingMode == "strict") {
+                        groupCorrect.set(groupName, (groupCorrect.get(groupName) == TERN_POS && childIsCorrect > TERN_NEUT) ? TERN_POS : TERN_NEG);
+                    }
+                    else {
+                        if (childIsCorrect == TERN_POS)
+                            groupCorrect.set(groupName, TERN_POS);
+                        else if (childIsCorrect == TERN_NEG)
+                            groupCorrect.set(groupName, TERN_NEG);
+                    }
+                }
+
+                for (let ar of reasons) {
+                    if (ar.attributes.group.value == child.attributes.group.value) {
+                        if (
+                            (childIsCorrect == TERN_POS && ar.tagName == "ANSWER-REASON") ||
+                            (childIsCorrect == TERN_NEG && ar.tagName == "MISTAKE-REASON")
+                        )
+                            ar.style.height = ar.scrollHeight + "px";
+                    }
                 }
             }
-            this.#setAnswer(isCorrect);
+
+            let isCorrect = true;
+            for (let group of groupCorrect) {
+                isCorrect = isCorrect && (group[1] == TERN_POS);
+            }
+
+            if (!auto_submitted || isCorrect)
+                this.#setAnswer(isCorrect);
+            else
+                this.#enableSubmit();
         }
 
         checkCorrect(){
             if (this.#submitEl.onclick)
-                this.#submitAnswer();
-            return this.isCorrect;
+                this.#submitAnswer(false);
+            return this.isCorrect ? TERN_POS : TERN_NEG;
         }
     }
 

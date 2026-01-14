@@ -3,6 +3,7 @@ title: Game Actions
 sidebar:
   label: " - Game Actions"
 ---
+import NoCopy from '/src/components/NoCopy.astro'
 
 In this activity you want to demonstrate that you can use classes, inheritance, and polymorphism to create a more dynamic program. Supporting new higher level abstractions.
 
@@ -10,6 +11,7 @@ In this activity you want to demonstrate that you can use classes, inheritance, 
 
 To play around with inheritance and polymorphism, let's build some game mechanics that would allow you to apply effects to a game entity. Using this we can add the ability to control the game entity
 
+<NoCopy>
 ## Creating Game Entity
 
 We need something to apply effects to. This will be our game entity. For now, it will just have a public location (x, y) and will be able to draw itself as a circle.
@@ -82,3 +84,4 @@ At this point there are a couple of ways we can extend this.
 2: Extend the game entity with a size or color, and then you can look at effects that apply to something other than the location of the entity.
 
 Have a go at coding up at least one of these options. That will help you think about how objects works, and the ways we may interact with this kind of code.
+</NoCopy>

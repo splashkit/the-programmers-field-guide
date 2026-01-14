@@ -3,6 +3,7 @@ title: Case Statement
 sidebar: 
   label: " - Case Statement"
 ---
+import { Aside } from '@astrojs/starlight/components';
 import MySwiper from '../../../../../../components/react/myswiper.jsx'
 
 import caseStatementSlide01 from './images/control-flow-statements-in-depth/control-flow-case-statement/Slide1.png';
@@ -122,6 +123,22 @@ export const sliderImagesCaseStatement = [
     ]
   }
 ];
+
+<Aside type="note" title="In Brief">
+  ![Switch illustration code](./images/switch-code.png)
+
+  #### Case statements...
+
+  - will select the path where the case matches the value in the switch
+  - do not have visible conditions, but they are behind the scenes.
+  - use a condition that checks if the switch's value equals each case.
+
+  :::tip
+
+  You will use the if statement much more than switch/case, but switch/case can be useful when you have a known list of values to choose between.
+
+  :::
+</Aside>
 
 The case statement is the second kind of branching statement. It allows you to create paths that execute code based to value of an expression. This allows one case statement to handle many alternative paths.
 
