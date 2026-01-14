@@ -4,6 +4,7 @@ sidebar:
     label: " - Explore Structs (GUI)"
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
+import CodeScroll from '/src/components/CodeScroll.astro'
 
 
 Now that you have seen structs in actions, let's see how they can help in building a small graphical program.
@@ -178,6 +179,7 @@ Have a look at the [rnd](https://splashkit.io/api/utilities/#rnd-functions) func
 
 Have a think about how you can implement this function. You may want to add a `radius` local variable, and then use that as you calculate random values for the x and y position. Leave the initialisation of the target to `new_target`, this way if we change things in the target struct there is just one place where we initialise target values.
 
+<CodeScroll maxHeight="500px">
 ```cpp
 #include "splashkit.h"
 
@@ -209,6 +211,7 @@ int main()
   return 0;
 }
 ```
+</CodeScroll>
 
 <Accordion>
   <AccordionItem
@@ -270,6 +273,7 @@ Have a go at this yourself. When you get it working you should be able to click 
     header="Code for main and mouse over target"
   >
 
+<CodeScroll maxHeight="500px">
 ```cpp
 #include "splashkit.h"
 
@@ -308,6 +312,7 @@ int main()
   return 0;
 }
 ```
+</CodeScroll>
 
 The `mouse_over_target` can be implemented in a single line of code - but this will still help make our code more readable.
 
@@ -343,6 +348,7 @@ With a new struct, we should immediately think about the need to initialise this
 
 Main can now be updated to store the reaction game data, and will use this value to keep track of the current game state.
 
+<CodeScroll maxHeight="500px">
 ```cpp
 #include "splashkit.h"
 
@@ -386,6 +392,7 @@ int main()
   return 0;
 }
 ```
+</CodeScroll>
 
 <Accordion>
   <AccordionItem

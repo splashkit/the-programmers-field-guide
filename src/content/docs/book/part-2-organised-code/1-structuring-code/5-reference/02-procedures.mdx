@@ -1,6 +1,7 @@
 ---
 title: "Procedures"
 ---
+import CodeScroll from '/src/components/CodeScroll.astro'
 
 Procedures contain code that define the steps to **do something**. When a procedure is called the computer executes its instructions in sequence. Whatever the procedure changes when executed is the procedure's **side effect**. For example, a common side effect is to print something to the terminal.
 
@@ -43,6 +44,7 @@ When looking at this example take note of how each procedure is declared, and ma
 Find each of the procedure calls, and think about what happens on the stack when these lines are executed.
 Also note that we are now using the conventions of C/C++ -- procedure names are written in **snake_case**, with underscores (`_`) used to separate words.
 
+<CodeScroll height="500px">
 ```cpp
 /*
  * Program: print_steps.cs
@@ -85,6 +87,7 @@ int main()
     return 0;
 }
 ```
+</CodeScroll>
 
 :::note[Summary]
 

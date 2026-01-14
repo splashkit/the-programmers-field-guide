@@ -3,6 +3,7 @@ title: If Statement
 sidebar:
   label: " - If Statement"
 ---
+import { Aside } from '@astrojs/starlight/components';
 import MySwiper from '../../../../../../components/react/myswiper.jsx'
 
 import Slide01if from './images/control-flow-statements-in-depth/control-flow-if-statement/Slide1.png';
@@ -277,6 +278,25 @@ export const sliderImagesIfElseIfStatement = [
     ]
   }
 ];
+
+<Aside type="note" title="In Brief">
+  ![If example code](./images/if-code.png)
+
+  #### The if statement...
+
+  - uses the condition to determine which branch to select to run next.
+  - has one branch to run when the condition is true.
+  - can optionally have an else branch to run when the condition is false.
+
+  :::tip
+
+  When you are thinking through your steps, you can now have points where you decide if some code should be run or not. Do this, then do that, then if this is true, do this, otherwise (else) do this other thing, then (after the if) do this next thing.
+
+  :::
+</Aside>
+----------
+
+
 
 The if statement is the most frequently used branching statement. It allows you to selectively run code based on the value of a [boolean](/book/part-1-instructions/3-control-flow/5-reference/01-0-boolean-data) expression called the **condition**. Every if statement includes a block of code that will only be executed when the condition is true. There is also an option **else** branch that tells the computer what code to execute when the condition is false. We call each of these paths a **branch** of code.
 

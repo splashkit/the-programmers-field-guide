@@ -3,9 +3,13 @@ title: Simple Stats
 sidebar:
     label: " - Simple Stats"
 ---
+import NoCopy from '/src/components/NoCopy.astro'
+import CodeScroll from '/src/components/CodeScroll.astro'
 
+<NoCopy>
 Build a simple statistics calculator. This will keep a running count and total, as well as the minimum and maximum, for values entered by the user. When a value is entered, the program can update and output the count, total, minimum, maximum, and average.
 
+<CodeScroll maxHeight="600px">
 ```txt
 Welcome to the simple stats calculator:
 
@@ -52,6 +56,8 @@ Average: 5.1
 Add another value: [y/n] n
 I hope you got the information you are after!
 ```
+</CodeScroll>
+</NoCopy>
 
 :::caution
 Make sure the calculations work with entry of any valid number (that can be stored in a double).

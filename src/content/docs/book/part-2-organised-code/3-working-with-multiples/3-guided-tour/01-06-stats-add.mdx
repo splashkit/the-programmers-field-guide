@@ -3,6 +3,7 @@ title: Adding Data to the Calculator
 sidebar:
     label: " - Adding Data"
 ---
+import CodeScroll from '/src/components/CodeScroll.astro'
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 We can wrap up with program with a couple of final changes. Firstly, we can add in a loop and allow the user to add more data to the array. Then in the final step we can look at also removing values from the array. These will be great features to help us explore arrays.
@@ -13,6 +14,7 @@ If we add a loop to main, after populating the array, we can give the user optio
 
 This is what I used for this:
 
+<CodeScroll maxHeight="600px">
 ```cpp {11-20,25,29-60}
 /* stats-calc.cpp - from the field guide. written by ... */
 
@@ -78,6 +80,7 @@ int main()
   return 0;
 }
 ```
+</CodeScroll>
 
 ## Adding data
 

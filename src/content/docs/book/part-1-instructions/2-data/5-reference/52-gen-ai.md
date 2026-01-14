@@ -15,7 +15,7 @@ SplashKit integrates a few models that are suitable to run locally, and will giv
 
 With different variants for parameter size, and fine-tuning.
 
-By default, SplashKit will use the [Qwen3 0.6B Instruct model](https://huggingface.co/Qwen/Qwen3-0.6B-GGUF) for replies to prompts, and [Qwen3 0.6B base model](https://huggingface.co/Qwen/Qwen3-0.6B-Base). This model has been fine-tunes to respond to instructions, giving you the ability to interact in a chat style similar to online LLM tools.
+By default, SplashKit will use the [Qwen3 0.6B Instruct model](https://huggingface.co/Qwen/Qwen3-0.6B-GGUF) for replies to prompts, and [Qwen3 0.6B base model](https://huggingface.co/Qwen/Qwen3-0.6B-Base). This model has been fine-tuned to respond to instructions, giving you the ability to interact in a chat style similar to online LLM tools.
 
 ## Generating output
 
@@ -86,7 +86,9 @@ int main()
 
 Available models are:
 
-| <div style="width:11em">**Model Identifier**</div> | **Model** | **Description** |
+<div style=" max-height:33em; overflow-y: scroll;">
+
+| <div style="width:11em;">**Model Identifier**</div> | **Model** | **Description** |
 -------- | -------- | -------------------------------- |
 `QWEN3_0_6B_BASE` | Qwen3 0.6B Base model | small, extremely fast and good for text completion. Very limited world knowledge. |
 `QWEN3_0_6B_INSTRUCT` | Qwen3 0.6B Instruct model (default) | small, extremely fast and can follow simple instructions. Very limited world knowledge. |
@@ -103,6 +105,8 @@ Available models are:
 `GEMMA3_1B_INSTRUCT` | Gemma3 1B Instruct model | fast and can follow instructions. Has decent world knowledge and multilingual abilities. |
 `GEMMA3_4B_BASE` | Gemma3 4B Base model | slower but good for text completion/pattern based completion. Has decent world knowledge and multilingual abilities. |
 `GEMMA3_4B_INSTRUCT` | Gemma3 4B Instruct model | slower but can follow complex instructions. Has decent world knowledge and multilingual abilities. |
+
+</div>
 
 ## Conversations
 

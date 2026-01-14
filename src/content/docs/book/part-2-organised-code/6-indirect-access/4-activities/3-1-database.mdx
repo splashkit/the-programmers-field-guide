@@ -3,11 +3,15 @@ title: Bank System
 sidebar:
     label: " - Bank System"
 ---
+import CodeScroll from '/src/components/CodeScroll.astro'
+import NoCopy from '/src/components/NoCopy.astro'
 
+<NoCopy>
 Create a small account management system for a bank. This will work with one account, which has a name, interest rate, and balance. Allow the user to print the account, deposit, withdraw, add interest, and quit the program.
 
 When calculating the interest, you divide the interest rate by 365 and multiply it by the number of days the user indicates. This value, divided by 100, can then be multiplied by the balance to determine the amount of interest to add to the account.
 
+<CodeScroll maxHeight="500px">
 ```txt
 Simple transaction record!
 
@@ -74,6 +78,7 @@ Actions:
 5: Quit
 Option: 5
 ```
+</CodeScroll>
 
 :::caution
 
@@ -89,3 +94,4 @@ Make sure to have an account struct and use procedures for each kind of transact
 Ideally, your program should also include functions to [read and validate data from the user](/book/part-2-organised-code/1-structuring-code/3-guided-tour/00-2-explore-functions), and use an enum for the action/menu options, as well as a function that returns one of the enum values based on what the user chose (read menu option).
 
 :::
+</NoCopy>

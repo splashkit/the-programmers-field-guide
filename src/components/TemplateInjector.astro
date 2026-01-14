@@ -1,0 +1,62 @@
+---
+/* A component that allows one to replace elements within itself with various templates.
+   The structure is as follows:
+   <TemplateInjector replace={[ ... (see below) ]}>
+   <MainContent> ... </MainContent> <-- this is the content to be edited
+   <template> ... </template> <-- these are the templates to replace the content with
+   <template> ... </template>
+   ...
+
+   The `replace` attribute is a list of dictionaries. Each dictionary contains at minimum:
+    - template: an integer id for the template to use (starting from 0)
+    - selector: a query selector to use to find elements to replace
+
+   It may also contain:
+    - contains: a string to search for, only matches are replaced
+
+   The templates may contain <slot/>, which will be replaced with the original node's children.
+*/
+
+import { parseHTML } from 'linkedom'
+
+const { replace=[] } = Astro.props as Props;
+
+// First get the html for the slot
+const html = await Astro.slots.render('default')
+
+// Parse it
+const { document } = parseHTML(html);
+
+for (let x of replace) {
+    for (let elem of document.querySelectorAll(x.selector)) {
+        // Check if matches `contains`, if `contains` exists
+        if (x.contains && elem.toString().indexOf(x.contains) == -1)
+            continue;
+
+        // Validate template inidex
+        if (x.template+1 < 0 || x.template+1 >= document.children.length)
+            throw new Error("Invalid replacement template index");
+
+        // Clone the template node
+        let template = document.children[x.template+1].cloneNode(true);
+
+        // Replace the slot content
+        let slot = template.querySelector("slot");
+        if (slot)
+            slot.replaceWith(...elem.children);
+
+        // Replace the original element
+        elem.replaceWith(...template.children);
+    }
+}
+
+// Remove the template nodes
+for (let x of document.children.slice(1))
+    x.remove();
+
+// Stringify
+let htmlString = document.toString();
+---
+
+<div set:html={htmlString} />
+

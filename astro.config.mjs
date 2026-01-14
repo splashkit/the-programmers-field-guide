@@ -70,6 +70,9 @@ export default defineConfig({
         starlightAutoSidebar(),
         starlightImageZoom(),
       ],
+      expressiveCode : {
+        useStyleReset: false,
+      },
       sidebar: [
         {
           label: "Part 0: First Steps",

@@ -3,13 +3,17 @@ title: AFL Score
 sidebar:
     label: " - AFL score"
 ---
+import CodeScroll from '/src/components/CodeScroll.astro'
+import NoCopy from '/src/components/NoCopy.astro'
 
+<NoCopy>
 A game in the Australian Football League consists of two teams aiming to achieve the highest score. The score calculated from the number of goals and behinds each team kicks. A goal is worth six (6) points, and a behind is worth one (1) point. You can read further on this in the [AFL explained scoring page](https://afl-explained.com.au/scoring/).
 
 Build a program that allows the user to enter details of an AFL game, output scores and winners, and provide a menu for the user to update game details and output scores.
 
 An example of this running is shown below:
 
+<CodeScroll maxHeight="500px">
 ```txt
 Welcome to the AFL score calculator!
 
@@ -79,6 +83,7 @@ Are you sure you want to quit? [Y/n]: y
 
 Bye!
 ```
+</CodeScroll>
 
 :::tip[Hints:]
 
@@ -91,3 +96,4 @@ Here are some functions and procedures you may want to consider adding:
 - A function to calculate and return the name of the winner, from the two team names and scores.
 
 :::
+</NoCopy>

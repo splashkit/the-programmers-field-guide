@@ -10,7 +10,7 @@ Ok, let's think about what we are planning on doing. We are going to create a dy
 
 ![The plan to build a dynamic array](./images/dyn-arr-plan.png)
 
-We will have a `dynamic_array<T>` struct. This will use [generics](/book/part-2-organised-code/7-deep-dive-memory/5-reference/07-generics) so that the array can contain any type the programmer who uses it wants (including ourselves). Within the struct we will need fields to keep track of the `size` and the location of the `data`.
+We will have a `dynamic_array<T>` struct. This will use [generics](/book/part-2-organised-code/5-operators-generics/5-reference/07-generics) so that the array can contain any type the programmer who uses it wants (including ourselves). Within the struct we will need fields to keep track of the `size` and the location of the `data`.
 
 To avoid resizing every time the user adds something, we can also have a `capacity` that keeps track of how big the allocation is in memory. Our code will need to make sure that size is always less than or equal to capacity. If you try to add something when we are at capacity, then the size of the array can be changed. As a start, we can double the capacity of the array each time we fill it. This will also help avoid resizing the array frequently. We can create a `resize` function to handle the necessary steps to manage memory for us.
 
