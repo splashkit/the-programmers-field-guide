@@ -1,0 +1,92 @@
+---
+title: Explore Pass by Reference
+sidebar:
+  label: " - Explore Pass by Reference"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+Finally, let's try building a small program that uses _pass by reference_. There are several cases when we want to use pass by reference, but a common one is when we want a procedure to change variables _outside of itself_.
+
+## Swap
+We'll see this in action by writing a `swap` function, which will take two integer variables as references (using `&`), and _swap_ their values. Without pass by reference this would be difficult, since we are modifying the variables that are passed in themselves.
+
+Here's what the procedure will look like:
+
+|   |   |
+|---|---|
+| **Procedure** | *Swap* |
+| **Parameters** | `x`: A reference to the first integer to swap |
+|                | `y`: A reference to the second integer to swap |
+| **Description** | Takes two references, `x` and `y`, and swaps their _values_.|
+
+<div class="caption">Specification for the <code>swap</code> function</div>
+
+### Write the Code and Test
+
+Let's write the code for this now. Here is a program you can use to test it out:
+
+```cpp
+#include "splashkit.h"
+
+// Add swap code here
+
+int main()
+{
+  int num_a, num_b;
+
+  num_a = 2;
+  num_b = 8;
+
+  // First print the numbers as-is
+  write_line("Before the swap:");
+  write_line("num_a is " + to_string(num_a));
+  write_line("num_b is " + to_string(num_b));
+
+  // Swap the values of the two variables
+  swap(num_a, num_b);
+
+  // Print the numbers afterwards - they should be swapped
+  write_line("\nAfter the swap:");
+  write_line("num_a is " + to_string(num_a));
+  write_line("num_b is " + to_string(num_b));
+
+  return 0;
+}
+```
+
+<Accordion>
+  <AccordionItem
+    header="Code For Swap"
+  >
+
+```cpp
+/**
+ * Swaps the values of the two integer variables passed in.
+ *
+ * @param x The first integer variable to swap
+ * @param y The second integer variable to swap
+ */
+void swap(int &x, int &y)
+{
+  int temp;
+
+  // store the value from `x` in temp
+  temp = x;
+
+  // assign the value of `y` to the variable passed in as `x`
+  x = y;
+
+  // assign the values that was in `x`, to the variable passed in as `y`
+  y = temp;
+}
+```
+
+:::tip
+When you run the program, you'll see how the values stored in `num_a` and `num_b` are swapped.
+
+Try removing the ampersands (`&`) from `void swap(int &x, int &y)`, and see if this still happens. Why? Why not?
+:::
+
+  </AccordionItem>
+
+</Accordion>
