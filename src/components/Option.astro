@@ -2,14 +2,15 @@
 
 export interface Props {
     isCorrect?: boolean;
+    group?: string;
 }
 
-const { isCorrect=false } = Astro.props as Props;
+const { isCorrect=false, group="" } = Astro.props as Props;
 ---
 
 <li>
     <label>
-        <input autocomplete="off" data-is-option type="radio" data-is-correct={isCorrect} /><span><slot /></span>
+        <input autocomplete="off" data-is-option type="radio" data-is-correct={isCorrect} group={group} /><span><slot /></span>
     </label>
 </li>
 
@@ -24,9 +25,13 @@ const { isCorrect=false } = Astro.props as Props;
 </style>
 
 <script>
+    const TERN_POS = 1, TERN_NEUT = 0, TERN_NEG = -1;
+
     document.querySelectorAll('[data-is-option]').forEach(function (li){
         li.checkCorrect = function(){
-            return li.dataset.isCorrect == li.checked.toString();
+            if (!li.checked)
+                return li.dataset.isCorrect=="true" ? TERN_NEUT : TERN_POS;
+            return li.dataset.isCorrect=="true" ? TERN_POS : TERN_NEG;
         }
     });
 </script>
