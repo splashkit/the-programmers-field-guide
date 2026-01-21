@@ -15,7 +15,7 @@
     "@astrojs/starlight": "^0.32.2",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
-    "astro": "^5.13.5",
+    "astro": "^5.16.12",
     "astro-embed": "^0.9.0",
     "astro-icon": "^0.8.2",
     "react": "^18.2.0",
