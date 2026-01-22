@@ -1,0 +1,4 @@
+---
+title: Overview of inheritance
+---
+
