@@ -5,10 +5,10 @@ title: "Your First Program"
 import { Steps } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from "@astrojs/starlight/components";
 
-Let's get straight into building our first program. You will use these steps over and over as you progress through this material... so make sure you know how to work through each step.
+Let's get straight into building our first program. You will use these steps over and over as you progress through this material, so make sure you know how to work through each step.
 
 :::tip
-Make sure to work through these steps with us. These will show you how to use the tools you have installed to build and run programs.
+Work through these steps with us. These will show you how to use the tools you have installed to build and run programs.
 :::
 
 ## 1. Open Visual Studio Code
@@ -32,15 +32,13 @@ Most of our programming work can be undertaken in Visual Studio Code. We will be
 
 We need somewhere to store our program code. Data is organised by the [file system](/book/appendix/2-computer-use/2-trailside/03-files-systems) in files and folders. You can use folders to organise where things are stored, making it easy to find where your code is when you need it.
 
-Create and open a folder for your program code.
-
 <Steps>
 1. In VS Code, click on the **File** menu and choose **Open Folder**.
 2. Then use the dialog that appears to create a new folder somewhere on your computer.
    :::tip
    On your computer, each user will have a home folder that contains a Documents folder. This is probably a good place to store your code. Create a **Code** folder in your Documents folder.
 
-   When you start working on larger projects, you can create separate folders for projects when these start getting larger. For now a single folder for your code will be sufficient.
+   When you start working on larger projects, you can create a separate folder for each project. For now, a single folder for your code will be sufficient.
    :::
 
    <Tabs syncKey="terminal-type">
@@ -60,8 +58,6 @@ Create and open a folder for your program code.
    </Tabs>
 </Steps>
 
-
-
 ## 3. Create a Code File
 
 Code for each program will be written in a simple text file. We will give this file a **.cpp** extension to help Visual Studio Code understand the kind of code we are working with.
@@ -70,14 +66,14 @@ Code for each program will be written in a simple text file. We will give this f
 1. Make sure you can see the *Explorer* on the left of the VS Code. If the explorer is not visible, you can open it using the top icon in the toolbar on the left, the one highlighted in yellow below.
 
     ![Image showing how to create new file in VS Code](./images/vscode-new-file.png)
-2. Notice that the folder name is indicated at the top of the Explorer. The image above shows we are in a *FieldGuide* folder, indicated by the red arrow.
+2. Notice that the folder name is indicated at the top of the Explorer. The image above shows we are in a *FieldGuide* folder, indicated by the red arrow. You can use this to check that you have the right folder open in your VS Code.
 3. Click the *New File* icon at the top of the Explorer, or Right-Click and select *New File...*. These are highlighted in red boxes in the image above.
 4. Now type the name of the file you want to create. In this case type **hello-world.cpp** then press enter.
 </Steps>
 
 ## 4. Add the Code
 
-Now we need to write the code. For our first program, you can copy the code for the classic *Hello World* program from below. This program will get the computer to output the message "Hello World" to the Terminal when it runs.
+Now we are ready to write some code! For our first program, you can copy the code for the classic *Hello World* program from below. This program will get the computer to output the message "Hello World" to the terminal when it runs.
 
 <Steps>
 1. Double click on the *hello-world.cpp* file in the Explorer to open it.
@@ -89,6 +85,7 @@ Now we need to write the code. For our first program, you can copy the code for 
     int main()
     {
         write_line("Hello World");
+        return 0;
     }
     ```
 3.  A filled circle next to the filename in a file's tab header indicates it has not been saved. You need to make sure that the file is saved before you compile it. Save the file by clicking the **File** menu and selecting **Save**, or by pressing Ctrl + S (Cmd + S on macOS).
@@ -106,6 +103,8 @@ At this stage you have the code for the program you want to create. In order to 
     * Open the *Command Palette* by pressing Ctrl + Shift + P (Cmd + Shift + P on macOS), type **View Terminal**, then select the "View: Toggle Terminal" option.
     * Press Ctrl + `
 
+    No matter what operating system you are using, we are going to be using Unix commands and compilers. So if you are on Windows, we need to make sure you are using a terminal that supports Unix commands. If you are using WSL, you shouldn't need to do anything. If you are using MSYS2, you need to make sure you get a bash shell in your terminal. If you get a terminal in VS Code that has the text "Windows PowerShell" and/or has prompts that start with "PS" then you need to [configure VS Code to open a bash shell using MSys2](/book/appendix/0-installation/2-5-setup-win-msys/#set-up-vs-code-terminal).
+        
     <Tabs syncKey="terminal-type">
     <TabItem label="Linux">
     ![The terminal open in VS Code](./images/linux-terminal.png)
@@ -115,67 +114,59 @@ At this stage you have the code for the program you want to create. In order to 
     </TabItem>
     <TabItem label="Windows (MSYS2)">
     ![The terminal open in VS Code](./images/windows-msys64-terminal.png)
-        We are going to be using Unix commands and compilers. With MSYS2, you need to make sure you get a bash shell in your Terminal. If you get a Terminal that has the text "Windows PowerShell" and/or has prompts that start with "PS" then you need to configure VS Code to open a bash shell using [MSys2](/book/appendix/0-installation/2-5-setup-win-msys/#set-up-vs-code-terminal).
-        
-        
     </TabItem>
     <TabItem label="Windows (WSL)">
     ![The terminal open in VS Code](./images/windows-wsl-terminal.png)
     </TabItem>
     </Tabs>
 
-5.  In the Terminal type the following command:
+5.  In the terminal execute the following command:
+    ```zsh
+    clang++ hello-world.cpp -o my_program -l SplashKit -Wall
+    ```
 
-    <Tabs syncKey="terminal-type">
+    This runs the `clang++` compiler, and tells it to read the `hello-world.cpp` file, link with the SplashKit library (`-l SplashKit`), output an executable called *my_program* (`-o my_program`), and warn for all issues it identifies (`-Wall`). If interested, check [here](/book/part-0-getting-started/1-building-programs/5-reference/7-0-building-cpp/) to learn more about the command.
+
+    You should now see something similar to what is shown in the following image. This image shows my VS Code after follow the steps up to this point. I have created a *FieldGuide* folder in which I created **hello-world.cpp**. I have copied the code above into the *hello-world.cpp* and saved the file. Then, I have run the `clang++` terminal command to compile my code into **my_program**.
+
+    ![Visual showing the compiled program](./images/compiling.png)
+
+6. Run the program you created by typing the following command into the terminal:
+   
+   <Tabs syncKey="terminal-type">
     <TabItem label="Linux">
 
     ```zsh
-    clang++ hello-world.cpp -o hello -l SplashKit -Wall
-    ./hello
+    ./my_program
     ```
 
     </TabItem>
     <TabItem label="macOS">
 
     ```zsh
-    clang++ hello-world.cpp -o hello -l SplashKit -Wall
-    ./hello
+    ./my_program
     ```
 
     </TabItem>
     <TabItem label="Windows (MSYS2)">
 
     ```zsh
-    clang++ hello-world.cpp -o hello -l SplashKit -Wall
-    ./hello.exe
+    ./my_program.exe
     ```
 
     </TabItem>
     <TabItem label="Windows (WSL)">
 
     ```zsh
-    clang++ hello-world.cpp -o hello -l SplashKit -Wall
-    ./hello
+    ./my_program
     ```
 
     </TabItem>
     </Tabs>
-
-    This runs the `clang++` compiler, and tells it to read the `hello-world.cpp` files, link with the SplashKit library (`-l SplashKit`), output *my_program* (`-o my_program`), and warn for all issues it identifies (`-Wall`). If interested, check [here](/book/part-0-getting-started/1-building-programs/5-reference/7-0-building-cpp/) to learn more about the command.
-
-    You should now see something similar to what is shown in the following image. This image shows my VS Code after follow the steps up to this point. I have created a *FieldGuide* folder in which I created **hello-world.cpp**. I have copied the code above into the *hello-world.cpp* and saved the file.
-
-    ![Visual showing the compiled program](./images/compiling.png)
-
-6. Run the program you created by typing the following command into the Terminal:
-   
-   ```bash
-   ./my_program
-   ```
 
    Make sure to use the same name as the output from the compiler. The following image shows the output that you should get when running the program.
 
     ![Run the program you created](./images/run-program.png)
 </Steps>
 
-You have now built and run your first program.
+You have now built and run your first program! For your future programs the process will be the same, just with different code, so return to this page if you need a refresher.
