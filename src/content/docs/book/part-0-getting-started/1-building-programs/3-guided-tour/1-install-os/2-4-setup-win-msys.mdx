@@ -6,62 +6,54 @@ sidebar:
   label: " - Windows (MSYS2)"
 banner: 
     content: |
-        On Windows install using MSYS or WSL - not both.
+        On Windows complete the install steps for MSYS2 or WSL - not both!
 ---
 
 import { YouTube } from 'astro-embed';
 import { Steps } from '@astrojs/starlight/components';
 
-In this guide, we will walk through the steps to install the necessary Applications and Tools using **MSYS2** (a **M**inimal Unix **SYS**tem) on Windows.
+In this guide, we will walk through the steps to install the necessary applications and tools using **MSYS2** (a **M**inimal Unix **SYS**tem) on Windows.
 
 Now, let's get started!
-
-To get SplashKit and other coding tools installed on Windows, using MSYS2, follow the steps outlined below:
 
 ## 1. Install MSYS2/MINGW64
 
 <Steps>
 
-1. Download the installer from the official MSYS2 website: [www.msys2.org](https://www.msys2.org/)
+  1. Download the installer from the official MSYS2 website: [www.msys2.org](https://www.msys2.org/)
 
-2. To install MSYS2, double-click the downloaded executable file, and follow the on-screen instructions.
+  2. To install MSYS2, double-click the downloaded executable file, and follow the on-screen instructions.
 
-    :::caution[Use the default install path]
+      :::caution[Use the default install path]
+      Make sure to use the default install path: `C:\msys64`
 
-    Make sure to use the default install path: `C:\msys64`
-
-    *Using other paths may cause issues.*
-
-    :::
+      Using other paths may cause issues.
+      :::
 
 </Steps>
-
-:::note[MSYS2 Installation Video:]
-<div class="not-content">
-  <YouTube id="Hayjgo1Kqg0" params="fs=1&modestbranding=1&rel=0"/>
-</div>
-:::
 
 ## 2. Open a MINGW64 Terminal
 
 <Steps>
 
-3. Search for the "MINGW64" terminal
-
-    MSYS2 comes with a number of terminal environments.
-
-    Make sure to use the **MINGW64** terminal version (not MSYS or UCRT). Search for "mingw64" in the Windows Start menu and selecting the **MSYS2 MINGW64** App.
+3. MSYS2 comes with a number of terminal environments.
+   We want to use a specific one. To do this, open the Windows start menu, and search for "MINGW64".
 
     ![Image showing opening MSYS2 MINGW64 Terminal](./images/setup-windows/open-mingw64-terminal.png)
     <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
-    :::note[Blue Terminal icon]
+    :::note[Look for the blue icon]
     Not sure if you have the right one? The MINGW64 Terminal has a blue icon.
     :::
 
-4. Open the **MINGW64** Terminal using **"Run as Administrator"**
+4. Open the **MSYS2 MINGW64** Terminal using **"Run as Administrator"**
 
 </Steps>
+
+The following video shows how to install and open MSYS2 and the MINGW64 terminal.
+<div class="not-content">
+  <YouTube id="Hayjgo1Kqg0" params="fs=1&modestbranding=1&rel=0"/>
+</div>
 
 ## 3. Run Automated Setup
 

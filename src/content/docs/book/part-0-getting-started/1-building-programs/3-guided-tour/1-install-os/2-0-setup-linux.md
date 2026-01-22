@@ -102,7 +102,5 @@ Jump to the [next step](/book/part-0-getting-started/1-building-programs/3-guide
 :::
 
 :::caution[Had problems?]
-
 If you had problems with the automated installation, or want to do things yourself, you can follow the [manual install instructions](/book/appendix/0-installation/2-0-setup-linux).
-
 :::
