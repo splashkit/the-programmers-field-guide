@@ -2,32 +2,35 @@
 title: Group Activity
 ---
 
-export let compile_command = `clang++ -O3 main.cpp extra-library-things.cpp \n\-o blender -lX11 -l opengl -Wall`;
-
 import { Steps } from '@astrojs/starlight/components';
-import { Tabs, TabItem } from "@astrojs/starlight/components";
 import MultipleChoice from '/src/components/MultipleChoice.astro';
 import Option from '/src/components/Option.astro';
 import { Code } from 'astro-expressive-code/components'
 import Carousel from '/src/components/Carousel.astro'
 import ITO from '/src/components/InlineTextOption.astro'
 
-For this activity, try to join into a group of 3-4 people. The idea here is to fill in each other's knowledge gaps on a topic that frequently gets overlooked - the **compilation command**.
+For this activity, try to join into a group of 3-4 people. The idea here is to fill in each other's knowledge gaps on a topic that frequently gets overlooked: the **compilation command**.
+
 ```sh title="For example..."
 clang++ hello-world.cpp -o hello -l SplashKit -Wall
 ```
+
 Things to consider before the activity:
- - Have you really thought about what each section does? What does `-o` mean?
- - Could you write it from scratch?
- - Could there be other useful things you could _add_ to it?
 
-You may have to do some extra Googling to figure this out - work together and solidify your understanding! :)
+- Have you really thought about what each section does? What does `-o` mean?
+- Could you write it from scratch?
+- Could there be other useful things you could _add_ to it?
 
-# Group Activity
+You may have to do some extra Googling to figure this out. Work together and solidify your understanding!
+
+## Group Activity
 
 <Steps>
 1. Gather around one of your group members' computers, and read over the compilation command below.
-   <Code code={compile_command} lang="sh" />
+    ```sh
+    clang++ -O3 main.cpp extra-library-things.cpp
+    -o blender -lX11 -l opengl -Wall
+    ```
 2. ##### Discuss the following with each other:
    1. _What_ is being compiled?
    2. _Which_ libraries are being used? (Feel free to search up their names if you're interested in what they are!)
