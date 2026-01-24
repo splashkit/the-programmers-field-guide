@@ -56,7 +56,7 @@ int main()
 ```
 
 :::info
-Remember the main difference in C++ between a struct and a class is that class members are private by default. We will review this in depth in the Part 3.
+Remember the main difference in C++ between a struct and a class is that class members are private by default. We will review this in depth in Part 3.
 :::
 
 Have a go at adding the fields to your class.
@@ -105,7 +105,7 @@ Have a go at this yourself.
     header="Code for constructors"
   >
 
-```cpp {16-22,24-31}
+```cpp {16-22,24-29}
 #include "splashkit.h"
 
 class account
@@ -121,19 +121,17 @@ class account
          */
         string name;
 
-        account(string name, int balance)
+        account(string name_, int balance_)
         {
-            // Initialises the account - this-> refers to the value being created.
-            // We need to use this-> to refer to the fields as the parameters have the same name
-            this->name = name;
-            this->balance = balance;
+            // Initialises the account
+            // We've added _ to the end of the parameters, to differentiate them from the class fields
+            name = name_;
+            balance = balance_;
         }
 
         account()
         {
             // A default constructor lets you initialise the value when no parameters are passed
-            // Here we can access the fields directly
-            // this-> is not needed here, but can be used for clarity
             name = "Account Holder Unknown";
             balance = 0;
         }
@@ -159,10 +157,8 @@ Have a go at this yourself.
     header="Code for print method"
   >
 
-```cpp {35-38}
+```cpp {31-34}
 #include "splashkit.h"
-
-using std::to_string;
 
 class account
 {
@@ -177,19 +173,17 @@ class account
          */
         string name;
 
-        account(string name, int balance)
+        account(string name_, int balance_)
         {
-            // Initialises the account - this-> refers to the value being created.
-            // We need to use this-> to refer to the fields as the parameters have the same name
-            this->name = name;
-            this->balance = balance;
+            // Initialises the account
+            // We've added _ to the end of the parameters, to differentiate them from the class fields
+            name = name_;
+            balance = balance_;
         }
 
         account()
         {
             // A default constructor lets you initialise the value when no parameters are passed
-            // Here we can access the fields directly
-            // this-> is not needed here, but can be used for clarity
             name = "Account Holder Unknown";
             balance = 0;
         }
@@ -211,7 +205,7 @@ int main()
 
 ## Making and using objects
 
-Now we can update main to test out this new class. Try creating different account objects, some on the stack and some on the heap (remembering to delete the ones from the heap). Get them to print out their messages.
+Now we can update main to test out this new class. Try creating different account objects on the stack, and get them to print out their messages.
 
 Have a go at this yourself.
 
@@ -230,23 +224,12 @@ int main()
     account a4("Jo", -1000);
     account a5;
 
-    // Create an account object on the heap
-    // a6 is a pointer, the object is on the heap
-    account *a6 = new account("John", 109954);
-
     // Print the accounts
     a1.print();
     a2.print();
     a3.print();
     a4.print();
     a5.print();
-
-    // When using a pointer we use the -> notation
-    a6->print();
-
-    // Delete the object (pointer still exists)
-    delete a6;
-    a6 = nullptr;
 
     return 0;
 }
@@ -257,7 +240,7 @@ int main()
 
 :::tip
 
-Objects are values created from a struct or class type, where we are using member functions. As with these values before, they can exist on the stack or on the heap. Remember that when working with a pointer, the value/object exists elsewhere in memory.
+Objects are values created from a struct or class type, where we are using member functions. As with these values before, they can exist on the stack and follow the same scoping rules.
 
 :::
 
@@ -269,6 +252,6 @@ Try accessing the balance from inside main - notice how its private nature means
 
 :::tip
 
-Notice how you can control access to the private `balance` field. Here we have a `get_balance` method that lets you read the value, and `deposit` and `withdraw` methods to allow you to change the balance. But, you cannot just set the balance to be any value you want. It has to do through those methods.
+Notice how you can control access to the private `balance` field. Here we have a `get_balance` method that lets you read the value, and `deposit` and `withdraw` methods to allow you to change the balance. But, you cannot just set the balance to be any value you want. It has to be done through those methods.
 
 :::

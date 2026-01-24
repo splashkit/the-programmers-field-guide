@@ -10,36 +10,36 @@ Let's consider simple example of a contact, where each contact has a name and ph
 
 ## Data only struct example
 
-Let's start with the data only struct, as we have already been working with this approach so far. To implement this, we create a struct with the data, a function to create a contact on the heap, and a procedure to output the contact's details.
+Let's start with the data only struct, as we have already been working with this approach so far. To implement this, we create a struct with the data, a function to create a contact and initialize its fields, and a procedure to output the contact's details.
 
 The code for this would appear as follows:
 
 ```cpp
 #include "splashkit.h"
 
-struct contact {
+struct contact
+{
     string name;
     string phone;
 };
 
-contact *new_contact(string name, string phone)
+contact new_contact(string name, string phone)
 {
-    contact *result = (contact *)malloc(sizeof(contact));
-    result->name = name;
-    result->phone = phone;
+    contact result;
+    result.name = name;
+    result.phone = phone;
     return result;
 }
 
-void print_contact(const contact *c)
+void print_contact(const contact &c)
 {
-    write_line(c->name + " " + c->phone);
+    write_line(c.name + " " + c.phone);
 }
 
 int main()
 {
-    contact *c = new_contact("Joan", "12345678");
+    contact c = new_contact("Joan", "12345678");
     print_contact(c);
-    free(c);
     return 0;
 }
 
@@ -51,20 +51,15 @@ With C++ you can combine this by embedding the functions and procedures within t
 
 - The data appears as fields. This is the same as we have already seen.
 - Functions and procedures can be coded as **methods**. These exist within the struct, and have direct access to the struct's fields.
-- You can also add **constructors**, this is a special function that is only called when the struct is initialised (a new variable is declared, or a new value allocated on the heap).
-
-:::note
-
-Remember back in [Part 1](/book/part-1-instructions/00-part-1-programs-as-instructions) we introduced the idea of [methods](/book/part-1-instructions/1-sequence/5-reference/10-procedure) in C#. This is because, in C# you cannot write your functions and procedures outside a struct or class. So you have to organise your code in C# using methods.
-
-:::
+- You can also add **constructors**, this is a special function that is only called when the struct is initialised (for instance, when a new variable is declared).
 
 The new code for the contact example is as follows. Notice how this is essentially the same as the above code, just with the function and procedure coded into the struct itself.
 
 ```cpp
 #include "splashkit.h"
 
-struct contact {
+struct contact
+{
     string name;
     string phone;
 
@@ -86,16 +81,13 @@ struct contact {
 
 int main()
 {
-    contact *c = new contact("Joan", "12345678");
-    c->print();
-    delete c;
-    c = nullptr;
+    contact c("Joan", "12345678");
+    c.print();
 
-    // We can also work with this on the stack
-    // The compiler will pass the method a pointer to
-    // this value for us.
-    contact c2("John", "12345678");
-    c2.print();
+    // struct fields are still accessible (public) by default
+    // and can be modified
+    c.name = "Jenny";
+    c.print();
 
     return 0;
 }

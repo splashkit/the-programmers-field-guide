@@ -2,7 +2,7 @@
 title: Class
 ---
 
-In C++ member functions on structs were actually provided mostly for backward compatibility. Instead, when we shift to object-oriented programming, we should now code our entities in **classes**. In C++, classes and structs are almost identical, so switching to classes now should not be too difficult. This shift will be important, as most modern languages only provide classes.
+When we shift to object-oriented programming in C++, we should now code our entities in **classes**. In C++, classes and structs are almost identical, so switching to classes now should not be too difficult. This shift will be important, as most modern languages only provide classes.
 
 *So what is the difference?*
 
@@ -34,89 +34,49 @@ In the above illustration:
 
 ## Example
 
-The following example implements the `text_message` using a class. The highlighted lines are the only changes! Though, we could no longer access the `text` and `sender` fields outside the class's code. So `main` could not read or change these values.
+The following example implements `contact` using a class (rather than struct like [before](/book/part-2-organised-code/4-member-functions/5-reference/1-0-struct-members/#struct-with-functional-members-example)). The highlighted lines are the only changes! Though, we could no longer access the `name` and `phone` fields outside the class's code. So `main` could not read or change these values.
 
-```cpp {10,13,18,22-23}
+
+```c++ {3, 5, 9-10, 30, 34-37}
 #include "splashkit.h"
 
-/**
- * @class text_message
- * @brief Represents a simple text message with a sender and message text.
- * 
- * @field text The content of the message.
- * @field sender The sender of the message.
- */
-class text_message
+class contact
 {
-  /**
-   * The content of the message. This is now private!
-   */
-  string text;
+    // name and phone are now both private!
+    string name;
+    string phone;
 
-  /**
-   * The sender of the message. This is now private!
-   */
-  string sender;
+    // Things from here on are public now...
+    public:
 
-  // Things from here on are public now...
-  public:
-    /**
-     * @brief Constructs a text_message with the given sender and text.
-     * 
-     * @param sender The sender of the message.
-     * @param text The content of the message.
-     */
-    text_message(string sender, string text)
+    contact(string init_name, string init_phone)
     {
-        this->sender = sender;
-        this->text = text;
+        // We can access the name and phone in the struct directly
+        // The parameters need different identifiers, so we renamed them
+        name = init_name;
+        phone = init_phone;
     }
 
-    /**
-     * @brief Constructs an empty text_message with no sender or text.
-     */
-    text_message()
-    {
-        sender = "";
-        text = "";
-    }
-
-    /**
-     * @brief Prints the message in the format: "Message from <sender>: <text>"
-     */
     void print()
     {
-        write_line("Message from " + sender + ": " + text);
+        // Print is within the struct so it can
+        // access the name and phone fields directly!
+        write_line(name + " " + phone);
     }
-};
+}; // this is the end of the class!
 
-
-/**
- * @brief Entry point for the message program. Demonstrates usage of
- * the text_message class.
- */
 int main()
 {
-  // Notice... this is all the same!
+    // Notice... this is the same!
+    contact c("Joan", "12345678");
+    c.print();
 
-  text_message m1("John", "Hello");
-  text_message m2("Mary", "Hi");
-  text_message m3("John", "How are you?");
-  text_message m4("Mary", "I'm good thanks");
-  text_message m5;
+    // However, c.name is no longer public,
+    // and so cannot be changed outside of the class!
+    // c.name = "Jenny";
+    // c.print();
 
-  
-  m1.print();
-  m2.print();
-  m3.print();
-  m4.print();
-  m5.print();
-  
-  text_message *m6 = new text_message("John", "I'm glad to hear it");
-  m6->print();
-  delete m6;
-
-  return 0;
+    return 0;
 }
 ```
 

@@ -8,7 +8,7 @@ Structs are great, as they provide a context when accessing fields. When you hav
 
 *What would happen if we could add functions and procedures into the struct?*
 
-This is what we will explore in this chapter. We will use these ideas to enhance our dynamic array, giving each array the data and functionality to needed to make them work smoothly within our programs. We will also see how this can change the way that we code the entities in our programs. 
+This is what we will explore in this chapter. We will use these ideas to begin developing a re-usable array type that _encapsulates_ its data and functionality inside itself, making it self contained and easy to use in our programs. We will also see how this can change the way that we code the entities in our programs.
 
 The results of this will feed into the next part, which will unpack the object-oriented paradigm that grew out of this simple idea of combining functionality and data within a single code abstraction.
 
