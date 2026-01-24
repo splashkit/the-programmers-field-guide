@@ -1,6 +1,5 @@
 ---
 title: Array Class
-draft: true
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { Steps } from '@astrojs/starlight/components';
@@ -233,25 +232,40 @@ We'll make our class's fields _private_, and our class's methods _public_. You c
    </Accordion>
 
 4. ### Add the `add` method
-   Now that we're warmed up, let's try adding a slightly more interesting method, the `add` method. This method adds a new element to the array - it should take a `double`, and return a `bool`. The return value should be `true` if there was space in the array, and `false` if there wasn't. Make sure to only add the element if there's space!
+   Now that we're warmed up, let's try adding a slightly more interesting method, the `add` method. This method adds a new element to the array - it should take a `double` as its parameter, and return `void`.
 
-   Have a go at adding this method, and then add some tests in `main` to see if it's working. We don't have a way to access elements once they're in the array, so for now try just adding a few elements and checking if the `count()` looks right.
+   We should also check if there's enough space left in the array, before adding an element. If there isn't, we'll throw an [exception](/book/part-2-organised-code/1-structuring-code/5-reference/10-exceptions/). Make sure to only add the element if there's space!
+
+   :::tip[Exceptions?]
+   We haven't used exceptions much so far because we've relied on other patterns instead -- for instance, checking first _before_ trying something that could fail, like with our input validation.
+
+   However, when developing reusable components like this class, exceptions can provide more flexibility in how errors are returned and handled. We can directly say "This wasn't used right!", and the programmer using the component can decide when and where they want to handle that exception.
+
+   If you need a refresher on them, feel free to check the reference [here](/book/part-2-organised-code/1-structuring-code/5-reference/10-exceptions/).
+   :::
+
+   For the exception, let's throw a C++ `string`. We need to be careful here, since writing `throw "The array is full!";` will throw a _C_ string, which is actually a different type. We can use the C++ `string` type's constructor to ensure we create a C++ string: `throw string("The array is full!");`
+
+   Try adding this method, and then add some tests in `main` to see if it's working. We don't have a way to access elements once they're in the array, so for now try just adding a few elements and checking if the `count()` looks right.
 
    <Accordion>
     <AccordionItem header="Double array add function" >
 
     Inside the `double_array` class I added the following method, along with tests in `main`:
 
-    ```cpp {6-10, 17-27}
+    ```cpp {6-13, 20-30}
     class double_array
     {
 
         ...
 
-        bool add(double value)
+        void add(double value)
         {
-            ... // this should be basically identical to last chapter :)
-                // just keep in mind what the return value should be
+            if (size >= MAX_CAPACITY )
+            {
+                throw string("Failed to add element - the array is full!");
+            }
+            ... // the rest should be basically identical to last chapter :)
         }
     }
 
@@ -269,7 +283,7 @@ We'll make our class's fields _private_, and our class's methods _public_. You c
         write("This should be 3: ");
         write_line(numbers.count());
 
-        // You could add a test for what happens when the array is filled to MAX_CAPACITY as well
+        // You could add a test for what happens when the array is filled to MAX_CAPACITY as well - it should throw an exception which you could catch.
     }
 
     ```
@@ -277,6 +291,21 @@ We'll make our class's fields _private_, and our class's methods _public_. You c
    </Accordion>
    :::tip[Multiple `double_array`]
    Hopefully you can already see our array class taking shape! Feel free to try declaring multiple `double_array`s as well, and seeing how each one can hold a different set of elements.
+   :::
+
+   :::caution[`terminate called after throwing an instance of...`]
+        If we throw an exception but fail to catch it, we'll receive an error like this on the terminal:
+        ```sh title=Terminal wrap
+        terminate called after throwing an instance of 'std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >'
+        ```
+
+        `std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >` just means our `string`, so it translates to:
+
+        ```sh title=Terminal wrap
+        terminate called after throwing an instance of 'string'
+        ```
+
+        which makes sense since we threw a `string` but didn't catch it.
    :::
 
 4. ### Finally, add the `get` method
@@ -296,18 +325,15 @@ We'll make our class's fields _private_, and our class's methods _public_. You c
     ```
     again. We'll see how to do _that_ next chapter, but keep it in mind :)
 
-    :::caution[What if the index given is invalid?]
-    This is up to you to decide :) Right now we have limited ways to handle this. You could provide the user a warning message, wrap the index around, or just not even check!
-
-    Later on we'll see other ways we can deliberately throw errors when given invalid inputs.
-    :::
+    ##### What if the index given is invalid?
+    Indeed, let's check if the index is invalid, and if so we can handle it similar to `add` - we'll throw an exception. This way if we write some code that accidentally accesses an invalid index, we'll find out right away from the exception.
 
    <Accordion>
     <AccordionItem header="Double array get function" >
 
-    Inside the `double_array` class I added the following method. I chose to provide a warning to the user if they put in an invalid index, but otherwise didn't try to fix the issue or avoid crashing. I also added more tests in `main`:
+    Inside the `double_array` class I added the following method. I also added more tests in `main`:
 
-    ```cpp {6-13, 31-38}
+    ```cpp {6-13, 31-48}
     class double_array
     {
 
@@ -317,7 +343,7 @@ We'll make our class's fields _private_, and our class's methods _public_. You c
         {
             if (index < 0 || index >= size)
             {
-                write_line("Accessed invalid array index " + to_string(index));
+                throw string("Accessed invalid array index " + to_string(index));
             }
             return data[index];
         }
@@ -344,8 +370,18 @@ We'll make our class's fields _private_, and our class's methods _public_. You c
             write_line(to_string(i) + ". " + to_string(numbers.get(i)));
         }
 
-        write("Testing accessing an invalid index (should error):");
-        numbers.get(-4);
+        // Test if accessing an invalid index (-4) throws an exception correctly
+        try
+        {
+            numbers.get(-4);
+            // If we get here, it means the `get` method didn't throw an exception,
+            // which means we have a bug to fix.
+            write_line("Accessing index -4 didn't error!");
+        }
+        catch (const string& str)
+        {
+            /* we expected an error, so this is success! So no output */
+        }
     }
 
     ```
@@ -355,10 +391,19 @@ We'll make our class's fields _private_, and our class's methods _public_. You c
 
 At this point we have a usable `double_array` class! You should be able to see how we _encapsulated_ the behaviour of our arrays in a class, so that we can treat them as an object we can interact with, rather than pure data to be managed directly. The `double_array` manages _its own_ data, and instead provides us with an _interface_ that we can use to interact with it.
 
-Our class is still a bit limited however. There are some things we can improve already - like adding the ability to remove elements. For others, we will need to learn further. Here are some fairly easy extension ideas:
+Our class is still a bit limited however. There are some things we can improve already - like adding the ability to remove elements. For others, we will need to learn further. Here are some interesting extension ideas:
 
-- `Remove Element` method - should just take an index, and remove the element using any of the techniques from the previous chapter. You could even have multiple methods, one for each technique!
-- `Set Element` method - this could take an index, and a value to set it to. It could then also return a `bool` based on whether that index was valid or not.
+- **`Remove Element` method** - should just take an index, and remove the element using any of the techniques from the previous chapter. You could even have multiple methods, one for each technique!
+
+    Like `Add` and `Get`, it should throw an exception if an invalid index is passed in.
+
+- **`Fill` method** - Takes a `count` and `value`, and adds `count` elements to the array. Should be usable like `my_array.fill(24, 0.9);`, to add 24 `0.9`s to the array.
+
+    Consider: imagine we want to add 20 elements, but the array only has space for 10.
+     - Should `fill` check if there's enough space first, and throw an exception immediately if there isn't?
+     - Or should it just repeatedly call `add`, allowing `add` to throw an exception once the array is full, leaving the array partially changed?
+
+    There is no single correct answer - think about what behaviour you want the method to guarantee.
 
 Here's some test code if you want to try things out more thoroughly:
 <Accordion>
@@ -398,22 +443,53 @@ int main()
 
     test_value(numbers.count(), 3, "3 Count failed");
 
-    // fill up the array to test capacity handling
-    while(numbers.count() < MAX_CAPACITY)
+    // ===== Test a variety of exceptions ===== //
+
+    // ------------ fill up the array to test capacity handling
+    try
     {
-        if (numbers.add(0) == false)
+        while(numbers.count() < MAX_CAPACITY)
         {
-            write_line("Add stopped adding elements before reaching capacity");
+            numbers.add(0);
         }
     }
-    if (numbers.add(0) == true)
+    catch (const string& str)
     {
-        write_line("Add continued adding elements past max capacity");
+        write_line("Add stopped adding elements before reaching capacity: " + str);
     }
 
-    write_line("Testing accessing an invalid index (should error twice):");
-    numbers.get(-4);
-    numbers.get(MAX_CAPACITY);
+    // ------------ test adding an element to a full array
+    try
+    {
+        numbers.add(0);
+        write_line("Add continued adding elements past max capacity");
+    }
+    catch (const string& str)
+    {
+        /* we expected an error, so this is success! So no output */
+    }
+
+    // ------------ test accessing negative indexes
+    try
+    {
+        numbers.get(-4);
+        write_line("Accessing index -4 didn't error!");
+    }
+    catch (const string& str)
+    {
+        /* we expected an error, so this is success! So no output */
+    }
+
+    // ------------ test accessing indexes larger than the maximum capacity
+    try
+    {
+        numbers.get(MAX_CAPACITY);
+        write_line("Accessing index MAX_CAPACITY didn't error!");
+    }
+    catch (const string& str)
+    {
+        /* we expected an error, so this is success! So no output */
+    }
 
     // Uncomment if you added remove(int index) - assuming using the "shift" approach
     /*
@@ -437,4 +513,104 @@ Great question! Right now with our current knowledge, the answer is basically ju
 We'd copy the class, rename it, and then change all the `double` to, for instance, `book`.
 
 In the [next chapter](/book/part-2-organised-code/5-operators-generics/0-overview/) however, we'll learn a way to write the code _once_, and make it usable with _any_ type.
+:::
+
+-----------------------------
+
+## Optional: Better Exceptions
+##### _This section is optional - feel free to explore it when you have time and interest._
+
+So far, all of our exceptions have been of the same type: `string`. By using the same type for every exception:
+ - we have no easy way to differentiate between them when catching them
+ - the errors messages printed on the terminal when exceptions aren't caught are less useful
+
+Think back to what we see on the terminal when a string exception is not caught:
+```sh title=Terminal wrap
+terminate called after throwing an instance of 'std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >'
+```
+
+See how it tells us the _type_ of the object that was thrown? Right now, this isn't very helpful.
+
+However, this also shows us something important: we can encode information about the error in its _type_, by using _different_ exception types for different kinds of errors! Once we do this, we can also use multiple `catch` blocks to handle different errors in different ways.
+
+### What types should we use?
+
+While C++ provides some in-built exception types, we are also free to define our own! For instance, we could declare some types specifically for usage with our `double_array` class, such as:
+ - `array_full`
+ - `array_invalid_index`
+
+### Your turn
+Have a go at declaring some classes with those names. Once they are declare try throwing exceptions using those classes instead of `string` (e.g `throw array_full();`);
+
+:::tip[What fields should they have?]
+Up to you! Strictly speaking they don't need any fields at all - we can declare a completely empty class, and use that type in exceptions all the same.
+:::
+
+Once you have this working, you should be able to catch those types instead of `string`. And if the exception is uncaught, we'll get errors like this on the terminal instead:
+
+```sh title=Terminal wrap
+terminate called after throwing an instance of 'array_full'
+```
+
+Much clearer!
+
+<Accordion>
+<AccordionItem header="Example" >
+
+First I created an empty `array_full` class:
+```c++
+class array_full
+{
+
+};
+```
+
+Now inside `add`, I constructed an `array_full` and threw that instead:
+
+```cpp {10}
+class double_array
+{
+
+    ...
+
+    void add(double value)
+    {
+        if (size >= MAX_CAPACITY )
+        {
+            throw array_full();
+        }
+        ...
+    }
+}
+```
+
+Finally inside my tests, I switched what I was catching from `string` to `array_full`:
+
+```c++ {11}
+int main()
+{
+    ...
+
+    // ------------ test adding an element to a full array
+    try
+    {
+        numbers.add(0);
+        write_line("Add continued adding elements past max capacity");
+    }
+    catch (const array_full& str)
+    {
+        /* we expected an error, so this is success! So no output */
+    }
+
+    ...
+
+}
+
+```
+</AccordionItem>
+</Accordion>
+
+
+:::note
+C++ provides several built in exception types - in production code, we should use these, or types that are _based_ off them. Using these requires some more advanced knowledge however - once we cover _inheritance_, then these will be a better option than making our own entirely error classes from scratch.
 :::

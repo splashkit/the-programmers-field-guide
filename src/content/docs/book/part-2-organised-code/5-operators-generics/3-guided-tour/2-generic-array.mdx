@@ -23,7 +23,7 @@ Here's the condensed code for the `double_array` we have currently. Try selectin
 
 <TemplateInjector replace={[
     {selector: "del", template: 0, contains: "int"},
-    {selector: "del", template: 1, contains: "bool"},
+    {selector: "del", template: 1, contains: "void"},
     {selector: "del", template: 2, contains: "class"},
     {selector: "del", template: 3, contains: "public"},
     {selector: "del", template: 4, contains: "const"},
@@ -32,7 +32,7 @@ Here's the condensed code for the `double_array` we have currently. Try selectin
     {selector: "ins", template: 7, contains: "double"},
     {selector: "ins", template: 8, contains: "50"}
     ]}>
-    ```c++ frame="terminal" title="Select Inside this Code!" ins="double" ins="double_array" del="MAX_CAPACITY" ins="50" del="public" del="int" del="bool" del="class" del="const"
+    ```c++ frame="terminal" title="Select Inside this Code!" ins="double" ins="double_array" del="MAX_CAPACITY" ins="50" del="public" del="int" del="void" del="class" del="const"
     const int MAX_CAPACITY = 50;
 
     class double_array
@@ -45,14 +45,14 @@ Here's the condensed code for the `double_array` we have currently. Try selectin
 
         int count() { ... }
 
-        bool add(double value) { ... }
-        bool remove(int index) { ... }
+        void add(double value) { ... }
+        void remove(int index) { ... }
 
         double& get(int index) { ... }
     };
     ```
     <template> <ITO seamless group="int"><slot/></ITO></template>
-    <template> <ITO seamless group="bool"><slot/></ITO></template>
+    <template> <ITO seamless group="void"><slot/></ITO></template>
     <template> <ITO seamless group="class"><slot/></ITO></template>
     <template> <ITO seamless group="public"><slot/></ITO></template>
     <template> <ITO seamless group="const"><slot/></ITO></template>
@@ -70,9 +70,9 @@ Here's the condensed code for the `double_array` we have currently. Try selectin
     Note: We could also use `unsigned int` instead of `int`, which is typically more correct! But no need to currently :)
 :::
 </mistake-reason>
-<mistake-reason group="bool">
+<mistake-reason group="void">
 :::note[Not Quite]
-    We'll still want these functions to return success/fail with a `bool` :)
+    No need to make these methods return anything :)
 :::
 </mistake-reason>
 <mistake-reason group="class">
@@ -189,8 +189,8 @@ You can often approach writing templated classes by first writing them with a fi
 
         int count() { ... }
 
-        bool add(T value) { ... }
-        bool remove(int index) { ... }
+        void add(T value) { ... }
+        void remove(int index) { ... }
 
         T& get(int index) { ... }
     };
@@ -290,8 +290,8 @@ You can often approach writing templated classes by first writing them with a fi
             return MAX_CAPACITY;
         }
 
-        bool add(T value) { ... }
-        bool remove(int index) { ... }
+        void add(T value) { ... }
+        void remove(int index) { ... }
 
         T& get(int index) { ... }
     };
