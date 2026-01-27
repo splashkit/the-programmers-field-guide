@@ -1,0 +1,87 @@
+
+## Arrays are not pointers
+
+The C/C++ array syntax can result in some confusion about arrays and pointers. Some people say that "arrays are pointers", but that is not true. The array is a variable, with sufficient storage to store a number of values. When you pass this to a parameter, you get the address being passed across. This does not change the array. Try to keep these clearly in your mind. In C, you can have an array, you just cannot directly pass it to a parameter.
+
+This confusion is understandable. You can pass it to a pointer. So it must be a pointer! You can use `[]` with pointers. So arrays must be pointers too! No! Sorry, this is just a result of decisions made during the design of this language. By treating arrays differently, the language makes this confusing if you do not have a strong mental model of what is going on.
+
+When you declare an array, picture it as an array. That is the right mental model.
+
+When you pass an array in C, remember it will pass it the pointer to the array. The array is not a pointer, the compiler just has code in it that says "if it is an array, pass the address instead".
+
+
+----------
+
+## Option 3 - using memory copy functions
+
+What we have so far is effective, but it can be more efficient.
+
+In C/C++, the standard library provides a `memcpy` function. We can use this to copy the memory efficiently. In this case, it can copy all the elements after the removed element, back over the elements starting at the element being removed. This is the same idea as option 2, just using the memory copy function we saw in [copying arrays](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-04-clone-array). In this case we only copy part of the array, and copying it over the array itself.
+
+![Overview of option 3](./images/remove-option-3.png)
+
+The following pseudocode shows how to do this. We need to calculate the number of elements to copy, and use this to determine the number of bytes to copy.
+
+```plaintext
+Procedure: Remove Element
+Parameters:
+- data: reference to number data
+Local variables:
+- index: integer of element to remove
+- number to move: integer of elements to move
+- size: integer of bytes to move
+Steps:
+- Output the values in the array with their indexes
+- Ask the user which index to remove
+- If it is less than 0 or larger than the max index
+  - Output an error message
+  - Return
+- number to move = data.size - (index + 1)
+- size = sizeof(double) * number to move;
+- memcpy(address of data.values[index], address of data.values[index + 1], size)
+- Reduce data.size by one
+```
+
+Have a go at this yourself.
+
+<Accordion>
+<AccordionItem header="Code for remove using memcpy">
+
+```cpp {4,22-24}
+/* stats-calc.cpp - from the field guide. written by ... */
+
+#include "splashkit.h"
+#include "utilities.h"
+
+// ... other code here ...
+
+/**
+ * Remove a value from the array
+ *
+ * @param data the array of values
+ */
+void remove_value(number_data &data)
+{
+  print(data);
+
+  int index = read_integer("Enter the index of the value to remove: ");
+
+  if (index >= 0 && index < data.size)
+  {
+    int number_to_move = data.size - (index + 1);
+    int bytes_to_move = sizeof(double) * number_to_move;
+    memcpy(&data.values[index], &data.values[index + 1], bytes_to_move);
+
+    data.size--;
+  }
+  else
+  {
+    write_line("Sorry, that is not a valid index.");
+  }
+}
+
+// ... other code here ...
+```
+
+</AccordionItem>
+</Accordion>

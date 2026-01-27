@@ -1,8 +1,12 @@
 ---
 title: Struct with Array
+sidebar:
+    label: " - Array in Struct (C/C++)"
 ---
 
-One effective way to work with arrays is to place the array and its size into a struct. This allows you to keep the data and the number of elements that is has nicely together. You can then also use the size to give you the capability of adjusting the number of elements you are using, by changing the value of the array's size. With this, you can then grow and shrink the size of the array, up to a set maximum number of elements.
+## In C/C++
+
+One effective way to work with arrays in C/C++ is to place the array and its size into a struct. This allows you to keep the data and the number of elements that is has nicely together. You can then also use the size to give you the capability of adjusting the number of elements you are using, by changing the value of the array's size. With this, you can then grow and shrink the size of the array, up to a set maximum number of elements.
 
 The following illustrates the code and how to think about a struct that contains an array:
 
@@ -39,9 +43,31 @@ struct number_data
   int size;
 };
 
-// Stub for populate array -- see next page for code
+/**
+ * Populate the array with values entered by the user
+ *
+ * @param data the array of values (passed by reference)
+ */
 void populate_array(number_data &data)
 {
+  int size = read_integer("How many values do you want to enter? ");
+  if (size > MAX_NUMBERS)
+  {
+    write_line("Sorry, you can only enter " + to_string(MAX_NUMBERS) + " values.");
+    size = MAX_NUMBERS;
+  }
+  else if (size < 0)
+  {
+    size = 0;
+  }
+
+  data.size = size;
+
+  // Populate each element - up to data.size
+  for (int i = 0; i < data.size; i++)
+  {
+    data.values[i] = read_double("Enter value: ");
+  }
 }
 
 int main()

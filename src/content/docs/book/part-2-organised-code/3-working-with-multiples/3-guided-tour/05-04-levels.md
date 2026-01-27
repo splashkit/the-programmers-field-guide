@@ -25,13 +25,13 @@ struct map_data
 
 This approach works well when the data need to be processed flexibly across the different dimensions. In this case we would never want to check a column or row across different levels. So while we can represent this as an additional dimension on the array, we should look for alternative ways to achieve this.
 
-Looking at the explorer data, we can see that there is currently a single map. Rather than adding a dimension within the map, we can convert this to an array of maps as shown below. This ensures that all the existing code that works with maps will still work. We just need to add a current map index (or pointer) that will tell us which map we need to draw and interact with.
+Looking at the explorer data, we can see that there is currently a single map. Rather than adding a dimension within the map, we can convert this to an array of maps as shown below. This ensures that all the existing code that works with maps will still work. We just need to add a current map index that will tell us which map we need to draw and interact with.
 
 ```cpp
 struct explorer_data
 {
   map_data maps[MAX_MAPS];
-  int current_map; // or map_data *current_map;
+  int current_map;
   point_2d camera_position;
   explorer_state_kind state;
   tile_kind editor_tile_kind;

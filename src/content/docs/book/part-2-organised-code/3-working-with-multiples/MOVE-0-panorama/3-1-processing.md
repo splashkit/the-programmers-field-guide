@@ -19,7 +19,7 @@ When using the struct with the array and size, you use the size value to determi
 ## Example
 
 ```cpp
-#include <cstdio>
+#include "splashkit.h"
 #include "utilities.h"
 
 // The maximum number of values we can store
@@ -47,7 +47,7 @@ void populate_array(number_data &data)
   int size = read_integer("How many values do you want to enter? ");
   if (size > MAX_NUMBERS)
   {
-    printf("Sorry, you can only enter %d values.\n", MAX_NUMBERS);
+    write_line("Sorry, you can only enter " + to_string(MAX_NUMBERS) + " values.");
     size = MAX_NUMBERS;
   }
   else if (size < 0)
@@ -76,7 +76,7 @@ int main()
   for (int i = 0; i < data.size; i++)
   {
     // Access elements of the values array within the struct.
-    printf("%lf\n", data.values[i]);
+    write_line(data.values[i]);
   }
 
   return 0;

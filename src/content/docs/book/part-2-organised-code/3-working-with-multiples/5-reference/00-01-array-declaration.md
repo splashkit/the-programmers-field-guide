@@ -38,7 +38,7 @@ The array in `data` can contain a hundred values, but we can use `num_values` to
 
 ```cpp
 /* Program: test-array.c */
-#include <stdio.h>
+#include "splashkit.h"
 
 struct number_data
 {
@@ -62,16 +62,16 @@ int main()
 
   for (i = 0; i < 5; i++)
   {
-    printf("Enter my data[%d]: ", i);
-    scanf("%lf", &my_data[i]);
+    write("Enter my data[" + to_string(i) + "]: ");
+    my_data[i] = to_double(read_line());
 
-    printf("value[%d]: %d\n", i, value[i]);
-    printf("other[%d]: %f\n", i, other[i]);
-    printf("my_data[%d]: %lf\n", i, my_data[i]);
+    write_line("value[" + to_string(i) + "]: " + to_string(value[i]));
+    write_line("other[" + to_string(i) + "]: " + to_string(other[i]));
+    write_line("my_data[" + to_string(i) + "]: " + to_string(my_data[i]));
 
     if ( i < data.num_values )
     {
-      printf("data.value[%d]: %d\n", i, data.value[i]);
+      write_line("data.value[" + to_string(i) + "]: " + to_string(data.value[i]));
     }
   }
   return 0;

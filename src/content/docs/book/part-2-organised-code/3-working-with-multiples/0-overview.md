@@ -2,7 +2,7 @@
 title: Overview
 ---
 
-Previous chapters have introduced a number of programming building blocks you can create within your code. We have seen how to work with sequences and data, added control flow, organised code with functions and procedures, structured data, and used references and pointers. However, when it comes to working with data, you have been working with individual values. This chapter introduces the concepts and practices that make it easy to work with multiple values in your code.
+Previous chapters have introduced a number of programming building blocks you can create within your code. We have seen how to work with sequences and data, added control flow, organised code with functions and procedures, structured data, and used references. However, when it comes to working with data, you have been working with individual values. This chapter introduces the concepts and practices that make it easy to work with multiple values in your code.
 
 When you have understood the material in this chapter you will be able to work with multiple values, allowing your programs to work with and manage many data values.
 

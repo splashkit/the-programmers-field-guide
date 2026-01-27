@@ -18,7 +18,7 @@ This is what I used for this:
 ```cpp {11-20,25,29-60}
 /* stats-calc.cpp - from the field guide. written by ... */
 
-#include <cstdio>
+#include "splashkit.h"
 #include "utilities.h"
 
 // The maximum number of values we can store
@@ -28,12 +28,12 @@ const int MAX_NUMBERS = 20;
 
 void print_menu()
 {
-  printf("\nMenu\n");
-  printf("1. Add a value\n");
-  printf("2. Remove a value\n");
-  printf("3. Print the values\n");
-  printf("4. Calculate stats\n");
-  printf("5. Quit\n");
+  write_line("\nMenu");
+  write_line("1. Add a value");
+  write_line("2. Remove a value");
+  write_line("3. Print the values");
+  write_line("4. Calculate stats");
+  write_line("5. Quit");
 
 }
 
@@ -58,15 +58,15 @@ int main()
         //todo: remove_value(data);
         break;
       case 3:
-        printf("\nYou entered...\n\n");
+        write_line("\nYou entered...\n");
         print(data);
         break;
       case 4:
-        printf("\nCalculating statistics...\n\n");
+        write_line("\nCalculating statistics...\n");
 
-        printf("Sum:        %4.2lf\n", sum(data));
-        printf("Mean:       %4.2lf\n", mean(data));
-        printf("Max:        %4.2lf\n", max(data));
+        write_line("Sum:        " + to_string(sum(data), 2));
+        write_line("Mean:       " + to_string(mean(data), 2));
+        write_line("Max:        " + to_string(max(data), 2));
         break;
     }
     read_string("Press Enter to continue...");
@@ -75,7 +75,7 @@ int main()
     option = read_integer("Enter an option: ", 1, 5);
   }
 
-  printf("Goodbye!\n");
+  write_line("Goodbye!");
 
   return 0;
 }
@@ -108,7 +108,7 @@ void add_data(number_data &data)
   }
   else
   {
-    printf("Sorry, you can only enter %d values.\n", MAX_NUMBERS);
+    write_line("Sorry, you can only enter " + to_string(MAX_NUMBERS) + " values.");
   }
 }
 ```
@@ -148,7 +148,7 @@ void add_data(number_data &data)
   }
   else
   {
-    printf("Sorry, you can only enter %d values.\n", MAX_NUMBERS);
+    write_line("Sorry, you can only enter " + to_string(MAX_NUMBERS) + " values.");
   }
 }
 ```

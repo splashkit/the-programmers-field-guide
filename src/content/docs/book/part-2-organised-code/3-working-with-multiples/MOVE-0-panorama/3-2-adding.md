@@ -25,7 +25,7 @@ This will then ensure that the new element is included in any subsequent process
 ## Example
 
 ```cpp {19-42,49-52}
-#include <cstdio>
+#include "splashkit.h"
 #include "utilities.h"
 
 // The maximum number of values we can store
@@ -64,7 +64,7 @@ void add_data(number_data &data)
   else
   {
     // No space, so show an error
-    printf("Sorry, you can only enter %d values.\n", MAX_NUMBERS);
+    write_line("Sorry, you can only enter " + to_string(MAX_NUMBERS) + " values.");
   }
 }
 
@@ -81,7 +81,7 @@ int main()
   // Loop through printing all values
   for (int i = 0; i < data.size; i++)
   {
-    printf("%lf\n", data.values[i]);
+    write_line(data.values[i]);
   }
 
   return 0;

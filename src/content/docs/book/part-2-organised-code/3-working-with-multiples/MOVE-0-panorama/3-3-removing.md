@@ -21,7 +21,7 @@ Now that we can add elements to the array within the struct, we can also remove 
 Notice how the code below checks the index is valid before attempting to remove the element. It is important to sanitise data, particularly in these functions that access array values. There are a range of security exploits that take advantage of code that does not perform these checks which can result in access to values you should not be able to access and potentially the ability to execute arbitrary code.
 
 ```cpp {24-35,49}
-#include <cstdio>
+#include "splashkit.h"
 #include "utilities.h"
 
 // The maximum number of values we can store
@@ -53,7 +53,7 @@ void remove_value(number_data &data, int index)
   }
   else
   {
-    printf("Sorry, that is not a valid index.\n");
+    write_line("Sorry, that is not a valid index.");
   }
 }
 
@@ -74,7 +74,7 @@ int main()
   // Loop through printing all values
   for (int i = 0; i < data.size; i++)
   {
-    printf("%lf\n", data.values[i]);
+    write_line(data.values[i]);
   }
 
   return 0;

@@ -12,8 +12,8 @@ As you will recall, strings are just character arrays with a null terminator to 
 * **Step 2**: We assign the string literal "Hello" to the string my_string (note that string literals automatically add a null terminator)
 * **Step 3**: We print the string to the terminal by looping through the array until we reach the null terminator, and printing each character.
 
-```c
-#include <stdio.h>
+```c++
+#include "splashkit.h"
 const int MAX_STRING_LENGTH = 50;
 
 int main(void)
@@ -23,7 +23,7 @@ int main(void)
   // use a loop to print each character in the string
   for (int i = 0; my_string[i] != '\0' && i < MAX_STRING_LENGTH; i++)
   {
-    printf("%c", my_string[i]);
+    write(my_string[i]);
   }
 
   return 0;
@@ -53,12 +53,12 @@ int main(void)
 }
 ```
 
-The above program looks simple right? It looks as though we simply take the two character arrays and create the final result "John Smith", and indeed it's a common operation when working with strings to concatenate them - but there's a catch. We aren't including using a string data type, and we can't simply add two arrays together, or string literals and character arrays.
+The above program looks simple right? We simply take the two character arrays and create the final result "John Smith", and indeed it's a common operation when working with strings to concatenate them - but there's a catch. We aren't using a C++ `string` data type anywhere, we can't simply add two arrays together, nor string literals and character arrays, and we can't assign arrays directly to arrays either. So this doesn't compile.
 
-The way to concatenate two strings in C without any libraries is quite simple, and entails looping through the first string, and copying each character into the new string, and then looping through the second string and copying each character into the new string. Let's take a look at how we can manually concatenate two names together (with a space in between):
+The way to concatenate two strings in C without any libraries is quite simple though, and entails looping through the first string, and copying each character into the new string, and then looping through the second string and copying each character into the new string. Let's take a look at how we can manually concatenate two names together (with a space in between):
 
-```c
-#include <stdio.h>
+```c++
+#include "splashkit.h"
 
 const int FULL_NAME_LEN = 50;
 
@@ -95,7 +95,7 @@ int main(void)
   // don't forget the null terminator!
   full_name[j+i] = '\0';
 
-  printf("%s\n", full_name);
+  write_line(full_name);
 
   return 0;
 }

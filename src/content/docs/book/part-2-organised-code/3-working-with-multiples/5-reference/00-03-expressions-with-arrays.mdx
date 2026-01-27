@@ -30,21 +30,21 @@ In most ways, accessing an array element is the same as accessing a variable. Th
 Let's think about life before arrays. Say I want to read in three integer values. I can do it like this:
 
 ```cpp
-#include <stdio.h>
+#include "splashkit.h"
 
 int main()
 {
     int data_0, data_1, data_2;
 
-    printf("Enter 3 integers (enter after each)");
-    scanf("%d", &data_0);
-    scanf("%d", &data_1);
-    scanf("%d", &data_2);
+    write("Enter 3 integers (enter after each)");
+    data_0 = to_integer(read_line());
+    data_1 = to_integer(read_line());
+    data_2 = to_integer(read_line());
 
-    printf("You entered:");
-    printf("%d\n", data_0);
-    printf("%d\n", data_1);
-    printf("%d\n", data_2);
+    write("You entered:");
+    write_line(data_0);
+    write_line(data_1);
+    write_line(data_2);
 
     return 0;
 }
@@ -53,23 +53,23 @@ int main()
 Each variable has a unique name, so we have lots of duplicate the code. With arrays, we can now change this up. To start with, we could code this with hard coded values. In this case we still have duplicate code, but you should be able to see that arrays are much like a number of variables used to store the same thing.
 
 ```cpp
-#include <stdio.h>
+#include "splashkit.h"
 
 int main()
 {
     const int NUM_VALUES = 3;
     int data[NUM_VALUES];
 
-    printf("Enter %d integers (enter after each)", NUM_VALUES);
+    write("Enter " + to_string(NUM_VALUES) + " integers (enter after each)");
 
-    scanf("%d", &data[0]);
-    scanf("%d", &data[1]);
-    scanf("%d", &data[2]);
+    data[0] = to_integer(read_line());
+    data[1] = to_integer(read_line());
+    data[2] = to_integer(read_line());
 
-    printf("You entered:");
-    printf("%d\n", data[0]);
-    printf("%d\n", data[1]);
-    printf("%d\n", data[2]);
+    write("You entered:");
+    write_line(data[0]);
+    write_line(data[1]);
+    write_line(data[2]);
 
     return 0;
 }
@@ -78,7 +78,7 @@ int main()
 Where it becomes cool, is where we realise that the value for the index can be calculated! It can be any expression we want at all! As a first step, we could remove the hard coded indexes.
 
 ```cpp
-#include <stdio.h>
+#include "splashkit.h"
 
 int main()
 {
@@ -86,22 +86,22 @@ int main()
     int data[NUM_VALUES];
     int i;
 
-    printf("Enter %d integers (press 'Enter' after each value)", NUM_VALUES);
+    write("Enter " + to_string(NUM_VALUES) + " integers (press 'Enter' after each value)");
 
     i = 0;
-    scanf("%d", &data[i]);
+    data[i] = to_integer(read_line());
     i++;
-    scanf("%d", &data[i]);
+    data[i] = to_integer(read_line());
     i++;
-    scanf("%d", &data[i]);
+    data[i] = to_integer(read_line());
 
-    printf("You entered:");
+    write("You entered:");
     i = 0;
-    printf("%d\n", data[i]);
+    write_line(data[i]);
     i++;
-    printf("%d\n", data[i]);
+    write_line(data[i]);
     i++
-    printf("%d\n", data[i]);
+    write_line(data[i]);
 
     return 0;
 }
@@ -110,7 +110,7 @@ int main()
 Now the code is screaming out to you to remove the repetition. We are performing exactly the same steps over and over here.
 
 ```cpp
-#include <stdio.h>
+#include "splashkit.h"
 
 int main()
 {
@@ -118,20 +118,20 @@ int main()
     int data[NUM_VALUES];
     int i;
 
-    printf("Enter %d integers (enter after each)", NUM_VALUES);
+    write("Enter " + to_string(NUM_VALUES) + " integers (enter after each)");
 
     i = 0;
     while ( i < NUM_VALUES )
     {
-        scanf("%d", &data[i]);
+        data[i] = to_integer(read_line());
         i++;
     }
 
-    printf("You entered:");
+    write("You entered:");
     i = 0;
     while ( i < NUM_VALUES )
     {
-        printf("%d\n", data[i]);
+        write_line(data[i]);
         i++;
     }
 

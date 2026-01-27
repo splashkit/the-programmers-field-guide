@@ -66,7 +66,7 @@ Once you have a plan, code it up and test it out. Try with all positive, and all
 ```cpp {23-48,63}
 /* stats-calc.cpp - from the field guide. written by ... */
 
-#include <cstdio>
+#include "splashkit.h"
 #include "utilities.h"
 
 // The maximum number of values we can store
@@ -119,14 +119,14 @@ int main()
 
   populate_array(data);
 
-  printf("\nYou entered...\n\n");
+  write_line("\nYou entered...\n");
   print(data);
 
-  printf("\nCalculating statistics...\n\n");
+  write_line("\nCalculating statistics...\n");
 
-  printf("Sum:        %4.2lf\n", sum(data));
-  printf("Mean:       %4.2lf\n", mean(data));
-  printf("Max:        %4.2lf\n", max(data));
+  write_line("Sum:        " + to_string(sum(data), 2));
+  write_line("Mean:       " + to_string(mean(data), 2));
+  write_line("Max:        " + to_string(max(data), 2));
 
   return 0;
 }
