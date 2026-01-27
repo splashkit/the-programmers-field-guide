@@ -6,36 +6,38 @@ sidebar:
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { Steps } from '@astrojs/starlight/components';
 
-With the window appearing, the next step is to draw some shapes. To start, let's get the hill drawing.
+Now we have a window, the next step is to draw some shapes onto it. To start, let's add a hill.
 
 ![Hill output](./images/hill-shown.png)
 
 *How do you position a shape on the screen?*
 
-Your window is organised to have a number of discrete picture elements (small dots called pixels) that you can draw to. When you created the window you said how many pixels wide it will be, and how many pixels high. The different drawing procedures will all need you to pass in coordinates for where the shape should appear.
+Your window is organised to have a number of discrete picture elements (small dots called pixels) that you can draw to. When you created the window you said how many pixels wide it will be, and how many pixels high. The different drawing procedures in SplashKit all need you to pass in coordinates for where the shape should appear.
 
 ![Pixel locations are based on x and y locations](../5-reference/images/window-pixels.png)
 
 :::caution
-
-Remember the top left is 0,0 (x = 0 and y = 0). The value of y will increase as you go down the window, and the value of x will increase as you go to the right.
-
+Remember the top left is 0,0 (x = 0 and y = 0). The value of y will increase as you go **down** the window, and the value of x will increase as you go to the **right**.
 :::
 
-The best way to plan this out is to sketch what you want and to try to figure out where each shape needs to be drawn. Below is an illustration of the plan for the house drawing. We need to clear the screen white, draw a green ellipse for the hill, then a grey rectangle, and finally a red triangle.
+The best way to plan this out is to sketch what you want and to try to figure out where each shape needs to be drawn. Below is an illustration of the plan for the house drawing. Notice the position 0, 0 at the top left, and the position 800, 600 at the bottom right. From these points we can figure out the position we need for every shape that makes up the house scene.
+
+We need to clear the screen to white, draw a green ellipse for the hill, then a grey rectangle, and finally a red triangle. Note that although we're using an ellipse for the hill, we're positioning it so that the bottom half of the shape will be drawn off the screen. This is a great trick to draw more complicated looking shapes.
 
 ![House plan illustration](./images/house-plan.png)
+
+Now that we have a plan, let's try translating it into code.
 
 <Steps>
 1. Start by clearing the screen and drawing the filled ellipse.
 
     :::tip
-    - `clear_screen` needs a color argument - you could pass it `COLOR_WHITE`.
-    - `fill_ellipse` needs a color (use `COLOR_BRIGHT_GREEN`) then four numbers - the top left coordinate (0, 400), and then the width and height (800, 400)
+    - `clear_screen` needs a color argument. You could pass it `COLOR_WHITE`.
+    - `fill_ellipse` needs a color (use `COLOR_BRIGHT_GREEN`) then four numbers: the top left x and y coordinates (we used 0, 400), and then the width and height (we used 800, 400)
     :::
 
     <Accordion>
-      <AccordionItem header="Drawing the hill">
+      <AccordionItem header="Code for drawing the hill">
 
       ```c++ {7-8}
       #include "splashkit.h"
@@ -55,10 +57,10 @@ The best way to plan this out is to sketch what you want and to try to figure ou
     </Accordion>
 
     :::caution[Where is my image?]
-    Don't panic when you compile and run this... there is one more thing we need to do to show the scene to the user.
+    Don't panic when you compile and run this...there is one more thing we need to do to make the scene appear.
     :::
 
-2. Compile and run this... you should not see the shape! Why? SplashKit gives you the control of when things are shown to the user. To show the image you have created you need to call `refresh_screen`. This will show the user what you have drawn.
+2. Compile and run this...you should not see the shape! Why? SplashKit gives you the control of when things are shown to the user. To show the image you have created you need to call `refresh_screen`. This will show the user what you have drawn.
 
     :::tip[Think sequence!]
     Make sure to refresh the screen **before** you delay.
@@ -91,7 +93,7 @@ The best way to plan this out is to sketch what you want and to try to figure ou
 
 :::note[Are these hard-coded values ok?]
 
-For this program we are just wanting to draw some fixed shapes, so we can tolerate these hard-coded values for now.
+For this program we are just wanting to draw some fixed shapes, so we can tolerate hard-coded values for now.
 
 We'll look at improving this later on, in [Dynamic House Drawing](/book/part-1-instructions/2-data/3-guided-tour/04-01-house).
 :::
