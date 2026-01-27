@@ -54,7 +54,7 @@ export const sliderImages = [
     altText: "One is added to the program counter, is now 2 is the instruction.",
     tipStart: 9,
     tips: [
-      "The last part of running the instruction will be to add one to the program counter.",
+      "The last part of running the instruction will be to add 1 to the program counter.",
       "As the instructions are the same size as a single memory address, this means that the CPU is now at the next instruction."
     ]
   },
@@ -71,7 +71,7 @@ export const sliderImages = [
     altText: "Instruction 2 is loaded into the computer, and run.",
     tipStart: 13,
     tips: [
-      "Once this is done, the computer again adds one to the program counter.",
+      "Once this is done, the computer again adds 1 to the program counter.",
       "The next instruction will be the instruction at address 3.",
       "This same process runs on and on, with millions of these instructions running each second until the program is complete."
     ]
@@ -98,16 +98,16 @@ Designing a program will require you to be able to identify a sequence of instru
 
 This design process is known as **computational thinking**. You need to think about the available instructions and constructs, and to use them creatively to come up with a sequence of instructions.
 
-In this chapter, you will learn to create the following **constructs**:
+This chapter focuses on learning how to **create** the following **constructs**:
 
 - [Programs](/book/part-1-instructions/1-sequence/5-reference/00-program) the user can run.
 
-You will be able to use the following **constructs** that others have created:
+You will be able to **use** the following constructs that others have created:
 
-- [Procedures](/book/part-1-instructions/1-sequence/5-reference/10-procedure) that can be called to perform an action or fetch/calculate a value.
+- [Procedures](/book/part-1-instructions/1-sequence/5-reference/10-procedure) that can be called to perform an action.
 - [Libraries](/book/part-1-instructions/1-sequence/5-reference/30-library) that provide you with constructs others have created.
 
-You will be able to instruct the computer to:
+You will be able to **instruct** the computer to:
 
 - [Call procedures](/book/part-1-instructions/1-sequence/5-reference/11-procedure-call) to run the instructions they contain.
 
@@ -124,19 +124,19 @@ There is no magic or intelligence here. **Sequence** is simply the computer addi
 
 *How small are these instructions?*
 
-One line of source code will generally have several instructions.
+One line of source code will generally have several actual instructions.
 Learning how this works is a big focus of this part of the guide.
 When you read and write source code, you need to be able to think through how the instructions will run.
-You don't usually need to draw the steps out as we have here, but you need to be able to visualise them in your mind.
+You don't usually need to draw the steps out as we have here, but it helps to be able to visualise them in your mind.
 
 In general, this shouldn't be too hard. Remember the following:
 
-- Instructions run in sequence. So read through the code line by line.
+- Instructions run in sequence. So, read through the code line by line.
 - Calculated values ([expressions](/book/part-1-instructions/1-sequence/5-reference/13-expression)) are evaluated before they are used. This process obeys standard mathematical rules (e.g. [BOMDAS](https://en.wiktionary.org/wiki/BOMDAS#:~:text=English-,Phrase,division%2C%20then%20addition%20and%20subtraction)).
 - Study each different kind of instruction to know the steps involved in its sequence. Each kind of instruction will always have the same sequence.
 
 With this in mind, you will be able to get started working with code that is all built upon this core concept of **sequence**.
 
-:::tip[Slow and carefully]
-Go slowly and carefully, paying attention to each piece of code. Most problems come from overthinking things or imagining powers the computer does not have. When you have an issue, slow down. Look at what the code *actually* does, not what you meant it to do. Sketch it out on paper and track the changes as things run. Most of the issues you encounter will be small things you will miss if you quickly skim over the code.
+:::tip[Slowly and carefully]
+Go slowly and carefully, paying attention to each piece of code. Most problems come from overthinking things or imagining powers the computer does not have. When you have an issue, slow down. Look at what the code *actually* does, not what you *meant* it to do. Sketch it out on paper and track the changes as things run. Most of the issues you encounter will be small things that are easy to miss if you quickly skim over the code.
 :::

@@ -7,12 +7,11 @@ sidebar:
 ---
 
 import { YouTube } from 'astro-embed';
+import { Steps } from '@astrojs/starlight/components';
 
-In this guide, we will walk through the steps to install the necessary Applications and Tools on your Mac.
+In this guide, we will walk through the steps to install the necessary applications and tools on your Mac.
 
 Now, let's get started!
-
-To get SplashKit and other coding tools installed on macOS, follow the steps outlined below:
 
 ## 1. Install Visual Studio Code
 
@@ -25,20 +24,20 @@ To install: double-click the downloaded zip file, then drag the **Visual Studio 
 
 ## 2. Open the Terminal
 
-The following steps will show you how to install this. The video below shows these steps.
+To open your terminal:
 
-Start by opening your terminal.
-
-1. Press ***Command*** (⌘) + ***Space bar*** to open the Spotlight Search.  
-2. Start typing "Terminal".  
-3. Click the **Terminal** app.
+<Steps>
+  1. Press ***Command*** (⌘) + ***Space bar*** to open the Spotlight Search.  
+  2. Start typing "Terminal".  
+  3. Click the **Terminal** app.
+</Steps>
 
 ![Gif showing Spotlight Search to open Terminal and pasting Xcode install command](/gifs/setup-macos/open-terminal.gif)
 <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
 ## 3. Install XCode Command Line Tools
 
-**Xcode Command Line Tools** is a package of tools provided by Apple for developers to enable command-line development and building of software on macOS. *It includes tools you will need for installing SplashKit and coding in the next chapters.*
+The **Xcode Command Line Tools** are a package of tools provided by Apple for developers to enable command-line development and building of software on macOS. It includes tools you will need for installing SplashKit and coding in the next chapters.
 
 To install these tools, run the command below in your *Terminal* app:
 
@@ -46,49 +45,47 @@ To install these tools, run the command below in your *Terminal* app:
 xcode-select --install
 ```
 
-:::note[XCode Command Line Tools Installation Video:]
-<div class="not-content">
-  <YouTube id="3CHGbyVY2F8" params="fs=1&modestbranding=1&rel=0"/>
-</div>
-:::
-
 If you get the following message, it means you've already installed Xcode and are ready to move to the next step!
 
 ![A Terminal window showing message that 'Command Line Tools' are already installed](./images/setup-macos/xcode-install.png)
 <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
+If not, the following video shows what the installation process should look like.
+
+<div class="not-content">
+  <YouTube id="3CHGbyVY2F8" params="fs=1&modestbranding=1&rel=0"/>
+</div>
+
 ## 4. Install SplashKit
 
-:::caution[Script asking for your password?]
+:::danger[Script asking for your password?]
 
 Before running any script make sure to review its contents to understand what it does. If you choose not to inspect the script, it should only be because you fully trust the source. Running unverified code with elevated privileges can pose serious security risks.
 
 :::
 
-Copy and paste the following command into your Terminal window to download and run the SplashKit installer:
+Copy and paste the following command into your terminal window to download and run the SplashKit installer:
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)
 ```
 
-:::note[SplashKit Installation Video:]
+The installation process should look like this:
+
 <div class="not-content">
   <YouTube id="KlT_PCoc0pw" params="fs=1&modestbranding=1&rel=0"/>
 </div>
-:::
 
-:::tip[Troubleshooting tips:]
-
+:::tip[Troubleshooting]
 1. If the command above **does nothing**, go to [this troubleshooting page](https://splashkit.io/troubleshoot/macos/issue-1-bash-curl-not-working/) on the SplashKit website for an alternative installation process.
 2. If you see a message about "**permission denied**" or "**Operation not permitted**", go to the [Permission issue when running SplashKit installation command](https://splashkit.io/troubleshoot/macos/issue-2-zshrc-permission-issues/) page on the SplashKit website for steps to follow to resolve this issue.
-
 :::
 
 ## 5. Reopen the Terminal
 
-Once the script has finished running, close and reopen the Terminal.
+Once the script has finished running, close and reopen the terminal.
 
-Run the command `skm` in the new Terminal to check SplashKit is installed correctly.
+Run the command `skm` in the new terminal to check SplashKit is installed correctly.
 
 ## 6. All done!
 
@@ -99,7 +96,5 @@ Jump to the [next step](/book/part-0-getting-started/1-building-programs/3-guide
 :::
 
 :::caution[Had problems?]
-
 If you had problems with the automated installation, or want to do things yourself, you can follow the [manual install instructions](/book/appendix/0-installation/2-1-setup-macos).
-
 :::

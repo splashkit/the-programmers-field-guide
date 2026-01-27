@@ -6,17 +6,18 @@ sidebar:
 import { Steps } from '@astrojs/starlight/components';
 import { FileTree } from '@astrojs/starlight/components';
 
-Continuing from the [previous section](/book/part-0-getting-started/1-building-programs/3-guided-tour/5-1-hello-world-gui/), we've briefly analysed the GUI Hello World, and are ready to try customizing it.
+Continuing from the [previous section](/book/part-0-getting-started/1-building-programs/3-guided-tour/5-1-hello-world-gui/), we've gotten started with a GUI Hello World, and are ready to try customizing it.
 
 ## Let's change it!
 
-Now that we know what we know, there are some easy ways we can change the code:
- - We can _delete_ lines of code, to, for instance, delete the letters (or parts of the letters!)
- - We can _change parameters_, for instance the colours or positions of the shapes
- - We can _add_ lines of code, by copy pasting and adjusting them. For instance we could add a whole new letter! Although I have something else in mind...
+There are some easy ways we can change the code:
+
+* We can _delete_ lines of code to delete the letters (or parts of the letters!)
+* We can _change parameters_, for instance the colours or positions of the shapes
+* We can _add_ lines of code, by copy-pasting and adjusting them. For instance we could add a whole new letter! Although I have something else in mind...
 
 <Steps>
-1. First let's delete some code - we'll turn the `HELLO` into `HI`
+1. First let's delete some code to turn the "HELLO" into "HI"
     ```diff lang="cpp"
         clear_screen(color_white());
         draw_text("Hello World! - using SplashKit shapes:", color_black(), 50, 50);
@@ -52,20 +53,20 @@ Now that we know what we know, there are some easy ways we can change the code:
         fill_triangle(color_white(), 100, 250, 120, 310, 140, 250);
         fill_rectangle(color_white(), 70, 350, 80, 30);
     ```
-    _Just delete all the red lines, easy :)_
+    _To follow along, delete the red lines, and add the green ones!_
 
-    What we've done here is delete all the code that creates the letters `L L O`, and _most_ of what makes the letter `E`. The `E` was drawn with four rectangles - we'll leave the line of code that draw the left-most vertical rectangle (which becomes our `I`), but delete the rest.
+    What we've done here is delete all the code that creates the letters "L L O", and _most_ of what makes the letter `E`. The `E` was drawn with four rectangles, so we'll leave the line of code that draws the left-most vertical rectangle to become our "I", but delete the rest.
 
     <details>
-    <summary>What about the `// Draw the E`? What does it do?</summary>
-        The `// Draw the E` is just a _comment_. It helps _us_ understand the code, but the compiler pretty much just ignores it. You can leave it as `// Draw the E` and it won't have any effect :)
+    <summary>What about `// Draw the E`? What does it do?</summary>
+        `// Draw the E` is just a _comment_. It helps _us_ understand the code, but the compiler pretty much just ignores it. You can leave it as `// Draw the E` and it won't have any effect.
 
-        But it's still better to change it to `// Draw the I` of course! We don't want our comments to become out-of-date and contradict the code, since it'll confuse other people (and ourselves in a few weeks!)
+        But, it's better to change it to `// Draw the I` of course! We don't want our comments to become out-of-date and contradict the code, since it'll confuse other people (and ourselves in a few weeks!).
     </details>
 
 2. Save, re-compile the code, and run it!
 
-    Hopefully, if all goes well, you'll see the following:
+    If all goes well, you should see the following:
     ![A window showing the GUI output of the program being run in the terminal.](./images/splashkit-gui-shapes-hello-world-hi-edit.png)
     <details>
     <summary>Nothing changed...?</summary>
@@ -78,7 +79,7 @@ Now that we know what we know, there are some easy ways we can change the code:
 
     <details>
     <summary>Errors show up when I try to compile it!</summary>
-        Oh no! We'll definitely cover how to figure out errors later on, but for now feel free to refer to the following code instead:
+        Oh no! We'll definitely cover how to figure out errors later on, but for now feel free to refer to our completed updated code instead:
         <div class="scroll-snippet">
         ```cpp
         #include "splashkit.h"
@@ -135,38 +136,39 @@ Now that we know what we know, there are some easy ways we can change the code:
             delay(5000);
         }
         ```
-        _Try comparing it to your code and see where things might have gone wrong!_
+        Try comparing it to your code and see where things might have gone wrong!
         </div>
     </details>
 
-3. Now let's try changing parameters - we'll have a go at changing the colours of the background and the letters.
+3. Now let's have a go at changing the parameters to change the colours of the background and the letters.
 
     For instance, anywhere you see `color_red()`, you could replace this with `color_blue()` (or any other colour!).
 
     :::tip
-    Have a look [here](https://splashkit.io/guides/color/splashkit-colors/) for all the colours you can use!
+    Have a look [here](https://splashkit.io/guides/color/splashkit-colors/#color-palette) for all the colours you can use!
     :::
 
-    I'm going to try and make mine a bit Programmer's Field Guide themed. So I'll be changing the colours passed into the `clear_screen`, `fill_rectangle`, `fill_triangle`, `fill_ellipse`, and `fill_circle` procedures. See if you can come up with something you think looks nice :)
+    I'm going to try and make mine a bit Programmer's Field Guide themed. So I'll be changing the colours passed into `clear_screen`, `fill_rectangle`, `fill_triangle`, `fill_ellipse`, and `fill_circle`. See if you can come up with something you think looks nice.
 
-    For this part you'll want to try changing things, testing, then changing things again, testing again, etc. This _iterative development_ is very important, so feel free to take your time trying out different changes.
+    For this part you'll want to try changing things, testing, then changing things again, testing again, etc. This _iterative development_ is very important, so feel free to take your time playing with it and trying out lots of different changes.
 
-    ![A window showing the GUI output of the program being run in the terminal.](./images/iterative-development.png)
+    ![A flow chart showing the iterative development process](./images/iterative-development.png)
     <details>
     <summary>Errors show up when I try to compile it!</summary>
         Here are some tips:
          - If the error isn't too long, have a go at reading it! It might be as simple as a typo that the compiler picked up on.
-         - Make small changes at a time - that way you can easily undo (Ctrl-Z) whenever an error occurs.
+         - Make small changes. That way you can easily undo (Ctrl/Cmd-Z) whenever an error occurs.
         - Be careful with spelling and capitalization! Keep in mind that SplashKit uses American English spelling, so it's `color_red()`, _not_ `colour_red()`.
-        - Make sure SplashKit (the _library_ we're using that does the drawing for us) knows the colour! (check on the page mentioned above)
+        - Make sure SplashKit (the _library_ we're using that does the drawing for us) knows the colour! (check the page mentioned above to see what colours you can choose from)
         - Don't forget the `()` (we'll learn more about what this does later)
     </details>
 
     Here's what I ended up with:
     ![A window showing the GUI output of the program being run in the terminal.](./images/splashkit-gui-shapes-hello-world-color-edit.png)
-    _Feel free to make yours more exciting!_
+    
+    Feel free to make yours more exciting!
 
-3. For the last part, we're going to make the letters type themselves out one at a time!
+4. For the last part, we're going to make the letters type themselves out one at a time!
 
     Right now we don't know exactly how to do this, but let's think it through.
 
@@ -185,9 +187,9 @@ Now that we know what we know, there are some easy ways we can change the code:
         fill_rectangle(color_white(), 150, 100, 20, 100);
     ```
 
-    We can see there are two clear sections - one draws the `H`, and the other draws the `I`.
+    We can see there are two clear sections -- one for drawing the `H`, and the other for drawing the `I`.
 
-    An important thing to note here, is that **code runs from top to bottom, in sequence**. So what we want, is to put something _between_ the code for the two letters, that says "show the previous letter, and wait a moment!"
+    An important thing to note here, is that **code runs from top to bottom, in sequence**. So, what we want is to put something _between_ the code for the two letters that says "show the previous letter, and wait a moment!"
 
     The secret to doing this is in the last few lines of the program:
     ```c++ {5-6}
@@ -202,19 +204,18 @@ Now that we know what we know, there are some easy ways we can change the code:
 
     We didn't look at these before, so let's try and understand them.
 
-    `delay`, as the name suggests, _delays_ the program - it pauses at that line. But what is the `5000` for? If you timed how long the program stays open for, you'll find it's 5 seconds - `delay` takes milliseconds, so that's where the `5000` comes in.
+    `delay`, as the name suggests, _delays_ the program -- it pauses at that line. But what is the `5000` for? If you timed how long the program stays open for, you'll find it's 5 seconds. `delay` takes milliseconds, so that's where the `5000` comes in.
 
     Now we know that we can put a `delay` in at any point in the program, and make it pause there however long we want!
 
-    `refresh_screen` is a little more complicated, but the simplest way to picture it is this:
-        - `fill_rectangle`, etc, all make the computer draw shapes. The _canvas_ the computer is drawing on, however, is hidden from us. `refresh_screen` makes it turn the canvas around, and show us what it was drawing. If we forget the `refresh_screen`, we'll never see the drawing!
+    `refresh_screen` is a little more complicated, but the simplest way to picture it is this.
+    `fill_rectangle`, etc, all make the computer draw shapes. The _canvas_ the computer is drawing on, however, is hidden from us. `refresh_screen` makes it turn the canvas around, and show us what it was drawing. If we forget the `refresh_screen`, we'll never see the drawing!
 
-    If we copy paste the `refresh_screen()` and `delay(5000)` lines in-between each letter, we can make the program show the current letters, then pause before drawing the next one. Give this a go and see if you can get it working well :)
-
+    If we copy paste the `refresh_screen()` and `delay(5000)` lines in-between each letter, we can make the program show the current progress of the drawing, then pause before drawing any more. Give this a go! Don't forget to make small changes, saving, compiling, and running your program each time to see their effect.
 
     <details>
     <summary>I'm stuck!</summary>
-        No worries! Try adding this code exactly here and see if things make more sense:
+        No worries! Try adding the green lines of code exactly as you see here and see if things make more sense:
         ```diff lang="c++"
         #include "splashkit.h"
 
@@ -250,6 +251,6 @@ Now that we know what we know, there are some easy ways we can change the code:
 
 ![A window showing Hi World being typed out one letter at a time.](./images/splashkit-gui-shapes-hello-world-animation.gif)
 
-If all goes well, you'll now have your letters typing across the screen! Feel free to continue playing around with this - you could try adding your own shapes, drawing your own text, and so on.
+If all goes well, you'll now have your letters typing across the screen! Feel free to continue playing around with this. You could try adding your own shapes, drawing your own text, and so on.
 
-Hopefully from this you feel more confident with looking at and modifying simple code. In the next section you'll start learning the concepts more formally, but hopefully some of the intuition you built during this section will come in handy.
+Hopefully from this you feel more confident with looking at and modifying some code. In the next section you'll start learning the concepts more formally, but some of the intuition you built during this section will come in handy.

@@ -6,16 +6,14 @@ sidebar:
   label: " - Windows (WSL)"
 banner: 
     content: |
-        On Windows install using MSYS or WSL - not both.
+        On Windows complete the install steps for MSYS or WSL - not both!
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
-In this guide, we will walk through the steps to install the necessary Applications and Tools on **WSL** (**W**indows **S**ubsystem for **L**inux) *with Ubuntu*.
+In this guide, we will walk through the steps to install the necessary applications and tools on **WSL** (**W**indows **S**ubsystem for **L**inux) with Ubuntu.
 
 Now, let's get started!
-
-To set up WSL and install SplashKit and other coding tools on Windows, follow the steps outlined below:
 
 ## 1. Install Windows Subsystem for Linux (WSL)
 
@@ -37,43 +35,41 @@ Windows Subsystem for Linux (WSL) is a feature of Windows that allows you to run
 
 ## 2. Create Ubuntu User Account
 
-**Restart** your computer if you haven't done so already.
-
 <Steps>
-6. A terminal window installing Ubuntu should pop up automatically, otherwise open the WSL or Ubuntu app for this window to open.
+   6. **Restart** your computer if you haven't done so already.
 
-7. When prompted, enter your new UNIX username and password.  
-   For example, with the username "**default-user**", your terminal would look like this:
-   
-   ![Image showing WSL terminal with ubuntu user account set up](./images/setup-windows/terminal-ubuntu-user-account.png)
-   <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
-   
-   You can see in the image above where the "**default-user**" username was first entered (shown in the pink box), and the same username being used with the terminal prompt (shown in the orange box).
+   7. A terminal window installing Ubuntu should pop up automatically, otherwise open the "Ubuntu" application. You can search for this in the Windows start menu.
 
-   :::tip[Troubleshooting tip:]
-   If you have issues installing the WSL with Ubuntu, go to the [Issues creating Ubuntu user account](https://splashkit.io/troubleshoot/windows-wsl/issue-1-user-account-issues/) page on the SplashKit website for a way to reset the Ubuntu installation and user account setup.
-   :::
+      ![Image showing opening WSL Ubuntu Terminal](./images/setup-windows/ubuntu-terminal-open.png)
+      <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
+
+   8. When prompted, enter a UNIX username and password.  
+      For example, with the username "**default-user**", your terminal would look like this:
+      
+      ![Image showing WSL terminal with ubuntu user account set up](./images/setup-windows/terminal-ubuntu-user-account.png)
+      <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
+      
+      You can see in the image above where the "**default-user**" username was first entered (shown in the pink box), and the same username being used with the terminal prompt (shown in the orange box).
+
+      :::tip[Troubleshooting tip:]
+      If you have issues installing the WSL with Ubuntu, go to the [Issues creating Ubuntu user account](https://splashkit.io/troubleshoot/windows-wsl/issue-1-user-account-issues/) page on the SplashKit website for a way to reset the Ubuntu installation and user account setup.
+      :::
 </Steps>
 
 WSL is now setup and ready to use!
 
-:::note[Opening WSL Terminal]
-To open a terminal for your WSL, search for "Ubuntu", and click the Ubuntu App (green box below):
-
-![Open Ubuntu Terminal](./images/setup-windows/ubuntu-terminal-open.png)
-:::
-
 ## 3. Run Automated Setup
 
 :::caution[Script asking for your password?]
-
 Before running any script that uses **sudo**, make sure to review its contents to understand what it does. If you choose not to inspect the script, it should only be because you fully trust the source. Running unverified code with elevated privileges can pose serious security risks.
-
 :::
 
 <Steps>
-8. Open the **Ubuntu** Terminal.
-9. Run the following command:
+   9. Open the **Ubuntu terminal**.
+
+   10. Run the following command:
+
+</Steps>
 
    ```bash
    curl -s "https://programmers.guide/resources/WSL_InstallScript.sh" | bash /dev/stdin
@@ -82,56 +78,47 @@ Before running any script that uses **sudo**, make sure to review its contents t
    :::note
     This script may take a while to run (approx. 5-10 mins).
 
-    If `curl` is not already pre-installed on your WSL environment, you can run the following command:
+    If `curl` is not already pre-installed in your WSL environment, you can run the following command to install it:
 
     ```bash
     sudo apt install curl
     ```
-  
-    Then run the `curl -s "..." | bash /dev/stdin` command again.
    :::
-
-</Steps>
 
 ## 4. Reopen the Terminal
 
-Once the automated script has finished running, close and reopen the Terminal.
+Once the automated script has finished running, close and reopen the terminal.
 
 Run the command `skm` to check SplashKit is installed correctly.
 
-:::caution[Had problems?]
+## 5. Almost done!
 
-If you had problems with the automated installation, or want to do things yourself, you can follow the [manual install instructions](/book/appendix/0-installation/2-0-setup-linux).
-
-:::
-
-## 5. All done!
-
-Everything should now be installed, you are all good to go!
-
-Before we can move on, you will need to know a little more about how WSL works and where you can locate the files you create.
+Everything should now be installed, but before we can move on you will need to know a little more about how WSL works and where you can locate the files you create.
 
 ### Finding Files when Using WSL
 
 When you are running WSL, you have a Linux distribution running alongside Windows. This Linux distribution has its own file system. The good thing is that you can use the following instructions to access the files within the Linux system from within Windows.
 
-*Follow the instructions below to access your WSL folders and files in File Explorer*:
+<Steps>
+   1. In the left sidebar panel of the File Explorer, scroll to the bottom and click on the "Linux" folder (red box below), then navigated into the "Ubuntu" folder (orange box below)
+   ![Initial navigation to WSL Folder in File Explorer](./images/wsl-file-explorer-ubuntu.png)
 
-In the left sidebar panel of the File Explorer, scroll to the bottom and click on the "Linux" folder (red box below), then navigated into the "Ubuntu" folder (orange box below):
+   2. Go into the "home" folder (red box below):
+   ![Navigation to WSL home folder in File Explorer](./images/wsl-file-explorer-home.png)
 
-![Initial navigation to WSL Folder in File Explorer](./images/wsl-file-explorer-ubuntu.png)
+   3. You should see a folder with the username that you used to create your WSL/Ubuntu account earlier. This is the **home** (`~`) directory for WSL, which is the location that VS Code and your Ubuntu terminal will start in when you interact with the file system. Double click on this folder to see your WSL folders and files.
+</Steps>
 
-Next, go into the "home" folder (red box below):
+:::caution
+If you ever need to reinstall or recreate your WSL Ubuntu account, these folders and files will be removed. Make sure to create a backup of any important folders/files beforehand.
+:::
 
-![Navigation to WSL home folder in File Explorer](./images/wsl-file-explorer-home.png)
+## 6. All done!
 
-You will then see a folder with the username that you used to create your WSL/Ubuntu account. Click into this folder to see your WSL folders and files.
-
-This is the *home* (~) directory for WSL, which is the location that VS Code and your Ubuntu terminal will start in when you interact with the file system.
-
-Also, if you have issues and need to reinstall/recreate your Ubuntu account, these folders and files will be removed. Make sure to create a backup of any important folders/files beforehand.
-
-### What next
-
+:::tip[What next?]
 Jump to the [next step](/book/part-0-getting-started/1-building-programs/3-guided-tour/2-disable-ai), where we will use these tools to build and run some programs.
+:::
 
+:::caution[Had problems?]
+If you had problems with the automated installation, or want to do things yourself, you can follow the [manual install instructions](/book/appendix/0-installation/2-0-setup-linux).
+:::
