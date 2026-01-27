@@ -39,7 +39,7 @@ const { id="", checkOnClick=false, checkingMode="strict"} = Astro.props;
     data-incorrect-label={Astro.locals.multipleChoice.defaultIncorrect}
 >
     <form onsubmit="event.preventDefault()">
-        <ol class="opt-list not-content"><slot /></ol>
+        <ol class="opt-list"><slot /></ol>
         <div class="footer not-content">
             <button class="submit" type="submit" disabled>
                 {Astro.locals.multipleChoice.submitLabel}
@@ -220,6 +220,7 @@ const { id="", checkOnClick=false, checkingMode="strict"} = Astro.props;
 
     ::global(answer-reason, mistake-reason){
         height: 0px;
+        margin: 0px !important;
         overflow: clip;
         display: block;
         transition: height 0.3s;
@@ -259,6 +260,14 @@ const { id="", checkOnClick=false, checkingMode="strict"} = Astro.props;
                     if (this.getAttribute("check-on-click") == "true")
                         this.#submitAnswer(true);
                 });
+            }
+
+            let reasons  = this.querySelectorAll('answer-reason,mistake-reason');
+            for (let ar of reasons) {
+                ar.addEventListener("transitionend", (event) => {
+                    if (ar.style.height != "0px")
+                        ar.style.height = "auto";
+                })
             }
         }
 
@@ -325,7 +334,7 @@ const { id="", checkOnClick=false, checkingMode="strict"} = Astro.props;
             let all_children  = this.getElementsByTagName('*');
             let reasons  = this.querySelectorAll('answer-reason,mistake-reason');
             for (let ar of reasons) {
-                ar.style.height = "0px";
+                ar.targetHeight = "0px";
             }
 
             let groupCorrect = new Map();
@@ -362,10 +371,24 @@ const { id="", checkOnClick=false, checkingMode="strict"} = Astro.props;
                             (childIsCorrect == TERN_POS && ar.tagName == "ANSWER-REASON") ||
                             (childIsCorrect == TERN_NEG && ar.tagName == "MISTAKE-REASON")
                         )
-                            ar.style.height = ar.scrollHeight + "px";
+                            ar.targetHeight = ar.scrollHeight + "px";
                     }
                 }
             }
+
+            // Handle animations - auto->current height needs one animation frame to avoid jumping
+            for (let ar of reasons) {
+                if (ar.style.height == "auto" && ar.targetHeight == "0px")
+                    ar.style.height = ar.scrollHeight + "px";
+            }
+
+            window.requestAnimationFrame(function(){
+                for (let ar of reasons) {
+                    if (ar.style.height != ar.targetHeight && !(ar.style.height == "auto" && ar.targetHeight != "0px"))
+                    ar.style.height = ar.targetHeight;
+                }
+            });
+            /////
 
             let isCorrect = true;
             for (let group of groupCorrect) {
@@ -385,5 +408,8 @@ const { id="", checkOnClick=false, checkingMode="strict"} = Astro.props;
         }
     }
 
-    customElements.define('multiple-choice', MultipleChoice);
+    // A hack to ensure this script is deferred until other synchronous scripts finish (so that all the other inner quiz components are done initializing)
+    setTimeout(function () {
+        customElements.define('multiple-choice', MultipleChoice);
+    }, 0);
 </script>

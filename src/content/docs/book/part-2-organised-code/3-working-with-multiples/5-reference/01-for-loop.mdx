@@ -28,7 +28,7 @@ import imgArrayForLoop from './images/mmv-array-for-loop.png';
 The following code illustrates using for loops to populate and print values from arrays.
 
 ```cpp
-#include <stdio.h>
+#include "splashkit.h"
 
 const int MAX_NUMBER_DATA_VALUES = 100;
 
@@ -41,11 +41,11 @@ struct number_data
 
 void populate(double data[], int size)
 {
-  printf("Enter %d values (enter between each)\n", size);
+  write_line("Enter " + to_string(size) + " values (enter between each)");
 
   for(int i = 0; i < size; i++)
   {
-    scanf("%lf", &data[i]);
+    data[i] = to_double(read_line());
   }
 }
 
@@ -53,7 +53,7 @@ void print(const double data[], int size)
 {
   for (int i = 0; i < size; i++ )
   {
-    printf("%lf\n", data[i]);
+    write_line(data[i]);
   }
 }
 
@@ -75,7 +75,7 @@ void print(const number_data &data)
 {
   for (int i = 0; i < data.num_values; i++ )
   {
-    printf("%lf\n", data.values[i]);
+    write_line(data.values[i]);
   }
 }
 

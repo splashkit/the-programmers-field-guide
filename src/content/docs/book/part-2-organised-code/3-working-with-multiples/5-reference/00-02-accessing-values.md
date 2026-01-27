@@ -4,7 +4,7 @@ sidebar:
     label: " - Accessing Values"
 ---
 
-To work with arrays, the main thing you need to know is how to get access to the data. We always start with a variable, but we need to know how to get from the variables you have, to the location of the value you want to access. We have seen this before when accessing fields in a struct, and when you accessed values through pointers. Now we need to expand our toolkit with the syntax to access a value within an array. This will need to take into consideration our use of structs and pointers, as arrays may be accessible via these mechanics as well.
+To work with arrays, the main thing you need to know is how to get access to the data. We always start with a variable, but we need to know how to get from the variables you have, to the location of the value you want to access. We have seen this before when accessing fields in a struct -- now we need to expand our toolkit with the syntax to access a value within an array. This will need to take into consideration our use of structs, as arrays may be accessible via these mechanics as well.
 
 ![You can step into arrays to access their elements](./images/expr-access-element-idea.png)
 
@@ -18,8 +18,6 @@ You may have:
 - an array of structured data (like a `point_2d`).
 - structured data, that has a field which is an array of primitive data.
 - structured data, that has a field which is an array of structured data.
-- a pointer to an array of ...
-- a pointer to structured data, that has a field which is an array of ...
 
 To work with this you need to be able to picture your data as a model in your mind. You can then walk through the model, one step at a time, from the variable where you start to the value you want to access.
 
@@ -47,7 +45,7 @@ Most computing problems are solved by focusing on small steps.
 
 :::tip[Syntax]
 
-The following image shows the syntax for accessing values within your code. This starts with the variable you have access to, which can be dereferenced if it is a pointer. Following the variable, you can have a number of field or array accesses in sequence. Fields can be accessed using `->` if you have a pointer to the struct, or `.` if you have the struct value at this point. Array accesses use `[]` with the index between them to indicate the element of the array you want to access.
+The following image shows the syntax for accessing values within your code. This starts with the variable you have access to. Following the variable, you can have a number of field or array accesses in sequence. Fields can be accessed using `.` if you have the struct value at this point. Array accesses use `[]` with the index between them to indicate the element of the array you want to access.
 
 ![Syntax to access a value in C/C++](./images/access-value.png)
 

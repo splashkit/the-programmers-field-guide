@@ -8,8 +8,8 @@ One challenge with strings, is that we often need to store strings of varying le
 
 There are a few ways to solve this problem, but the simplest is to allocate a block of memory that is large enough to store the largest string we expect to encounter. This is called a *statically allocated* string. Let's take a look at a statically allocated string in C/C++:
 
-```c
-#include <stdio.h>
+```c++
+#include "splashkit.h"
 
 // define a constant for the maximum length of our string
 const int MAX_STRING_LENGTH = 50;
@@ -30,7 +30,7 @@ int main(void)
   my_string[4] = 'o';
 
    // print the string (char[]) to the terminal
-  printf("my_string: %s\n", my_string);
+  write_line(my_string);
   
   return 0;
 }
@@ -49,7 +49,7 @@ In C/C++, arrays do not store their lengths, and it is generally up to us as pro
 Because strings are so common, the C/C++ languages have a special way of handling how we can mark the end of a string, and it is by simply introducing a special character called the *null terminator* (represented by the character `\0`). The null terminator is the very first ASCII character at integer 0, and is used to indicate the end of the string. It does not get printed to the terminal, but tells any code working with the array to stop there. Let's take a look at how we can use the null terminator to solve our problem:
 
 ```c
-#include <stdio.h>
+#include "splashkit.h"
 const int MAX_STRING_LENGTH = 50;
 
 int main(void) 
@@ -63,27 +63,27 @@ int main(void)
     my_string[5] = '\0';
 
     // print the string (char[]) to the terminal
-    printf("my_string: %s\n", my_string);
+    write_line(my_string);
 
     return 0;
 }
 ```
 
-This program should print out "Hello", and printf will know that the string ends when it gets to the `'\0'` after the "o"!
+This program should print out "Hello", and `write_line` will know that the string ends when it gets to the `'\0'` after the "o"!
 
 The great news is that string constants automatically include the extra null terminator, so "Hello" is 6 characters. The five we can see, and the null terminator. 
 
 C also include shorthand ways to initialise strings using string constants, which therefore automatically add the null terminator for us:
 
 ```c
-#include <stdio.h>
+#include "splashkit.h"
 const int MAX_STRING_LENGTH = 50;
 
 int main(void)
 {
     char my_string[MAX_STRING_LENGTH] = "Hello";
 
-    printf("my_string: %s\n", my_string);
+    write_line("my_string: " + my_string);
 
     return 0;
 }

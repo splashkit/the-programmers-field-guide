@@ -765,45 +765,6 @@ aside[aria-label="How does this work?"] ul > li ul li ul li::before {
 
 /* --- END:   How does this work? Box ------*/
 
-/* --- START: In Brief Box ------*/
-aside[aria-label="In Brief"], aside[aria-label="In Brief"] .starlight-aside {
-  border-inline-start: inherit;
-  border-radius: 8px;
-  border: 2px solid #72915c;
-}
-
-html[data-theme="light"] aside[aria-label="In Brief"], html[data-theme="light"] aside[aria-label="In Brief"] .starlight-aside  {
-  background: #f6fff1;
-  border-color: #cbe9b6;
-}
-
-html[data-theme="dark"] aside[aria-label="In Brief"], html[data-theme="dark"] aside[aria-label="In Brief"] .starlight-aside  {
-  background: #252c26;
-}
-
-aside[aria-label="In Brief"] img {
-  background-color: white;
-  border-radius: 8px;
-}
-
-/* required specificity to override */
-html[data-theme="light"] aside[aria-label="In Brief"] ul li p,
-html[data-theme="dark"] aside[aria-label="In Brief"] ul li p {
-  margin-bottom: 0px;
-}
-
-html[data-theme="light"] aside[aria-label="In Brief"] > .starlight-aside__title, html[data-theme="light"] aside[aria-label="In Brief"] .starlight-aside__title {
-  color: #567840;
-  font-weight: 800;
-}
-
-html[data-theme="dark"] aside[aria-label="In Brief"] > .starlight-aside__title, html[data-theme="dark"] aside[aria-label="In Brief"] .starlight-aside__title {
-  color: #cdefa7;
-  font-weight: 800;
-}
-
-/* --- END:   In Brief Box ------*/
-
 /* --- START: Fluid Videos ------*/
 /* From: https://css-tricks.com/fluid-width-video/ */
 .main-pane .content .videoProgrammersGuideContainer {

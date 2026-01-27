@@ -1,5 +1,7 @@
 ---
-title: Pass by Value or Reference
+title: Pass by Reference
+sidebar:
+    label: " - Pass by Reference"
 ---
 
 
@@ -174,7 +176,7 @@ There are actually two ways that values can be passed to parameters: **pass by v
 
 So far we have been using pass by value for all of our parameters. With pass by value, the parameter receives a copy of the **value** passed in the argument. In this case, any expression is evaluated first, and the value copied across.
 
-With pass by reference you have to pass a variable, a location to store a value. Pass by reference allows you to pass across a location where a value can be stored, and from which a value can be read.
+With pass by reference you instead pass a variable, a location to store a value. Pass by reference allows you to pass across the variable's location, which allows the function or procedure to read and **modify** the value of the variable that was passed in.
 
 
 ![Shows you can pass a variable to a by reference parameter](./images/pass-by-reference-idea.png)
@@ -184,19 +186,19 @@ With pass by reference you have to pass a variable, a location to store a value.
 You can use pass by reference for a couple of purposes:
 
 - To allow the called function or procedure to update the value passed.
-- To improve performance when passing large data structures.
+- To improve performance when passing large amounts of data.
 
 ### Updating passed values
 
 Breaking up our code into smaller functions and procedures is really important to help us build and manage the code in larger programs. So far, parameters have allowed us to pass values into these functions/procedures but we in some cases we also want that code to update variables that we pass it.
 
-With pass by reference, you can create functions and procedures that can update the variables passed to it. In most cases these will be procedures, where the action performed has a side effect on the parameter passed in. For example, in our fly game we could create a `handle_input` procedure that is passed the `spider` to update. In `handle_input`, the code can read and change the data passed to it, allowing it to update the position of the spider in response to user input.
+With pass by reference, you can create functions and procedures that can update the variables passed to it. In most cases these will be procedures, where the action performed has a side effect on the parameter passed in. For example, in our "Player Move" program we could create a `handle_input` procedure that is passed the `player_x` and `player_y` to update. In `handle_input`, the code can read and change the data passed to it, allowing it to update the position of the player in response to user input.
 
 ### Improve performance
 
-When we started using parameters we were passing simple data values like individual numbers, but with structs these parameters can now be passed potentially large volumes of data. Copying this data in by value takes time, as the computer has to duplicate all the information in the struct to copy it by value.
+So far we've generally been passing small amounts of data as our parameters, such as invdividual numbers. However, as our programs become more complicated and we learn more concepts, we'll start passing around larger volumes of data - imagine, for instance, an extremely long string, or a list of a million numbers. Copying this data in by value takes time, as the computer has to duplicate all the information (e.g. every character in the string) to copy it by value.
 
-References are achieved by passing the address of the variable passed to it. This is always the same size, and can be passed efficiently to the parameter. For example, in `draw_game` we need to pass all the data associated with the game. You can pass this by reference to save time duplicating the game.
+References are achieved by passing the address of the variable passed to it. This is always the same size, and can be passed efficiently to the parameter.
 
 In these instances you can indicate that you want to pass these as constant references, ensuring that the caller does not change the value passed to it.
 

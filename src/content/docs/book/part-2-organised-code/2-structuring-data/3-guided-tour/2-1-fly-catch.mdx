@@ -1,0 +1,560 @@
+---
+title: Generalizing our entities
+sidebar:
+    label: " - Generalizing our entities"
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
+draft: true
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from '@astrojs/starlight/components';
+import NoCopy from '/src/components/NoCopy.astro'
+import TemplateInjector from '/src/components/TemplateInjector.astro'
+import MultipleChoice from '/src/components/MultipleChoice.astro';
+import ITO from '/src/components/InlineTextOption.astro'
+import Aside from '/src/components/Aside.astro'
+import Carousel from '/src/components/Carousel.astro'
+import Option from '/src/components/Option.astro';
+
+
+For this section, we're going to be taking our program and substantially improving its design by:
+1. Finding more useful "things" that exist, outside of just the `fly` and `spider`
+2. Finding _useful commonalities_ between "things", and _abstracting_ those out.
+
+If this sounds a bit vague, don't worry - we'll work through a concrete example now :)
+
+<Steps>
+1. ### Organising our game
+    Let's start with that `draw_game(const spider_data& spider, const fly_data& fly)` procedure that we added in the last section. Notice how the fly and spider are passed as separate parameters? Imagine if we had 30 different entities -- we'd have to pass in every single one manually!
+
+    Ideally, if we add more "things" to our game, we shouldn't have to change the _signature_ of `draw_game` at all, since this is unmaintainable.
+
+    What do you think a better signature for it might be?
+    <MultipleChoice id="Q1">
+
+    <Option group="iffy_answer">Split it into <br/> `void draw_spider(const spider_data& spider)` and `void draw_fly(const fly_data& fly)`</Option>
+    <Option group="iffy_answer">Reverse the options: <br/>`void draw_game(const fly_data& fly, const spider_data& spider)`</Option>
+    <Option group="game_data" isCorrect>Create a `game_data` struct and pass that in:<br/>`void draw_game(const game_data& game)`</Option>
+    <Option group="fly_spider_data">Create a `fly_and_spider_data` struct and pass that in:<br/>`void draw_game(const fly_and_spider_data& fly_and_spider)`</Option>
+    <Option group="global">Make the spider and fly global variables so we don't have to pass them in:<br/>`void draw_game()`</Option>
+
+    <mistake-reason group="iffy_answer">
+    :::note[Not Quite]
+        That wouldn't really help us much, have another think about it.
+    :::
+    </mistake-reason>
+    <mistake-reason group="fly_spider_data">
+    :::note[Not Quite]
+        This is on the right track - we definitely want to group our fly and spider together into another struct. This name will make it hard to expand to more entities though, have another think there.
+    :::
+    </mistake-reason>
+    <mistake-reason group="global">
+    :::note[Not Quite]
+        This would solve the issue of having to pass lots of parameters, but in doing so we lose the ability to manage our game's state in a centralized way. Rather than splitting things up more, think about how we could group them together.
+    :::
+    </mistake-reason>
+    <answer-reason group="game_data">
+    :::tip[Exactly!]
+        Exactly! We can create a `game_data` struct, and our fly and spider can be fields within it. Then, if we add more "things", they just become additional fields inside `game_data`!
+    :::
+
+    This is pretty much the same as the `reaction_game_data` - we just took a different route to finding it.
+
+    Have a go at implementing it now - try creating a `game_data` struct, with `fly` and `spider` fields inside it. Then, update `draw_game` to take only this struct as a parameter.
+
+    <Accordion>
+    <AccordionItem header="Adding the spider and fly structs">
+    ```c++ {3-7, 9, 27, 39} "game."
+
+    ...
+
+    struct game_data
+    {
+        spider_data spider;
+        fly_data fly;
+    };
+
+    void draw_game(const game_data &game)
+    {
+        // Draw the game
+        clear_screen(COLOR_WHITE);
+
+        // Draw spider
+        fill_circle(COLOR_BLACK, game.spider.x, game.spider.y, 20);
+
+        // Draw fly
+        fill_circle(COLOR_GREEN, game.fly.x, game.fly.y, 15);
+
+        // Show it to the user
+        refresh_screen();
+    }
+
+
+    int main()
+    {
+        game_data game;
+        game.spider = new_spider();
+        game.fly = new_fly();
+
+        open_window("Fly Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
+
+        // The event loop
+        while (!quit_requested())
+        {
+            // Get any new user interactions
+            process_events();
+
+            draw_game(game);
+        }
+    }
+    ```
+    </AccordionItem>
+    </Accordion>
+    </answer-reason>
+
+    </MultipleChoice>
+
+2. ### Generalizing our entities
+    Now for something more involved - let's find some commonality between `fly_data` and `spider_data`, and structure our data in a richer way. Below are the important pieces of code that use them - have a go at identifying the four main things that they all _have_ and _do_ in common:
+
+    <NoCopy>
+    <MultipleChoice id="PreTest" checkOnClick checkingMode="groupLatched">
+
+    <TemplateInjector replace={[
+        {selector: "del", template: 0, contains: "struct"},
+        {selector: "del", template: 1, contains: "draw_game"},
+        {selector: "ins", template: 2, contains: "COLOR_"},
+        {selector: "ins", template: 3, contains: "20"},
+        {selector: "ins", template: 3, contains: "15"},
+        {selector: "ins", template: 5, contains: "fill_circle"},
+        {selector: "ins", template: 4, contains: "x"},
+        {selector: "ins", template: 4, contains: "y"},
+        ]}>
+        ```c++ frame="terminal" title="Select Inside this Code!" del="struct" del="draw_game" ins="COLOR_BLACK" ins="COLOR_GREEN" ins="x" ins="y" ins="fill_circle" ins="15" ins="20"
+        struct spider_data
+        {
+            double x;
+            double y;
+        };
+
+        struct fly_data
+        {
+            double x;
+            double y;
+        };
+        ...
+        void draw_game(const game_data &game)
+        {
+            // Draw the game
+            clear_screen(COLOR_WHITE);
+
+            // Draw spider
+            fill_circle(COLOR_BLACK, game.spider.x, game.spider.y, 20);
+
+            // Draw fly
+            fill_circle(COLOR_GREEN, game.fly.x, game.fly.y, 15);
+
+            // Show it to the user
+            refresh_screen();
+        }
+        ...
+        ```
+        <template> <ITO seamless group="struct"><slot/></ITO></template>
+        <template> <ITO seamless group="draw_game"><slot/></ITO></template>
+        <template> <ITO seamless isCorrect group="COLOR_"><slot/></ITO></template>
+        <template> <ITO seamless isCorrect group="radius"><slot/></ITO></template>
+        <template> <ITO seamless isCorrect group="position"><slot/></ITO></template>
+        <template> <ITO seamless isCorrect group="circle"><slot/></ITO></template>
+    </TemplateInjector>
+
+    <mistake-reason group="struct">
+    :::note[Not Quite]
+        They are indeed both structs :) Let's see if we can find some more specific similarities.
+    :::
+    </mistake-reason>
+    <mistake-reason group="draw_game">
+    :::note[Not Quite]
+        They are both used in `draw_game`! What is similar about _how_ they are used?
+    :::
+    </mistake-reason>
+    <answer-reason group="COLOR_">
+    :::note[Exactly!]
+        Indeed, both the spider and fly have a color. This could be an important piece of _data_ that we store, that varies between flies and spiders.
+    :::
+    </answer-reason>
+    <answer-reason group="radius">
+    :::note[Exactly!]
+        True, they both have a radius used when drawing.
+    :::
+    </answer-reason>
+    <answer-reason group="position">
+    :::tip[Exactly!]
+        Yep, they both store their positions as x and y coordinates :)
+    :::
+    </answer-reason>
+    <answer-reason group="circle">
+    :::tip[Exactly!]
+        Indeed, they are both drawn via coloured circles.
+    :::
+    </answer-reason>
+
+    </MultipleChoice>
+    </NoCopy>
+
+    Hopefully now it's clear what's in common. There are a few ways we could approach utilizing this, but here's one approach that works well:
+    1. First off, we can take our `double x` and `double y` pairs, and replace those with a single `point_2d` field. `point_2d` is a struct that SplashKit provides (from `splashkit.h`), and it looks like this:
+        ```c++
+        struct point_2d
+        {
+          double x;
+          double y;
+        }
+        ```
+        ...which is exactly what we need! However, we won't just place it directly inside `fly_data` and `spider_data`...
+
+    2. Instead, we'll create a _new_ struct called `entity`. `entity` will contain all the data that we found in common so far:
+        - the position (a `point_2d` - a type from SplashKit)
+        - the radius (a `double`)
+        - the colour (a `colour` - also from SplashKit)
+
+        This will make it really easy to add more fields that our entities share in common - for instance, later on we'll give them an `image` field :)
+
+        :::tip
+            Our `entity` struct currently contains everything needed to _draw_ the entity, but we'll soon start adding fields to control _behaviour_ as well.
+        :::
+
+    3. Now we can remove `x` and `y` from `spider_data` and `fly_data`, and add `entity ent;` as a field inside.
+
+        :::tip
+          Think of it like "the `fly_data` _has a_ physical entity that exists within the game world".
+
+          We'll be adding more things to `fly_data` and `spider_data` that differentiate them as we go - `entity` contains the data they have in common.
+        :::
+
+    4. Make sure to then update how `game.spider` and `game.fly` are initialized in `new_spider` and `new_fly`. You can initialize the fields on seperate lines, or _nest_ the initialization like so:
+
+        <Aside type="thinking" title="Nested initialization">
+          Initializer braces can be nested - for instance:
+          <Carousel animation="fade" buttonLayout="bottom" panelAlignment="top">
+          <div>
+              ```c++ /{(?={)/ /}(?=;)/
+              spider = {{
+                {SCREEN_WIDTH/2, SCREEN_HEIGHT/2},
+                20, COLOR_BLACK
+              }};
+              ```
+              ---
+              ```c++ "spider_data"
+              struct spider_data
+              {
+                  entity ent;
+              }
+              ```
+              ---
+              These outer braces are for the the `spider_data`
+          </div>
+          <div>
+              ```c++ /(?<={){/ "  {SCREEN_WIDTH/2, SCREEN_HEIGHT/2}," "  20, COLOR_BLACK" /}(?=})/
+              spider = {{
+                {SCREEN_WIDTH/2, SCREEN_HEIGHT/2},
+                20, COLOR_BLACK
+              }};
+              ```
+              ---
+              ```c++ "entity ent"
+              struct spider_data
+              {
+                  entity ent;
+              }
+              ```
+              ---
+              The first field inside will be our `entity ent`...
+          </div>
+          <div>
+              ```c++ /(?<={){/ "  {SCREEN_WIDTH/2, SCREEN_HEIGHT/2}," "  20, COLOR_BLACK" /}(?=})/
+              spider = {{
+                {SCREEN_WIDTH/2, SCREEN_HEIGHT/2},
+                20, COLOR_BLACK
+              }};
+              ```
+              ---
+              ```c++ "entity"
+              struct entity
+              {
+                  point_2d pos;
+                  double radius;
+
+                  colour clr;
+              };
+              ```
+              ---
+              so between _these_ braces are the `entity`'s fields.
+          </div>
+          <div>
+              ```c++ "{SCREEN_WIDTH/2, SCREEN_HEIGHT/2}"
+              spider = {{
+                {SCREEN_WIDTH/2, SCREEN_HEIGHT/2},
+                20, COLOR_BLACK
+              }};
+              ```
+              ---
+              ```c++ "point_2d pos"
+              struct entity
+              {
+                  point_2d pos;
+                  double radius;
+
+                  colour clr;
+              };
+              ```
+              ---
+              The first field in there will be the `pos`.
+          </div>
+          <div>
+              ```c++ "SCREEN_WIDTH/2"
+              spider = {{
+                {SCREEN_WIDTH/2, SCREEN_HEIGHT/2},
+                20, COLOR_BLACK
+              }};
+              ```
+              ---
+              ```c++ "x"
+              // inside splashkit.h
+              struct point_2d
+              {
+                  double x;
+                  double y;
+              };
+              ```
+              ---
+              So then this will be the `x`...
+          </div>
+          <div>
+              ```c++ "SCREEN_HEIGHT/2"
+              spider = {{
+                {SCREEN_WIDTH/2, SCREEN_HEIGHT/2},
+                20, COLOR_BLACK
+              }};
+              ```
+              ---
+              ```c++ "y"
+              // inside splashkit.h
+              struct point_2d
+              {
+                  double x;
+                  double y;
+              };
+              ```
+              ---
+              ...and this the `y`.
+          </div>
+          <div>
+              ```c++ "20"
+              spider = {{
+                {SCREEN_WIDTH/2, SCREEN_HEIGHT/2},
+                20, COLOR_BLACK
+              }};
+              ```
+              ---
+              ```c++ "double radius"
+              struct entity
+              {
+                  point_2d pos;
+                  double radius;
+
+                  colour clr;
+              };
+              ```
+              ---
+              Back in our `entity`, next up is the radius.
+          </div>
+          <div>
+              ```c++ "COLOR_BLACK"
+              spider = {{
+                {SCREEN_WIDTH/2, SCREEN_HEIGHT/2},
+                20, COLOR_BLACK
+              }};
+              ```
+              ---
+              ```c++ "colour clr"
+              struct entity
+              {
+                  point_2d pos;
+                  double radius;
+
+                  colour clr;
+              };
+              ```
+              ---
+              And finally the colour.
+          </div>
+          </Carousel>
+        ---
+        :::tip
+        This initialization is starting to look a bit complicated and hard to follow. Should we split it up onto a few lines? Add a `new_entity` function?
+        :::
+        </Aside>
+
+    5. Now we can create a `draw_entity` procedure, that takes an `entity` called `ent`, and uses `fill_circle` to draw it.
+
+    We can then call it like `draw_entity(game.spider.ent)` and `draw_entity(game.fly.ent)`. See how even though `fly_data` and `spider_data` are different types, by giving them a common field we can share functionality between them.
+
+    Have a go now at those steps and see how you go.
+    <Accordion>
+    <AccordionItem header="Creating the entity struct">
+    ```c++ {3-9, 13, 18, 29-32, 40, 43}
+
+    ...
+
+    struct entity
+    {
+        point_2d pos;
+        double radius;
+
+        colour clr;
+    };
+
+    struct spider_data
+    {
+        entity ent;
+    };
+
+    struct fly_data
+    {
+        entity ent;
+    };
+
+    ...
+
+    struct game_data
+    {
+        spider_data spider;
+        fly_data fly;
+    };
+
+    void draw_entity(const entity &ent)
+    {
+        fill_circle(ent.clr, ent.pos.x, ent.pos.y, ent.radius);
+    }
+
+    void draw_game(const game_data &game)
+    {
+        // Draw the game
+        clear_screen(COLOR_WHITE);
+
+        // Draw spider
+        draw_entity(game.spider.ent);
+
+        // Draw fly
+        draw_entity(game.fly.ent);
+
+        // Show it to the user
+        refresh_screen();
+    }
+
+
+    int main()
+    {
+        game_data game;
+        game.spider = new_spider();
+        game.fly = new_fly();
+
+        open_window("Fly Catch", SCREEN_WIDTH, SCREEN_HEIGHT);
+
+        // The event loop
+        while (!quit_requested())
+        {
+            // Get any new user interactions
+            process_events();
+
+            draw_game(game);
+        }
+    }
+    ```
+    </AccordionItem>
+    </Accordion>
+</Steps>
+
+The digital reality we are constructing is now starting to become richer - rather than having flies and spiders be entirely seperate things, we've grouped them into a `game_data`, and shared common data and functionality between them via `entity`. Now let's continue on to actually moving the spider around.
+
+### Moving the spider
+Adding the ability to move the spider will be very similar to what we did back in [Player Move](/book/part-1-instructions/3-control-flow/3-guided-tour/1-0-player-move/), but with one difference. Our goal will be to allow the player to move around by using the arrow keys, _and_ to keep them completely on screen, taking into account their radius.
+
+<Steps>
+1. Let's handle this by writing a `move_with_keyboard` procedure. It will take an `entity` called `ent` by reference, and a `speed` (a double). We can then call it like `move_with_keyboard(game.spider.ent);` inside the main event loop.
+
+    :::tip
+    Note how the procedure takes an `entity` rather than a `spider_data`. By doing this, we are only giving the procedure the exact data it needs to work with.
+
+    We are saying "_any entity_ can be controlled by the keyboard" - later on we could easily add other players or entity types, and `move_with_keyboard` can stay the same!
+    :::
+
+    We can start by just testing each of the keys (`RIGHT_KEY`, `UP_KEY`, etc), and adjusting the `entity`'s `pos`'s `x` and `y`, by adding or subtracting the `speed`. Have a go at this and see if you can get the spider moving around.
+
+
+    <Accordion>
+    <AccordionItem header="Adding the spider and fly structs">
+    ```c++
+    void move_with_keyboard(entity &ent, double speed)
+    {
+      // Left and right
+      if (key_down(RIGHT_KEY))
+      {
+        ent.pos.x += speed;
+      }
+      if (key_down(LEFT_KEY))
+      {
+        ent.pos.x -= speed;
+      }
+
+      ...
+
+      // Same for up and down
+    }
+    ```
+    </AccordionItem>
+    </Accordion>
+
+    :::tip[Could `speed` be part of the `entity`?]
+    For sure it can! In our example we'll keep speed separate, but feel free to make that change in your code, and remove the `double speed` parameter.
+    :::
+2. Hopefully now our spider (well...circle) is moving around! However, it's very easy to send the spider off screen if we hold down a key long enough. Now let's try and constrain the spider to stay on screen.
+
+    There are several ways we can approach this, but for our purposes the simplest way is to just process the movement, then afterwards check if the spider is off screen and move it back if it is. For example:
+    ```c++
+    // Handle movement...
+    if (key_down(RIGHT_KEY))
+    {
+        ent.pos.x += speed;
+    }
+
+    ....
+
+    // ...then check if it's off screen, and move it back if so
+    if (ent.pos.x + ent.radius > SCREEN_WIDTH)
+    {
+        ent.pos.x = SCREEN_WIDTH - ent.radius;
+    }
+    ```
+
+    We'll need four checks for this, one for each edge of the screen. Have a go at that, and now your spider should always remain on screen.
+</Steps>
+
+Just before we wrap up this section, here's something to try out. Since we've modelled our `spider` and `fly` as _both_ having an `entity` that represents their shape and position, and it's the _entity_ inside that's moving around... we can easily start playing as the fly instead!
+
+Just switch out the
+```c++ "spider"
+move_with_keyboard(game.spider.ent, SPIDER_SPEED);
+```
+
+with
+
+```c++ "fly"
+move_with_keyboard(game.fly.ent, SPIDER_SPEED);
+```
+
+and now you'll be controlling the fly instead. We could even make the fly a second player using WASD, if we hadn't hardcoded `RIGHT_KEY`, `LEFT_KEY`, etc (hint hint). We'll continue to see the benefits of this abstraction as we develop further.
+
+:::tip
+This is a concept called _composition_, where we can compose our structs not only from attributes like shape and position, but also capabilities and behavioural aspects like "being an entity". This is extremely common in game development, but also has applications outside of that as well.
+:::

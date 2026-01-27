@@ -8,30 +8,44 @@ In C/C++, arrays are a contiguous block of memory used to store multiples of a p
 
 <!-- Some diagram on this -->
 
-The following code creates two c-strings (char arrays). The first is not initialised, and has space for twenty characters. The second is initialised and has the space to store "hello".
+The following code creates two c-strings (char arrays). The first is initialised with "Hi", but has space for twenty characters. The second is initialised and has the space to store "Hello".
 
 ```cpp
-#include <stdio.h>
+#include "splashkit.h"
 
 int main()
 {
-  char name[20];
-  char other[] = "Hello";
+  char str_a[10] = "Hi";
+  char str_b[] = "Hello";
 
-  printf("Enter your name: ");
-  scanf("%s", name);
+  write_line(str_a); // prints "Hi"
+  write_line(str_b); // prints "Hello"
 
-  printf("%s %s\n", other, name);
+  // Let's change some of the characters in str_a
+  str_a[2] = "!";
+  write_line(str_a); // prints "Hi!"
+
+  str_a[8] = "!";
+  write_line(str_a); // still prints "Hi!"
 }
 ```
 
-When you run this, it will output a hello message that includes the user's name. For example:
+When you run this, it will output the following:
 
 ```
-Enter your name: Andrew
-Hello Andrew
+Hi
+Hello
+Hi!
+Hi!
 ```
 
-How does the `printf` function know the number of characters in the user's name? The array had twenty characters, and yet it only printed the six characters from the name.
+How does `write_line` know that that `str_a` only had two characters? The array had ten characters, and yet it only printed those two. And then when we assigned a character straight after the `i`, `write_line` printed it as well! Yet it didn't print a character assigned further into the array.
+
+Here's how the memory inside `str_a` looked at the end - notice anything interesting?
+
+|Index | 0  | 1   | 2  | 3 | 4 | 5 | 6 | 7 | 8  | 9 |
+|------|----|-----|----|---|---|---|---|---|----|---|
+|Value | 72 | 105 | 33 | 0 | 0 | 0 | 0 | 0 | 33 | 0 |
+|Letter| H  | i   | !  |   |   |   |   |   |  ! |   |
 
 Let's have a look at how this works.

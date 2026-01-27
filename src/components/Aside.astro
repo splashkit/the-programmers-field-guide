@@ -1,0 +1,91 @@
+---
+/* from @astrojs/starlight/components, with custom variants */
+
+import { AstroError } from 'astro/errors';
+import { Icon } from '@astrojs/starlight/components';
+
+const asideVariants = {
+    note: {class: "starlight-aside--note", icon: 'information'},
+    tip: {class: "starlight-aside--note", icon: 'rocket'},
+    caution: {class: "starlight-aside--note", icon: 'warning'},
+    danger: {class: "starlight-aside--note", icon: 'error'},
+    summary: {class: "starlight-aside--translucent-green", icon: 'rocket'},
+    thinking: {class: "starlight-aside--translucent-green", icon: 'puzzle'}
+} as const;
+
+interface Props {
+    type?: (typeof asideVariants)[number];
+    title?: string;
+    class?: string;
+}
+
+let { type = 'note', title} = Astro.props;
+
+if (Object.keys(asideVariants).includes("type")) {
+    throw new AstroError(
+        'Invalid `type` prop passed to the `<StyledAside>` component.\n',
+        `Received: ${JSON.stringify(type)}\n` +
+            `Expected one of ${Object.keys(asideVariants).map((i) => JSON.stringify(i)).join(', ')}`
+    );
+}
+
+let variant = asideVariants[type];
+
+if (!title) {
+    title = Astro.locals.t(`aside.${type}`);
+}
+
+---
+
+<style>
+/* --- START: Translucent Green Box ------*/
+
+::global(.starlight-aside--translucent-green, .starlight-aside--translucent-green .starlight-aside) {
+  border-inline-start: inherit;
+  border-radius: 8px;
+  border: 2px solid #72915c;
+}
+
+::global(html[data-theme="light"] .starlight-aside--translucent-green, html[data-theme="light"] .starlight-aside--translucent-green .starlight-aside)  {
+  background: #f6fff1;
+  border-color: #cbe9b6;
+}
+
+::global(html[data-theme="dark"] .starlight-aside--translucent-green, html[data-theme="dark"] .starlight-aside--translucent-green .starlight-aside)  {
+  background: #252c26;
+}
+
+.starlight-aside--translucent-green img {
+  background-color: white;
+  border-radius: 8px;
+}
+
+::global(.starlight-aside--translucent-green div.starlight-aside__content p:not(.starlight-aside__title)) {
+  margin-top: 1rem;
+}
+
+::global(html[data-theme="light"] .starlight-aside--translucent-green > .starlight-aside__title, html[data-theme="light"] .starlight-aside--translucent-green .starlight-aside__title) {
+  color: #567840;
+  font-weight: 800;
+}
+
+::global(html[data-theme="dark"] .starlight-aside--translucent-green > .starlight-aside__title, html[data-theme="dark"] .starlight-aside--translucent-green .starlight-aside__title) {
+  color: #cdefa7;
+  font-weight: 800;
+}
+
+::global(.starlight-aside--translucent-green :is(th, td, hr, blockquote):not(:where(.not-content *))) {
+    border-color: var(--sl-color-gray-4) !important;
+}
+
+/* --- END: Translucent Green Box Box ------*/
+</style>
+
+<aside aria-label={title} class={`starlight-aside ${variant.class} {class}`}>
+    <p class="starlight-aside__title" aria-hidden="true">
+        <Icon name={variant.icon} class="starlight-aside__icon" />{title}
+    </p>
+    <div class="starlight-aside__content">
+        <slot />
+    </div>
+</aside>

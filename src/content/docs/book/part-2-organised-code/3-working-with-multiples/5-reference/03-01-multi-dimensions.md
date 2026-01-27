@@ -127,7 +127,7 @@ for(int y = 0; y < YEARS; y++)
     year_total += data[y][m];
   }
 
-  printf("Year %d, total: %lf, monthly average: %lf\n", y, year_total, year_total / MONTHS);
+  write_line("Year " + to_string(y) + ", total: " + to_string(year_total) + ", monthly average: " + to_string(year_total / MONTHS));
 }
 
 // For each month - print the month totals and averages
@@ -140,7 +140,7 @@ for(int m = 0; m < MONTHS; m++)
     month_total += data[y][m];
   }
 
-  printf("Month %d, total: %lf, yearly average: %lf\n", m, month_total, month_total / YEARS);
+  write_line("Month " + to_string(m) + ", total: " + to_string(month_total) + ", yearly average: " + to_string(month_total / YEARS));
 }
 ```
 

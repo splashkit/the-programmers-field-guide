@@ -4,16 +4,17 @@ sidebar:
     label: " - Up Close"
 ---
 
-You've been using strings in C++ and C# for a little while now. Strings are great, they allow us to read, write, manipulate and store textual information -- and if you think about most programs you use, they are full of text! But how do strings in C++ or C# actually work? How does a computer's memory store and manipulate textual information? And how can we do all of this in a low-level programming language like C/C++? Before we can answer these questions, let's take a quick look back at strings in C++.
+You've been using strings in C++ for a little while now. Strings are great, they allow us to read, write, manipulate and store textual information -- and if you think about most programs you use, they are full of text! But how do strings in C++ actually work? How does a computer's memory store and manipulate textual information? And how can we do all of this in a low-level programming language like C/C++? Before we can answer these questions, let's take a quick look back at strings in C++.
 
 ## Strings recap
 
-In C# and C++, strings are a standard data type that allows us to store textual data. We can create a string in C++ by using the `string` type which is included in the `<string>` header file, and use some helper functions from SplashKit to allow us to read and print string data to and from the user, let's take a look at a C++ program that uses the string type to read and print the user's name from the terminal:
+In C++, strings are a standard data type that allows us to store textual data. We can create a string in C++ by using the `string` type which is included in the `<string>` header file, and use some helper functions from SplashKit to allow us to read and print string data to and from the user, let's take a look at a C++ program that uses the string type to read and print the user's name from the terminal:
 
 ```cpp
 // gives us access to the string type
 #include <string>
 // gives us access to SplashKit helper functions
+// note: splashkit.h also includes <string>
 #include "splashkit.h"
 
 int main() 
@@ -36,7 +37,7 @@ The above program may look simple, but we are using a variety of string-related 
 * `read_line()` is a SplashKit helper function that allows us to read a line of text from the terminal, it's return type is `string`. It handles all of the memory management for us, and returns a valid `string` type that we can use in our C++ program.
 * **string concatenation**: in the line `write_line("The user's name is: " + user_name);`, we are using the `+` operator to concatenate (join) two strings together. This is a common operation when working with strings, but is not functionality we should take for granted!
 
-Now that we've shown you a quick recap of how we have used strings in C++ and C#, let's take a look back at how strings are represented in memory.
+Now that we've shown you a quick recap of how we have used strings in C++, let's take a look back at how strings are represented in memory.
 
 ## Building our own string
 

@@ -21,7 +21,7 @@ The following illustrates the code and how to think about a struct that contains
 ## Example
 
 ```cpp
-#include <cstdio>
+#include "splashkit.h"
 #include "utilities.h"
 
 // The maximum number of values we can store
@@ -61,8 +61,8 @@ int main()
   data.size = 2;
 
   // Output details about the size and one of the values
-  printf("Size is %d\n", data.size);
-  printf("Element 1 is %lf\n", data.values[0]);
+  write_line("Size is " + to_string(data.size));
+  write_line("Element 1 is " + to_string(data.values[0]));
 
   return 0;
 }

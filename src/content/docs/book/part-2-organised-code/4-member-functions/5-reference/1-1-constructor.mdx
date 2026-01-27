@@ -7,26 +7,23 @@ import CodeScroll from '/src/components/CodeScroll.astro'
 
 The constructors are probably the trickiest of the members to consider, but let's start with them anyway as we need to see how objects (struct values) are initialised before we start to perform other actions on them.
 
-A constructor is a special method that is used to initialise an object created from the struct. This is called in one of two ways:
-
-1. When a struct variable is declared.
-2. When the **new** keyword is used to create an object on the heap.
+A constructor is a special method that is used to initialise an object created from the struct.
 
 ## Constructor - Why, When, and How
 
 When you start to work more within the struct, it is probably always a good idea to create a constructor that can initialise everything just the way you want. This can accept parameters, and use the provided values to set fields of the object when it is created, or it can just allocate default values that make sure things work as expected. In any case, the idea is to make sure that each object is always set up in a way that will mean it works straight away.
 
-In our example code, the `new_contact` function performed the same role in the original struct code. This can be coded into the constructor in our contact. This will initialise each object created from the struct, ensuring that it always has valid data within it. The great thing with the constructor is that it can be used to initialise values on the stack and on the heap, which our original `new_contact` function could not do.
+In our example code, the `new_contact` function performed the same role in the original struct code. This can be coded into the constructor in our contact. This will initialise each object created from the struct, ensuring that it always has valid data within it.
 
 :::tip[Object?]
 
-Remember that the term **object** refers to a value created from a struct. We use this when thinking about these values as they now *know* and *can do* things based on the fields and methods declared within the struct. In this way the struct is like the template, and the object is created in memory using this template. In C++ objects can be allocated on the stack or on the heap.
+Remember that the term **object** refers to a value created from a struct. We use this when thinking about these values as they now *know* and *can do* things based on the fields and methods declared within the struct. In this way the struct is like the template, and the object is created in memory using this template. In C++ objects can be allocated on the stack, or on the heap (which will be covered in [Pointers & Lists](/book/part-2-organised-code/6-indirect-access/0-overview/)).
 
 :::
 
 ## Destructors
 
-Similar to constructors, you can also hook into the code that occurs when the object is destroyed. This may occur when a stack based object goes out of scope, or when you explicitly `delete` an object from the heap.
+Similar to constructors, you can also hook into the code that occurs when the object is destroyed, for instance when a stack based object goes out of scope.
 
 You would use the code in the destructor to clean up any additional memory, or other resources, allocated to your object.
 
@@ -40,20 +37,6 @@ Constructors are coded in the struct as a special looking function. It does not 
 
 :::
 
-### The new and delete keywords
-
-C++ also include a **new** keyword that can be used to create an object (allocate memory for it on the heap) and **delete** to remove the object (free that memory). `new` is given the name of the type of object to create, and will allocate space on the heap for that object, and call the matching constructor to ensure it is initialised. You can then use the object to perform the tasks you need. When you are finished, you free the memory using the `delete` keyword, and passing in a reference to the object.
-
-:::tip[Syntax]
-
-The new keyword will create an object on the heap and return a pointer to it. You need to store that somewhere so that you can refer to the object and get it to do things. When you are finished with the object, you can delete it which frees it from memory.
-
-![Use new to create objects on the heap, and delete to free them](./images/new-delete.png)
-
-Remember that `new` creates an object from a struct, and `delete` must then be used to delete that object.
-
-:::
-
 ## Example
 
 Here is another example of a struct with some fields, a constructor, and a method.
@@ -61,8 +44,6 @@ Here is another example of a struct with some fields, a constructor, and a metho
 <CodeScroll maxHeight="650px">
 ```cpp
 #include "splashkit.h"
-
-using std::to_string;
 
 struct stock
 {
@@ -102,36 +83,78 @@ struct stock
         value += diff;
     }
 
-    void print()
+    void print() const
     {
         write_line(id + " $" + to_string(value) );
     }
 };
 
+void print_largest_stock(const stock &s1, const stock &s2)
+{
+    // Struct fields are public by default, so we can
+    // access them directly as usual too.
+    if (s1.value > s2.value)
+    {
+        s1.print();
+    }
+    else if (s2.value > s1.value)
+    {
+        s2.print();
+    }
+    else
+    {
+        write_line("The stock are identical.");
+    }
+}
+
 int main()
 {
-    // We can use new to allocate stock on the heap
-    stock *s1 = new stock("TEST", 123);
+    // s1 will use the constructor we created to initialize its values.
+    stock s1("TEST", 123);
     
-    s1->adjust_value(-4);
-    s1->print();
+    s1.adjust_value(-4);
+    s1.print();
 
-    delete s1;
-    s1 = nullptr;
-
-    // This also works with a stack allocated stock
-    stock s2("Test", 123);
-    s2.adjust_value(-4);
-    s2.print();
+    // We can also construct objects temporarily and use them in expressions.
+    // This passes s1, and also a temporary `stock` object,
+    // into `print_largest_stock`.
+    print_largest_stock(s1, stock("Apples", 64));
 
     return 0;
 }
 ```
 </CodeScroll>
 
-When you look at this, notice that the combination of `new` and the constructor perform the same steps as we had previously coded within something like a `new_stock` function. The `new` takes care of the memory allocation and the constructor takes care of initialising the data within the value created.
+Looking at this, the syntax for using the constructor is a little strange, and makes the variable declaration look like a function call. You have to remember that in these cases you are calling the constructor.
 
-Notice in the above code that you can also use the constructor for stack allocated stock. The syntax for this is a little strange, and makes the variable declaration look like a function call. You have to remember that in these cases you are calling the constructor. In this case, you *have to* call the constructor as there is not a constructor with no parameter (which is also known as the **default constructor**). If you want to be able to declare a stock variable without having to pass in the stock id and value, then you can add a second constructor that takes no parameters and initialises the id and value to some set defaults.
+Also note that in this example, we could no longer write only:
+```c++
+stock s1;
+```
+
+We would *have to* call the constructor, as `stock` has no constructor with zero parameters (which is also known as the **default constructor**). If you want to be able to declare a stock variable without having to pass in the stock id and value, then you can add a second constructor that takes no parameters and initialises the id and value to some set defaults.
+
+:::tip[Initializing variables in C++]
+C++ actually has _many_ initialization forms:
+```c++
+stock s1("TEST", 123);         // direct-initialization - what we're using currently
+stock s2{"TEST", 123};         // direct-list
+stock s3 = stock("TEST", 123); // copy-initialization
+stock s4 = {"TEST", 123};      // copy-list
+```
+
+And multiple ways to construct objects within expressions:
+```c++
+use_stock_function( stock("TEST", 123) );
+use_stock_function( stock{"TEST", 123} );
+use_stock_function( {"TEST", 123} );
+```
+
+This is a result of the language evolving over time. There are subtle differences between how exactly each one works, but for now there's no need to delve into this.
+
+However, being able to recognise them will be helpful when reading other pieces of code.
+:::
+
 
 [/* TODO: add slider */]:#
 

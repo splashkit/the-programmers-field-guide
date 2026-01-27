@@ -5,7 +5,7 @@ sidebar:
 ---
 import CodeScroll from '/src/components/CodeScroll.astro'
 
-Method are functions or procedures that are declared within the scope of a struct. This is similar to our existing functions and procedures where we had passed a reference or pointer to the struct in as a parameter. Now, with the method declared within the struct, it will have direct access to the fields and other methods without needing additional parameters.
+Method are functions or procedures that are declared within the scope of a struct. This is similar to our existing functions and procedures where we had passed a reference to the struct in as a parameter. Now, with the method declared within the struct, it will have direct access to the fields and other methods without needing additional parameters.
 
 ## Methods - Why, When, and How
 
@@ -23,12 +23,6 @@ The `const` between the end of the parameter list and the start of the block can
 
 :::
 
-### Using this to access the current object
-
-In some cases, you will need to access the current object within a method or constructor. With functions and procedures, we always needed to access any struct values via the parameter variable. In the case of methods, we are *within* the struct, so there is no visible identifier that refers to the struct itself.
-
-To achieve this, C++ added a `this` keyword which is a pointer to object upon which the method was called. You can use `this` when you need to pass the current object as an argument to a function, procedure, or parameter or when you need to access a field or method where there is another variable in the scope with the same name.
-
 ## Example
 
 The following example creates a die struct, which represents a single dice from a board or roll playing game. If we picture a die, it will need to *know* how many sides it has, and its current value (the one on top when rolled). We then need a method to *roll* the dice, and we can use a method to access the current value.
@@ -36,8 +30,6 @@ The following example creates a die struct, which represents a single dice from 
 <CodeScroll maxHeight="700px">
 ```cpp
 #include "splashkit.h"
-
-using std::to_string;
 
 /**
  * A die is a struct that represents a single dice object 
@@ -57,16 +49,16 @@ struct die
    * 
    * @param sides The number of sides on the die.
    */
-  die(unsigned int sides)
+  die(unsigned int sides_)
   {
-    if ( sides < 1 )
+    if ( sides_ < 1 )
     {
-      sides = 1;
+      sides_ = 1;
     }
 
     // store in sides in current object
-    this->sides = sides;
-    this->value = 1;
+    sides = sides_;
+    value = 1;
   }
 
   /**
@@ -105,5 +97,3 @@ int main()
 }
 ```
 </CodeScroll>
-
-Notice how in the code we need to use `this` in the constructor as the `sides` parameter has the same name as the `sides` field. This is a good example of when the `this` keyword can come in handy. We cannot directly access the `sides` field, as the compiler will assume we mean the parameter if we use the `sides` identifier. Make it `this->sides` tells the compiler to look at the `sides` field within the current object (`this->`).

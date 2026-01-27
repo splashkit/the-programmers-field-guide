@@ -1,0 +1,34 @@
+
+
+### The new and delete keywords
+
+C++ also include a **new** keyword that can be used to create an object (allocate memory for it on the heap) and **delete** to remove the object (free that memory). `new` is given the name of the type of object to create, and will allocate space on the heap for that object, and call the matching constructor to ensure it is initialised. You can then use the object to perform the tasks you need. When you are finished, you free the memory using the `delete` keyword, and passing in a reference to the object.
+
+:::tip[Syntax]
+
+The new keyword will create an object on the heap and return a pointer to it. You need to store that somewhere so that you can refer to the object and get it to do things. When you are finished with the object, you can delete it which frees it from memory.
+
+![Use new to create objects on the heap, and delete to free them](./images/new-delete.png)
+
+Remember that `new` creates an object from a struct, and `delete` must then be used to delete that object.
+
+:::
+
+------------
+
+When you look at this, notice that the combination of `new` and the constructor perform the same steps as we had previously coded within something like a `new_stock` function. The `new` takes care of the memory allocation and the constructor takes care of initialising the data within the value created.
+
+Notice in the above code that you can also use the constructor for stack allocated stock. The syntax for this is a little strange, and makes the variable declaration look like a function call. You have to remember that in these cases you are calling the constructor. In this case, you *have to* call the constructor as there is not a constructor with no parameter (which is also known as the **default constructor**). If you want to be able to declare a stock variable without having to pass in the stock id and value, then you can add a second constructor that takes no parameters and initialises the id and value to some set defaults.
+
+
+-------------
+
+### Using this to access the current object
+
+In some cases, you will need to access the current object within a method or constructor. With functions and procedures, we always needed to access any struct values via the parameter variable. In the case of methods, we are *within* the struct, so there is no visible identifier that refers to the struct itself.
+
+To achieve this, C++ added a `this` keyword which is a pointer to object upon which the method was called. You can use `this` when you need to pass the current object as an argument to a function, procedure, or parameter or when you need to access a field or method where there is another variable in the scope with the same name.
+
+----
+
+Notice how in the code we need to use `this` in the constructor as the `sides` parameter has the same name as the `sides` field. This is a good example of when the `this` keyword can come in handy. We cannot directly access the `sides` field, as the compiler will assume we mean the parameter if we use the `sides` identifier. Make it `this->sides` tells the compiler to look at the `sides` field within the current object (`this->`).

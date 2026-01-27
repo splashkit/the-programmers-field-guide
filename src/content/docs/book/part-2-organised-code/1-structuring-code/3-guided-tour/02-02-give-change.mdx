@@ -1,0 +1,482 @@
+---
+title: Giving change
+sidebar:
+  label: " - Giving change"
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from '@astrojs/starlight/components';
+import Aside from '/src/components/Aside.astro';
+import Carousel from '/src/components/Carousel.astro';
+
+We can use a flowchart to help us capture the sequence we need to perform in the change calculator.
+
+:::note
+The use of a box with a dotted outline to capture and label related group of instructions -- this is often a helpful addition to the readability of a flow chart.
+:::
+
+![The flowchart showing the sequence of steps from the current change calculator code](./images/change-calc-1-sequence.png)
+
+When we code this we want to try to avoid duplication. Instead of repeating code, over and over, to give different change values, we can use a combination of control flow and functions, to code this up as general instructions.
+
+This will be a common theme as we go forward. In order to create more interesting programs, we need to start using data together with the control flow statements. By doing this you can then change the data, and the processing should work with the new context.
+
+For example, the change calculator currently works with Australian currency. If we could move this to pure data, then we could shift to American currency by just changing the data that informs this control flow.
+
+:::tip
+Empowering data allows you to create efficient and powerful software. Learning to start making these changes now will help you see the possibilities. This is all about starting to raise the level of **abstraction**, and building more comprehensive digital realities.
+:::
+
+## Steps to give change
+
+Let's quickly think through the steps needed to give change. We can think of this as the following sequence.
+
+```txt
+Give $2 coins - the largest value coin first!
+    Calculate the number of $2 coins to give (change_value / 200)
+    Output the number of $2
+    Update the amount of change remaining to give
+
+Give $1 coins
+    Calculate the number of $1 coins to give
+    Output the number of $1
+    Update the amount of change remaining to give
+
+Give 50c coins
+    Calculate the number of 50c coins to give
+    Output the number of 50c
+    Update the amount of change remaining to give
+
+Give 20c coins
+    Calculate the number of 20c coins to give
+    Output the number of 20c
+    Update the amount of change remaining to give
+
+Give 10c coins
+    Calculate the number of 10c coins to give
+    Output the number of 10c
+    Update the amount of change remaining to give
+
+Give 5c coins
+    Calculate the number of 5c coins to give
+    Output the number of 5c
+    Update the amount of change remaining to give
+```
+
+Notice that each coin we give has the same steps. The only difference is the **value** of the coin and the **text** that is used when this is output. For example, with the 20c coin we need to know the value of the coin is 20 and the text is "20c". So the generalized steps can be:
+
+```txt
+Calculate the number of coins to give using the "coin value".
+Output the number of coins with the "coin text"
+Update the amount of "change remaining"
+```
+
+This would be great logic to wrap up into a function. The function can take our `Change Value`, `Coin Value`, and `Coin Text` as arguments. It then calculates the number of coins to give, writes that to the terminal, and returns the change remaining.
+:::note
+This isn't a _pure_ function, since it's returning a value while _also_ affecting other things by writing to the screen. However, for our purposes this will work just fine.
+:::
+
+We can imagine the body of the function being implemented as follows:
+
+```c++
+// Calculate the number of coins to give using the coin value.
+to_give = change_value / coin_value;
+
+// Output the number of coins with the coin text
+write(to_string(to_give) + " x " + coin_text);
+
+// Return the amount of change remaining
+return change_value - to_give * coin_value;
+```
+
+Notice this does not mention any specific coin or literal value, and allows us to work with *any* coin value.
+
+Let's put this in our code and calculate how many $2 coins to give.
+
+<Steps>
+1. Create a `calculate_and_output_change` function, that returns an `int`, and takes `change_value`, `coin_value`, and `coin_text` as arguments, then add the above code to calculate how many coins to give and return the remaining change.
+2. Back in `main`, after calculating the change value call `calculate_and_output_change`, and pass in our `change_value`, 200 as the `coin_value` and "$2" as the `coin_text`.
+
+    Compile and run your program, and then test that it can output the right number of $2 coins for a range of different change values.
+
+    <Accordion>
+      <AccordionItem header="Code to give $2 coins">
+
+      ```c++ {5-17, 31}
+      #include "splashkit.h"
+
+      // add read string, read integer, and read integer range here
+
+      int calculate_and_output_change(int change_value, int coin_value, string coin_text)
+      {
+          int to_give;
+
+          // Calculate the number of coins to give using the coin_value.
+          to_give = change_value / coin_value;
+
+          // Output the number of coins with the coin text
+          write(to_string(to_give) + " x " + coin_text);
+
+          // Return the amount of change remaining
+          return change_value - to_give * coin_value;
+      }
+
+      int main()
+      {
+          int cost_of_item;
+          int amount_paid;
+          int change_value;
+
+          cost_of_item = read_integer("Cost of item in cents: ");
+          amount_paid = read_integer("Payment in cents: ");
+
+          change_value = amount_paid - cost_of_item;
+          write_line("Change to give " + to_string(change_value));
+
+          change_value = calculate_and_output_change(change_value, 200, "$2");
+      }
+      ```
+
+      </AccordionItem>
+    </Accordion>
+
+    When you run this you should see something like this:
+
+    ```bash
+    Cost of item in cents: 0
+    Payment in cents: 650
+    Change to give 650
+    3 x $2
+    ```
+</Steps>
+
+<Aside type="thinking" title="Let's pause for a moment.">
+<Carousel animation="fade" buttonLayout="bottom">
+<div>
+Before continuing, let's consider how we'll handle returning change for _all_ the different coin types. We _could_, do something like the following:
+```c++
+change_value = calculate_and_output_change(change_value, 200, "$2");
+change_value = calculate_and_output_change(change_value, 100, "$1");
+change_value = calculate_and_output_change(change_value, 50,  "50c");
+change_value = calculate_and_output_change(change_value, 20,  "20c");
+change_value = calculate_and_output_change(change_value, 10,  "10c");
+change_value = calculate_and_output_change(change_value, 5,   "5c");
+```
+In this example, we just have a sequence of calls to `calculate_and_output_change`, and each one handles a coin type from largest to smallest. This _works_, but isn't a good idea since we'd be tying our code directly to our data.
+</div>
+<div>
+:::tip[Why is that a bad idea?]
+If we tie our code directly to our data, it means that changing our data requires changing our code, and that our code is _duplicated_ for each piece of data - this is error prone!
+
+Similarly, if we wanted to use this data in another part of the program (for instance, listing the coins available as change), we would have to duplicate the data, since it's written directly in the code itself.
+
+It should be possible to treat the data (like our list of coin types) as something the code is _using_, rather than a part of the code itself.
+:::
+
+What we will do instead, is _loop_ over our types of coins - we can do this by putting together two pieces.
+
+</div>
+<div>
+<Steps>
+1. First, imagine we have a table of coin types, like so:
+    <div style="line-height: 1em;">
+    | Index | Value | Text  |
+    |-------|-------|-------|
+    | 0     | 200   | "$2"  |
+    | 1     | 100   | "$1"  |
+    | 2     | 50    | "50c" |
+    | 3     | 20    | "20c" |
+    | 4     | 10    | "10c" |
+    | 5     | 5     | "5c"  |
+    </div>
+    See how I've given each coin a number that can be used to refer to it?
+
+    We can now write a function, `get_coin`, that takes a number between `0` and `5` (the index), and gives us back information about the coin at that index.
+
+    For instance, if we called the function and passed in `3`, we would get back `20` and `"20c"`. This way, our data is isolated into one spot, and can be re-used easily.
+
+    :::tip
+        Have a think about how we might pass back **two** pieces of information.
+    :::
+</Steps>
+</div>
+<div>
+<Steps>
+2. Back in `main`, we can then loop through the values `0` to `5`, and call `get_coin` each iteration, to get our coin information. Then, we can call `calculate_and_output_change`, and pass that information in. Here's some _pseudocode_ for how this might look:
+    ```python
+    Loop i from 0 to 5:
+        Call get_coin with i, and
+        Store the coin information in coin_value and coin_text
+
+        Call calculate_and_output_change with the coin information, and
+        Store the remaining change for the next loop iteration.
+    ```
+</Steps>
+</div>
+<div>
+
+You may have picked up on this already, but `get_coin` needs to return both the text for the coin, and also its value. **How can we return multiple values?**
+
+Rather than using `return`, which indeed only returns one "thing", we can use _pass by reference_ - we'll just have three arguments:
+- `coin_index` - used to choose which coin to get information about
+- `value` and `text`, that are passed by _reference_ (using `&` in C++). We can then modify them, to "return" the coin information.
+
+</div>
+<div>
+
+So putting all that together, our plan is to:
+1. Write a `get_coin` function that returns information about a coin, by selecting based on a number. We'll use a case statement to handle choosing the data.
+2. Back in `main,` we'll loop over our coin types
+3. For each coin type, call `get_coin` to get its information, and then call `calculate_and_output_change` like we currently do.
+
+This is a little tricky currently, and in future chapters we'll learn more concepts that help us simplify this design. But you should be able to see how by doing this, we have separated out our _data_ from our _code_. Our data is all isolated inside `get_coin`, which could be used anywhere in the code, and updated (for instance to add new currencies) without touching our core logic inside `main` at all.
+
+Alright, back to writing the code!
+</div>
+</Carousel>
+</Aside>
+
+<Steps>
+3. Now, add a `get_coin` function that returns `void`, and takes three arguments:
+    - `coin_index`, which is an `int`
+    - `value`, which is an `int` reference
+    - `text`, which is a `string` reference
+
+    Inside `get_coin`, for now just set `value` to 200, and `text` to "$2" - we'll add the rest of our data in a moment.
+
+    Now, inside main, declare a `coin_value` and a `coin_text` variable - we will store our retrieved coin information in them.
+
+    Then, before the `calculate_and_output_change` line, call `get_coin` and pass in 0 for the index, along with `coin_value` and `coin_text`.
+
+    :::tip
+    `get_coin` will set the `coin_value` and `coin_text` declared in `main`, since they are passed by reference.
+    :::
+
+    Now, just update the call to `calculate_and_output_change` to use `coin_value` and `coin_text`, and our program should be working again the same as before.
+
+    <Accordion>
+      <AccordionItem header="Constants for coins">
+
+      ```c++ {5-9,30-32,40-41}
+      #include "splashkit.h"
+
+      // add read string, read integer, and read integer range here
+
+      void get_coin(int coin_index, int &value, string &text)
+      {
+            value = 200;
+            text = "$2";
+      }
+
+      int calculate_and_output_change(int change_value, int coin_value, string coin_text)
+      {
+          int to_give;
+
+          // Calculate the number of coins to give using the coin_value.
+          to_give = change_value / coin_value;
+
+          // Output the number of coins with the coin text
+          write(to_string(to_give) + " x " + coin_text);
+
+          // Return the amount of change remaining
+          return change_value - to_give * coin_value;
+      }
+
+      int main()
+      {
+          int cost_of_item;
+          int amount_paid;
+          int change_value;
+
+          int coin_value;
+          string coin_text;
+
+          cost_of_item = read_integer("Cost of item in cents: ");
+          amount_paid = read_integer("Payment in cents: ");
+
+          change_value = amount_paid - cost_of_item;
+          write_line("Change to give " + to_string(change_value));
+
+          get_coin(0, coin_value, coin_text);
+          change_value = calculate_and_output_change(change_value, coin_value, coin_text);
+      }
+      ```
+
+      </AccordionItem>
+    </Accordion>
+
+4. Now, let's add our data into `get_coin`. All we need to do is branch based on the `coin_index` passed in:
+    ```
+        If the Coin Index is 0, then set value to 200 and text to "$2"
+        If the Coin Index is 1, then set value to 100 and text to "$1"
+        If the Coin Index is 2, then set value to 50 and text to "50c"
+        ... etc
+    ```
+
+    This is a great example of where we can use a [case statement](/book/part-1-instructions/3-control-flow/5-reference/03-2-case). The following pseudocode shows how this might look:
+
+    ```txt
+    Switch based on coin_index
+        when 0, value is 200, and text is "$2"
+        when 1, value is 100, and text is "$1"
+        when 2, value is 50, and text is "50c"
+        when 3, value is 20, and text is "20c"
+        when 4, value is 10, and text is "10c"
+        when 5, value is 5, and text is "5c"
+    ```
+
+    Have a go at adding this logic to your `get_coin`.
+
+    <Accordion>
+      <AccordionItem header="Selecting the coin value">
+
+    ```c++
+    void get_coin(int coin_index, int &value, string &text)
+    {
+        switch (coin_index)
+        {
+            case 0:
+                value = 200;
+                text = "$2, ";
+                break;
+            case 1:
+                value = 100;
+                text = "$1, ";
+                break;
+            case 2:
+                value = 50;
+                text = "50c, ";
+                break;
+            case 3:
+                value = 20;
+                text = "20c, ";
+                break;
+            case 4:
+                value = 10;
+                text = "10c, ";
+                break;
+            case 5:
+                value = 5;
+                text = "5c";
+                break;
+            default:
+                value = 1;
+                text = "ERROR";
+                break;
+        }
+    }
+    ```
+
+      </AccordionItem>
+    </Accordion>
+
+    :::tip[Test it out!]
+    We can now use `get_coin` to receive information on any coin type. Back in `main`, try changing the `get_coin(0, ...` line to select a different coin. For instance, `get_coin(3, coin_value, coin_text)`, would give you the change in 20c coins. Test it out yourself to make sure you have everything working right.
+    :::
+
+4. Now we can make our code  **repeat** to calculate the change, once for each coin. We can use a [for loop](/book/part-1-instructions/3-control-flow/5-reference/04-3-for-loop) to achieve this, as there are a set number of coins that we need to iterate through. This gives us the following pseudocode:
+
+    ```txt
+    for each kind of coin
+        ...
+        Get the coin data and store in coin_value and coin_text
+        Call calculate_and_output_change, and store the remaining change
+    ```
+
+    Note, that there is also a _constant_ number of coins to iterate through - this means we should create a `NUM_COIN_TYPES` constant, and use that in the loop.
+
+    Have a go at adding this constant and loop in. You will need to declare an `i` variable to keep track of the number of times through the loop - pass this `i` into `get_coin`.
+
+    <Accordion>
+      <AccordionItem header="Constants with coins loop">
+
+        ```c++ {5, 71-75}
+        #include "splashkit.h"
+
+        // add read string, read integer, and read integer range here
+
+        const int NUM_COIN_TYPES = 6;
+
+        void get_coin(int coin_index, int &value, string &text)
+        {
+            switch (coin_index)
+            {
+                case 0:
+                    value = 200;
+                    text = "$2, ";
+                    break;
+                case 1:
+                    value = 100;
+                    text = "$1, ";
+                    break;
+                case 2:
+                    value = 50;
+                    text = "50c, ";
+                    break;
+                case 3:
+                    value = 20;
+                    text = "20c, ";
+                    break;
+                case 4:
+                    value = 10;
+                    text = "10c, ";
+                    break;
+                case 5:
+                    value = 5;
+                    text = "5c";
+                    break;
+                default:
+                    value = 1;
+                    text = "ERROR";
+                    break;
+            }
+        }
+
+        int calculate_and_output_change(int change_value, int coin_value, string coin_text)
+        {
+            int to_give;
+
+            // Calculate the number of coins to give using the coin_value.
+            to_give = change_value / coin_value;
+
+            // Output the number of coins with the coin text
+            write(to_string(to_give) + " x " + coin_text);
+
+            // Return the amount of change remaining
+            return change_value - to_give * coin_value;
+        }
+
+        int main()
+        {
+            int cost_of_item;
+            int amount_paid;
+            int change_value;
+
+            int coin_value;
+            string coin_text;
+
+            cost_of_item = read_integer("Cost of item in cents: ");
+            amount_paid = read_integer("Payment in cents: ");
+
+            change_value = amount_paid - cost_of_item;
+            write_line("Change to give " + to_string(change_value));
+
+            for(int i = 0; i < NUM_COIN_TYPES; i++)
+            {
+                get_coin(i, coin_value, coin_text);
+                change_value = calculate_and_output_change(change_value, coin_value, coin_text);
+            }
+        }
+        ```
+      </AccordionItem>
+    </Accordion>
+
+    :::tip
+    You can read a for loop as "for [initializer] while [condition], then [increment]" (at the end of each loop). So this for loop is:
+
+    for i = 0; **while** i < NUM_COIN_TYPE; **then** i++
+    :::
+
+    Compile and run your program, making sure that it outputs the right change for the values you enter.
+</Steps>

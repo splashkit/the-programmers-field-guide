@@ -7,9 +7,9 @@ import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 Removing a value is much more challenging than adding a value, but will be great for seeing how to work with arrays.
 
-We can't actually remove an element from an array. Instead, we move data around within the array, and adjust the number of elements we are using to have the same effect. There are three options for removing an element, as shown in the image below. All the options relate to how we retain the existing data when replacing the element being removed.
+We can't actually remove an element from an array. Instead, we move data around within the array, and adjust the number of elements we are using to have the same effect. There are two options for removing an element, as shown in the image below. Both options relate to how we retain the existing data when replacing the element being removed.
 
-![Three options for removing an element](./images/remove-options.png)
+![Two options for removing an element](./images/remove-options.png)
 
 ## Option 1 - move the last element
 
@@ -63,7 +63,7 @@ void remove_value(number_data &data)
   }
   else
   {
-    printf("Sorry, that is not a valid index.\n");
+    write_line("Sorry, that is not a valid index.");
   }
 }
 ```
@@ -132,7 +132,7 @@ void remove_value(number_data &data)
   }
   else
   {
-    printf("Sorry, that is not a valid index.\n");
+    write_line("Sorry, that is not a valid index.");
   }
 }
 ```
@@ -141,81 +141,6 @@ void remove_value(number_data &data)
 </Accordion>
 
 Make sure to test this out before moving on.
-
-## Option 3 - using memory copy functions
-
-What we have so far is effective, but it can be more efficient.
-
-In C/C++, the standard library provides a `memcpy` function. We can use this to copy the memory efficiently. In this case, it can copy all the elements after the removed element, back over the elements starting at the element being removed. This is the same idea as option 2, just using the memory copy function we saw in [copying arrays](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-04-clone-array). In this case we only copy part of the array, and copying it over the array itself.
-
-![Overview of option 3](./images/remove-option-3.png)
-
-The following pseudocode shows how to do this. We need to calculate the number of elements to copy, and use this to determine the number of bytes to copy.
-
-```plaintext
-Procedure: Remove Element
-Parameters:
-- data: reference to number data
-Local variables:
-- index: integer of element to remove
-- number to move: integer of elements to move
-- size: integer of bytes to move
-Steps:
-- Output the values in the array with their indexes
-- Ask the user which index to remove
-- If it is less than 0 or larger than the max index
-  - Output an error message
-  - Return
-- number to move = data.size - (index + 1)
-- size = sizeof(double) * number to move;
-- memcpy(address of data.values[index], address of data.values[index + 1], size)
-- Reduce data.size by one
-```
-
-Have a go at this yourself.
-
-<Accordion>
-<AccordionItem header="Code for remove using memcpy">
-
-```cpp {4,22-24}
-/* stats-calc.cpp - from the field guide. written by ... */
-
-#include <cstdio>
-#include <cstdlib>
-#include "utilities.h"
-
-// ... other code here ...
-
-/**
- * Remove a value from the array
- *
- * @param data the array of values
- */
-void remove_value(number_data &data)
-{
-  print(data);
-
-  int index = read_integer("Enter the index of the value to remove: ");
-
-  if (index >= 0 && index < data.size)
-  {
-    int number_to_move = data.size - (index + 1);
-    int bytes_to_move = sizeof(double) * number_to_move;
-    memcpy(&data.values[index], &data.values[index + 1], bytes_to_move);
-    
-    data.size--;
-  }
-  else
-  {
-    printf("Sorry, that is not a valid index.\n");
-  }
-}
-
-// ... other code here ...
-```
-
-</AccordionItem>
-</Accordion>
 
 ## Summary
 
@@ -227,8 +152,7 @@ Remember the point of this exercise has been to work through the actions you can
 ```cpp
 /* stats-calc.cpp - from the field guide. written by ... */
 
-#include <cstdio>
-#include <cstdlib>
+#include "splashkit.h"
 #include "utilities.h"
 
 // The maximum number of values we can store
@@ -256,7 +180,7 @@ void populate_array(number_data &data)
   int size = read_integer("How many values do you want to enter? ");
   if (size > MAX_NUMBERS)
   {
-    printf("Sorry, you can only enter %d values.\n", MAX_NUMBERS);
+    write_line("Sorry, you can only enter " + to_string(MAX_NUMBERS) + " values.");
     size = MAX_NUMBERS;
   }
   else if (size < 0)
@@ -282,7 +206,7 @@ void print(const number_data &data)
 {
   for (int i = 0; i < data.size; i++)
   {
-    printf("%d: %lf\n", i, data.values[i]);
+    write_line(to_string(i) + ": " + to_string(data.values[i]));
   }
 }
 
@@ -367,7 +291,7 @@ void add_data(number_data &data)
   }
   else
   {
-    printf("Sorry, you can only enter %d values.\n", MAX_NUMBERS);
+    write_line("Sorry, you can only enter " + to_string(MAX_NUMBERS) + " values.");
   }
 }
 
@@ -392,7 +316,7 @@ void remove_value(number_data &data)
   }
   else
   {
-    printf("Sorry, that is not a valid index.\n");
+    write_line("Sorry, that is not a valid index.");
   }
 }
 
@@ -401,12 +325,12 @@ void remove_value(number_data &data)
  */
 void print_menu()
 {
-  printf("\nMenu\n");
-  printf("1. Add a value\n");
-  printf("2. Remove a value\n");
-  printf("3. Print the values\n");
-  printf("4. Calculate stats\n");
-  printf("5. Quit\n");
+  write_line("\nMenu");
+  write_line("1. Add a value");
+  write_line("2. Remove a value");
+  write_line("3. Print the values");
+  write_line("4. Calculate stats");
+  write_line("5. Quit");
 
 }
 
@@ -434,15 +358,15 @@ int main()
         remove_value(data);
         break;
       case 3:
-        printf("\nYou entered...\n\n");
+        write_line("\nYou entered...\n");
         print(data);
         break;
       case 4:
-        printf("\nCalculating statistics...\n\n");
+        write_line("\nCalculating statistics...\n");
 
-        printf("Sum:        %4.2lf\n", sum(data));
-        printf("Mean:       %4.2lf\n", mean(data));
-        printf("Max:        %4.2lf\n", max(data));
+        write_line("Sum:        " + to_string(sum(data), 2));
+        write_line("Mean:       " + to_string(mean(data), 2));
+        write_line("Max:        " + to_string(max(data), 2));
         break;
     }
     read_string("Press Enter to continue...");
@@ -451,7 +375,7 @@ int main()
     option = read_integer("Enter an option: ", 1, 5);
   }
 
-  printf("Goodbye!\n");
+  write_line("Goodbye!");
 
   return 0;
 }

@@ -1,0 +1,188 @@
+---
+title: Loop Giving Change
+sidebar:
+  label: " - Loop Giving Change"
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from '@astrojs/starlight/components';
+
+
+To conclude the change calculator we need to make this so that the user has the option to calculate another change value. The logic for this is shown in the following flow chart.
+
+![Flowchart showing a block within a do while that is checking if the user wants to run again.](./images/change-calc-2-loop.png)
+
+<Steps>
+1. Add a new `again` variable at the top of `main`, and at the bottom, use `read_string` to ask the user whether to run again or not.
+2. Add in a `do...while` loop around the change calculator code, that will repeat while `again` is not equal "N" or "n".
+
+    :::tip
+    While you might be thinking the condition for this loop needs to be "repeat while again does not equal 'N' **or** 'n'", in code you would actually need to use `again != "N" && again != "n"`.
+    :::
+
+    Go ahead and try implementing this. Make sure the `do while` loop, captures the code that reads the values from the users, as well as the code that outputs the change values. Try moving the change calculator specific variables (`cost_of_item`, `amount_paid`, etc), to _inside_ the [scope](/book/part-1-instructions/3-control-flow/5-reference/02-1-scope/) of the `do...while` loop as well - conceptually they should only exist for the duration of each loop iteration.
+
+    <Accordion>
+      <AccordionItem header="Looping when asked">
+
+        ```c++ {14-17,36-40}
+        #include "splashkit.h"
+
+        // add read string, read integer, and read integer range here
+
+        // ----------------------------------------------------
+        //
+        // get_coin and calculate_and_output_change same as before
+        //
+        // ----------------------------------------------------
+
+
+        int main()
+        {
+            string again;
+
+            do
+            {
+                int cost_of_item;
+                int amount_paid;
+                int change_value;
+
+                int coin_value;
+                string coin_text;
+
+                cost_of_item = read_integer("Cost of item in cents: ");
+                amount_paid = read_integer("Payment in cents: ");
+
+                change_value = amount_paid - cost_of_item;
+                write_line("Change to give " + to_string(change_value));
+
+                for(int i = 0; i < NUM_COIN_TYPES; i++)
+                {
+                    get_coin(i, coin_value, coin_text);
+                    change_value = calculate_and_output_change(change_value, coin_value, coin_text);
+                }
+
+                write_line();
+                again = read_string("Run again: ");
+
+            } while (again != "N" && again != "n");
+        }
+        ```
+      </AccordionItem>
+    </Accordion>
+
+    Compile, run, and test. Make sure that you can loop multiple times, and exit when you want. Test the program, and see if you can spot any issues.
+
+    :::tip
+    Make sure that you nest the existing code within the loop as a [compound statement](/book/part-1-instructions/3-control-flow/5-reference/02-0-compound-statement). Once you code the loop you can select the existing code in Visual Studio Code and press *tab* to indent it all one level further. You can also right-click and select "Format Document" to help with code layout.
+    :::
+
+3. To complete the program, we can need to check if the user has paid enough. If they have not paid enough, then we should output a message and see if they want to calculate change again.
+
+    Have a go at this yourself. There are several ways you can achieve this.
+
+    <Accordion>
+      <AccordionItem header="Final code">
+
+      In this solution we use an `if...else` statement, to skip change calculation and write "Not enough money was paid." when there is insufficient funds.
+
+      ```c++ {74-75, 83-87}
+      #include "splashkit.h"
+
+      // add read string, read integer, and read integer range here
+
+      const int NUM_COIN_TYPES = 6;
+
+      void get_coin(int coin_index, int &value, string &text)
+      {
+          switch (coin_index)
+          {
+              case 0:
+                  value = 200;
+                  text = "$2, ";
+                  break;
+              case 1:
+                  value = 100;
+                  text = "$1, ";
+                  break;
+              case 2:
+                  value = 50;
+                  text = "50c, ";
+                  break;
+              case 3:
+                  value = 20;
+                  text = "20c, ";
+                  break;
+              case 4:
+                  value = 10;
+                  text = "10c, ";
+                  break;
+              case 5:
+                  value = 5;
+                  text = "5c";
+                  break;
+              default:
+                  value = 1;
+                  text = "ERROR";
+                  break;
+          }
+      }
+
+      int calculate_and_output_change(int change_value, int coin_value, string coin_text)
+      {
+          int to_give;
+
+          // Calculate the number of coins to give using the coin_value.
+          to_give = change_value / coin_value;
+
+          // Output the number of coins with the coin text
+          write(to_string(to_give) + " x " + coin_text);
+
+          // Return the amount of change remaining
+          return change_value - to_give * coin_value;
+      }
+
+      int main()
+      {
+          string again;
+
+          do
+          {
+              int cost_of_item;
+              int amount_paid;
+              int change_value;
+
+              int coin_value;
+              string coin_text;
+
+              cost_of_item = read_integer("Cost of item in cents: ");
+              amount_paid = read_integer("Payment in cents: ");
+
+              change_value = amount_paid - cost_of_item;
+
+              if (change_value >= 0)
+              {
+                  write_line("Change to give " + to_string(change_value));
+
+                  for(int i = 0; i < NUM_COIN_TYPES; i++)
+                  {
+                      get_coin(i, coin_value, coin_text);
+                      change_value = calculate_and_output_change(change_value, coin_value, coin_text);
+                  }
+              }
+              else
+              {
+                  write_line("Not enough money was paid.");
+              }
+
+              write_line();
+              again = read_string("Run again: ");
+
+          } while (again != "N" && again != "n");
+      }
+      ```
+
+      </AccordionItem>
+    </Accordion>
+</Steps>

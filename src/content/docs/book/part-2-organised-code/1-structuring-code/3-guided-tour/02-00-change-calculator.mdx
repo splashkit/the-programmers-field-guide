@@ -1,0 +1,155 @@
+---
+title: Change Calculator
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
+---
+
+export const output_example = `Cost of item (in cents): 15
+Amount paid (in cents): 500
+Change: 2 x $2, 0 x $1, 1 x 50c, 1 x 20c, 1 x 10c, 1 x 5c
+
+Run again? Y/n: Y
+Cost of item (in cents): 150
+Amount paid (in cents): 100
+Insufficient payment
+
+Run again? Y/n: Y
+Cost of item (in cents): 150
+Amount paid (in cents): 250
+Change: 0 x $2, 1 x $1, 0 x 50c, 0 x 20c, 0 x 10c, 0 x 5c
+
+Run again? Y/n: y
+...
+`;
+
+import Carousel from '/src/components/Carousel.astro'
+import Aside from '/src/components/Aside.astro'
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Code } from 'astro-expressive-code/components'
+import { Steps } from '@astrojs/starlight/components';
+
+For our next project, let's build a change calculator.
+
+This program will calculate the ideal change, in coins, to give for a purchase. For example, for $6.50 in change it should give you three $2 coins and one 50c coin.
+
+```bash title="Terminal output example (not code)"
+Cost of item (in cents): 15
+Amount paid (in cents): 500
+Change: 2 x $2, 0 x $1, 1 x 50c, 1 x 20c, 1 x 10c, 1 x 5c
+
+Run again? Y/n: Y
+Cost of item (in cents): 150
+Amount paid (in cents): 100
+Insufficient payment
+
+Run again? Y/n: Y
+Cost of item (in cents): 150
+Amount paid (in cents): 250
+Change: 0 x $2, 1 x $1, 0 x 50c, 0 x 20c, 0 x 10c, 0 x 5c
+
+Run again? Y/n: Y
+Cost of item (in cents): 175
+Amount paid (in cents): 200
+Change: 0 x $2, 0 x $1, 0 x 50c, 1 x 20c, 0 x 10c, 1 x 5c
+
+Run again? Y/n: n
+```
+
+Requirements:
+
+- The user will enter a cost and amount paid, and the system will output the ideal change in coins.
+- Allow the user to give change multiple times
+- Ensure that the program does not crash when the user enters unexpected text for the cost or payment.
+- Do not calculate change if the payment is insufficient.
+
+Before starting, let's identify how we'll structure the code.
+
+<Aside type="thinking" title="Figuring out the structure...">
+<Carousel animation="fade" buttonLayout="bottom" panelAlignment="top">
+  <div>
+    <Code code={output_example} lang="c++" mark={{range: "1-5"}}/>
+    First, we can see that our program goes through its set of steps once...
+  </div>
+  <div>
+      <Code code={output_example} lang="c++" mark={{range: "6-10"}}/>
+
+    ...then repeats itself...
+  </div>
+  <div>
+      <Code code={output_example} lang="c++" mark={{range: "11-15"}}/>
+
+    and repeats itself again, and so on. So we'll want some sort of loop around the main program code.
+  </div>
+  <div>
+      <Code code={output_example} lang="c++" mark={/[0-9]* x \$2, /g}/>
+
+    Within each run, we can also see...
+  </div>
+  <div>
+      <Code code={output_example} lang="c++" mark={/[0-9]* x \$1, /g}/>
+
+    ...another set of repeated steps...
+  </div>
+  <div>
+      <Code code={output_example} lang="c++" mark={/[0-9]* x 50c, /g}/>
+
+    ...but these take different data (different types of coins), and output results...
+  </div>
+  <div>
+      <Code code={output_example} lang="c++" mark={/([0-9]* x (20|10|5)c)/g}/>
+
+    ...so a function might be a good way to help us calculate our change. We can call the same function multiple times with different _data_, to compute the coins to give for each coin type.
+  </div>
+</Carousel>
+</Aside>
+
+
+## Calculating the change to give
+
+To get started, let's add the code to read in the cost of the item, the amount paid, and calculate the amount of change to give. We can keep this simple to start, with a basic sequence for these. We will also re-use our `read_intger` function from the previous pages, to validate input and make our code more expressive.
+
+<Steps>
+1. Create a `main` function, and create the variables you will need inside it. Think about the values you will need to determine the amount of change to be given. Have a go at this yourself, see if you can get something similar to the following output:
+    ```
+    Cost of item (in cents): 15
+    Amount paid (in cents): 500
+    Change to give: 485
+
+    ```
+    _Note that we're using cents rather than dollars - we can use integers in this case._
+
+    Make sure to have a go at it yourself first! If you find yourself stuck, feel through to check here and compare it with how you've approached it.
+    <Accordion>
+      <AccordionItem header="Code to calculate change">
+
+    For this we will need the following variables:
+
+    - `int cost_of_item;` to store the cost as an integer (in cents).
+    - `int amount_paid;` to store the amount paid in cents.
+    - `int change_value;` to store the value of the change to be given.
+
+    ```c++
+    #include "splashkit.h"
+
+    // add read string, read integer, and read integer range here
+
+    int main()
+    {
+        int cost_of_item;
+        int amount_paid;
+        int change_value;
+
+        cost_of_item = read_integer("Cost of item in cents: ");
+        amount_paid = read_integer("Payment in cents: ");
+
+        change_value = amount_paid - cost_of_item;
+
+        write_line("Change to give " + to_string(change_value));
+    }
+    ```
+
+      </AccordionItem>
+    </Accordion>
+</Steps>
+
+You are now at a point where you have the change calculator reliably reading in the information it needs. Next we can calculate and output the change values.

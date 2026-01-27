@@ -19,7 +19,7 @@ We can get this going pretty quickly by:
 ```cpp
 /* stats-calc.cpp - from the field guide. written by ... */
 
-#include <cstdio>
+#include "splashkit.h"
 
 // The maximum number of values we can store
 const int MAX_NUMBERS = 20;
@@ -64,7 +64,7 @@ The resulting code should look something like this:
 ```cpp {8-18}
 /* stats-calc.cpp - from the field guide. written by ... */
 
-#include <cstdio>
+#include "splashkit.h"
 
 // The maximum number of values we can store
 const int MAX_NUMBERS = 20;
@@ -161,7 +161,7 @@ Have a go at implementing this yourself. We will need to update `main` so that i
 ```cpp {21-46,55,58}
 /* stats-calc.cpp - from the field guide. written by ... */
 
-#include <cstdio>
+#include "splashkit.h"
 #include "utilities.h"
 
 // The maximum number of values we can store
@@ -189,7 +189,7 @@ void populate_array(number_data &data)
   int size = read_integer("How many values do you want to enter? ");
   if (size > MAX_NUMBERS)
   {
-    printf("Sorry, you can only enter %d values.\n", MAX_NUMBERS);
+    write_line("Sorry, you can only enter " + to_string(MAX_NUMBERS) + " values.");
     size = MAX_NUMBERS;
   }
   else if (size < 0)
@@ -236,7 +236,13 @@ Have a go at this yourself.
 :::tip
 
 - As before, use a [for loop](/book/part-2-organised-code/3-working-with-multiples/move-0-panorama/1-array-iteration) to perform the action for each element in the array.
-- Use the standard C `printf` function to output the details. The `%d` format specifier can be used for the index (it is an integer) and `%lf` can be used for the value from the array (it is a double). Something like `"%d: %lf\n"` where `%d` is replaced by the index value, and `%lf` is replaced by the value stored in the array at that index.
+- Try to format the output like so:
+  ```
+  0: 0.9
+  1: 2.3
+  2: 7
+  ...
+  ```
 
 :::
 
@@ -248,7 +254,7 @@ Have a go at this yourself.
 ```cpp {48-59,70}
 /* stats-calc.cpp - from the field guide. written by ... */
 
-#include <cstdio>
+#include "splashkit.h"
 #include "utilities.h"
 
 // The maximum number of values we can store
@@ -276,7 +282,7 @@ void populate_array(number_data &data)
   int size = read_integer("How many values do you want to enter? ");
   if (size > MAX_NUMBERS)
   {
-    printf("Sorry, you can only enter %d values.\n", MAX_NUMBERS);
+    write_line("Sorry, you can only enter " + to_string(MAX_NUMBERS) + " values.");
     size = MAX_NUMBERS;
   }
   else if (size < 0)
@@ -302,7 +308,7 @@ void print(const number_data &data)
 {
   for (int i = 0; i < data.size; i++)
   {
-    printf("%d: %lf\n", i, data.values[i]);
+    write_line(to_string(i) + ": " + to_string(data.values[i]));
   }
 }
 

@@ -1,5 +1,10 @@
 ---
-const { onNextTest="true", id="" } = Astro.props;
+/*
+ * animation: "none", "slide", "fade"
+ * buttonLayout: "side", "bottom"
+ * panelAlignment: "center", "top"
+*/
+const { onNextTest="true", id="", animation="slide", buttonLayout="side", panelAlignment = "center" } = Astro.props;
 ---
 
 <style>
@@ -17,35 +22,131 @@ const { onNextTest="true", id="" } = Astro.props;
 
     .track {
         display: flex;
+    }
+    .track-alignment-center {
+        place-items: center center;
+    }
+    .track-alignment-top {
+        place-items: normal;
+    }
+
+    .track-slide {
         transition: transform 0.4s ease;
     }
 
     :global(.track > div) {
+        display: flex;
+
         flex: 0 0 100%;
-        width: 100%;
+        flex-direction: column;
+        justify-content: space-around;
         box-sizing: border-box;
+
+        width: 100%;
+        max-height: 65vh;
         margin-top: 0!important;
         padding: 0em 0.5em;
 
-        min-height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+        overflow-y: auto;
     }
 
-    button.arrow:hover {
+    :global(.track > div.scrollable::after) {
+        content: "";
+
+        z-index: 1000;
+
+        display: block;
+        position: absolute;
+        bottom: 0;
+        height: 0;
+        left: 0;
+        right: 0;
+
+        box-shadow: 0px 0px 80px 80px #252c26;
+        transition: opacity 0.5s ease;
+    }
+    :global(.track > div.scrollable-scrolled::after) {
+        opacity: 0;
+    }
+
+    .track-fade {
+        display: grid;
+        grid-template: 1fr / 1fr;
+    }
+    :global(.track-fade > div) {
+        grid-column: 1 / 1;
+        grid-row: 1 / 1;
+        justify-content: flex-start;
+
+        min-width: 0;
+        opacity: 0;
+
+        transition: opacity 0.4s ease;
+    }
+
+    button.arrow:hover:enabled {
         color: var(--sl-color-white);
         border-color: var(--sl-color-gray-2);
+    }
+    .arrow:active:enabled {
+        background: var(--sl-color-bg-nav);
     }
 
     button.arrow {
         cursor: pointer;
         z-index: 1;
-        transition: opacity 1s;
+        transition: opacity 0.5s;
+
+        font-weight: bold;
+        padding: 0.4em 0.3em 0.7em;
+        border-color: var(--sl-color-accent-high);
+        border-radius: 0.3em;
+        color: var(--sl-color-text-accent);
+    }
+    button.arrow:disabled {
+        opacity: 0.1;
+        cursor: initial;
     }
 
-    .arrow.left { left: 0.5rem; margin-top: 0!important; }
-    .arrow.right { right: 0.5rem; margin-top: 0!important; }
+    .button-layout-bottom > .arrow {
+        display: flex;
+        align-self: normal;
+
+        width: 50%;
+
+        padding: 0.5em 0.8rem;
+        gap: 0.5rem;
+
+        border: 1px solid var(--sl-color-gray-5);
+        border-radius: 0.5rem;
+
+        color: var(--sl-color-gray-2);
+        box-shadow: var(--sl-shadow-md);
+    }
+    .button-layout-bottom > .arrow.left {
+        justify-content: flex-start;
+        order: 2;
+    }
+    .button-layout-bottom {
+        flex-direction: column;
+    }
+    .button-layout-bottom > .arrow.right {
+        justify-content: end;
+        border-color: var(--sl-color-accent-high);
+        text-align: end;
+        flex-direction: row-reverse;
+
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+    }
+
+    .button-layout-bottom > .arrow.right::after {
+        content: "Next";
+    }
+    .button-layout-bottom > .arrow.left::after {
+        content: "Previous";
+    }
 
     .toggle{
         flex-shrink: 0;
@@ -62,12 +163,13 @@ const { onNextTest="true", id="" } = Astro.props;
         user-select: none;
         cursor: pointer;
     }
+}
 </style>
 
-<div id={id} class="not-content carousel-wrapper" data-carousel data-on-next-check={onNextTest}>
-    <button class="toggle arrow left" data-prev>‹</button>
+<div id={id} class={`button-layout-${buttonLayout} carousel-wrapper`} data-carousel data-on-next-check={onNextTest}, data-animation={animation}>
+    <button disabled class="toggle arrow left" data-prev>‹</button>
     <div class="carousel">
-        <div class="track" data-track>
+        <div class={`track track-${animation} track-alignment-${panelAlignment}`} data-track>
             <slot />
         </div>
     </div>
@@ -107,17 +209,24 @@ document.querySelectorAll("[data-carousel]").forEach(el =>{
     const slides = Array.from(track.children);
     const prevBtn = el.querySelector('[data-prev]');
     const nextBtn = el.querySelector('[data-next]');
+    const animationMode = el.dataset.animation;
 
     let index = 0;
 
     function update() {
-        track.style.transform = `translateX(-${index * 100}%)`;
+        if (animationMode == "fade") {
+            for (let slide of slides) {
+                slide.style.opacity = slide == slides[index] ? "1" : "0";
+                slide.style.pointerEvents = slide == slides[index] ? "initial" : "none";
+            }
+        } else {
+            track.style.transform = `translateX(-${index * 100}%)`;
+        }
+
         el.dispatchEvent(new CustomEvent('carousel-change', { detail: { index } }));
 
         prevBtn.disabled = index == 0;
-        prevBtn.style.opacity = index == 0?"0":"1";
         nextBtn.disabled = index == slides.length-1;
-        nextBtn.style.opacity = index == slides.length-1?"0":"1";
     }
 
     prevBtn.addEventListener('click', () => {
@@ -131,8 +240,35 @@ document.querySelectorAll("[data-carousel]").forEach(el =>{
 
         if (index < slides.length-1)
             index ++;
+
         update();
+
+        // reset the scroll within the page to the top
+        slides[index].scrollTop = 0;
     });
+
+    // We aim to ensure the carousel always fits on screen, including on mobile,
+    // so the individual pages may need to scroll.
+    // Unfortunately this can be hard to see visually,
+    // since phones don't show scrollbars by default.
+    // So we manually add some visuals to show that an area is scrollable,
+    // and hide them once scrolled to the bottom.
+
+    const scrollThreshold = 10;
+
+    for (let slide of slides) {
+        if (slide.scrollHeight > slide.clientHeight) {
+            slide.classList.add("scrollable");
+
+            slide.addEventListener('scroll', () => {
+                if (slide.scrollTop > (slide.scrollHeight - slide.clientHeight - scrollThreshold)) {
+                    slide.classList.add('scrollable-scrolled');
+                } else {
+                    slide.classList.remove('scrollable-scrolled');
+                }
+            });
+        }
+    }
 
     update();
 
