@@ -8,10 +8,10 @@ import { Steps } from '@astrojs/starlight/components';
 
 ![Illustration of window dimensions](../5-reference/images/window-dimensions.png)
 
-The first step in building a graphical program is to open a window. We can then draw onto this. In order to see the picture, we need to also keep the window around for a few seconds before the program ends.
+The first step in building a graphical program is to open a window to draw onto. In order to see the picture, we'll need to keep the window around for a few seconds before the program ends.
 
 <Steps>
-1. Add a call to open a window that we can draw onto.
+1. Add a call to open a window.
 
     In SplashKit you can open a window to draw onto. To open the window you call the `open_window` procedure, and pass it the window’s title, its width and its height.
 
@@ -21,10 +21,10 @@ The first step in building a graphical program is to open a window. We can then 
     For this use the title "House Drawing by ..." and add your name, with a width of 800 and a height of 600.
     :::
 
-2. If the program ends after the window is open, then it wont be around for long enough for the user to see. To fix this we can use the `delay` procedure. You pass it an integer argument for the number of milliseconds to delay. Try delaying for 5000 milliseconds.
+2. If the program ends after the window is open, then it won't be around long enough for the user to see. To fix this we can use the `delay` procedure. You pass it an integer argument for the number of milliseconds to delay. Try delaying for 5000 milliseconds.
 
     <Accordion>
-      <AccordionItem header="Open a window and delay">
+      <AccordionItem header="Code to open a window and delay">
 
       ```c++ {5-7}
       #include "splashkit.h"

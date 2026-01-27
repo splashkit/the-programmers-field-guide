@@ -22,9 +22,7 @@ As you continue your journey, you will pick up more tools to expand what you can
 For now, a program is simply a list of instructions that are followed when the program runs.
 
 :::tip[Memorising syntax]
-
-To master these concepts you will need to memorise the syntax so that you can start to use these concepts in programs of your own design. As you read through these, make sure to keep notes and create small test programs so that you can practice using these ideas and memorise the language syntax as you go. This is an important part of the process of learning to program.
-
+To master these concepts you will need to memorise the syntax so that you can start to use these concepts in programs of your own design. As you read through these, make sure to keep notes and create small test programs so that you can practice using the ideas and memorise the language syntax as you go. This is an important part of the process of learning to program.
 :::
 
 ## In C++
@@ -39,7 +37,7 @@ In a C++ project, you have one source code file that will contain the program's 
 Each program starts with an optional list of **header includes**.
 These allow you to tell the compiler to give you access to [procedures](/book/part-1-instructions/1-sequence/5-reference/10-procedure) declared in [libraries](/book/part-1-instructions/1-sequence/5-reference/30-library) you want to use.
 
-After this you can declare a `main` function - then between the braces (`{ }`) you provide a list of instructions that each end with a semicolon (`;`). These instructions are known as [statements](/book/part-1-instructions/1-sequence/5-reference/02-statement) and are run in [sequence](/book/part-1-instructions/1-sequence/5-reference/01-sequence) when the program is executed.
+After this you can declare a `main` function, then between the braces (`{ }`) you provide a list of instructions that each end with a semicolon (`;`). These instructions are known as [statements](/book/part-1-instructions/1-sequence/5-reference/02-statement) and are run in [sequence](/book/part-1-instructions/1-sequence/5-reference/01-sequence) when the program is executed.
 
 :::tip[Directive?]
 A directive is an instruction for the compiler, rather than an instruction that gets added to the program created by the compiler. You use these to let the compiler know something about the code you are writing.
@@ -53,7 +51,7 @@ Here is an illustration showing the code for a program.
 
 ## Examples
 
-The following code shows a basic Hello World C++ Program. You should be able to match this up with the syntax defined above. This program uses code from the `SplashKit` library, giving you access to the `write_line` procedure. When you call `write_line`, it outputs a message to the terminal. The important thing to see here is that **all** of this code is the program -- each line is a part of the program.
+The following code shows a basic Hello World C++ Program. You should be able to match this up with the syntax diagram above. This program uses the `write_line` procedure from the `SplashKit` library. When you call `write_line`, it outputs a message to the terminal. The important thing to see here is that **all** of this code is the program -- each line is a part of the program.
 
 ```c++
 #include "splashkit.h"
@@ -85,7 +83,7 @@ int main()
 ```
 
 :::tip[Code Comments]
-C++ source code is [abstracted](/book/part-0-getting-started/1-building-programs/5-reference/6-source-code/#programming-with-a-third-generation-language) to make it more understandable for humans, but ultimately it is still written for computers.
+C++ source code is [abstracted](/book/part-0-getting-started/1-building-programs/5-reference/3-digital-realities-and-abstraction/) to make it more understandable for humans, but ultimately it is still written for computers.
 Because of this, C++ and virtually all programming languages include syntax for writing [**code comments**](/book/part-1-instructions/1-sequence/5-reference/20-comments).
 
 In the code above the line starting with `//` is a code comment and will be ignored by the compiler.
@@ -101,7 +99,7 @@ We use data to capture information we need a program to work with. The data in t
 
 - You can create something the user can run from a program's **source code**.
 - Most importantly, you can't really *see* the program in the code. The program is **all** of the code together.
-- The program has an **entry point** that indicates where the program’s instructions start -- in this case that is the first instruction in the `main` function.
+- The program has an **entry point** that indicates where the program’s instructions start -- in this case that is the first instruction in `main`.
 - Your program can use code from [libraries](/book/part-1-instructions/1-sequence/5-reference/30-library), giving it access to procedures (and other constructs) others have created.
 
 :::

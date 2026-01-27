@@ -5,9 +5,9 @@ import { Steps } from '@astrojs/starlight/components';
 import { FileTree } from '@astrojs/starlight/components';
 import CodeScroll from '/src/components/CodeScroll.astro'
 
-Hopefully now you're starting to become familiar with the steps needed to create, compile, and run a project - we'll now use these same concepts to compile something a bit different.
+Hopefully now you're starting to become familiar with the steps needed to create, compile, and run a project. We'll now use these same concepts to compile something a bit different.
 
-The previous program we compiled was a _command line program_ (or CLI program - **C**ommand **L**ine **I**nterface) - it runs inside the terminal. Command line programs are awesome (we promise!), but of course we'll want to be able to develop _graphical_ programs as well. That's what we'll do now, with a GUI (**G**raphical **U**ser **I**nterface) Hello World program.
+The previous program we compiled was a _command line program_ (or CLI program - **C**ommand **L**ine **I**nterface) -- a program that runs inside the terminal. Command line programs are awesome (we promise!), but of course we'll want to be able to develop _graphical_ programs as well. That's what we'll do now, with a GUI (**G**raphical **U**ser **I**nterface) Hello World program.
 <details>
   <summary>Side note - Why is the command line great?</summary>
   Command line programs might seem a bit strange at first, but they have some large benefits, particularly when it comes to _automation_. It's difficult to automate clicking through a bunch of menus and buttons, but it's very easy to join together textual commands into complex systems! Here's a simple example you can try using right away:
@@ -21,7 +21,7 @@ The previous program we compiled was a _command line program_ (or CLI program - 
     There are plenty of more powerful ways to use the command line, but hopefully you can already see why it might be useful :)
 
 :::tip
-Use the up arrow key to re-use your last command! No need to type it out every time (though it is good practice at first)
+Use the up arrow key to re-use your last command! No need to type it out every time (though it is good practice at first).
 :::
 </details>
 <p style="text-align:center;">_Click me! ^_</p>
@@ -36,7 +36,7 @@ We'll go a little more briskly this time - if you get stuck at any point you can
 
     <details>
     <summary>Try structuring your folders too!</summary>
-        Now might be a good time to consider how you _structure your folders_ a bit - for instance you could make a folder for each section/task:
+        Now might be a good time to consider how you structure your folders. For instance, you could make a folder for each chapter or task:
 
         <FileTree>
         - Documents
@@ -50,9 +50,8 @@ We'll go a little more briskly this time - if you get stuck at any point you can
                 - ...
         </FileTree>
 
-        _Just remember to `Open Folder` when you switch between projects! Otherwise `clang++` won't be be able to find your C++ source files._
+        Just remember to use "Open Folder" in VS Code when you switch between projects! Otherwise `clang++` won't be be able to find your C++ source files.
     </details>
-
 
 2. Copy the following code and paste it into your C++ file:
     <CodeScroll maxHeight="350px">
@@ -127,19 +126,19 @@ We'll go a little more briskly this time - if you get stuck at any point you can
     }
     ```
     </CodeScroll>
-    _It's a bit longer than the last one! We'll take a look at what it does in a moment..._
+    This program is a bit longer than the last one! Don't worry, we'll take a look at what it does in a moment...
 
-4. Now compile and run it!
+3. Now compile and run it!
 
-    I won't put the exact command here this time, but here's the general _template_ of how it should look - try filling in the input values yourself between the `<...>` (angle brackets):
+    I won't put the exact commands here this time, but here's the general _template_ of how it should look. Try filling in the placeholder values between the `<...>` (angle brackets) yourself:
     ```sh
     clang++ <source-file.cpp> -o <program-name> -l SplashKit -Wall
     ./program-name
     ```
 
-    For me, my source file is named `gui-hello-world.cpp`, and I want the program to be called 'hello-gui', so those are the _parameters_ I'll pass to `clang++`.
+    For me, my source file is named `gui-hello-world.cpp`, and I want the program to be called 'hello-gui', so those are the _parameters_ I'll pass to `clang++`, and the name I'll use to run the program.
 
-3. Here is what the code above will create:
+4. Here is what the code above will create:
 
     ![A window showing the GUI output of the program being run in the terminal.](./images/splashkit-gui-shapes-hello-world.png)
 
@@ -149,19 +148,19 @@ We'll go a little more briskly this time - if you get stuck at any point you can
 
 ## But how does it work?
 
-This has been good practice in building programs, but so far we've mainly just copy pasted code. Let's try making some more small modifications - it's fine that we don't have any programming knowledge yet!
+This has been good practice in building programs, but so far we've mainly just copy-pasted code. Let's try making some more small modifications!
 
 First, let's just try _reading the code_.
 
 :::tip
-Learning programming is a lot like learning a new language, except most of the _words_ are ones you probably already know!
+Learning programming is a lot like learning a new language, except most of the "words" are ones you probably already know!
 
 Even if you don't know the _grammar_ (or _syntax_) yet, you can still take a guess at what the code might be doing, and try changing it.
 :::
 
 Of course we'll cover this all in depth later, but let's just get our feet wet first :)
 
-Here's the first part of the program, I've highlighted some interesting lines:
+Here's the first part of the program. I've highlighted some interesting lines:
 ```cpp {5,7,8,10,11}
 #include "splashkit.h"
 
@@ -178,43 +177,42 @@ int main()
     fill_rectangle(color_red(), 110, 100, 20, 100);
 ```
 
-Have a read through those lines, and have a guess at what it's doing - how is each line affecting what the program shows on the screen? Try writing it down :)
+Have a read through those lines, and have a guess at what they're doing. How is each line affecting what the program shows on the screen? Try writing it down :)
 
 <details>
-<summary>You've written down your guesses? Let's see how they compare:</summary>
+<summary>You've got your guesses? Let's see how they compare:</summary>
     Just from reading the text, we can probably guess it's doing the following things:
-    - It opens a _window_, and somehow the text "My First GUI Program", and the numbers 640 and 480 are used.
-    - It _clears the screen_ with the colour white.
-    - It _draws some text_, coloured black.
-    - And it starts drawing a H by _filling in red rectangles_.
+    - It **open**s a **window** and somehow the text "My First GUI Program", and the numbers 640 and 480 are used.
+    - It **clear**s the **screen** with the colour white.
+    - It **draw**s some **text**, coloured black.
+    - And it starts drawing a H by **fill**ing in red **rectangle**s.
 
-    We can see how each line of code _does something_, and sends in parameters to change its behavior (for instance what colour to use, what text to write, etc). Here's a (messy) diagram showing each line maps to the screen:
+    We can see how each line of code _does something_, and uses values to change its behavior (for instance what colour to use, what text to write, etc). Here's a (messy) diagram showing how each line maps to the screen:
 
     ![A diagram drawing links between each line of code and its affect on the output on the screen.](./images/splashkit-gui-shapes-hello-world-diagram.png)
 
-
     <details>
     <summary>Is each line similar to running a program at the command line?</summary>
-    Conceptually yes! At the command line, we run a program by writing its _name_, and then a series of _parameters_ (or _arguments_). For instance when we write:
+    Yes! At the command line, we run a program by writing its _name_, and then a series of _parameters_ (or _arguments_). For instance when we write:
 
         ```sh
         clang++ gui-hello-world.cpp -l SplashKit -o hello-gui -Wall
         ```
 
-        `clang++` is the program we're running, and the rest of the line are the parameters. `clang++` takes those inputs, and goes and _does something_ for us (compiles our program).
+        `clang++` is the program we're running, and the rest of the line contains the parameters. `clang++` takes those inputs, and goes and _does something_ for us (compiles our program).
 
-        Similarly, when we write
+        Similarly, when we write:
 
         ```c++
         draw_text("Hello World! - using SplashKit shapes:", color_black(), 50, 50);
         ```
-        `draw_text` is the _procedure_ we're runnning (or more commonly, _calling_), and the things inside the brackets `()` are the parameters. `draw_text` then also goes and _does something_ (in this case, it, unsurprisingly, draws text)
+        `draw_text` is the _procedure_ we're runnning, and the things inside the brackets `()` are the parameters. `draw_text` then goes and _does something_ (in this case, it draws text).
 
-        The underlying technical aspects between the two are quite different, but conceptually they are very similar. Understanding this pattern early on will make reading code much easier :)
+        The underlying technical aspects between the two are quite different, but *conceptually* they are very similar. Understanding this pattern early on will make reading code much easier.
     </details>
 </details>
 
-Have a go now at reading through the rest of the code - hopefully you can see how each letter is drawn by just filling in a bunch of shapes at different locations. We don't need to understand exactly what all the numbers do (yet!), to still grasp the general idea.
+Have a go now at reading through the rest of the code. Hopefully you can see how each letter is drawn by just filling in a bunch of shapes at different locations. We don't need to understand exactly what all the numbers do (yet!), to still grasp the general idea.
 
 <details>
 <summary> Here's the code again, for reference:</summary>
@@ -291,35 +289,35 @@ Have a go now at reading through the rest of the code - hopefully you can see ho
     ```
 </details>
 
-Now let's try changing it! See you in the [next section](/book/part-0-getting-started/1-building-programs/3-guided-tour/5-2-hello-world-gui-edit).
+Now, let's try changing it! See you in the [next section](/book/part-0-getting-started/1-building-programs/3-guided-tour/5-2-hello-world-gui-edit).
 
 ----
 
 &nbsp;
 <details>
-<summary> -- Extra -- <br/> But wait, what are the numbers for?</summary>
+<summary> -- Extra -- <br/> But wait, what *are* the numbers for?</summary>
 Good question! Let's look at one example:
 ```c++
 draw_text("Hello World! - using SplashKit shapes:", color_black(), 50, 50);
 ```
 You may have guessed this already, but the numbers, `50, 50` here represent the _position_ the text will be drawn at on the screen.
- - The first number is the `x` coordinate - from the left edge of the window, how far to the right?
- - The second number is the `y` coordinate - from the top edge of the window, how far down?
+ - The first number is the `x` coordinate. It tells the computer how far to the right from the left edge of the window we want our text.
+ - The second number is the `y` coordinate. It tells the computer how far down from the top edge of the window we want our text.
 
-They are measured in _pixels_. Similarly, `fill_rectangle` also uses pixel coordinates:
+These numbers represent a number of _pixels_. Similarly, `fill_rectangle` also uses pixel coordinates:
 ```c++
 fill_rectangle(color_red(), 50, 100, 20, 100);
 ```
 The `50, 100` are again the x/y coordinates. The last two numbers are the _width_ and _height_, again in pixels.
 
-Take a look a the diagram below for a visualization - hopefully you can see how each number specifies a position or size on the screen:
+Take a look at the diagram below for a visualization. Hopefully you can see how each number specifies a position or size on the screen:
 ![A diagram showing how the pixel coordinates map to the screen.](./images/splashkit-gui-shapes-hello-world-diagram-coords.png)
 
 :::tip
-Think about a 2D game you've played recently - the player's position was likely represented as `x`/`y` coordinates within the game world! When you moved right or left, the `x` coordinate will have increased or decreased.
+Think about a 2D game you've played recently. The player's position was likely represented as `x`/`y` coordinates within the game world! When you moved right or left, the `x` coordinate will have increased or decreased.
 
 Have a think about how this might work in 3D!
 :::
 
-If you're interested in learning more about drawing graphics, have a check over the guide [here!](https://splashkit.io/guides/graphics/drawing-using-procedures/) It's a little advanced right now, but it might be something you can keep re-reading as you learn more :)
+If you're interested in learning more about drawing graphics, have a look at the guide [here](https://splashkit.io/guides/graphics/drawing-using-procedures/). It's a little advanced right now, but it might be something you can come back to as you learn more :)
 </details>

@@ -7,14 +7,14 @@ import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 ![House output](./images/house-shown.png)
 
-Complete the house by adding in the rectangle and triangle. Here are the relevant coordinates:
+Complete the house by adding in the rectangle and triangle. Here are the relevant colours and coordinates:
 
-- Rectangle: use `COLOR_GRAY`, draw at 300,300, with a width of 200, and a height of 200.
-- Triangle: use `COLOR_RED`, draw with points at 250,300, and 400,150, and 550,300.
+- Rectangle: use `COLOR_GRAY`, draw at (300, 300), with a width of 200, and a height of 200.
+- Triangle: use `COLOR_RED`, draw with points at (250, 300), and (400, 150), and (550, 300).
 
 
 <Accordion>
-  <AccordionItem header="House drawn">
+  <AccordionItem header="Code for drawing the house">
 
   ```c++ {9-10}
   #include "splashkit.h"
@@ -41,4 +41,4 @@ Compile and run your program and check that you can see the house.
 
 ---
 
-If you're interested in exploring this a bit further, feel free to check the [Graphics Procedures](/book/part-1-instructions/1-sequence/5-reference/33-graphics) page for a rundown of some other useful procedures you can use. Try adding some more elements to the scene, or changing it completely!
+If you're interested in exploring this a bit further, feel free to check the [Graphics Procedures](/book/part-1-instructions/1-sequence/5-reference/33-graphics) page for a rundown of some other useful graphical procedures. Try adding some more elements to the scene, or changing it completely!
