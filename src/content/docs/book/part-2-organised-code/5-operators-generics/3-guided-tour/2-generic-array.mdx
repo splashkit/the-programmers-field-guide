@@ -1,6 +1,5 @@
 ---
 title: Generic Array
-draft: true
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { Steps } from '@astrojs/starlight/components';
@@ -9,7 +8,7 @@ import TemplateInjector from '/src/components/TemplateInjector.astro'
 import MultipleChoice from '/src/components/MultipleChoice.astro';
 import ITO from '/src/components/InlineTextOption.astro'
 
-Now that we've tried out using generics, let's see how we can apply them to the `double_array` class we made in [Member Functions](/book/part-2-organised-code/4-member-functions/3-guided-tour/3-array/).
+Now that we've tried out using generics, let's see how we can apply them to the `double_array` class we made in [Member Functions](/book/part-2-organised-code/4-member-functions/3-guided-tour/3-array).
 
 First, consider:
 - What parts of our `double_array` are fixed at _compile time_?
@@ -116,7 +115,7 @@ Here's the condensed code for the `double_array` we have currently. Try selectin
 </MultipleChoice>
 </NoCopy>
 
-We'll continue working from the code you wrote in the [last chapter]((/book/part-2-organised-code/4-member-functions/3-guided-tour/3-array/)), with the same test `main` as well. Feel free to make a copy of the file to continue working from.
+We'll continue working from the code you wrote in the [last chapter](/book/part-2-organised-code/4-member-functions/3-guided-tour/3-array), with the same test `main` as well. Feel free to make a copy of the file to continue working from.
 
 :::tip
 You can often approach writing templated classes by first writing them with a fixed concrete type instead. Once that's working, you can substitute the fixed type for a template type parameter - this is exactly what we're doing here.

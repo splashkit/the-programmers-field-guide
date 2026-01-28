@@ -24,7 +24,7 @@ Object-oriented programming and inheritance opens up a new opportunity for polym
 
 ## Example
 
-The following example shows the use of polymorphism with the `text_message` and `error_message` from the previous [inheritance](/book/part-2-organised-code/4-member-functions/move-0-panorama/03-inheritance) example. Here we have added a method that accepts a reference to a `text_message`. Notice that we can pass this method either a `text_message` or an `error_message` object. Similarly, we have a pointer `ref` in main that can be used to point to either object. In both cases, when you call `print` the object will choose the method to run. The `error_message` objects will run the code from the `error_message` class, as this method is overloaded.
+The following example shows the use of polymorphism with the `text_message` and `error_message` from the previous [inheritance](/book/part-2-organised-code/todo-inheritance/move-0-panorama/03-inheritance) example. Here we have added a method that accepts a reference to a `text_message`. Notice that we can pass this method either a `text_message` or an `error_message` object. Similarly, we have a pointer `ref` in main that can be used to point to either object. In both cases, when you call `print` the object will choose the method to run. The `error_message` objects will run the code from the `error_message` class, as this method is overloaded.
 
 ```cpp {29-32,36-57}
 #include "splashkit.h"
