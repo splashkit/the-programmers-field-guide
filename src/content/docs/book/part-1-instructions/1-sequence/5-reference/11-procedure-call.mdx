@@ -108,15 +108,15 @@ A procedure call is an instruction that gets the computer to run the code in a [
 
 ## Procedure Call -- when, why, and how
 
-As you have seen, [procedures](/book/part-1-instructions/1-sequence/5-reference/10-procedure) are constructs that contain instructions to do a task -- sort of like mini-programs. A large part of your code will be calling procedures to get them to do things you need done, in the order you need them done.
+[Procedures](/book/part-1-instructions/1-sequence/5-reference/10-procedure) are constructs that contain instructions to do a task -- sort of like mini-programs. A large part of your code will be calling procedures to get them to do things you need done, in the order you need them done.
 
 When you are thinking about calling a procedure, you need to know what it does, what it is called, and what to give it. Writing the code to call a procedure is then simple: you just provide the name, and a list of values for the [arguments](#arguments).
 
-:::note[Procedure Call]
+:::note[When calling a procedure you need to know...]
 
-- Know what the procedure does
-- Know its name
-- Know what arguments you need to give it
+- ...what the procedure does.
+- ...its name.
+- ...what arguments you need to give it.
 
 :::
 
@@ -132,7 +132,7 @@ The C++ syntax for a procedure call is structured like this:
 <CommmonLink type="syntaxDiagramGuide"/>
 :::
 
-A procedure call consists of a procedure's name followed by an opening parenthesis, then zero or more arguments (delimited by commas), a closing parenthesis, and a semicolon.
+A procedure call consists of a procedure's name followed by an opening parenthesis, then zero or more arguments (separated by commas), a closing parenthesis, then finally a semicolon.
 
 ![Illustration of some procedure calls](./images/procedure-call-pano.png)
 
@@ -140,7 +140,7 @@ A procedure call consists of a procedure's name followed by an opening parenthes
 
 ![Illustration of arguments](./images/arguments.png)
 
-When you call a procedure, you need to pass a value for each argument. This value can be a [literal](/book/part-1-instructions/1-sequence/5-reference/14-literal) or calculated value known as an [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression).
+When you call a procedure, you need to pass a value for each argument. This value can be a [literal](/book/part-1-instructions/1-sequence/5-reference/14-literal) value, or calculated value known as an [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression).
 
 You can determine the arguments that are needed from a procedure's signature.
 
@@ -154,11 +154,11 @@ These different phrases all mean the same thing and can be used interchangeably 
 
 ## Signature
 
-The signature of a procedure lists its name and details of the arguments you need to pass. The following is an example procedure signature, and its components.
+The **signature** of a procedure lists its name and details of the arguments it requires. The following is an example procedure signature, and its components.
 
 ```c++
-// void indicates a procedure
-// fill_circle is its name (known as an identifier)
+// "void" indicates a procedure
+// "fill_circle" is the name of the procedure (known as its "identifier")
 // it needs 4 arguments:
 //  - a color
 //  - a double for the x value
@@ -167,13 +167,13 @@ The signature of a procedure lists its name and details of the arguments you nee
 void fill_circle(color clr, double x, double y, double radius);
 ```
 
-The `void` at the start of the signature indicates that this is a procedure that does something. When you are checking documentation you may see other types in this location. These are functions, which we will look at in the next chapter. In many cases you can call functions as if they are procedures. This can be useful if the function does something, as well as calculating or returning something. The following is a signature of the `open_window` function.
+The `void` at the start of the signature indicates that this is a procedure. When you are checking documentation you may see other types in this location. These are functions, which we will look at in the [next chapter](/book/part-1-instructions/2-data/0-overview/). In many cases you can call functions as if they are procedures. This can be useful if the function does something. For example, `open_window` is a function from SplashKit.
 
 ```c++
-// window indicates that this returns details of the window created
-// open_window is the name of the function
+// "window" indicates that this function returns the details of the created window
+// "open_window" is the name of the function
 // it needs 3 arguments:
-//  - a string for its caption (title)
+//  - a string for its caption (i.e., title)
 //  - a integer for its width 
 //  - a integer for its height
 window open_window(string caption, int width, int height);
@@ -181,14 +181,15 @@ window open_window(string caption, int width, int height);
 
 ## Overloading
 
-Languages like C++ support something called **overloading**. Overloading lets programmers create multiple procedures with the same name but different arguments. Each procedure with the same name should do the same general action, but provide a different option for the data you can pass in. For example, library might provide two versions of a procedure to print data to the terminal -- one where you can pass in text, and another where you can pass in a number.
+Languages like C++ support something called **overloading**. Overloading lets programmers create multiple procedures with the same name, but different arguments. Each procedure with the same name should do the same general action, but provide a different option for the data you can pass in. For example, a library might provide two versions of a procedure to print data to the terminal -- one where you can pass in text, and another where you can pass in a number.
 
-Overloading gives programmers even more flexibility in how they ask the computer to do things. If you look at the [SplashKit documentation](https://splashkit.io/api/) you will see several examples of overloaded procedures. So make sure to pay attention to which version of a procedure you want to call, and the arguments you will need to pass for that version.
+Overloading gives programmers even more flexibility in how they ask the computer to do things. If you look at the [SplashKit documentation](https://splashkit.io/api/) you will see several examples of overloaded procedures. So, make sure to pay attention to which version of a procedure you want to call, and the arguments you will need to pass for that version.
 
-For example, there are many versions of `write_line` to allow you to pass in different data values.
+For example, there are many versions of `write_line` to allow you to pass in different data values:
 
 ```c++
-// Example overloaded procedures - all called write_line
+// Example of overloaded procedures - all of these procedures
+// are called write_line, but accept different kinds of data
 void write_line();
 void write_line(char data);
 void write_line(double data);
@@ -203,15 +204,16 @@ void write_line(string line);
 The code below contains a C++ program with four procedure calls. Each procedure call runs the `write_line` procedure to output text to the terminal.
 
 The procedure call starts with the procedure's name that indicates the procedure to be called is `write_line`.
-Following the identifier is a list of values within parenthesis.
+Following the identifier is a list of values within parentheses.
 These are the arguments passed to the procedure for it to use.
+In this case we are using a procedure that only accepts one argument, so we are only providing one value in between the parentheses.
 
 As the `write_line` procedure comes from SplashKit, this example program starts with a [`#include` directive](/book/part-1-instructions/1-sequence/5-reference/00-program/#in-c) to tell the compiler to look in the SplashKit library for any procedures that are called.
 Remember that programs run in [sequence](/book/part-1-instructions/1-sequence/5-reference/01-sequence), so we need to provide this directive *before* writing any code that calls a procedure from this library.
-This is why it is convention to put using directives at the start of a program's source code.
+This is why it is convention to put ``using`` directives at the start of a program's source code.
 
 :::caution
-C++ is case sensitive so using `write_Line` instead of `write_line` will not work.
+C++ is case sensitive so using `Write_Line` instead of `write_line` will not work.
 :::
 
 ```c++
@@ -241,10 +243,9 @@ int main()
 }
 ```
 
-All of the arguments in this code are using literal values.
+Try guessing what this code will do, then try it out yourself!
 
 <div style = "display: none" TODO Move to Data section in Functions>
-### Example using result
 
 Some procedures return data, which you can use within any calculated value ([expression](/book/part-1-instructions/1-sequence/5-reference/13-expression)) within your code. The following code demonstrates the use of this with the ReadLine procedure. The result of this is being stored in a variable and then used to output a message.
 
