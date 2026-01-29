@@ -31,7 +31,7 @@ export const sliderImages = [
     altText: "Instruction 1 shows a procedure call with three arguments",
     tipStart: 5,
     tips: [
-      "All arguments are literal values in this call. They need to be loaded into registers 0, 1, and 2, so they are in the CPU when the procedure starts. The first argument is the string literal \"Test Color\". It is loaded into the first register.",
+      "All arguments are literal values in this call. They need to be loaded into registers 0, 1, and 2, so they are in the CPU when the procedure starts. The first argument is the literal text \"Random Color\". It is loaded into the first register.",
       "As with sequence before, the instruction counter is incremented as we step through each instruction. So 1a becomes 1b for our visualisation."
     ]
   },
@@ -65,9 +65,9 @@ export const sliderImages = [
     altText: "Shows the CPU switching into the instructions of the called procedure",
     tipStart: 11,
     tips: [
-      "The code for this procedure was also loaded into memory when the program started. So we can just set the program counter to the address of the first instruction in the open window procedure.",
-      "As the program counter is now in open window's instructions, the sequence will run from there.",
-      "By convention, the procedure's arguments are loaded into the CPU registers in order. So, Open Window knows that it can access the title of the window in register 0, its width in register 1, and its height in register 2."
+      "The code for this procedure was also loaded into memory when the program started. So we can just set the program counter to the address of the first instruction in the open_window procedure.",
+      "As the program counter is now in open_window's instructions, the sequence will run from there.",
+      "By convention, the procedure's arguments are loaded into the CPU registers in order. So, open_window knows that it can access the title of the window in register 0, its width in register 1, and its height in register 2."
     ]
   },
   {
@@ -84,7 +84,7 @@ export const sliderImages = [
     altText: "Shows the CPU restoring the old program counter from memory",
     tipStart: 16,
     tips: [
-      "To get back to the code where the procedure was called, the compiler reads in the old program counter value from memory.",
+      "To get back to the code where the procedure was called, the computer reads in the old program counter value from memory.",
       "The value read from memory is now loaded into the program counter.",
       "The sequence will now continue from here."
     ]
@@ -96,7 +96,7 @@ export const sliderImages = [
     tips: [
       "The instructions on line 1 have now been executed, so we add one to the program counter.",
       "We are now running the code on line 2.",
-      "This procedure will be executed in the same way: evaluate and load the arguments, then call the procedure. Again, the value of the program counter will be saved to memory, so we can return once the procedure is finished.",
+      "This procedure will be executed in the same way: evaluate and load the arguments, then call the procedure. Again, the value of the program counter will be saved to memory, so we can continue the sequence once the procedure is finished.",
       "This process will repeat until the program is finished."
     ]
   },
@@ -281,16 +281,16 @@ Line 6 demonstrates this again, where the result of `1000 * rnd(10)` is passed t
 
 ## Procedure Calls Up Close
 
-Procedure calls are one instruction that gives you control of the **program counter**. A procedure call will save the current state of your program, and then set the program counter to the first instruction within the procedure. The sequence will then progress through the procedure, and when it ends, the location of the next instruction after the procedure call will be put into the program counter. 
+Procedure calls are one instruction that gives you control of the **program counter**. A procedure call will save the current state of your program, and then set the program counter to the first instruction within the procedure. The sequence will then progress through the procedure, and when it ends, the location of the next instruction after the procedure call will be put into the program counter.
 
-In this way, the procedure is called and then **returns** to where it was called from. This allows us to maintain our focus on **sequence**. A procedure call lets you *direct* the sequence into the procedure and then back to your next instruction. As you read, design, or work with code for your program, you can focus on the program's **sequence** and not worry about what happens within the procedures you call.
+In this way, the procedure is called and then **returns** to where it was called from. This allows us to maintain our focus on **sequence**. A procedure call lets you *direct* the sequence into the procedure and then back to your next instruction. As you read, design, or work with code for your program, you can focus on the program's sequence and not worry about what happens within the procedures you call.
 
 <MySwiper client:only height="" images={sliderImages}></MySwiper>
 
 :::note[Summary]
 
 - A procedure call is an **instruction** that commands the computer to run the code in a procedure.
-- Use a procedure's name to identify the procedure to run.
+- Use a procedure's name to identify the procedure you want to run.
 - Data values passed to a procedure are called **arguments**. These are put between parentheses after the procedure name.
 - When a procedure’s task is complete the program continues with the next instruction after the procedure call.
 

@@ -6,18 +6,18 @@ sidebar:
 import CommmonLink from '/src/components/CommonLink.astro'
 import { YouTube } from 'astro-embed';
 
-In order to build programs, we need ways of making sense of data within the computer. 
-Looking back to the chapter, remember that computers are electronic devices and that everything else on top of that is an **abstraction** that we build. So, how do the tools we have allow us to use different kinds of data within our programs?
+In order to build programs, we need ways of making sense of data within the computer.
+Remember that computers are electronic devices and that everything else on top of that is an [abstraction](/book/part-0-getting-started/1-building-programs/5-reference/3-digital-realities-and-abstraction/) that we build. So, how do the tools we have allow us to use different kinds of data within our programs?
 
 The answer is that programming languages provide us with a mechanism to assign a **type** to different pieces of data.
 All values within a program have a type. The type indicates how the data stored in the computer's memory should be interpreted by the program, and how it can be used.
 For example, you can use mathematical operations on numbers, but not text.
 
-There are three basic data types available in a programming language:
+There are three basic data types available in pretty much every programming language:
 
 - **Textual** data such as `"Fred"`, `"Hello World"`, `"23"` and `"This is text!"`.
 - **Whole numbers** such as `1`, `0`, `-5`, and `37`.
-- **Real numbers** such as `0.5`, `-126.0`, `3.141516` and `23.981`.
+- **Real numbers** such as `0.5`, `-126.0`, `3.141516`, and `23.981`.
 
 The concept map below shows the concepts related to types.
 
@@ -25,12 +25,12 @@ The concept map below shows the concepts related to types.
 
 ## Types -- when, why, and how
 
-As you work with code you will need to be able to classify the different pieces of data within your program using types. This will allow you to determine where you can use the data, and what actions you can perform on it.
+As you work with code you will need to use types to classify the different pieces of data within your program. This will allow you to determine where you can use the data, and what actions you can perform on it.
 
 Data types are just abstractions that we use to help us create digital realities.
 Most of the time you can ignore lower level details, but it can be good to remember that data is really just a binary value, which is itself an abstraction of the current flowing through the circuits within the computer.
 
-Whichever type you are working with, you need to make sure that it will be suitable to capture the information you need.
+Whichever type you are working with, you need to make sure that it is suitable to capture the information you need.
 With whole numbers, check the range of values that the type can support.
 Different types of real numbers have different level of precision, which results in a trade-off between the range of numbers they can represent and level of precision they can capture -- you will need to consider this.
 With text, you usually use the one data type unless you have a specific requirement for a single character.
@@ -44,7 +44,7 @@ A data type will have a size in memory and, in the case of numbers, a range of v
 
 There are two main text types in C++.
 You will use `string` most often, as it describes a sequence of zero or more alphanumeric characters.
-`char`, on the other hand, describes a single alphanumeric character.
+`char`, on the other hand, describes a _single_ alphanumeric character.
 As we learned in [literals](/book/part-1-instructions/1-sequence/5-reference/14-literal), a literal string value is enclosed in double quotes (`"`), and a character value is enclosed in single quotes (`'`).
 This difference in representation helps us to quickly identify what kind of text data a literal value is.
 
@@ -116,20 +116,13 @@ You can use mathematical operators to work with values in your code. The followi
 
 ### Type Conversions
 
-You will occasionally need to convert data between different data types. A common example of this is how we will handle user input. When the user enters data at the terminal it will come into the program as text. So if the user enters 3 and then 2, it will come into the program as "32" - a string. This makes sense as the user can type any characters at the terminal. But what if you want that as an integer?
+For simple conversions, such as between different number formats, languages usually provide a feature called **type casting**. With this you can ask the language to reinterpret data in a new format. This is achieved by placing the type you want within brackets `()` before the value to be converted. For example, `(int)73.5` will give you the integer 73.
 
-To help achieve this programming languages provide utility functions that will allow you to convert between different types. For now, we can use 
-
-- [`to_integer`](https://splashkit.io/api/utilities/#to-integer) - this can convert a `string` to an `int`
-- [`to_double`](https://splashkit.io/api/utilities/#to-double) - this can convert a `string` to a `double`
-
-For example, `to_integer("73")` will give you the integer (`int`) 73 as its result. Similarly, `to_double("73")` would give you the double `73.0`. Note that these will cause the program to crash if the data is not in the right format, we will look later at how to deal with this. For the moment, make sure you enter the data in the expected format.
-
-For simple conversions, mostly between different number formats, languages usually also provide an alternate option called **type casting**. With this you can ask the language to reinterpret data in a new format. This is achieved by placing the type within brackets (parenthesis) before the value to be converted. For example, `(int)73.5` will give you the integer 70.
+For other conversions you can use a [type conversion function](/book/part-1-instructions/2-data/5-reference/30-function/#type-conversion-functions), which we will learn about in the next chapter.
 
 ## Example
 
-Let's revisit our table of example expressions, this time adding another column to show what data type each expression is.
+Let's revisit our table of example expressions [from earlier](/book/part-1-instructions/1-sequence/5-reference/13-expression/#examples), this time adding another column to show what data type each expression is.
 
 | **Example Expression**    | **Value**                               | **Type** |
 |---------------------------|-----------------------------------------|----------|
@@ -153,7 +146,7 @@ Let's revisit our table of example expressions, this time adding another column 
 
 ## Activities
 
-Identify the types of the following data. Where more than one type is possible, write down all the possible types. Where an expression is given, evaluate the expression and determine the type of the overall value.
+Identify the types of the following data. Where an expression is given, evaluate the expression and determine the type of the overall value.
 
 1. `392`
 2. `32 * 3.9`
@@ -170,7 +163,7 @@ Identify the types of the following data. Where more than one type is possible, 
     <li><strong>3: </strong>This is an <code>int</code> type. It is too large to be a <code>short</code> or <code>byte</code>.</li>
     <li><strong>4: </strong>This is a textual type, in this case a <code>string</code>.</li>
     <li><strong>5: </strong>This is a textual type, in this case a <code>char</code>.</li>
-    <li><strong>6: </strong>The '+' operator acts as a concatenator for two string types, in this case a <code>string</code>  with a <code>char</code> resulting in a <code>string</code>.</li>
+    <li><strong>6: </strong>The '+' operator acts as a concatenator for two string types, in this case a <code>string</code> with a <code>char</code>, resulting in a <code>string</code>.</li>
   </ul>
 </details>
 
@@ -181,7 +174,7 @@ Identify the types of the following data. Where more than one type is possible, 
 - The type of a piece of data determines the actions that can be performed on that data.
 - A data type determines the amount of memory needed to store a value of that kind.
 - Whole numbers are **integers**, defaulting to `int`.
-- Real numbers are represented as **floating Point** values. These values have a limited precision, supporting only a certain number of significant digits. The default is `double`.
+- Real numbers are represented as **floating point** values. These values have limited precision, supporting only a certain number of significant digits. The default is `double`.
 - Textual values can contain alphanumeric characters. A `string` contains zero or more characters, and a `character` contains exactly one.
 - With the exclusion of addition (which concatenates two pieces of text data), you can perform mathematic operations on numeric data, but not on textual data.
 

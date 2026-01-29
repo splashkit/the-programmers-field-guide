@@ -8,7 +8,7 @@ import CommmonLink from '/src/components/CommonLink.astro'
 Programs are instructions and data, so we need a way to capture data within our code.
 
 The most direct way of achieving this is to type the value you want within the code itself. This is called a **literal**, as the value you put in is *literally* used in the instruction.
-This can be either a **number value** or **text value** written directly in the code, and can be a whole, or part of, an [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression).
+This can be either a **number value** or **text value**, and can be a whole, or part of, an [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression).
 
 The concept map below shows the concepts related to literals.
 
@@ -16,7 +16,7 @@ The concept map below shows the concepts related to literals.
 
 ## Literals -- when, why, and how
 
-Your instructions need data, and one way you can provide it is by literally typing data into the code itself. A literal on its own is a valid expression (though in the next chapter we'll find out how to give them names to make this clearer, using [constants](/book/part-1-instructions/2-data/5-reference/20-constant)), but literals can also be used in expressions to help you calculate new values.
+Your instructions need data, and one way you can provide it is by literally typing data into the code. A literal on its own is a valid expression, but literals can also be used in expressions to help you calculate new values.
 
 ## In C++
 
@@ -29,15 +29,15 @@ The diagram below shows the syntax for the different literal values you can ente
 
 Data falls into one of two categories:
 
-1. **Numbers**: a number can have a sign, and can be whole or real. Whole numbers have no decimal places, and real numbers can have decimal places. For example, `127`, `-8711`, and `+10` are all whole numbers. An example of a real number is `3.1415` or `-2.78349`.
-2. **Text**: text is anything typed within double quotes, and a character is a single alphanumeric value typed between single quotes. Within text data, you can use the `\` character to indicate that the next character has a special meaning. We call this '*escaping*' a character. The following list includes the most useful special characters in C++:
+1. **Numbers**: a number can have a sign, and can be *whole* or *real*. Whole numbers have no decimal places, and real numbers can have decimal places. For example, `127`, `-8711`, and `+10` are all whole numbers. `3.1415` and `-2.78349` are both examples of real numbers.
+2. **Text**: text is anything typed within double quotes (`"`), and a character is a single alphanumeric value typed between single quotes (`'`). Within text data, you can use the `\` character to indicate that the next character has a special meaning. We call this *escaping* a character. The following list includes the most useful special characters in C++:
    * `\n` creates a new line
    * `\"` creates a double quote character
    * `\\` creates a `\` character
 
 ## Activities
 
-For each of the follow, identify if the value listed or used in an instruction is a literal and, if so, whether the data is text or a number:
+For each of the following, identify if the value listed or used in a procedure call is a literal or not and, if it is, whether the data is text or a number:
 
 1. `19`
 2. `"19"`
@@ -56,12 +56,12 @@ For each of the follow, identify if the value listed or used in an instruction i
     <li><strong>1: </strong>This is the literal number 19.</li>
     <li><strong>2: </strong>This is the literal text "19".</li>
     <li><strong>3: </strong>This is not a literal. It is malformed because it is neither character, text, or number.</li>
-    <li><strong>4: </strong>This instruction contains the literal text "Hello World".</li>
+    <li><strong>4: </strong>This procedure call uses the literal text "Hello World".</li>
     <li><strong>5: </strong>This is literal text containing the escaped character for a new line.</li>
     <li><strong>6: </strong>This is the literal character 'c'.</li>
     <li><strong>7: </strong>This is not a literal. It is malformed because the single quotes denote a character, which should be a single alphanumeric value.</li>
-    <li><strong>8: </strong>Both 10 and 15 are literal numbers, but as a whole this is not a literal. It is malformed because of the space that separates these values.</li>
-    <li><strong>9: </strong>This is the literal character for a backslash '\'.</li>
+    <li><strong>8: </strong>Both 10 and 15 are literal numbers, but as a whole this is not a literal. It is malformed because of the space in the middle.</li>
+    <li><strong>9: </strong>This is the literal character for a backslash '\\'.</li>
     <li><strong>10: </strong>This is not a valid literal character. The `\` needs to be followed by a valid escape character. In this case, the computer will interpret the closing single quote as the character to escape, which means we are missing an actual closing quote.</li>
   </ul>
 </details>
