@@ -4,7 +4,7 @@ sidebar:
   label: " - Audio Procedures"
 ---
 
-SplashKit also provides procedures you can use to load and play sound effects and music. You can use sound effects to play multiple different sounds that are mixed together when played, while music is designed for longer running background sound for your applications with only one music track being able to be played at once.
+SplashKit also provides procedures you can use to load and play sound effects and music. You can use sound effects to play multiple different sounds at once, while music is designed for longer running background sound for your applications with only one music track being able to be played at once.
 
 ## Playing sound effects
 
@@ -14,14 +14,14 @@ SplashKit can handle several file formats for sound effects, but the best and mo
 
 | <div style="width:130px">**Procedure**</div> | **Required Arguments** |**Description** |
 |-----------|------------------------|----------------|
-| [Load Sound Effect](https://splashkit.io/api/audio/#load-sound-effect) | the name of the sound effect and its filename | As with `load_bitmap`, but this loads the sound effect into your program. You can use the name to access this sound effect in other procedure calls. The filename can be the full path to a file, or the filename of a file in the **Resources/sounds** folder.  |
-| [Play Sound Effect](https://splashkit.io/api/audio/#play-sound-effect-named) | the name of a loaded sound effect | Plays the sound effect once at its full volume.  |
-| [Play Sound Effect](https://splashkit.io/api/audio/#play-sound-effect-named-with-volume) | the name of a loaded sound effect, volume (`double`) | Plays the sound effect once at a percentage of its full volume. The volume should be between 0 and 1.0  |
-| [Play Sound Effect](https://splashkit.io/api/audio/#play-sound-effect-named-with-times) | the name of a loaded sound effect, times (`int`) | Plays the sound effect multiple times in a row at full volume.  |
-| [Play Sound Effect](https://splashkit.io/api/audio/#play-sound-effect-named-with-times-and-volume) | the name of a loaded sound effect, times (`int`), volume (`double`) | Plays the sound effect multiple times in a row at a percentage of its full volume. |
+| [Load Sound Effect](https://splashkit.io/api/audio/#load-sound-effect) | the name of the sound effect and its filename | As with `load_bitmap`, but this loads the sound effect into your program. You can use the name to access this sound effect in other procedure calls. The filename can be the full path to a file, or the filename of a file in the **Resources/sounds** folder. |
+| [Play Sound Effect](https://splashkit.io/api/audio/#play-sound-effect-named) | the name of a loaded sound effect | Plays the sound effect once at its full volume. |
+| [Play Sound Effect](https://splashkit.io/api/audio/#play-sound-effect-named-with-volume) | the name of a loaded sound effect, volume | Plays the sound effect once at a percentage of its full volume. The volume should be between 0 and 1.0 |
+| [Play Sound Effect](https://splashkit.io/api/audio/#play-sound-effect-named-with-times) | the name of a loaded sound effect, times | Plays the sound effect the specified number of times in a row at full volume. |
+| [Play Sound Effect](https://splashkit.io/api/audio/#play-sound-effect-named-with-times-and-volume) | the name of a loaded sound effect, times, volume | Plays the sound effect multiple times in a row at a percentage of its full volume. |
 | [Stop Sound Effect](https://splashkit.io/api/audio/#stop-sound-effect-named) | the name of a loaded sound effect | Stops playing the indicated sound effect. |
 
-These procedures have the following declaration:
+These procedures have the following signatures:
 
 ```c++
 // These need:
@@ -75,10 +75,10 @@ As with sound effects, The Ogg Vorbis format works best with SplashKit for music
 | [Play Music](https://splashkit.io/api/audio/#play-music-named-with-times) | the name of the loaded music, a number of times to play | Plays the indicated music track the number of times indicated (-1 means infinitely). |
 | [Fade Music In](https://splashkit.io/api/audio/#fade-music-in-named) | the name of the loaded music, and a number of milliseconds (int) | Plays the indicated music track, starting softly and increasing to full volume over the indicated time. |
 | [Fade Music Out](https://splashkit.io/api/audio/#fade-music-out) | a number of milliseconds (int) | Stops playing music, fading out over the indicated time. |
-| [Set Music Volume](https://splashkit.io/api/audio/#set-music-volume) | a value between 0 and 1.0 (float) | Set the volume to a proportion of full volume. |
-| [Stop Music](https://splashkit.io/api/audio/#stop-music) | none | Stops the music playing. |
+| [Set Music Volume](https://splashkit.io/api/audio/#set-music-volume) | a value between 0 and 1.0 | Set the volume to the indicated proportion of full volume. |
+| [Stop Music](https://splashkit.io/api/audio/#stop-music) | none | Stops the currently playing music. |
 
-These have the following declarations in C++:
+These have the following signatures in C++:
 
 ```c++
 // These need:
@@ -135,6 +135,7 @@ int main()
 
 * Sound effects are used to play a multiple sounds that are designed to be mixed together.
 * Music is used to play songs or background audio where there is only a single track playing at any time.
-* As with images, the easiest way to use resources like images and sounds in your SplashKit program is to run `skm resources` in the terminal in the root folder of your project, and place the resource in the relevant folder.
+* In SplashKit you can play up to one music file and any number of sound effects at the same time.
+* As with images, the easiest way to use resources like sounds in your SplashKit program is to run `skm resources` in the terminal in the root folder of your project, and place the resource in the relevant folder.
 
 :::

@@ -4,15 +4,13 @@ sidebar:
     label: " - Terminal procedures"
 ---
 
-To get started programming, you will need to know a few procedures that you can call. We want to keep things relatively simple, so we will limit ourselves to just a few procedures.
-
-To interact with the user via the terminal you will need the following using directives:
+Although the C++ standard library contains procedures to print data to the terminal, we will use those provided by SplashKit as they are more similar to equivalent procedures in other programming languages. So, to interact with the user via the terminal you will need the following using directive:
 
 ```c++
 #include "splashkit.h";
 ```
 
-When you want to display something on the terminal, you use either the `write_line` or `write` procedure. There are lots of different versions of these procedures which will allow you to pass many values to be output - so we can think of these as having the following signatures, where `...` is replaced with data of the different basic data types (integers, numbers, text):
+When you want to display something on the terminal, you use either the `write_line` or `write` procedure. There are lots of different versions of these procedures which will allow you to pass many values to be output -- so we can think of these as having the following signatures, where `...` is replaced with data of the different basic [data types](/book/part-1-instructions/1-sequence/5-reference/15-type/) (integers, numbers, text):
 
 ```c++
 void write_line(...);
@@ -54,25 +52,6 @@ These procedures differ only slightly. `write_line` writes your text, and then s
 
   </td></tr>
 </table>
-
-:::tip
-These are procedure declarations - the code used to create a procedure. This code is in the library where these are made. You can call these in your code by using the procedure's name, and passing it the values it asks for.
-
-For example:
-
-```c++
-/// This is the signature of write_line in the library
-void write_line(string message);
-```
-
-To use it you would do something like:
-
-```c++
-// The procedure call -- passing in the message "Hello World"
-write_line("Hello World");
-```
-
-:::
 
 ## Example
 
