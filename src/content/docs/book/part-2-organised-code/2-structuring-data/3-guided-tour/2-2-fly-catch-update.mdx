@@ -1,0 +1,438 @@
+---
+title: Updating the Game
+sidebar:
+    label: " - Updating the Game"
+banner: 
+  content: This is an optional tour - use it to extend your understanding.
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from '@astrojs/starlight/components';
+import NoCopy from '/src/components/NoCopy.astro'
+import TemplateInjector from '/src/components/TemplateInjector.astro'
+import MultipleChoice from '/src/components/MultipleChoice.astro';
+import ITO from '/src/components/InlineTextOption.astro'
+import Aside from '/src/components/Aside.astro'
+import Carousel from '/src/components/Carousel.astro'
+import Option from '/src/components/Option.astro';
+import CodeScroll from '/src/components/CodeScroll.astro';
+
+Now let's make the fly do something! This section will be a bit tricky, but we'll see a few more powerful techniques. Take your time as you go through it :)
+
+Looking back at our outline of the game:
+
+| **Name** | *Fly Catch* |
+|---|---|
+| **Description** | A small game where the user controls a spider using the keys on the keyboard. The user can move the spider around on their web, catching each fly as it appears. Take too long, and the fly escapes. |
+
+<Aside type="thinking" title="Let's plan">
+- We can see that the fly needs:
+    - to appear somewhere random (caught in the web)
+    - wait some amount of time
+    - and then disappear.
+
+    Another way of thinking about it, is that there's a _time interval_ within which the fly is caught in the web (and therefore edible). We could store this interval as data, and update it whenever we want the fly to reappear.
+
+- We'll also need some way to know whether the fly is _currently_ caught and can be eaten or not - this could be a field (but where should we put it?)
+
+- Finally, we'll need a way to update the fly:
+    - we should make sure it's visible during the time interval
+    - once the interval ends, we should hide it, reposition it, and shift the time interval to somewhere in the future (so it shows up again).
+
+    This could be a procedure that takes a `fly_data` by reference, and updates it.
+</Aside>
+
+Let's get started!
+
+<Steps>
+
+1. ### Showing/hiding _entities_
+    First up, let's work out how we'll show and hide entities. Consider what happens when the fly is caught in the web: from our description above, _two_ things change:
+      1. It becomes visible
+      2. The spider can now collide with it to eat it.
+
+    What this means is that we'll have to use this value of "caught" in multiple places. It seems like perhaps we should make whether fly is "caught", a field? What should that field be called?
+
+    <Aside type="thinking" title="A few options...">
+    I can picture a few different digital realities that we could create here. Have a look at them, and compare the differences.
+
+    <table>
+    <tr>
+      <th>Digital Reality A</th>
+      <th>Digital Reality B</th>
+    </tr>
+    <tr>
+    <td>
+    - Flies can be visible/invisible
+    - Inside `draw_game`, we check `if (fly.visible)`, before calling `draw_entity`.
+    </td>
+    <td>
+    - Entities can be visible/invisible
+    - Inside `draw_entity`, we check `if (ent.visible)`, before drawing it.
+    </td>
+    </tr>
+    <tr>
+      <th>Digital Reality C</th>
+      <th>Digital Reality D</th>
+    </tr>
+    <tr>
+    <td>
+    - Flies can be caught/not caught
+    - Inside `draw_game`, we check `if (fly.caught)`, before calling `draw_entity`.
+    </td>
+    <td>
+    - Entities can be enabled/disabled
+    - Inside `draw_entity`, we check `if (ent.enabled)`, before drawing it.
+    </td>
+    </tr>
+    </table>
+
+    Have you considered which one you think would be best?
+
+    **All four** of these are valid digital realities, and would work for the game we are creating. However, from the perspective of keeping our code general and re-usable, Digital Reality D wins over the others.
+
+    By allowing _any_ entity to be enabled/disabled, we open up future possibilities for other types of entities to share this behaviour easily (perhaps other insects, extra collectibles, etc), and by making it a more generic term "`enabled`", we capture that it affects not just visibility, but also collisions (which we'll add in the next section!).
+
+    Putting it another way: the digital reality we are creating is that any `entity` can be `enabled` or not, which seems reasonable :)
+
+    </Aside>
+
+    Add a `bool enabled;` field to `entity`, and update your `new_spider` and `new_fly` to set it. Let's make the spider set `enabled` to `true`, while the fly will have `enabled` set to `false` (hidden at first).
+
+    Now, we can just test inside `draw_entity` if `ent.enabled` is `false` - if so, we can just return from the procedure right away without drawing anything.
+
+    Have a go at all that - if it's working, the fly should be invisible, and the spider will be visible. Try changing the `enabled` value on the fly and spider, and make sure it's working right.
+
+    <Accordion>
+    <AccordionItem header="Within/After Timespan">
+        I added the `enabled` field to the top of my `entity` struct, since it feels like an important property.
+        ```c++ {3}
+        struct entity
+        {
+            bool enabled;
+
+            point_2d pos;
+            ...
+        }
+        ```
+
+        I modified `new_spider` and `new_fly` accordingly.
+        ```c++ "true"
+        spider_data new_spider()
+        {
+            spider_data spider;
+
+            spider.ent = {
+                true,
+                {100, 100},
+                15, COLOR_GREEN
+            };
+
+            return spider;
+        }
+
+        ```
+
+        Then I added an `if` statement inside `draw_entity`, that early exists the procedure if the entity is disabled.
+        ```c++ {3-7}
+        void draw_entity(const entity &ent)
+        {
+            // Exit if the entity is disabled
+            if (!ent.enabled)
+            {
+                return;
+            }
+
+            fill_circle(ent.clr, ent.pos.x, ent.pos.y, ent.radius);
+        }
+
+        void draw_game(const game_data &game)
+        {
+            // Draw the game
+            clear_screen(COLOR_WHITE);
+
+            // Draw the game entities
+            draw_entity(game.spider.ent);
+            draw_entity(game.fly.ent);
+
+            // Show it to the user
+            refresh_screen();
+        }
+    ```
+    </AccordionItem>
+    </Accordion>
+
+2. ### Creating `timespan`
+
+    Now let's get our fly appearing and disappearing based on a "timespan", with a `start` and `duration`.
+
+    Thinking of it this way gives us a struct to make - we could make a `timespan` struct that our `fly_data` has as a field (`timespan caught_interval;`), which tells us when the fly will next appear as caught in the web, and how long for.
+
+    <Aside type="thinking" title="Should caught_interval be inside entity?">
+    <Accordion>
+    <AccordionItem header="Wouldn't that work too?">
+    Fair question! That would also be a valid design :)
+
+    I've chosen to think of the `fly_data` as having an `entity`, and a `timespan` that _affects_ whether the `entity` is enabled or not. The `timespan` is a _behaviour_ that a ` fly_data` object has, and we could continue to add additional behaviours in the same way.
+
+    If we gave `entity` the `timespan` instead, it means that `draw_entity` could access the `timespan` directly, and the `enabled` field would become superfluous - things start to become oddly tied together.
+
+    As with all things in design, it's a series of considerations and trade-offs.
+    </AccordionItem>
+    </Accordion>
+    </Aside>
+
+    :::tip
+    Note again how, rather than just placing the `start` and `duration` directly inside `fly_data`, we've abstracted that out by one level, by creating a `timespan` struct that we could re-use in other situations.
+
+    **This sort of early abstracting doesn't always pay off, but it's good to consider and be ready to refactor as necessary.**
+    :::
+
+    Recall from [Explore Structs (GUI)](/book/part-2-organised-code/2-structuring-data/3-guided-tour/0-3-explore-struct/) that we can use `long current_ticks()` to get the number of milliseconds since the game started - we'll continue using `long` as the type for times. Let's go ahead and make this struct now, and add it as a `caught_interval` field in `fly_data`:
+
+    |   |   |
+    |---|---|
+    | **Struct** | *timespan* |
+    | **Fields** | `start`: (long) The starting time |
+    |            | `duration`: (long) The duration |
+
+    <Accordion>
+    <AccordionItem header="Creating timespan">
+        ```c++
+        struct timespan
+        {
+            long start;
+            long duration;
+        };
+        ```
+
+        Timespan struct, fairly straightforward. We can see how `fly_data` represents our fly clearly - it's an entity that exists in the world, and it has an interval during which it is considered "caught" (in the web).
+
+        ```c++ {4}
+        struct fly_data
+        {
+            entity ent;
+            timespan caught_interval;
+        };
+        ```
+    </AccordionItem>
+    </Accordion>
+
+    Notice how `fly_data` is now composed of two independent concepts: physical presence and time-based behaviour. This is the power of composition!
+
+3. ### Writing `timespan` utility functions
+
+    Let's also now add two utility functions:
+    <div class="table-first-column-expand">
+    |   |   |
+    |---|---|
+    | **Function** | *Within Timespan* |
+    | **Description** | Takes a timespan **and** a time (a `long`), and returns whether the time is inside the interval or not.|
+    | **Return** | A `boolean` |
+
+    and
+
+    |   |   |
+    |---|---|
+    | **Function** | *After Timespan* |
+    | **Description** | Takes a timespan **and** a time (a `long`), and returns whether the time is _after_ the interval or not.|
+    | **Return** | A `boolean` |
+    </div>
+
+    <Aside type="thinking" title="Generality vs Ergonomics">
+    <details>
+    <summary>Why take a timespan AND a time?<br/>Why not just test directly against `current_ticks()`?</summary>
+      We _could_ just use `current_ticks()` inside the functions instead, but by providing the `time` as an argument, we can test _any_ time against the timespan. This may be helpful later on, although it does make using the functions less convenient.
+
+      For general use, often overloads can make things more ergonomic - for instance having a `within_timespan(const timespan &span, long time)` _and_ a `within_timespan(const timespan &span)`, that looks like:
+      ```c++
+      bool within_timespan(const timespan &span)
+      {
+          return within_timespan(span, current_ticks());
+      }
+      ```
+      See how it just calls the other version of `within_timespan`, and uses `current_ticks()` as the default value? This is a really useful pattern to keep in mind - feel free to try it here!
+    </details>
+    </Aside>
+
+    Have a go at writing these functions yourself :)
+    :::tip
+      Use a combination of boolean operators to test `time` against the `timespan` `start` and end (which is `(start + duration)`).
+    :::
+
+    <Accordion>
+    <AccordionItem header="Within/After Timespan">
+        I wrote a fairly terse implementation, but feel free to write one that's more expanded.
+        ```c++
+        bool within_timespan(const timespan& span, long time)
+        {
+            return time >= span.start && time < (span.start + span.duration);
+        }
+
+        bool after_timespan(const timespan& span, long time)
+        {
+            return time >= (span.start + span.duration);
+        }
+        ```
+        The exact choice of `<` vs `<=` isn’t critical here, as long as you’re consistent. Have a think about the difference between them however - what behaviours do they create?
+    </AccordionItem>
+    </Accordion>
+
+    I recommend testing this function in `main` as you develop it - you could test it like so:
+    <CodeScroll maxHeight="200px">
+    ```c++
+    // tests if 1200 is between 500 and 1500
+    if (within_timespan({500, 1000}, 1200))
+    {
+        write_line("Test 1 passed!");
+    }
+    // tests if 3000 isn't between 500 and 1500
+    if (!within_timespan({500, 1000}, 3000))
+    {
+        write_line("Test 2 passed!");
+    }
+    // tests if 3000 is after 1500
+    if (after_timespan({500, 1000}, 3000))
+    {
+        write_line("Test 3 passed!");
+    }
+    etc...
+    ```
+    </CodeScroll>
+
+4.  ### Time-Based Game State
+    Let's see this working now! Everything we need to make our fly appear within a specific time interval is ready - all we need to do is connect things up.
+
+    First, let's update the `fly = {...}` initialization in `new_fly`. For now, initialize the fly to show up after 1 second (1000 milliseconds), and stay for 3 seconds (3000 milliseconds).
+
+    :::tip
+        If, by any chance, your initialization is looking like this:
+        ```c++ ", {1000, 3000}"
+        fly = {{
+          false,
+          {100, 100},
+          15, COLOR_GREEN
+        }, {1000, 3000}};
+        ```
+
+        It's...getting a bit unreadable :) Let's split it onto two lines at least - try initializing `fly.ent` and `fly.caught_interval` on separate lines.
+    :::
+
+    Now, we'll add two procedures - `update_game` and `update_fly`.
+
+    <div class="table-first-column-expand">
+    |   |   |
+    |---|---|
+    | **Procedure** | *Update Game* |
+    | **Parameters** | `game` A reference to the `game_data`|
+    |                | `current_time` A `long`|
+    | **Description** | Calls `move_with_keyboard` for the spider, and `update_fly` for the fly.|
+
+    |   |   |
+    |---|---|
+    | **Procedure** | *Update Fly* |
+    | **Parameters** | `fly` A reference to `fly_data`|
+    |                | `current_time` A `long`|
+    | **Description** | Set the fly's `enabled` by checking if `current_time` is within `caught_interval`.|
+    </div>
+
+    Have a go at adding those two procedures now. I would start by adding `update_game` first, and moving the `move_with_keyboard(game.spider.ent, SPEED);` line into it. Once that's working, then you can write the `update_fly` procedure, and call it in `update_game`.
+
+    If all is working right, the fly should be invisible for the first second, and then appear for three seconds before disappearing again! If not, it'll be time to debug :)
+
+    <Accordion>
+    <AccordionItem header="Update Game and Fly">
+        I wrote a fairly terse implementation, but feel free to write one that's more expanded.
+        ```c++ {1-10, 22}
+        void update_fly(fly_data &fly, long current_time)
+        {
+            fly.ent.enabled = within_timespan(fly.caught_interval, current_time);
+        }
+
+        void update_game(game_data &game, long current_time)
+        {
+            move_with_keyboard(game.spider.ent, SPEED);
+            update_fly(game.fly, current_time);
+        }
+
+        int main()
+        {
+            ...
+
+            // The event loop
+            while (!quit_requested())
+            {
+                // Get any new user interactions
+                process_events();
+
+                update_game(game, current_ticks());
+
+                draw_game(game);
+            }
+
+            return 0;
+        }
+        ```
+    </AccordionItem>
+    </Accordion>
+
+5.  ### Moving the Fly
+
+    So, the fly appears for three seconds, then disappears forever... Let's make it reappear now after some amount of time. Thanks to our architecture, we can make this happen with just a few easy changes!
+
+    1. First, let's randomize where our fly is created in `new_fly`. We should:
+        1. Make it appear in a random position (using `rnd`. _Note, you may have to [cast](/book/part-1-instructions/1-sequence/5-reference/15-type/#type-conversions) to `double`, e.g: `(double)rnd(SCREEN_WIDTH)`_)
+        2. Make it appear at a random time, and for a random duration. For this, let's add another parameter to `new_fly` - a `long current_time`.
+
+            Now we can use this when initializing the `timespan`. Let's make the fly appear between 1 to 3 seconds _after_ the current time, and for a duration of 2 to 7 seconds.
+
+            Inside the `new_fly` call inside `main`, we can just pass in `current_ticks()`.
+
+    2. Let's make it re-appear now. We can think of this as "once the fly's `caught_interval` is over, just make a new fly". The new fly will be automatically scheduled to show up later (thanks to `new_fly(...)`).
+
+        Have a think through the pieces we've made so far, and try writing out that logic inside `update_fly`.
+
+    <Accordion>
+    <AccordionItem header="Update Game and Fly">
+        ```c++ {1, 7, 11, 20-23, 31}
+        fly_data new_fly(long current_time)
+        {
+          fly_data fly;
+
+          fly.ent = {
+              false,
+              {(double)rnd(SCREEN_WIDTH), (double)rnd(SCREEN_HEIGHT)},
+              15, COLOR_GREEN
+          };
+
+          fly.caught_interval = {current_time + 1000 + rnd(2000), 2000 + rnd(5000)};
+
+          return fly;
+        }
+
+        void update_fly(fly_data &fly, long current_time)
+        {
+            fly.ent.enabled = within_timespan(fly.caught_interval, current_time);
+
+            if (after_timespan(fly.caught_interval, current_time))
+            {
+                fly = new_fly(current_time);
+            }
+        }
+
+        int main()
+        {
+            game_data game;
+
+            game.spider = new_spider();
+            game.fly = new_fly(current_ticks());
+
+            ...
+        }
+        ```
+    </AccordionItem>
+    </Accordion>
+
+    I also want to note here, that we finally have a proper game loop - we process input, update the game, handle time based behaviour, then draw it. This is fundamental for _any_ interactive program.
+</Steps>
+
+We now have everything in place for the final pieces - making the spider eat the fly, and making the game look nice.

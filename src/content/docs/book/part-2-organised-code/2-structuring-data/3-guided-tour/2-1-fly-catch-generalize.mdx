@@ -114,7 +114,7 @@ If this sounds a bit vague, don't worry - we'll work through a concrete example 
     </MultipleChoice>
 
 2. ### Generalizing our entities
-    Now for something more involved - let's find some commonality between `fly_data` and `spider_data`, and structure our data in a richer way. Below are the important pieces of code that use them - have a go at identifying the four main things that they all _have_ and _do_ in common:
+    Now for something more involved - let's find some commonality between `fly_data` and `spider_data`, and structure our data in a richer way. Below are the important pieces of code that use them - have a go at identifying the four main things that they all _have_ and _do_ in common. What data do they share, and how are they used when drawing?
 
     <NoCopy>
     <MultipleChoice id="PreTest" checkOnClick checkingMode="groupLatched">
@@ -214,12 +214,12 @@ If this sounds a bit vague, don't worry - we'll work through a concrete example 
     2. Instead, we'll create a _new_ struct called `entity`. `entity` will contain all the data that we found in common so far:
         - the position (a `point_2d` - a type from SplashKit)
         - the radius (a `double`)
-        - the colour (a `colour` - also from SplashKit)
+        - the colour (a `color` - also from SplashKit)
 
         This will make it really easy to add more fields that our entities share in common - for instance, later on we'll give them an `image` field :)
 
         :::tip
-            Our `entity` struct currently contains everything needed to _draw_ the entity, but we'll soon start adding fields to control _behaviour_ as well.
+            `entity` represents a physical presence - right now we only use these fields for _drawing_, but later on we'll use the `radius` and `position` for checking collisions as well.
         :::
 
     3. Now we can remove `x` and `y` from `spider_data` and `fly_data`, and add `entity ent;` as a field inside.
@@ -230,7 +230,7 @@ If this sounds a bit vague, don't worry - we'll work through a concrete example 
           We'll be adding more things to `fly_data` and `spider_data` that differentiate them as we go - `entity` contains the data they have in common.
         :::
 
-    4. Make sure to then update how `game.spider` and `game.fly` are initialized in `new_spider` and `new_fly`. You can initialize the fields on seperate lines, or _nest_ the initialization like so:
+    4. Make sure to then update how `game.spider` and `game.fly` are initialized in `new_spider` and `new_fly`. You can initialize the fields on separate lines, or _nest_ the initialization like so:
 
         <Aside type="thinking" title="Nested initialization">
           Initializer braces can be nested - for instance:
@@ -283,7 +283,7 @@ If this sounds a bit vague, don't worry - we'll work through a concrete example 
                   point_2d pos;
                   double radius;
 
-                  colour clr;
+                  color clr;
               };
               ```
               ---
@@ -303,7 +303,7 @@ If this sounds a bit vague, don't worry - we'll work through a concrete example 
                   point_2d pos;
                   double radius;
 
-                  colour clr;
+                  color clr;
               };
               ```
               ---
@@ -361,7 +361,7 @@ If this sounds a bit vague, don't worry - we'll work through a concrete example 
                   point_2d pos;
                   double radius;
 
-                  colour clr;
+                  color clr;
               };
               ```
               ---
@@ -375,13 +375,13 @@ If this sounds a bit vague, don't worry - we'll work through a concrete example 
               }};
               ```
               ---
-              ```c++ "colour clr"
+              ```c++ "color clr"
               struct entity
               {
                   point_2d pos;
                   double radius;
 
-                  colour clr;
+                  color clr;
               };
               ```
               ---
@@ -410,7 +410,7 @@ If this sounds a bit vague, don't worry - we'll work through a concrete example 
         point_2d pos;
         double radius;
 
-        colour clr;
+        color clr;
     };
 
     struct spider_data
@@ -474,13 +474,15 @@ If this sounds a bit vague, don't worry - we'll work through a concrete example 
     </Accordion>
 </Steps>
 
-The digital reality we are constructing is now starting to become richer - rather than having flies and spiders be entirely seperate things, we've grouped them into a `game_data`, and shared common data and functionality between them via `entity`. Now let's continue on to actually moving the spider around.
+The digital reality we are constructing is now starting to become richer - rather than having flies and spiders be entirely separate things, we've grouped them into a `game_data`, and shared common data and functionality between them via `entity`. Now let's continue on to actually moving the spider around.
 
 ### Moving the spider
 Adding the ability to move the spider will be very similar to what we did back in [Player Move](/book/part-1-instructions/3-control-flow/3-guided-tour/1-0-player-move/), but with one difference. Our goal will be to allow the player to move around by using the arrow keys, _and_ to keep them completely on screen, taking into account their radius.
 
 <Steps>
-1. Let's handle this by writing a `move_with_keyboard` procedure. It will take an `entity` called `ent` by reference, and a `speed` (a double). We can then call it like `move_with_keyboard(game.spider.ent);` inside the main event loop.
+1. Let's handle this by writing a `move_with_keyboard` procedure. It will take an `entity` called `ent` by reference, and a `speed` (a double). We can then call it like `move_with_keyboard(game.spider.ent, SPEED);` inside the main event loop.
+
+    _I'd recommend adding a global SPEED constant as well - 3 is a good value._
 
     :::tip
     Note how the procedure takes an `entity` rather than a `spider_data`. By doing this, we are only giving the procedure the exact data it needs to work with.
@@ -492,7 +494,7 @@ Adding the ability to move the spider will be very similar to what we did back i
 
 
     <Accordion>
-    <AccordionItem header="Adding the spider and fly structs">
+    <AccordionItem header="Implementing move_with_keyboard">
     ```c++
     void move_with_keyboard(entity &ent, double speed)
     {
@@ -536,20 +538,20 @@ Adding the ability to move the spider will be very similar to what we did back i
     }
     ```
 
-    We'll need four checks for this, one for each edge of the screen. Have a go at that, and now your spider should always remain on screen.
+    We'll need four checks for this, one for each edge of the screen - also note that we take into account the entity's `radius` as well. Have a go at that, and now your spider should always remain on screen.
 </Steps>
 
 Just before we wrap up this section, here's something to try out. Since we've modelled our `spider` and `fly` as _both_ having an `entity` that represents their shape and position, and it's the _entity_ inside that's moving around... we can easily start playing as the fly instead!
 
 Just switch out the
 ```c++ "spider"
-move_with_keyboard(game.spider.ent, SPIDER_SPEED);
+move_with_keyboard(game.spider.ent, SPEED);
 ```
 
 with
 
 ```c++ "fly"
-move_with_keyboard(game.fly.ent, SPIDER_SPEED);
+move_with_keyboard(game.fly.ent, SPEED);
 ```
 
 and now you'll be controlling the fly instead. We could even make the fly a second player using WASD, if we hadn't hardcoded `RIGHT_KEY`, `LEFT_KEY`, etc (hint hint). We'll continue to see the benefits of this abstraction as we develop further.
