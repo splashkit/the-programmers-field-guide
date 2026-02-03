@@ -2,13 +2,12 @@
 title: Fly Catch
 banner: 
   content: This is an optional tour - use it to extend your understanding.
-draft: true
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { Steps } from '@astrojs/starlight/components';
 import Aside from '/src/components/Aside.astro'
 
-For this tour, we'll be expanding upon what we learned in Explore Structs (GUI), to create a small game where the player controls a spider on a web and catches flies. We'll focus on using _composition_, that is, structs within structs, to help us model our game's digital reality in a more meaningful way. By the end of this, you should feel more confident when structuring your programs, and understand various ways `struct`s can be used and designed.
+For this tour, we'll be expanding upon what we learned in [Explore Structs (GUI)](/book/part-2-organised-code/2-structuring-data/3-guided-tour/0-3-explore-struct/), to create a small game where the player controls a spider on a web and catches flies. We'll focus on using _composition_, that is, structs within structs, to help us model our game's digital reality in a more meaningful way. By the end of this, you should feel more confident when structuring your programs, and understand various ways `struct`s can be used and designed.
 
 Here's an outline of the game:
 
@@ -76,7 +75,7 @@ We'll be iterating and adjusting these structs as we go, so no need to make them
     <AccordionItem header="Let's check...">
         Since our program is graphical and takes user input, we'll need:
         - a window to display things in
-        - a loop that handles input events, so that we can continuously redraw the screen after use input.
+        - a loop that handles input events, so that we can continuously redraw the screen after user input.
         - some way to draw the spider and flies - we'll just use circles for now, but later on we'll switch to images.
     </AccordionItem>
     </Accordion>
@@ -181,11 +180,11 @@ Now that we have a vague plan of our entities, let's start writing some code!
     ```
     However, this isn't ideal.
 
-    Brace initialization is absolutely fine for simple static types (like `color`, which has an `r` `g` `b` and `a`, or `point_2d` which has an `x` and `y`), but for structures that might change or grow, it will lead to issues later on. Besides, we will want to add logic that runs when initializing the fly and spider, so it makes more sense to move this initialization elsewhere.
+    Brace initialization is absolutely fine for simple static types (like `color`, which has an `r` `g` `b` and `a`, or `point_2d` which has an `x` and `y`), but as structures grow it becomes fragile and harder to read. Besides, we will want to add logic that runs when initializing the fly and spider, so it makes more sense to move this initialization elsewhere.
 
     Let's create a `new_spider` and a `new_fly` function instead. For now, both of them will take no parameters, and return their respective type. The spider should be initialized in the center of the screen, while the fly can be placed anywhere.
 
-    This should be familiar after writing `new_target` in Explore Structs (GUI). Have a go at writing these functions, and adjusting your initialization code in `main` accordingly.
+    This should be familiar after writing `new_target` in [Explore Structs (GUI)](/book/part-2-organised-code/2-structuring-data/3-guided-tour/0-3-explore-struct/). Have a go at writing these functions, and adjusting your initialization code in `main` accordingly.
 
     <Accordion>
     <AccordionItem header="Adding new_spider and new_fly">

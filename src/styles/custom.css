@@ -920,6 +920,12 @@ body .accordion__item {
 
 /* --- END: More Accordion Styling ------*/
 
+/* Forces the text in the first column of a table to not wrap */
+.sl-markdown-content .table-first-column-expand :is(th:first-child, td:first-child):not(:where(.not-content *)) {
+    padding-inline-start: 0;
+    white-space: pre;
+}
+
 /* ------------------------------------------- */
 /* END:   CUSTOM STYLES                        */
 /* - Don't delete this section                 */

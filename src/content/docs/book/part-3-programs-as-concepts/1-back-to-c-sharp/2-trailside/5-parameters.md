@@ -11,7 +11,7 @@ You will use parameters in C# in the same way you did in C/C++. These allow you 
 ## In C#
 
 :::tip[Syntax]
-In C#, parameters are very similar to parameters in C/C++. By default, parameters are [passed by value](/book/part-2-organised-code/6-indirect-access/5-reference/01-pass-by-ref). You can add the ref keyword to use [pass by reference](/book/part-2-organised-code/6-indirect-access/5-reference/01-pass-by-ref) instead.
+In C#, parameters are very similar to parameters in C/C++. By default, parameters are [passed by value](/book/part-2-organised-code/1-structuring-code/5-reference/03c-pass-by-ref). You can add the ref keyword to use [pass by reference](/book/part-2-organised-code/1-structuring-code/5-reference/03c-pass-by-ref) instead.
 
 ![Parameter syntax](./images/parameters.png)
 
