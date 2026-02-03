@@ -27,6 +27,7 @@
     "swiper": "^11.1"
   },
   "devDependencies": {
-    "accessible-astro-components": "^2.3.6"
+    "accessible-astro-components": "^2.3.6",
+    "wrangler": "^4.61.1"
   }
 }
