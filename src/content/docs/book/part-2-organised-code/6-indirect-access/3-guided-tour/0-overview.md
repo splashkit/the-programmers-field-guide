@@ -2,13 +2,8 @@
 title: "Overview"
 ---
 
-The tour in this chapter is divided into two parts, this part focuses on the basics of working with dynamic memory management while the 
+The ability to use pointers and dynamically allocate memory gives us new ways to structure our data, but can also be tricky to use. Most of the time it is best to try to avoid having to deal with dynamic memory allocations directly - instead, you can build utility classes that hide this complexity and handle it for you.
 
+We'll explore this in this chapter, primarily through building a [linked list](/book/part-2-organised-code/6-indirect-access/3-guided-tour/01-0-linked-list). This will become our second re-usable utility class alongside our `bounded_array`.
 
----
-title: Overview
----
-
-Most of the time it is best to try to avoid having to deal with dynamic memory allocations. Rather than using this throughout your project you can focus on it within dedicated utilities. Then you can use these where needed within your projects.
-
-In this section we will look at building a [dynamic array](/book/part-2-organised-code/7-deep-dive-memory/3-guided-tour/02-0-dynamic-array) and a [linked list](/book/part-2-organised-code/6-indirect-access/3-guided-tour/01-0-linked-list). The focus within each of these utilities will be to manage the dynamic memory allocations for us. We can then look at how we can use these within our programs.
+We will also see how pointers allow us to build other, more general structures, when we create a text adventure [maze game](/book/part-2-organised-code/6-indirect-access/3-guided-tour/02-0-maze/).
