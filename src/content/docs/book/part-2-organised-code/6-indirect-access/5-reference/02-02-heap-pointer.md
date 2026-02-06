@@ -1,8 +1,10 @@
 ---
 title: Heap Pointers
+sidebar:
+    label: " - Heap Pointers"
 ---
 
-[Pointers](/book/part-2-organised-code/6-indirect-access/5-reference/02-00-pointer) store the address of a value somewhere in memory. This can be used to create relationships between entities, allow you to update values passed to parameters, and can be used to access space allocated on the [heap](/book/part-2-organised-code/7-deep-dive-memory/5-reference/01-heap).
+[Pointers](/book/part-2-organised-code/6-indirect-access/5-reference/01-00-pointer) store the address of a value somewhere in memory. This can be used to create relationships between entities, allow you to update values passed to parameters, and can be used to access space allocated on the [heap](/book/part-2-organised-code/6-indirect-access/5-reference/02-00-heap).
 
 In your code you can access variables, the local variables and global variables that are in scope. Memory on the heap is not within variables, and therefore you must access it via a pointer.
 

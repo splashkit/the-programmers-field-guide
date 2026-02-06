@@ -112,7 +112,7 @@ In C you can use `malloc` to allocate space for a number of elements. Alternativ
 
 The following code allocates 4 integer values as shown in [Figure x.y](#FigureArrayAllocateMemory): `p = (int*) malloc(4 * sizeof(int));` or using `calloc`, which would set all values to 0, you could use `p = (int*) calloc(4, sizeof(int));`
 
-In C you can use the standard array access mechanisms with pointers to access subsequent elements. So `p[0]` is the value in the first element of the array dynamically allocated in [Figure x.y](#FigureArrayAllocateMemory), `p[1]` is the value of the second element, `p[2]` is the value of the third element, and so on. This relates back to pointer arithmetic discussed when we first looked at [pointers](/book/part-2-organised-code/6-indirect-access/5-reference/02-01-pointer-use), and mirrors the way we used [arrays](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-05-array-params) when passed to parameters.
+In C you can use the standard array access mechanisms with pointers to access subsequent elements. So `p[0]` is the value in the first element of the array dynamically allocated in [Figure x.y](#FigureArrayAllocateMemory), `p[1]` is the value of the second element, `p[2]` is the value of the third element, and so on. This relates back to pointer arithmetic discussed when we first looked at [pointers](/book/part-2-organised-code/6-indirect-access/5-reference/01-01-pointer-use), and mirrors the way we used [arrays](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-05-array-params) when passed to parameters.
 
 ## Array Allocation: Why, When, and How
 
