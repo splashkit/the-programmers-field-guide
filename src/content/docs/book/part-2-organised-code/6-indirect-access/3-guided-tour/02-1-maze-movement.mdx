@@ -1,69 +1,33 @@
 ---
 title: Maze Game with Dynamic Paths
 sidebar:
-  label: " - Maze Game"
+  label: " - Dynamic Paths"
+banner:
+  content: This is an optional tour - use it to extend your understanding.
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 
-In the chapter on [indirectly accessing values](/book/part-2-organised-code/6-indirect-access/0-overview) we started to build out a [maze game](/book/part-2-organised-code/6-indirect-access/3-guided-tour/02-maze). The idea of this was to have rooms that were connected by different paths. This is a great way of working with pointers, as the player could point to the room they were in, and paths can point to their destinations.
+At this point, we have a set of rooms that are connected by different paths. This is a great way of working with pointers, as the player points to the room they are in, and the paths point to their destinations.
 
-One of the limitations of the maze game at that point was that we didn't yet have arrays. Now that we have arrays, and our own dynamic array, we can return to the maze and add the paths into each room. In this way, each room can have its own paths that lead to other locations in the maze.
-
-## Recap
-
-The maze game involved locations (rooms) connected by paths. For this we created the following structs:
-
-```cpp
-typedef struct room_data *room_ptr;
-
-struct path_data
-{
-  string    description;
-  room_ptr  destination;
-};
-
-struct room_data
-{
-  string title;
-  string description;
-};
-```
-
-Each room had a title and description, and each path had a description and destination. The location of the player and the path destinations were all handled by using pointers to rooms.
-
-Now that we have a dynamic array, we can expand our solution to include multiple paths within each room.
-
-:::note
-We could also redo the solution to embed member functions within the room and path structs. For now, we will not change the rooms to use member functions, but just embed the dynamic array we have created.
-:::
+The main limitation currently is that our `main` is filled with logic for handling how each room connects. Let's move our paths to inside `room_data`, and store them inside our [`bounded_array`](/book/part-2-organised-code/5-operators-generics/3-guided-tour/2-generic-array/) - this way, each room can have its own set of paths that lead to other locations in the maze.
 
 ## Adding Paths
 
-Adding multiple paths to a room is as simple as adding a `paths` field to the `room_struct`. Doing this will mean that we then need to update the `new_room` code to make sure it initialises the result with an empty dynamic array.
+Adding multiple paths to a room is as simple as adding a `paths` field to the `room_struct`. Luckily, our `bounded_array` already has a default constructor, so we won't need to modify the `room_data`'s constructor at all - the `paths` array will be initialized automatically by its constructor.
 
-The following code shows how you can create an empty dynamic array. The `{}` can be used to create empty path data to be used as the default if needed.
-
-```cpp
-room_data new_room(string title, string description)
-{
-  room_data result = { 
-    title,
-    description,
-    dynamic_array<path_data>(0, {})
-  };
-
-  return result;
-}
+We will, however, need to add a [default constructor](/book/part-2-organised-code/4-member-functions/5-reference/1-1-constructor/#example) to `path_data`. Currently, `path_data` requires a description and destination to be constructed, but our `bounded_array` default constructs all of its elements automatically. We can just add a default constructor (a constructor with no parameters) to `path_data`, that does nothing:
+```c++
+path_data(){ }
 ```
 
-In `main` we had created a number of rooms and paths. You can now move the paths into a room. In my case, I am going to put my existing paths into room 1. Then I can add some more paths to the other rooms.
+Once we get that compiling, we can starting shifting things around. In `main` we had created a number of rooms and paths. You can now move the paths into a room. In my case, I am going to put my existing paths into room 1. Then I can add some more paths to the other rooms.
 
 The code to add a path to a room would look like this:
 
 ```cpp
-path_data p1 = new_path("A large sliding door", &r2);
+path_data p1 = path_data("A large sliding door", &r2);
 // becomes
-r1.paths.add(new_path("A large sliding door", &r2));
+r1.paths.add(path_data("A large sliding door", &r2));
 ```
 
 At this stage we have rooms that now contain a variable number of paths that lead to other rooms in the maze.
@@ -72,10 +36,10 @@ At this stage we have rooms that now contain a variable number of paths that lea
 
 With paths in a room we now need to change the code for printing a room so that it prints all the paths in the room as well.
 
-We already have the code to print a path. So you can code this with a for loop where you access each path from `room->paths`, and pass it to the `print_path` procedure we previously created.
+We already have the code to print a path. So you can code this with a for loop where you access each path from `paths`, and pass it to the `print_path` procedure we previously created.
 
 :::tip
-Remember you can use `room->paths.size` to get the number of paths to be printed.
+Remember you can use `paths.count()` to get the number of paths to be printed.
 :::
 
 I suggest you add a message above this list of paths saying something like "There are paths leading:". This will let the user know what the list refers to.
@@ -113,13 +77,13 @@ In main, make sure you have a few rooms to play with. Set the current room, and 
 I achieved this with the following code.
 
 ```cpp
-  while(current_room->paths.size > 0)
+  while(current_room->paths.count() > 0)
   {
     explore(current_room);
   }
 
   printf("You have reached the end of the maze!\n");
-  print_room(current_room);
+  current_room->print_room();
 ```
 
 Compile and run the program, and you should be able to explore your maze. Make sure you have a room with no paths, that is reachable via paths from other rooms. Explore your maze and make sure it works as expected.
@@ -129,92 +93,96 @@ Compile and run the program, and you should be able to explore your maze. Make s
     header="New Maze Game Code"
   >
 
-The maze game is a great way to start exploring the world of graphs. In this iteration of the program, we added the ability for each room to have a number of paths that lead to other rooms. This enabled us to allow the user to explore the maze, until they found the room with no exists.
+The maze game is a great way to start exploring the world of graphs. We've now added the ability for each room to have a number of paths that lead to other rooms. This enabled us to allow the user to explore the maze, until they found the room with no exists.
 
 ```cpp
 #include <string>
-#include "dynamic-array-2.hpp"
+#include "bounded_array.hpp"
+#include "utilities.hpp"
 
 using std::string;
 
-typedef struct room_data *room_ptr;
+struct room_data;
+typedef room_data* room_ptr;
 
 struct path_data
 {
   string    description;
   room_ptr  destination;
-} path_data;
+
+  /**
+   * This constructor default initialises the path with empty fields
+   */
+  path_data()
+  {
+  }
+
+  /**
+   * This constructor populates the path_data's respective fields.
+   *
+   * @param description_ the description of the path
+   * @param destination_ the destination of the path - a pointer to the room it goes to
+   */
+  path_data(string description_, room_ptr destination_)
+  {
+    description = description_;
+    destination = destination_;
+  }
+
+  /**
+   * Outputs the path's description to the terminal. Showing the index of the path
+   * and the description, but no details of where it goes.
+   *
+   * @param idx   the index of the path - used to select it from the list
+   */
+  void print_path(int idx)
+  {
+    write_line(to_string(idx) + " - " + description);
+  }
+};
 
 struct room_data
 {
   string title;
   string description;
-  dynamic_array<path_data> paths;
-} room_data;
+  bounded_array<path_data, 50> paths;
 
-/**
- * New path populates the data in a path struct and returns it.
- * 
- * @param description the description of the path
- * @param destination the destination of the path - a pointer to the room it goes to
- * @return path_data with the indicated details
- */
-path_data new_path(string description, room_ptr destination)
-{
-  path_data result = { description, destination };
-
-  return result;
-}
-
-/**
- * New room populates the data in a room struct and returns it.
- *
- * @param title         The title of the room
- * @param description   The description of the room
- * @returns             The new room data
- */
-room_data new_room(string title, string description)
-{
-  room_data result = { title, description, dynamic_array<path_data>(0, {})};
-
-  return result;
-}
-
-/**
- * Outputs the path's description to the terminal. Showing the index of the path
- * and the description, but no details of where it goes.
- * 
- * @param idx   the index of the path - used to select it from the list
- * @param path  the path to print (const reference)
- */
-void print_path(int idx, const path_data &path)
-{
-  printf("%d - %s\n", idx, path.description.c_str());
-}
-
-/**
- * Output the room's title and description to the terminal.
- * 
- * @param room a pointer to the room to print
- */
-void print_room(room_ptr room)
-{
-  printf("%s\n-----\n%s\n", room->title.c_str(), room->description.c_str());
-
-  if ( room->paths.size > 0 )
+  /**
+   * This constructor populates the room_data's respective fields.
+   *
+   * @param title_         The title of the room
+   * @param description_   The description of the room
+   */
+  room_data(string title_, string description_)
   {
-    printf("There are paths leading:\n");
-    for (int i = 0; i < room->paths.size; i++)
+    title = title_;
+    description = description_;
+  }
+
+  /**
+   * Output the room's title and description to the terminal.
+   *
+   * @param room a pointer to the room to print
+   */
+  void print_room()
+  {
+    write_line(title + "\n-----\n" + description);
+
+    if ( paths.count() > 0 )
     {
-      print_path(i, room->paths[i]);
+      write_line("There are paths leading:");
+      for (int i = 0; i < paths.count(); i++)
+      {
+        paths[i].print_path(i);
+      }
     }
   }
-}
+};
 
 /**
  * Move the player through the selected path, setting the player's current room
  * to the destination of the path.
- * 
+ *
  * @param current_room a reference to the player's current room (a pointer to the room_data)
  * @param path a constant reference to the path to move through
  */
@@ -223,40 +191,17 @@ void move_player(room_ptr &current_room, const path_data &path)
   current_room = path.destination;
 }
 
-/**
- * Reads an integer value from the user. If the user enters a non-integer value,
- * the function will continue to prompt the user until they enter a valid value.
- * 
- * @param prompt the prompt message to display to the user
- * @return int the integer value entered by the user
- */
-int read_integer(const string &prompt)
-{
-  int result = 0;
-  
-  printf("%s", prompt.c_str());
-  while (scanf(" %d", &result) != 1) // Read value, and try to convert to int
-  {
-    // Convert failed, as input was not a number
-    scanf("%*[^\n]"); // Read past the end of the current line
-    printf("Please enter a whole number.\n");
-    printf("%s", prompt.c_str());
-  }
-  
-  return result;
-}
-
 void explore(room_ptr &room)
 {
   int option = 0;
 
-  print_room(room);
+  room->print_room();
 
   option = read_integer("Which path do you want to take? ");
 
-  while(option < 0 || option > room->paths.size - 1)
+  while(option < 0 || option > room->paths.count() - 1)
   {
-    printf("Choose a value between 0 and %d\n", room->paths.size - 1);
+    write_line("Choose a value between 0 and " + to_string(room->paths.count() - 1));
     option = read_integer("Option: ");
   }
 
@@ -265,26 +210,26 @@ void explore(room_ptr &room)
 
 int main()
 {
-  room_data r1 = new_room("Room 1", "You are in a happy place");
-  room_data r2 = new_room("Room 2", "This is room 2");
-  room_data r3 = new_room("Room 3", "This is room 3");
+  room_data r1 = room_data("Room 1", "You are in a happy place");
+  room_data r2 = room_data("Room 2", "This is room 2");
+  room_data r3 = room_data("Room 3", "This is room 3");
 
-  r1.paths.add(new_path("A large sliding door", &r2));
-  r1.paths.add(new_path("An open corridor", &r3));
-  r1.paths.add(new_path("A small door", &r1));
+  r1.paths.add(path_data("A large sliding door", &r2));
+  r1.paths.add(path_data("An open corridor", &r3));
+  r1.paths.add(path_data("A small door", &r1));
 
-  r2.paths.add(new_path("A large sliding door", &r1));
-  r2.paths.add(new_path("A small door", &r1));
-  
+  r2.paths.add(path_data("A large sliding door", &r1));
+  r2.paths.add(path_data("A small door", &r1));
+
   room_ptr current_room = &r1;
 
-  while(current_room->paths.size > 0)
+  while(current_room->paths.count() > 0)
   {
     explore(current_room);
   }
 
-  printf("You have reached the end of the maze!\n");
-  print_room(current_room);
+  write_line("You have reached the end of the maze!");
+  current_room->print_room();
 }
 ```
 
@@ -293,6 +238,6 @@ int main()
 
 ## Graphs
 
-Have you noticed how the structure of the maze is similar to a [linked list](/book/part-2-organised-code/7-deep-dive-memory/3a-advanced-tour/03-0-linked-list)?
+Have you noticed how the structure of the maze is similar to a [linked list](/book/part-2-organised-code/6-indirect-access/3-guided-tour/01-0-linked-list/)?
 
 You can think of the maze as a graph, and the player is able to traverse that graph exploring the data along the way. While we used a game style theme here, the skills you develop by thinking and working through this will help you in other contexts that use graphs. For example, exploring connections in a social media graph, finding files in a file system, and many other applications.
