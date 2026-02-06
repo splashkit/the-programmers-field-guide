@@ -3,10 +3,13 @@ title: Iterating through a Linked List
 sidebar:
     label: " - Iterating Nodes"
 ---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
 
-Notice the logic that Copilot added to delete for looping through the nodes of a linked list. This logic is akin to the use of the for loop to iterate over the indexes of an array.
+Now that we can add data to our linked list, let's see some ways we can iterate over that data. Similar to arrays, these data structures really start to shine once we can perform repeated operations over the elements they hold.
 
-With a linked list, you start with a `current` `node` pointer, and loop `while(current != NULL)`. Within the loop, you move `current` to `current->next` shifting the pointer along to the next node of the list. This ends when you get to the `NULL`/`nullptr` pointer.
+Imagine we wanted to print every element in our linked list. Unlike with arrays, we don't need to iterate over the _indexes_. Instead, every one of our elements has a `next` pointer, that _tells_ us where the next element is. So we just operate on the current node, then move to the next, over and over in a `while` loop, until we reach the last node.
+
+More formally, you start with a `current` `node` pointer, and loop `while(current != NULL)`. Within the loop, you move `current` to `current->next` shifting the pointer along to the next node of the list. This ends when you get to the `NULL`/`nullptr` pointer.
 
 ![Illustration showing moving between elements of a list](./images/list-iterate.png)
 
@@ -24,4 +27,76 @@ while (current != nullptr)
 }
 ```
 
-Now it is time to actually put some data in our list!
+### Find previous node
+Let's test this pattern out now by implementing a `find_previous_node` method in our `linked_list` class. Our `node` class already has a `next` pointer, so finding the next node is easy. Finding the _previous_ node however is a bit more involved. We will need to start from the `first` node, and iterate _until_ we find the node who's `next` is our target node. Once we find it, we can return it immediately.
+
+There's also the special case of the first node, which has no previous node. In this case, we can return `nullptr`, mirroring how the last node's `next` is `nullptr`.
+
+If we fail to find a previous node at all, we should throw an exception - you can use any of the methods [previously explained](/book/part-2-organised-code/4-member-functions/3-guided-tour/3-array/#add-the-add-method) for this :). This may happen if we are given a `node` that belongs to a different linked list.
+
+Have a go at implementing this method now - it should take a `node*`, and return the `node*` prior to it. Here's some test code:
+
+```c++
+// ---- Test find_previous_node ----
+
+node<int>* node_a = list.add_node(9);
+node<int>* node_b = list.add_node(18);
+
+if (list.find_previous_node(node_b) == node_a)
+{
+    write_line("Found the correct previous node");
+}
+else
+{
+    write_line("Found the wrong previous node");
+}
+```
+
+<Accordion>
+  <AccordionItem header="My code for find_previous_node">
+
+```cpp
+template <typename T>
+class linked_list
+{
+    ...
+
+    /**
+    * Finds and returns the node previous to `target_node`.
+    *
+    * @param target_node The target node to find the previous node for.
+    */
+    node<T>* find_previous_node(node<T> *target_node )
+    {
+        if (target_node == first)
+            return nullptr;
+
+        node<T> *current = first;
+        while (current != nullptr)
+        {
+            if (current->next == target_node)
+            {
+                return current;
+            }
+
+            // we can shorten this onto one line like so
+            current = current->next;
+        }
+
+        // If we couldn't find it...probably best to throw an exception
+        throw string("find_previous_node search failed: node not in list.");
+    }
+};
+```
+
+  </AccordionItem>
+</Accordion>
+
+Just like the typical `for(int i = 0; i < size; i ++)`, we'll use this iteration pattern a fair bit from here on!
+
+
+:::tip[Isn't this inefficient?]
+This is a fair question! Right now we are implementing what's called a "singly linked list" - our nodes are only connected one way, to their "next" node. Within this structure, there isn't much we can do to find the previous node quicker.
+
+However, as the name might imply, there are also "doubly linked lists". In a "doubly linked list", the nodes know about the "next" node, _and_ the "previous" node. This allows us to easily move backwards and forwards, but at the cost of extra memory usage. It would certainly make our `find_previous_node` straightforward!
+:::

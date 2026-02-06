@@ -1,0 +1,322 @@
+---
+title: Generalised Visiting II
+sidebar:
+    label: " - Generalised Visiting II"
+banner:
+  content: This is an optional section - use it to extend your understanding.
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import Carousel from '/src/components/Carousel.astro'
+
+The `visit` procedure is already quite helpful - we can iterate over all the nodes, and call a function for each one. However, it has some rather glaring limitations; we could already see some of the awkwardness with things like:
+```c++
+void add_one(int& data);
+```
+What if we wanted to add two, or three? And what if we wanted to do something that requires _state_, like sum all of the numbers in the list?
+
+Right now, the issue boils down to this: the function we pass into `visit`, _only_ takes the `data`, but has no way to hold state or return information.
+
+Let's try tackling this in one direction, by adding a `fold` function.
+
+### Fold
+
+`fold` will allow us to operate on all the nodes, to produce a single value. For instance, we could **sum** all the nodes together, **multiply** them, or perhaps **sum the result of `book.price * book.sales`**.
+
+The function we pass into `fold` will take the data for the node (as before), _and_ a value, that it can modify and return, that gets passed into the next call of the function.
+
+For instance, if we had a linked list like this: `5 -> 7 -> 9`, and we were summing the numbers together, we would expect our function to be called three times with these values:
+```c++
+sum_function(accumulator, 5); //accumulator is 0 here
+sum_function(accumulator, 7); //accumulator is 5 here
+sum_function(accumulator, 9); //accumulator is 12 here
+                              //accumulator is 21 here
+```
+
+An important consideration, is again, what function signature we expect. Here are some examples:
+```c++
+// for linked_list<int>
+int sum(int accumulator, const int& data)
+{
+    return accumulator + data;
+}
+
+double divide(double accumulator, const int& data)
+{
+    return accumulator/data;
+}
+
+// for linked_list<book>
+int sum_sales(int accumulator, const book& data)
+{
+    return accumulator + data.price * data.sales;
+}
+
+book find_most_sold_book(book accumulator, const book& data)
+{
+    if (accumulator.sales >= data.sales)
+    {
+        return accumulator;
+    }
+    else
+    {
+        return data;
+    }
+}
+```
+
+Just like `visit`, our functions all take a `data` with the same type as the `linked_list`'s elements. However, as we fold up our data, we may want to return an entirely different type! For instance, if we want to divide all of our elements, we may want to return a `double`, even if they were `int` elements. Similarly, if we're summing up `book` sales, `book` goes in, but `int` comes out.
+
+What this means, is that the `fold` function, will also need to take a template parameter, that specifies what the _return_ type should be.
+
+Have a think about what the definition of `fold` should look like. What parameters does it take, and what are their types? Have go at writing it yourself first (please!), then double check below.
+
+:::tip
+This will be a bit tricky since it involves templates and function pointers.
+
+My recommendation is to first write out the method, for a linked list with a specific type (for instance `int`), and for a specific accumulation/return type (perhaps `double`). Then add the template parameters afterwards.
+:::
+
+<Accordion>
+  <AccordionItem header="My code for if you get stuck">
+
+    The definition will look something like:
+    ```c++
+    template<typename R>
+    R fold(R initial_value, R (*func)(R, const T&));
+    ```
+
+    The method inside `linked_list<T>` takes another template parameter `R`. The `func` parameter is also adjusted to take an `R`, and we've made the `T` reference `const` now.
+
+    `fold` also takes an `initial_value` - we need this, since otherwise what do we provide to `func` when it first gets called?
+
+  </AccordionItem>
+</Accordion>
+
+Now that we know what the signature of `fold` looks like, have a go at implementing it. It should look fairly similar to `visit`, except the value being accumulated will be passed in and out of `func` each time, and returned at the end.
+
+<Accordion>
+  <AccordionItem header="My code for if you get stuck">
+
+```cpp
+template <typename T>
+class linked_list
+{
+    ...
+
+    /**
+    * For every node in the linked list, calls `func` and passes in the node's data.
+    *
+    * @param func The function to call at each node.
+    */
+    template<typename R>
+    R fold(R initial_value, R (*func)(R, const T&))
+    {
+        R value = initial_value;
+
+        node<T> *current = first;
+        while (current != nullptr)
+        {
+            value = func(value, current->data);
+
+            current = current->next;
+        }
+
+        return value;
+    }
+};
+
+int sum_elements(int acc, const int& data)
+{
+    return acc + data;
+}
+bool check_all_positive(bool acc, const int& data)
+{
+    return acc && (data > 0);
+}
+
+int main()
+{
+    linked_list<int> list;
+
+    ...
+
+    write_line(list.fold(0, sum_elements));
+    write_line(list.fold(true, check_all_positive) ? "All Positive" : "Not All Positive");
+}
+
+```
+
+  </AccordionItem>
+</Accordion>
+
+## Lambdas
+
+C++ offers us another tool to improve the expressiveness of our code. Currently, we have to write the function we want `fold` or `visit` to call in an entirely different place to where it's used; e.g.:
+```c++ "multiply_by_10(int& data)" "multiply_by_10)"
+void multiply_by_10(int& data)
+{
+    data *= 10;
+}
+
+int main()
+{
+    linked_list<int> list;
+
+    ...
+
+    list.visit(multiply_by_10);
+}
+```
+
+For something re-usable like `print_element` this isn't _too_ bad, but especially for more specific logic, it would be great to be able to write it inline, within the same function. For this, C++ offers **lambdas**:
+
+```c++ {8-11}
+int main()
+{
+    linked_list<int> list;
+
+    ...
+
+    // multiply all the elements by 10
+    list.visit([](int& data)
+    {
+        data *= 10;
+    });
+}
+```
+
+A lambda starts with `[]`, and then just looks like a normal function definition that we can write _inline_ within our function parameters. In this case, the lambda is being converted into a function pointer, and that pointer is passed into `visit`. Already this is a bit more usable!
+
+:::tip
+Don't confuse the `[]` with array indexing! It looks the same, but is completely unrelated syntactically.
+:::
+
+Here's an example where we use `fold`. Try writing one yourself too!
+```c++
+    // print the sum of all elements larger than 5
+    int sum = list.fold(0, [](int sum, int& data) {
+        if (data > 5)
+        {
+            sum += data;
+        }
+        return sum;
+    });
+
+    write_line(sum);
+```
+
+We won't need to use lambdas much currently, but it may be helpful to recognise the syntax. Feel free to explore them further in the optional section below if interested.
+
+## (Optional) Lambdas & Better Visit
+
+By default, the inside of the lambda is an entirely seperate function to the outside. For instance, in the following code, we couldn't access `multiply_by` inside the lambda:
+```c++
+    int multiply_by = read_integer("How much should the elements be multiplied by?");
+
+    // multiply all the elements by `multiply_by`
+    list.visit([](int& data) {
+        data *= multiply_by; // **This fails to compile***
+    });
+```
+
+However, as part of the lambda definition, we can _capture_ variables from the surrounding function. All we need to do is write the variables name inside the `[]` - for instance `[&multiply_by]` would "capture" `multiply_by` by reference. Now, we could use `multiply_by` inside the lambda!
+
+**However**, if we try this: "[multiply_by]"
+```c++
+    int multiply_by = read_integer("How much should the elements be multiplied by?");
+
+    // multiply all the elements by `multiply_by`
+    list.visit([&multiply_by](int& data) {
+        data *= multiply_by; // **This fails to compile***
+    });
+```
+
+we'll get an error like:
+
+```sh title="Terminal"
+filename.cpp:...: error: cannot convert 'main()::<lambda(int&)>' to 'void (*)(int&)'
+```
+
+What it's telling us, is that it can't convert the lambda into a function pointer anymore! This is because the lambda is more than just a function now - it contains _state_, in this case a reference to `multiply_by`.
+
+We also don't what _type_ the lambda is - it does have a type, but there's no way to write it. So how do we pass it in `visit`?
+
+The signature of `fold` gives us a clue:
+```c++
+    template<typename R>
+    R fold(R initial_value, R (*func)(R, T&))
+```
+
+In order to safely give our caller's function _state_, we had to introduce a template parameter so we could accept _any type_ of data.
+
+For visit:
+```c++
+void visit(void (*func)(T&))
+{
+    ...
+}
+```
+we'll need to introduce a template parameter for the type of `func`! This way, no matter what type the lambda is, we'll be able to pass it into `visit` and call it.
+
+```c++
+template<typename F>
+void visit(F func)
+{
+    ...
+}
+```
+
+Once we do this, our `visit` function is now completely generalised! We can pass in lambdas that capture arbitrary state. We can even replicate `fold` like behaviour, like so:
+
+```c++
+    int sum = 0;
+
+    list.visit([&sum](int& data) {
+        sum += data;
+    });
+
+    write_line(sum);
+```
+
+Here, `sum` is capture by reference, so when it it's modified in the lambda, it becomes modified in outer scope as well.
+
+:::tip
+Note: It's still quite useful to have a `fold` function, since it allows us to express this more clearly:
+
+```c++
+    write_line(list.fold(0, [](int sum, int& data){
+        return sum + data;
+    }));
+```
+
+However, we could _implement_ fold using `visit` now!
+:::
+
+This way of using lambdas gives us the ability to write some really powerful and general code!
+
+:::tip[How do lambdas work?]
+Lambdas are secretly classes!
+
+As an example, this lambda:
+
+```c++
+[&sum](int& data) {
+    sum += data;
+}
+```
+
+is actually just an object of a class that looks like this:
+
+```c++
+class <anonymous> // the type has no name!
+{
+    int& sum; // our captured reference to sum!
+
+    // the () operator is overloaded, so objects
+    // of this struct can be called like a function
+    void operator (int& data) {
+        sum += data;
+    }
+}
+```
+:::

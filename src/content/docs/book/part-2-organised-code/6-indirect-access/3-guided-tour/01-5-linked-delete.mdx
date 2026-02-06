@@ -1,128 +1,72 @@
 ---
-title: Deleting a node from a Linked List
+title: Deleting a specific node from a Linked List
 sidebar:
-    label: " - Deleting a Nodes"
+    label: " - Deleting a Specific Node"
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 
-As a final step, let's add the code to remove a node. For this to work, we need to know which node to remove. The process of removing it involves routing the link from the previous node to the node that follows the node to be removed. This is shown in the following image.
+Now let's add a method to delete a single node from the list - with this our linked list starts to become fully usable.
+
+The process of removing it involves re-routing the link from the previous node to the node that follows the node to be removed. This is shown in the following image.
 
 ![Illustration of the steps to remove a node](./images/list-delete.png)
 
-With appropriate prompts, copilot can implement this for us. We need to check the basic logic, and the different cases that may need special attention, primarily removing the first node, removing the last node, and removing the only node.
+We can easily find the next node via `next`, and the previous node using `list.find_previous_node` - we just need to connect those together and delete the middle node.
 
-Here is what Copilot created for me. It handles the removal of the first node, and last node. It clears the node, and even added the code to search for the previous node for me. I added some extra comments to make sure we can follow the code going forward.
+However, there are some different cases that need special attention, primarily removing the first node, removing the last node, and removing the only node.
 
-```cpp
-/**
- * Remove the indicated node from the list.
- * 
- * @tparam T The type of the data that will be stored in the list.
- * @param list A pointer to the linked list to remove the node from.
- * @param node The node to remove from the list.
- */
-template <typename T>
-void remove_node(linked_list<T> *list, node<T> *node)
-{
-    // Check if we are removing the first node.
-    if (list->first == node) 
-    {
-        // Set first to the 2nd node, if it exists
-        list->first = node->next;
-    }
+Have a go at writing this out now, and test it out by deleting a few nodes.
 
-    // Similarly, check for removing the last node
-    if (list->last == node) 
-    {
-        // Will this work?
-        list->last = node->next;
-    }
+:::tip
+Add some code in `main` to iterate over the nodes in the linked list, and print out all the values. This will make testing a lot easier!
+:::
 
-    // Find the previous node
-    node<T> *current = list->first;
-    while (current != NULL) 
-    {
-        // The previous node has the node as its next
-        if (current->next == node) 
-        {
-            // Skip the next node
-            current->next = node->next;
-            break;
-        }
-        current = current->next;
-    }
-
-    // Clear data from node
-    node->next = NULL;
-    free(node);
-}
-```
-
-This is a case when the code is pretty convincing, until you look and think about it. The check for removing the last node, has the wrong logic. The new last node should be the node *before* not *after* the node we are removing.
-
-Similarly, we don't need to search for the previous node if we removed the first node. We should move searching for the previous node into an else branch, so it is skipped if we know we removed the first node.
-
-We also need to add in the code to call the C++ destructor, to make sure that it cleans up anything in the C++ values that we work with.
-
-Lastly, the `node` parameter will hide the `node` data type. We need to think of a new name for this parameter.
-
-We can move this around to fix it up. This took some thinking, as we need to make sure we handle different cases we identified above (remove first, last, and only nodes).
 
 <Accordion>
   <AccordionItem header="My code for if you get stuck">
-
 ```cpp
-/**
- * Remove the indicated node from the list.
- * 
- * @tparam T The type of the data that will be stored in the list.
- * @param list A pointer to the linked list to remove the node from.
- * @param node_to_remove The node to remove from the list.
- */
 template <typename T>
-void remove_node(linked_list<T> *list, node<T> *node_to_remove)
+class linked_list
 {
-    node<T> *previous = nullptr;
+    ...
 
-    // Removing the first node
-    if (list->first == node_to_remove) 
+    /**
+    * Remove the indicated node from the list.
+    *
+    * @param del_node The node to remove from the list.
+    */
+    void remove(node<T> *del_node)
     {
-        // Move first to the next node
-        list->first = node_to_remove->next;
-    }
-    else
-    {
-        // Find the node before the node to remove
-        node<T> *current = list->first;
+        node<T> *previous_node = nullptr;
 
-        // Iterate through the list until we find the node to remove
-        while (current != node_to_remove && current != nullptr) 
+        // Check if we are removing the first node.
+        if (first == del_node)
         {
-            previous = current;
-            current = current->next;
+            // Set first to the 2nd node, if it exists
+            first = del_node->next;
+            // If it is the first node, then
+            // previous_node is already the correct value.
+            // I'll assign it anyway for clariy.
+            previous_node = nullptr;
+        }
+        else
+        {
+            // Find the previous node
+            previous_node = find_previous_node(del_node);
+
+            // Make its connection skip over `del_node`
+            previous_node->next = del_node->next;
         }
 
-        // Check if the node to remove was found
-        if (current == nullptr) 
+        // Similarly, check for removing the last node
+        if (last == del_node)
         {
-            return;
+            last = previous_node;
         }
 
-        // Skip the node to remove
-        previous->next = node_to_remove->next;
+        // Delete the node in memory
+        delete del_node;
     }
-
-    // Check if we removed the last node
-    // needs to be here in case we remove the only node
-    if (list->last == node_to_remove) 
-    {
-        list->last = previous;
-    }
-    
-    // Clear data from node
-    node_to_remove->next = nullptr;
-    node_to_remove->data.~T(); // C++ destructor...
-    free(node_to_remove);
 }
 ```
 

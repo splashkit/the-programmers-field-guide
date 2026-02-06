@@ -5,50 +5,34 @@ sidebar:
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 
-To build a linked list we need to start with a struct that can be used to manage the list itself. This will contain a pointer to the start of the list, and another pointer that refers to the end of the list. The pointer to the start can be used when we need to access the nodes of the list, this tells us where to start. The pointer to the last node can be used when we want to add a new node to the end of the list.
+To build a linked list we need to start with a class that can be used to manage the list itself. This will contain a pointer to the start of the list, and another pointer that refers to the end of the list. The pointer to the start can be used when we need to access the nodes of the list, this tells us where to start. The pointer to the last node can be used when we want to add a new node to the end of the list.
 
 When we start a new list, the start and end pointers both need to point to nothing (`NULL`) as shown in the following image. With the linked list, the `NULL` indicates there is no node at this location.
 
 ![Illustration of a new linked list](./images/list-new.png)
 
-To build this we will need to create a struct for the node, and a struct for the linked list. Once again, this is something that Copilot has seen many times, so it can help us get this going.
+To build this we will need to create a class for the node, and a class for the linked list. We'll keep our classes generic, so we'll have a [template parameter](/book/part-2-organised-code/5-operators-generics/5-reference/07-generics/) as well for the data type (just like the [generic array](/book/part-2-organised-code/5-operators-generics/3-guided-tour/2-generic-array/)). We will also mark everything `public:` for now - this will make it easier to test as we develop it.
 
-Here are the comments I used as prompts for Copilot. You can check the code I used, which required me to clean up the Copilot code a little.
+Have a go at building the following template types:
 
-This is the comment I used for the node of the linked list.
+|   |   |
+|---|---|
+| **Class** | *`node<T>`* |
+| **Fields** | `next`: a `node<T>` that points to the next node in the list|
+|            | `data`: (T) The data that is stored in the node |
 
-```cpp
-/**
- * A node is a struct that contains a pointer to the next node,
- * and a data value.
- * 
- * @tparam T The type of the data that will be stored in the node.
- * @field next A pointer to the next node in the list.
- * @field data The data that is stored in the node.
- */
-```
-
-This is the comment I used for the linked list itself.
-
-```cpp
-/**
- * A linked list is a struct that contains a pointer to the
- * first node, and the last node of the list.
- * 
- * @tparam T The type of the data that will be stored in the list.
- * @field first A pointer to the first node in the list.
- * @field last A pointer to the last node in the list.
- */
-```
+|   |   |
+|---|---|
+| **Class** | *`linked_list<T>`* |
+| **Fields** | `first`: a `node<T>` pointer to the first node in the list |
+|            | `last`: a `node<T>` pointer to the last node in the list |
 
 <Accordion>
   <AccordionItem header="My code for node and linked list">
 
 ```cpp
-#include <stdlib.h>
-
 /**
- * A node is a struct that contains a pointer to the next node,
+ * A node is a class that contains a pointer to the next node,
  * and a data value.
  * 
  * @tparam T The type of the data that will be stored in the node.
@@ -56,13 +40,15 @@ This is the comment I used for the linked list itself.
  * @field data The data that is stored in the node.
  */
 template <typename T>
-struct node {
+class node
+{
+    public:
     node *next;
     T data;
 };
 
 /**
- * A linked list is a struct that contains a pointer to the
+ * A linked list is a class that contains a pointer to the
  * first node, and the last node of the list.
  * 
  * @tparam T The type of the data that will be stored in the list.
@@ -70,7 +56,9 @@ struct node {
  * @field last A pointer to the last node in the list.
  */
 template <typename T>
-struct linked_list {
+class linked_list
+{
+    public:
     node<T> *first;
     node<T> *last;
 };
@@ -81,37 +69,24 @@ struct linked_list {
 
 ## Creating a new linked list
 
-With this in place Copilot picked up that I probably wanted a `new_linked_list` function next. The suggestion even added the comments. If not, then you can add prompts to get it going in the right direction. Here is the comment prompt that I would suggest going with:
-
-```cpp
-/**
- * Creates a new linked list.
- * 
- * @tparam T The type of the data that will be stored in the list.
- * @return A pointer to the new linked list.
- */
-```
-
-You want to make sure that it is initialising the pointers to the start and end of the list, making sure they refer to `null`.
+Similar to our generic array, let's give our `linked_list` class a default constructor that initialises it with zero elements. We'll need to set the `first` and `last` fields to `nullptr` - have a go at adding the default constructor now.
 
 <Accordion>
   <AccordionItem header="My code for new linked list">
 
 ```cpp
-/**
- * Creates a new linked list.
- * 
- * @tparam T The type of the data that will be stored in the list.
- * @return A pointer to the new linked list.
- */
 template <typename T>
-linked_list<T> *new_linked_list() 
+class linked_list
 {
-    linked_list<T> *list = (linked_list<T> *) malloc(sizeof(linked_list<T>));
-    list->first = nullptr;
-    list->last = nullptr;
-    return list;
-}
+
+    ...
+
+    linked_list()
+    {
+        first = nullptr;
+        last = nullptr;
+    }
+};
 ```
 
   </AccordionItem>

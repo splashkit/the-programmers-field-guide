@@ -1,0 +1,137 @@
+---
+title: Generalised Visiting I
+sidebar:
+    label: " - Generalised Visiting I"
+banner:
+  content: This is an optional section - use it to extend your understanding.
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import Carousel from '/src/components/Carousel.astro'
+
+Iterating over all the nodes in a linked list is quite a common operation. Right now we need to write a fair bit of boilerplate to handle this:
+```c++
+node<T> *current = first;
+while (current != nullptr)
+{
+    // Do something with current...
+
+    // Move current to the next node
+    node<T> *next = current->next;
+    current = next;
+}
+```
+
+Wouldn't it be great if we could generalize this? For instance, it would be helpful if we could pass a _function_ in, and have that function get called for every `node`:
+```c++ {2, 5, 8}
+    // iterate over every node, and call print_list_item with the data
+    my_list.visit(print_list_item); // 10, 20, 30
+
+    // iterate over every node, and add 1
+    my_list.visit(add_1);
+
+    // print the list again
+    my_list.visit(print_list_item); // 11, 21, 31
+```
+
+The good thing is, we can! We will achieve this by using [**function pointers**](/book/part-2-organised-code/6-indirect-access/5-reference/01-01b-function-pointer-use/).
+
+So far, we've only taken pointers to variables - we understand that each variable exists _somewhere_ in memory, and the pointer is a value that "points" to its location. Well, functions also exist in memory! We can take pointers to them all the same.
+
+Let's start with the simplest case - a method that iterates over every node, and for every node, calls a function that the user passes in (via a function pointer).
+
+|   |   |
+|---|---|
+| **Method** | *Visit* |
+| **Parameters** | `func`: The function to call at each node. |
+| **Description** | For every node in the linked list, calls `func` and passes in the node's data. |
+
+The `func` parameter will be our function pointer. Let's think about what type it should be, by first considering what we want the signatures of the functions we pass in to look like.
+
+For instance, with a `linked_list<int>`, some simple examples are:
+```c++
+void print_element(const int& data);
+void add_one(int& data);
+```
+
+With a `linked_list<string>`, we might have:
+```c++
+void print_element(const string& data);
+void capitalize(string& data);
+```
+
+And with a `linked_list<book>`, we could have:
+```c++
+void print_book(const book& data);
+void decrease_stock(book& data);
+```
+
+:::tip
+Note that we're only passing in the _data_, rather than the entire `node`. We could design this either way and it would be valid, but with different tradeoffs. In this case we'll keep it simple, and only pass in the `node`'s data.
+:::
+
+First off, we can see the type going into the function varies based on the type the list is templated on. Second, we have both `const` and non-`const` variants as well. For now let's just handle the non-`const` variant. In that case, our generalised signature is:
+```c++
+void function_name(T& data);
+```
+_If we want to handle the `const` variant, we would need to do the same thing we did with `get` in [Generic Array](/book/part-2-organised-code/5-operators-generics/3-guided-tour/3-array-overloads/#before-we-do-that)_
+
+So these are the sorts of functions we will accept in our `visit`. So the parameter for `func` inside `visit` will be:
+```c++
+void (*func)(T&)
+```
+
+Have a go now at writing the `visit` procedure. Try writing a `print_element` function, and pass that into `visit`.
+
+<Accordion>
+  <AccordionItem header="My code for if you get stuck">
+
+```cpp
+template <typename T>
+class linked_list
+{
+    ...
+
+    /**
+    * For every node in the linked list, calls `func` and passes in the node's data.
+    *
+    * @param func The function to call at each node.
+    */
+    void visit(void (*func)(T&))
+    {
+        node<T> *current = first;
+        while (current != nullptr)
+        {
+            func(current->data);
+
+            current = current->next;
+        }
+    }
+};
+
+void print_element(int& data)
+{
+    write_line(data);
+}
+
+void multiply_by_10(int& data)
+{
+    data *= 10;
+}
+
+int main()
+{
+    linked_list<int> list;
+
+    ...
+
+    list.visit(print_element);
+
+    list.visit(multiply_by_10);
+
+    list.visit(print_element);
+}
+
+```
+
+  </AccordionItem>
+</Accordion>

@@ -4,8 +4,9 @@ sidebar:
     label: " - Adding Nodes"
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
+import CodeScroll from '/src/components/CodeScroll.astro'
 
-Before we let Copilot create the code for us, let's think about how this needs to work.
+Before we start writing this code, let's think about how this needs to work.
 
 The following illustration shows what we need to happen in memory when we add our first element. This logic needs to allocate the space for the node, set its data, set its next to `NULL`/`nullptr`, and then update it to be the first and last node in the list.
 
@@ -27,54 +28,87 @@ The following illustration shows how we need to connect the new node in the list
 
 ![Illustration for adding any subsequent nodes](./images/list-add-2.png)
 
+
+
 ## The Code
 
-Copilot has us covered for this. For me, Copilot generated the comment and the code. Before we move on we need to make sure that this works as we want. Step through the code, and double check that things will work for the first and all subsequent nodes added to the list.
+Now let's try implementing this logic, by creating an `node<T>* add_node(T data)` method inside `linked_list`. It will append the node to the end of the linked list, and return a pointer to it.
 
-You can try prompting with this if Copilot does not auto-generate this for you. You may also need to add in the placement new to initialise the C++ data, if needed.
+Start with adding the first node - you'll need to `new` the node, assign the data, and connect up the pointers. Then, move on to adding the logic for adding more nodes.
 
-```cpp
-/**
- * Add a new node to the end of the list.
- * 
- * @tparam T The type of the data that will be stored in the list.
- * @param list A pointer to the linked list to add the node to.
- * @param data The data to store in the new node.
- */
+Here's some code you can place inside `main` to test your linked list. Have a read over it - you'll see how it first adds some nodes, then tests their values by accessing them in different ways.
+
+<CodeScroll>
+```c++
+linked_list<int> list;
+
+// ---- Test first node ----
+node<int>* first_node = list.add_node(2);
+
+write("This should be 2: ");
+write_line(list.first->data);
+
+write("This should also be 2: ");
+write_line(first_node->data);
+
+write("This should also be 2: ");
+write_line(list.last->data);
+
+// ---- Test adding more nodes ----
+
+list.add_node(4);
+list.add_node(8);
+list.add_node(16);
+
+write("This should be 4: ");
+write_line(list.first->next->data);
+
+write("This should be 8: ");
+write_line(list.first->next->next->data);
+
+write("This should be 16: ");
+write_line(list.last->data);
 ```
+
+</CodeScroll>
+
+Make sure to double check that things are working for the first node, and that all subsequent nodes are added to the list.
 
 <Accordion>
   <AccordionItem header="My code for if you get stuck">
 
 ```cpp
-/**
- * Add a new node to the end of the list.
- * 
- * @tparam T The type of the data that will be stored in the list.
- * @param list A pointer to the linked list to add the node to.
- * @param data The data to store in the new node.
- */
-template <typename T>
-void add_node(linked_list<T> *list, T data)
-{
-    node<T> *new_node = (node<T> *) malloc(sizeof(node<T>));
-    
-    // Placement constructor to initialise data
-    new(&new_node->data) T();
 
-    new_node->data = data;
-    new_node->next = nullptr;
-    if (list->first == nullptr) 
+template <typename T>
+class linked_list
+{
+    ...
+
+    /**
+    * Add a new node to the end of the list.
+    *
+    * @param data The data to store in the new node.
+    */
+    node<T>* add_node(T data)
     {
-        list->first = new_node;
-        list->last = new_node;
-    } 
-    else 
-    {
-        list->last->next = new_node;
-        list->last = new_node;
+        node<T> *new_node = new node<T>();
+
+        new_node->data = data;
+        new_node->next = nullptr;
+        if (first == nullptr)
+        {
+            first = new_node;
+            last = new_node;
+        }
+        else
+        {
+            last->next = new_node;
+            last = new_node;
+        }
+
+        return new_node;
     }
-}
+};
 ```
 
   </AccordionItem>
