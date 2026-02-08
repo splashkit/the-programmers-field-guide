@@ -4,7 +4,7 @@ sidebar:
   label: " - Expression"
 ---
 
-Some instructions need data, which can be calculated or provided as a literal value. The term **expression** is used in programming to describe any code that represents a value. Expressions are used wherever data must be supplied in code. When a program runs, each expression is **evaluated** to become a single value that can be used by an instruction.
+The term **expression** is used in programming to describe any code that represents a value. This could be a literal value, or a value that needs to be calculated. Expressions are used wherever data must be supplied in code. When a program runs, each expression is **evaluated** to become a single value that can be used by an instruction.
 
 The concepts related to expressions are shown below.
 
@@ -12,9 +12,9 @@ The concepts related to expressions are shown below.
 
 ## Expressions -- when, why, and how
 
-Whenever an instruction needs data, an expression is needed to provide it. This lets you put whatever data you want in that instruction. For now our data can be be hard-coded as a [literal](/book/part-1-instructions/1-sequence/5-reference/14-literal), and contain mathematical operators to calculate a fixed value. In the next chapter we'll look into [variables](/book/part-1-instructions/2-data/5-reference/10-variable) which allow us to have values that _change_.
+Whenever an instruction needs data, an expression is needed to provide it. This lets you put whatever data you want in that instruction. For now our data can be hard-coded as a [literal](/book/part-1-instructions/1-sequence/5-reference/14-literal), or can be several literal values combined with mathematical operators to calculate a fixed value. In the next chapter we'll look into [variables](/book/part-1-instructions/2-data/5-reference/10-variable) which allow us to have values that _change_.
 
-When you code an expression, you need to think about the value you need and how you can get it. You could provide a fixed value using a literal, or combine values with standard mathematical operators. If you are unsure, draw out the details you have on paper and think through how you can calculate the value you need.
+When you code an expression, you need to think about the value you need and how you can get it. If you are unsure, draw out the details you have on paper and think through how you can calculate the value you need.
 
 ## In C++
 
@@ -71,10 +71,10 @@ If you are confused about the last row, remember that C++ will follow the [BOMDA
 
 :::tip[When to use quotes]
 The convention when describing data is to use double quotes `"` around text, and nothing around regular numbers.
-This helps to avoid confusion -- `3` means the number 3, and `"3"` means the text 3.
+This helps to avoid confusion -- `3` means the _number_*_ 3, and `"3"` means the _text_ 3.
 :::
 
-## Activities
+## Try it out
 
 What values do the following expressions evaluate to?
 
@@ -89,21 +89,21 @@ What values do the following expressions evaluate to?
 <details>
   <summary role="button">Answers</summary>
   <ul>
-    <li><strong>1:</strong><code>2</code></li>
-    <li><strong>2:</strong><code>"Learning is fun"</code></li>
-    <li><strong>3:</strong><code>8</code></li>
-    <li><strong>4:</strong><code>32</code></li>
-    <li><strong>5:</strong><code>3</code>. There are no numbers with decimal places in this expression, so C++ will use integer division.</li>
-    <li><strong>6:</strong><code>3.5</code>. C++ won't use integer division here because one of the values in the expression does have a decimal place, even if that decimal value is 0!</li>
-    <li><strong>7:</strong><code>1</code>. Order of operations means that C++ will evaluate the brackets first, then the multiplication, then the subtraction.</li>
+    <li><strong>1: </strong><code>2</code></li>
+    <li><strong>2: </strong><code>"Learning is fun"</code></li>
+    <li><strong>3: </strong><code>8</code></li>
+    <li><strong>4: </strong><code>32</code></li>
+    <li><strong>5: </strong><code>3</code>. There are no numbers with decimal places in this expression, so C++ will use integer division.</li>
+    <li><strong>6: </strong><code>3.5</code>. C++ won't use integer division here because one of the values in the expression does have a decimal place, even if that decimal value is 0!</li>
+    <li><strong>7: </strong><code>1</code>. Order of operations means that C++ will evaluate the brackets first, then the multiplication, then the subtraction.</li>
   </ul>
 </details>
 
 :::note[Summary]
 
-- An expression is a term given to code that **calculates a value**.
+- An expression is a term given to code that **represents a value**.
 - An expression can be used anywhere a value is needed by an instruction.
-- An expression’s can use **literal** values and calculations.
+- An expression can use **literal** values and calculations.
 - A literal value on its own is a valid expression.
 - Calculations can use mathematical operators: `+` for addition, `-` for subtraction, `*` for multiplication, `/` for division, and parenthesis `( )` for grouping.
 - The computer **evaluates** an expression to determine its value.

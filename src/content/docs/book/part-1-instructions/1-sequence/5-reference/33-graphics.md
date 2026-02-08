@@ -4,7 +4,7 @@ sidebar:
     label: " - Graphics Procedures"
 ---
 
-SplashKit provides procedures you can call to create windows and draw images and shapes for the user to see. For the moment, we can use these in sequences to create scenes and shapes.
+SplashKit provides procedures you can call to create windows and draw images and shapes for the user to see.
 
 ## Drawing Basics
 
@@ -16,9 +16,9 @@ To draw, you need something to draw onto. The base interactive component in Spla
 |-------------|------------------------|----------------|
 | [open_window](https://splashkit.io/api/windows/#open-window) | the title, width, and height of the window | Opens a window for you to draw to. |
 | [clear_screen](https://splashkit.io/api/graphics/#clear-screen) | a color | Clears everything on the current window, making it the indicated color. |
-| [delay](https://splashkit.io/api/utilities/#delay) | an integer | Delays for the number of milliseconds from the argument. |
+| [delay](https://splashkit.io/api/utilities/#delay) | an integer | Delays for the specified number of milliseconds. |
 
-These procedures have the following signatures.
+These procedures have the following signatures:
 
 ```c++
 window open_window(string caption, int width, int height);
@@ -30,7 +30,7 @@ The `open_window` procedure can be called to create a new window for the user to
 
 ![Window with dimensions illustrated](./images/window-dimensions.png)
 
-To test this out, try out the following code for a program that opens a new window using SplashKit. In this program we are also using the SplashKit procedure `delay`. This makes the program wait so that we can see what is happening. When you compile and run this, you will see the window open and the program delay for 5 seconds. Try changing the title and size of the window.
+To test this out, try out the following code for a program that opens a new window using SplashKit. In this program we are also using the SplashKit procedure `delay`. This makes the program wait so that we can see what is happening. When you compile and run this, you should see the window open and the program delay for 5 seconds. Try changing the title and size of the window, remembering to save your changes and recompile the program.
 
 ```c++
 #include "splashkit.h"
@@ -45,10 +45,10 @@ int main()
 
 ### Pixels and Coordinates
 
-The images you see on your computer’s screen are made up of dots called **pixels**: picture elements. The screen has many pixels arranged into a grid (columns and rows), meaning that each pixel has its own unique location represented as a combination of an `x` and `y` value, where `x` indicates the column or distance from the left of the screen, and `y` the row or distance from the top of the screen. Each pixel also has its own color, which we can change individually or in combination with other pixels to form images on the screen.
+The images you see on your computer’s screen are made up of dots called **pixels** (picture elements). The screen has many pixels arranged into a grid (columns and rows), meaning that each pixel has its own unique location represented as a combination of an `x` and `y` value, where `x` indicates the column or distance from the left of the screen, and `y` the row or distance from the top of the screen. Each pixel also has its own color, which we can change individually or in combination with other pixels to form images on the screen.
 
 :::caution
-If you've studied any mathematics, you might be used to the coordinate (0, 0) being at the bottom-left, or even the middle of your coordinate system.
+If you've studied any mathematics, you might be used to the coordinate (0, 0) being at the bottom-left, or even the middle.
 In computer graphics (0, 0) is at the **top left** of the screen.
 Forgetting this can create some interesting graphics!
 :::
@@ -56,13 +56,13 @@ Forgetting this can create some interesting graphics!
 The following image shows an example of how the computer would draw rectangles using the SplashKit instructions to draw a filled (`fill_rectangle`) and outlined (`draw_rectangle`) rectangle.
 Both of these instructions require a color, an x and y value, and a width and a height.
 It uses this information, and the knowledge that position (0, 0) is the top left of the screen, to know where these shapes should be drawn.
-So, the blue filled rectangle is drawn at x 1, y 1, is 7 pixels wide, and 3 pixels high.
+So, the blue filled rectangle is drawn at (1, 1), is 7 pixels wide, and 3 pixels high.
 The magenta outlined rectangle is drawn 10 pixels from the left of the screen, 1 pixel from the top, 7 pixels wide, and 3 pixels high.
 
 ![Pixel locations are based on x and y locations](./images/window-pixels.png)
 
 :::tip[Why the top down?]
-The answer is simply, **history**. The original monitors were based on Cathode Ray Tubes (CRTs) and drew to the screen from left to right, and top to bottom, matching the writing style of Western cultures.
+The answer, simply, is **history**. Original computer monitors were based on Cathode Ray Tubes (CRTs) and drew to the screen from left to right, and top to bottom, matching the writing style of Western cultures.
 :::
 
 ### Double Buffering
@@ -75,8 +75,8 @@ If the computer showed us the result of drawing each individual shape, we would 
 In a program drawing only three shapes this might happen too quickly for a human to see, but the problem would eventually become obvious if you added enough complexity to the graphics.
 
 Instead of having each element we draw appear individually, we just want the whole picture to appear at once.
-To achieve this, SplashKit uses a technique called **double buffering**, illustrated in the image below. With double buffering, the computer first draws the shapes to an off-screen surface.
-It then waits for a command to display that surface to the user. With SplashKit, the command for this is `refresh_screen`.
+To achieve this, SplashKit uses a technique called **double buffering**, illustrated in the image below. With double buffering, the computer first draws the shapes to a hidden surface.
+It then waits for a command to display that surface to the user. With SplashKit, that command is `refresh_screen`.
 
 ![Illustration of double buffering, and the need to call refresh screen.](./images/refresh-screen.png)
 
@@ -93,14 +93,14 @@ void refresh_screen();
 Now that we understand how to refer to positions on the screen, and how SplashKit uses double buffering to display graphics, let's do some drawing of our own.
 
 There are several procedures in SplashKit that you can use to draw shapes to the window.
-These procedures typically require arguments that allow you to control where the shape appears, its size, and its color.
+These procedures typically require arguments that specify where the shape appears, its size, and its color.
 
-| <div style="width:70px">**Procedure**</div> | *Required Arguments** | **Description** |
+| <div style="width:70px">**Procedure**</div> | **Required Arguments** | **Description** |
 |-----------|------------------------|----------------|
 | [fill_circle](https://splashkit.io/api/graphics/#fill-circle), [draw_circle](https://splashkit.io/api/graphics/#draw-circle) | A color and three numeric values for the location (x and y) and radius of the circle. | Draws a filled or hollow circle to the screen. |
 | [fill_rectangle](https://splashkit.io/api/graphics/#fill-rectangle), [draw_rectangle](https://splashkit.io/api/graphics/#draw-rectangle) | A color and four numeric values for the location (x and y), width, and height of the rectangle | Draws a filled or hollow rectangle to the screen. |
 | [fill_ellipse](https://splashkit.io/api/graphics/#fill-ellipse), [draw_ellipse](https://splashkit.io/api/graphics/#draw-ellipse) | A color and four numeric values for the location (x and y), width, and height of the ellipse | Draws a filled or hollow ellipse to the screen. |
-| [fill_triangle](https://splashkit.io/api/graphics/#fill-triangle), [draw_triangle](https://splashkit.io/api/graphics/#draw-triangle) | A color and six numeric values for the location (x and y) or each point of the triangle. | Draws a filled or hollow triangle to the screen. |
+| [fill_triangle](https://splashkit.io/api/graphics/#fill-triangle), [draw_triangle](https://splashkit.io/api/graphics/#draw-triangle) | A color and six numeric values for the location (x and y) of each point of the triangle. | Draws a filled or hollow triangle to the screen. |
 |[draw_line](https://splashkit.io/api/graphics/#draw-line) | A color and four numeric values for the location (x and y) of the start and end of the line. | Draws a line from one point to another. |
 
 These procedures have the following signatures:
@@ -142,7 +142,7 @@ int main()
 ```
 
 :::tip[Autocomplete]
-If you are ever unsure of what a procedure requires, you should be able to get Visual Studio Code to show you a list of the arguments you need to provide. To do this, type the start of the procedure name then press `ctrl-space`. There are usually a couple of different ways to draw a shape in SplashKit, which you can explore by pressing the up/down arrows to navigate the pop-up list. An example with C++ is shown below. Try it out for yourself as you modify you first shape drawing program.
+If you are ever unsure of what a procedure requires, you should be able to get Visual Studio Code to show you a list of the required arguments. To do this, type the start of the procedure name then press `ctrl-space`. There are usually a couple of different ways to draw a shape in SplashKit, which you can explore by pressing the up/down arrows to navigate the pop-up list. An example with C++ is shown below. Try it out for yourself as you modify your drawing program.
 
 ![Use `ctrl-space` to bring up the autocomplete for procedures you want to call.](./images/auto-complete.png "TODO: replace with C++ example")
 :::
@@ -155,14 +155,14 @@ The color type is defined within SplashKit, and will be needed for many of the d
 
 SplashKit provides procedures to help you work with resources such as images, sounds, fonts, and animations. There are procedures to load these into your program, and draw them to the screen or play them from your speakers.
 
-SplashKit organises these files in a **Resources** folder containing sub-folders for each different kind of resource. For example, the **Resources/images** folder is used to store the images you want to work with. The SplashKit library comes with an `skm` script that you can use in the terminal to help set up your project. Running `skm resources` in the root folder of your project will create these resource folders for you.
+SplashKit organises these files in a **Resources** folder containing sub-folders for each different kind of resource. For example, the **Resources/images** folder is used to store the images you want to work with. The SplashKit library comes with an `skm` script that you can use in the terminal to help set up your project. Running `skm resources` in the root folder of your project will create these resource folders in the right location for you.
 
 ### Drawing images
 
 | <div style="width:100px">**Procedure**</div> | **Required Arguments** |**Description** |
 |-----------|------------------------|----------------|
 | [load_bitmap](https://splashkit.io/api/graphics/#load-bitmap) | the name of the bitmap and its filename | This loads the image (bitmap) into your program. You can use the name to access this bitmap in other procedure calls. The filename can be the full path to a file, or the filename of a file in the **Resources/images** folder.  |
-| [draw_bitmap](https://splashkit.io/api/graphics/#draw-bitmap-named) | the image name, and two numbers for the coordinate to draw to | This draws the image you loaded with the given name, at the coordinates you provided (x and y). The coordinates indicate the top left corner of the bitmap when it is drawn. |
+| [draw_bitmap](https://splashkit.io/api/graphics/#draw-bitmap-named) | the image name, and two numbers for the location to draw it to | This draws the image you loaded with the given name, at the coordinates you provided (x and y). The coordinates indicate the top left corner of the bitmap when it is drawn. |
 
 These procedures have the following signatures:
 
@@ -173,9 +173,10 @@ void draw_bitmap(string name, double x, double y);
 
 To draw an image:
 
-1. Copy the image into the **Resources/images** folder.
-2. Load the image in your code using `load_bitmap`.
-3. Draw the image using its name in `draw_bitmap`.
+1. If you haven't already, run the terminal command `skm resources` in the root folder of your project.
+2. Copy the image into the **Resources/images** folder.
+3. Load the image in your code using `load_bitmap`.
+4. Draw the image using its name in `draw_bitmap`.
 
 The following code shows how you might follow these steps in a simple program.
 
@@ -184,7 +185,7 @@ The following code shows how you might follow these steps in a simple program.
 
 int main()
 {
-    // Copy "background.png" to Resources/images
+    // This code assumes there is a file "background.png" in Resources/images
 
     open_window("Drawing Test", 800, 600);
 
@@ -199,13 +200,13 @@ int main()
 
 ### Drawing text
 
-You might want to be able to draw text to the screen to display messages to the user. For static text, you are best to embed this within an image, as drawing an image is easier and faster than drawing text. For dynamic text (i.e., any text that changes as the program runs) you will need to use a text drawing procedure. In SplashKit you can draw simple text with fixed characters, or load a font and use that to draw the text.
+You might want to be able to draw text to the screen to display messages to the user. For static text, you are best to embed this within an image, as drawing an image is easier and faster than drawing text. For dynamic text (i.e., any text that changes as the program runs) you will need to use a text drawing procedure. In SplashKit you can draw simple text with fixed characters, or load a font and use that instead.
 
 | <div style="width:100px">**Procedure**</div> | **Required Arguments** |**Description** |
 |-----------|------------------------|----------------|
 | [load_font](https://splashkit.io/api/graphics/#load-font) | the name of the font and its filename | This loads the font into your program. You can use the name to access this font in other procedure calls. The filename can be the full path to a file, or the filename of a file in the **Resources/fonts** folder. |
 | [draw_text](https://splashkit.io/api/graphics/#draw-text-no-font-no-size) | some text, a color, x, and y | This draws the provided text in the indicated color at the given coordinates (x and y). The coordinates indicate the top left of the text. This will draw using the built-in font. |
-| [draw_text](https://splashkit.io/api/graphics/#draw-text-font-as-string) | some text, a color, a loaded font's name, font size (int), x, and y | This draws the provided text in the indicated color, with the named font, at the indicated size. The coordinates (x and y) will be the top left of the text. |
+| [draw_text](https://splashkit.io/api/graphics/#draw-text-font-as-string) | some text, a color, a loaded font's name, a font size (int), x, and y | This draws the provided text in the indicated color, with the named font, at the indicated size. The coordinates (x and y) will be the top left of the text. |
 
 These procedures have the following signatures:
 
@@ -233,7 +234,7 @@ int main()
     clear_screen(COLOR_WHITE);
 
     draw_text("Hello World", COLOR_BLACK, 10, 20);
-    draw_text("Hello World", COLOR_BLACK, "main", 20 /*font size*/, 20, 30);
+    draw_text("Hello World", COLOR_BLACK, "main", 20, 20, 30);
 
     refresh_screen();
     delay(5000);
@@ -246,6 +247,6 @@ int main()
 
 * SplashKit is a library which helps you make interactive multimedia programs.
 * SplashKit uses **double buffering**, so you have to call `refresh_screen` to make anything you draw in code appear to the user.
-* The easiest way to use resources like images and sounds in your SplashKit program is to run `skm resources` in the terminal in the root folder of your project, and place the resource in the relevant folder.
+* The easiest way to use resources like images and sounds in your SplashKit program is to run `skm resources` in the terminal in the root folder of your project, and place the resource you want to use in the relevant folder.
 
 :::

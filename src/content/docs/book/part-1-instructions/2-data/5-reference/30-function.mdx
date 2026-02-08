@@ -25,7 +25,7 @@ Another way to think of this is like a machine where you give it some input mate
 
 ## Examples
 
-For the moment, let's have a look at some example functions from the SplashKit library.
+Let's have a look at some example functions from the SplashKit library.
 
 | <div style="width:105px">**Function**</div> | **Required Arguments** | **Description** |
 | ------------ | ------------------------ | ----------------- |
@@ -35,6 +35,17 @@ For the moment, let's have a look at some example functions from the SplashKit l
 | `hsb_color` | three double values: hue, saturation, and brightness | Calculates a color from a given hue, saturation, and brightness. |
 
 As with procedures, the function's name should identify its purpose. This helps ensure that your code is readable. We will have a look at some function usage examples on the next page.
+
+### Type Conversion Functions
+
+You will occasionally need to convert data between different data types. A common example of this is how we will handle user input. When the user enters data at the terminal it will come into the program as text. So if the user enters 3 and then 2, it will come into the program as "32" -- a string. This makes sense as the user can type any characters at the terminal. But what if you want that as an integer?
+
+To help achieve this programming languages provide utility functions that will allow you to convert between different types. For now, we can use 
+
+- [`to_integer`](https://splashkit.io/api/utilities/#to-integer) - this can convert a `string` to an `int`
+- [`to_double`](https://splashkit.io/api/utilities/#to-double) - this can convert a `string` to a `double`
+
+For example, `to_integer("73")` will give you the integer (`int`) 73 as its result. Similarly, `to_double("73")` would give you the double `73.0`. Note that these will cause the program to crash if the data is not in the right format, we will look later at how to deal with this. For the moment, make sure you enter the data in the expected format.
 
 :::note[Summary]
 
