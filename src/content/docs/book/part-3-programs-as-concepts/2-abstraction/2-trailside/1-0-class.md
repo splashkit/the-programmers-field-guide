@@ -18,7 +18,7 @@ The following image captures a visualisation of the **class** concept. The key a
 
 ## Classes: Why, When, and How
 
-The key thing to remember is that you are declaring a type, which means you can declare variables and values of this new type. In C#, the variables are always [references](/book/part-2-organised-code/6-indirect-access/5-reference/02-02-pointers-ref) to objects that are always on the [heap](/book/part-2-organised-code/7-deep-dive-memory/5-reference/01-heap). This means that you need to create the values (objects) on the heap using the [new](/book/part-3-programs-as-concepts/2-abstraction/2-trailside/2-2-new) keyword.
+The key thing to remember is that you are declaring a type, which means you can declare variables and values of this new type. In C#, the variables are always [references](/book/part-2-organised-code/6-indirect-access/5-reference/01-02-pointers-ref) to objects that are always on the [heap](/book/part-2-organised-code/6-indirect-access/5-reference/02-00-heap). This means that you need to create the values (objects) on the heap using the [new](/book/part-3-programs-as-concepts/2-abstraction/2-trailside/2-2-new) keyword.
 
 In an object-oriented program, we need a way to define what the objects in the solution know and can do. This is where the class comes in.
 

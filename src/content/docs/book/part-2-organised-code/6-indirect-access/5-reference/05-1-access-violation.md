@@ -4,7 +4,7 @@ sidebar:
     label: " - Access Violations"
 ---
 
-We first discussed [segmentation faults](/book/part-2-organised-code/6-indirect-access/5-reference/02-04-segfault) in the chapter on indirect access, but we always need to keep this in mind when we are working with pointers. You are likely to encounter more of these kinds of issues once you start dealing with memory management, as there will be more opportunities for these issues to occur.
+We first discussed [segmentation faults](/book/part-2-organised-code/6-indirect-access/5-reference/01-04-segfault) in the chapter on indirect access, but we always need to keep this in mind when we are working with pointers. You are likely to encounter more of these kinds of issues once you start dealing with memory management, as there will be more opportunities for these issues to occur.
 
 Access violations occur when you try to access memory in a way that isn't permitted by memory protection in the operating system. This will cause your program to crash. [Figure x.y](#FigurePointerRuntimeError) shows a common example where this occurs. Trying to follow a pointer to *nothing* (address 0, which uses the symbol `NULL` in C/C++) will crash the program with an access violation. This applies whether you are reading or writing to the value at that address. The common name for this kind of error is a **segmentation fault**, *segfault* for short.
 

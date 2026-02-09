@@ -30,7 +30,9 @@ You need to be able to perform certain actions to make pointers useful. These in
 
 ## What is the pointer value?
 
-Memory is laid out as a sequence of bytes, into which values can be stored. The bytes can be thought of as being in a long line, with each being given numbered based on its position in that line. So the first byte would be byte 0, the next is byte 1, the next byte 2, and so on. This number is then the **address** of that byte. So byte 975708474 is next to byte 975708475, which is next to byte 975708476, etc. This number is also unique, so there is only one byte 975708474. It is this number that is used in a pointer's value, the number of the byte that it is pointing to.
+You can think of the computer's memory as one **enormous** array of bytes. Each element in this array is a single byte, and its position in the array is called its _address_.
+
+A pointer doesn’t store a value directly - rather, it stores the "index" of a byte in this giant array. In other words, a pointer's value is the address of the first byte of the object it points to.
 
 [Figure x.y](#FigurePointerValue) shows an example of memory used by an array of three values. Each value is a double, so each one occupies 8 bytes. If the first is at address 975708474, then the second starts at address 975708482 (975708474 + 8 bytes). This figure also shows a pointer, `p`, that points to this value. That means that `p` has the value 975708474, the address of this value, stored within it.
 

@@ -309,7 +309,7 @@ We'll make our class's fields _private_, and our class's methods _public_. You c
    :::
 
 4. ### Finally, add the `get` method
-   Now let's add the ability to access our data! We'll add a `get` method, that takes one argument - the `index` of the element to access. We _could_ just return the element as a `double` directly, but instead we'll return a [reference](/book/part-2-organised-code/6-indirect-access/5-reference/02-02-pointers-ref/) to the `double`. This...
+   Now let's add the ability to access our data! We'll add a `get` method, that takes one argument - the `index` of the element to access. We _could_ just return the element as a `double` directly, but instead we'll return a [reference](/book/part-2-organised-code/6-indirect-access/5-reference/01-02-pointers-ref/) to the `double`. This...
    <div class="alpha-list">
    1. Avoids copying the element to return it (doesn't matter for a `double`, but will when we store larger types)
    2. Allows the user to _modify_ the value of the element returned!

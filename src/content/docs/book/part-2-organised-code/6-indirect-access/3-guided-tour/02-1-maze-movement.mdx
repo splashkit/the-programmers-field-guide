@@ -1,0 +1,243 @@
+---
+title: Maze Game with Dynamic Paths
+sidebar:
+  label: " - Dynamic Paths"
+banner:
+  content: This is an optional tour - use it to extend your understanding.
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+At this point, we have a set of rooms that are connected by different paths. This is a great way of working with pointers, as the player points to the room they are in, and the paths point to their destinations.
+
+The main limitation currently is that our `main` is filled with logic for handling how each room connects. Let's move our paths to inside `room_data`, and store them inside our [`bounded_array`](/book/part-2-organised-code/5-operators-generics/3-guided-tour/2-generic-array/) - this way, each room can have its own set of paths that lead to other locations in the maze.
+
+## Adding Paths
+
+Adding multiple paths to a room is as simple as adding a `paths` field to the `room_struct`. Luckily, our `bounded_array` already has a default constructor, so we won't need to modify the `room_data`'s constructor at all - the `paths` array will be initialized automatically by its constructor.
+
+We will, however, need to add a [default constructor](/book/part-2-organised-code/4-member-functions/5-reference/1-1-constructor/#example) to `path_data`. Currently, `path_data` requires a description and destination to be constructed, but our `bounded_array` default constructs all of its elements automatically. We can just add a default constructor (a constructor with no parameters) to `path_data`, that does nothing:
+```c++
+path_data(){ }
+```
+
+Once we get that compiling, we can starting shifting things around. In `main` we had created a number of rooms and paths. You can now move the paths into a room. In my case, I am going to put my existing paths into room 1. Then I can add some more paths to the other rooms.
+
+The code to add a path to a room would look like this:
+
+```cpp
+path_data p1 = path_data("A large sliding door", &r2);
+// becomes
+r1.paths.add(path_data("A large sliding door", &r2));
+```
+
+At this stage we have rooms that now contain a variable number of paths that lead to other rooms in the maze.
+
+## Printing the room
+
+With paths in a room we now need to change the code for printing a room so that it prints all the paths in the room as well.
+
+We already have the code to print a path. So you can code this with a for loop where you access each path from `paths`, and pass it to the `print_path` procedure we previously created.
+
+:::tip
+Remember you can use `paths.count()` to get the number of paths to be printed.
+:::
+
+I suggest you add a message above this list of paths saying something like "There are paths leading:". This will let the user know what the list refers to.
+
+Now you can remove the printing of paths from main, as this is all done in `print_room` now.
+
+## Exploring the maze
+
+The player will be in the `current_room`. Now that the room has paths, we can ask the user which path they want to take. As they move around they will see the different paths in the different rooms.
+
+To code this, let's create an `explore` procedure. This can take a parameter for the `room_ptr` where the player is located. As we want to update this, we need to pass this pointer by reference in the same way we have with `move_player`. This will mean we can update the passed in room pointer.
+
+:::tip[Pointer by reference?]
+
+Yes, you can pass a reference to a pointer. As you recall, a reference is just a pointer itself. So this is now, in a way, a pointer to a pointer.
+
+If you want to work with the pointers yourself, you can create a pointer to a pointer using `room_data **`.
+
+:::
+
+Within `explore`, we can print the room, then read in the path the user wants to take. The index they provide us can then be used to access the path that the player should move through.
+
+If the room pointer is in a `current_room` variable, and we read the path the user chooses into an `option` variable, then we can achieve this move using:
+
+```cpp
+move_player(current_room, current_room->paths[option]);
+```
+
+Notice here we get the paths from the `current_room`. This will mean the user only has access to the room they are currently in. When they move to a new room, they will only have access to the paths in that room.
+
+## The main logic
+
+In main, make sure you have a few rooms to play with. Set the current room, and then let the user keep exploring while there are exists in the current room. When they do reach the end, you can print a farewell message and show the details of the final room.
+
+I achieved this with the following code.
+
+```cpp
+  while(current_room->paths.count() > 0)
+  {
+    explore(current_room);
+  }
+
+  printf("You have reached the end of the maze!\n");
+  current_room->print_room();
+```
+
+Compile and run the program, and you should be able to explore your maze. Make sure you have a room with no paths, that is reachable via paths from other rooms. Explore your maze and make sure it works as expected.
+
+<Accordion>
+  <AccordionItem
+    header="New Maze Game Code"
+  >
+
+The maze game is a great way to start exploring the world of graphs. We've now added the ability for each room to have a number of paths that lead to other rooms. This enabled us to allow the user to explore the maze, until they found the room with no exists.
+
+```cpp
+#include <string>
+#include "bounded_array.hpp"
+#include "utilities.hpp"
+
+using std::string;
+
+struct room_data;
+typedef room_data* room_ptr;
+
+struct path_data
+{
+  string    description;
+  room_ptr  destination;
+
+  /**
+   * This constructor default initialises the path with empty fields
+   */
+  path_data()
+  {
+  }
+
+  /**
+   * This constructor populates the path_data's respective fields.
+   *
+   * @param description_ the description of the path
+   * @param destination_ the destination of the path - a pointer to the room it goes to
+   */
+  path_data(string description_, room_ptr destination_)
+  {
+    description = description_;
+    destination = destination_;
+  }
+
+  /**
+   * Outputs the path's description to the terminal. Showing the index of the path
+   * and the description, but no details of where it goes.
+   *
+   * @param idx   the index of the path - used to select it from the list
+   */
+  void print_path(int idx)
+  {
+    write_line(to_string(idx) + " - " + description);
+  }
+};
+
+struct room_data
+{
+  string title;
+  string description;
+  bounded_array<path_data, 50> paths;
+
+  /**
+   * This constructor populates the room_data's respective fields.
+   *
+   * @param title_         The title of the room
+   * @param description_   The description of the room
+   */
+  room_data(string title_, string description_)
+  {
+    title = title_;
+    description = description_;
+  }
+
+  /**
+   * Output the room's title and description to the terminal.
+   *
+   * @param room a pointer to the room to print
+   */
+  void print_room()
+  {
+    write_line(title + "\n-----\n" + description);
+
+    if ( paths.count() > 0 )
+    {
+      write_line("There are paths leading:");
+      for (int i = 0; i < paths.count(); i++)
+      {
+        paths[i].print_path(i);
+      }
+    }
+  }
+};
+
+/**
+ * Move the player through the selected path, setting the player's current room
+ * to the destination of the path.
+ *
+ * @param current_room a reference to the player's current room (a pointer to the room_data)
+ * @param path a constant reference to the path to move through
+ */
+void move_player(room_ptr &current_room, const path_data &path)
+{
+  current_room = path.destination;
+}
+
+void explore(room_ptr &room)
+{
+  int option = 0;
+
+  room->print_room();
+
+  option = read_integer("Which path do you want to take? ");
+
+  while(option < 0 || option > room->paths.count() - 1)
+  {
+    write_line("Choose a value between 0 and " + to_string(room->paths.count() - 1));
+    option = read_integer("Option: ");
+  }
+
+  move_player(room, room->paths[option]);
+}
+
+int main()
+{
+  room_data r1 = room_data("Room 1", "You are in a happy place");
+  room_data r2 = room_data("Room 2", "This is room 2");
+  room_data r3 = room_data("Room 3", "This is room 3");
+
+  r1.paths.add(path_data("A large sliding door", &r2));
+  r1.paths.add(path_data("An open corridor", &r3));
+  r1.paths.add(path_data("A small door", &r1));
+
+  r2.paths.add(path_data("A large sliding door", &r1));
+  r2.paths.add(path_data("A small door", &r1));
+
+  room_ptr current_room = &r1;
+
+  while(current_room->paths.count() > 0)
+  {
+    explore(current_room);
+  }
+
+  write_line("You have reached the end of the maze!");
+  current_room->print_room();
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+## Graphs
+
+Have you noticed how the structure of the maze is similar to a [linked list](/book/part-2-organised-code/6-indirect-access/3-guided-tour/01-0-linked-list/)?
+
+You can think of the maze as a graph, and the player is able to traverse that graph exploring the data along the way. While we used a game style theme here, the skills you develop by thinking and working through this will help you in other contexts that use graphs. For example, exploring connections in a social media graph, finding files in a file system, and many other applications.

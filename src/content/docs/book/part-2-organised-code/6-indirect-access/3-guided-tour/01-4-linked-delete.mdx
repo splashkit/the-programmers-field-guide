@@ -1,0 +1,350 @@
+---
+title: Deleting Nodes from a Linked List
+sidebar:
+    label: " - Deleting All Nodes"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Code } from '@astrojs/starlight/components';
+import Aside from '/src/components/Aside.astro'
+import Carousel from '/src/components/Carousel.astro'
+export const test_linked_list = `void test_linked_list()
+{
+    linked_list<int> list;
+    list.add_node(4);
+    list.add_node(8);
+}
+
+int main()
+{
+    test_linked_list();
+
+    return 0;
+}`
+
+Now that we can create a list, and also know how to iterate over the nodes, it would be good to add the ability to delete the list.
+
+Let's think through what happens currently when we add data:
+
+<style>{`
+/* Temporary until a proper HTML Field Guide drawing component is finished */
+memory-vis {
+    background-color: white;
+    display: flex;
+    color: black;
+    font-family: "Gaegu";
+}
+stack {
+    display: flex;
+    border-right: 2px dashed black;
+    flex-direction: column;
+    padding: 0.2em 1em;
+    width: 10em;
+    justify-content: flex-end;
+}
+stack::before {
+    content: "Stack";
+    flex-grow: 1;
+}
+stack-var {
+    border: 2px solid black;
+    font-size: 0.9em;
+    margin-top: 1em;
+    border-inline-start: inherit;
+    border-radius: 8px;
+    border: 2px solid black;
+    background: transparent;
+    border-top-left-radius: 7px 45px;
+    border-top-right-radius: 15px 225px;
+    border-bottom-right-radius: 225px 15px;
+    border-bottom-left-radius: 7px 255px;
+}
+stack-var::before {
+    content: attr(type) " " attr(name);
+    display: block;
+    border-bottom: 1px solid black;
+}
+heap-var {
+    border: 2px solid black;
+    font-size: 0.9em;
+    min-height: 0;
+    border-inline-start: inherit;
+    border-radius: 8px;
+    border: 2px solid black;
+    background: transparent;
+    border-top-left-radius: 7px 45px;
+    border-top-right-radius: 15px 225px;
+    border-bottom-right-radius: 225px 15px;
+    border-bottom-left-radius: 7px 255px;
+}
+heap-var::before {
+    content: attr(type) " " attr(name);
+    display: block;
+    border-bottom: 1px solid black;
+}
+field {
+    font-size: 0.9em;
+    display: block;
+}
+field::before {
+    content: attr(name) ":";
+    border-bottom: 1px solid black;
+    margin-right: 1em;
+}
+heap {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    padding-top: 1.5em;
+    padding-bottom: 0.2em;
+}
+heap::before {
+    content: "Heap";
+    position: absolute;
+    top: 0em;
+    left: 1em;
+}
+memory-vis hr {
+    margin-top: 1em;
+}
+`}</style>
+<Aside type="thinking" title="...">
+<Carousel panelAlignment="top" animation="fade">
+  <div>
+    <Code code={test_linked_list} lang="c++" mark={8}/>
+    <memory-vis class="not-content">
+      <stack>
+        <stack-var name="Base" type=""/>
+      </stack>
+      <heap></heap>
+    </memory-vis>
+    Starting out in main...
+  </div>
+  <div>
+    <Code code={test_linked_list} lang="c++" mark={10}/>
+    <memory-vis class="not-content">
+      <stack>
+        <stack-var name="Base" type=""/>
+      </stack>
+      <heap>
+      </heap>
+    </memory-vis>
+    We enter `test_linked_list`...
+  </div>
+  <div>
+    <Code code={test_linked_list} lang="c++" mark={3}/>
+    <memory-vis class="not-content">
+      <stack>
+        <stack-var name="list" type="linked_list<int>">
+          <field name="first" type="node<int>*">nullptr</field>
+          <field name="last" type="node<int>*">nullptr</field>
+        </stack-var>
+        <hr/>
+        <stack-var name="Base" type=""/>
+      </stack>
+      <heap>
+      </heap>
+    </memory-vis>
+    We now have a `linked_list<int>` on the stack.
+  </div>
+  <div>
+    <Code code={test_linked_list} lang="c++" mark={4}/>
+    <memory-vis class="not-content">
+      <stack>
+        <stack-var name="list" type="linked_list<int>">
+          <field name="first" type="node<int>*">(&node1)</field>
+          <field name="last" type="node<int>*">nullptr</field>
+        </stack-var>
+        <hr/>
+        <stack-var name="Base" type=""/>
+      </stack>
+      <heap>
+          <heap-var name="node1" type="node<int>">
+            <field name="next" type="node<int>*">(&node2)</field>
+            <field name="data" type="int">4</field>
+          </heap-var>
+      </heap>
+    </memory-vis>
+    We add a node, which is allocated on the heap.
+  </div>
+  <div>
+    <Code code={test_linked_list} lang="c++" mark={5}/>
+    <memory-vis class="not-content">
+      <stack>
+        <stack-var name="list" type="linked_list<int>">
+          <field name="first" type="node<int>*">(&node1)</field>
+          <field name="last" type="node<int>*">(&node2)</field>
+        </stack-var>
+        <hr/>
+        <stack-var name="Base" type=""/>
+      </stack>
+      <heap>
+          <heap-var name="node1" type="node<int>">
+            <field name="next" type="node<int>*">(&node2)</field>
+            <field name="data" type="int">4</field>
+          </heap-var>
+          <heap-var name="node2" type="node<int>">
+            <field name="next" type="node<int>*">nullptr</field>
+            <field name="data" type="int">8</field>
+          </heap-var>
+      </heap>
+    </memory-vis>
+    We add another node, also allocated on the heap.
+  </div>
+  <div>
+    <Code code={test_linked_list} lang="c++" mark={6}/>
+    <memory-vis class="not-content">
+      <stack>
+        <hr/>
+        <stack-var name="Base" type=""/>
+      </stack>
+      <heap>
+          <heap-var name="node1" type="node<int>">
+            <field name="next" type="node<int>*">(&node2)</field>
+            <field name="data" type="int">4</field>
+          </heap-var>
+          <heap-var name="node2" type="node<int>">
+            <field name="next" type="node<int>*">nullptr</field>
+            <field name="data" type="int">8</field>
+          </heap-var>
+      </heap>
+    </memory-vis>
+    The procedure ends, and the `linked_list` is removed from the stack automatically.
+  </div>
+  <div>
+    <Code code={test_linked_list} lang="c++" mark={12}/>
+    <memory-vis class="not-content">
+      <stack>
+        <stack-var name="Base" type=""/>
+      </stack>
+      <heap>
+          <heap-var name="node1" type="node<int>">
+            <field name="next" type="node<int>*">(&node2)</field>
+            <field name="data" type="int">4</field>
+          </heap-var>
+          <heap-var name="node2" type="node<int>">
+            <field name="next" type="node<int>*">nullptr</field>
+            <field name="data" type="int">8</field>
+          </heap-var>
+      </heap>
+    </memory-vis>
+    But our nodes are still allocated on the heap!
+  </div>
+</Carousel>
+</Aside>
+
+## Clear all nodes
+
+First off, let's add a manual `clear()` method to our `linked_list` - this will be a good starting point to fixing this. Inside the `clear` method, we can just [iterate](/book/part-2-organised-code/6-indirect-access/3-guided-tour/01-3-linked-iterate/) through all of the nodes, and `delete` each of them. Be careful - if we `delete` the node, we can't safety access its `next` pointer anymore! So make sure to store a copy of the pointer before deleting the node.
+
+Have a go at implementing this now :)
+
+<Accordion>
+  <AccordionItem header="My code for if you get stuck">
+
+```cpp
+template <typename T>
+class linked_list
+{
+    ...
+
+    /**
+    * Clear a linked list by deleting all nodes.
+    */
+    void clear()
+    {
+        node<T> *current = first;
+        while (current != nullptr)
+        {
+            // take a copy of the next node's pointer _before_ deleting current
+            node<T> *next = current->next;
+
+            delete current;
+
+            current = next;
+        }
+        // Reset the first and last
+        first = nullptr;
+        last = nullptr;
+    }
+}
+```
+
+  </AccordionItem>
+</Accordion>
+
+:::tip
+If you're interested in testing this visually, we could add some debug constructors and destructors to `node` that print messages when they are created/deleted. As long our `Deleted` as `Created` messages can be paired up, then we're (probably) freeing our memory properly.
+
+```c++
+class node
+{
+    ...
+
+    node()
+    {
+        write_line("Node Created");
+    }
+    ~node()
+    {
+        write_line("Node Deleted");
+    }
+}
+:::
+
+## Automatic Destructor
+
+Now, we can improve this further by adding a [_destructor_](/book/part-2-organised-code/4-member-functions/5-reference/1-1-constructor/#destructors) to our class. This will be automatically called when our `linked_list` is removed from the stack - inside it, we can call `clear()`, to delete all the nodes before the `linked_list` itself is deleted.
+
+:::tip[Destructor syntax]
+Declaring a destructor looks just like declaring a constructor, just with a `~` in front.
+```c++
+struct linked_list
+{
+    ...
+    // constructor
+    linked_list() { ... }
+
+    // destructor
+    ~linked_list() { ... }
+}
+```
+:::
+
+Have a go at implementing this now - should only be a couple of lines.
+
+<Accordion>
+  <AccordionItem header="My code for if you get stuck">
+
+  If you're unsure about this part, it might be a good idea to have another look at the page on [constructors/destructors](/book/part-2-organised-code/4-member-functions/5-reference/1-1-constructor/#destructors). Make sure you understand the order in which the constructors and destructors are called. In our example code for instance, it looks something like this:
+  ```
+  Main is entered:
+      Linked List is constructed on the stack
+      Node 1 is constructed on the heap
+      Node 2 is constructed on the heap
+      Node 3 is constructed on the heap
+      ...
+  Main returns 0, and _just_ before the procedure ends:
+      Linked List destructor is called, which calls `clear()`
+          Node 1 is destructed and the memory on the heap is freed
+          Node 2 is destructed and the memory on the heap is freed
+          Node 3 is destructed and the memory on the heap is freed
+  ```
+```cpp
+template <typename T>
+class linked_list
+{
+    ...
+
+    ~linked_list()
+    {
+        clear();
+    }
+}
+```
+
+  </AccordionItem>
+</Accordion>

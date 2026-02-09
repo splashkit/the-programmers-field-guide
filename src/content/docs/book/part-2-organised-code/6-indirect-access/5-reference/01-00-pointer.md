@@ -2,9 +2,13 @@
 title: "Pointers"
 ---
 
-References are language features that build upon the lower level concept of pointers. A pointer is a new kind of data type, just like a struct, enum, integer, double, or boolean. A pointer value is an address, a location in memory where a value can be found. Understanding pointers will help you see how features like references work.
+Since the start of this chapter, we've been using _references_, to pass around "the variables themselves" so that we can modify them inside other functions. References however, are actually a language feature that builds upon the lower level concept of _pointers_.
+
+A pointer is a new kind of data type, just like a struct, enum, integer, double, or boolean. A pointer value is an address, a location in memory where a value can be found. Understanding pointers will help you see how features like references work.
 
 :::tip[Pointers?]
+
+References allows us to "refer" to another variable. Pointers are similar, but instead allow us to store the address of _any_ place in memory (including the address of a variable), and later access/modify it.
 
 Pointers give you low level access to things happening within the computer. You can change where it reads from, or where it writes values. Issues with these can result in the program crashing or unexpected behaviours.
 
@@ -14,7 +18,7 @@ Things like references, reduce what you can do, but make this safer and easier t
 
 The name *pointer* is a metaphor, describing the way to picture pointer values. You can think of each pointer value as an arrow pointing to data elsewhere, with each value saying "the data I refer to is over there...".
 
-If you think about this, notice that each pointer has two values: the pointer's address value, and the value at that address. Within the pointer there is an address, the place in memory that the pointer if referring to. You can then read this value, and go to that address to find the value that the pointer refers to. This means that the language needs means of interacting with these two values.
+If you think about this, notice that each pointer has two values: the value of the pointer (the address it's pointing to), and the value _at that address_. Within the pointer there is an address, the place in memory that the pointer if referring to. You can then read this value, and go to that address to find the value that the pointer refers to. This means that the language needs means of interacting with these two values.
 
 <a id="FigurePointerDefinition"></a>
 

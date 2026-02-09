@@ -155,7 +155,7 @@ export const sliderDanglingPointer = [
 What is wrong with this code?
 
 ```cpp
-#include<cstdio>
+#include "splashkit.h"
 
 int *get_pointer()
 {
@@ -168,7 +168,7 @@ int main()
 {
   int *p = get_pointer();
 
-  printf("%d\n", *p);
+  write_line(to_string(*p));
 }
 ```
 
@@ -177,7 +177,7 @@ There is something bad here, but this will compile without warnings and will run
 Here is a hint. The following version prints 20, not 10!
 
 ```cpp
-#include<cstdio>
+#include "splashkit.h"
 
 int *get_pointer()
 {
@@ -198,7 +198,7 @@ int main()
 
   int other = get_value();
 
-  printf("%d\n", *p);
+  write_line(to_string(*p));
 }
 ```
 

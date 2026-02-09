@@ -1,0 +1,74 @@
+---
+title: Deleting a specific node from a Linked List
+sidebar:
+    label: " - Deleting a Specific Node"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+Now let's add a method to delete a single node from the list - with this our linked list starts to become fully usable.
+
+The process of removing it involves re-routing the link from the previous node to the node that follows the node to be removed. This is shown in the following image.
+
+![Illustration of the steps to remove a node](./images/list-delete.png)
+
+We can easily find the next node via `next`, and the previous node using `list.find_previous_node` - we just need to connect those together and delete the middle node.
+
+However, there are some different cases that need special attention, primarily removing the first node, removing the last node, and removing the only node.
+
+Have a go at writing this out now, and test it out by deleting a few nodes.
+
+:::tip
+Add some code in `main` to iterate over the nodes in the linked list, and print out all the values. This will make testing a lot easier!
+:::
+
+
+<Accordion>
+  <AccordionItem header="My code for if you get stuck">
+```cpp
+template <typename T>
+class linked_list
+{
+    ...
+
+    /**
+    * Remove the indicated node from the list.
+    *
+    * @param del_node The node to remove from the list.
+    */
+    void remove(node<T> *del_node)
+    {
+        node<T> *previous_node = nullptr;
+
+        // Check if we are removing the first node.
+        if (first == del_node)
+        {
+            // Set first to the 2nd node, if it exists
+            first = del_node->next;
+            // If it is the first node, then
+            // previous_node is already the correct value.
+            // I'll assign it anyway for clariy.
+            previous_node = nullptr;
+        }
+        else
+        {
+            // Find the previous node
+            previous_node = find_previous_node(del_node);
+
+            // Make its connection skip over `del_node`
+            previous_node->next = del_node->next;
+        }
+
+        // Similarly, check for removing the last node
+        if (last == del_node)
+        {
+            last = previous_node;
+        }
+
+        // Delete the node in memory
+        delete del_node;
+    }
+}
+```
+
+  </AccordionItem>
+</Accordion>

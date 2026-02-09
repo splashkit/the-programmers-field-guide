@@ -98,11 +98,11 @@ I remember playing the [adventure](https://quuxplusone.github.io/Advent/play.htm
 
 ## Understanding the program
 
-To get started, we can build a part of the code to explore how this can work. We need some tools from the next chapter to wrap this up, but for now we can explore how paths could be created to move to a destination.
+To get started, we can build part of the program, while exploring how paths could be created to move to a destination.
 
-We are going to create a virtual world that the user can explore through text. The world will have **rooms** and **paths** between these rooms.
+We are going to create a virtual world that the user can explore through text. The world will have **rooms**, and **paths** between these rooms.
 
-Each room will have a *title* and a *description*, and in the next chapter we will add a number of paths to other locations.
+Each room will have a *title* and a *description*, and in the next page we will add a number of paths to other locations.
 
 Each path will have a *description* and a *destination*. This will make it simpler to code, as paths go only one way and therefore have only one destination. This would require two paths if you want to join two rooms so that the user can travel in either direction, but alternatives involve more complexity with little savings or other benefits.
 
@@ -120,10 +120,16 @@ The room will have fields for title and description, while the path will have a 
 
 Going forward we will want to have paths within our rooms, so we can start by coding the path struct ahead of the room struct. There is a challenge here, we need to code the room pointer within the path, but the room will be declared after the path. To achieve this we can use a **forward declaration**.
 
-To do this, we use a `typedef` and set up an alias for a pointer to a `struct room_data`. We can name this type `room_ptr`. The code for this is shown below.
+To do this, we can [forward declare](/book/part-2-organised-code/1-structuring-code/5-reference/07-forward-declarations/) the `room_data` struct. We can also create a [`typedef`](/book/part-2-organised-code/2-structuring-data/5-reference/03-00-type-declaration/#example) and set up an alias for a pointer to a `room_data`. We can name this type `room_ptr`. The code for this is shown below.
 
 ```cpp
-typedef struct room_data *room_ptr;
+// Forward declare room_data - the compiler
+// knows this struct exists now, it
+// just doesn't know what it consists of yet
+struct room_data;
+
+// Also set up a type alias
+typedef room_data* room_ptr;
 ```
 
 Then in the path, we can use this `room_ptr` type when we declare the destination field.
@@ -148,60 +154,53 @@ struct room_data
 
 These are all the types we need, so now we can focus on the functions and procedures that work with these.
 
-### Functions and Procedures
+### Methods, Functions and Procedures
 
-There isn't much logic in this small prototype, as the main objectives are to create rooms and paths. The logic for moving can be coded into main until such time as we can expand the structs with some additional details.
+For now, our main objectives are to create rooms and paths. We'll add proper logic for moving in the next page when the expand the structs further.
 
 For this we will need to create:
 
-- `read_integer` function - using either the SplashKit `read_line` code or `scanf`.
-- `new_path` function - to populate a path between rooms.
-- `new_room` function - to populate a room with a title and description.
-- `print_path` procedure - to output details of a path as part of a list the user can choose from
-- `print_room` procedure - to output details of a room to the user.
+- A constructor for `room_data` - to populate a room with a title and description.
+- A constructor for `path_data` - to populate a path between rooms.
+
+- `print_path` method - to output details of a path as part of a list the user can choose from
+- `print_room` method - to output details of a room to the user.
+
 - `move_player` procedure - to move a player to the destination of a path.
 - The `main` function - to create the rooms, and paths, position the player in the first room, print the details of the room they are in, print the details of the paths, get which path the user wants to take, move the player through the path
 
-#### Read Integer
+#### `path_data` Constructor
 
-Check out the code in the [printing and scanning](/book/part-2-organised-code/6-indirect-access/5-reference/03-printing-scanning) section, or copy in your code that uses `read_line` from SplashKit. This function will ensure that the user enters a number so that we can determine which path they want to take.
+This constructor will initialize the path's fields. While we could just use default brace initialisation, we will want to be able to expand the struct going forward and this will mean changes to the way things are initialised. Having a constructor that is responsible for this means we only have one place we need to update when we want to change how initialisation works.
 
-The pseudocode for this is the same as we covered previously. So there should be nothing new here.
-
-#### New Path
-
-This function will populate a path struct value and return it to the caller. While this can be achieved with a single line at the moment, we will want to be able to expand the struct going forward and this will mean changes to the way things are initialised. Having a function that is responsible for this means we only have one place we need to update when we want to change how initialisation works.
-
-Below is the header comment for the function. This captures the requirements for what this will need to do. In the code, you will need to declare a `path_data` variable, set its title and descriptions, and return it.
+Below is the header comment for the constructor. This captures the requirements for what this will need to do. In the code, you will need to set the `path_data`'s title and descriptions.
 
 ```cpp
 /**
- * New path populates the data in a path struct and returns it.
+ * This constructor populates the path_data's respective fields.
  * 
- * @param description the description of the path
- * @param destination the destination of the path - a pointer to the room it goes to
- * @return path_data with the indicated details
+ * @param description_ the description of the path
+ * @param destination_ the destination of the path - a pointer to the room it goes to
  */
 ```
 
-#### New Room
+#### `room_data` Constructor
 
-Like the new path function, this function will populate a room struct with the required data. Below if the header comment for the function.
+Like the path constructor, this constructor will populate a room struct with the required data. Below is the header comment for the constructor.
 
 ```cpp
 /**
- * New room populates the data in a room struct and returns it.
+ * This constructor populates the room_data's respective fields.
  *
- * @param title         The title of the room
- * @param description   The description of the room
- * @return room_data with the indicated details
+ * @param title_         The title of the room
+ * @param description_   The description of the room
  */
 //...
 ```
 
 #### Print Path
 
-Print path will output a paths details to the terminal. This will always be printed in a list, so we can accept a parameter for the index of the path to include. This can then be used by the user to determine which path they want to take.
+Print path will be a `path_data` method that outputs a path's details to the terminal. This will always be printed in a list, so we can accept a parameter for the index of the path to include. This can then be used by the user to determine which path they want to take.
 
 ```cpp
 /**
@@ -209,33 +208,20 @@ Print path will output a paths details to the terminal. This will always be prin
  * and the description, but no details of where it goes.
  * 
  * @param idx   the index of the path - used to select it from the list
- * @param path  the path to print (const reference)
  */
 //...
 ```
 
 #### Print Room
 
-This will also be a simple procedure at this stage. We can print the title, and room description. Going forward we will need to expand this to also display the paths from the room.
+This will also be a simple `room_data` method at this stage. We can print the title, and room description. In the next page we will need to expand this to also display the paths from the room.
 
 ```cpp
 /**
  * Output the room's title and description to the terminal.
- * 
- * @param room a pointer to the room to print
  */
 //...
 ```
-
-:::tip
-
-If you are using `printf`, remember that `%s` is for c-strings. You will need to use `.c_str()` to get this from your C++ string object. You can access in the room's title like this for example:
-
-```cpp
-room->title.c_str()
-```
-
-:::
 
 #### Move Player
 
@@ -278,15 +264,6 @@ We will need this to do the following:
 I would suggest you set up 3 rooms and 2 paths. You can picture these paths being in room 1. One path can go to room 2 and the other to room 3. Test it out by taking the different paths.
 
 Try changing one of the paths to go to room 1. What happens to the current room when you take this path?
-
-:::caution[Printing the room]
-No cheating here... make sure you are always printing the current room. All the calls to print room should be passed the current room pointer. Changing where it points should then give you the different output messages.
-
-```cpp
-print_room(current_room);
-```
-
-:::
 
 When you get this to work spend some time thinking about how this is all coming together. You want to focus on understanding how the pointer in current room is working. When this clicks, you will start to see the potential that pointers (and reference in other languages) offer you.
 

@@ -1,319 +1,132 @@
 ---
-title: TODO-Array with Operator Overloads
-draft: true
+title: Generic Array with Operator Overloads
+sidebar:
+    label: " - Adding Operator Overloads"
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { Steps } from '@astrojs/starlight/components';
 
-## Adding Index Operators
+## Improving `get(...)`
 
-Operators are one new feature we can now add into this design. We can make our dynamic array really look and feel like an array by allowing others to use the standard array access operator `[]`.
+The functionality of our generic array is fairly solid now. However, we can improve the _ergonomics_ (ease of use) of our class - particularly, we can make our:
+```c++
+my_array.get(2) = 20;
+```
+look like:
+```c++
+my_array[2] = 20;
+```
+by using operator overloads. This will make our generic array really look and feel like an array!
 
-If you look at the design above, you will see we plan to add two versions of this operator. One that returns a reference and another that returns a const reference. This relates to the two ways in which the access operator may be used.
+### Before we do that...
 
-When the array access operator is used to *read* a value (i.e. when it is used in an expression like `int d = array[0];`) the compiler will use the version with a `const T&` result. If you want to update the value, such as in an assignment statement or using an increment operator (e.g. `array[0] = 5;` or `array[1]++;`), then the `T&` version is returned so that the code updates the value within the array (via the reference we return).
+Before we add our operator overloads, there's actually an issue with our `get` function we should handle first.
 
-Implementing only one of these operators will result in the other usage scenario not being supported. So in order to support both, we need to provide the two implementations.
-
-We already have a `get` method with the code that we will need to access an individual element. The problem with `get` at the moment is that it requires the index and a default to return if the index is invalid.
-
-If you look at the above design, the plan now is to move the default value into the struct itself. By doing this, `get` does not need to be told what value to return when the index is invalid, it can get it from the field in these cases. To make this change, add the `default_value` field and initialise it in the constructor to a value provided by the caller.
-
-Now you can go ahead and create the operators. Copilot should be able to help you with this, though for me, it didn't add any array bounds checks, so I had to do that myself. The code for one version is shown below, you will need to duplicate this for the other version as you cannot get these operators to call each other.
-
-```cpp
-/**
- * Provide array style access to the dynamic array.
- *
- * @param index the index of the element to get
- * @return const T& the element at the given index
- */
-const T &operator[](unsigned int index) const
+Try this out for yourself to see the issue - first, briefly read this `test_const_array` procedure:
+```c++
+void test_const_array(const bounded_array<double, 50> &my_array)
 {
-  // Check if the index is out of bounds
-  if (index >= size)
-  {
-    // The index is out of bounds, so return the default value
-    return default_value;
-  }
-
-  return data[index];
+    write_line(my_array.get(0));
 }
 ```
 
+It's a simple procedure - a `bounded_array<double, 50>` is passed as a `const` reference, and the first element is printed. Paste in the code above `main` and try compiling it!
+
+...
+
+Did you try it out? If so, you'll have seen that we get an error! It will look like this:
+```sh
+your_file.cpp:...:error: 'this' argument to member function 'get' has type 'const bounded_array<double, 50>', but function is not marked const
+    write_line(my_array.get(0));
+               ^~~~~~~~
+```
+
+What the compiler is telling us, is that that:
+- `my_array` is passed as a const (`has type 'const bounded_array...`)
+- but our `get` function doesn't promise that it won't change `my_array` (`but function is not marked const`).
+
+This is fair, since it's true that if use `get` like this:
+```c++
+my_array.get(0) = 20;
+```
+the `get` function is indirectly allowing us to modify the array.
+
+It is a bit frustrating that the compiler can't automatically figure out that `write_line(my_array.get(0))` isn't going to modify `my_array`, but luckily we can tell it. To solve this issue, we'll have _two_ `get` functions.
+ - The one we have currently will stay the same - it returns a reference that can be used to modify the array.
+ - The second one will be almost identical. However, it will return a `const` reference, and the function itself with be marked as const.
+
+Compare the two signatures to understand this:
+```c++
+    T& get(int index);
+    const T& get(int index) const;
+```
+
+It isn't ideal that we have to duplicate the function, but luckily `get` isn't too complicated. Have a go at this, and get that `test_const_array` procedure working.
+
+Now let's get our index operators working! We'll implement them using `get`, so this has laid the groundwork for us :)
+
+## Adding Index Operators
+Adding support for using the array access operator (e.g. `[0]`) basically just involves adding another method to our `bounded_array` class. The syntax can look a little strange at first, but take a look at the signatures of the methods we'll add:
+
+```c++
+T& operator[](int index);
+const T& operator[](int index) const;
+```
+
+The `operator` part is just saying "this method is overloading...an operator!", and the `[]` is the operator that is being overloaded. You'll notice we also have two of them again, for the same reason we have two `get` methods.
+
+The actual body of these methods will be very straightforward - we can just call `get(index)` and return the result!
+
+Have a go at implementing these two methods now - their body should only be a single line of code :)
+
+
 <Accordion>
   <AccordionItem
-    header="Dynamic array with [] operators"
+    header="Generic array with [] operators"
   >
 
 ```cpp {22,28,30,34,125,128-144,146-162}
-#ifndef DYNAMIC_ARRAY_HEADER
-#define DYNAMIC_ARRAY_HEADER
-
-#include <cstdlib>
-
-/**
- * @brief A dynamic array struct that contains the size, capacity,
- *        and data pointer used to implement this dynamic structure.
- *
- * @tparam T the type of data to store in the dynamic array
- * @field data a pointer to the data in the dynamic array on the heap
- * @field size the number of elements used in the dynamic array
- * @field capacity the number of elements the dynamic array can hold
- * @field default_value the default value to use when getting an element
- */
-template <typename T>
-struct dynamic_array
+template<typename T, int MAX_CAPACITY>
+class bounded_array
 {
-    T *data;
-    unsigned int size;
-    unsigned int capacity;
-    T default_value;
+    ...
 
-    /**
-     * @brief Create a new dynamic array with the indicated initial capacity.
-     *
-     * @param capacity its initial capacity
-     * @param default_value the value to return if the index is out of bounds
-     */
-    dynamic_array(unsigned int capacity, T default_value)
+    T& get(int index) { ... }
+    const T& get(int index) const { ... }
+
+    T& operator[] (int index)
     {
-        data = (T *)malloc(sizeof(T) * capacity);
-        size = 0;
-        this->default_value = default_value;
-
-        // Make sure that data was allocated, if not set capacity to 0
-        if (data == nullptr)
-        {
-            this->capacity = 0;
-        }
-        else
-        {
-            this->capacity = capacity;
-        }
+        return get(index); // this will call `T& get(int index)`
     }
 
-    /**
-     * @brief Free the memory allocated to the dynamic array. Once freed
-     *        the data in the array will no longer be accessible.
-     */
-    ~dynamic_array()
+    const T& operator[] (int index) const
     {
-        // Clear to ensure we remove any data from memory before freeing it
-        size = 0;
-        capacity = 0;
-
-        // Free the data and the array itself
-        free(data);
-        // Ensure we don't have a dangling pointer
-        data = nullptr;
-    }
-
-    /**
-     * @brief Resize the capacity of the dynamic array.
-     *
-     * If the new capacity is smaller than the current size, the size will be updated to match the new capacity.
-     *
-     * @param new_capacity the new capacity of the dynamic array
-     * @returns true if this succeeded, or false if it could not reallocate memory
-     */
-    bool resize(unsigned int new_capacity)
-    {
-        // Resize the data in the array
-        T *new_data = (T *)realloc(data, sizeof(T) * new_capacity);
-        // Check if the allocation failed
-        if (new_data == nullptr)
-        {
-            // We failed to allocate memory, so we can't resize the array
-            return false;
-        }
-
-        // Update the array's data and capacity
-        data = new_data;
-        capacity = new_capacity;
-
-        // Update the size if the new capacity is smaller than the current size
-        if (new_capacity < size)
-        {
-            size = new_capacity;
-        }
-
-        return true;
-    }
-
-    /**
-     * @brief Add an element to the end of the dynamic array
-     *
-     * @param value the value to add to the end of the dynamic array
-     */
-    bool add(T value)
-    {
-        // Check if we need to resize the array, and if we failed to resize the array
-        if (size >= capacity && !resize(capacity * 2))
-        {
-            // We didn't have space, and we failed to resize the array!
-            return false;
-        }
-
-        // Add the value to the end of the array
-        data[size] = value;
-        size++;
-
-        return true;
-    }
-
-    /**
-     * @brief read and return the value of the indicated element from the dynamic array.
-     *
-     * If the index is out of bounds, the function will return the indicated default value.
-     *
-     * @param index the index of the element to remove
-     */
-    T &get(unsigned int index)
-    {
-        return (*this)[index];
-    }
-
-    /**
-     * Provide array style access to the dynamic array.
-     *
-     * @param index the index of the element to get
-     * @return T& the element at the given index
-     */
-    const T &operator[](unsigned int index) const
-    {
-        // Check if the index is out of bounds
-        if (index >= size)
-        {
-            // The index is out of bounds, so return the default value
-            return default_value;
-        }
-
-        return data[index];
-    }
-
-    /**
-     * Provide array style access to the dynamic array.
-     *
-     * @param index the index of the element to get
-     * @return T& the element at the given index
-     */
-    T &operator[](unsigned int index)
-    {
-        // Check if the index is out of bounds
-        if (index >= size)
-        {
-            // The index is out of bounds, so return the default value
-            return default_value;
-        }
-
-        return data[index];
-    }
-
-    /**
-     * @brief set the value of the indicated element from the dynamic array.
-     *
-     * If the index is out of bounds, the function will do nothing and return false.
-     *
-     * @param index the index of the element to change
-     * @param value the value to set the element to
-     * @returns true when the value is set, or false if this failed
-     */
-    bool set(unsigned int index, T value)
-    {
-        // Check if the index is out of bounds
-        if (index >= size)
-        {
-            // The index is out of bounds, so do nothing
-            return false;
-        }
-
-        data[index] = value;
-        return true;
+        return get(index); // this will call `const T& get(int index) const`
     }
 };
-
-#endif
 ```
+Each `operator[]` just forwards its parameter to the respective `get`, and returns the result.
 
   </AccordionItem>
 </Accordion>
 
-## Testing array-like access
+## Wrap up
+For now that's all for our generic array - it's now useable with any type, and looks and handles similar to a normal array. In the next chapter we'll look at creating another type we can use to store _lists_ of elements, and finally in Deep Dive Memory we'll further develop the generic array to support dynamically resizing to store _any_ number of elements, potentially billions.
 
-Now let's extend the test program again. The problem at the moment is the `array` in main is a pointer. We cannot use the array access operator directly with the pointer, as the compiler will then treat this as if it were an array of dynamic arrays... Not what we want.
+---
 
-There are a few ways to get around this:
+### Note on Operator Overloads
 
-1. Change to an object on the stack and pass things around by reference.
-2. Dereference the pointer to use the array access. So `array->get(i)` would become `(*array)[i]`. The `(*array)` gets you to the dynamic array object, so the `[i]` will now call our operator code.
-3. Give up and just use `array->get(i)`, it isn't that bad.
+Operator overloads are pretty powerful! You _could_ overload various operators, like `+`, `()`, `|`, etc. Many programmers however are against this, since it can be ambiguous as to what the operator should do.
 
-Ideally we could work with these language features together, but this is a limitation of C/C++. When we switch to C#, which is a newer language, it does not have pointers but uses references to make this all work a little more smoothly.
+Take `+` for instance. If we added a `+` operator to our array class, what should it do? It could:
+ - _Append_ two arrays together. For instance `[4, 6, 1] + [6, 3, 2] = [4, 6, 1, 6, 3, 2]`
+ - _Element-wise add_ the two arrays. For instance `[4, 6, 1] + [6, 3, 2] = [10, 9, 3]`
+ - _Union_ the unique elements. For instance `[4, 6, 1] + [6, 3, 2] = [4, 6, 1, 3, 2]`
+ - And more...
 
-For now, I suggest you add a separate test to the end of the code where we allocate a second dynamic array on the stack and test out the array access operator there.
+And all of these choices are reasonable! So a common guideline is to prefer _named_ methods rather than operator overloads, to reduce ambiguity.
 
-<Accordion>
-  <AccordionItem
-    header="Final test code"
-  >
-
-```cpp
-#include <cstdio>
-#include "dynamic-array-2.hpp"
-
-int main()
-{
-  // Create a dynamic array of int
-  // and initialise it to a new dynamic array of 10 elements
-  dynamic_array<int> *array = new dynamic_array<int>(10, 0);
-
-  //...
-
-  // Print and update the values in the array, using the get and set functions
-  for(int i = 0; i < array->size; i++)
-  {
-    // Get the data from the array - using the array access operator
-    // Though it is probably worse then using array->get(i)!
-    printf("array[%d] =  %d\n", i, (*array)[i]);
-    array->set(i, i * 2);
-  }
-
-  //...
-
-  // Free the array and ensure we do not have a dangling pointer
-  delete array;
-  array = nullptr;
-
-  // Test an array on the stack
-  dynamic_array<int> array2(5, 0);
-
-  array2.add(1);
-  array2.add(2);
-  array2.add(3);
-
-  array2[1] = 20;
-
-  for(int i = 0; i < array2.size; i++)
-  {
-    printf("array2[%d] = %d\n", i, array2[i]);
-  }
-
-  return 0;
-}
-```
-
-  </AccordionItem>
-</Accordion>
-
-:::note
-
-If you want to skip ahead, the next enhancement for our dynamic array would be to incorporate exceptions. This will allow us to remove the need for the default value entirely, and instead we can cause an error to occur in a controlled manner.
-
+:::tip
+_Personally_, I think that operator overloads can be perfectly fine within a well designed class, and that the arguments against them are overstated. There are programmers that argue against even the `+` operator for `string`, but I think most of us appreciate the improved ergonomics :)
 :::
-
-## Using vector
-
-Building your own dynamic array is a fantastic way to understand how things work at a relatively low level in your programs. However, for real systems you do not want to be building these things from scratch. C++ includes a library with classes that are designed for this purpose. For example, the [vector](https://cplusplus.com/reference/vector/vector/) class is the C++ version of our dynamic array.
-
-If you go on to do more C++ programming, you should spend some time learning to use the language's class library. For now, our objective is learning to program (not learning C/C++). So add this as a future to-do, and stay focused on thinking about how all of these things work within any program code.

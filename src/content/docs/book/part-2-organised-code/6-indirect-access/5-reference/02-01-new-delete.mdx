@@ -1,0 +1,163 @@
+---
+title: C++ memory allocation
+sidebar:
+  label: " - Create and Delete Objects"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+While directly allocating and freeing chunks of raw memory is possible, it also gives us a lot of ways to make mistakes - raw memory is untyped, and it would be up to us to ensure we use it correctly.
+
+This is why modern languages prefer to allocate and free _typed_ memory - the language allocates space on the heap specifically for a type, and ensures it is initialised and cleaned up correctly when requested.
+
+We can generally think of this as creating and deleting entire _objects_, rather than dealing with raw memory. Note that in C++, once we are allocating on the heap, even simple types like `int` are considered objects.
+
+We will see how this works specifically in C++ for now.
+
+## C++ new and delete
+
+C++ provides a number of operators for performing memory management - with the main categories being `new` to allocate memory and `delete` to free allocated memory. You use the `new` operator with a type, and it allocates space on the heap, and returns to you a pointer to it.
+
+Similarly, you can use `delete` to free the memory allocated to a pointer. These are shown below, with an integer pointer and a struct pointer.
+
+<details>
+<summary>What about allocating arrays?</summary>
+We'll cover these properly in the next chapter, but if you want to try them out now, here's a short example:
+```
+// We can new an array by adding [...]
+// Note that we store it in a pointer -
+// this points to the first element in the array.
+int* int_array = new int[100];
+
+// Array indexing works the same
+int_array[0] = 20;
+
+// !IMPORTANT!
+// When deleting, we need to specify that we're
+// deleting the whole array, and not just one
+// element.
+delete [] int_array;
+```
+</details>
+
+```cpp
+struct coordinate
+{
+    int x;
+    int y;
+};
+
+int main()
+{
+    // Use new to allocate space on the heap for an integer
+    int* intPtr = new int;
+
+    // Set it to 20
+    *intPtr = 20;
+
+    // Delete the value
+    delete intPtr;
+
+    // ==============================
+
+    // Use new to allocate space on the heap for a point
+    coordinate* coordinatePtr = new coordinate{20, 30}; /*brace initialisation*/
+
+    // Set the y to 42
+    coordinatePtr->y = 42;
+
+    // We can also dereference it, and access it with `.`
+    (*coordinatePtr).x = 24;
+
+    // We can even store it in a reference!
+    coordinate &c = *coordinatePtr;
+    c.x += 10;
+    c.y = 53;
+
+    // Delete the coordinate object
+    delete coordinatePtr;
+
+    // Consider: would this still work? Is it safe?
+    // Answer is at the bottom of the page
+    // c.x += 100;
+}
+```
+
+### Constructors and destructors
+
+Behind the scenes, C++ adds additional features to its memory allocation functions for structs (and classes) to help developers initialise values when they are allocated, and clean up when they are freed. These are the **constructors** and **destructors** we explored in [Member Functions](/book/part-2-organised-code/4-member-functions/5-reference/1-1-constructor/). Inside the C++ `new` operator, C++ will allocate space for the data and then call the constructor to initialise this space. Similarly, the `delete` operator will first call the destructor and then free the memory allocation.
+
+Here's an example of how constructors and destructors, and `new` and `delete`, interact:
+
+```cpp
+class book
+{
+    string title;
+    int sales;
+
+    book(string title_)
+    {
+        title = title_;
+        sales = 0;
+        write_line("Book \"" + title + "\" created!");
+    }
+
+    ~book()
+    {
+        write_line("Book \"" + title + "\" deleted!");
+    }
+};
+
+int main()
+{
+    // create two books on the heap
+    book* book_a = new book("Convenience Store Woman");
+    book* book_b = new book("The Programmers Field Guide");
+
+    // delete them both, in reverse order.
+    delete book_b;
+    delete book_a;
+
+    // create and delete another book
+    book* book_c = new book("From the New World");
+    delete book_c;
+}
+```
+
+Notice the `write_line`s in the constructor and destructor? This program will output the following on the terminal:
+```sh title="Terminal"
+Book "Convenience Store Woman" created!
+Book "The Programmers Field Guide" created!
+Book "The Programmers Field Guide" deleted!
+Book "Convenience Store Woman" deleted!
+Book "From the New World" created!
+Book "From the New World" deleted!
+```
+
+The constructor and destructor are called in the exact same order as the corresponding `new` and `delete` expressions.
+
+---
+
+:::caution
+
+With C++, the general recommendation is to use the utilities the language provides to manage memory for you. This includes utilities for arrays and lists, which is what we will be exploring.
+
+Using the built-in library is very wise advice! With any production program you would **very rarely<sup>1</sup>** build your own code to dynamically allocate memory. Instead, you would use the provided utilities that do this for you.
+
+However, our goal here is to understand how memory works behind the scenes. So we are doing this to explore and develop our understanding. The understanding you develop here will help you understand how other languages, libraries, and tools work.
+
+---
+
+<sup><sup>1</sup> Examples of places you might handle memory directly are: game engines, embedded systems, and performance critical code.</sup>
+:::
+
+---
+
+<Accordion>
+  <AccordionItem header="Answer (for question in 'C++ new and delete')">
+    No, this is not safe! We have deleted and freed `coordinatePtr`, so the memory that `c` is referring to isn't ours anymore. Something else might have started using it, and we might be randomly overwriting its memory.
+
+    In all likelihood, our program will simply crash the moment in gets to this line. But even worse, is that it might _not_ - but it won't be doing what we expect either.
+
+    Check out [Pointers and Scope](/book/part-2-organised-code/6-indirect-access/5-reference/01-05-scope/) for more info on this.
+  </AccordionItem>
+</Accordion>

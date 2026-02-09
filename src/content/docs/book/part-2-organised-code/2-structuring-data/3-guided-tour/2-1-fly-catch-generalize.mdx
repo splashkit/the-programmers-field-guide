@@ -216,10 +216,32 @@ If this sounds a bit vague, don't worry - we'll work through a concrete example 
         - the radius (a `double`)
         - the colour (a `color` - also from SplashKit)
 
-        This will make it really easy to add more fields that our entities share in common - for instance, later on we'll give them an `image` field :)
-
         :::tip
-            `entity` represents a physical presence - right now we only use these fields for _drawing_, but later on we'll use the `radius` and `position` for checking collisions as well.
+            For this tutorial, `entity` represents a physical presence. Right now we'll only use these fields for drawing, but later on we'll use the `radius` and `position` for checking collisions as well.
+        :::
+
+        Notice that we're not grouping these fields _just_ because they were duplicated. This grouping itself has meaning, and helps us construct our digital reality - we shouldn't just put everything inside `entity` without thinking it through first.
+
+        That said, having this `entity` concept will make it really easy to add more fields that all our entities need - for instance, later on we'll give them an `image` field :)
+
+        :::note[Is `entity` the best approach here?]
+        <Accordion>
+        <AccordionItem header="Would other structures work?">
+        For this project `entity` works well, but there are definitely other valid approaches:
+         - For instance we could group `position` and `radius ` into a `collision_circle` struct, and place `color` and a second `radius` inside a `renderable_circle` struct.
+         - `spider_data` would then look like this:
+            ```c++
+            struct spider_data
+            {
+                collision_circle collision;
+                renderable_circle renderable;
+            }
+            ```
+         - We would then create a new struct for images, `renderable_image`, and replace the `renderable_circle` field with it.
+
+        This would also be a perfectly valid way of structuring this, and has it's own pros and cons.
+        </AccordionItem>
+        </Accordion>
         :::
 
     3. Now we can remove `x` and `y` from `spider_data` and `fly_data`, and add `entity ent;` as a field inside.
