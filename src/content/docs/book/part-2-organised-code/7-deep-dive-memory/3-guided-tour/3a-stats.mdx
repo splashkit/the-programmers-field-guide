@@ -34,8 +34,8 @@ Have a go at this yourself, you can check your progress against the code in the 
 ```cpp {6,8,15,18,23,32,36,46,53,65,79,86,91,93,105,107,111,113,121,131,160}
 /* stats-calc.cpp - from the field guide. written by ... */
 
-#include <cstdio>
-#include <cstdlib>
+#include "splashkit.h"
+
 #include "utilities.h"
 #include "dynamic-array.hpp"
 
@@ -67,7 +67,7 @@ void print(const dynamic_array<double> &data)
 {
   for (int i = 0; i < data.size; i++)
   {
-    printf("%d: %lf\n", i, data[i]);
+    write_line(to_string(i) + ": " + to_string(data[i]));
   }
 }
 
@@ -168,7 +168,7 @@ void remove_value(dynamic_array<double> &data)
   }
   else
   {
-    printf("Sorry, that is not a valid index.\n");
+    write_line("Sorry, that is not a valid index.");
   }
 }
 
@@ -177,12 +177,12 @@ void remove_value(dynamic_array<double> &data)
  */
 void print_menu()
 {
-  printf("\nMenu\n");
-  printf("1. Add a value\n");
-  printf("2. Remove a value\n");
-  printf("3. Print the values\n");
-  printf("4. Calculate stats\n");
-  printf("5. Quit\n");
+  write_line("\nMenu");
+  write_line("1. Add a value");
+  write_line("2. Remove a value");
+  write_line("3. Print the values");
+  write_line("4. Calculate stats");
+  write_line("5. Quit");
 
 }
 
@@ -210,15 +210,15 @@ int main()
         remove_value(data);
         break;
       case 3:
-        printf("\nYou entered...\n\n");
+        write_line("\nYou entered...\n");
         print(data);
         break;
       case 4:
-        printf("\nCalculating statistics...\n\n");
+        write_line("\nCalculating statistics...\n");
 
-        printf("Sum:        %4.2lf\n", sum(data));
-        printf("Mean:       %4.2lf\n", mean(data));
-        printf("Max:        %4.2lf\n", max(data));
+        write_line("Sum:        " + to_string(sum(data), 2));
+        write_line("Mean:       " + to_string(mean(data), 2));
+        write_line("Max:        " + to_string(max(data), 2));
         break;
     }
     read_string("Press Enter to continue...");
@@ -227,7 +227,7 @@ int main()
     option = read_integer("Enter an option: ", 1, 5);
   }
 
-  printf("Goodbye!\n");
+  write_line("Goodbye!");
 
   return 0;
 }

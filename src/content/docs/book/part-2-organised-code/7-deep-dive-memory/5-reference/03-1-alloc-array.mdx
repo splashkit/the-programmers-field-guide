@@ -142,7 +142,7 @@ int main()
     // Access the data from the heap...
     for(int i = 0; i < ARR_SIZE; i++)
     {
-        printf("The value on the heap is %d.\n", p[i]);
+        write_line("The value on the heap is " + to_string(p[i]) + ".");
     }
     
     // Assign the value 10 x i to each element on the heap
@@ -154,7 +154,7 @@ int main()
     // Access the data from the heap
     for(int i = 0; i < ARR_SIZE; i++)
     {
-        printf("The value on the heap is now %d.\n", p[i]);
+        write_line("The value on the heap is now " + to_string(p[i]) + ".");
     }
 
     // free all space allocated

@@ -74,9 +74,9 @@ To follow the pointer, and read its value, you use the `*` operator. With struct
 <a id="ListingCcodePointerOperatorUsage"></a>
 
 ```c
-#include <stdio.h>
+#include "splashkit.h"
 
-struct point_2d
+struct point
 {
   double x;
   double y;
@@ -85,22 +85,34 @@ struct point_2d
 int main()
 {
   double my_x = 0.0;
-  point_2d pt = { 1.0, 2.0 };
+  point pt = { 1.0, 2.0 };
 
   double *d_ptr;
-  point_2d *pt_ptr;
+  point *pt_ptr;
 
-  d_ptr = &my_x;          // get pointer to my_x variable
-  printf("%f\n", *d_ptr); // print the value pointer to by fptr
+  d_ptr = &my_x;      // get pointer to my_x variable
+  write_line(*d_ptr); // print the value pointer to by d_ptr
 
   d_ptr = &pt.x;
-  printf("%f\n", *d_ptr);                 // print the value pointed to by fptr
-  printf("%f,%f\n", d_ptr[0], d_ptr[1]);  // prints pt.x, pt.y (bad practice)
+  write_line(*d_ptr); // print the value pointed to by d_ptr
+
+  // prints pt.x, pt.y (bad practice)
+  write_line(
+        to_string(d_ptr[0]) + "," +
+        to_string(d_ptr[1])
+  );
 
   pt_ptr = &pt;
   // follow pointer, and get x and y fields from what it points to...
-  printf("%f,%f\n", pt_ptr->x, pt_ptr->y);
-  printf("%f,%f\n", (*pt_ptr).x, (*pt_ptr).y);    // same as above
+  write_line(
+        to_string(pt_ptr->x) + "," +
+        to_string(pt_ptr->y)
+  );
+  // same as above
+  write_line(
+        to_string((*pt_ptr).x) + "," +
+        to_string((*pt_ptr).y)
+  );
   return 0;
 }
 
@@ -128,7 +140,7 @@ Consider the following sample code:
 <a id="ListingPointerNotation"></a>
 
 ```c
-#include <stdio.h>
+#include "splashkit.h"
 
 int main()
 {
@@ -142,7 +154,7 @@ int main()
 
   val = *pointer1 * *pointer2;
 
-  printf("The value of val is: [%d]\n", val);
+  write_line("The value of val is: [" + to_string(val) + "]");
 }
 ```
 
@@ -153,7 +165,7 @@ The ``*pointer1`` and ``*pointer2`` notation looks exactly the same in lines 6 a
 To avoid confusion, we can use braces to group the pointer variables in the arithmetic statement as follows: (refer to comments in the code below)
 
 ```c
-#include <stdio.h>
+#include "splashkit.h"
 
 int main()
 {
@@ -170,7 +182,7 @@ int main()
   // showing the * is being used as a dereference operator for each pointer, 
   // and making the multiplication sign * distinct as the multiplication operator
 
-  printf("The value of val is: [%d]\n", val);
+  write_line("The value of val is: [" + to_string(val) + "]");
 }
 ```
 
