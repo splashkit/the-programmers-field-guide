@@ -522,16 +522,16 @@ In the [next chapter](/book/part-2-organised-code/5-operators-generics/0-overvie
 
 So far, all of our exceptions have been of the same type: `string`. By using the same type for every exception:
  - we have no easy way to differentiate between them when catching them
- - the errors messages printed on the terminal when exceptions aren't caught are less useful
+ - the errors messages printed on the terminal when exceptions aren't caught are hard to understand
 
-Think back to what we see on the terminal when a string exception is not caught:
+Think back to what we see on the terminal when a string exception isn't caught:
 ```sh title=Terminal wrap
 terminate called after throwing an instance of 'std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >'
 ```
 
-See how it tells us the _type_ of the object that was thrown? Right now, this isn't very helpful.
+Right now, this isn't very helpful... But see how it tells us the _type_ of the object that was thrown?
 
-However, this also shows us something important: we can encode information about the error in its _type_, by using _different_ exception types for different kinds of errors! Once we do this, we can also use multiple `catch` blocks to handle different errors in different ways.
+This shows us something important: we can encode information about the error in its _type_, by using _different types_ for different kinds of errors! Once we do this, we can also use multiple `catch` blocks to handle different errors in different ways.
 
 ### What types should we use?
 
@@ -540,10 +540,10 @@ While C++ provides some in-built exception types, we are also free to define our
  - `array_invalid_index`
 
 ### Your turn
-Have a go at declaring some classes with those names. Once they are declare try throwing exceptions using those classes instead of `string` (e.g `throw array_full();`);
+Have a go at declaring some classes with those names. Once they are declared, try throwing exceptions using those classes instead of `string` (e.g `throw array_full();`);
 
 :::tip[What fields should they have?]
-Up to you! Strictly speaking they don't need any fields at all - we can declare a completely empty class, and use that type in exceptions all the same.
+Up to you! Strictly speaking, they don't need any fields at all - we can declare a completely empty class, and use that type in exceptions all the same.
 :::
 
 Once you have this working, you should be able to catch those types instead of `string`. And if the exception is uncaught, we'll get errors like this on the terminal instead:
@@ -612,5 +612,5 @@ int main()
 
 
 :::note
-C++ provides several built in exception types - in production code, we should use these, or types that are _based_ off them. Using these requires some more advanced knowledge however - once we cover _inheritance_, then these will be a better option than making our own entirely error classes from scratch.
+C++ provides several built in exception types - in production code, we should use these, or types that are based off them. Using these requires some more advanced knowledge however - once we cover _inheritance_, then these will be a better option than making our own from scratch.
 :::
