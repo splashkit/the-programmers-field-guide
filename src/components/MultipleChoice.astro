@@ -253,13 +253,19 @@ const { id="", checkOnClick=false, checkingMode="strict"} = Astro.props;
             for (let child of all_children) {
                 if (child.checkCorrect == undefined) continue;
 
-                child.addEventListener('change', () => {
-                    this.#clearAnswer();
-                    this.#enableSubmit();
+                let events = ["change"];
+                if (child.hasAttribute("check-on-input"))
+                    events.push("input");
 
-                    if (this.getAttribute("check-on-click") == "true")
-                        this.#submitAnswer(true);
-                });
+                for (let event of events) {
+                    child.addEventListener(event, () => {
+                        this.#clearAnswer();
+                        this.#enableSubmit();
+
+                        if (this.getAttribute("check-on-click") == "true")
+                            this.#submitAnswer(true);
+                    });
+                }
             }
 
             let reasons  = this.querySelectorAll('answer-reason,mistake-reason');
