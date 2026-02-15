@@ -4,47 +4,54 @@ title: Water Bottle
 import { YouTube } from 'astro-embed';
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 
+<div class="not-content">
+  <YouTube id="WjxF1hHfWu8" params="fs=1&modestbranding=1&rel=0"/>
+</div>
+
 Now we can put together all of these concepts to build a small visual program.
 
 Watch this video to:
 
-- See how to combine these new tools to create a program.
+- See how to combine the new tools from this chapter to create a program.
 
-When you are done, move on to have a go with these concepts yourself.
+When you are done, have a go with these concepts yourself.
 
-## The Program Details
+## Continuing with Bottle Drawing
 
-In this video we walk through creating a visualisation of a water bottle, where we let the user input the height of the water.
+In the video we walked through creating a visualisation of a water bottle where we let the user input the height of the water.
+Now, let's update the look of the water bottle to be a bit less blocky.
+We're aiming to end up with something that looks like this:
 
 ![The water bottle filled to 37% of its capacity.](./images/water-exec.png)
 
 ### The Plan
 
-We iterated over a few versions of this visualisation, with the final plan for the bottle drawing looking like this:
+After a few iterations, our final plan for the updated bottle drawing looks like this:
 
 ![A plan for the water bottle](./images/water-bottle-plan.png)
 
 ### Constants and Variables
 
-This involved a whole range of variables and constants.
+To make this, we'll need a range of variables and constants.
 
 - `BOTTLE_RADIUS` for the size of the circle. We can use this to draw circles at the top and bottom of the bottle, and at the top of the water.
 - `BOTTLE_HEIGHT` the height of the water bottle cylinder.
-- `BOTTLE_DIAMETER` to store the full width of the circle. Can be calculated from `BOTTLE_RADIUS`. We need this to draw the water. This will be a rectangle drawn on top of the middle of the circle.
+- `BOTTLE_DIAMETER` to store the full width of the circle, which can be calculated from `BOTTLE_RADIUS`. We need this to draw the water. This will be a rectangle drawn on top of the middle of the circle.
 - `BOTTLE_CENTER_X` for the position of the bottle. This is the distance from the left of the screen. We can calculate this from the width of the window to position the bottle in the middle of the screen.
-- `BOTTLE_LEFT_X` and `BOTTLE_RIGHT_X` to store the left and right sides of the bottle. We can use this for the position of the rectangle, and the lines for the side of the bottle. They can be calculated from the bottle's radius and center x.
+- `BOTTLE_LEFT_X` and `BOTTLE_RIGHT_X` to store the left and right sides of the bottle. We can use this for the position of the rectangle, and the lines for the side of the bottle. They can be calculated from the bottle's radius and centre x.
 - `BOTTLE_BASE_Y` and `BOTTLE_TOP_Y` to store the distance from the top of the screen to the top and bottom of the bottle. This will tell us where to draw the circles, lines, and rectangles. The base can be calculated from the height of the window, and the top can be calculated from the base and the bottle's height.
 
-For the water height, we need a few variables as this can change.
+For the water height, we need a few variables as it will change based on the user's input.
 
 - `percent_full` will capture how full the bottle is. This can be an integer. We can then divide this by 100 to get the proportion to apply to the bottle's height to calculate the water height.
 - When we know the `percent_full`, we can calculate the `water_height`.
 - We need to know where the water should be drawn. When we know its height, we can use that to calculate a `water_y` value. This will represent where the water is up to within the bottle.
-- We also need a string (we called it `line`) to store the text data from the user before we convert it to a number for us to use.
+- We also need a string (we will call it `line`) to store the text data from the user before we convert it to a number.
 
 ### Visual Comments
 
-To help communicate how this works, we can capture this in a comment in the code using ASCII art to output the bottle's shape and indicate what the different constants and variables represent. See the following comment as an example.
+To help communicate how this works, we can capture this in a comment in the code using ASCII art.
+This comment can show what we're aiming for, including what the different constants and variables represent as follows:
 
 ```c++
 /*--------------------------------------
@@ -73,25 +80,24 @@ To help communicate how this works, we can capture this in a comment in the code
 ```
 
 :::tip
-This kind of comment is really awesome - it **shows** the reader what we intend. Comments should aim to be useful, and this is an example of how you can achieve this without writing lots of text.
+This kind of comment is really awesome because it **shows** the reader what we intend. Comments should aim to be useful, and this is an example of how you can achieve this without writing lots of text.
 :::
 
 ### Steps to build
 
 Have a go at coding this plan up yourself! Here are the steps that we suggest following:
 
-1. Show the welcome message, show the window, and delay. This gets these steps out of the way.
+1. Show the welcome message, show the window, and delay. This gets the basic structure of your program ready.
 2. Draw the outline of the bottle -- just a rectangle to start. Run to make sure it looks right.
-3. Add the water with a fixed percent full.
-5. Fill a rectangle to represent the water. 
-6. Play around with sizes and positions until you are happy.
-7. Add the code to read the percent full from the user.
-8. Make it look pretty - add circles to the top and bottom. I suggest you do this in several steps - building and running as you add the top, bottom, and water level circles.
-9. Test -- empty, full, midway, etc.
-10. Test more -- what about crazy values? What happens? (we can fix these later)
-11. Celebrate.
+3. Add the water with a fixed percent full, using a rectangle to represent the water.
+4. Play around with sizes and positions until you are happy.
+5. Add code to read the percent full value from the user.
+6. Make it look pretty by adding circles to the top and bottom. We suggest you do this in several steps, building and running as you add the top, bottom, and water level circles to see how it looks. Adjust values as needed until it looks right.
+7. Test your program with a variety of percent full values such as empty, full, midway, and so on.
+8. Test even more! What about crazy values? What happens? (we can fix any issues later)
+9. Celebrate 🥳
 
-Follow along in the video, and the code is below in case you get stuck with any part.
+Follow along in the video to get started with the first few steps, then see if you can do the rest. Use our completed code below if you get stuck.
 
 <Accordion>
     <AccordionItem header="Final Watter Bottle Code">
@@ -184,5 +190,5 @@ Follow along in the video, and the code is below in case you get stuck with any 
 </Accordion>
 
 :::tip[Is drawing always this hard?]
-If you create things from shapes, then there is lots of math involved. Mostly you can just work with pre-build images... that is much easier and fun.
+If you create things from shapes, then there is lots of math involved. Mostly you can just work with pre-built images...that is much easier.
 :::
