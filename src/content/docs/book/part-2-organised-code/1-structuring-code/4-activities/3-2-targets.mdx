@@ -5,8 +5,21 @@ sidebar:
 ---
 import NoCopy from '/src/components/NoCopy.astro'
 
+![Illustration of click game in action](./images/click-game.png)
+
 <NoCopy>
-For this activity, create a program that lets the user enter a number of targets to hit. Then, show a window that displays the number of targets left to hit, using a health-bar style graphic (a partially filled bar, based on proportion of initial target remaining). Draw a circle on the screen, and test if the user has clicked the circle. When they do click it, subtract one from the targets to be hit, ending when this is 0.
+For this activity, create a program that lets the user hit a number of circle targets.
+
+The program will:
+
+- Ask the user how many targets they want to hit.
+- Loop while the user has not hit that many targets.
+- Draw a filled circle target at a random location on the screen.
+  - Draw a filled rectangle, showing the number of targets remaining to be hit.
+- Check when targets are "hit", by the user clicking them, removing one from the targets remaining to be hit.
+- Ends when the user has clicked the required number of targets.
+
+Here is a sample execution.
 
 ```txt
 Welcome to target click.
@@ -16,25 +29,22 @@ Please enter a whole number
 What is your target score: 10
 
 Click 10 targets to end the game.
-// a window opens, showing number of targets remaining (eg. 10, then 9, etc)
-// show target using a "health bar" style visualisation.
+
+// a window opens, as shown above
 // draw a target circle... (just one)
 // when it is clicked...
-//      Remove one from the number left to hit
+//      Add one to the number hit
 //      Change the position of the circle
-// end when after the player has hit the required number of targets
-//      i.e. when targets remaining is 0
+// end after the player has hit the required number of targets
 ```
 
 :::tip[Hints:]
 
-Here are some functions and procedures you may want to consider adding:
+Make sure you have at least the following functions and procedures:
 
-- Functions to [read and validate data from the user](/book/part-2-organised-code/1-structuring-code/3-guided-tour/00-2-explore-functions) (numbers)
-- A procedure to play the game *(optional)*
-- A procedure to draw the game, that uses a procedure to draw the target bar
-- A procedure to draw the target bar - using parameters for position and proportion of bar to be filled. This can be drawn with two rectangles - using the proportion to be filled for one dimension of the second rectangle.
-- A function (target hit) to check if the user has clicked, and the mouse is inside the target circle.
+- `target_hit`: accepts the position and size of the target, returns true if the user has clicked and the mouse is over the target.
+- `draw_progress`: accepts parameters for the bar's location (x, y, width and height) and the percent fill. Use draw and fill rectangle to draw the progress bar to the screen at the location indicated.
+- `read_string`, `read_integer`, `read_integer_range`, and `read_boolean` to read and validate input from the user.
 
 :::
 </NoCopy>

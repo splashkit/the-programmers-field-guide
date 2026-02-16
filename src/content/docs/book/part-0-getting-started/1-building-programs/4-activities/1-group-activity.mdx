@@ -8,6 +8,7 @@ import Option from '/src/components/Option.astro';
 import { Code } from 'astro-expressive-code/components'
 import Carousel from '/src/components/Carousel.astro'
 import ITO from '/src/components/InlineTextOption.astro'
+import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 For this activity, try to join into a group of 3-4 people. The idea here is to fill in each other's knowledge gaps on a topic that frequently gets overlooked: the **compilation command**.
 
@@ -23,20 +24,39 @@ Things to consider before the activity:
 
 You may have to do some extra Googling to figure this out. Work together and solidify your understanding!
 
+## Concept Exploration
+
+<Steps>
+1. As a group, grab a whiteboard and the see if you can come up with a concept map related to the concepts covered in this topic. 
+
+    <Accordion>
+        <AccordionItem header="Need some hints?">
+        Make sure you cover at least the following concepts:
+            - Machine code
+            - Source code
+            - Compiler
+            - IDE / VS Code
+        </AccordionItem>
+    </Accordion>
+
+2. Being meticulous is a key attribute for careers in the computing industry. Discuss strategies you have applied to help develop your attention to detail when exploring this material. Were there any places where you have observed the importance of this attribute?
+
+</Steps>
+
 ## Group Activity
 
 <Steps>
-1. Gather around one of your group members' computers, and read over the compilation command below.
+3. Gather around one of your group members' computers, and read over the compilation command below.
     ```sh
     clang++ -O3 main.cpp extra-library-things.cpp
     -o blender -lX11 -l opengl -Wall
     ```
-2. ##### Discuss the following with each other:
+4. ##### Discuss the following with each other:
    1. _What_ is being compiled?
    2. _Which_ libraries are being used? (Feel free to search up their names if you're interested in what they are!)
    3. _What_ will the resulting executable be called?
    4. Are there are pieces here we haven't learned about yet? What do they do?
-3. ##### Test Yourselves!
+5. ##### Test Yourselves!
     <Carousel>
         <div onNextTest="Q1.checkCorrect()">
             What part(s) define the name that the compiled executable file will have?

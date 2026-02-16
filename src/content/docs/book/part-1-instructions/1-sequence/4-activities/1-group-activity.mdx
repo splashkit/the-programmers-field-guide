@@ -2,13 +2,14 @@
 title: Group Activity
 ---
 
-import { Steps } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from "@astrojs/starlight/components";
 import MultipleChoice from '/src/components/MultipleChoice.astro';
 import Option from '/src/components/Option.astro';
 import { Code } from 'astro-expressive-code/components'
 import Carousel from '/src/components/Carousel.astro'
 import ITO from '/src/components/InlineTextOption.astro'
+import { Steps } from '@astrojs/starlight/components';
+import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 For this activity, try to join into a group of 3-4 people. The idea here is to collaboratively interact to create a program, and to talk through the concepts introduced in the chapter.
 
@@ -20,35 +21,57 @@ Things to consider before the activity:
 
 To really maximise this opportunity, have a look at setting up [Live Share](https://learn.microsoft.com/en-us/visualstudio/liveshare/use/share-project-join-session-visual-studio-code) in Visual Studio Code before the session.
 
+## Concept Exploration
+
+<Steps>
+1. As a group, grab a whiteboard and the see if you can come up with a concept map related to the concepts covered in this topic. 
+
+    <Accordion>
+        <AccordionItem header="Need some hints?">
+        Make sure you cover at least the following concepts:
+            - Program
+            - Instruction
+            - Sequence
+            - Procedure
+            - Procedure Call
+            - Argument
+            - Expression
+            - Literal
+            - Type
+        </AccordionItem>
+    </Accordion>
+
+</Steps>
+
 ## Group Activity
 
 For this activity, we want you to create a program that shows a short, flip book style animation using sounds, images, and delays. Bonus kudos if you can incorporate text with custom fonts. Give yourselves a timeframe, and see what you can get done!
 
 <Steps>
-1. Work together to decide on what your animation will be -- dont spend too long on this, and keep it to only a few scenes.
-2. Gather around one of your group members' computers and get started creating a program with an empty `main`.
+2. Work together to decide on what your animation will be -- dont spend too long on this, and keep it to only a few scenes.
+3. Gather around one of your group members' computers and get started creating a program with an empty `main`.
     :::danger
     If you are using live share in VS Code, make sure that you start with an empty folder so that others do not tamper, copy, or delete other code files you are working on. You want to limit what people have access to.
     :::
 
-3. Run this shell command in the terminal to set up the resource folders: `skm resources`
-4. Test out compiling and running. This way you will have these commands in the terminal ready to go.
-5. If you are planning on using [Live Share](https://learn.microsoft.com/en-us/visualstudio/liveshare/use/share-project-join-session-visual-studio-code), get other team members to connect now.
-6. Start by adding in comments to outline the steps you want your program to perform.
-7. Review the procedures you can use from the [reference](/book/part-1-instructions/1-sequence/5-reference/33-graphics/) section, or the [SplashKit](https://splashkit.io) website.
-8. Work collaboratively to locate and download resources: images, sounds, and fonts.
-9. As you copy these in, add the instructions to load and draw/play these to check they work.
-10. Collaboratively build the scene, and see what you can create using only procedure calls.
-11. ##### Discuss the following with each other:
+5. Run this shell command in the terminal to set up the resource folders: `skm resources`
+6. Test out compiling and running. This way you will have these commands in the terminal ready to go.
+7. If you are planning on using [Live Share](https://learn.microsoft.com/en-us/visualstudio/liveshare/use/share-project-join-session-visual-studio-code), get other team members to connect now.
+8. Start by adding in comments to outline the steps you want your program to perform.
+9. Review the procedures you can use from the [reference](/book/part-1-instructions/1-sequence/5-reference/33-graphics/) section, or the [SplashKit](https://splashkit.io) website.
+10. Work collaboratively to locate and download resources: images, sounds, and fonts.
+11. As you copy these in, add the instructions to load and draw/play these to check they work.
+12. Collaboratively build the scene, and see what you can create using only procedure calls.
+13. ##### Discuss the following with each other:
+       1. _How_ is sequence demonstrated in your program?
+       2. _Where_ are there examples of the following syntax elements in your code:
+          - Statements
+          - Expressions
+          - Literal values
+          - Arguments
+          - Procedure Calls
+          - Directives
+       3. _What_ are some example procedure signatures?
+       4. _How_ did the signature help you know how to use the procedure?
+       5. _How_ transferrable do you think these skills are? For example, how would this apply to other C/C++ libraries, and to libraries in other languages?
 </Steps>
-   1. _How_ is sequence demonstrated in your program?
-   2. _Where_ are there examples of the following syntax elements in your code:
-      - Statements
-      - Expressions
-      - Literal values
-      - Arguments
-      - Procedure Calls
-      - Directives
-   3. _What_ are some example procedure signatures?
-   4. _How_ did the signature help you know how to use the procedure?
-   5. _How_ transferrable do you think these skills are? For example, how would this apply to other C/C++ libraries, and to libraries in other languages?

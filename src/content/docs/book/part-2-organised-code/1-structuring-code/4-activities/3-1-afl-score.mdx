@@ -15,65 +15,65 @@ An example of this running is shown below:
 
 <CodeScroll maxHeight="500px">
 ```txt
++------------------------+
+| Score Calculator       |
++------------------------+
+
 Welcome to the AFL score calculator!
 
-Enter team 1 details:
-name: Hawks
-goals: five
+Enter team name: Hawks
+Enter goals: five
 Please enter a whole number
-goals: 5
-behinds: 12.1
+Enter goals: 5
+Enter behinds: 12.1
 Please enter a whole number
-behinds: 12
+Enter behinds: 12
 
-Enter team 2 details:
-name: Cats
-goals: 7
-behinds: 3
+Current Score: 42
 
-Calculating details...
-The Cats are winning
-
-Hawks: 5, 12, 42
-Cats: 7, 3, 45
-
-Menu:
-1: Update Hawks goals
-2: Update Hawks behinds
-3: Update Cats goals
-4: Update Cats behinds
-5: Print details
-6: Quit
-Option: 7
-Please enter a number between 1 and 6
-Option: four
++------------------------+
+| Main Menu              |
++------------------------+
+1: Update goals
+2: Update behinds
+3: Print details
+4: Quit
++------------------------+
+Enter Option: 7
+Please enter a number between 1 and 4
+Enter Option: four
 Please enter a whole number
+Enter Option: 2
+
+Current behinds: 12
+Enter new behinds: 13
+
+Current Score: 43
+
++------------------------+
+| Main Menu              |
++------------------------+
+1: Update goals
+2: Update behinds
+3: Print details
+4: Quit
++------------------------+
+Option: 3
+
+Hawks: 
+    5 Goals
+    13 Behinds
+    43
+
++------------------------+
+| Main Menu              |
++------------------------+
+1: Update goals
+2: Update behinds
+3: Print details
+4: Quit
++------------------------+
 Option: 4
-behinds: 0
-
-Menu:
-1: Update Hawks goals
-2: Update Hawks behinds
-3: Update Cats goals
-4: Update Cats behinds
-5: Print details
-6: Quit
-Option: 5
-
-Calculating details...
-It is currently a draw!
-
-Hawks: 5, 12, 42
-Cats: 7, 0, 42
-
-Menu:
-1: Update Hawks goals
-2: Update Hawks behinds
-3: Update Cats goals
-4: Update Cats behinds
-5: Print details
-6: Quit
-Option: 6
 
 Are you sure you want to quit? [Y/n]: 1
 Please enter y or n
@@ -85,15 +85,14 @@ Bye!
 ```
 </CodeScroll>
 
-:::tip[Hints:]
+Make sure you have at least the following functions and procedures:
 
-Here are some functions and procedures you may want to consider adding:
+- `draw_heading_line`: accepts a width parameter, and returns a string like `"+------------------------+"` (when width is 26).
+- `draw_title`: accepts a title and width. Returns the title text in a box (with the heading line above and below). For example, the main menu title above would have the title as "Main Menu", and a width of 26.
+- `read_string`, `read_integer`, `read_integer_range`, and `read_boolean` to read and validate input from the user.
 
-- Functions to [read and validate data from the user](/book/part-2-organised-code/1-structuring-code/3-guided-tour/00-2-explore-functions) (strings, numbers, boolean).
-- A procedure to output calculated details of each team (taking in the names and score details of the two teams).
-- A procedure to print the menu (taking in the names of the two teams).
-- A function to calculate a score from a number of goals and behinds.
-- A function to calculate and return the name of the winner, from the two team names and scores.
-
-:::
 </NoCopy>
+
+:::tip
+Make sure to see how to [read and validate data from the user](/book/part-2-organised-code/1-structuring-code/3-guided-tour/00-2-explore-functions).
+:::
