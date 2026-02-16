@@ -1,0 +1,361 @@
+---
+const { id="", placeholder=""} = Astro.props as Props;
+---
+
+<script is:inline>
+    // --- Helpers ---
+
+    // Keeps source and masked version together
+    function MaskedCode(src, masked){
+        return {src, masked,
+            slice: function(...x) {
+                return MaskedCode(this.src.slice(...x), this.masked.slice(...x));
+            },
+            concat: function(y) {
+                return MaskedCode(this.src + y.src, this.masked + y.masked);
+            }
+        }
+    }
+
+    // Replaces strings and comments with spaces to preserve indices but ignore content
+    function maskIgnoredSource(src) {
+        // Matches strings ("...", '...'), multiline comments (/*...*/), and single line comments (//...)
+        return src.replace(/("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|`(?:[^`\\]|\\.)*`|\/\*[\s\S]*?\*\/|\/\/.*)/g,
+            match => ' '.repeat(match.length)
+        );
+    }
+
+    // Extracts code from start_index to the end of the first { } pair
+    function extractBody(code, start_index) {
+        let msrc = code.masked;
+        let depth = 0;
+        for (let i = start_index; i < msrc.length; i++) {
+            if (msrc[i] == '{') depth++;
+            else if (msrc[i] == '}' && --depth == 0) {
+                return code.slice(start_index, i + 1);
+            }
+        }
+        return null;
+    }
+
+    // Generic extractor
+    function extractGeneric(src, re) {
+        let m = re.exec(src.masked);
+        if (!m) return null;
+
+        let body = extractBody(src, m.index + m[0].length, 0);
+        if (!body) return null;
+
+        return {
+            fullText: src.slice(m.index, m.index+m[0].length).concat(body),
+            body: body,
+            rawMatches: m
+        };
+    }
+
+    // Extracts a function, name, body, signature, etc
+    // `nameRegex` can be a regex to fuzzy match function names
+    function extractFunction(src, nameRegex, {isConstructor = false, isDestructor = false, paramRegex=/\([^)]*\)/} = {}) {
+        if (nameRegex.source)
+            nameRegex = nameRegex.source;
+        if (paramRegex.source)
+            paramRegex = paramRegex.source;
+
+        let returnType = /((?:const\s*|)[\w&*]+)\s+/.source;
+        let destructor = /~\s*/.source;
+        let initializationList = /(|:.*)\s*/.source
+
+        let regexSource = (
+            /(?:[ \t]*\/\/[^\n]*\n)*[ \t]*/.source + // preceeding comments/newlines
+            "(" +                                    // open main match
+            ((isConstructor || isDestructor) ? "" : returnType) + //return type
+            (isDestructor ? destructor : "") +       // ~ if destructor
+            "(" + nameRegex + ")\\s*" +              // match the name
+            paramRegex +                             // match parameters
+            "(\\s*const|\\s*noexcept|)*)\\s*" +      // match const/noexcept after and finish main match
+            (isConstructor ? initializationList : "") +  // match initialization list
+            /(?={)/.source                               // ensure it's a function _definition_
+        );
+
+        re = new RegExp(regexSource, "i");
+
+        let m = re.exec(src.masked);
+        if (!m) return null;
+
+        let body = extractBody(src, m.index + m[0].length, 0);
+        if (!body) return null;
+
+        let res = {
+            fullText: src.slice(m.index, m.index+m[0].length).concat(body),
+            returnType: m[2],
+            functionName: (isConstructor || isDestructor) ? m[2] : m[3],
+            functionSignature: m[1],
+            functionBody: body,
+            rawMatches: m
+        };
+        if (isConstructor)
+            res.initializerList = m[4];
+        return res;
+    }
+
+    // Extracts the fields in a class
+    function extractFields(classText, classRegex) {
+        let cleaned = classText;
+        let m;
+        // Loop while we find { ... } blocks
+        while (m = /(?<=.)\{[^{}]*\}/.exec(cleaned.masked)) {
+            // Replace the block with newlines
+            cleaned = cleaned.slice(0, m.index).concat("\n".repeat(m[0].split("\n").length - 1)).concat(cleaned.slice(m.index + m[0].length));
+        }
+
+        // Returning the remaining declarations (should be fields)
+        let matches = cleaned.src.matchAll(/^[ \t]*^[^{\n]*;.*/gm);
+        return {
+            fullText: {src: [...matches].join("\n")}
+        };
+    }
+
+    // Extracts the first templated class name and body it finds
+    function extractRelevantClassInfo(code) {
+        let classRegex =  /template[^{]+(?:struct|class)[^{]*\s(\w+)(?:|\s+final)(?:|\s*\:[^{])[^{]*/
+        let className = code.masked.match(classRegex)[1];
+        let classBody = extractGeneric(code, classRegex).body;
+        return [
+            className,
+            classBody
+        ];
+    }
+
+    // Handles all the page specialization to the user's code.
+    function generatePageContent() {
+        try {
+            let code = MaskedCode(
+                generatedCode.getValue(),
+                maskIgnoredSource(generatedCode.getValue())
+            );
+
+            let decls = Object.create(null);
+            let vars = Object.create(null);
+            let ifs = Object.create(null);
+
+            // --- Extract all the plausible functions/fields ---
+            [className, classBody] = extractRelevantClassInfo(code);
+
+            decls["class-fields"] = extractFields(classBody);
+            decls["constructor"]  = extractFunction(classBody, className, {isConstructor: true});
+            decls["copy-constructor"]  = extractFunction(classBody, className, {isConstructor: true, paramRegex:`\\((?:|const\\s+)${className}[^)]+\\)`});
+            decls["destructor"] = extractFunction(classBody, /\w+/, {isDestructor: true});
+            decls["add-element"] = extractFunction(classBody, /\w*(add|push|push_back|append)\w*/);
+            decls["resize"]  = extractFunction(classBody, /\w*(?:resize|grow|expand|embiggen|\wcapacity|capacity\w|reallocate)\w*/);
+            decls["remove-element"] = extractFunction(classBody, /\w*(remove|delete|erase)\w*/i);
+            decls["get-element"] = extractFunction(classBody, /\w*get\w*/);
+            if (!decls["get-element"]) {
+                decls["get-element"] = extractFunction(classBody, /operator\[\]/);
+            }
+
+            if (!decls["add-element"])
+                throw new Error("Couldn't find the add method.");
+            if (!decls["class-fields"])
+                throw new Error("Couldn't find any class fields.");
+
+            // If we couldn't match the resize function...
+            if (!decls["resize"]) {
+                // Try and extract the "resize" function name from `add`'s structure,
+                // in case it does exist
+                let ifBody = extractGeneric(decls["add-element"].functionBody, /if\s*\([^{]*/).body;
+                if (ifBody) {
+                    // Search for function calls that are methods within this class
+                    // Hopefully that's the right method then.
+                    for (let m of ifBody.masked.matchAll(/(\w+)\s*\([^)\n]*/g)) {
+                        decls["resize"] = extractFunction(classBody, m[1]);
+                        if (decls["resize"])
+                            break;
+                    }
+                }
+            }
+
+            // --- Populating UI & Logic From Functions ---
+
+            for (let key of Object.keys(decls)) {
+                let decl = decls[key];
+                if (decl) {
+                    document.getElementById("code-"+key).setValue(decl.fullText.src);
+                    vars[key] = decl.functionName;
+                    ifs[key] = true;
+                }
+            }
+
+            // --- Analysis Logic ---
+
+            // Check Exceptions in Get
+            if (decls["get-element"]) {
+                let body = decls["get-element"].functionBody.src;
+                let getStdException = body.match(/throw\s+(std::\w+)/);
+
+                if (getStdException) {
+                    vars["getThrownExceptionType"] = getStdException[1];
+                    ifs["getThrowsStdException"] = true;
+                }
+
+                ifs["getIsInteresting"] = ifs["getThrowsStdException"];
+            }
+
+            // Check Allocation Style
+            let allocates = /(new(?=[\s\(\[])|(?:malloc|realloc)(?=\s*\())/;
+            let analysisTarget = decls["resize"] || decls["add-element"];
+
+            if (analysisTarget) {
+                let body = analysisTarget.functionBody.src;
+                let allocationStyle = body.match(allocates);
+                if (allocationStyle) {
+                    ifs["allocationStyleNew"]  = allocationStyle[1] == "new";
+                    ifs["allocationStyleMalloc"]  = allocationStyle[1] == "malloc";
+                    vars["allocationStyle"] = allocationStyle[1];
+                }
+            }
+
+            // Check For Realloc in Remove
+            if (decls["remove-element"]) {
+                let body = decls["remove-element"].functionBody.src;
+                if (
+                    body.match(allocates) ||
+                    (decls["resize"] && body.match(decls["resize"].functionName))
+                ) {
+                    ifs["removeElementRealloc"] = true;
+                }
+            }
+
+            // Check Constructor
+            if (decls["constructor"]) {
+                let body = decls["constructor"].functionBody.src;
+                if (body.match(allocates)) {
+                    ifs["constructorAllocates"] = true;
+                }
+                if (decls["resize"] && body.match(decls["resize"].functionName)) {
+                    ifs["constructorCallsResize"] = true;
+                }
+                if (!ifs["constructorCallsResize"] && !ifs["constructorAllocates"]) {
+                    ifs["constructorCallsLeavesData"] = true;
+                }
+
+                if (decls["constructor"].initializerList) {
+                    ifs["constructorInitializerList"] = true;
+                    vars["constructorInitializerList"] = decls["constructor"].initializerList;
+                }
+            }
+
+            // --- Apply On Page ---
+            for (let v of Object.keys(vars)) {
+                document.querySelectorAll(`[data-var=${v}]`).forEach((el)=>{
+                    el.innerText = vars[v];
+                })
+            }
+            document.querySelectorAll(`[data-if]`).forEach((el)=>{
+                el.style.display = ifs[el.dataset.if] ? "initial" : "none";
+            })
+            document.querySelectorAll(`[data-if-not]`).forEach((el)=>{
+                el.style.display = !(ifs[el.dataset.ifNot]) ? "initial" : "none";
+            })
+
+            return true;
+        }
+        catch(e){
+            console.error(e);
+            // We'll drop back to the noscript version in this case
+        }
+        return false;
+    }
+
+
+    // --- Code for the "enter code here" box ---
+
+    const TERN_POS = 1, TERN_NEUT = 0, TERN_NEG = -1;
+    const generatedCodeStorageKey = "02-0-dynamic-array-generated-code";
+
+    let pageContent = document.querySelector('#rest-of-the-page');
+    let generatedCode = document.getElementById("generated-code");
+
+    // This is far from perfect, but really just here to make sure people are trying.
+    // If it passes something it shouldn't, no worries - better that than accidentally not
+    // passing something that should.
+    generatedCode.checkCorrect = function() {
+        let code = maskIgnoredSource(generatedCode.getValue());
+        if (code.length < 10) {
+            generatedCode.setAttribute("group", "");
+            return TERN_NEG;
+        }
+        if (code.length < 700) {
+            generatedCode.setAttribute("group", "short");
+            return TERN_NEG;
+        }
+        // In case the AI is "too clever"...
+        if (/std::vector|std::unique_ptr|std::shared_ptr/.test(code)){
+            generatedCode.setAttribute("group", "too-complex");
+            return TERN_NEG;
+        }
+
+        // Check:
+        // 1. Is there usage of new, malloc, or realloc (which can function as malloc)
+        // 2. Is there usage of pointers (*)
+        // 3. Is there usage of template
+        // If any of these fail, it's not ready
+        if (!(
+            /new[\(\s]|(?:malloc|realloc)\(/.test(code) &&
+            /\*/.test(code) &&
+            /template/.test(code)
+        )){
+            // If we get here,
+            generatedCode.setAttribute("group", "not-dynamic");
+            return TERN_NEG;
+        }
+
+        let all_good = generatePageContent();
+
+        if (all_good) {
+            generatedCode.setAttribute("group", "looks-good");
+            pageContent.classList.remove("fg-force-fallback");
+        }
+        else {
+            // If the page content couldn't specialize properly, drop
+            // back to the noscript version
+            generatedCode.setAttribute("group", "couldnt-parse");
+            pageContent.classList.add("fg-force-fallback");
+        }
+
+        // Reveal the content
+        pageContent.style.height = pageContent.scrollHeight + "px";
+        return TERN_POS;
+    }
+
+    generatedCode.setAttribute("check-on-input", true);
+    generatedCode.addEventListener("input", function(ev){
+        sessionStorage.setItem(generatedCodeStorageKey, generatedCode.getValue());
+        if (generatedCode.getValue().length > 100) {
+            window.requestAnimationFrame(()=>{generatedCode.scrollTop = 0});
+            generatedCode.classList.add("tiny-code-preview");
+        }
+        else
+            generatedCode.classList.remove("tiny-code-preview");
+    })
+
+    pageContent.addEventListener("transitionend", (event) => {
+        if (pageContent.style.height != "0px")
+            pageContent.style.height = "auto";
+    });
+
+    document.addEventListener("DynamicCodeReady", function (){
+        let code = sessionStorage.getItem(generatedCodeStorageKey);
+        if (code) {
+            generatedCode.setValue(code);
+            generatedCode.triggerInput();
+        }
+    });
+    window.dynamic_array_everything_is_fine = true;
+</script>
+
+<script is:inline>
+    // if we get here and things have gone pear-shaped, drop back to noscript
+    if (!window.dynamic_array_everything_is_fine) {
+        document.body.classList.add("fg-force-fallback");
+    }
+</script>

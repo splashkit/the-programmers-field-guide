@@ -1,0 +1,192 @@
+---
+title: Dynamic array - Better Specification
+sidebar:
+    label: " - Second pass (Better specification)"
+---
+import Aside from '/src/components/Aside.astro'
+import { Steps } from '@astrojs/starlight/components';
+import Carousel from '/src/components/Carousel.astro'
+
+On the last page we saw what happened when we gave generative AI a vague description of what the dynamic array should be. It _worked_, but it made a lot of choices for us - some of these were good, others, not so good.
+
+This time, let's consider these choices for ourselves, and write up a proper paragraph describing how the dynamic array should work. This _specification_ is the primary output of this Guided Tour, rather than the code :)
+
+### Levels of Detail
+<Aside type="thinking" title="Let's add detail to our specification">
+<Carousel animation="fade">
+<div>
+A specification can contain an arbitrary amount of detail.
+
+Let's take a linked list as an example. If we mimick the vagueness from last section, the specification would essentially be:
+
+> **Make a linked list... do it...**
+
+We'll certainly get a linked list, but we haven't made any choices, like:
+- What will it be called?
+- What methods will it have?
+- Will it be single or double linked?
+- Will it allocate nodes on the heap?
+- What language will it be written in...?
+- Etc...
+</div>
+<div>
+
+We can take this specification, and _using our programming knowledge_, expand it with more detail. For example:
+
+> In C++, make a `linked_list` class, and a `node` class. Both should take a template parameter. The `node` class should contain a field for its data (the template type), and a field for its "next" element. The `linked_list` class should contain pointers to its first and last node. The methods available are:
+>  - Insert node - inserts a node _after_ a given node
+>  - Append node - inserts a node at the end of the list
+>  - Remove node - removes the node
+>  - First node - returns the first node
+>  - Last node - returns the last node
+
+This is already much more detailed, and we should get something more similar to the [linked list](/book/part-2-organised-code/6-indirect-access/3-guided-tour/01-0-linked-list/) from the last chapter.
+</div>
+
+<div>
+However, some of these definitions are unclear. Take `Insert node`:
+> inserts a node _after_ a given node
+
+This implies that we are passing the method an existing node, when maybe we actually want to pass it the _data_ for a node, and have _it_ handle creating and deleting our nodes (like in the previous chapter).
+
+</div>
+<div>
+So we update the specification:
+
+> _In C++, make a `linked_list` class, and a `node` class. Both should take a template parameter. The `node` class should contain a field for its data (the template type), and a field for its "next" element. The `linked_list` class should contain pointers to its first and last node. The methods available are:_
+>  - **Insert node - takes an existing node, and a value of the template type. It `new`s a new node, and inserts it _after_ the given existing node**
+>  - **Append node - takes a value of the template type, `new`s a node, and inserts it at the end of the list**
+>  - **Remove node - removes the node, and `delete`s it.**
+>  - First node - returns a pointer to the first node
+>  - Last node - returns a pointer to the last node
+
+</div>
+<div>
+
+This is much less ambiguous. We could continue to expand this further if we needed to. For instance `Insert node` could become:
+> Insert node - takes an existing node, and a value of the template type. It `new`s a node and stores the value inside it. It then reconnects the existing node to the new node, and the new node to the existing node's original next node. It also updates the `first` and `last` fields if needed.
+
+Knowing _how much_ detail is enough can be tricky. This last `Insert node` might be too much detail, or might be not enough! It depends on the novelty of the problem, and how familiar the implementor is with it (in this case, the language model).
+</div>
+</Carousel>
+</Aside>
+
+### Dynamic Array
+
+We'll now have a go at improving the specification we had on the last page:
+> **"Make the generic array automatically expand when the capacity overflows."**
+
+<Steps>
+1.  ### Control the Memory
+    The biggest thing we need to clarify is how and when the memory is **allocated**, **reallocated**, and (potentially) **copied**. That's what this chapter is about, so let's step through it.
+
+    #### How will it work?
+    As we saw, first we change our data field from a fixed size array, into a pointer. Now we can allocate memory on the heap and store the address in that pointer.
+
+    When we fill our capacity up, we then _reallocate_ that memory on the heap, to receive a larger allocation. This means we also need to decide how much to increase our capacity by each time - multiplying it by 2 is common (but be careful if we can start with `0` capacity!).
+
+    For our allocations however, we won't use `new T[]` like you might expect...
+
+    #### Why not `new T[...]`?
+    This likely came up on the last page, but if we use `new []`, the entire array of objects are constructed. If these are `int`s, then no worries. If these are `complex_class_that_allocates_a_gigabyte_of_ram_when_constructed`, then this is an issue.
+
+    Instead, what we want is to allocate the _memory_ for these objects, but only _construct_ them when they become used.
+
+    #### `Malloc` & Placement `New`
+    As we saw in [Using Malloc](/book/part-2-organised-code/7-deep-dive-memory/3-guided-tour/01-using-malloc/), we can use `malloc` to allocate an arbitrary chunk of memory, without constructing the objects. That handles our first requirement well!
+
+    Now, inside `add`, we have (something like) the following line:
+    `data[size] = value;`
+
+    If the memory at `data[size]` hasn't been constructed, then this assignment is **invalid**, since C++ expects the objects on both sides of `=` to be initialized memory.
+
+    What we _can_ do, is use [placement `new`](/book/part-2-organised-code/7-deep-dive-memory/5-reference/09-new-delete/) to construct the object at `data[size]` _using the value that was passed in_!
+
+    Here's why this works:
+    - We know that C++ classes have _default constructors_ - we can declare them ourselves, or leave them as default.
+
+        These are all default constructed:
+        - `int an_int;`
+        - `my_class an_object;`
+        - `my_class an_object{};`
+    - C++ classes have some _other_ built-in constructors as well - for instance the "copy", and "move" constructors. These take an object of the _same type_, and use the values in it to construct themselves!
+
+        These are all copy or move constructed:
+        - `int an_int = 20;`
+        - `int an_int(20);`
+        - `my_class an_object = my_other_object;`
+        - `my_class an_object{my_other_object};`
+        - `my_class an_object(my_other_object);`
+
+        Note that `my_class an_object = my_other_object;` **doesn't** first construct `an_object` with the default constructor, and _then_ copy `my_other_object` into it. Instead, this is done in one go with the copy constructor.
+
+    In this same way, we can use placement `new`, and construct the new element from the `value` passed in _directly_. The language will automatically decide whether to use the copy or move constructor.
+
+    :::tip[What is the syntax?]
+        The syntax looks like this: `new (&data[size]) T(value);`. This can be read as "call the constructor `T(value)` at the address `&data[size]`". For now there's no need to remember this syntax - just know that it exists, and that it is behaviour you can _specify_.
+    :::
+
+    #### Destruction
+    We manually construct our objects, so similarly we need to manually destruct them by explicitly calling the destructor. We definitely need to do this in our destructor (should delete all existing elements), and also in `remove` if you added one.
+
+    :::tip[What is the syntax?]
+        The syntax looks like this: `data[i].~T();`. Again, no need to remember this syntax - just know that it exists, and that it is behaviour you can _specify_.
+    :::
+
+    #### Reallocation
+    For reallocation, we need to:
+    1. Allocate a new, larger block of memory.
+    2. Move (or copy) our our existing elements into it, and destruct the old ones.
+    3. Then free the old block.
+
+    _How much detail you want to specify here is up to you._
+
+    :::tip[Why not use `realloc`?]
+        We unfortunately cannot use C's [`realloc`](/book/part-2-organised-code/7-deep-dive-memory/5-reference/03-4-realloc/) function because it doesn't know about C++ object constructors.
+
+        Instead, when it reallocates, it copies the _raw bytes_ of the objects. This is fine if the object is simple! But if it contains any references to itself, or pointers to its own memory, these will become broken (since it has been moved), and likely lead to crashes or strange behaviour.
+    :::
+
+    #### Remove
+    If you implemented a `remove` method, now's also the time to consider if this should lower the capacity as well. We likely don't want it to lower the capacity _every_ time, since changing capacity involves re-allocating the memory and copying everything over. If you decide it should, have a think about _when_ would make sense - the opposite of how the capacity expands might be a good idea.
+
+2. ### Safety
+    The next thing we need to do is make sure our class is safe to use - it shouldn't crash the program under standard use. The biggest issue here is that our class isn't safe to copy - this will very quickly lead to crashes!
+
+    :::tip[Can we ask the AI to fix it?]
+        Language models _can_ definitely fix this for us, but then we'll end up with a chunk of code we don't understand currently, and therefore **cannot change or fix**. This is a risky choice - there are _occasions_ when it's the right one, but generally it's a bad idea.
+    :::
+
+    The simplest approach here is to specify that "The class should disable being copied or assigned". Admittedly, we don't know how to do this either yet... But the generated code will only be one or two lines rather than 20, so feel free to look it up if you're keen :)
+
+    We also need to specify what happens if the allocation or reallocation fails - throwing an exception in the same way the rest of the class does would be good.
+
+3. ### Define the Behaviour
+    Those aspects should already give us a much better specification! There are a few other considerations, but I'll leave those up to you to decide :)
+
+    Have a go now at writing it up within the following template:
+    ```text wrap
+    Take the following class `bounded_array`, and modify it into a `dynamic_array` class that automatically expands when full. It should have the following behaviour:
+    [How should it expand? e.g., Double capacity?]
+    [How should it shrink? e.g., Remove? A shrink() method?]
+    [How should it handle errors, and where?]
+    [How should it handle construction/destruction?]
+    [How should it handle copying/being assigned?]
+    [Anything else?]
+    ```
+
+    I'd recommend copying the template into a text editor, and have a go at writing it up there - that way you can save it easily too. Try to make it something you're proud of - it should make you go "Wow I explained that really well!"
+
+4. ### Test the Specification
+    Now that you have a specification, try giving that to the language model again! You may need to try this a few times, but each time check that:
+    - The generated code matches your expectations
+    - The generated code is _understandable_ - could you edit it if you needed to?
+
+    We'll use this code on the next page, so make sure to try this out!
+
+    :::tip
+        If the output code doesn't look like something you understand (or matches your expectations), just edit your prompt and try again! Treating the AI as a "reality check" for your spec is a great way to learn.
+    :::
+</Steps>
+
+You should now have a specification that details how the dynamic array should work, and an implementation of that specification, written by a language model. It _looks_ good, and matches what we would expect. But does it work? On the next page we'll do some testing, and get the language model to help out there too :)

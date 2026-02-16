@@ -1,0 +1,26 @@
+---
+title: Dynamic array
+---
+
+Continuing from where we left off in Generics & Operators, let's develop our [generic array](/book/part-2-organised-code/5-operators-generics/3-guided-tour/2-generic-array/) further using concepts we've learned since then. We'll write a _dynamic array_, that automatically expands when the capacity is reached! But first, a shift in perspective.
+
+## Implementation & Specification
+
+Up until now, in the guided tours you've been implementing programs and structures from reasonably detailed instructions. Generally, we've broken down the program into a series of _specifications_. For instance, we might have outlined a function, described what it should do, then provided that for you to write the _implementation_.
+
+However, real world programming often works the other way around!
+1. You define the behaviour precisely
+2. Then you, someone else, or _something_ else implements it.
+
+In this guided tour, we'll focus more on writing the specification for our dynamic array. Then, to test whether our specification is good enough, we'll feed it to a generative AI model and see what it comes out with :)
+
+:::tip[Shouldn't I avoid using AI?]
+
+**Using generative AI to write code isn't inherently wrong!** But if you get AI to write code, then obviously that process doesn't help _you_ learn to write code.
+
+In this case, we're not focussing on writing code - we're focussing on _specifying behaviour_. This is an equally important skill :) We'll use AI as our implementor - by examining the output, we'll know if our specification was complete or not.
+:::
+
+The reason we're trying this out on the dynamic array, is that like many data structures, the _underlying specification and design_ is the tricky part, not the implementation. A dynamic array is simple to describe informally, but surprisingly complex to specify precisely.
+
+So this is what we'll explore instead :)
