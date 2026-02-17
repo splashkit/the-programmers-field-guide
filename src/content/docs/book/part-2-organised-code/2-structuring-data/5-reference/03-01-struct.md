@@ -49,6 +49,9 @@ This is the syntax for declaring your own custom struct in C/C++.
 
 :::
 
+![Annotated code of a struct](./images/struct-pano.png)
+<div class="caption">Annotated <code>book_data</code> struct and example variables</div>
+
 ## Example
 
 The following code shows an example of a struct in C/C++. The `person` struct contains a `name`, and an integer called `age`. Remember that the type declaration is creating a new type. After declaring the struct, you can now create variables of the person_struct type.
