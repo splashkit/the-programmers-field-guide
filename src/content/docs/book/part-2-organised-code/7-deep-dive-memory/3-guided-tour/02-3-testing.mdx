@@ -1,0 +1,116 @@
+---
+title: Dynamic array - Testing
+sidebar:
+    label: " - Testing"
+---
+import Aside from '/src/components/Aside.astro'
+import { Steps } from '@astrojs/starlight/components';
+import MultipleChoice from '/src/components/MultipleChoice.astro';
+import Carousel from '/src/components/Carousel.astro'
+import Option from '/src/components/Option.astro';
+
+We now have our dynamic array written, and hopefully following our specification. It's important now to test the _implementation_ as well. We could do this by writing manual tests (as we have done before), but we can also approach it by writing a specification for the tests instead!
+
+### Testing and Specifications
+
+The specification we wrote previously defined the _internal behaviour_ of our dynamic array class. To test it, we'll write a specification for the _external behaviour_ - what should we see when we use it?
+
+:::tip
+This is often called the Acceptance Criteria.
+:::
+
+<Steps>
+1. ### Define the Acceptance Criteria
+    Let's consider - how can we know if our array is working correctly? By now you already have a fair bit of experience writing test cases :), but here are some specific things to look for:
+    - **Basic Usage** - Does the `count` still increase when elements are added? Does `get` still return the correct value?
+    - **Capacity** - Does the capacity increase when the limit is reached? Does it match our specification?
+    - **Complex Type** - Does the array work with `string`, or a custom class with a constructor and destructor?
+      :::tip
+        This is an important test! The language model is most likely to mess up the `malloc` and placement `new` logic - testing with a complex class will help reveal any issues.
+      :::
+
+    Write up a brief prompt describing these test cases. Make sure to also specify the setup:
+    - Should there be a `test` procedure? Or just keep it in `main`?
+    - Should it print out the results? With what procedure? (It won't assume SplashKit's `write_line` by default!)
+
+    :::tip
+        Try to have a mixture of tests that pass and fail while testing the _same_ functionality.
+    :::
+
+    :::caution[Testing Copy Protection]
+        We disabled copying the dynamic array in our specification. Testing this is tricky! If you try to write a test that copies the array, the code simply won't compile.
+        For now, no need to write a test that fails to compile - the ways to do this in C++ are a bit more advanced than needed here.
+    :::
+
+2. ### Implement the Tests
+    We'll get the language model to implement the tests for us too :). Pass the class code and the test specification to the model, and see what comes out.
+
+    **But don't immediately trust the output!**
+    <Aside type="thinking" title="Let's see why...">
+    <MultipleChoice id="Q1">
+
+    Imagine the language model writes the following test. And it passes! What does this tell us?
+    ```c++
+    void test_add()
+    {
+        dynamic_array<int> arr;
+        arr.add(5);
+
+        // No crash? It worked!
+        assert(true);
+    }
+    ```
+
+    <Option group="works">That the `add` method works perfectly!</Option>
+    <Option group="works">That the `add` method works perfectly, at least with `int`.</Option>
+    <Option group="not-crash" isCorrect>That the `add` method doesn't crash, at least with `int`.</Option>
+    <Option group="not-works">That the `add` method doesn't work at all.</Option>
+
+    <mistake-reason group="works">
+    :::note[Not Quite]
+        Hmmm... does it? What if `add` was defined like this?
+        ```c++
+        void add(T value)
+        {
+            // too lazy to implement...
+            return;
+        }
+        ```
+    :::
+    </mistake-reason>
+    <mistake-reason group="not-works">
+    :::note[Not Quite]
+        Does it tell us this? At the very least it doesn't crash, so we don't have any direct evidence that it _doesn't_ work.
+    :::
+    </mistake-reason>
+    <answer-reason group="not-crash">
+    :::tip[Exactly!]
+        Yep! We know `add` doesn't crash with `int`, but that's all. We don't know:
+        - if it added the element properly
+        - whether the `count` increased
+        - whether it wouldn't crash if it were a `dynamic_array<string>`
+        - etc...
+    :::
+    </answer-reason>
+    </MultipleChoice>
+    </Aside>
+
+    Make sure to read through the test code it writes - is it really testing the right thing?
+
+    :::tip
+        See [here](https://github.com/anthropics/claude-code/issues/319) for an entertaining/interesting read about how a language model can cheat by just modifying the tests to always pass -  without testing anything!
+        > ..."In another case, when asked to get all tests to a passing state; it simply updated the make file to only run tests that were passing. It called these 'safe-tests'."
+    :::
+
+3. ### Run the tests!
+    Try running the tests and see if they pass/fail when expected. If they do, you likely have a working dynamic array, all thanks to your detailed specification! :)
+
+    If they _don't_, the issue could lie in either the dynamic array's **specification**, its **implementation**, or the **test** code. You'll have to debug as usual here - **this is why making the language model generate code we can understand is so important**.
+    :::tip
+        If it is a specification issue, try solving that then re-generate the code. On the other hand, if the implementation was wrong, it's often much faster to fix the bug manually than to contort the language model into fixing it.
+    :::
+</Steps>
+
+You should now feel confident in your _understanding_ of how dynamic arrays work, even if you didn't write every line of code yourself. You've explored memory management, thought carefully about the behavior, and seen how to verify the implementation matches the specification.
+
+This ability to _specify behaviour_ is a powerful skill as a programmer, and will matter even more as you tackle larger projects.

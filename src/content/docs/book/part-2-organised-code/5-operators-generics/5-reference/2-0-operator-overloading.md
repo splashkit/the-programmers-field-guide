@@ -2,13 +2,13 @@
 title: Operator Overloading
 ---
 
-While not directly related to structs, objects, and member functions, operator overloading is an interesting addition that can help us when we build out our dynamic array.
+Operator overloading isn't directly related to generics, but it is a very useful tool that, like generics, can be used when creating our own types.
 
-**Operator overloading** refers to the ability of a programming language to allow programmers to define how operators work with their data types. This allows you to say how thinks like `+` and `-` may work, or how array indexing works using `[]` operators.
+**Operator overloading** refers to the ability of a programming language to allow programmers to define how operators work with their data types. This allows you to say how operators like `+` and `-` may work, or how array indexing works using `[]`.
 
 ## Operator Overloading - Why, When, and How
 
-C++ allows you to override a whole range of operators. So we could, for example, override the `+` operator in our dynamic array to allow you to add elements to it, or we could choose the `<<` operator to achieve the same effect. Both of these are **awful ideas**.
+C++ allows you to override a whole range of operators. So we could, for example, override the `+` operator in our generic array to allow you to add elements to it, or we could choose the `<<` operator to achieve the same effect. Both of these are **awful ideas**.
 
 Operator overloading can be great if you have numeric values you are working with, and the standard mathematical symbols make sense in that context. In most other cases, you should use methods with names that make it clear what you want to achieve.
 
@@ -36,12 +36,10 @@ Comparison operators are declared outside a struct, and needs to be passed two p
 
 ## Example
 
-The following code add comparison operators to the die, allowing you to compare it with other die (only for `<`) and to integer values. The different comparison operators are implemented in terms using the code in the less than operator, though in this case it is easy enough to have implemented each with its own code.
+The following code adds comparison operators to the `die` struct from [Member Functions](/book/part-2-organised-code/4-member-functions/5-reference/1-2-methods/). This allows you to compare it with other die (only for `<`) and to integer values. The different comparison operators are implemented in terms using the code in the less than operator, though in this case it is easy enough to have implemented each with its own code.
 
 ```cpp
 #include "splashkit.h"
-
-using std::to_string;
 
 /**
  * A die is a struct that represents a single dice object 
@@ -148,5 +146,3 @@ int main()
   return 0;
 }
 ```
-
-Notice that we switched the die onto the stack so that it was easy to get a reference to this. If you retain the pointer, you need to dereference it before you can do the comparison, eg. `*d >= 5`.

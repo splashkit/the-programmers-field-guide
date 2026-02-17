@@ -215,13 +215,13 @@ int main()
     p = (int *)malloc(sizeof(int));
 
     // Access the data from the heap
-    printf("The value on the heap is %d.\n", *p);
+    write_line("The value on the heap is " + to_string(*p) + ".");
     
     // Assign the value 10 to the space on the heap
     *p = 10;
 
     // Access the data from the heap
-    printf("The value on the heap is now %d.\n", *p);
+    write_line("The value on the heap is now " + to_string(*p) + ".");
 
     // free all sapce allocated
     free(p);
@@ -262,13 +262,13 @@ int main()
     p = (int *)calloc(1, sizeof(int));
 
     // Access the data from the heap - will always be 0 as it was cleared
-    printf("The value on the heap is %d.\n", *p);
+    write_line("The value on the heap is " + to_string(*p) + ".");
     
     // Assign the value 10 to the space on the heap
     *p = 10;
 
     // Access the data from the heap
-    printf("The value on the heap is now %d.\n", *p);
+    write_line("The value on the heap is now " + to_string(*p) + ".");
 
     // free all sapce allocated
     free(p);

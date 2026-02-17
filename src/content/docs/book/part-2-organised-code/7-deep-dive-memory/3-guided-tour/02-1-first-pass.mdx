@@ -1,0 +1,489 @@
+---
+title: Dynamic array - Naïve Specification
+sidebar:
+    label: " - First pass (naïve specification)"
+---
+import DynamicCode from '/src/components/DynamicCode.astro'
+import CodeScroll from '/src/components/CodeScroll.astro'
+import Aside from '/src/components/Aside.astro'
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from '@astrojs/starlight/components';
+import NoCopy from '/src/components/NoCopy.astro'
+import MultipleChoice from '/src/components/MultipleChoice.astro';
+import ClientCode from "./02-1-first-pass.script.astro";
+
+<style>{`
+#UserCode form ol{
+  display:flex;
+  width:100%;
+  flex-direction: column;
+  overflow: hidden;
+}
+#UserCode form ol:has(.tiny-code-preview){
+  flex-direction: row;
+}
+#UserCode form ol div.code-scroll {
+    width:auto;
+    flex-shrink: 0;
+    transition: 1s width, 1s flex-basis;
+    flex-basis: 100%;
+}
+.code-scroll:has(.tiny-code-preview) {
+    flex-basis: 0% !important;
+}
+#UserCode form ol div.hideside {
+    min-width: 200px;
+    margin-top: 0;
+}
+
+#rest-of-the-page {
+    height: 0;
+    overflow:hidden;
+    transition: 2s linear height;
+}
+
+.tiny-code-preview {
+    font-size: 4px !important;
+    line-height: 1;
+}
+fg-dyn {
+    display: inline;
+}
+fg-fall {
+    display: none;
+}
+.fg-force-fallback fg-dyn {
+    display: none !important;
+}
+.fg-force-fallback fg-fall {
+    display: inline !important;
+}
+.fg-force-fallback #rest-of-the-page{
+    height: auto !important;
+}
+`}</style>
+
+<noscript>
+    <style>{`
+    /* this styling only applies when JavaScript is disabled */
+
+    #rest-of-the-page{
+        height: auto !important;
+    }
+    fg-dyn {
+        display: none !important;
+    }
+    fg-fall {
+        display: inline !important;
+    }
+    `}</style>
+</noscript>
+
+First, let's review our `bounded_array`:
+```c++
+template<typename T, int MAX_CAPACITY>
+class bounded_array
+{
+    int size;
+    T data[MAX_CAPACITY];
+
+    public:
+    bounded_array();
+
+    int count() const;
+
+    void add(T value);
+    void remove(int index);
+
+    T& get(int index);
+    const T& get(int index) const;
+
+    T& operator[] (int index);
+
+    const T& operator[] (int index) const;
+};
+```
+Yours hopefully has a similar shape to the above code (feel free to refer to your own if it's different :)).
+
+Our overall goal is:
+
+> **Make the generic array automatically expand when the capacity overflows.**
+
+To start, let's try using this as our specification! It's _very_ vague, and so it will be interesting to see what generative AI outputs.
+
+Will it give us what we want? Do we even _know_ what we want? There are a lot of choices to make - things like:
+ - How should the array's elements be dynamically allocated? `new`? `malloc`? Something else?
+ - How should the capacity change when we reach the limit? Increase by `+10`? `x2`? `x3`?
+ - What happens if we run out of RAM and the allocation fails?
+ - Do we need a way to manually reserve capacity?
+ - Should the capacity shrink when elements are removed?
+ - And so on...
+
+Well, let's not think too hard about it... yet :)
+
+
+### Let's get started!
+<Steps>
+
+1.  Using whatever generative AI you'd like, **try the following**:
+
+    <table style="width:100%;">
+      <tr>
+        <th>
+          Chat AI
+        </th>
+        <th>
+          Code Assistant
+        </th>
+      </tr>
+      <tr>
+        <td>
+          If you're using a chat styled AI, just copy paste your `bounded_array` class's source code in, along with the goal below:
+        </td>
+        <td>
+          If you're using something like Copilot, you can select the class's code, then open the "inline chat" (see [here](https://docs.github.com/en/copilot/tutorials/refactor-code)), and paste in the goal below. It will suggest some revised code, let's be reckless and just Accept it.
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          Goal: **Make the generic array automatically expand when the capacity overflows.**
+        </td>
+      </tr>
+    </table>
+
+    Have a go at that now and come back with the generated code.
+
+2.  Did you try it?
+
+    You should now have a block of code that resembles your `bounded_array`, but with changes that make it dynamic! Let's inspect what the AI did now :)
+
+    To start, copy the generated class's code and paste it in here:
+
+    <fg-dyn>
+      <MultipleChoice id="UserCode" checkOnClick="true">
+          <CodeScroll maxHeight="250px">
+              <DynamicCode id="generated-code" placeholder="Paste your code here :)"></DynamicCode>
+          </CodeScroll>
+          <div class="hideside">
+      <mistake-reason group="too-complex">
+      :::note[Not Quite]
+          The pasted code might be okay, but it's using things that are a bit too complex. Mind just asking the language model to "remove use of any std::vector, std::unique_ptr, etc", and re-paste it? Thanks!
+      :::
+      </mistake-reason>
+      <mistake-reason group="not-dynamic">
+      :::note[Not Quite]
+          The pasted code doesn't seem to have the parts needed for a dynamic generic array... Could you maybe try re-generating the AI's response?
+      :::
+      </mistake-reason>
+      <mistake-reason group="short">
+      :::note[Not Quite]
+          ...this seems a little short doesn't it? Just copy paste in the full class's code :)
+      :::
+      </mistake-reason>
+      <answer-reason group="looks-good">
+      :::tip[Exactly!]
+          Looks good! The code here seems reasonable, so let's start analysing it :) Read on below...
+      :::
+      </answer-reason>
+      <answer-reason group="couldnt-parse">
+      :::tip[Exactly!]
+          Looks good! The code here seems reasonable, so let's start analysing it :) Read on below...
+      :::
+      :::tip[Not Quite]
+          We had trouble reading the code sorry - either it did something we weren't expecting, or it isn't valid C++. Feel free to read the more generic version below, or maybe try re-generating it :)
+      :::
+      </answer-reason>
+          </div>
+      </MultipleChoice>
+      </fg-dyn>
+    <fg-fall>
+      :::tip
+        It seems like JavaScript is disabled, or an error has occured, so you'll have to check over the generated code manually. We'll try and give some more general tips of things to look for - keep an eye out for hidden choices that the language model made! We'll consider using these when we build a more detailed specification on the next page.
+      :::
+    </fg-fall>
+</Steps>
+
+<div id="rest-of-the-page">
+
+## Analysing the code
+### Fields
+
+<fg-dyn>
+  Alright, first let's check over how the fields have changed:
+  <DynamicCode readonly id="code-class-fields"></DynamicCode>
+</fg-dyn>
+<fg-fall>
+  Have a look at the generated code, and compare its fields to the fields in your original code.
+</fg-fall>
+
+We can see that the data field is now a pointer rather than a fixed size array. The data will be allocated and de-allocated from the heap as elements are added.
+
+Notice that the capacity is also now a field rather than a template parameter. How do the size and capacity differ?
+
+What happens in <code data-var="add-element">add</code> will give us a hint - we'll take a look at that now.
+
+---
+### Adding elements
+
+<fg-dyn>
+  <DynamicCode readonly id="code-add-element"></DynamicCode>
+  Can you spot how the inside of <code data-var="add-element"/> has changed?
+
+  <div data-if="resize">
+    Previously we threw an exception once the capacity was reached. Now however, it calls another method: <code data-var="resize"/>.
+
+    <DynamicCode readonly id="code-resize"></DynamicCode>
+
+    Reading <code data-var="resize"/> and <code data-var="add-element"/>, consider these three points:
+  </div>
+  <div data-if-not="resize">
+    Previously we threw an exception once the capacity was reached. Now however, it "resizes" the array via a few steps. Read the code and consider these three points:
+  </div>
+</fg-dyn>
+<fg-fall>
+  Take a look now at the method used to add elements, and you'll notice some important changes.
+
+  Check what happens when the capacity is reached - there will be some additional logic used to "resize" the allocated memory (likely in a separate method). Read the code and consider these three points:
+</fg-fall>
+
+1. **How is the new capacity calculated?** Why do you think it's calculated like this?
+2. **How is the memory allocated for our array expanded?** What happens? What does this mean as the array increases in size? (This may help answer the first question)
+3. **What _assumptions_ are being made?** What if the capacity is `0`? Is there error handling? What happens if the allocation fails?
+<p/>
+<fg-dyn>
+  <div data-if="allocationStyleNew">
+  :::tip
+    One thing to consider is that it's using `new`, which constructs _all_ of the objects allocated. This means that even the objects in the unused capacity are still _constructed_ - is this what we want? What if the objects are really big? What other options do we have?
+  :::
+  </div>
+
+  <div data-if="allocationStyleMalloc">
+  :::tip
+    One thing to consider is that it's using `malloc` (surprisingly!). This is helpful in some ways, since it means the objects in the unused capacity aren't constructed by default.
+
+    But in the same way...it means the objects aren't constructed by default in general. We need to be careful about when and how they are constructed and destructed. Have a read through the code - is it doing it correctly?
+  :::
+  </div>
+</fg-dyn>
+<fg-fall>
+  :::tip
+    Check if it's using C++ style memory management (`new`), or C style (`malloc`) - this will make a big difference in its behaviour!
+     - `new` means that even the objects in the unused capacity are still _constructed_, which might not be what we want (especially if the objects are large!).
+     - `malloc` means that objects _aren't_ constructed by default, which means we need to be careful in checking that the code constructs and destructs them when needed properly.
+
+     Have a think about the circumstances each one would be most useful for :)
+  :::
+</fg-fall>
+
+---
+### Constructor
+
+<div data-if="constructor">
+<fg-dyn>
+
+  Let's see how the constructor has changed now:
+  <DynamicCode readonly id="code-constructor"></DynamicCode>
+
+  <div data-if="constructorInitializerList">
+  First thing we can see is it's used a feature we (probably) don't even know about yet! The <code data-var="constructorInitializerList"/> is an _initializer list_.
+
+  There's nothing wrong with using these (they are a commonly used C++ feature), but it's important to notice how it introduced new language features without being directly asked.
+  </div>
+  <p/>
+  <div data-if="constructorAllocates">
+  We can <span data-if="constructorInitializerList">also </span>see the constructor allocates some capacity immediately - maybe this is fine? But it means that our <code data-var="constructor"/> allocates upon creation, rather than when it actually starts being used...
+  </div>
+
+  <div data-if="constructorCallsResize">
+  We can <span data-if="constructorInitializerList">also </span>see the constructor calls <code data-var="resize"/> immediately - maybe this is fine? It depends how <code data-var="resize"/> works.
+  </div>
+
+  <div data-if="constructorCallsLeavesData">
+  <span data-if="constructorInitializerList">Aside from that though, it</span><span data-if-not="constructorInitializerList">It</span> doesn't seem to be doing a whole lot<span data-if="constructorInitializerList"> else</span>, as long as the code in <code data-var="add-element"/> <span data-if="resize">and <code data-var="resize"/></span> can handle the data when it's a `nullptr`.
+  </div>
+
+</fg-dyn>
+<fg-fall>
+
+  Next up, take a look at the constructor (or possibly constructors!). Think about the following:
+  - Does the constructor allocate immediately upon the dynamic array being created?
+  - If so, do we want this? Or would it be better if it allocated once it was first _used_?
+  - If not, does this mean the data is `nullptr` to begin with? Does the way `add` re-allocates memory handle this properly? What about the other methods?
+
+  Also check out the destructor - is it freeing the memory correctly?
+
+</fg-fall>
+</div>
+
+<fg-dyn>
+  <div data-if-not="constructor">
+    Interestingly, the generated code doesn't have a constructor. Perhaps it's initializing the fields when it declares them? Have a check above.
+
+    If it isn't, then this is quite questionable, and something we should direct it to improve next time.
+  </div>
+  <p/>
+  <div data-if="destructor">
+    Here's the destructor as well:
+    <DynamicCode readonly id="code-destructor"></DynamicCode>
+
+    Check -- is it freeing the memory correctly?
+  </div>
+  <div data-if-not="destructor">
+    **It also doesn't have a destructor!**
+
+    This is **very bad**, since this means the memory allocated for the array will leak when our array is destructed. We will need to specify this carefuly.
+  </div>
+</fg-dyn>
+
+
+
+<div data-if="remove-element">
+
+---
+### Removing elements
+
+<fg-dyn>
+
+  It also looks like you had a method for removing elements (or it added one).
+  <DynamicCode readonly id="code-remove-element"></DynamicCode>
+
+  <div data-if="removeElementRealloc">
+  It looks like it's been adjusted to re-allocate when elements are removed! This is a valid design choice and has some benefits, but it also means that sometimes _removing_ elements will lead to reallocation. Is it the choice you would make?
+  </div>
+  <div data-if-not="removeElementRealloc">
+  It hasn't been changed much, which means even if we remove every element, our array will never be re-allocated to a _smaller_ size. This is a valid design choice (after all, C++'s standard dynamic array `std::vector` behaves like this!), but it is a _choice_. Is it the choice you would make?
+  </div>
+  <p/>
+
+</fg-dyn>
+<fg-fall>
+
+  If you added a `remove` method, have a check to see if it has changed. Then consider:
+   - _Should_ it have changed?
+   - Do we want our allocation to shrink when elements are removed?
+   - What are possible positives of this?
+   - What are possible _negatives_ of this? (consider what happens during the re-allocation)
+
+</fg-fall>
+</div>
+
+<div data-if="getIsInteresting">
+
+---
+### Accessing elements
+
+<fg-dyn>
+  Finally let's check <code data-var="get-element"/>, which ideally shouldn't have had any changes at all...
+
+  <DynamicCode readonly id="code-get-element"></DynamicCode>
+  <span data-if="getThrowsStdException">It's gone ahead and `thrown` a C++ standard exception for us: <code data-var="getThrownExceptionType"/>. This means our previous `catch` blocks won't work anymore!</span>
+
+</fg-dyn>
+<fg-fall>
+  Finally have a quick look at the `get` method, which ideally shouldn't have had any changes at all.
+
+  Sometimes the language model tries to be helpful and replaces the exceptions with C++ standard exceptions like `std::out_of_range`. This means our previous `catch` blocks won't work anymore!
+</fg-fall>
+</div>
+
+---
+### Safe copying
+
+Once we get into dynamic memory handling, we also need to be aware of how C++ handles copying. Have a look at the seemingly innocent piece of code below:
+```c++
+struct my_int_ptr
+{
+    int* ptr;
+    my_int_ptr()
+    {
+        ptr = new int();
+    }
+    ~my_int_ptr()
+    {
+        delete ptr;
+    }
+};
+```
+When it's constructed, `my_int_ptr` creates a new `int` on the heap and stores a pointer to it. And when it's deleted, it deletes the memory which the pointer points to - seems fine?
+
+Have a look below and we'll see a **big** problem :)
+```c++
+int main()
+{
+    {
+        // `ptr_a creates an int on the heap
+        my_int_ptr ptr_a;
+        {
+            // `ptr_b` copies `ptr_a`'s ptr
+            my_int_ptr ptr_b = ptr_a;
+        }
+        // `ptr_b` goes out of scope, and `delete`s the `int`.
+        // But `ptr_a` is still pointing to it!
+        write_line("This is still fine!");
+    }
+    // `ptr_a` goes out of scope and
+    // tries to delete the pointer again.
+    // Crash!
+    write_line("The program will crash before this is printed!");
+}
+```
+{/*`TODO: Add SKO Hand Execution here to visualize this better.`*/}
+
+Without careful handling, our dynamic array will have the same problem. Let's see if the language model generated the right code to handle this - I find it's a 50/50 chance.
+
+<fg-dyn>
+<p/>
+**-- Drumroll --**
+<p/>
+<div data-if="copy-constructor">
+  In this case, it managed to do the right thing! This is a _copy constructor_ - we haven't covered these so it might look strange.
+  <DynamicCode readonly id="code-copy-constructor"></DynamicCode>
+
+  It's very handy that this was generated for us, but it's a double-edged sword. We (probably) don't understand what this does yet, meaning we now have a bunch of code we can't even change on our own.
+
+  There are other, much simpler ways to make this class safe that it could have chosen - we'll use these on the next page :)
+  </div>
+  <div data-if-not="copy-constructor">
+  It did not! It failed to generate the code needed for our dynamic array to be safely copied. This is a pretty large oversight, and one we will have to correct when we improve our specification on the next page.
+</div>
+
+</fg-dyn>
+<fg-fall>
+  See if you can find a _second_ constructor that looks something like: `dynamic_array(const dynamic_array& other)`.
+   - If you can, then it managed to do the right thing!
+     - This is a _copy constructor_ - we haven't covered these so it might look strange.
+     - It's nice that it generated this, but it is a double-edged sword. We (probably) don't understand what this does yet, meaning we now have a bunch of code we can't even change on our own!
+     - There are other, much simpler ways to make this class safe.
+   - If you can't, then it didn't! It failed to generate the code needed for our dynamic array to be safely copied.
+     - This is a pretty large oversight, and one we will have to correct when we improve our specification on the next page.
+</fg-fall>
+
+---
+
+### Anything else?
+Have a look through the rest of the generated code and see if you can spot anything else that's interesting :) There's only so much we can guess might happen and write on this page, so make sure to have a look on your own as well. Some other things that might appear:
+ - Extra constructors
+ - Extra operators
+ - Changed class name
+ - Additional `const`s
+
+## The Takeaway
+
+As we've seen, when given a vague specification, the language model is free to make a lot of _choices_. These choices will be probabilistically drawn from all the code it saw during training - in short, the choices are random.
+
+**This isn't to say these are bad choices!**
+
+These language models have seen a _lot_ of dynamic arrays, and so it makes sensible choices. But imagine another case with project specific code - if we didn't have the understanding of programming we have, we wouldn't be able to reason about the choices at all!
+
+The point here is to think **critically** about these choices. There are always going to be things we want to improve - even for our dynamic array.
+
+Now that we know some of the choices that are being made, let's write up a more detailed specification that gives _us_ control over them :)
+
+:::tip
+    Notice that we also learned a fair bit about how dynamic arrays work by studying the output! This is a totally valid way to learn new concepts - it's just important to read the generated code with a critical eye.
+:::
+
+</div>
+
+<ClientCode/>
+

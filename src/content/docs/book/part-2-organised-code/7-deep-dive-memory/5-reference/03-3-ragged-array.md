@@ -53,10 +53,10 @@ int main()
   {
     for(int j = 0; j < sizes[i]; j++)
     {
-      printf("%d,", data[i][j]);
+      write(to_string(data[i][j]) + ",");
     }
 
-    printf("\n");
+    write_line("");
   }
 
   for(int i = 0; i < 3; i++)

@@ -5,7 +5,8 @@ const { maxHeight="350px"} = Astro.props as Props;
 <div class="code-scroll"><slot /></div>
 
 <style define:vars={{ maxHeight }}>
-.code-scroll ::global(div figure pre){
+.code-scroll ::global(.dynamic-code),
+.code-scroll ::global(.expressive-code figure pre){
   max-height: var(--maxHeight);
   overflow: auto;
 }

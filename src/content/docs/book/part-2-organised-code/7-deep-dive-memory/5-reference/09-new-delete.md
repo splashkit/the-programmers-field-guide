@@ -70,7 +70,7 @@ struct my_test_struct
 
 void print_test_struct_name(const my_test_struct& value)
 {
-    printf("Name: %s\n", value.name.c_str());
+    write_line("Name: " + value.name);
 }
 
 int main()
@@ -123,7 +123,7 @@ struct my_test_struct
 
 void print_test_struct_name(const my_test_struct& value)
 {
-    printf("Name: %s\n", value.name.c_str());
+    write_line("Name: " + value.name);
 }
 
 int main()
@@ -180,7 +180,7 @@ struct my_test_struct
 
 void print_test_struct_name(const my_test_struct& value)
 {
-    printf("Name: %s\n", value.name.c_str());
+    write_line("Name: " + value.name);
 }
 
 int main()
@@ -278,8 +278,8 @@ int main()
     my_test_struct *data = make_on_heap<my_test_struct>((my_test_struct){ "Hello"});
     int *p = make_on_heap<int>(5);
 
-    printf("p -> %d\n", *p);
-    printf("data->name = %s\n", data->name.c_str());
+    write_line("p -> " + to_string(*p));
+    write_line("data->name = " + data->name);
 
     clear_from_heap(p);
     clear_from_heap(data);
