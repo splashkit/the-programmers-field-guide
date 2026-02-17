@@ -167,7 +167,7 @@ TEST_CASE("Cheese - Provide name, weight, and price values for new cheese")
 We can try to compile this, using the following at the command line:
 
 ```sh
-clang++ cheese-shop.cpp cheese-shop-test.cpp catch_amalgamated.cpp -l splashkit -o test
+clang++ cheese-shop.cpp cheese-shop-test.cpp catch_amalgamated.cpp -l splashkit -o test -Wall
 ```
 
 This should fail, as we have not yet coded the `new_cheese` function. The message you should get will be something like this:
@@ -323,7 +323,7 @@ int main()
 You can now compile this without the tests or the testing framework. Just pass in your model and cli code, as shown here:
 
 ```sh
-clang++ cheese-shop.cpp cheese-shop-cli.cpp -l splashkit -o cheese-shop
+clang++ cheese-shop.cpp cheese-shop-cli.cpp -l splashkit -o cheese-shop -Wall
 ```
 
 When you run this you should see something like this:

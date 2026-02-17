@@ -33,6 +33,8 @@ The major difference is that you can now also declare procedures and functions.
 These are concepts we will explore shortly.
 Additionally, for the file to contain a valid C/C++ program, you need to ensure that one of the functions within the program has the name `main`, and that it returns an integer value.
 
+![Annotated program code with two functions and a procedure](./images/program-pano.png)
+
 ### Header include
 
 The `#include` code allows you to include files that contain declarations for the different things you are going to use within your program. When you include a file you gain access to the functions, procedures, constants, and variables declared within it. You can then either compile the code for these yourself, or link in an existing library.

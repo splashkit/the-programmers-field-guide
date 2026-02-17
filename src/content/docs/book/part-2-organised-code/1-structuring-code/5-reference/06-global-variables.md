@@ -19,6 +19,8 @@ The syntax is the same for any [variable or constant](/book/part-1-instructions/
 All that changes is where the declaration is -- for the variable or constant to be global it must be declared **outside** a function or procedure.
 :::
 
+![Annotated code illustrating global values](./images/global-pano.png)
+
 ## Example
 
 ```cpp

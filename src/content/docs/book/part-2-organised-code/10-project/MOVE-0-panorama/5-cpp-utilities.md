@@ -68,7 +68,7 @@ int main()
 To compile this you will need to let the compiler know that you are wanting to use the C++20 standard. Use the following call on the command line. The `-std=c++20` sets the standard to be used.
 
 ```sh
-clang++ format-test.cpp -std=c++20 -l splashkit -o test
+clang++ format-test.cpp -std=c++20 -l splashkit -o test -Wall
 ```
 
 ## Vector

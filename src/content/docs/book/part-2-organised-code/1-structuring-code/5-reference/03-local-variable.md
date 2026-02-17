@@ -32,6 +32,8 @@ The syntax for a variable declaration in C/C++ was covered [earlier](/book/part-
 The syntax for declaring a local variable is the same as declaring any other kind of variable.
 The only difference is conceptual -- any variable you declare within the statements of a function or procedure or function are local variables, and should be pictured as existing entirely within the function or procedure.
 
+![Annotate code showing local variable creation](./images/local-pano.png)
+
 ## Examples
 
 The following code creates a local variable called `name`. This variable is declared within the `say_hello` procedure, making it a local variable. Picture the `say_hello` procedure as *containing* the `name` variable, making the variable only accessible from the instructions within this procedure.

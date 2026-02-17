@@ -102,8 +102,6 @@ int main()
     write_line(result2);
     write_line(complex);
     write_line(distance);
-
-    return 0;
 }
 ```
 

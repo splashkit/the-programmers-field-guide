@@ -101,7 +101,7 @@ int main()
 To compile this you run the following in the terminal, assuming you saved your code as `program.cpp` and want the output program to be in a file called `test`.
 
 ```sh
-clang++ program.cpp -o test -l splashkit -std=c++20
+clang++ program.cpp -o test -l splashkit -std=c++20 -Wall
 ```
 
 :::tip

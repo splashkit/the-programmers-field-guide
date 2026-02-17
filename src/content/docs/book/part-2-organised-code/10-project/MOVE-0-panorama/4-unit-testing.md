@@ -59,7 +59,7 @@ TEST_CASE("Angle Calculation - Basic Test")
 To compile and run this using:
 
 ```sh
-clang++ catch-test.cpp catch_amalgamated.cpp -o test
+clang++ catch-test.cpp catch_amalgamated.cpp -o test -Wall
 ./test
 ```
 

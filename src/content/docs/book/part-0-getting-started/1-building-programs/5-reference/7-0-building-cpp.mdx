@@ -17,7 +17,7 @@ When compiling C/C++ code, you generally need to provide the following options:
 If you have SplashKit installed globally it will be installed in paths that the compiler should search automatically. Given this, you should be able to compile your program using the following command:
 
 ```zsh
-clang++ source_code.cpp -l SplashKit -o program
+clang++ source_code.cpp -l SplashKit -o program -Wall
 ```
 
 <Accordion>
@@ -32,20 +32,20 @@ If you don't want to do this, then you will need to tell the compiler where to f
 For example:
 
 ```zsh title="Example of compiling without SplashKit globally installed"
-clang++ source_code.cpp -I ~/.splashkit/clang++/include -L ~/.splashkit/lib/linux -l SplashKit -Wl,-rpath,~/.splashkit/lib/linux -o program
+clang++ source_code.cpp -I ~/.splashkit/clang++/include -L ~/.splashkit/lib/linux -l SplashKit -Wl,-rpath,~/.splashkit/lib/linux -o program  -Wall
 ```
 
 If you are using MSys2, there are a few more options that you can also include if you want to be able to run the program by double-clicking it in the Windows explorer instead of only from within MSys2. These settings ensure that the program will embed the aspects of MSys2 needed to run it independently.
 
 ```zsh title="Compiling on MSys2 so the executable can be double clicked"
-clang++ source_code.cpp -Wl,--as-needed -static-libstdc++ -static-libgcc -lSplashKit -Wl,-Bstatic -lstdc++ -lpthread -o program
+clang++ source_code.cpp -Wl,--as-needed -static-libstdc++ -static-libgcc -lSplashKit -Wl,-Bstatic -lstdc++ -lpthread -o program -Wall
 ```
 
 :::tip[When all else fails...]
 When you install splashkit it includes `skm`, a set of scripts to help compile and run SplashKit programs. If you get stuck, you can use `skm` to compile your program and this will add in the necessary compiler options for you.
 
 ```zsh title="Compiling using skm"
-skm clang++ source_code.cpp -o program
+skm clang++ source_code.cpp -o program -Wall
 ```
 :::
 

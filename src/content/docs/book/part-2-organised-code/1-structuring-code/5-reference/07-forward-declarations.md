@@ -112,9 +112,9 @@ void my_procedure()
 To compile this, we now need to compile both cpp files. If these are the only files in the current folder, then you can use the "*.cpp" wildcard to compile all cpp files. Alternatively, you can list each of the filenames in the call.
 
 ```sh
-clang++ program.cpp logic.cpp -l SplashKit -o test
+clang++ program.cpp logic.cpp -l SplashKit -o test -Wall
 
-clang++ *.cpp -l SplashKit -o test
+clang++ *.cpp -l SplashKit -o test -Wall
 ```
 
 You do not include the header files in the compiler call. The preprocessor will read those for you and embed their code where the `#include` is encountered.

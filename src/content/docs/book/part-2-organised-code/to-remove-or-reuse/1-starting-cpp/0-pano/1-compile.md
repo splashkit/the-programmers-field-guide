@@ -56,13 +56,13 @@ Have a go at the following.
 5. Compile the program using the following shell commands.
 
    ```zsh
-   clang++ hello.cpp -l SplashKit -o hello
+   clang++ hello.cpp -l SplashKit -o hello -Wall
    ```
 
    or...
 
    ```zsh
-   g++ hello.cpp -l SplashKit -o hello
+   g++ hello.cpp -l SplashKit -o hello -Wall
    ```
 
 6. Run the program using:
