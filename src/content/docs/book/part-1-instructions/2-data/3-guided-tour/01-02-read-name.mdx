@@ -6,7 +6,7 @@ sidebar:
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { Steps } from '@astrojs/starlight/components';
 
-Now that we know what functions/procedures we can use, let's get started. Best first step is to build something small, then we can grow the program our from that start. Let's just get the first two messages handled - reading the user's name and displaying it. So we want to see this at the end:
+Let's get started! The best first step is to build something small, then we can grow the program our from there. So, let's start by getting just the first two messages handled: reading the user's name and displaying it. When we're done our program output should look like this:
 
 ```txt
 What is your name: Andrew
@@ -37,19 +37,19 @@ Hi Andrew.
       </AccordionItem>
     </Accordion>
 
-3. As you look at this you, think about whether there are any values that will change. We will need to create [variables](/book/part-1-instructions/2-data/5-reference/10-variable/) to store these.
+3. Think about whether there are any values that will change. We will need to create [variables](/book/part-1-instructions/2-data/5-reference/10-variable/) to store these.
 
-    Looking at the first lines, I imagine that we may have different users run this. So their name may change.
+    Looking at the first lines of our sample program output, I imagine that we may have different users run the program. So, the name value may change.
 
     :::tip[What type of data would this be?]
     Is this a string, int, or double? String is for text, int whole numbers, and double for real numbers.
     :::
 
-4. Add the code to create a `name` variable - then we can think about how we use this.
+4. Add the code to create a `name` variable.
 
-5. Review the messages we want to output. To start we want to output the message `"What is your name: "`, read the text and user enters, then output a blank line and the greeting text `"Hi "` followed by the user's name.
+5. Review sample program output again. To start we want to output the message `"What is your name: "`, then read the text the user enters, then output a blank line and the greeting text `"Hi "` followed by the name the user entered.
   
-    Looking at the [terminal procedures/functions](/book/part-1-instructions/1-sequence/5-reference/32-terminal-to-use), we have procedures to output text (`write` and `write_line`), and functions to read text from the user (`read_line`). Use these to display the prompt, and output the required messages.
+    Looking at the [terminal procedures](/book/part-1-instructions/1-sequence/5-reference/32-terminal-to-use), we have procedures to output text (`write` and `write_line`). SplashKit also provides a [function](/book/part-1-instructions/2-data/5-reference/30-function/) to read text from the user (`read_line`). Use these to get the user's name and output the required messages.
 
     <Accordion>
       <AccordionItem header="Reading and using the user name">
@@ -76,7 +76,7 @@ Hi Andrew.
 
     :::note
 
-    Notice how you have a sequence of instructions, and can use variables to store data. Try entering different names.
+    Notice how you have a sequence of instructions, and can use variables to store data. Try running your program several times, entering different names.
 
     :::
 

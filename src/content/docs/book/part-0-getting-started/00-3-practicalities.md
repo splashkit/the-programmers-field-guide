@@ -34,13 +34,11 @@ However, the examples and activities in this book will use a specific language. 
 
 ### *So which language will I use?*
 
-The book starts with C/C++ in Part 1 and Part 2, then switches to C# for Part 3. This will ensure you are using an appropriate language when learning each concept. Mixing the two will give us an easier journey, while still allowing us to explore all the necessary paths. The good thing is, both languages have a common syntax, known as "C-style", meaning the transition shouldn’t be too challenging.
-
-While the guide uses these languages to demonstrate programming concepts, it will not explore either one in depth. It will not focus on, or examine, things that are *not* common elsewhere. This means that you will need further study and practice after finishing this book to say that you have "learnt" C# or C/C++.
+Throughout the book we use C/C++. This will ensure you are using an appropriate language when learning the core concepts. While the guide uses C/C++ to demonstrate programming concepts, it will not explore the specifics of the language in depth. It will not focus on, or examine, things that are *not* common elsewhere. This means that you will need further study and practice after finishing this book to say that you have "learnt" C/C++.
 
 Most modern systems are built using multiple programming languages, because different languages are better at different things. There is no one best language, so our approach aims to show you the common features across languages and set you up to quickly pick up the language that best fits your needs.
 
-Our goal is that, after finishing this book, you will have all the skills and understanding you need to learn C#, C/C++, and many other programming languages using resources available online and through interacting with things like generative artificial intelligence.
+Our goal is that, after finishing this book, you will have all the skills and understanding you need to learn C/C++, and many other programming languages using resources available online and through interacting with things like generative artificial intelligence.
 
 ### *What kinds of programs will I create?*
 
