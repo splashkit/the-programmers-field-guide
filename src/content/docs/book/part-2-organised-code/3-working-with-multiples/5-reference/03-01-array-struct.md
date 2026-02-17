@@ -17,10 +17,7 @@ An array can contain any kind of data. So, you can have an array of a struct tha
 ## Example
 
 ```cpp
-#include <cstdlib>
 #include "splashkit.h"
-
-using std::to_string;
 
 const int MAX_PEOPLE = 20;
 

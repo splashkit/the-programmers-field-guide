@@ -2,6 +2,9 @@
 title: Character Arrays - char[]
 sidebar:
     label: " - Character Arrays"
+banner:
+    content: |
+        Advanced topic! You may want to skip this and return later...
 ---
 
 In C/C++, arrays are a contiguous block of memory used to store multiples of a particular data type. By storing an array of characters, we are storing an array of 8-bit integers that map to characters in the ASCII table.

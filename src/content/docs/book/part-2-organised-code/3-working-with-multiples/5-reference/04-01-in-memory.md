@@ -2,6 +2,9 @@
 title: Strings Up Close
 sidebar:
     label: " - Up Close"
+banner:
+    content: |
+        Advanced topic! You may want to skip this and return later...
 ---
 
 You've been using strings in C++ for a little while now. Strings are great, they allow us to read, write, manipulate and store textual information -- and if you think about most programs you use, they are full of text! But how do strings in C++ actually work? How does a computer's memory store and manipulate textual information? And how can we do all of this in a low-level programming language like C/C++? Before we can answer these questions, let's take a quick look back at strings in C++.

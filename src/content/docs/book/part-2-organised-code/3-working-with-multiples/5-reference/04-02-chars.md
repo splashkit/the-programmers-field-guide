@@ -2,6 +2,9 @@
 title: Characters - the char data type
 sidebar:
     label: " - Characters"
+banner:
+    content: |
+        Advanced topic! You may want to skip this and return later...
 ---
 
 In C/C++, characters are represented by the `char` data type. A `char` is just an 8-bit integer (a single byte) used to represent a single character. Something like `01001010`.

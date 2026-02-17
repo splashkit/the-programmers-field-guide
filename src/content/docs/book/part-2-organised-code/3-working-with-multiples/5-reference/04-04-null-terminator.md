@@ -2,6 +2,9 @@
 title: The Null Terminator
 sidebar:
     label: " - Null Terminators"
+banner:
+    content: |
+        Advanced topic! You may want to skip this and return later...
 ---
 
 One challenge with strings, is that we often need to store strings of varying lengths. For example, the string `"Hello, world!"` is 13 characters long, whereas the string `"Hello, world, my name is Bob!"` is 27 characters long. If we were to store these strings in a `char[]` array, we would need to know the maximum length of the string before we create the array. This is not ideal, as we often don't know the length of a string before we create it, as the user may enter it at run-time.

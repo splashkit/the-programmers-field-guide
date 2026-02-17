@@ -32,13 +32,6 @@ The following code illustrates using for loops to populate and print values from
 
 const int MAX_NUMBER_DATA_VALUES = 100;
 
-struct number_data
-{
-  double values[MAX_NUMBER_DATA_VALUES];
-  int num_values;
-};
-
-
 void populate(double data[], int size)
 {
   write_line("Enter " + to_string(size) + " values (enter between each)");
@@ -57,28 +50,6 @@ void print(const double data[], int size)
   }
 }
 
-number_data get_numbers(int count)
-{
-  number_data result;
-  if (count > MAX_NUMBER_DATA_VALUES)
-  {
-    count = MAX_NUMBER_DATA_VALUES;
-  }
-  
-  result.num_values = count;
-  populate(result.values, count);
-  
-  return result;
-}
-
-void print(const number_data &data)
-{
-  for (int i = 0; i < data.num_values; i++ )
-  {
-    write_line(data.values[i]);
-  }
-}
-
 int main()
 {
   const int VALUE_SIZE = 3;
@@ -86,14 +57,5 @@ int main()
 
   populate(values, VALUE_SIZE);
   print(values, VALUE_SIZE);
-
-  number_data db;
-  db = get_numbers(10);
-
-  // Print the values we have initialised
-  print(db);
-
-  // Print all values we have space for
-  print(db.values, MAX_NUMBER_DATA_VALUES);
 }
 ```

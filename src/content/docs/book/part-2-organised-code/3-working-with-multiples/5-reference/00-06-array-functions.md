@@ -19,13 +19,6 @@ The following code illustrates how to populate an array by passing it to a proce
 
 const int MAX_NUMBER_DATA_VALUES = 100;
 
-struct number_data
-{
-  double value[MAX_NUMBER_DATA_VALUES];
-  int num_values;
-};
-
-
 void populate(double data[], int size)
 {
   write_line("Enter " + to_string(size) + " values (enter between each)");
@@ -36,29 +29,11 @@ void populate(double data[], int size)
   }
 }
 
-number_data get_numbers(int count)
-{
-  number_data result;
-  // Ensure count is <= MAX_NUMBER_DATA_VALUES
-  if (count > MAX_NUMBER_DATA_VALUES)
-  {
-    count = MAX_NUMBER_DATA_VALUES;
-  }
-  
-  result.num_values = count;
-  populate(result.value, count);
-  
-  return result;
-}
-
 int main()
 {
   const int VALUE_SIZE = 3;
   double values[VALUE_SIZE];
 
   populate(values, VALUE_SIZE);
-
-  number_data db;
-  db = get_numbers(10);
 }
 ```

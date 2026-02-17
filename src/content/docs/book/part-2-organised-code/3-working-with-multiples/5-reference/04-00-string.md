@@ -1,5 +1,8 @@
 ---
 title: String
+banner:
+    content: |
+        Advanced topic! You may want to skip this and return later...
 ---
 
 Text is one place we have already been working with array. Think about it. Each string is a number of characters. The only way this is possible is if we are using an array. The C++ language added a special `string` type to make it easier to work with textual data. This has been good, as we have been able to use that up to now.

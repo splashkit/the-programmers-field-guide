@@ -1,10 +1,8 @@
 ---
-title: Struct with Array
+title: Better Managing Arrays
 sidebar:
-    label: " - Array in Struct (C/C++)"
+    label: "Array in a Struct"
 ---
-
-## In C/C++
 
 One effective way to work with arrays in C/C++ is to place the array and its size into a struct. This allows you to keep the data and the number of elements that is has nicely together. You can then also use the size to give you the capability of adjusting the number of elements you are using, by changing the value of the array's size. With this, you can then grow and shrink the size of the array, up to a set maximum number of elements.
 
@@ -44,13 +42,13 @@ struct number_data
 };
 
 /**
- * Populate the array with values entered by the user
+ * Populate a number of elements of the array with values entered by the user
  *
  * @param data the array of values (passed by reference)
+ * @param size the number of elements to initialise
  */
-void populate_array(number_data &data)
+void populate_array(number_data &data, int size)
 {
-  int size = read_integer("How many values do you want to enter? ");
   if (size > MAX_NUMBERS)
   {
     write_line("Sorry, you can only enter " + to_string(MAX_NUMBERS) + " values.");
@@ -69,6 +67,38 @@ void populate_array(number_data &data)
     data.values[i] = read_double("Enter value: ");
   }
 }
+
+
+/**
+ * Populate the array with values entered by the user
+ *
+ * @param data the array of values (passed by reference)
+ */
+void populate_array(number_data &data)
+{
+  int size = read_integer("How many values do you want to enter? ");
+  populate_array(data, size);
+}
+
+/**
+* Get numbers returns an initialised number data struct.
+*/
+number_data get_numbers(int count)
+{
+  number_data result;
+  // Ensure count is <= MAX_NUMBER_DATA_VALUES
+  if (count > MAX_NUMBER_DATA_VALUES)
+  {
+    count = MAX_NUMBER_DATA_VALUES;
+  }
+  
+  populate(result, count);
+  
+  // You cannot return an array, but you can return a struct
+  // that contains an array
+  return result;
+}
+
 
 int main()
 {
