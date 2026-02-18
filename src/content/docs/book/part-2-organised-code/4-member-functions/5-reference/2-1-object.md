@@ -73,21 +73,6 @@ int main()
   m4.print();
   m5.print();
 
-  // Objects can also be on the heap... in this case m6 is a pointer to the object.
-  // the object itself is on the heap
-  text_message *m6 = new text_message("John", "I'm glad to hear it");
-
-  // With pointer, use the -> operator to interact with the object
-  m6->print();  // ask the object that m6 points to, to print itself
-  delete m6; // now destroy the object that m6 refers to...
-  
-  // The object referred to by m6 no longer exists... but
-  m6 = NULL; // m6 still exists - it is a pointer. We can change it to point to null now.
-
-  // We can even create another object for m6 to refer to
-  m6 = new text_message("Ye", "Howdy");
-  delete m6;
-
   return 0;
 }
 ```
