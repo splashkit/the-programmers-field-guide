@@ -2,11 +2,33 @@
 title: Struct Members
 ---
 
-C++ introduced the idea of embedding functions and procedures into structs. We will look at the basics of this idea here, with a focus on how this is used to organise our code. In [Part 3](/book/part-3-programs-as-concepts/00-part-3-programs-as-concepts) we will look at how this changes the way we think about our software.
+So far, structs have only contained data fields. This made it easy to collect together the pieces of data associated with an entity. The usefulness of the idea of consolidating things within an entity eventually resulted in the idea of also embedding the functionality alongside the data *within* the entity. This became the *object-oriented paradigm*, which is the focus of [Part 3](/book/part-3-programs-as-concepts/00-part-3-programs-as-concepts).
+
+C++ extended the C language and introduced this idea of embedding functions and procedures within structs. We will look at the basics of this idea here, with a focus on how this is used to organise our code.
 
 Let's consider simple example of a contact, where each contact has a name and phone number and can be printed. The following image shows the two different ways we can conceive of this solution. First we can see the struct as only having the data, alongside which we need to have functions and procedures that work on this data. On the other side, we have the struct with the functions and data declared within it. This makes a more complete package, were you have the data and the things that work on it all in the one place.
 
 ![Visualisation showing a data only struct with functions and procedures, and a struct with members that include methods and a constructor](./images/members.png)
+
+Here is what this looks like in code. We will
+
+![Struct with member functions](./images/struct-members-pano.png)
+
+:::note[A struct:]
+
+ - can contain fields (data members) as we have seen before.
+ - can also contain **methods** - the term we use for functions/procedures within a struct.
+ - may have **constructors** - special methods called when a value of the struct is created.
+
+When using a struct with member functions:
+
+- a constructor is called when you declare the variables.
+- you can access the data fields.
+- you can call methods on the struct values.
+
+We will explore each of these additions over the following pages.
+
+:::
 
 ## Data only struct example
 

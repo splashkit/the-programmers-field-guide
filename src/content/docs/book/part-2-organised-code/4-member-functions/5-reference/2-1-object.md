@@ -1,5 +1,7 @@
 ---
 title: Objects
+sidebar:
+  label: " - Objects"
 ---
 
 Once we start working with member functions, we are moving into object-oriented programming. So...
