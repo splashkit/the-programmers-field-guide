@@ -6,7 +6,7 @@ sidebar:
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { Steps } from '@astrojs/starlight/components';
 
-Now you have a start, you keep progressing in the same way. Building up the code in small increments. For the next step, let's read in the distance and time. This will need us to convert the data entered from text (what we read from the user) to numbers we can work with in the code.
+Now you have a start, you can keep progressing by building up the code in small increments. For the next step, let's read in the distance and time. To do this we'll need to get the user's input, then convert what they entered from text to numbers we can work with in the code.
 
 The output we are aiming to create next is:
 
@@ -20,21 +20,28 @@ How long has it taken? Enter minutes: 7
 ```
 
 <Steps>
-1. What new things do we have that changing now?
+1. Declare variables for new things that change.
 
-    Both the distance and time may be different. These are numeric values, so they could either be `int` or `double` values. Integers are whole numbers, doubles are real values.
-
-    Add the code for these variables. I suggest placing this back up at the top, below the declaration of the `name` variable.
+    Both the distance and time may change between executions of the program.
+    Both of these are numeric, so they could either be `int` or `double` values.
+    Add the code for these variables.
+    I suggest placing this code at the top, below the declaration of the `name` variable. That way we can keep all of the variable declarations together.
 
 2. Add the code to read these values in from the user.
 
-    Now, we have a problem - you cannot store the result of calling `read_line` into a `int` or a `double`. How can we get this to work? There isn't *one* function we can use to here, so we have to think about using what we have. If you look at the [terminal procedures/functions](/book/part-1-instructions/1-sequence/5-reference/32-terminal-to-use) you will see there is a `to_integer` and a `to_double` function. These convert strings to numeric values. We could read the text from the user into a string, and then convert that and store the result in our variables.
+    Now, we have a problem: you cannot store the result of calling `read_line` into an `int` or a `double`, because `read_line` returns a string.
+    But, we need a numeric values so we can use them in calculations.
+    So, how can we get this to work?
+    SplashKit has two functions that can help us: `to_integer` and `to_double`.
+    These functions convert strings to numeric values (either an integer or a double, depending on which one you call).
+    So, we could read the text from the user into a string, and then convert that and store the result in the variables we created in step 1.
+    The steps we need to program for this are:
 
-    - Add a `user_input` string variable.
-    - Output appropriate messages with `write`
-    - Read input from the user, and store it in `user_input`
-    - Convert `user_input` to the required type, and store the distance variable.
-    - Repeat for the time variable
+    - Declare a `user_input` string variable.
+    - Output appropriate messages with `write` to tell the user what information we want.
+    - Read input from the user, and store it in `user_input`.
+    - Convert the value in `user_input` to the required type, and store the result in the distance variable declared in step 1.
+    - Repeat these steps for the time variable.
 
     <Accordion>
       <AccordionItem header="Code for reading distance and time">
@@ -68,11 +75,11 @@ How long has it taken? Enter minutes: 7
       </AccordionItem>
     </Accordion>
 
-3. Compile and run your program. Check the output matches what we are after.
+3. Compile and run your program. Check that your output matches what we are after.
 
     :::note
 
-    The program will crash is you enter something other than a number for distance and time. This is ok for now. We will see how to fix this later.
+    The program will crash if you enter something other than a number for distance and time. This is ok for now. We will see how to fix this later.
 
     :::
 </Steps>
