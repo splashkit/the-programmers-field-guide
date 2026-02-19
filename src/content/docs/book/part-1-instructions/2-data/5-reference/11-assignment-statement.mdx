@@ -259,7 +259,7 @@ The assignment statement is an **instruction** that stores a value in a [variabl
 
 ![An assignment statements assigns a value to a variable](./images/assignment-statement-concept.png "An assignment statements assigns a value to a variable")
 
-The assignment statement performs two actions. First, it calculates the value of the [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression/) (calculation) on the right-hand side of the assignment operator (the `=`). Once it has the value, it stores the value (assigns it) to the variable on the left-hand side of the assignment operator.
+The assignment statement performs two actions. First, it calculates the value of the [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression/) on the right-hand side of the assignment operator (the `=`). Once it has the value, it stores the value (assigns it) to the variable on the left-hand side of the assignment operator.
 
 ![Illustration of assignment code and actions](./images/assignment-statement-pano.png)
 
@@ -269,8 +269,8 @@ You will have created a variable as you have identified a piece of information t
 Whenever you have a new value, you update the variable by using an **assignment statement**.
 
 The assignment statement uses the **assignment operator** `=`.
-The [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression) right-hand side of `=` determines the value to be stored.
-This could be a [literal](/book/part-1-instructions/1-sequence/5-reference/14-literal), a [function call](/book/part-1-instructions/2-data/5-reference/30-function), or any other [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression).
+The [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression) on the right right-hand side of `=` determines the value to be stored.
+This could be a [literal](/book/part-1-instructions/1-sequence/5-reference/14-literal), a [function call](/book/part-1-instructions/2-data/5-reference/31-function-call/), or any other [expression](/book/part-1-instructions/1-sequence/5-reference/13-expression).
 On the left-hand side, you write the identifier of the variable you want to store this value in.
 
 ### Assigning a string value
@@ -287,7 +287,7 @@ name = "Fred";
 
 ### Updating an integer value
 
-The order of the actions in the assignment statement allows you to update the value of a variable. The following code creates a variable called `count`, initialises it to 0, and then updates its value by adding 1 to its current value.
+The order of the actions in the assignment statement allows you to update the value of a variable, even if the expression refers to the variable you are updating. The following code creates a variable called `count`, initialises it to 0, and then updates its value by adding 1 to its current value.
 
 ```c++
 // Create and initialise count
@@ -305,7 +305,7 @@ count = count + 1;
 <CommmonLink type="syntaxDiagramGuide"/>
 :::
 
-At the basic level, the assignment statement uses `=` operator. To the left you put the variable name, to the right you put the value.
+At the basic level, the assignment statement uses `=` operator. To the left you put the variable name, to the right you put the value you want to store in it.
 
 ## Example
 
@@ -341,7 +341,7 @@ int main()
 
 The following sliders show how the assignment statement works in detail.
 These are both relatively simple programs, but notice how much is going on behind the scenes!
-The good thing is that you do not need to think overly about these smaller steps, as long as you remember that the assignment statement works by evaluating the expression on the right-hand side of the `=` and then stores the result in the variable on the left-hand side.
+The good thing is that you do not usually need to think about these smaller steps, as long as you remember that the assignment statement works by evaluating the expression on the right-hand side of the `=` and then stores the result in the variable on the left-hand side.
 
 ### Assigning an integer
 
