@@ -14,42 +14,39 @@ Move on to the [activities](/book/part-1-instructions/2-data/4-activities/1-grou
 
 In the last chapter we worked on a [House Drawing program](/book/part-1-instructions/1-sequence/3-guided-tour/01-00-house-drawing/), but identified that our house is currently drawn using hard-coded values for each shape. It would be difficult to resize or move the house without manually re-calculating each of the coordinates.
 
-We'll now upgrade our House Drawing program to _dynamically calculate_ the positions and sizes of the shapes we draw, by using variables and expressions! This is the first step to creating much more interesting graphical programs - such as ones with graphical interfaces - or games.
+We'll now upgrade our House Drawing program to _dynamically_ calculate the positions and sizes of the shapes by using variables and expressions! This is the first step to creating much more interesting graphical programs. For example, we could tell the program to draw a tiny house like this:
 
 ![House output](./images/house-small.png)
 
-Let's look at adding some constants and variables to make this more dynamic. We will let the user tell us what size the house should be, then calculate the positions for the shapes.
+Let's start by thinking about the constants and variables we'll need. The goal is to let the user tell us what size the house should be, then calculate the positions for the shapes based on that.
 
 ![House plan illustration](./images/house-plan-calc.png)
 
 ---
 
 <Steps>
-1. Start with positioning the walls. Determine what we need to calculate.
-
-    We will need to determine:
+1. Start with positioning the walls. For this we will need to determine:
 
     - the screen size. Create constants for `SCREEN_WIDTH` and `SCREEN_HEIGHT`.
-    - the house size - which the user will provide via the terminal at the start
-    - to read in house size we will need to read and convert data. So a `user_input` variable could be created for this.
-    - the wall position (its x and y) - this is where we draw the wall.
+    - the house size, which the user will provide via the terminal. We will need to read in the user's data and convert it to the right data type. So, a `user_input` variable could be created for this.
+    - the wall position (its x and y).
 
     :::tip
-        -  Assign `wall_x` a value to center the wall - use `(SCREEN_WIDTH - house_size) / 2`.
-        -  Calculate `wall_y` from the bottom of the screen - this will be `SCREEN_HEIGHT - BOTTOM_GAP - house_size`.
+        -  Assign `wall_x` a value so that the wall is in the center of the screen -- use `(SCREEN_WIDTH - house_size) / 2`.
+        -  Calculate `wall_y` from the bottom of the screen -- this will be `SCREEN_HEIGHT - BOTTOM_GAP - house_size`.
     :::
 
 2. Code this up and test it out:
 
-    - Add constants for screen width and height - Where else could you use these?
-    - Add variables for `house_size` and `user_input` - write the terminal code to read these in
-    - Add variables for `wall_x` and `wall_y` - calculate these as noted above.
+    - Add constants for screen width and height -- where else could you use these?
+    - Add variables for `house_size` and `user_input`, write the terminal code to read these in.
+    - Add variables for `wall_x` and `wall_y`, and calculate values for these as noted above.
     - Compile and run and try different wall sizes.
 
     <Accordion>
       <AccordionItem header="Code to calculate walls - if you get stuck">
 
-      As I coded this I realised I needed an extra constant - `BOTTOM_GAP`. When you find you are hard-coding values you should think if there is a meaningful name to describe the value. Naming the "bottom gap" helps make it clearer what that 100 was about, whereas the 2 does not need a different name. We are dividing by 2 to get half the value.
+      As I coded this I realised I needed an extra constant - `BOTTOM_GAP`. When you find you are hard-coding values you should think if there is a meaningful name to describe the value. Naming the "bottom gap" helps make it clearer what that 100 was about. The value 2, however does not need a different name. We are dividing by 2 to get half the value, and that is clear enough from the context of the expression.
 
       ```c++ {3-5, 9-18,23,25}
       #include "splashkit.h"
@@ -88,28 +85,28 @@ Let's look at adding some constants and variables to make this more dynamic. We 
       </AccordionItem>
     </Accordion>
 
-3. Connect the roof. Ok, this may be a bit of a challenge for you. Have a go at coding the roof based on the plan above.
+3. Have a go at coding the roof based on the plan above. This may be a bit of a challenge!
 
     :::tip
     I used variables for:
 
-      - `roof_overhang` - based on `house_size`
-      - `roof_height` - based on the `house_size`
-      - `roof_left` - based on `wall_x` and subtracting the overhang.
-      - `roof_middle` - center of the house - you can calculate it from `wall_x` and `house_size`
-      - `roof_right` - based on `wall_x`, plus the house size, and the overhang.
-      - `roof_top` - based on `wall_y`, minus the `roof_height`
+      - `roof_overhang` -- based on `house_size`.
+      - `roof_height` -- based on the `house_size`.
+      - `roof_left` -- based on `wall_x` and subtracting the overhang.
+      - `roof_middle` -- center of the house -- you can calculate it from `wall_x` and `house_size`.
+      - `roof_right` -- based on `wall_x`, plus the house size, and the overhang.
+      - `roof_top` -- based on `wall_y`, minus the `roof_height`
     :::
 
-4. Compile and run, then check your calculation if it doesn't look right.
-5. Finally, adjust the code so that the size of the hill is calculated from the size of the screen. It is as wide as the screen, appears 2/3rds of the way down the screen, and is 2/3rds the height of the screen. 
+4. Compile and run, then check your calculations if it doesn't look right. It can help to step through your code and draw out what it is doing if you get stuck.
+5. Finally, adjust the code so that the size of the hill is calculated from the size of the screen. It is as wide as the screen, appears 2/3rds of the way down the screen, and is 2/3rds the height of the screen.
 
     Once you change this, try different screen sizes!
 </Steps>
 
 When you have this working you should feel confident that you can achieve anything when working with basic shapes in graphical programs.
 
-Here is out version of the code. Remember that it is ok if your version differs from this. The main thing is to understand how to work with variables and constants, how to call functions and procedures, and how to sequence these to achieve a goal.
+Here is our final version of the code. Remember that it is ok if your version differs from this. The main thing is to understand how to work with variables and constants, how to call functions and procedures, and how to sequence these to achieve a goal.
 
 <Accordion>
   <AccordionItem header="Final code">

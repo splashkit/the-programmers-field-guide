@@ -4,19 +4,19 @@ title: Dynamic Image Drawing
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { Steps } from '@astrojs/starlight/components';
 
-In the [Sequence](/book/part-1-instructions/1-sequence/4-activities/3-drawing) chapter we started working with graphics by create a [House Drawing program](/book/part-1-instructions/1-sequence/3-guided-tour/01-00-house-drawing/) that worked with manual coordinates. Let's try something a little different in this chapter, and use SplashKit to draw an image for us.
+In the Sequence chapter we started working with graphics by create a [House Drawing program](/book/part-1-instructions/1-sequence/3-guided-tour/01-00-house-drawing/) that worked with manual coordinates and a collection of shapes. Let's try something a little different this time, and use SplashKit to draw an image for us.
 
 ## Finding your image
 
 <Steps>
-1. Run VS Code, and open the folder with your code or create and open a new folder for this project. If you get stuck, refer back to your notes on how to [get started with VS Code](/book/part-0-getting-started/1-building-programs/3-guided-tour/3-first-project/).
-2. Create a new C++ file for your code. I called mine *image-drawing.cpp*.
-3. Open the Terminal, and run `skm resources`. This should create a *Resources* folder with subfolders for images.
-4. Find and download an image you can use. Place the image in the *Resources/images* folder.
-    There are many free image resources available on the internet. Search for an image you would like to draw and manipulate in your program.
+1. Run VS Code, and either open the folder with your code, or create and open a new folder for this project. If you get stuck, refer back to your notes on how to [get started](/book/part-0-getting-started/1-building-programs/3-guided-tour/3-first-project/).
+2. Create a new C++ file for your code. I called mine **image-drawing.cpp**.
+3. Open the terminal, and run `skm resources`. This should create a **Resources** folder with subfolders for images.
+4. Find and download an image you can use. Place the image in the **Resources/images** folder.
+    There are many free image resources available on the internet. Pick anything you like, or use an image you already have.
 
    I searched for a "tree sprite image", and found some on [Freepix](https://www.freepik.com/search?ai=excluded&file_type=png&format=search&last_filter=selection&last_value=1&query=Tree+sprite&selection=1). I choose a png format so that it could have a transparent background.
-5. Rename the file so that it will be easy to refer to in your program. I called mine *tree.png*. I also resized my image so that it was 200 pixels wide, you can do this in Paint on a PC or Preview on a Mac, or in other image editors.
+5. Rename the file so that it will be easy to refer to in your program. I called mine **tree.png**. I also resized my image so that it was 200 pixels wide. You can do this in Paint on a PC or Preview on a Mac, or in another image editor.
 
    Here is what I have so far:
 
@@ -25,16 +25,16 @@ In the [Sequence](/book/part-1-instructions/1-sequence/4-activities/3-drawing) c
 
 ## Adding boilerplate code
 
-Now we need to add some code to get started. With a graphical program you will always start off with pretty much the same thing. This is called *boilerplate* code as it is standard, reusable code.
+Now we are ready to add some code. With a graphical program you will always start off with pretty much the same thing. This is called *boilerplate* code as it is standard, reusable code.
 
 <Steps>
-6. Switch to your C++ code in Visual Studio, and add the following:
+1. Switch to your C++ code in Visual Studio, and do the following:
 
-    1. Include SplashKit
-    2. Create main
-    3. Open a window - I went with one titled "Image Drawing", with dimensions 500 x 300.
-    4. Refresh the screen
-    5. Delay - I decided 5 seconds was enough.
+    1. Include SplashKit.
+    2. Create main.
+    3. Open a window. I went with one titled "Image Drawing", with dimensions 500 x 300.
+    4. Refresh the screen.
+    5. Delay. I decided 5 seconds was enough.
 
    Have a go at this yourself. You can check my code here if you get stuck.
 
@@ -55,10 +55,10 @@ Now we need to add some code to get started. With a graphical program you will a
       </AccordionItem>
     </Accordion>
 
- 7. Compile and run to make sure things are going ok so far. When this runs you should see an empty window appear.
+ 2. Compile and run to make sure things are going ok so far. When this runs you should see an empty window appear.
 
     <Accordion>
-      <AccordionItem header="Compile in the Terminal">
+      <AccordionItem header="Compile and run in the terminal">
 
       ```sh
       clang++ image-drawing.cpp -o test -l SplashKit -Wall
@@ -86,12 +86,12 @@ Now we can load and draw our image. SplashKit includes the following functions y
     void draw_bitmap(bitmap bmp, double x, double y, drawing_options opts);
     ```
 
-Let's use this to load our tree and then draw it to the window we have opened.
+Let's use these to load our tree and then draw it to the window we have opened.
 
 <Steps>
-8. Create a variable with the `bitmap` type. This is a type that SplashKit created to store bitmaps (images). I called mine `tree`.
-9. Add an assignment statement to call `load_bitmap`, and store the result in your variable. Make sure that this is after loading the window (it will work before, but is more efficient after).
-10. Draw your image using the `bitmap` variable as the first argument. I picked the coordinates 10,20 (10 pixels from the left and 20 from the top). Make sure this is after you load the image, but before you refresh the screen.
+3. Create a variable with the `bitmap` type. This is a type that SplashKit created to store bitmaps (images). I called mine `tree`.
+4. Add an assignment statement to call `load_bitmap` and store the result in your variable. Make sure that this line of code is placed after the line to load the window (it will still work if it's before, but is more efficient if it's after).
+5. Draw your image using the `bitmap` variable as the first argument. I picked the coordinates 10,20 (10 pixels from the left and 20 from the top). Make sure this line is after you load the image, but before you refresh the screen.
 
     <Accordion>
       <AccordionItem header="Drawing the image">
@@ -117,9 +117,9 @@ Let's use this to load our tree and then draw it to the window we have opened.
 
       </AccordionItem>
     </Accordion>    
-11. Compile and run to make sure this works. If you can't see the image, check that the filenames match and that you have the image in the *Resources/images* folder.
-12. Also draw it using its name - SplashKit can locate images you have loaded using their name. For this one I picked the coordinates 220,20.
-13. Compile and run again. Make sure you can see both images. Here is what mine looked like.
+6. Compile and run to make sure this works. If you can't see the image, check that the file names match and that you have the image in the *Resources/images* folder. Also check that the *sequence* of instructions is correct -- the instruction to draw the bitmap must be before the instruction to refresh the screen.
+7. SplashKit can locate images you have loaded using their name. Try this out by adding another instruction to draw the image, this time using its name. For this one I picked the coordinates 220,20.
+8. Compile and run again. Make sure you can see both images. Here is what mine looked like.
 
     ![Program running](./images/dynamic-image-drawn.png)
 
@@ -152,17 +152,17 @@ Let's use this to load our tree and then draw it to the window we have opened.
 </Steps>
 
 :::tip
-In SplashKit you can work with images using `bitmap` variables or using the images *name* (a `string`). In many cases it will be easier to use the name, but using the `bitmap` is a more efficient.
+In SplashKit you can work with images using `bitmap` variables or using the image's *name* (a `string`). In many cases it will be easier to use the name, but using the `bitmap` is a bit more efficient. This is because when we use the name the computer has to look up which bitmap is associated with that name. By using the bitmap directly it can skip this step.
 :::
 
-## The bitmap name
+## Using the bitmap name
 
-If we are going to use the name to draw the bitmap, then we don't want this string value scattered throughout our program. Let's create a [constant](/book/part-1-instructions/2-data/5-reference/20-constant) to manage this, and switch the current literal values to that constant.
+If we are going to use the name to draw our bitmap, then we don't want this string value scattered throughout our program. Let's create a [constant](/book/part-1-instructions/2-data/5-reference/20-constant) to manage this, and switch the current literal values to that constant.
 
 <Steps>
-14. Create a new `IMAGE_NAME` constant. I gave mine the value "tree".
-15. Change the bitmap name in the load and draw bitmap calls to use this constant.
-16. Compile and run to make sure things still work as expected.
+9. Create a new `IMAGE_NAME` constant. I gave mine the value "tree".
+10. Change the bitmap name in the load and draw bitmap calls to use this constant.
+11. Compile and run to make sure things still work as expected.
 
     <Accordion>
       <AccordionItem header="Code so far">
@@ -200,20 +200,20 @@ Using a constant in this way makes sure that things are consistent throughout th
 
 ## Rotating an image
 
-SplashKit provides drawing options that let you alter how a bitmap is drawn. Let's use this now to allow the user to rotate the 2nd image we drew. For this we will need to use the SplashKit [option rotate bitmap](https://splashkit.io/api/graphics/#option-rotate-bmp) function. It will return us drawing options we can pass into draw bitmap. This has the following signature:
+SplashKit provides drawing options that let you alter how a bitmap is drawn. Let's use this now to allow the user to rotate the second image we drew. For this we will need to use the SplashKit [option rotate bitmap](https://splashkit.io/api/graphics/#option-rotate-bmp) function. It will return us drawing options we can pass into `draw_bitmap`. This function has the following signature:
 
     ```c++
     drawing_options option_rotate_bmp(double angle);
     ```
 
 <Steps>
-17. Create a `rotation` variable - it will need to store a real number, so we use `double` to indicate that.
-18. Create a `user_input` variable, as you did in the earlier program. This will be used to store the text the user types.
-19. Display a message to the user asking them to enter the number of degrees to rotate the image.
-20. Use an assignment statement to read in the angle from the user.
-21. Use another assignment statement to convert the user input to a double, and store it in the `rotation` variable.
-22. Now update the 2nd draw bitmap call. Pass an additional argument that will call `option_rotate_bmp`, where you pass `option_rotate_bmp` the value from the `rotation` variable.
-23. Compile and run. Here is what it looked like for me when I rotated the image by 147 degrees.
+12. Create a `rotation` variable. It will need to store a real number, so we can use `double` to indicate that.
+13. Create a `user_input` variable, as you did in the [earlier program](/book/part-1-instructions/2-data/3-guided-tour/01-02-read-name/). This will be used to store the text the user types.
+14. Display a message to the user asking them to enter the number of degrees to rotate the image.
+15. Use an [assignment statement](/book/part-1-instructions/2-data/5-reference/11-assignment-statement/) to read in the angle from the user.
+16. Use another assignment statement to convert the user's input to a `double`, and store it in the `rotation` variable.
+17. Now update the second draw bitmap call. Pass an additional argument that will call `option_rotate_bmp`, where you pass `option_rotate_bmp` the value from the `rotation` variable.
+18. Compile and run. Here is what it looked like for me when I rotated the image by 147 degrees.
 
     ![Two trees drawn, one rotated 147 degrees](./images/dynamic-image-rotated.png)
 
@@ -253,17 +253,17 @@ SplashKit provides drawing options that let you alter how a bitmap is drawn. Let
 
 </Steps>
 
-## Scale an image
+## Scaling an image
 
-SplashKit also provides an [option scale bitmap](https://splashkit.io/api/graphics/#option-scale-bmp) function that lets you scale the x and y size of the image being drawn. This function is passed two values indicating the amount to scale the x and y dimensions. If you pass these 1.0 the image is drawn at the same size, if you pass it 0.5 then the image will be half the size. Here is the signature:
+SplashKit also provides an [option scale bitmap](https://splashkit.io/api/graphics/#option-scale-bmp) function that lets you scale the x and y size of the image being drawn. This function is passed two values indicating the amount to scale the x and y dimensions. If you pass these both 1.0 the image is drawn at the same size. If you pass in 0.5 for both then the image will be half the size. Here is the signature of this function:
 
 ```c++
 drawing_options option_scale_bmp(double scale_x, double scale_y)
 ```
 
 <Steps>
-24. Adjust the program to allow the use to provide a scale of the first image drawn - so one image is scaled and the other is rotated. Add additional variables to handle this, and read the value from the Terminal as you did with the rotation.
-25. Compile and run, and check that you can scale the image as you want.
+19. Adjust the program to allow the user to provide a scale for the first image drawn. So, one image is scaled and the other is rotated. Add additional variables to handle this, and read the scale value from the terminal as you did with the rotation.
+20. Compile and run, and check that you can scale the image as you want.
 </Steps>
 
 ## Scale and Rotate Challenge
@@ -271,5 +271,5 @@ drawing_options option_scale_bmp(double scale_x, double scale_y)
 If you want a challenge, try rotating and scaling a third image. You will need to have a look at the different versions of the [option scale bitmap](https://splashkit.io/api/graphics/#option-scale-bmp) and [option rotate bitmap](https://splashkit.io/api/graphics/#option-rotate-bmp) functions. You should be able to chain these function calls together to achieve both effects.
 
 :::note[This is a challenge]
-You should be able to see if this worked as you can see the image rotated and scaled. If you get stuck, feel free to skip this and come back later.
+You should be able to see if this worked as you will be able to see the image rotated and scaled. If you get stuck, feel free to skip this and come back later.
 :::

@@ -12,7 +12,7 @@ Air speed velocity of swallows is a classic moment from the Monty Python team in
 
 To answer this age-old question, you can mock up the following program to calculate the airspeed velocity of these important birds. With a quick search, you find [an equation](http://www.style.org/strouhalflight) based on the Strouhal Number and some [details on swallows](http://style.org/unladenswallow/). We can use this information to create a program that can calculate the airspeed velocity of African and European Swallows.
 
-From these articles we can determine that the airspeed velocity of a swallow can be calculated using `Speed = Frequency * Amplitude / Strouhal`. Code this into a program and then calculate and display the airspeed for different wing values.
+From these articles we can determine that the airspeed velocity of a swallow can be calculated using `Speed = Frequency * Amplitude / Strouhal`. Code this into a program and then calculate and display the airspeed for different values.
 
 Some values that will help with this are:
 
@@ -26,7 +26,7 @@ My plan for this program involves the following steps:
 
 1. Show the program details at the start.
 2. Read in the name, frequency, and amplitude.
-3. Calculate min and max speeds.
+3. Calculate min and max speeds based on the two set Strouhal values.
 4. Output results.
 
 When the program starts, we can output a few messages to let the user know what the program does. This can be a sequence of calls to `write_line`.
@@ -34,13 +34,13 @@ When the program starts, we can output a few messages to let the user know what 
 Reading in the bird's name will be relatively straightforward.
 We can use `write` to display a prompt asking the user to enter a bird name, and then use `read_line` to get a value we then store in a variable.
 
-With frequency and amplitude, we will require the extra step to convert the user's input to a number. These will need to be `double` values, and any loss of precision will not cause issues. To do the conversion we can call `to_double` from SplashKit.
+With frequency and amplitude, we will require the extra step to convert the user's input to a number. These will need to be `double` values. To do the conversion we can call `to_double` from SplashKit.
 
 To calculate the min and max speeds we can use the equation that we noted above, using variables to store the results. These can then be used in the "output results" step, where we can call `write_line` to output the calculated details.
 
 ## Variables and Constants
 
-Reviewing this plan, we can identify which constants and variables we will need to create within our program. We have a few set values, and some values that we want to be able to be different each time the program runs. We can create the following building blocks to help us work with this into our program:
+Reviewing this plan, we can identify which constants and variables we will need to create within our program. We have a few set values, and some values that we want to be able to be different each time the program runs. So, we will need to create the following building blocks in our program:
 
 - Two constants:
   - `STROUHAL_LOW_EFFICIENCY` to store 0.4.
@@ -48,7 +48,7 @@ Reviewing this plan, we can identify which constants and variables we will need 
 - Six variables:
   - Two strings:
     - `bird_name` to capture the name of the bird the user enters.
-    - A `line` to store the numbers they enter until we can convert them to a double.
+    - A `line` to store the numbers the user enters until we can convert them into a `double`.
   - Four double values:
     - `freq` to store the frequency of the bird's wing stroke in beats per second.
     - `amp` to store the amplitude in meters.
@@ -85,7 +85,8 @@ Output the bird's name, and its min and max airspeed
 
 ## Building and Running
 
-Build and run this in small steps:
+Build and run this program in small steps.
+The steps we suggest are:
 
 - Read in the bird's name and output it back. Build and run.
 - Add reading in frequency, and add it to the output. Build and run.
@@ -98,7 +99,7 @@ Build and run this in small steps:
 
 ## Wrap Up
 
-Think about the algorithm, identify any things you need in the code (variables and constants), then code by building out the plan little by little. As you write more programs you will get very used to this process.
+Think about the algorithm, identify any things you need in the code (variables and constants), then write the code by building out the plan little by little. As you write more programs you will get very used to this process.
 
 Here is our version of the Airspeed velocity program code. Remember that your code may be a little different to this, and that is ok. The most important thing is that you create your own version, have a good understanding of how it works, and have developed the knowledge and skills necessary to create similar programs using variable and constant declarations, assignment statements, procedure/function calls, and an iterative process.
 
