@@ -13,7 +13,7 @@ SplashKit integrates a few models that are suitable to run locally, and will giv
 - [Qwen3](https://qwen.readthedocs.io/en/latest/)
 - [Gemma 3](https://blog.google/technology/developers/gemma-3/)
 
-With different variants for parameter size, and fine-tuning.
+With different variants for parameter size and fine-tuning.
 
 By default, SplashKit will use the [Qwen3 0.6B Instruct model](https://huggingface.co/Qwen/Qwen3-0.6B-GGUF) for replies to prompts, and [Qwen3 0.6B base model](https://huggingface.co/Qwen/Qwen3-0.6B-Base). This model has been fine-tuned to respond to instructions, giving you the ability to interact in a chat style similar to online LLM tools.
 
@@ -27,7 +27,7 @@ string generate_text(string text);
 string generate_text(string text, int max_tokens);
 ```
 
-You use `generate_reply` to respond to the question or prompt you provide. Whereas, `generate_text` is used to generate the words that follow the text you provide. You can specify the maximum number of tokens to use in generating the text, this defaults to 125. Here is an example of each of these in action.
+You use `generate_reply` to respond to the question or prompt you provide. Whereas, `generate_text` is used to generate the words that follow the text you provide. You can specify the maximum number of tokens to use in generating the text, otherwise this defaults to 125. Here is an example of each of these in action.
 
 ```c++
 #include "splashkit.h"
@@ -63,7 +63,7 @@ string generate_text(language_model model, string text);
 string generate_text(language_model model, string text, int max_tokens);
 ```
 
-Here is an example where we ask the user what they want to do, but check if they want to quit. We can use this kind of interaction as we explore new tools in the next chapter.
+Here is an example where we ask the user what they want to do, using the `QWEN3_1_7B_INSTRUCT` model.
 
 ```c++
 #include "splashkit.h"
@@ -110,7 +110,7 @@ Available models are:
 
 ## Conversations
 
-You can also create conversations to keep track of prior context. This uses the following functions and procedures.
+You can also create conversations to keep track of prior context. This uses functions and procedures with the following signatures:
 
 ```c++
 // Start a conversation with

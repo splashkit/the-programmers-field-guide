@@ -12,7 +12,7 @@ A **constant** is similar to a [variable](/book/part-1-instructions/2-data/5-ref
 
 *[Literals](/book/part-1-instructions/1-sequence/5-reference/14-literal) are values that are fixed within the code, so why do we need constants?*
 
-With programming, the biggest challenge is making sure your code is **understandable**. Scattering your program with literal values becomes confusing very quickly. When you see a value like `10` in code it doesn't mean much, and potentially could represent anything. There will often be lots of these values that are easy to lose track of. Using a constant lets you name the value, which gives it meaning. When you see `MAX_ITEMS` in the code instead of `10`, you are reminded of its meaning.
+With programming, the biggest challenge is making sure your code is **understandable**. Scattering your program with literal values becomes confusing very quickly. When you see a value like `10` in code it doesn't mean much, and could potentially represent anything. There will often be lots of these values that are easy to lose track of. Using a constant lets you name the value, which gives it meaning. When you see `MAX_ITEMS` in the code instead of `10`, you are reminded of its meaning.
 
 Another advantage of using a constant is that you can change the value in one place. If you want to change the maximum number of items in your pack from 10 to 42, you change it in one place. Updating the value of the constant means that everywhere that reads it will get the new value.
 
@@ -21,14 +21,13 @@ Another advantage of using a constant is that you can change the value in one pl
 :::tip[Syntax]
 The syntax for declaring a constant is very similar to declaring variables:
 ![The syntax for constant declarations in C++.](./images/constant-declaration.png "The syntax for constant declarations in C++")
-<div class="caption">The syntax for constant declarations in C++</div><br/>
+<div class="caption">The syntax for constant declarations in C++</div>
 <CommmonLink type="syntaxDiagramGuide"/>
 :::
 
 Variable and constant declarations use almost identical syntax in C++. The main difference between a variable and a constant is the `const` keyword at the start of the declaration. If you include `const`, you are creating constants. Without it, you are creating variables. A constant must also be given a value when created.
 
-Just like variables, constant declarations need to include the [type](/book/part-1-instructions/1-sequence/5-reference/15-type/) of data you want to store, a name, and also _require_ a value.
-
+Just like variables, constant declarations also need to include the [type](/book/part-1-instructions/1-sequence/5-reference/15-type/) of data you want to store, and a name (identifier).
 By convention, constants have an **UPPERCASE** name. Where the name has multiple words, separate them with underscores (`_`). For example: `MAX_ITEMS`.
 
 ## Example
@@ -72,7 +71,7 @@ int main()
 :::tip
 By giving our constants names such as `PI`, we make our code easier to understand.
 
-We can also use the same constant many times throughout our program, which is great. If we need to add more digits of precision to `PI`, or want to change the maximum number of items a player can have, we can change it in just one place!
+We can also use the same constant many times throughout our program, which is great. If we need to add more digits of precision to `PI`, or want to change the maximum number of items a player can have, we only have to change one thing!
 :::
 
 ## Activities

@@ -4,11 +4,11 @@ sidebar:
     label: " - Terminal Functions"
 ---
 
-Interacting with the terminal is pretty simple in code. In addition to the `write` and `write_line` procedures, there is the function `read_line` and some data conversion functions that we need. Let's go over these now.
+Interacting with the terminal is pretty simple in code. In addition to the `write` and `write_line` procedures, there is the function `read_line`, and some data conversion functions that we need. Let's go over these now.
 
 ## Reading from the terminal
 
-The `read_line` function allows you to read data from the Terminal, capturing the text the user types, and returning it to you in a string when the user hits the enter or return key.
+The `read_line` function allows you to read data from the terminal, capturing the text the user types, and returning it to you in a string when the user hits the enter or return key.
 
 Here is the signature for `read_line`:
 
@@ -42,7 +42,7 @@ When working with a terminal based program, you will output messages and use `re
 
 ## Converting data
 
-As you can see above, `read_line` only returns string data. What can you do when you want to read a number from the user? SplashKit provides a few conversion functions we can use with `read_line` to convert data the user enters into either an integer (int) or a double.
+As you can see above, `read_line` only returns string data. What can you do when you want to read a number from the user? SplashKit provides a few conversion functions we can use with `read_line` to convert data the user enters into either an integer (`int`) or a double.
 
 ```c++
 // Functions to convert from a string to a number (int or double)
@@ -55,7 +55,7 @@ string to_string(double value);
 string to_string(double value, int precision);
 ```
 
-SplashKit also has some string manipulation functions - the following might come in handy:
+SplashKit also has some string manipulation functions. The following might come in handy:
 
 ```c++
 string to_lowercase(string value);
@@ -63,11 +63,11 @@ string to_uppercase(string value);
 string trim(string value);
 ```
 
-As you can probably guess, `to_lowercase` return an all-lowercase version of the input string, while `to_uppercase` returns an all-uppercase version, and `trim` returns a string with the spaces from the start and end.
+As you can probably guess, `to_lowercase` return an all-lowercase version of a string, while `to_uppercase` returns an all-uppercase version. The `trim` function returns a string with any spaces at the start and end removed.
 
 ### Input Conversions
 
-`read_line` will always return the user input as a string. So if they type 78, then the value returned is the string `"78"` - character `'7'` then character `'8'`. If you want this as a number you need to convert it using either `to_integer` or `to_double`. This means that when you want to read in a number, you will have input code that looks like this:
+`read_line` will always return the user input as a string. So if they type 78, then the value returned is the string `"78"`: the character `'7'` followed by the character `'8'`. If you want this as a number you need to convert it using either `to_integer` or `to_double`. This means that when you want to read in a number, you will have input code that looks like this:
 
 ```c++
 #include "splashkit.h"
@@ -83,7 +83,7 @@ int main()
   // read in the user input input a string
   user_input = read_line();
 
-  // convert it to an integer or double
+  // convert it to an integer
   weight_in_kg = to_integer(user_input); 
 
   // You can now use the number
@@ -95,7 +95,7 @@ int main()
 
 Now that we have [variables](/book/part-1-instructions/2-data/5-reference/10-variable) and [functions](/book/part-1-instructions/2-data/5-reference/30-function), you will often want to write out messages that contain these stored or calculated values. You can output these on one line using multiple `write` procedure calls, but you can also achieve this by *concatenating* (joining) strings together.
 
-In the above program we output the count divided by 3.0. If we want to make the output more descriptive, we could change it to be something like "One third of 5 is 1.33". This will require us to concatenate the string `"One third of "`, with the value in the count variable, `" is "` and then the value of `count / 3.0`. To achieve this we can use the `to_string` functions. Allowing us to convert these values back to strings so that they can be joined together and passed to `write_line`.
+In the above program we output the count divided by 3.0. If we want to make the output more descriptive, we could change it to be something like "One third of 5 is 1.33". This will require us to concatenate (join) the string `"One third of "`, with the value in the `count` variable, `" is "` and then the value of `count / 3.0`. To achieve this we can use the `to_string` function, which allows us to convert these values back to strings so that they can be joined together and passed to `write_line`.
 
 Here is an updated version of the program:
 
@@ -127,12 +127,12 @@ If we imagine that the user enters the value 5, then when this runs the expressi
 <table style="margin: auto; display: table;">
   <tr><th>Steps to calculate the value of the expression</th></tr>
   <tr><td><code>"One third of " + to_string(count) + " is " + to_string(count / 3.0, 2)</code></td></tr>
-  <tr><td>To concatenate the first two parts - we need to evaluate <code>to_string(count)</code></td></tr>
-  <tr><td>To do that we need to first evaluate <code>count</code></td></tr>
+  <tr><td>To concatenate the first two parts we need to evaluate <code>to_string(count)</code></td></tr>
+  <tr><td>To do that we need to first evaluate <code>count</code>, which evaluates to 5</td></tr>
   <tr><td><code>"One third of " + to_string(5) + " is " + to_string(count / 3.0, 2)</code></td></tr>
-  <tr><td>Then evaluate <code>to_string(5)</code></td></tr>
+  <tr><td>Then, we need to evaluate <code>to_string(5)</code></td></tr>
   <tr><td><code>"One third of " + "5" + " is " + to_string(count / 3.0, 2)</code></td></tr>
-  <tr><td>Then we can concatenate the two string</td></tr>
+  <tr><td>Then we can concatenate the two strings</td></tr>
   <tr><td><code>"One third of 5" + " is " + to_string(count / 3.0, 2)</code></td></tr>
   <tr><td>Continue with the next concatenation... and so on</td></tr>
   <tr><td><code>"One third of 5 is " + to_string(count / 3.0, 2)</code></td></tr>
@@ -183,7 +183,7 @@ int main()
 
     // Use to_string to convert numbers to text for output
     write_line();
-    write_line("Volume " + to_string( bottle_volume, 4 ) + " cm^3");
-    write_line("       " + to_string( litres ) + " litres");
+    write_line("Volume " + to_string(bottle_volume, 4) + " cm^3");
+    write_line("       " + to_string(litres) + " litres");
 }
 ```

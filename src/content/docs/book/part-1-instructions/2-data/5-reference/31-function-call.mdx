@@ -4,6 +4,8 @@ sidebar:
     label: " - Function Call"
 ---
 
+import CommmonLink from '/src/components/CommonLink.astro'
+
 A function call is very similar to a [procedure call](/book/part-1-instructions/1-sequence/5-reference/11-procedure-call). The key differences are that a function call:
 
 - Returns a value.
@@ -27,7 +29,7 @@ You will use function calls throughout your program. The key thing is to know a 
 ## In C++
 
 :::tip[Syntax]
-The C++ syntax for a function call is almost identical to a procedure call - the only difference is that the [identifier](/book/part-1-instructions/1-sequence/5-reference/16-identifier) (the function name) refers to a function not a procedure:
+The C++ syntax for a function call is almost identical to a procedure call. The only difference is that the [identifier](/book/part-1-instructions/1-sequence/5-reference/16-identifier) (the function name) refers to a function not a procedure:
 
 ![The syntax of a function call](./images/function-call.png "The syntax of a function call")
 
@@ -48,7 +50,7 @@ The following illustration shows two function calls: `to_double` and `read_line`
 
 This will be evaluated as follows:
 
-- `to_double` has one argument, the argument value must be calculated before it can run.
+- `to_double` has one argument. The argument value must be calculated before it can run.
   - `read_line` runs and returns a string, meaning it becomes a string value.
   - `to_double` runs and accepts the string value returned by `read_line`.
   - When `to_double` ends, it returns a double value.
@@ -66,6 +68,10 @@ This example makes use of a number of functions from SplashKit and the maths lib
 - [pow](https://cplusplus.com/reference/cmath/pow/?kw=pow): calculates the first argument raised to the power of the second.
 - [sin](https://cplusplus.com/reference/cmath/sin/?kw=sin): computes the sine of an angle in radians.
 - [cos](https://cplusplus.com/reference/cmath/cos/?kw=cos): computes the cosine of an angle in radians.
+
+:::note
+Don't worry about memorising all of these. Documentation is there to be searched! The important thing is to remember what is possible so you know what syntax to look up.
+:::
 
 ```c++
 #include "splashkit.h"

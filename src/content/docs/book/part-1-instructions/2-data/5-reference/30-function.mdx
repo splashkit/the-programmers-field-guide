@@ -2,7 +2,7 @@
 title: "Function"
 ---
 
-In the previous chapter we were introduced to [procedures](/book/part-1-instructions/1-sequence/5-reference/10-procedure). These programming constructs provide a set of instructions that perform a task. Functions are very similar to procedures with one main difference - a function returns a value.
+In the previous chapter we were introduced to [procedures](/book/part-1-instructions/1-sequence/5-reference/10-procedure). These programming constructs provide a set of instructions that perform a task. Functions are very similar to procedures with one main difference: a function returns a value.
 
 ![Illustration of a function - a construct designed to calculate a value](./images/function-concept.png)
 
@@ -10,18 +10,18 @@ A function:
 
 - Has a name used to identify it - just like a procedure.
 - May accept arguments when called - in the same way as a procedure.
-- Contain instructions - similar to a procedure, but these instructions calculate a value.
-- Returns a value
+- Contains instructions. Similar to a procedure, but these instructions calculate a value.
+- Returns a value.
 
 ## Functions -- when, why, and how
 
 Let's think about the difference between a function and a procedure. You can think of this as similar to the difference between asking someone to do something for you, and asking them a question.
 
-Asking someone to do something is like a procedure call, you are asking them to perform an action. For example, you could ask someone to "close the door". They can then carry out this action.
+Asking someone to do something is like a procedure call, where you are asking them to perform an action. For example, you could ask someone to "close the door". They can then carry out this action.
 
-Alternatively, you can ask someone a question like "What is your name?" In this case you are after an answer. This may be something they know, like their name, or the time, but it could also be something they calculate like "What is the square root of 9?" These questions are like function calls. You expect a response, a value to be *returned* from the function.
+Alternatively, you can ask someone a question like "What is your name?". In this case you are after an answer. This may be something they know, like their name, or the time, but it could also be something they calculate like "What is the square root of 9?" These questions are like function calls. You expect a response, a value to be **returned** from the function.
 
-Another way to think of this is like a machine where you give it some input material, and it gives you back something, or as a mathematical function -- you give it some values, and it comes back with a result. For example, an `add` function might take two arguments and return the sum of their values.
+Another way to think of this is like a machine where you give it some input material and it gives you back something, or as a mathematical function -- you give it some values, and it comes back with a result. For example, an `add` function might take two arguments and return the sum of their values.
 
 ## Examples
 
@@ -29,23 +29,23 @@ Let's have a look at some example functions from the SplashKit library.
 
 | <div style="width:105px">**Function**</div> | **Required Arguments** | **Description** |
 | ------------ | ------------------------ | ----------------- |
-| `read_line` | none | Reads a line of data (string) from the terminal (standard input) and returns it for you to use. You can use this to get user input. |
-| `to_integer` | A string | Converts the string to a integer (`int`) and returns it to you. You can use this to convert data entered into a number. |
+| `read_line` | none | Reads a line of data (string) from the terminal and returns it for you to use. You can use this to get user input. |
+| `to_integer` | A string | Converts the string to an integer (`int`) and returns it to you. You can use this to convert data the user entered into a number. |
 | `open_window` | A title, and two numeric values for the width and height | We already used this as if it were a procedure, but this is actually a function that returns a `window` value. You could store and use this value if needed. |
 | `hsb_color` | three double values: hue, saturation, and brightness | Calculates a color from a given hue, saturation, and brightness. |
 
-As with procedures, the function's name should identify its purpose. This helps ensure that your code is readable. We will have a look at some function usage examples on the next page.
+As with procedures, the function's name should identify its purpose. This helps ensure that your code is readable.
 
 ### Type Conversion Functions
 
-You will occasionally need to convert data between different data types. A common example of this is how we will handle user input. When the user enters data at the terminal it will come into the program as text. So if the user enters 3 and then 2, it will come into the program as "32" -- a string. This makes sense as the user can type any characters at the terminal. But what if you want that as an integer?
+You will occasionally need to convert data between different data types. A common example of this is handling user input. When the user enters data at the terminal it will come into the program as text. So if the user enters 3 and then 2, it will come into the program as "32" -- a string. This makes sense as the user can type any characters at the terminal. But what if you want that as an integer?
 
-To help achieve this programming languages provide utility functions that will allow you to convert between different types. For now, we can use 
+To help achieve this, programming languages provide utility functions that allow you to convert between different types. For now, we can use:
 
 - [`to_integer`](https://splashkit.io/api/utilities/#to-integer) - this can convert a `string` to an `int`
 - [`to_double`](https://splashkit.io/api/utilities/#to-double) - this can convert a `string` to a `double`
 
-For example, `to_integer("73")` will give you the integer (`int`) 73 as its result. Similarly, `to_double("73")` would give you the double `73.0`. Note that these will cause the program to crash if the data is not in the right format, we will look later at how to deal with this. For the moment, make sure you enter the data in the expected format.
+For example, `to_integer("73")` will give you the integer (`int`) 73 as its result. Similarly, `to_double("73")` would give you the double `73.0`. Note that these will cause the program to crash if the data is not in the right format. We will look later at how to deal with this. For the moment, make sure you enter the data in the expected format.
 
 :::note[Summary]
 
