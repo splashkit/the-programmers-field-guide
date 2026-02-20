@@ -1,0 +1,117 @@
+---
+title: Space Game
+---
+
+import { YouTube } from 'astro-embed';
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+<div class="not-content">
+  <YouTube id="hPsQhdOb-_4" params="fs=1&modestbranding=1&rel=0"/>
+</div>
+
+Now we can put together all of these concepts to build a small visual program.
+
+Watch this video to:
+
+- See how to combine the new tools from this chapter to create a program.
+
+When you are done, have a go with these concepts yourself.
+
+<Accordion>
+  <AccordionItem header="Get the code">
+
+  ```c++
+  #include "splashkit.h"
+
+  int main()
+  {
+      const int SCREEN_SIZE = 600;
+      open_window("Planet Play", SCREEN_SIZE, SCREEN_SIZE);
+
+      load_resource_bundle("planet_play", "planet_play.txt");
+
+      sprite coin;
+      sprite player;
+      
+      player = create_sprite("aquarii-v");
+      sprite_set_x(player, (SCREEN_SIZE - sprite_width(player)) / 2);
+      sprite_set_y(player, (SCREEN_SIZE - sprite_height(player)) / 2);
+      
+      coin = create_sprite("gold_coin", "coin_animation");
+      sprite_start_animation(coin, "spin");
+      sprite_set_x(coin, rnd(SCREEN_SIZE - sprite_width(coin)));
+      sprite_set_y(coin, rnd(SCREEN_SIZE - sprite_height(coin)));
+
+      while(!quit_requested())
+      {
+          process_events();
+
+          if(key_down(LEFT_KEY))
+          {
+              sprite_set_rotation(player, sprite_rotation(player) - 5);
+          }
+          if(key_down(RIGHT_KEY))
+          {
+              sprite_set_rotation(player, sprite_rotation(player) + 5);
+          }
+
+          if(key_down(UP_KEY))
+          {
+              sprite_set_dy(player, sprite_dy(player) - 0.5);
+          }
+
+          if(key_down(DOWN_KEY))
+          {
+              sprite_set_dy(player, sprite_dy(player) + 0.5);
+          }
+          
+          if (sprite_collision(coin, player))
+          {
+              sprite_set_x(coin, rnd(SCREEN_SIZE - sprite_width(coin)));
+              sprite_set_y(coin, rnd(SCREEN_SIZE - sprite_height(coin)));
+          }
+
+          update_sprite(player);
+          update_sprite(coin);
+
+          if (sprite_offscreen(player))
+          {
+              if (sprite_x(player) + sprite_width(player) < 0)
+              {
+                  sprite_set_x(player, SCREEN_SIZE + sprite_width(player));
+              } 
+              else if (sprite_x(player) - sprite_width(player) > SCREEN_SIZE)
+              {
+                  sprite_set_x(player, -sprite_width(player));
+              }
+
+              if (sprite_y(player) + sprite_height(player) < 0)
+              {
+                  sprite_set_y(player, SCREEN_SIZE + sprite_height(player));
+              } 
+              else if (sprite_y(player) - sprite_height(player) > SCREEN_SIZE)
+              {
+                  sprite_set_y(player, -sprite_height(player));
+              }
+          }
+
+          clear_screen(COLOR_BLACK);
+          draw_sprite(player);
+          draw_sprite(coin);
+          refresh_screen(60);
+      }
+
+  }
+  ```
+
+  </AccordionItem>
+</Accordion>
+
+:::tip
+If you want to run this code, download and unzip the [resources](../resources/Space_game_resources.zip), then add the folder "Resources" to the same folder as your code.
+
+This code is the most complex example we have shown you so far.
+Don't worry if it takes a while to understand it!
+Step through the sequence slowly, make changes and see what happens, and ask for help if you need it.
+It is only using concepts we have covered up to this point in our journey.
+:::
