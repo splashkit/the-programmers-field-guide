@@ -23,7 +23,7 @@ The chapter introduces the following building blocks:
 
 We will revise the following instructions to see how they work with arrays:
 
-- [For Loop](/book/part-2-organised-code/3-working-with-multiples/5-reference/02-00-for-loop): A loop that can be used to easily repeat a block of code for each element of an array.
+- [For Loop](/book/part-2-organised-code/3-working-with-multiples/5-reference/01-00-for-loop): A loop that can be used to easily repeat a block of code for each element of an array.
 - [Expressions](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-03-expressions-with-arrays): Expressions can read the value from the element of an array.
 - [Assignment Statement](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-02-assign-element): The assignment statement can be used to assign a value to an element in an array.
 

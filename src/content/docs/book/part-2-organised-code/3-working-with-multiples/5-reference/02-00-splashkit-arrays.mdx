@@ -1,0 +1,231 @@
+---
+title: Using SplashKit Arrays
+sidebar:
+    label: "SplashKit Arrays"
+---
+
+## Dynamic Array (Procedural Guide)
+
+A `dynamic_array` is an array that can grow or shrink while your program runs.
+
+You can use functions and procedures to:
+
+- check length and capacity
+- check whether it is empty
+- use `array[index]` to read or update a value
+- add, insert, and remove values
+- resize the array
+- clear all values
+
+This is useful when you do not know the final number of values in advance.
+
+### Create a Dynamic Array
+
+```cpp
+#include "splashkit-arrays.h"
+
+dynamic_array<int> numbers;          // starts empty
+```
+
+### Procedural Features
+
+- `int length(dynamic_array array)`  
+  Returns how many values are currently stored.
+- `int capacity(dynamic_array array)`  
+  Returns how many values can fit before more memory is needed.
+- `bool is_empty_array(dynamic_array array)`  
+  Returns `true` if there are no values.
+- `T array[index]`  
+  Read the value at `index`.
+- `array[index] = value`  
+  Update the value at `index`.
+- `T get(dynamic_array array, int index)`  
+  Alternative way to read a value.
+- `void set(dynamic_array array, int index, T value)`  
+  Alternative way to update a value.
+- `void fill(dynamic_array array, T value)`  
+  Sets every element to `value`.
+- `void add(dynamic_array array, T value)`  
+  Adds a value to the end.
+- `void insert(dynamic_array array, int index, T value)`  
+  Inserts a value at `index`.
+- `void remove(dynamic_array array, int index)`  
+  Removes the value at `index`.
+- `void remove_at(dynamic_array array, int index)`  
+  Same behavior as `remove`.
+- `void clear(dynamic_array array)`  
+  Removes all values.
+- `void resize(dynamic_array array, int new_size)`  
+  Changes length.
+- `void resize(dynamic_array array, int new_size, T value)`  
+  Changes length and fills new elements with `value`.
+- `bool try_get(dynamic_array array, int index, T out_value)`  
+  Safe read. Returns `true` if index is valid.
+- `bool try_set(dynamic_array array, int index, T value)`  
+  Safe update. Returns `true` if index is valid.
+
+### Simple Example
+
+```cpp
+#include "splashkit-arrays.h"
+
+int main()
+{
+    dynamic_array<string> names;
+
+    add(names, "Ada");
+    add(names, "Grace");
+    insert(names, 1, "Linus");   // Ada, Linus, Grace
+
+    write_line("Length: " + to_string(length(names)));
+    write_line("Index 1: " + names[1]);
+
+    remove_at(names, 0);          // Linus, Grace
+    names[1] = "Hopper";          // Linus, Hopper
+
+    for (int i = 0; i < length(names); i++)
+    {
+        write_line(names[i]);
+    }
+
+    write_line("Press ENTER to finish.");
+    read_line();
+}
+```
+
+### Resize and Clear Example
+
+```cpp
+dynamic_array<int> data;
+add(data, 1);
+add(data, 1);
+add(data, 1);                    // [1, 1, 1]
+
+resize(data, 5, 9);              // [1, 1, 1, 9, 9]
+resize(data, 2);                 // [1, 1]
+
+fill(data, 7);                   // [7, 7]
+clear(data);                     // []
+
+if (is_empty_array(data))
+{
+    // array has no values
+}
+```
+
+### Passing to Parameters
+
+```cpp
+int total(dynamic_array<int> data) // pass by value (copy)
+{
+    int sum = 0;
+    for (int i = 0; i < length(data); i++)
+    {
+        sum += data[i];
+    }
+    return sum;
+}
+
+void append_value(dynamic_array<int>& data, int value) // pass by reference
+{
+    add(data, value);
+}
+```
+
+
+## Fixed Array Guide
+
+A `fixed_array` is an array that stores a fixed number of elements.
+Unlike standard C/C++ arrays, this retains knowledge of its length.
+
+You can use functions and procedures to:
+
+- check the length
+- use `array[index]` to read or update a value
+- fill all positions with one value
+
+This is useful when you know exactly how many values you want to store.
+
+### Create a Fixed Array
+
+`fixed_array` is generic, which means you choose:
+
+- the type of values stored in the array (`T`), such as `int`, `double`, `string`, or `bool`
+- the size of the array (`MAX_SIZE`)
+
+In `fixed_array<T, MAX_SIZE>`, `T` is the type of value you want the array to store and `MAX_SIZE` is how many values the array can hold.
+
+```cpp
+#include "splashkit-arrays.h"
+
+fixed_array<int, 10> scores;      // 10 integer values
+fixed_array<int, 10> zeros(0);    // 10 integer values, all set to 0
+fixed_array<int, 5> ages;         // 5 integer values
+fixed_array<double, 5> prices;    // 5 double values
+fixed_array<string, 5> names;     // 5 strings
+```
+
+### Functions and Procedures
+
+- `int length(fixed_array array)`  
+  Returns the current length.
+- `T array[index]`  
+  Read a value at `index`.
+- `array[index] = value`  
+  Update a value at `index`.
+- `T get(fixed_array array, int index)`  
+  Alternative way to read a value.
+- `void set(fixed_array array, int index, T value)`  
+  Alternative way to update a value.
+- `void fill(fixed_array array, T value)`  
+  Sets every element to `value`.
+- `bool try_get(fixed_array array, int index, T out_value)`  
+  Safe read. Returns `true` if index is valid.
+- `bool try_set(fixed_array array, int index, T value)`  
+  Safe update. Returns `true` if index is valid.
+
+### Simple Example
+
+```cpp
+#include "splashkit-arrays.h"
+
+int main()
+{
+    fixed_array<int, 8> marks(0);
+
+    marks[0] = 85;
+    marks[1] = 90;
+    marks[2] = 72;
+    marks[3] = 88;
+
+    write_line("Length: " + to_string(length(marks)));
+    write_line("First mark: " + to_string(marks[0]));
+
+    fill(marks, 100);
+    write_line("After fill, mark 2: " + to_string(marks[2]));
+    write_line("Press ENTER to finish.");
+    read_line();
+}
+```
+
+### Passing to Parameters
+
+```cpp
+int total(fixed_array<int, 10> data) // pass by value (copy)
+{
+    int sum = 0;
+    for (int i = 0; i < length(data); i++)
+    {
+        sum += data[i];
+    }
+    return sum;
+}
+
+void curve(fixed_array<int, 10>& data, int amount) // pass by reference
+{
+    for (int i = 0; i < length(data); i++)
+    {
+        data[i] = data[i] + amount;
+    }
+}
+```

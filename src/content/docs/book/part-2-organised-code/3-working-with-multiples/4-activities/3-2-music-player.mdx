@@ -10,7 +10,7 @@ Create a music player. This will allow the user to load and play songs, marking 
 
 The music player will have:
 
-- a number of songs (the system needs to support up to 100 songs)
+- a number of songs
 - the id for the next song (an integer, starting at 0)
 
 Each song will have:
@@ -31,24 +31,23 @@ The program will need to allow the user to:
   
   Once the song data has its unique identifier, the system will load the file so that the song can be played. See [load music](https://splashkit.io/api/audio/#load-music). Pass `load_music` the song's unique identifier and the path the user entered.
 
-- Delete a song
-
-  The user is asked to enter the name to search for, and is then shown a numbered list of all the songs that contain that text to choose from. They enter the number of the song they want, and it is removed from the system. (Check SplashKit's [contains](https://splashkit.io/api/utilities/#contains) function for this)
-
 - Update a song
 
-  The user selects a song in the same way they did for delete song. In this case, they are shown the details of the song, and a list of options to choose from. These include:
+  The user is asked to enter the name to search for, and is then shown a numbered list of all the songs that contain that text to choose from. They enter the number of the song they want. (Check SplashKit's [contains](https://splashkit.io/api/utilities/#contains) function for this)
+
+  The user is then shown the details of the song, and a list of options to choose from. These include:
 
   - Update name (they are asked to enter the new name)
   - Update loved (this will toggle loved)
   - Reset times played (sets times played to 0)
+  - Delete
   - Quit update
 
   This menu will repeat until the user chooses to quit back to the main menu.
 
 - Play a song
 
-  The user selects a song as with delete or update. This will then update the times played, and use the [play music](https://splashkit.io/api/audio/#play-music-named) procedure to start the song playing. You can pass `play_music` the song's unique id.
+  The user selects a song as with update. This will then update the times played, and use the [play music](https://splashkit.io/api/audio/#play-music-named) procedure to start the song playing. You can pass `play_music` the song's unique id.
 
 - Pause / Resume song
 
