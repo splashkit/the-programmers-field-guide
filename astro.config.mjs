@@ -124,11 +124,11 @@ export default defineConfig({
           collapsed: true,
           items: [
             {
-              label: "Installation",
+              label: "Manual Installation",
               collapsed: false,
               autogenerate: {
                 directory:
-                  "book/appendix/0-installation",
+                  "book/appendix/0-manual-installation",
                 collapsed: true,
               },
             },
