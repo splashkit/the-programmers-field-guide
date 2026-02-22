@@ -1,0 +1,88 @@
+---
+title: Designing Structured Code
+---
+
+import { YouTube } from 'astro-embed';
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+<div class="not-content">
+  <YouTube id="w8aBdWRdUjU" params="fs=1&modestbranding=1&rel=0"/>
+</div>
+
+There are several principles we try to follow when designing code with functions and procedures.
+These help us write code that is understandable, neat, and efficient.
+
+Watch this video to:
+
+- See how a variety of design principles help us write better code.
+
+After this video you should be able to appreciate well-structured code, and start to see how to improve the structure of your own code.
+
+<Accordion>
+  <AccordionItem header="Get the code">
+
+  ```c++
+  #include "splashkit.h"
+
+  const int SCREEN_SIZE = 600;
+  const int SPEED = 3;
+  const int BOTTOM_GAP = 50;
+  const string SHIP_NAME = "aquarii";
+
+  void handle_user_input(double &player_x, double &player_y)
+  {
+      process_events();
+
+      if (key_down(UP_KEY))
+      {
+          player_y -= SPEED;
+      }
+      if (key_down(DOWN_KEY))
+      {
+          player_y += SPEED;
+      }
+
+      if (key_down(LEFT_KEY))
+      {
+          player_x -= SPEED;
+      }
+      if (key_down(RIGHT_KEY))
+      {
+          player_x += SPEED;
+      }
+  }
+
+  void draw_game(double player_x, double player_y)
+  {
+      bitmap ship = bitmap_named(SHIP_NAME);
+
+      clear_screen(COLOR_BLACK);
+      draw_bitmap(ship, player_x, player_y);
+      refresh_screen(60);
+  }
+
+  int main()
+  {
+      double player_x, player_y;
+
+      open_window("Planet Play", SCREEN_SIZE, SCREEN_SIZE);
+      
+      bitmap ship = load_bitmap(SHIP_NAME, "aquarii-v.png");
+
+      player_x = (SCREEN_SIZE - bitmap_width(ship)) / 2;
+      player_y = SCREEN_SIZE - bitmap_height(ship) - BOTTOM_GAP;
+
+      while(!quit_requested())
+      {
+          handle_user_input(player_x, player_y);
+          draw_game(player_x, player_y);
+      }
+  }
+  ```
+
+  </AccordionItem>
+</Accordion>
+
+:::tip
+If you want to run this code, download and unzip the [resources](../resources/Space_game_resources.zip), then add the folder "Resources" to the same folder as your code.
+:::
