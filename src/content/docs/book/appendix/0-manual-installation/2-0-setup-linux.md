@@ -173,7 +173,7 @@ You can open Visual Studio Code from the Terminal by typing `code` and pressing 
 
 The final step to complete the setup of VS Code is to install a few *Extensions* in VS Code:
 
-[**Set up my VS Code Extensions**](/book/appendix/0-installation/2-7-setup-vscode)
+[**Set up my VS Code Extensions**](/book/appendix/0-manual-installation/2-7-setup-vscode)
 
 Go to the page linked above, follow the steps to install both the C# and C/C++ recommended extensions, and then come back here and continue to the next step. *You can use the "Back button" in your browser to return to this page.*
 

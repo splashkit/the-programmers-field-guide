@@ -149,8 +149,8 @@ _We'll be making a more interesting visualisation than this..._
 <Steps>
 1. ### Set up our array
    Let's start by creating our `main` and declaring an array that we'll sort.
-   1. Declare an `array` of `int`s, with 10 elements. Make the number of elements a constant inside `main` - that way we can change it later easily.
-   2. Next, have a go at using [list initialization](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-01-array-declaration/#example) to initialise the values in the array. This is the same as what we used for structs (` = {...}`). Just put in some random numbers between 0 and 10 for now.
+   1. Declare an array using `fixed_array<int, DATA_SIZE>` of 10 elements. Make the number of elements a constant inside `main` - that way we can change it later easily.
+   2. Next, set values in the array using `array[index] = value`. Just put in some random numbers between 0 and 10 for now.
 
     <Accordion>
       <AccordionItem
@@ -159,11 +159,22 @@ _We'll be making a more interesting visualisation than this..._
 
       ```c++
       #include "splashkit.h"
+      #include "splashkit-arrays.h"
 
       int main()
       {
           const int DATA_SIZE = 10;
-          int data[DATA_SIZE] = {2, 7, 9, 2, 7, 3, 10, 3, 2, 1};
+          fixed_array<int, DATA_SIZE> data;
+          data[0] = 2;
+          data[1] = 7;
+          data[2] = 9;
+          data[3] = 2;
+          data[4] = 7;
+          data[5] = 3;
+          data[6] = 10;
+          data[7] = 3;
+          data[8] = 2;
+          data[9] = 1;
 
           return 0;
       }
@@ -178,7 +189,7 @@ _We'll be making a more interesting visualisation than this..._
 
     First let's get the usual graphical program _boilerplate_ out of the way. Write the following:
     1. Open a window - create constants for the width (1280) and height (720).
-    2. Create a `visualize_array` procedure with two parameters - one for our array (`int data[]`), and one for the _size_ of the array (`int size`). Inside it, just clear the screen to white, and refresh the screen.
+    2. Create a `visualize_array` procedure with two parameters - one for our array (`const fixed_array<int>& data`), and one for the _size_ of the array (`int size`). Inside it, just clear the screen to white, and refresh the screen.
     3. In `main`, call `visualize_array` ( passing in the array and size constant ), then delay for two seconds.
 
     At this point we should have a blank window show up when we run the program, that closes after two seconds. Now let's get to the interesting part.
@@ -312,7 +323,7 @@ _We'll be making a more interesting visualisation than this..._
     |   |   |
     |---|---|
     | **Procedure** | *Bubble Sort Pass* |
-    | **Parameters** | `data`: The `int` array to sort. |
+    | **Parameters** | `data`: The `fixed_array<int, DATA_SIZE>` to sort. |
     |                | `size`: The size of the array (number of elements). |
     |                | `range`: The range within which to sort. |
     | **Description** | Completes one Bubble Sort pass between the first `range` elements.|
@@ -355,13 +366,13 @@ _We'll be making a more interesting visualisation than this..._
         header="Implementing Bubble Sort Pass"
       >
         ```c++
-        void bubble_sort_pass(int data[], int size, int range)
+        void bubble_sort_pass(fixed_array<int> &data, int size, int range)
         {
             for(int i = 0; i < range - 1; i ++)
             {
-                if (data[i] > data[i+1])
+                if (data[i] > data[i + 1])
                 {
-                    swap(data[i], data[i+1]);
+                    swap(data[i], data[i + 1]);
                 }
                 visualize_array(data, size);
             }
@@ -376,7 +387,7 @@ _We'll be making a more interesting visualisation than this..._
     |   |   |
     |---|---|
     | **Procedure** | *Bubble Sort* |
-    | **Parameters** | `data`: The `int` array to sort. |
+    | **Parameters** | `data`: The `fixed_array<int, DATA_SIZE>` to sort. |
     |                | `size`: The size of the array. |
     | **Description** | Sorts the elements in the array from smallest to largest.|
 
@@ -460,7 +471,7 @@ _We'll be making a more interesting visualisation than this..._
         header="Implementing Bubble Sort"
       >
         ```c++
-        void bubble_sort(int data[], int size)
+        void bubble_sort(fixed_array<int> &data, int size)
         {
             for(int i = size; i > 1; i --)
             {
@@ -511,7 +522,7 @@ There are two simple changes we can make to extend this further. By the end we'l
     |   |   |
     |---|---|
     | **Procedure** | *Fill Array Random* |
-    | **Parameters** | `data`: The `int` array to fill. |
+    | **Parameters** | `data`: The `fixed_array<int, DATA_SIZE>` to fill. |
     |                | `size`: The size of the array. |
     |                | `min`: The minimum value. |
     |                | `max`: The maximum value. |

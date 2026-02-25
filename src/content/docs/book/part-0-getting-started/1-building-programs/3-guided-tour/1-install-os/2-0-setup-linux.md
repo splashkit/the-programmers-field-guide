@@ -6,7 +6,7 @@ sidebar:
     label: " - Linux Box"
 ---
 
-In this guide, we will walk through the steps to install the necessary applications and tools on your Linux PC. This guide will focus on Debian, which is the base for many popular Linux distros such as Ubuntu and Raspberry Pi OS. If you use a different Linux distro, you may need to follow the [manual install instructions](/book/appendix/0-installation/2-0-setup-linux).
+In this guide, we will walk through the steps to install the necessary applications and tools on your Linux PC. This guide will focus on Debian, which is the base for many popular Linux distros such as Ubuntu and Raspberry Pi OS. If you use a different Linux distro, you may need to follow the [manual install instructions](/book/appendix/0-manual-installation/2-0-setup-linux).
 
 Now, let's get started!
 
@@ -85,7 +85,7 @@ curl -s "https://programmers.guide/resources/Linux_InstallScript.sh" | bash /dev
 This script will take a while to run (approx. 12-15 mins).
 :::
 
-When the script ends, review the output messages in the terminal. If there are errors, you will need to review the messages and try again or try the [manual install instructions](/book/appendix/0-installation/2-0-setup-linux).
+When the script ends, review the output messages in the terminal. If there are errors, you will need to review the messages and try again or try the [manual install instructions](/book/appendix/0-manual-installation/2-0-setup-linux).
 
 ## 5. Reopen the terminal
 
@@ -102,5 +102,5 @@ Jump to the [next step](/book/part-0-getting-started/1-building-programs/3-guide
 :::
 
 :::caution[Had problems?]
-If you had problems with the automated installation, or want to do things yourself, you can follow the [manual install instructions](/book/appendix/0-installation/2-0-setup-linux).
+If you had problems with the automated installation, or want to do things yourself, you can follow the [manual install instructions](/book/appendix/0-manual-installation/2-0-setup-linux).
 :::

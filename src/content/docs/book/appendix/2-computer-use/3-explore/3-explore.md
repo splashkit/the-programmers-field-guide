@@ -4,7 +4,7 @@ title: Activities
 
 ## Install software development tools
 
-The most important first step in getting ready is to install the compilers, libraries, and code editor we will use throughout the next chapters. Jump over to the [installation guides](/book/appendix/0-installation/0-overview) and follow the steps to install the tools you will need.
+The most important first step in getting ready is to install the compilers, libraries, and code editor we will use throughout the next chapters. Jump over to the [installation guides](/book/appendix/0-manual-installation/0-overview) and follow the steps to install the tools you will need.
 
 ## Organise your files
 
