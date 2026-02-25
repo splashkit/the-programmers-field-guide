@@ -5,11 +5,11 @@ sidebar:
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 
-Run the program. What happens? The program starts, a window appears, and it closes after a short delay. How can we change the program so that it closes when the user decides?
+Compile and run the program. What happens? The program starts, a window appears, and it closes after a short delay. How can we change the program so that it only closes when the user decides?
 
 We can achieve this using a loop. The loop will repeat while the user has *not* asked to quit (which you can check with the `quit_requested` function). This will require us to call `process_events` inside the loop so that SplashKit can detect if the user has closed the window.
 
-Have a go at adding this loop yourself. This should start after the window is opened, and include the code to clear the screen and fill the circle. You can remove the `delay` code now, as the loop will control the duration of the program.
+Have a go at adding this loop yourself. This should start after the window is opened, and include the code to clear the screen and fill the circle. You can remove the `delay` code, as the loop will control the duration of the program.
 
 <Accordion>
     <AccordionItem header="Code with loop">
@@ -23,7 +23,7 @@ Have a go at adding this loop yourself. This should start after the window is op
     {
         open_window("Circle Moving", 1280, 720);
 
-        while( ! quit_requested() )
+        while(!quit_requested())
         {
             clear_screen(COLOR_WHITE);
             fill_circle(COLOR_TURQUOISE, 640, 360, PLAYER_RADIUS);
@@ -40,16 +40,17 @@ Have a go at adding this loop yourself. This should start after the window is op
 :::tip
 
 Remember to **indent** the code within the `{ ... }`.
+This helps to make your code more readable, as it's easier to see the control flow.
 
 :::
 
 Compile and run the program. It should now stay around for as long as you want.
 
-Think about what is happening in the background. The computer is running through the loop again and again. Each loop it redraws the screen, records what events happened, and then the loop condition checks if the user has quit.
+Think about what is happening as your program executes. The computer is running through the loop again and again. Each loop it redraws the screen, records what events happened, and then the loop condition checks if the user has quit. It's doing this as fast as it can!
 
-It looks like nothing is happening, so it can be hard to believe this is all happening. Add a `write_line("here");` call inside the loop and run it again. Watch the terminal output, and you will see the message written over and over.
+It looks like nothing is happening, so it can be hard to believe. To get a sense of how quickly the loop is executing, add a `write_line("here");` call inside the loop, then compile and run it again. Watch the terminal output, and you will see the message written over and over.
 
-We need this loop so that we can now add code to check what events have occurred and update the program in response.
+Now that we have a loop we can add code to check what events have occurred and update the program in response.
 
 :::note
 
@@ -98,7 +99,7 @@ Create a `PLAYER_SPEED` constant with the value 3. Add this to the `player_x` va
 <Accordion>
   <AccordionItem header="Code with player moving">
 
-    ```c++ {4,18-19}
+    ```c++ {4,18}
     #include "splashkit.h"
 
     const int PLAYER_RADIUS = 50;
@@ -116,8 +117,7 @@ Create a `PLAYER_SPEED` constant with the value 3. Add this to the `player_x` va
 
         process_events();
 
-        // player_x = player_x + PLAYER_SPEED;
-        player_x += PLAYER_SPEED;
+        player_x += PLAYER_SPEED; // this is a short-hand way of writing player_x = player_x + PLAYER_SPEED;
     }
     ```
     </AccordionItem>
@@ -125,4 +125,4 @@ Create a `PLAYER_SPEED` constant with the value 3. Add this to the `player_x` va
 
 Compile and run the program. What happens?
 
-Update the code to move the player in the other direction. Have a go at adding the code to move the player vertically as well. This will need a `player_y` variable.
+Update the code to move the player in the other direction. Then, have a go at adding the code to move the player vertically as well. This will need a `player_y` variable.

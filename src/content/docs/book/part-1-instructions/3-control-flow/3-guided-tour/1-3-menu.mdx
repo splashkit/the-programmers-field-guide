@@ -3,7 +3,7 @@ title: Menu and input validation
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 
-Let's switch back to the terminal now, and we can use control flow to create a small menu and to validate user input.
+Let's switch back to the terminal now, and use control flow to create a small menu and to validate user input.
 
 We can use the following starter code to get things going.
 
@@ -28,7 +28,7 @@ int main()
 
 ## Creating a menu
 
-At this point we have shown a menu to the user, and read in their choice. Now we need to add branches for the different paths we will need for these options. We could use a number of if statements, but for this we could use a `switch` statement to provide the necessary branches.
+At this point we have shown a menu to the user, and read in their choice. Now we need to add branches for the different paths we will need for these options. We could use a number of if statements, but instead let's use a [switch statement](/book/part-1-instructions/3-control-flow/5-reference/03-2-switch) to provide the necessary branches.
 
 Have a go at adding in a `switch` statement for the above code. For now, just output the name of the branch taken. So, for example, output "Addition" if the user chooses 1.
 
@@ -82,7 +82,7 @@ Have a go at adding in a `switch` statement for the above code. For now, just ou
 
 ## Looping until quit
 
-With this menu we want the user to be able to perform multiple actions, so we need to repeat this until they choose to quit. Let's do this by adding a `do ... while` loop.
+With this menu we want the user to be able to perform multiple actions, so we need to repeat it until they choose to quit. Let's do this by adding a [do while](/book/part-1-instructions/3-control-flow/5-reference/04-2-do-while/) loop.
 
 Have a go at embedding the code that shows the menu and performs its actions inside a do while loop. This can repeat while the user's choice is not 5.
 
@@ -140,7 +140,7 @@ Compile and run the program and make sure that you can repeat the menu actions.
 
 ## Validating input
 
-Now try entering something other than a number. Something like "one". The program will crash. Why, we attempted to convert this into a number. When the library cannot do this, it raises an error that causes the program to crash.
+Now try entering something *other* than a number. Something like "one", or "sdfklj". The program will crash. Why? Because we attempted to convert something into a number when it doesn't make sense to do so. When the library cannot do this, it raises an error that causes the program to crash.
 
 We can avoid this if we test the string before we try to convert it to a number. SplashKit provides an [is_integer](https://splashkit.io/api/utilities/#is-integer) function that will test if the string you pass it is an integer. There is also an [is_double](https://splashkit.io/api/utilities/#is-double) for testing if the values are valid doubles.
 
@@ -169,7 +169,7 @@ Have a think about how you could validate the user input. Will this be a branch 
             write("Enter your choice: ");
             line = read_line();
 
-            while ( ! is_integer(line) )
+            while (!is_integer(line))
             {
                 write_line("Please enter a whole number");
                 write("Enter your choice: ");
@@ -206,11 +206,11 @@ Have a think about how you could validate the user input. Will this be a branch 
   </AccordionItem>
 </Accordion>
 
-Compile and run the program. Test that it does not crash when you enter an invalid number. Try entering a few invalid entries, and see that the code handles this case as well.
+Compile and run the program. Test that it does not crash when you enter an invalid number. Try entering a few invalid entries in a row, and see that the code handles this case as well.
 
 :::tip
 
-When building code you need to think of all the different ways the user can break your program. Don't just think they will do what you expect - that is bound to lead to a number of security issues!
+When building code you need to think of all the different ways the user can break your program. Don't just think they will do what you expect -- that is bound to lead to a number of security issues!
 
 :::
 
@@ -218,6 +218,6 @@ With this, you have now seen how to use the basic control flow statements work. 
 
 :::tip
 
-Remember everything is still based in sequence, and the control flow statements give you the ability to control that sequence. You still need to think things through in steps, but now you can have steps were you made a decision and either repeat or select which code will run next.
+Remember everything is still based in sequence, and the control flow statements just give you the ability to control that sequence. You still need to think things through in steps, but now you can have steps where you made a decision and either repeat or select which code will run next.
 
 :::

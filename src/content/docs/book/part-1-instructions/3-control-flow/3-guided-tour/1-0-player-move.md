@@ -2,7 +2,7 @@
 title: Player Move
 ---
 
-To begin, let's explore control flow concepts one at a time as we build up a small program that will allow the user to move a character (drawn as a circle) around on the screen.
+To begin, let's explore control flow concepts one at a time to build up a small program that will allow the user to move a character (drawn as a circle) around on the screen.
 
 Let's start with the following code. This sequence contains the instructions to open a window and draw the player's character.
 

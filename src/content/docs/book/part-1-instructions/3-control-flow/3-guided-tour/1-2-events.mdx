@@ -5,14 +5,14 @@ sidebar:
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 
-Now we have the circle moving, but do we *always* want the circle to move? No, let's change it so that we *only* update the position *if* the user is holding down an arrow key.
+Now we have the circle moving, but do we *always* want the circle to move? No! Let's change it so that we *only* update the position *if* the user is holding down an arrow key.
 
 Add an [if statement](/book/part-1-instructions/3-control-flow/5-reference/03-1-if) that will check if the right arrow key is held down. You can put the code that adds to the `player_x` value within the if statement so that it is only run *if* the arrow key is held down.
 
 <Accordion>
   <AccordionItem header="Code with if">
 
-    ```c++ {1,20-23}
+    ```c++ {20-23}
     #include "splashkit.h"
 
     const int PLAYER_RADIUS = 50;
@@ -24,7 +24,7 @@ Add an [if statement](/book/part-1-instructions/3-control-flow/5-reference/03-1-
 
         open_window("Circle Moving", 1280, 720);
 
-        while( ! quit_requested() )
+        while(!quit_requested())
         {
             clear_screen(COLOR_WHITE);
             fill_circle(COLOR_TURQUOISE, player_x, 360, PLAYER_RADIUS);
@@ -32,7 +32,7 @@ Add an [if statement](/book/part-1-instructions/3-control-flow/5-reference/03-1-
 
             process_events();
 
-            if ( key_down(RIGHT_KEY) )
+            if (key_down(RIGHT_KEY))
             {
                 player_x += PLAYER_SPEED;
             }
@@ -44,19 +44,14 @@ Add an [if statement](/book/part-1-instructions/3-control-flow/5-reference/03-1-
   </AccordionItem>
 </Accordion>
 
-Compile and run the program. Notice how the player's x location is not changing. Hold down the right arrow key, and the circle will move right. Release the key and it will stop.
+Save, compile, and run the program. Notice how the player's x location is not changing. Hold down the right arrow key, and the circle will move right. Release the key and it will stop.
 
 :::note
-
-Notice how the if statement allows you to say *if* some code will run, or not. You use the if statement's condition to determine when the code will run.
-
+Notice how the if statement allows you to say *if* some code will run or not. You use the if statement's condition to determine when the code will run.
+Remember that the program is still running in sequence, so here we have the while loop repeating the code over and over, and the if statement then runs each loop.
 :::
 
-:::note
-Remember it is still running in sequence, so here we have the while loop repeating the code over and over, and the if statement then runs each loop.
-:::
-
-Now we have it moving right, let's get it so we can move left as well.
+Now we have our circle moving right, let's add more code so we can move left as well.
 
 Add another if statement to check if the left key is held down. Inside this if statement, add the code to subtract the speed from the `player_x` variable.
 
@@ -73,7 +68,7 @@ Add another if statement to check if the left key is held down. Inside this if s
 
     open_window("Circle Moving", 1280, 720);
 
-    while( ! quit_requested() )
+    while(!quit_requested())
     {
         clear_screen(COLOR_WHITE);
         fill_circle(COLOR_TURQUOISE, player_x, 360, PLAYER_RADIUS);
@@ -81,11 +76,11 @@ Add another if statement to check if the left key is held down. Inside this if s
 
         process_events();
 
-        if ( key_down(RIGHT_KEY) )
+        if (key_down(RIGHT_KEY))
         {
             player_x += PLAYER_SPEED;
         }
-        else if ( key_down(LEFT_KEY) )
+        else if (key_down(LEFT_KEY))
         {
             player_x -= PLAYER_SPEED;
         }
@@ -118,7 +113,7 @@ Notice the logic is not quite right. Try removing the `else` and instead have tw
 
         open_window("Circle Moving", 1280, 720);
 
-        while( ! quit_requested() )
+        while(!quit_requested())
         {
             clear_screen(COLOR_WHITE);
             fill_circle(COLOR_TURQUOISE, player_x, 360, PLAYER_RADIUS);
@@ -126,12 +121,12 @@ Notice the logic is not quite right. Try removing the `else` and instead have tw
 
             process_events();
 
-            if ( key_down(RIGHT_KEY) )
+            if (key_down(RIGHT_KEY))
             {
                 player_x += PLAYER_SPEED;
             }
 
-            if ( key_down(LEFT_KEY) )
+            if (key_down(LEFT_KEY))
             {
                 player_x -= PLAYER_SPEED;
             }
@@ -149,12 +144,6 @@ Test it out again:
 - Hold down the right key
 - Hold down left and right keys together
 
-:::note
-
-See how if statements allow you to control the sequence of actions. When the computer gets to the if statement, it uses your condition to determine which path is taken.
-
-:::
-
 Have a go at getting the player to move vertically as well.
 
-Using these same mechanics you can create a whole wealth of different functionalities. In each case you can use an if statement to check if an event has occurred, and then you update values within the program in response.
+Using these same concepts you can create a whole wealth of different functionalities. In each case you can use an if statement to check if an event has occurred, and then you update values within the program in response.
