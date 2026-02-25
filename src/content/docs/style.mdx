@@ -13,6 +13,41 @@ This document will highlight, with examples and reasons, our own style guide whi
 
 ---
 
+## Indentation
+
+<Card>
+<Tabs>
+  <TabItem label="Rule">Between any new pair of braces (`{`, `}`), write your code 4 further spaces in from the left.</TabItem>
+  <TabItem label="Explanation">Indentation is incredibly helpful for improving the readability of your code. It shows, at a glance, where different blocks of code are, and where different scopes begin and end. It is important to be consistent with indentation within a project (e.g., don't mix tabs and spaces, use a consistent indentation for each new block) to further improve readability. The Guide suggests 4 spaces, but the actual number may change from developer to developer - 2 is another common number. But each developer or development house should have a specific number and be consistent in the use of that number.</TabItem>
+  <TabItem label="Example">
+    Do:
+    ```c#
+    if (condition)
+    {
+        statement;
+        if (condition)
+        {
+            statement;
+        }
+    }
+    ```
+
+    Don't do:
+    ```c#
+    if (condition)
+    {
+    statement;
+    if (condition)
+    {
+    statement;
+    }
+    }
+    ```
+  </TabItem>
+  <TabItem label="Tip">You can configure your code editor to follow and enforce your indentation settings.</TabItem>
+</Tabs>
+</Card>
+
 ## Braces (`{` and `}`)
 
 <Card>
@@ -41,7 +76,8 @@ This document will highlight, with examples and reasons, our own style guide whi
 
 <Card>
 <Tabs>
-  <TabItem label="Suggestion">Comments are a great way to explain what your code is doing, or why it is doing it. However, comments can also be a distraction, and can become outdated or redundant. Only comment code when necessary or where the code may be unclear to the reader. Don't over comment your code in unnecessary places, which can clutter the codebase, or become outdated or redundant. Whether or not a comment is necessary is subjective.</TabItem>
+  <TabItem label="Rule">Only comment code when necessary or when the code may be unclear to the reader.</TabItem>
+  <TabItem label="Explanation"> Comments are a great way to explain what your code is doing, or why it is doing it. However, comments can also be a distraction, and can become outdated or redundant. Only comment code when necessary or where the code may be unclear to the reader. Don't over comment your code in unnecessary places, which can clutter the codebase, or become outdated or redundant. Whether or not a comment is necessary is subjective.</TabItem>
   <TabItem label="Example">
     ```c
     // This is a comment
@@ -49,6 +85,14 @@ This document will highlight, with examples and reasons, our own style guide whi
     {
       // This is also a comment
       // ...
+
+
+      // (The following is a bad comment because the code already tells us that)
+      // Increment x by 1 
+      // (The following is a good comment - it explains *why* we are doing this)
+      // We have added another instance of foo, so we increment x which tracks that
+      x++;
+      // (Also never use x as a variable name - `foo_counter++;` wouldn't need a comment at all)
     }
     ```
   </TabItem>
@@ -59,18 +103,73 @@ This document will highlight, with examples and reasons, our own style guide whi
 
 <Card>
 <Tabs>
-  <TabItem label="Rule">Naming your identifiers is one of the most important things you can do to make your code readable. As the famous quote goes, "There are only two hard things in Computer Science: cache invalidation and naming things." We suggest you use descriptive names for your identifiers, and avoid abbreviations where possible.</TabItem>
-  <TabItem label="Example">
+  <TabItem label="Rule">Names should be descriptive and not abbreviated.</TabItem>
+  <TabItem label="Explanation">Naming your identifiers is one of the most important things you can do to make your code readable. As the famous quote goes, "There are only two hard things in Computer Science: cache invalidation and naming things." We suggest you use descriptive names for your identifiers, and avoid abbreviations where possible. This means the names themselves will explain what the code does. Names for variables should be nouns - a variable is a thing, after all. Use singular noun for a singular variable, plural noun for multiples.</TabItem>
+  <TabItem label="Example - singular">
     ```c
-    // this is a good variable name
+    // this is a good variable name for one integer
     int users_age = read_age();
 
     // this is a bad variable name
     int data = read_age();
+    // this is a terrible variable name
+    int x = read_age();
+    ```
+  </TabItem>
+  <TabItem label="Example - multiple">
+    ```c
+    // this is a good name for a multiple variable such as an array
+    int user_ages[10];
+
     ```
   </TabItem>
 </Tabs>
 </Card>
+
+## Naming Methods
+<Card>
+<Tabs>
+  <TabItem label="Rule">Names should be descriptive and not abbreviated.</TabItem>
+  <TabItem label="Explanation">In addition to the descriptive points above for variables, methods should be verbs - methods do things. So the method name should describe what the method does. And sometimes what the arguments and return are.</TabItem>
+  <TabItem label="Example">
+    ```c
+    // this is a poor method name 
+    double mass(float density, float volume)
+      {
+	//...
+      }
+
+    // this is a good method name
+    double calculate_mass(float density, float volume)
+      {
+      }
+    ```
+  </TabItem>
+  <TabItem label="Tips">Sometimes adding information to the method name can help, sometimes harm. But it can help distinguish between different forms of a method, or between a function and procedure. Deciding what to put in the name and what to put in the documentation can be a fine line.</TabItem>
+<TabItem label="Tip example">
+  ```c
+    // This is probably too much for a function - modern IDEs and tools should easily tell you the required arguments and return:
+    double return_mass_from_volume_and_density(float volume, float density)
+   // But functions vs procedures can be useful to distinguish:
+    double return_mass(...)
+   // vs
+    void set_mass(...)
+    ```
+  </TabItem>
+</Tabs>
+</Card>
+
+
+## Global Variables
+
+<Card>
+
+<Tabs>
+  <TabItem label="Rule">Global variables should not be used.</TabItem>
+  <TabItem label="Explanation">Global variables are variables which are declared outside of a function or class. Because of this, global variables are accessible and can be modified from anywhere in the program, at any time, by any other part of the program. This makes it difficult to track where the variable is being used, and can lead to bugs. If you are reaching for a global variable, it is often a sign that your code may need to be restructured.</TabItem>
+</Tabs>
+</Card>
+
 
 ## Constants
 
@@ -78,6 +177,7 @@ This document will highlight, with examples and reasons, our own style guide whi
 
 <Tabs>
   <TabItem label="Rule">Any variable which could be made a constant, should be. Constants should be named according to the style guide of the language.</TabItem>
+  <TabItem label="Explanation">Variables can change, but if something is really constant, it should be a constant. Pi, for example, will never change. True constants are also often "globally" useful - global constants are safe and useful, global variables are dangerous and should be avoided. If it shouldn't change, then enforce that with a constant.  </TabItem>
   <TabItem label="C">
     ```c
     #define MIN_AGE 18
@@ -100,51 +200,6 @@ This document will highlight, with examples and reasons, our own style guide whi
       const int MONTHS = 12;
     ```
   </TabItem>
-</Tabs>
-</Card>
-
-## Global Variables
-
-<Card>
-
-<Tabs>
-  <TabItem label="Rule">Global variables should not be used.</TabItem>
-  <TabItem label="Explanation">Global variables are variables which are declared outside of a function or class. Because of this, global variables are accessible and can be modified from anywhere in the program, at any time, by any other part of the program. This makes it difficult to track where the variable is being used, and can lead to bugs. If you are reaching for a global variable, it is often a sign that your code may need to be restructured.</TabItem>
-</Tabs>
-</Card>
-
-## Indentation
-
-<Card>
-<Tabs>
-  <TabItem label="Rule">Between any new pair of brackets (`{`, `}`), write your code 4 further spaces in from the left.</TabItem>
-  <TabItem label="Explanation">Indentation is incredibly helpful for improving the readability of your code. It shows, at a glance, where different blocks of code are, and where different scopes begin and end. It is important to be consistent with indentation within a project (e.g., don't mix tabs and spaces, use a consistent indentation for each new block) to further improve readability.</TabItem>
-  <TabItem label="Example">
-    Do:
-    ```c#
-    if (condition)
-    {
-        statement;
-        if (condition)
-        {
-            statement;
-        }
-    }
-    ```
-
-    Don't do:
-    ```c#
-    if (condition)
-    {
-    statement;
-    if (condition)
-    {
-    statement;
-    }
-    }
-    ```
-  </TabItem>
-  <TabItem label="Tip">You can configure your code editor to follow and enforce your indentation settings.</TabItem>
 </Tabs>
 </Card>
 
