@@ -22,7 +22,7 @@
     "react-dom": "^18.2.0",
     "sharp": "^0.34.1",
     "starlight-links-validator": "^0.14.3",
-    "swiper": "^11.1"
+    "swiper": "^12.1"
   },
   "devDependencies": {
     "accessible-astro-components": "^2.3.6"
