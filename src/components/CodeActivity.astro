@@ -17,6 +17,7 @@ const { header="Try it out!",
         singleStep = false,         // Manual stepping
         fastStepping = false,       // Automatic stepping...
         fastStepDelay = 50,         // ... with this delay
+        fastStepCoarse = false,     // Don't step through nested expressions
         handExecution = false,      // Shows hand execution
         handExecutionMode = "auto", // Hand execution style:
                                     // - faithful - no erasing
@@ -41,19 +42,22 @@ const resolvedHandExecutionMode = (
     )
 );
 
+const resolvedFastStepping = fastStepping || fastStepCoarse;
+
 const parameters = Object.entries({
     language: "C++",
     defaultInitializeProject: "off",
     cleanProject: transient?"on":"off",
     useEmbeddedInterface: "on",
-    theme: "night-owl",
+    /*theme: decided dynamically on client side,*/
 
     initializeProjectName: "." + projectName,
 
-    enableDebugging: (singleStep || fastStepping || resolvedHandExecutionMode!="")?"on":"off",
+    enableDebugging: (singleStep || resolvedFastStepping || resolvedHandExecutionMode!="")?"on":"off",
 
     enableSingleStepping: singleStep?"on":"off",
-    forceStepLineHighlighting: fastStepping?"on":"off",
+    forceStepLineHighlighting: resolvedFastStepping?"on":"off",
+    forceStepLineHighlightingInner: (!fastStepCoarse)?"on":"off",
     stepLineHighlightingDelay: fastStepDelay,
 
     handExecutionMode: resolvedHandExecutionMode,
@@ -151,8 +155,11 @@ document.querySelectorAll("[data-code-activity]").forEach((el) => {
         SKO.contentWindow.postMessage(message, '*');
     }
 
-    async function loadAndShowIDE(){
-        SKO.src = SKO.dataset.src;
+    async function loadAndShowIDE() {
+        let src = SKO.dataset.src;
+        let theme = (document.documentElement.dataset.theme == "light" ? "night-owl-light" : "night-owl");
+        src += `&theme=${theme}`;
+        SKO.src = src;
         SKO.parentElement.style.opacity = "1";
 
         resources = undefined;
@@ -338,6 +345,9 @@ document.querySelectorAll("[data-code-activity]").forEach((el) => {
         opacity: 0;
         pointer-events: none;
         transition: opacity 1s ease-in-out;
+    }
+    ::global(html[data-theme="light"]) [data-reset-button] {
+        color: var(--sl-color-text-accent);
     }
 
     ::global(details[open]) button[data-reset-button] {
