@@ -2,6 +2,7 @@
 title: Functions
 ---
 import { YouTube } from 'astro-embed';
+import CodeActivity from '/src/components/CodeActivity.astro'
 
 <div class="not-content">
   <YouTube id="WbO4SEu2laQ" params="fs=1&modestbranding=1&rel=0"/>
@@ -14,3 +15,38 @@ Watch this video to:
 - See how to call functions and use the value they return.
 
 When you have gone through this video you should be able to call functions in your programs.
+
+<CodeActivity projectName="Data/Intro/Functions" fastStepping fastStepDelay="300">
+:::tip
+  The code below draws four randomly positioned circles. It uses the `rnd(int max)` function to compute random values for the positions - it returns a random number between 0 and max.
+
+  Try running it, and observe the order the functions are called in.
+:::
+```c++ {"userCode":5-21}
+#include "splashkit.h"
+
+int main()
+{
+    open_window("Hello Functions", 800, 600);
+
+    clear_screen(COLOR_WHITE);
+
+    fill_circle(COLOR_RED, rnd(800), rnd(600), 20);
+    refresh_screen();
+
+    fill_circle(COLOR_RED, rnd(800), rnd(600), 20);
+    refresh_screen();
+
+    fill_circle(COLOR_RED, rnd(800), rnd(600), 20);
+    refresh_screen();
+
+    fill_circle(COLOR_RED, rnd(800), rnd(600), 20);
+    refresh_screen();
+
+    delay(2000);
+}
+```
+:::tip
+  Can you spot how each `rnd` is called first, and _then_ the result is used in the `fill_circle` function?
+:::
+</CodeActivity>
