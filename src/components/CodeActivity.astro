@@ -1,0 +1,358 @@
+---
+import { SplashKitOnlineURL } from '/src/components/SplashKitOnlineConstants'
+
+import type { Props } from "@astrojs/starlight/props";
+import { Icon } from '@astrojs/starlight/components';
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import Aside from '/src/components/Aside.astro'
+
+const { header="Try it out!",
+        projectName, // should be unique for each activity
+        resources,   // a list of URLs to zip files
+        maxCodeHeight = 600, // longer than this and the code scrolls
+        outputHeight = 300,  // height of terminal/graphical output
+
+        // Any of these enable debug mode
+        // Compilation is a bit slower
+        singleStep = false,         // Manual stepping
+        fastStepping = false,       // Automatic stepping...
+        fastStepDelay = 50,         // ... with this delay
+        fastStepCoarse = false,     // Don't step through nested expressions
+        handExecution = false,      // Shows hand execution
+        handExecutionMode = "auto", // Hand execution style:
+                                    // - faithful - no erasing
+                                    // - clean    - erases variables popped off the stack
+                                    // - realtime - erases as it goes,
+                                    //   good for real-time visualization (no stepping)
+        handExecutionWidth = "",    // The width of the drawing (height automatically expands)
+        handExecutionHeight = "",    // The initial height of the drawing
+
+        transient = false, // auto-wipe project on load
+} = Astro.props;
+
+const resolvedHandExecutionMode = (
+    !handExecution ? "" : (
+        handExecutionMode != "auto" ? handExecutionMode : (
+            singleStep ? "faithful" : (
+                fastStepping? "clean" : (
+                    "realtime"
+                )
+            )
+        )
+    )
+);
+
+const resolvedFastStepping = fastStepping || fastStepCoarse;
+
+const parameters = Object.entries({
+    language: "C++",
+    defaultInitializeProject: "off",
+    cleanProject: transient?"on":"off",
+    useEmbeddedInterface: "on",
+    /*theme: decided dynamically on client side,*/
+
+    initializeProjectName: "." + projectName,
+
+    enableDebugging: (singleStep || resolvedFastStepping || resolvedHandExecutionMode!="")?"on":"off",
+
+    enableSingleStepping: singleStep?"on":"off",
+    forceStepLineHighlighting: resolvedFastStepping?"on":"off",
+    forceStepLineHighlightingInner: (!fastStepCoarse)?"on":"off",
+    stepLineHighlightingDelay: fastStepDelay,
+
+    handExecutionMode: resolvedHandExecutionMode,
+    handExecutionWidth: handExecutionWidth,
+    handExecutionHeight: handExecutionHeight,
+}).map((x)=>`${x[0]}=${x[1]}`).join("&");
+
+---
+
+<div
+    data-code-activity
+    data-maxcodeheight={maxCodeHeight}
+    data-outputheight={outputHeight}
+    data-resources={resources}
+    data-projectname={projectName}
+    data-transient={transient}
+>
+    <Aside type="execute" title={header} unfold expand>
+        <slot />
+        <div data-embed-container class="ide-embed-container">
+            <a data-open-in-ide-button class="open-in-ide-button" target="_blank" title="Open in full IDE">
+                <Icon name="external" color="inherit;" size="2rem" />
+            </a>
+            <iframe data-src={SplashKitOnlineURL+"?"+parameters} class="ide-embed"/>
+        </div>
+    </Aside>
+    <button data-reset-button>Reset Example</button>
+</div>
+
+<script>
+
+function extractCode(expressiveCode) {
+    // Extract code snippet + editable blocks from the hidden markdown code block
+    // This feels brittle...
+    let codeSnippet = "";
+    let blocks = [];
+
+    let codeElements = expressiveCode.getElementsByTagName("code")[0];
+    let currentBlock = null;
+    let lineIndex = 0;
+
+    for (const line of codeElements.childNodes) {
+        // empty lines textContent returns \n, handle that here
+        if (line.textContent == "\n")
+            codeSnippet += "\n";
+        else
+            codeSnippet += line.textContent.replace("####","")+"\n"; // use #### to allow leading spaces
+        lineIndex += 1;
+
+        // handle detecting editable blocks
+        if (line.classList.contains("mark")) {
+            if (currentBlock == null) {
+                let name = window.getComputedStyle(line).getPropertyValue("--tmLabel").slice(1,-1);
+                currentBlock = {lineStart: lineIndex, name: name};
+                blocks.push(currentBlock);
+            }
+            currentBlock.lineEnd = lineIndex
+        }
+        else {
+            currentBlock= null;
+        }
+    }
+
+    codeSnippet = codeSnippet.slice(0,-1); // remove trailing \n
+
+    return {codeSnippet, blocks};
+}
+
+document.querySelectorAll("[data-code-activity]").forEach((el) => {
+    let scriptData = el.dataset;
+    let maxCodeHeight = parseFloat(scriptData.maxcodeheight);
+    let outputHeight = parseFloat(scriptData.outputheight);
+    let resourceList = scriptData.resources;
+    let projectName = scriptData.projectname;
+    let transient = scriptData.transient == "true";
+
+    let SKO = el.querySelector("iframe");
+
+    // Where the lines of code exist (as child nodes)
+    let expressiveCode = el.querySelector(".expressive-code");
+
+    expressiveCode.replaceWith(el.querySelector('[data-embed-container'));
+
+    let {codeSnippet, blocks} = extractCode(expressiveCode);
+
+    // Compute and set iFrame height
+    const line_height = 19.5; /* computed from the IDE page */
+    let approximateCodeHeight = line_height * (codeSnippet.split("\n").length + 1);
+    let finalIFrameHeight = Math.min(approximateCodeHeight, maxCodeHeight) + outputHeight;
+    SKO.parentElement.style.height = `${finalIFrameHeight}px`;
+
+    let resources = null;
+
+    function sendMessage(message){
+        SKO.contentWindow.postMessage(message, '*');
+    }
+
+    async function loadAndShowIDE() {
+        let src = SKO.dataset.src;
+        let theme = (document.documentElement.dataset.theme == "light" ? "night-owl-light" : "night-owl");
+        src += `&theme=${theme}`;
+        SKO.src = src;
+        SKO.parentElement.style.opacity = "1";
+
+        resources = undefined;
+        if (resourceList) {
+            resources = [{data: await (await fetch(resourceList)).arrayBuffer()}];
+        }
+
+        // Initialize the window with the code + editable code blocks (if there are any)
+        window.addEventListener('message', function(event) {
+            if (event.source !== SKO.contentWindow)
+                return;
+
+            if (event.data.type === 'SplashKitOnline') {
+                if (event.data.event === 'Listening') {
+                    sendMessage({
+                        eventType: 'ImportFiles',
+                        files: [{ path: '/code/main.cpp', data: codeSnippet }],
+                        zips: resources,
+                        overwrite: transient
+                    });
+
+                    if (blocks.length > 0){
+                        sendMessage({
+                            eventType: 'EnterBlockEditMode',
+                            files: [{ path: '/code/main.cpp', blocks: blocks }],
+                            styles: ["highlight"],
+                        });
+                    }
+                }
+                if (event.data.event === 'ProjectLoaded') {
+                    // fill "Open in full IDE" button with project ID
+                    let button = SKO.parentElement.querySelector("[data-open-in-ide-button]");
+                    button.href = "/book/appendix/online-ide/?project="+event.data.projectID;
+
+                    // By default we create hidden projects (prepending a `.` to the project name)
+                    // If the user wants to experiment further, we should make it a real project
+                    // and rename it so they can load it later on from the IDE
+                    button.addEventListener("click", function(){
+                        sendMessage({
+                            eventType: 'RenameProject',
+                            name: projectName
+                        });
+
+                        sendMessage({
+                            eventType: 'ShowMessage',
+                            title: "Opened in IDE",
+                            message: "This project has been loaded in the full IDE.\nPlease reload the page to use the embedded version again.",
+                            block: true // ensure the user can't interact anymore
+                        });
+                    });
+                    // ensure they left click (opening from context menu can't be detected...)
+                    button.addEventListener("contextmenu", function(event){
+                        event.preventDefault();
+                    });
+                }
+            }
+        });
+    }
+
+    // find the Accordion's button...'
+    let button = el.querySelector("summary");
+    let details = el.querySelector("details");
+    button.addEventListener("click", function(e){
+        e.preventDefault();
+        loadAndShowIDE();
+        el.querySelector("summary svg").classList.add("gear-spin");
+
+        setTimeout(()=>details.setAttribute("open", true), 400);
+    }, {once : true});
+
+
+    // add reset buttton
+    let resetButton = el.querySelector("[data-reset-button]");
+    button.appendChild(resetButton);
+
+    resetButton.addEventListener("click", function(e){
+        // Currently ImportFiles seems to cause
+        // issues with BlockEditMode if any files
+        // are still open.
+        // This should be fixed, but as a stop-gap,
+        // we just close and re-open the editor.
+        sendMessage({
+            eventType: 'CloseAllCodeEditors',
+        });
+
+        // Overwrite the existing files
+        sendMessage({
+            eventType: 'ImportFiles',
+            files: [{ path: '/code/main.cpp', data: codeSnippet }],
+            zips: resources,
+            overwrite: true
+        });
+
+        // Re-enter block-edit mode if needed
+        if (blocks.length > 0){
+            // Automatically opens the relevant files
+            sendMessage({
+                eventType: 'EnterBlockEditMode',
+                files: [{ path: '/code/main.cpp', blocks: blocks }],
+                styles: ["highlight"],
+            });
+        } else {
+            sendMessage({
+                eventType: 'OpenCodeEditors',
+            });
+        }
+    });
+});
+</script>
+
+<style>
+    iframe {
+        color-scheme: auto;
+        background-color: #1f1f1f;
+        border: none;
+    }
+    .ide-embed-container {
+        opacity: 0; /*starts off hidden and fades in*/
+        transition: opacity 3s;
+        position: relative;
+    }
+    .ide-embed {
+        border: 0;
+        width: 100%;
+        height: 100% !important;
+        box-shadow: var(--sl-shadow-md);
+    }
+    .open-in-ide-button {
+        position: absolute;
+        top: 0.5em;
+        right: 0.5em;
+        border: none;
+        background: none !important;
+        --sl-icon-color: var(--sl-color-text-accent);
+        cursor: pointer;
+    }
+    .open-in-ide-button:hover {
+        --sl-icon-color: var(--sl-color-accent-high);
+    }
+    svg{
+        transition: color 0.3s;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        30% {
+            transform: rotate(360deg);
+        }
+        100% {
+            transform: rotate(1080deg);
+        }
+    }
+
+    ::global(.gear-spin) {
+        animation: spin 1s ease-in-out forwards;
+    }
+
+    button {
+        flex-shrink: 0;
+        gap: 1rem;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid var(--sl-color-gray-5);
+        border-radius: 0.5rem;
+        padding-block: 0.5rem;
+        padding-inline-start: 0.75rem;
+        padding-inline-end: 0.5rem;
+        line-height: 1;
+        background-color: var(--sl-color-black);
+        user-select: none;
+        cursor: pointer;
+    }
+
+    [data-reset-button] {
+        margin-top: 0 !important;
+        margin-right: 0;
+        margin-left: auto;
+        color: #cdefa7;
+        padding: 5px;
+
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 1s ease-in-out;
+    }
+    ::global(html[data-theme="light"]) [data-reset-button] {
+        color: var(--sl-color-text-accent);
+    }
+
+    ::global(details[open]) button[data-reset-button] {
+        opacity: 1;
+        pointer-events: initial;
+    }
+
+</style>

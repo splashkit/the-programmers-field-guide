@@ -3,6 +3,7 @@ title: While Loop
 ---
 
 import { YouTube } from 'astro-embed';
+import CodeActivity from '/src/components/CodeActivity.astro'
 
 <div class="not-content">
   <YouTube id="kkSVnEDlgCQ" params="fs=1&modestbranding=1&rel=0"/>
@@ -16,3 +17,35 @@ Watch this video to:
 - See how the while loop affects the sequence of a program.
 
 At the end of this video you should be able to write simple while loops within your programs.
+
+<CodeActivity projectName="Control Flow/Intro/While" fastStepping fastStepDelay="30" handExecution handExecutionMode="realtime" outputHeight="350" handExecutionWidth="350">
+:::tip
+  This time, let's watch the flow of execution in real time. Try running the code, then holding down your mouse and dragging around.
+
+  See how the flow of execution loops around inside the `while` loop, and how it flows into the `if` statement when the mouse is held down.
+:::
+```c++ {5-20}
+#include "splashkit.h"
+
+int main()
+{
+    int x, y;
+    open_window("Drawing!", 1000, 720);
+
+    clear_screen(COLOR_BLACK);
+
+    while(!quit_requested())
+    {
+        process_events();
+        if (mouse_down(LEFT_BUTTON))
+        {
+            x = mouse_x();
+            y = mouse_y();
+            fill_circle(COLOR_WHITE, x, y, 10);
+        }
+        refresh_screen();
+    }
+
+}
+```
+</CodeActivity>

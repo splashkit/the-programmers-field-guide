@@ -861,13 +861,14 @@ body .accordion__item {
   padding: 0 !important;
   padding-inline-start: 1rem !important;
   justify-content: initial !important;
+  outline: none;
 }
 .accordion__header:focus {
   border: none !important;
   box-shadow: none !important;
 }
 
-/* Side line & arrow*/;
+/* Side line & arrow*/
 .accordion__item {
   --sl-details-border-color: var(--sl-color-gray-5);
   --sl-details-border-color--hover: var(--sl-color-text-accent);

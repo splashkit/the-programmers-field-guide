@@ -2,6 +2,7 @@
 title: Using Assignment
 ---
 import { YouTube } from 'astro-embed';
+import CodeActivity from '/src/components/CodeActivity.astro'
 
 <div class="not-content">
   <YouTube id="V2UeI95HUyM" params="fs=1&modestbranding=1&rel=0"/>
@@ -15,3 +16,29 @@ Watch this video to:
 - Use the assignment statement to assign a value to a variable.
 
 After this video you should be ready to use dynamic values within your programs.
+
+<CodeActivity projectName="Data/Intro/Assignment" singleStep handExecution outputHeight="400">
+:::tip
+  Your assignment is to try out _assignment_! :) A few variables have been declared in the code below - try writing assignment statements that change their values, then run the code and watch how they update.
+
+  For this one, we've given you complete control over stepping through the code. **Once started, use the `Next Step` button to move to the next line**.
+:::
+```c++ {"userCode":5-19}
+#include "splashkit.h"
+
+int main()
+{
+    int x, y;
+    string text;
+    double a_double;
+
+    x = 20;
+    x += 5;
+    y = x + 5;
+    text = to_string(y) + "!";
+
+    // Try assigning to a_double, or modifying any of the other variables!
+    ####
+}
+```
+</CodeActivity>

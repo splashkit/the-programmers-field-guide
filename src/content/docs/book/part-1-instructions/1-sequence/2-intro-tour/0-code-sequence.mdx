@@ -2,6 +2,7 @@
 title: Coding a sequence
 ---
 import { YouTube } from 'astro-embed';
+import CodeActivity from '/src/components/CodeActivity.astro'
 
 <div class="not-content">
   <YouTube id="XT7SnSN-h3M" params="fs=1&modestbranding=1&rel=0"/>
@@ -15,3 +16,22 @@ Watch this video to:
 - Get started calling procedures and getting them to do things.
 
 When you have gone through this video you should have the main ideas on how to call procedures, and be ready to explore these ideas further.
+
+<CodeActivity projectName="Sequence/Intro/Coding a Sequence">
+```c++ {"userCode":5-8}
+#include "splashkit.h"
+
+int main()
+{
+    // Try calling write_line here!
+    ####
+    ####
+    ####
+}
+```
+:::tip
+  Try writing a couple of lines of text to the terminal, by calling `write_line` multiple times.
+
+  You could also try calling `delay`, which pauses the program for the specified number of milliseconds. Try adding `delay(200);` to pause the program briefly between lines!
+:::
+</CodeActivity>

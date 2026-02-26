@@ -3,6 +3,7 @@ title: If Statement
 ---
 
 import { YouTube } from 'astro-embed';
+import CodeActivity from '/src/components/CodeActivity.astro'
 
 <div class="not-content">
   <YouTube id="Z0PGUoJS7HQ" params="fs=1&modestbranding=1&rel=0"/>
@@ -17,3 +18,31 @@ Watch this video to:
 - Understand how to use conditions to affect the sequence of your code.
 
 When you have gone through this video you should be able to write simple if statements in your programs.
+
+<CodeActivity projectName="Control Flow/Intro/If" singleStep handExecution outputHeight="350">
+:::tip
+  The following code uses an if statement - try changing the input and the condition, and see how the flow of the code changes!
+:::
+```c++ {5, 8, 10}
+#include "splashkit.h"
+
+int main()
+{
+    const string password = "lazy_password";
+
+    write("Please enter the password: ");
+    string input = read_line();
+
+    if (input == password)
+    {
+        write_line("Welcome to my bank account!");
+        write_line("I sure hope it's me that's logged in...");
+    }
+    else
+    {
+        write_line("Sorry, try again!");
+    }
+    write_line("Good bye!");
+}
+```
+</CodeActivity>
