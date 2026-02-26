@@ -10,7 +10,7 @@ Create a music player. This will allow the user to load and play songs, marking 
 
 The music player will have:
 
-- a number of songs
+- a number of songs (dynamic array)
 - the id for the next song (an integer, starting at 0)
 
 Each song will have:
@@ -25,15 +25,15 @@ The program will need to allow the user to:
 
 - Add a new song
 
-  As long as there is capacity, the user will be asked to enter the name, path, and loved status of the song. The number of times played will be initialised to 0, and the unique identifier will be system generated.
+  The user will be asked to enter the name, path, and loved status of the song. The number of times played will be initialised to 0, and the unique identifier will be system generated.
   
-  The song data will be allocated a unique identifier, using the next id from the music player data. For example, if the next id is 0 then the song's identifier will be "song-0". Once this is allocated, the music player data's next id needs to be incremented by one.
+  The song data will be allocated a unique identifier, using the next id from the music player. For example, if the next id is 0 then the song's identifier will be "song-0". Once this is allocated, the music player will move to the next id - incrementing it by one.
   
   Once the song data has its unique identifier, the system will load the file so that the song can be played. See [load music](https://splashkit.io/api/audio/#load-music). Pass `load_music` the song's unique identifier and the path the user entered.
 
 - Update a song
 
-  The user is asked to enter the name to search for, and is then shown a numbered list of all the songs that contain that text to choose from. They enter the number of the song they want. (Check SplashKit's [contains](https://splashkit.io/api/utilities/#contains) function for this)
+  The user is asked to enter the name to search for, and is then shown a numbered list of all the songs that contain that text to choose from. They enter the number of the song they want. (Use the [contains](https://splashkit.io/api/utilities/#contains) function to check if one string contains another.)
 
   The user is then shown the details of the song, and a list of options to choose from. These include:
 
@@ -47,7 +47,7 @@ The program will need to allow the user to:
 
 - Play a song
 
-  The user selects a song as with update. This will then update the times played, and use the [play music](https://splashkit.io/api/audio/#play-music-named) procedure to start the song playing. You can pass `play_music` the song's unique id.
+  The user selects a song (using the same process as described above). This will then update the times played, and use the [play music](https://splashkit.io/api/audio/#play-music-named) procedure to start the song playing. You can pass `play_music` the song's unique id.
 
 - Pause / Resume song
 
@@ -72,6 +72,8 @@ Use a struct for the **music player data**, this can contain the array, the numb
 Also have a **song data** struct. You can use this to store the data for one song, and pass it as a parameter when you are working with a single song.
 
 Several of the features will require a search function. You can return the index of the song the user selected, and then the caller can determine what to do with the song selected.
+
+Ensure that you continue to make use of functions and procedures to organise your code, and appropriate control flow structures within these.
 
 :::
 </NoCopy>
