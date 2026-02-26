@@ -5,7 +5,7 @@ sidebar:
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 
-With the plan in place, we can now start to code this up. In this section we can look at building `number_data` struct and coding the `populate_array` and `print` procedures with a basic `main` to coordinate these. These will allow us to read the data in from the user, and then display the data entered to make sure it works.
+With the plan in place, we can now start to code this up. In this section we can look at initializing our `dynamic_array`, and coding the `populate_array` and `print` procedures with a basic `main` to coordinate these. These will allow us to read the data in from the user, and then display the data entered to make sure it works.
 
 ## Create your project
 
@@ -21,10 +21,6 @@ We can get this going pretty quickly by:
 
 #include "splashkit.h"
 
-// The maximum number of values we can store
-const int MAX_NUMBERS = 20;
-
-//todo: add struct here
 //todo: add populate_array here
 //todo: add print here
 //todo: add max here
@@ -39,20 +35,13 @@ int main()
 }
 ```
 
-## Create the `number_data` struct
+## Declare a `dynamic_array`
 
-Our plan was to create the following:
+Let's start simple - we'll declare a variable that we can store our data inside. We know we'll use a `dynamic_array`, so make sure to include the `"splashkit-arrays.h"` header.
 
-```plaintext
-Const: MAX_NUMBERS int with value 20
+We also need to consider what data type to store inside it. In our case, we want the user to be able to enter integers and real numbers (such as `1.27`) as well, so let's use `double`.
 
-Struct: number data
-Fields:
-- values: array of MAX_NUMBERS double values
-- size: an integer for the current number of values
-```
-
-Have a go at coding this. Replace the `//todo: add struct here` comment with the code needed to declare the struct. You should recall how to do this from the [organised data](/book/part-2-organised-code/2-structuring-data/5-reference/03-01-struct) chapter. In this case, you will need to include the array declaration within the struct. Look back at the [array declaration](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-01-array-declaration) section if you need. If you get stuck you can check the solution below.
+Have a go at coding this now. If you get stuck you can check the solution below, but try it on your own first!
 
 <Accordion>
   <AccordionItem
@@ -61,25 +50,11 @@ Have a go at coding this. Replace the `//todo: add struct here` comment with the
 
 The resulting code should look something like this:
 
-```cpp {8-18}
+```cpp {4, 14}
 /* stats-calc.cpp - from the field guide. written by ... */
 
 #include "splashkit.h"
-
-// The maximum number of values we can store
-const int MAX_NUMBERS = 20;
-
-/**
- * The data structure to store the numbers
- *
- * @field values the array of values
- * @field size the number of values in the array - up to MAX_NUMBERS
- */
-struct number_data
-{
-  double values[MAX_NUMBERS];
-  int size;
-};
+#include "splashkit-arrays.h"
 
 //todo: add populate_array here
 //todo: add print here
@@ -89,22 +64,14 @@ struct number_data
 
 int main()
 {
-  //todo: create variable here to manage data
+  dynamic_array<double> data;
   //todo: populate and print input
   return 0;
 }
 ```
 
-:::note
-
-- We used `MAX_NUMBERS` to set the size of the array within the struct.
-- Each element will be a `double` value.
-- We use the `size` to store the number of elements in the array we are currently using.
-
-:::
-
 :::caution
-If you are having trouble doing this yourself, make sure to go back and review [structuring data](/book/part-2-organised-code/2-structuring-data/0-overview) or the concepts earlier in this chapter.
+If you are having trouble doing this yourself, make sure to go back and review the concepts earlier in this chapter.
 :::
 
   </AccordionItem>
@@ -112,44 +79,40 @@ If you are having trouble doing this yourself, make sure to go back and review [
 
 ## Populating the array
 
-Now we have the struct in place, we can start to work on the `populate_array` procedure. This will be responsible for reading in the values from the user and storing them in the array. The procedure will need to take the `number_data` struct by reference, so that it can update the values in the array and the size of the array. We can use the `read_integer` and `read_double` functions from the utilities we have created to read in the number of values to store, and to read in each value to store in the array.
+Now we have our array ready, we can start to work on the `populate_array` procedure. This will be responsible for reading in the values from the user and storing them in the array. The procedure will need to take the `dynamic_array` by reference, so that it can add values to the array. We can use the `read_integer` and `read_double` functions from the utilities we have created to read in the number of values to store, and to read in each value to store in the array.
 
 ```plaintext
 Procedure: populate array
 -------------------------------
 Parameters:
-- data (reference to number data) - the data to sum
+- data (reference to the dynamic array) - the data to sum
 Local Variables:
 - size (int): the number of values to read in
 - i (int): to store the index of the current element in the array
 Steps
 1. Call read_integer to get the number of values to enter - store in size
-2. If size is greater than MAX_NUMBERS
-3.      Output an error message
-4.      Set size to MAX_NUMBERS
-5. Else if size is less than 0
-6.      Set size to 0
-7. Set data.size to size
-8. For i. starts at 0 and loops while i < data.size
-9.      call read_double to get the value to store in the data.values at index i
-4. Return the result total.
+2. if size is less than 0
+3.      Set size to 0
+4. For i. starts at 0 and loops while i < size
+5.      call read_double to get the value to add to data
+6. Return the result total.
 ```
 
-The first part of the procedure reads in the number of elements the user wants to populate. We need to make sure that this is not larger than the maximum capacity of the array, or negative. This is stored in the `size` field within `data` so that it contains both the number of elements and the data itself.
+The first part of the procedure reads in the number of elements the user wants to populate. We need to make sure that this is not negative - if it is, we can just set it to 0.
 
 Following this, we have the loop to read in values from the user. There are two key things to notice about the pseudocode:
 
-1. The [for loop](/book/part-1-instructions/3-control-flow/5-reference/04-3-for-loop) is used to repeat the loop once for each element in the array.
-2. `i` moves through the valid indexes of the array - so inside the loop `i` will be the index of the current element being processed. In this case, we store a value into this element.
+1. The [for loop](/book/part-1-instructions/3-control-flow/5-reference/04-3-for-loop) is used to repeat the loop once for each element to add to the array.
+2. Each iteration of the loop, we add a new element to our `dynamic_array`.
 
-Have a go at implementing this yourself. We will need to update `main` so that it contains a `number_data` variable that we can pass to `populate_array`. We can then call `populate_array` to read in the values from the user. If you get stuck, you can check the solution below.
+Have a go at implementing this yourself. We can then update `main` to call `populate_array` and read in the values from the user. If you get stuck, you can check the solution below.
 
 :::tip
 
 - Don't forget to include the *utilities.h* file, and to compile the *utilities.cpp* file with your program.
 - Think through the steps you need to take to implement this.
 - Make sure to also think about invalid data that could be entered.
-- Use a [for loop](/book/part-2-organised-code/3-working-with-multiples/5-reference/01-00-for-loop) to perform an action *for each* element in the array.
+- Use a [for loop](/book/part-2-organised-code/3-working-with-multiples/5-reference/01-00-for-loop) to repeat an action a certain number of times - each iteration, we add an element to the array.
 
 :::
 
@@ -158,51 +121,30 @@ Have a go at implementing this yourself. We will need to update `main` so that i
     header="Code for populate array"
   >
 
-```cpp {21-46,55,58}
+```cpp {5, 7-25, 37}
 /* stats-calc.cpp - from the field guide. written by ... */
 
 #include "splashkit.h"
+#include "splashkit-arrays.h"
 #include "utilities.h"
-
-// The maximum number of values we can store
-const int MAX_NUMBERS = 20;
-
-/**
- * The data structure to store the numbers
- *
- * @field values the array of values
- * @field size the number of values in the array - up to MAX_NUMBERS
- */
-struct number_data
-{
-  double values[MAX_NUMBERS];
-  int size;
-};
 
 /**
  * Populate the array with values entered by the user
  *
  * @param data the array of values (passed by reference)
  */
-void populate_array(number_data &data)
+void populate_array(dynamic_array<double> &data)
 {
   int size = read_integer("How many values do you want to enter? ");
-  if (size > MAX_NUMBERS)
-  {
-    write_line("Sorry, you can only enter " + to_string(MAX_NUMBERS) + " values.");
-    size = MAX_NUMBERS;
-  }
-  else if (size < 0)
+  if (size < 0)
   {
     size = 0;
   }
 
-  data.size = size;
-
-  // Populate each element - up to data.size
-  for (int i = 0; i < data.size; i++)
+  // Populate each element - up to size
+  for (int i = 0; i < size; i++)
   {
-    data.values[i] = read_double("Enter value: ");
+    add(data, read_double("Enter value: "));
   }
 }
 
@@ -213,7 +155,7 @@ void populate_array(number_data &data)
 
 int main()
 {
-  number_data data = {{},0};
+  dynamic_array<double> data;
 
   //todo: populate and print input
   populate_array(data);
@@ -225,17 +167,29 @@ int main()
   </AccordionItem>
 </Accordion>
 
-Make sure to compile and test your program. What happens if you ask to enter more than 20 values? What happens if you ask to enter a negative number of values?
+Make sure to compile and test your program. What happens if you ask to enter a negative number of values?
 
 ## Printing the data
 
-When you run this, it should accept the values we enter, but we can't see that they are actually stored in the array. So let's fix this by adding the `print` procedure. This will display the values in the array to the user. We can use a loop to go through each element in the array and print out the index and the value stored at that index.
+When you run this, it should accept the values we enter, but we can't see that they are actually stored in the array. So let's fix this by adding the `print` procedure. This will display the values in the array to the user.
 
-Have a go at this yourself.
+This time, we will really see how well arrays and `for` loops work hand-in-hand. We can use a `for` loop to go through *each element* in the array, and print out the element's index and the value stored there.
+
+To aid with looping, the `dynamic_array` remembers how many elements have been added, and we can retrieve this value by using the `int length(const dynamic_array<T>& data)` function.
+
+We can picture the loop looking something like this:
+```plaintext
+For i. starts at 0 and loops while i < length(data)
+    print the value in data at index i
+```
+
+Note how the iterator `i` moves through each index of the array - so inside the loop `i` will be the index of the current element being processed. In this case, we print the value of the element.
+
+Have a go at this now yourself.
 
 :::tip
 
-- As before, use a [for loop](/book/part-2-organised-code/3-working-with-multiples/5-reference/01-00-for-loop) to perform the action for each element in the array.
+- Use a [for loop](/book/part-2-organised-code/3-working-with-multiples/5-reference/01-00-for-loop) again, but this time to perform the action *for each* element in the array.
 - Try to format the output like so:
   ```
   0: 0.9
@@ -251,51 +205,30 @@ Have a go at this yourself.
     header="Code for print"
   >
 
-```cpp {48-59,70}
+```cpp {27-38, 49}
 /* stats-calc.cpp - from the field guide. written by ... */
 
 #include "splashkit.h"
+#include "splashkit-arrays.h"
 #include "utilities.h"
-
-// The maximum number of values we can store
-const int MAX_NUMBERS = 20;
-
-/**
- * The data structure to store the numbers
- *
- * @field values the array of values
- * @field size the number of values in the array - up to MAX_NUMBERS
- */
-struct number_data
-{
-  double values[MAX_NUMBERS];
-  int size;
-};
 
 /**
  * Populate the array with values entered by the user
  *
  * @param data the array of values (passed by reference)
  */
-void populate_array(number_data &data)
+void populate_array(dynamic_array<double> &data)
 {
   int size = read_integer("How many values do you want to enter? ");
-  if (size > MAX_NUMBERS)
-  {
-    write_line("Sorry, you can only enter " + to_string(MAX_NUMBERS) + " values.");
-    size = MAX_NUMBERS;
-  }
-  else if (size < 0)
+  if (size < 0)
   {
     size = 0;
   }
 
-  data.size = size;
-
-  // Populate each element - up to data.size
-  for (int i = 0; i < data.size; i++)
+  // Populate each element - up to size
+  for (int i = 0; i < size; i++)
   {
-    data.values[i] = read_double("Enter value: ");
+    add(data, read_double("Enter value: "));
   }
 }
 
@@ -304,11 +237,11 @@ void populate_array(number_data &data)
  *
  * @param data the array of values
  */
-void print(const number_data &data)
+void print(const dynamic_array<double> &data)
 {
-  for (int i = 0; i < data.size; i++)
+  for (int i = 0; i < length(data); i++)
   {
-    write_line(to_string(i) + ": " + to_string(data.values[i]));
+    write_line(to_string(i) + ": " + to_string(data[i]));
   }
 }
 
@@ -318,7 +251,7 @@ void print(const number_data &data)
 
 int main()
 {
-  number_data data = {{},0};
+  dynamic_array<double> data;
 
   populate_array(data);
   print(data);

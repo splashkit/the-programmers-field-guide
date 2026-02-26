@@ -37,15 +37,15 @@ Function: maximum
 Returns:
 - double: The sum of the value of the largest number from the data array
 Parameters:
-- data (const reference to number data) - the data to get the max of
+- data (const reference to dynamic array) - the data to get the max of
 Local variables:
 - i (int): index of the current element in the array
 - max (double): current largest number
 Steps
-  1. if data.size <= 0
+  1. if length(data) <= 0
   2.    return 0;
-  3. max is assigned data.values[0]
-  4. For i, starts at 1 and loops to data.size
+  3. max is assigned data[0]
+  4. For i, starts at 1 and loops to length(data)
   5.      if the i-th element is larger than max then
   6.          max is assigned the value of the i-th element of the array
   7. Return max
@@ -63,26 +63,12 @@ Once you have a plan, code it up and test it out. Try with all positive, and all
     header="Code for maximum"
   >
 
-```cpp {23-48,63}
+```cpp {9-34,49}
 /* stats-calc.cpp - from the field guide. written by ... */
 
 #include "splashkit.h"
+#include "splashkit-arrays.h"
 #include "utilities.h"
-
-// The maximum number of values we can store
-const int MAX_NUMBERS = 20;
-
-/**
- * The data structure to store the numbers
- *
- * @field values the array of values
- * @field size the number of values in the array - up to MAX_NUMBERS
- */
-struct number_data
-{
-  double values[MAX_NUMBERS];
-  int size;
-};
 
 //... other code here ...
 
@@ -92,21 +78,21 @@ struct number_data
  * @param data the array of values
  * @returns the largest value, or 0 if there are no values
  */
-double max(const number_data &data)
+double max(const dynamic_array<double> &data)
 {
   // Ensure there is data
-  if (data.size == 0)
+  if (length(data)== 0)
     return 0;
 
   // Assume the first value is the largest
-  double result = data.values[0];
+  double result = data[0];
 
   // Check the rest of the values
-  for (int i = 1; i < data.size; i++)
+  for (int i = 1; i < length(data); i++)
   {
-    if (data.values[i] > result)
+    if (data[i] > result)
     {
-      result = data.values[i];
+      result = data[i];
     }
   }
 
@@ -115,7 +101,7 @@ double max(const number_data &data)
 
 int main()
 {
-  number_data data = {{},0};
+  dynamic_array<double> data;
 
   populate_array(data);
 

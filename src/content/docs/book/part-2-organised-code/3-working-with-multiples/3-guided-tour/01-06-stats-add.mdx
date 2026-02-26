@@ -15,14 +15,12 @@ If we add a loop to main, after populating the array, we can give the user optio
 This is what I used for this:
 
 <CodeScroll maxHeight="600px">
-```cpp {11-20,25,29-60}
+```cpp {9-17, 22, 26-57}
 /* stats-calc.cpp - from the field guide. written by ... */
 
 #include "splashkit.h"
+#include "splashkit-arrays.h"
 #include "utilities.h"
-
-// The maximum number of values we can store
-const int MAX_NUMBERS = 20;
 
 //...more code here...
 
@@ -34,12 +32,11 @@ void print_menu()
   write_line("3. Print the values");
   write_line("4. Calculate stats");
   write_line("5. Quit");
-
 }
 
 int main()
 {
-  number_data data = {{},0};
+  dynamic_array<double> data;
   int option;
 
   populate_array(data);
@@ -86,74 +83,23 @@ int main()
 
 As with most of our code, each new action is likely to be coded in a new function or procedure which may in turn need additional functions and procedures to help implement its logic. So, for this we will create an `add_data` procedure.
 
-`Add data` could accept the number data by reference, so that it can change the array and size details in the struct.
+`Add data` can accept the dynamic array by reference, so that it can add elements to the original array. Then we can just ask the user for a value, and use `add` to add it.
 
-When you do this, you want to think of any cases where things may go wrong. Now, there are a couple that I can think of. Firstly, we need to make sure that we have not already run out of space in the array. We can only add new data if there is space for that data. We can guard against this with a simple if statement at the start of the `add data` code. If there is no space, then we can output an error message and return.
-
-In add data, we can then use the current size to determine where to store the data in the array. We can use the `data.size` value as the index, as the size is one larger than the current highest index.
-
-Have a go at coding this up yourself.
+This should be fairly straightforward, have a go at coding this up yourself.
 
 <Accordion>
 <AccordionItem header="Code for add data">
 
 ```cpp
-void add_data(number_data &data)
-{    
-  if (data.size < MAX_NUMBERS)
-  {
-    double value = read_double("Enter a value to add: ");
-    data.values[data.size] = value;
-    data.size++;
-  }
-  else
-  {
-    write_line("Sorry, you can only enter " + to_string(MAX_NUMBERS) + " values.");
-  }
-}
-```
-
-</AccordionItem>
-</Accordion>
-
-Now this got me thinking of another issue. It is a bit more tricky, as you have to think about providing invalid data to make this happen.
-
-What would happen if `data.size` became negative? While we protected against this in `populate_array`, something may go wrong elsewhere or the data may become invalid due to a bug.
-
-:::caution
-
-Never assume that the data you get will be valid. Always check if something could cause your code to crash or access values it shouldn't. Many security issues could be avoided if everyone stuck to this simple idea.
-
-:::
-
-Have a go at fixing this code. Check if `data.size` is negative, and set it to 0 before adding the value.
-
-<Accordion>
-<AccordionItem header="Code to handle negative size">
-
-```cpp {5-9}
-void add_data(number_data &data)
+void add_data(dynamic_array<double> &data)
 {
-  if (data.size < MAX_NUMBERS)
-  {
-    // Ensure this works if size is negative
-    if (data.size < 0)
-    {
-      data.size = 0;
-    }
-
-    double value = read_double("Enter a value to add: ");
-    data.values[data.size] = value;
-    data.size++;
-  }
-  else
-  {
-    write_line("Sorry, you can only enter " + to_string(MAX_NUMBERS) + " values.");
-  }
+  double value = read_double("Enter a value to add: ");
+  add(data, value);
 }
 ```
 
+This _should_ be straightforward at this point. If you were unsure about how this should be done, it would be best to have another read through the chapter - make sure you're trying out the activities on your own, so you become more familiar with the concepts.
 </AccordionItem>
 </Accordion>
 
-When you have added this in, update main to call this when the user chooses that option. Check that you can add values, but not exceed the maximum number.
+When you have added this in, update main to call this when the user chooses that option.
