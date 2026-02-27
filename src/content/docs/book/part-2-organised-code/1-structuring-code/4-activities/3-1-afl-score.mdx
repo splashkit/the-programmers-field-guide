@@ -87,12 +87,14 @@ Bye!
 
 Make sure you have at least the following functions and procedures:
 
-- `draw_heading_line`: accepts a width parameter, and returns a string like `"+------------------------+"` (when width is 26).
-- `draw_title`: accepts a title and width. Returns the title text in a box (with the heading line above and below). For example, the main menu title above would have the title as "Main Menu", and a width of 26.
+- `draw_heading_line`: accepts a width parameter, and outputs a string like `"+------------------------+"` (when width is 26).
+- `draw_title`: accepts a title and width. Outputs the title text in a box (with the heading line above and below). For example, the main menu title above would have the title as "Main Menu", and a width of 26.
 - `read_string`, `read_integer`, `read_integer_range`, and `read_boolean` to read and validate input from the user.
 
 </NoCopy>
 
 :::tip
 Make sure to see how to [read and validate data from the user](/book/part-2-organised-code/1-structuring-code/3-guided-tour/00-2-explore-functions).
+
+Use the [length_of](https://splashkit.io/api/utilities/#length-of) function to get the length of a string. You will need this to calculate the number of spaces to add before the | at the end of the title.
 :::
