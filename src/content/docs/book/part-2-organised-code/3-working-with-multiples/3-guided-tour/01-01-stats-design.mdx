@@ -10,21 +10,9 @@ Before we think about the calculations, let's put the infrastructure in place to
 
 As a first step, we should think about what data we need and how it will be represented in the program.
 
-For this program we are going to need to handle an array of numbers. We will need to pass this around, and loop through all the elements. As C does not remember the size of the array when it is passed, we could track this with separate parameters, but the easier option is to set this up with a struct. So, we can design our program to use a struct to hold the array of numbers and the current number of elements we are using.
+For this program we are going to need to handle an array of numbers. We will need to pass this around, and loop through all the elements. We _could_ use a C array, but as we covered in the intro tour, these arrays have frustrating limitations (such as not remembering their size).
 
-The following pseudocode outlines my plan for this. It contains:
-
-- A constant to set the array to the largest number of elements we want to accept. This can start at 20, so that we can easily test trying to add more than 20 values. Later we can easily change this to a larger value.
-- The `number data` struct can contain the array and the number of elements we are currently using in the array (its size). This will simplify passing this data around as we build this program up. Note that the size should be less than or equal to the maximum number of elements we can store (`MAX_NUMBERS`).
-
-```plaintext
-Const: MAX_NUMBERS int with value 20
-
-Struct: number data
-Fields:
-- values: array of MAX_NUMBERS double values
-- size: an integer for the current number of values
-```
+We also have SplashKit's `fixed_array` and `dynamic_array`, which are closer to the arrays you'll find in other languages. In this case, we want the user to be able to enter a _variable_ amount of data, so it would make more sense to use a `dynamic_array`. This is what we will store our data in.
 
 ## Overview of Statistic Calculator's design
 
@@ -40,7 +28,7 @@ We can break this down into a few functions and procedures:
 
 - `main` will contain the data and coordinate things
 - `populate_array` will read the data in from the user. This can use:
-  - `read_integer` to get the number of values to enter (up to `MAX_NUMBERS`)
+  - `read_integer` to get the number of values to enter
   - `read_double` to get the data from the user.
 - `print` will display the data entered
 - Three functions (`max`, `mean`, and `sum`) will calculate the statistics
@@ -50,4 +38,4 @@ We can represent this in a structure chart to start to visualise how this comes 
 ![Structure Chart showing the structure of the Statistics Calculator program](./images/structurechart-statistics-calculator.png)
 <div class="caption">Structure Chart showing the structure of the statistics calculator program</div><br/>
 
-Our `number_data` struct would work in this context, as it can be passed around to the different functions and procedures.
+Our `dynamic_array` struct would work in this context, as it can be passed around to the different functions and procedures. To avoid copies, we can pass it around our program using [pass by reference](http://192.168.1.101:3001/book/part-2-organised-code/1-structuring-code/5-reference/03c-pass-by-ref/).

@@ -8,13 +8,15 @@ import { Icon, Steps } from '@astrojs/starlight/components';
 import Carousel from '/src/components/Carousel.astro'
 import Aside from '/src/components/Aside.astro'
 
-Now we'll have a go at sorting arrays, and we'll write a program that visualises this process graphically. Our final program will look something like this:
+Once we start storing arrays of elements, a common operation we want to perform is sorting them! Array sorting has a wide range of applications across games and software, so in this tour we'll write a program that visualises this process graphically.
+
+Our final program will look something like this:
 ![A row of vertical bars visualising the values of the numbers in an array - visually similar to a bar graph. Two of the bars are highlighted.](./images/array-visualiser.png)
 _You'll be able to customise the colours :)_
 
 ## Sorting arrays
 
-Quite often we might have an array of elements like so:
+Let's consider the case where we have an array of integers. We might have an array of elements like so:
 
 
 | 0 | 8 | 6 | 2 | 9 | 4 |
@@ -149,8 +151,9 @@ _We'll be making a more interesting visualisation than this..._
 <Steps>
 1. ### Set up our array
    Let's start by creating our `main` and declaring an array that we'll sort.
-   1. Declare an array using `fixed_array<int, DATA_SIZE>` of 10 elements. Make the number of elements a constant inside `main` - that way we can change it later easily.
-   2. Next, set values in the array using `array[index] = value`. Just put in some random numbers between 0 and 10 for now.
+   1. First, open up a new `.cpp`, and add an empty `main` function.
+   2. Now let's declare an array to sort. For this tour we'll try using a `fixed_array`, that stores `int` and has 10 elements. Make the number of elements a constant outside of `main` called `DATA_SIZE` - that way we can access and/or change it later easily. Make sure to include the `"splashkit-arrays.h"` header as well!
+   3. Next, set values in the array using `array[index] = value`. Just put in some random numbers between 0 and 10 for now.
 
     <Accordion>
       <AccordionItem
@@ -161,9 +164,10 @@ _We'll be making a more interesting visualisation than this..._
       #include "splashkit.h"
       #include "splashkit-arrays.h"
 
+      const int DATA_SIZE = 10;
+
       int main()
       {
-          const int DATA_SIZE = 10;
           fixed_array<int, DATA_SIZE> data;
           data[0] = 2;
           data[1] = 7;
@@ -189,8 +193,8 @@ _We'll be making a more interesting visualisation than this..._
 
     First let's get the usual graphical program _boilerplate_ out of the way. Write the following:
     1. Open a window - create constants for the width (1280) and height (720).
-    2. Create a `visualize_array` procedure with two parameters - one for our array (`const fixed_array<int>& data`), and one for the _size_ of the array (`int size`). Inside it, just clear the screen to white, and refresh the screen.
-    3. In `main`, call `visualize_array` ( passing in the array and size constant ), then delay for two seconds.
+    2. Create a `visualize_array` procedure with a single parameter - one for our array (`const fixed_array<int, DATA_SIZE>& data`). Inside it, just clear the screen to white, and refresh the screen.
+    3. In `main`, call `visualize_array` ( passing in the array ), then delay for two seconds.
 
     At this point we should have a blank window show up when we run the program, that closes after two seconds. Now let's get to the interesting part.
 
@@ -324,17 +328,18 @@ _We'll be making a more interesting visualisation than this..._
     |---|---|
     | **Procedure** | *Bubble Sort Pass* |
     | **Parameters** | `data`: The `fixed_array<int, DATA_SIZE>` to sort. |
-    |                | `size`: The size of the array (number of elements). |
     |                | `range`: The range within which to sort. |
     | **Description** | Completes one Bubble Sort pass between the first `range` elements.|
 
-    Notice how we're passing in the `size`, _and_ a `range`?
+    Notice how even though the `fixed_array` knows it's own size, we're still passing in a `range`?
 
-    The bubble sort pass itself doesn't always have to loop over the entire array. For instance, if we've already completed three passes, then we know the last three elements in the array are already sorted! So we will use the `range` parameter to only loop over the necessary elements - no need to pass over the entire array.
+    The bubble sort pass itself doesn't always have to loop over the entire array. For instance, if we've already completed three passes, then we know the last three elements in the array are already sorted! So we will use the `range` parameter to only loop over the necessary elements, rather than the using the size of the entire array.
 
-    **However**, we still need the full `size` of the array, so that we can call `visualize_array` and see the entire array changing.
+    While we'll be looping using the `range`, we do however still need the full size of the array anyway, so that we can call `visualize_array` and see the entire array changing.
 
     :::caution
+    Just a side note on regarding this:
+
     Ideally, sorting logic should not depend on rendering at all - we are mixing together two entirely different tasks. Normally this would be bad design! We are only doing this for the purpose of learning, try to avoid this sort of design in your own code :)
     :::
 
@@ -352,10 +357,10 @@ _We'll be making a more interesting visualisation than this..._
 
     <details>
     <summary>Why "except the last within the `range`"?</summary>
-    We are always comparing `data[i]` with the next element, `data[i+1]`. If we went all the way up to `range`, there would be no next element! So we want the comparison in our `for` loop to be ` i < range - 1`; note the `- 1`.
+    We are always comparing `data[i]` with the next element, `data[i + 1]`. If we went all the way up to `range`, there would be no next element! So we want the comparison in our `for` loop to be ` i < range - 1`; note the `- 1`.
     </details>
 
-    Try calling `bubble_sort_pass` inside `main` (pass the same size to `size` and `range`), and you should now be able to see the array changing as the larger columns move to the right! The largest element should end up all the way on the right side - make sure this is working right before continuing.
+    Try calling `bubble_sort_pass` inside `main` (for now pass the array's full length to `range`), and you should now be able to see the array changing as the larger columns move to the right! The largest element should end up all the way on the right side - make sure this is working right before continuing.
 
     :::tip
     If the animation is too fast, add a `delay(50);` at the end of `visualize_array`!
@@ -366,7 +371,7 @@ _We'll be making a more interesting visualisation than this..._
         header="Implementing Bubble Sort Pass"
       >
         ```c++
-        void bubble_sort_pass(fixed_array<int> &data, int size, int range)
+        void bubble_sort_pass(fixed_array<int, DATA_SIZE> &data, int range)
         {
             for(int i = 0; i < range - 1; i ++)
             {
@@ -374,7 +379,7 @@ _We'll be making a more interesting visualisation than this..._
                 {
                     swap(data[i], data[i + 1]);
                 }
-                visualize_array(data, size);
+                visualize_array(data);
             }
         }
         ```
@@ -388,7 +393,6 @@ _We'll be making a more interesting visualisation than this..._
     |---|---|
     | **Procedure** | *Bubble Sort* |
     | **Parameters** | `data`: The `fixed_array<int, DATA_SIZE>` to sort. |
-    |                | `size`: The size of the array. |
     | **Description** | Sorts the elements in the array from smallest to largest.|
 
     Have a look at the visualisation below to see how it will work:
@@ -471,11 +475,11 @@ _We'll be making a more interesting visualisation than this..._
         header="Implementing Bubble Sort"
       >
         ```c++
-        void bubble_sort(fixed_array<int> &data, int size)
+        void bubble_sort(fixed_array<int, DATA_SIZE> &data)
         {
-            for(int i = size; i > 1; i --)
+            for(int i = length(data); i > 1; i --)
             {
-                bubble_sort_pass(data, size, i);
+                bubble_sort_pass(data, i);
             }
         }
         ```
@@ -496,7 +500,7 @@ There are two simple changes we can make to extend this further. By the end we'l
 1. ### Dynamic highlighting
     Let's start by making our `visualize_array` procedure _highlight_ the elements that are currently being compared/swapped. We can do this by adding an additional parameter: `int highlight_index`.
 
-    Inside `visualize_array`, we can now test the `highlight_index` when calling `fill_rectangle`, and change the colour.
+    Inside `visualize_array`, we now test the `highlight_index` when calling `fill_rectangle`, and change the colour.
 
     :::tip
     You could try using the _ternary operator_, which looks like this:
@@ -523,7 +527,6 @@ There are two simple changes we can make to extend this further. By the end we'l
     |---|---|
     | **Procedure** | *Fill Array Random* |
     | **Parameters** | `data`: The `fixed_array<int, DATA_SIZE>` to fill. |
-    |                | `size`: The size of the array. |
     |                | `min`: The minimum value. |
     |                | `max`: The maximum value. |
     | **Description** | Fills the array with random integers between `min` and `max`.|

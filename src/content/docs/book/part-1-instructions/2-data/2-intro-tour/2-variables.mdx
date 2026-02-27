@@ -2,6 +2,7 @@
 title: Variables
 ---
 import { YouTube } from 'astro-embed';
+import CodeActivity from '/src/components/CodeActivity.astro'
 
 <div class="not-content">
   <YouTube id="kgTxYPXmZ20" params="fs=1&modestbranding=1&rel=0"/>
@@ -15,3 +16,25 @@ Watch this video to:
 - See how to use functions to calculate values to store in variables.
 
 When you are done, you should be able to create variables in your code and have a mental model of what is occurring.
+
+<CodeActivity projectName="Data/Intro/Variables" fastStepping fastStepDelay="300" handExecution>
+:::tip
+  Try running the code below and watching as the variables are created and assigned values. Try re-running with different values, and see how the output changes.
+:::
+```c++ {"userCode":5-13}
+#include "splashkit.h"
+
+int main()
+{
+    write("What is your name? ");
+    string name = read_line();
+
+    write_line("Hello " + name);
+
+    int name_length = length_of(name);
+    string name_length_str = to_string(name_length);
+
+    write_line("Your name is " + name_length_str + " bytes long!");
+}
+```
+</CodeActivity>

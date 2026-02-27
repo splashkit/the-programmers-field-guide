@@ -7,9 +7,9 @@ import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 The mean of a list of values is the sum of those values divided by the number of values. In the case of the statistics calculator, we already have a `sum` function, so the `mean` function can just call `sum` and use the result returned.
 
-To get the number of elements in the array we needed to keep track of this ourselves as C does not retain any details about the length of the arrays you declare. This is why we have the `size` field in our `number_data` struct, so we will have the number of elements when we are asked to calculate the mean.
+Then we need to divide by the number of elements. Since we used a `dynamic_array` that keeps track of how many elements it has, this will be straightforward. If we used a simpler C style array, we would have needed to keep track of the number of elements manually.
 
-Have a go at coding this yourself.
+Have a go at coding this yourself now.
 
 :::tip
 Think about any condition where there may be issues calculating the mean.
@@ -20,51 +20,30 @@ Think about any condition where there may be issues calculating the mean.
     header="Code for mean"
   >
 
-```cpp {80-92,108}
+```cpp {59-71, 87}
 /* stats-calc.cpp - from the field guide. written by ... */
 
 #include "splashkit.h"
+#include "splashkit-arrays.h"
 #include "utilities.h"
-
-// The maximum number of values we can store
-const int MAX_NUMBERS = 20;
-
-/**
- * The data structure to store the numbers
- *
- * @field values the array of values
- * @field size the number of values in the array - up to MAX_NUMBERS
- */
-struct number_data
-{
-  double values[MAX_NUMBERS];
-  int size;
-};
 
 /**
  * Populate the array with values entered by the user
  *
  * @param data the array of values (passed by reference)
  */
-void populate_array(number_data &data)
+void populate_array(dynamic_array<double> &data)
 {
   int size = read_integer("How many values do you want to enter? ");
-  if (size > MAX_NUMBERS)
-  {
-    write_line("Sorry, you can only enter " + to_string(MAX_NUMBERS) + " values.");
-    size = MAX_NUMBERS;
-  }
-  else if (size < 0)
+  if (size < 0)
   {
     size = 0;
   }
 
-  data.size = size;
-
-  // Populate each element - up to data.size
-  for (int i = 0; i < data.size; i++)
+  // Populate each element - up to size
+  for (int i = 0; i < size; i++)
   {
-    data.values[i] = read_double("Enter value: ");
+    add(data, read_double("Enter value: "));
   }
 }
 
@@ -73,11 +52,11 @@ void populate_array(number_data &data)
  *
  * @param data the array of values
  */
-void print(const number_data &data)
+void print(const dynamic_array<double> &data)
 {
-  for (int i = 0; i < data.size; i++)
+  for (int i = 0; i < length(data); i++)
   {
-    write_line(to_string(i) + ": " + to_string(data.values[i]));
+    write_line(to_string(i) + ": " + to_string(data[i]));
   }
 }
 
@@ -87,14 +66,14 @@ void print(const number_data &data)
  * @param data the array of values
  * @return the sum of the values
  */
-double sum(const number_data &data)
+double sum(const dynamic_array<double> &data)
 {
   int i;
   double result = 0;
 
-  for (i = 0; i < data.size; i++)
+  for (i = 0; i < length(data); i++)
   {
-    result += data.values[i];
+    result += data[i];
   }
 
   return result;
@@ -106,10 +85,10 @@ double sum(const number_data &data)
  * @param data the array of values
  * @returns the mean of the values
  */
-double mean(const number_data &data)
+double mean(const dynamic_array<double> &data)
 {
-  if (data.size > 0)
-    return sum(data) / data.size;
+  if (length(data) > 0)
+    return sum(data) / length(data);
   else
     return 0;
 }
@@ -118,7 +97,7 @@ double mean(const number_data &data)
 
 int main()
 {
-  number_data data = {{},0};
+  dynamic_array<double> data;
 
   populate_array(data);
 

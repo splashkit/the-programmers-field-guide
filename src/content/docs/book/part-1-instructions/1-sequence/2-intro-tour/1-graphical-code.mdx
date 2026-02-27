@@ -2,6 +2,7 @@
 title: Coding a graphical sequence
 ---
 import { YouTube } from 'astro-embed';
+import CodeActivity from '/src/components/CodeActivity.astro'
 
 <div class="not-content">
   <YouTube id="uLDORl3gRks" params="fs=1&modestbranding=1&rel=0"/>
@@ -16,3 +17,28 @@ Watch this video to:
 - Understand how the sequence of drawing instructions can affect what you see.
 
 When you have gone through this video you should have the main ideas on how to call graphical procedures, and be ready to explore these ideas further.
+
+<CodeActivity projectName="Sequence/Intro/Coding a Graphical Sequence" fastStepping fastStepDelay="300">
+```c++ {"userCode":5-14}
+#include "splashkit.h"
+
+int main()
+{
+    open_window("Hello Graphics", 800, 600);
+
+    clear_screen(COLOR_BLUE);
+
+    // Try drawing a rectangle here!
+    ####
+
+    refresh_screen();
+
+    delay(2000);
+}
+```
+:::tip
+  We've slowed down the code so you can see sequence in action!
+
+  Try experimenting with the order of the instructions, and see how the result changes.
+:::
+</CodeActivity>

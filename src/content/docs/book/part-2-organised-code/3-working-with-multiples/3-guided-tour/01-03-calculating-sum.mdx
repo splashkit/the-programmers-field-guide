@@ -7,7 +7,7 @@ import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 Now we have the data in the program, we can start to think about the statistics we want to calculate.
 
-The sum is the simplest of the statistics. This involves adding together *all* the numbers in the array. The main issue here is that the computer cannot add *all* of these values together, and we must rethink our logic to express it in terms of processing *for each* element.
+The sum is the simplest of the statistics. This involves adding together *all* the numbers in the array. The main issue here is that the computer cannot add *all* of these values together in a single instruction, and we must rethink our logic to express it in terms of processing *for each* element.
 
 Think about the way you would sum a list of numbers, this is now the task you need to code for the computer. What is it that you do with each number? To think this through write a list of random numbers down. Keep it simple, make each number between 0 and 9. Now calculate the sum. Do it slowly, and think about the tasks that you are performing for each number. Allow yourself only to look at one number at a time.
 
@@ -19,14 +19,14 @@ Function: sum
 Returns:
 - double: The sum of the numbers from the data array
 Parameters:
-- data (const reference to number data) - the data to sum
+- data (const reference to dynamic array) - the data to sum
 Local Variables:
 - i (int): index of the current element in the array
 - total (double): running total
 Steps
 1. total is assigned 0
-2. For i. starts at 0 and loops while i < data.size
-3.      total is assigned total + the value of the ith element of data.values
+2. For i. starts at 0 and loops while i < length(data)
+3.      total is assigned total + the value of the ith element of data
 4. Return the result total.
 ```
 
@@ -44,51 +44,30 @@ Have a go at coding this yourself.
     header="Code for sum"
   >
 
-```cpp {61-78,89,92-94}
+```cpp {40-57,68,71-73}
 /* stats-calc.cpp - from the field guide. written by ... */
 
 #include "splashkit.h"
+#include "splashkit-arrays.h"
 #include "utilities.h"
-
-// The maximum number of values we can store
-const int MAX_NUMBERS = 20;
-
-/**
- * The data structure to store the numbers
- *
- * @field values the array of values
- * @field size the number of values in the array - up to MAX_NUMBERS
- */
-struct number_data
-{
-  double values[MAX_NUMBERS];
-  int size;
-};
 
 /**
  * Populate the array with values entered by the user
  *
  * @param data the array of values (passed by reference)
  */
-void populate_array(number_data &data)
+void populate_array(dynamic_array<double> &data)
 {
   int size = read_integer("How many values do you want to enter? ");
-  if (size > MAX_NUMBERS)
-  {
-    write_line("Sorry, you can only enter " + to_string(MAX_NUMBERS) + " values.");
-    size = MAX_NUMBERS;
-  }
-  else if (size < 0)
+  if (size < 0)
   {
     size = 0;
   }
 
-  data.size = size;
-
-  // Populate each element - up to data.size
-  for (int i = 0; i < data.size; i++)
+  // Populate each element - up to size
+  for (int i = 0; i < size; i++)
   {
-    data.values[i] = read_double("Enter value: ");
+    add(data, read_double("Enter value: "));
   }
 }
 
@@ -97,11 +76,11 @@ void populate_array(number_data &data)
  *
  * @param data the array of values
  */
-void print(const number_data &data)
+void print(const dynamic_array<double> &data)
 {
-  for (int i = 0; i < data.size; i++)
+  for (int i = 0; i < length(data); i++)
   {
-    write_line(to_string(i) + ": " + to_string(data.values[i]));
+    write_line(to_string(i) + ": " + to_string(data[i]));
   }
 }
 
@@ -111,25 +90,25 @@ void print(const number_data &data)
  * @param data the array of values
  * @return the sum of the values
  */
-double sum(const number_data &data)
+double sum(const dynamic_array<double> &data)
 {
   int i;
   double result = 0;
 
-  for (i = 0; i < data.size; i++)
+  for (i = 0; i < length(data); i++)
   {
-    result += data.values[i];
+    result += data[i];
   }
 
   return result;
 }
 
-//todo: add max here
 //todo: add mean here
+//todo: add max here
 
 int main()
 {
-  number_data data = {{},0};
+  dynamic_array<double> data;
 
   populate_array(data);
 
