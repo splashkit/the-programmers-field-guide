@@ -7,7 +7,8 @@
 # Define urls
 splashkit_url="https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh"
 dotnet_sdk_url="https://download.visualstudio.microsoft.com/download/pr/90486d8a-fb5a-41be-bfe4-ad292c06153f/6673965085e00f5b305bbaa0b931cc96/dotnet-sdk-8.0.300-win-x64.exe"
-vscode_installer_url="https://aka.ms/win32-x64-user-stable"
+vscode_installer_url_x64="https://update.code.visualstudio.com/latest/win32-x64-user/stable"
+vscode_installer_url_arm64="https://update.code.visualstudio.com/latest/win32-arm64-user/stable"
 settings_json_url="https://programmers.guide/resources/msys2-settings.json"
 
 # -----------------------------------------------------
@@ -31,7 +32,12 @@ echo ""
 # Check if VS Code needs to be installed
 if ! command -v code &>/dev/null; then
     echo "Downloading Visual Studio Code installer..."
-    curl -L $vscode_installer_url -o vscode-installer.exe
+
+    if [[ $(uname) == *ARM64 ]]; then
+        curl -L $vscode_installer_url_arm64 -o vscode-installer.exe
+    else
+        curl -L $vscode_installer_url_x64 -o vscode-installer.exe
+    fi
 
     echo "Installing Visual Studio Code..."
     powershell.exe -Command "Start-Process vscode-installer.exe -ArgumentList '/silent /mergetasks=!runcode' -Wait"
