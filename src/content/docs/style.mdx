@@ -13,6 +13,24 @@ This document will highlight, with examples and reasons, our own style guide whi
 
 ---
 
+## Naming Conventions
+
+<Card>
+<Tabs>
+  <TabItem label="Rule">
+  Use the following format for naming of code constructs:
+  
+    - Variables: snake_case. eg `variable_name`
+    - Constants: UPPER_CASE. eg `CONSTANT_NAME`
+    - Functions, Procedures, Methods: snake_case. eg `function_name`
+    - Struct, Enum, Class: snake_case. eg `struct_name`
+  
+  </TabItem>
+  <TabItem label="Explanation">Consistent format of identifiers provides additional clarity when reading code. The convention we are using matches the C/C++ standard library.</TabItem>
+  <TabItem label="Tip">Visual Studio Code provides actions in the command palette to switch between different case styles.</TabItem>
+</Tabs>
+</Card>
+
 ## Indentation
 
 <Card>
@@ -92,7 +110,7 @@ This document will highlight, with examples and reasons, our own style guide whi
       // (The following is a good comment - it explains *why* we are doing this)
       // We have added another instance of foo, so we increment x which tracks that
       x++;
-      // (Also never use x as a variable name - `foo_counter++;` wouldn't need a comment at all)
+      // (Also x is not a good variable name in this context - `foo_counter++;` wouldn't need a comment at all)
     }
     ```
   </TabItem>
@@ -126,7 +144,7 @@ This document will highlight, with examples and reasons, our own style guide whi
 </Tabs>
 </Card>
 
-## Naming Methods
+## Naming Functions, Procedures, and Methods
 <Card>
 <Tabs>
   <TabItem label="Rule">Names should be descriptive and not abbreviated.</TabItem>
@@ -165,8 +183,8 @@ This document will highlight, with examples and reasons, our own style guide whi
 <Card>
 
 <Tabs>
-  <TabItem label="Rule">Global variables should not be used.</TabItem>
-  <TabItem label="Explanation">Global variables are variables which are declared outside of a function or class. Because of this, global variables are accessible and can be modified from anywhere in the program, at any time, by any other part of the program. This makes it difficult to track where the variable is being used, and can lead to bugs. If you are reaching for a global variable, it is often a sign that your code may need to be restructured.</TabItem>
+  <TabItem label="Rule">Global variables must not be used.</TabItem>
+  <TabItem label="Explanation">Global variables are variables which are declared outside of a function, struct, or class. Because of this, global variables are accessible and can be modified from anywhere in the program, at any time, by any other part of the program. This makes it difficult to track where the variable is being used, and can lead to bugs. If you are reaching for a global variable, it is often a sign that your code may need to be restructured.</TabItem>
 </Tabs>
 </Card>
 
