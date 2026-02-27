@@ -7,9 +7,9 @@ sidebar:
 ---
 
 import { YouTube } from 'astro-embed';
-import { Steps } from '@astrojs/starlight/components';
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 
-In this guide, we will walk through the steps to install the necessary Applications and Tools using **MSYS2** (**M**inimal **SYS**tem) on Windows. This will enable you to code in C# and C++ with SplashKit.
+In this guide, we will walk through the steps to install the necessary Applications and Tools using **MSYS2** (**M**inimal **SYS**tem) on Windows. This will enable you to code in C++ and Python with SplashKit.
 
 :::note[Already have SplashKit installed?]
 If you have previously installed SplashKit:
@@ -45,20 +45,20 @@ To get SplashKit and other coding tools installed on Windows, using MSYS2, follo
 
     :::
 
-3. ### Use the "MINGW64" terminal
+3. ### Use the "MINGW64" (or "CLANGARM64") terminal
 
     MSYS2 comes with a variety of terminal environments.
 
-    You will need to use the **MINGW64** terminal environment (not MSYS or UCRT), which you can find by searching "mingw64" in the Windows Start menu and selecting the **MSYS2 MINGW64** App.
+    If using a Windows ARM computer, you will need to use the **CLANGARM64** terminal, otherwise you will use the **MINGW64** terminal environment (not MSYS or UCRT), which you can find by searching "mingw64" in the Windows Start menu and selecting the **MSYS2 MINGW64** App.
 
     ![Image showing opening MSYS2 MINGW64 Terminal](./images/setup-windows/open-mingw64-terminal.png)
     <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
-4. Pin MINGW64 Terminal to the taskbar:
+4. Pin MINGW64 (or CLANGARM64) Terminal to the taskbar:
 
     To make it easier to open each time, you can pin your terminal to the Taskbar.
 
-    - Open MINGW64 terminal.
+    - Open MINGW64 (or CLANGARM64) terminal.
     - Right-click on the MSYS2 App icon in the taskbar (shown in the orange box in the image below).
     - Select "Pin to taskbar" (shown in the pink box):
 
@@ -75,18 +75,15 @@ This script will install the following applications and tools:
 
 - Visual Studio Code
   - C/C++ Extensions
-  - C# Extensions
+  - Python Extensions
 - .NET SDK
 - SplashKit
   - SplashKit Global
-- git
-- clang
-- gcc
-- gdb
+- git, clang, gcc, gdb, and other required command line tools
 
 <Steps>
 
-1. Open the **MINGW64** Terminal using **"Run as Administrator"** and run the following command:
+1. Open the **MINGW64** (or **CLANGARM64**) Terminal using **"Run as Administrator"** and run the following command:
 
     ```bash
     curl -s "https://programmers.guide/resources/MSYS2_InstallScript.sh" | bash /dev/stdin
@@ -96,17 +93,23 @@ This script will install the following applications and tools:
     This script may take a while to run (approx. 5-10 mins).
     :::
 
-2. Once the automated script has finished running, close and reopen the Terminal.
+2. Once the automated script has finished running, close and reopen the Terminal if needed.
 
 3. Run the command `skm` to check SplashKit is installed correctly.
 
-4. **Add MINGW64 Terminal to Visual Studio Code** (important step!):
+4. **Check the integrated terminal in Visual Studio Code** (important step!):
 
-    To be able to use the MSYS2/MINGW64 terminal as an integrated terminal in Visual Studio Code, follow the steps in the [Set up VS Code Terminal](#set-up-vs-code-terminal) section below.
+    Open a "New Terminal" in VS Code (*Terminal* > *New Terminal*).
 
-5. Lastly, try opening a "New Terminal" in VS Code (*Terminal* > *New Terminal*). You should now see the MINGW64 terminal integrated in VS Code.
+    You should now see the "MINGW64" (or "CLANGARM64") terminal integrated in VS Code.
 
-6. Then, once you're finished, you can go to the [Using MSYS2](#using-msys2) section for more information about accessing files in your C drive with the MSYS2/MINGW64 terminal.
+    :::caution[Wrong terminal?]
+
+    If you see a different terminal such as "powershell", follow the steps in the [Set up VS Code Terminal](#set-up-vs-code-terminal) section below.
+
+    :::
+
+5. Once you're finished, you can go to the [Using MSYS2](#using-msys2) section for more information about accessing files in your C drive with the MSYS2/MINGW64 terminal.
 
 </Steps>
 
@@ -114,7 +117,7 @@ This script will install the following applications and tools:
 
 ### 2. Install Command Line Tools
 
-To install SplashKit, you will firstly need to install the `git`, `clang`, `gcc` and `gdb` command line tools using the `pacman` package manager.
+To install SplashKit, you will firstly need to install the `git` command line tool using the `pacman` package manager.
 
 :::note[Command Line Tools Installation Video:]
 <div class="not-content">
@@ -129,7 +132,7 @@ To install SplashKit, you will firstly need to install the `git`, `clang`, `gcc`
 1. Copy the following command:
 
     ```bash
-    pacman -S git mingw-w64-x86_64-clang mingw-w64-x86_64-gcc mingw-w64-x86_64-gdb --noconfirm --disable-download-timeout
+    pacman -S git --noconfirm --disable-download-timeout
     ```
 
 2. Paste the command into your **MINGW64** Terminal.
@@ -218,6 +221,18 @@ Once you have your code project set up, Visual Studio Code will be the main prog
 
     Visual Studio Code has a built-in Terminal that you can use instead of needing to switch back and forth between VS Code and your **MINGW64** terminal window. You will need to update some settings to get this working with your **MINGW64** terminal.
 
+    You can set this up using the following command:
+
+    ```bash
+    skm vscode settings
+    ```
+
+    :::note
+    If this command was successful, you can now skip to the [Install VS Code Extensions](#install-vs-code-extensions) section.
+
+    If you get any errors, follow the steps below.
+    :::
+
 3. Open Visual Studio Code, then press `Ctrl` + `Shift` + `P` to open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
 
 4. Start typing "Open user..." and then select **Open User Settings (JSON)** (shown in the orange box in the image below):
@@ -228,6 +243,9 @@ Once you have your code project set up, Visual Studio Code will be the main prog
     This will open the **settings.json** file that you can now edit.
 
 5. Create a new line just before the last closing curly brace `}` at the end of the file, and then copy and paste the text below into that line:
+
+    <Tabs syncKey="msys2-terminal-type">
+    <TabItem label="MINGW64 Terminal">
 
     ```json
         "terminal.integrated.profiles.windows": {
@@ -277,12 +295,72 @@ Once you have your code project set up, Visual Studio Code will be the main prog
         ],
         "C_Cpp.default.compilerPath": "C:/msys64/mingw64/bin/gcc.exe",
         "C_Cpp.default.intelliSenseMode": "gcc-x64",
+        "chat.disableAIFeatures": true,
         "github.copilot.enable": {
             "*": false
         },
+        "workbench.secondarySideBar.defaultVisibility": "hidden",
         "files.autoSave": "afterDelay",
         "editor.formatOnSave": true
     ```
+
+    </TabItem>
+
+    <TabItem label="CLANGARM64 Terminal">
+
+    ```json
+        "terminal.integrated.profiles.windows": {
+            "PowerShell": {
+                "source": "PowerShell",
+                "icon": "terminal-powershell"
+            },
+            "Command Prompt": {
+                "path": [
+                    "${env:windir}/Sysnative/cmd.exe",
+                    "${env:windir}/System32/cmd.exe"
+                ],
+                "args": [],
+                "icon": "terminal-cmd"
+            },
+            "Git Bash": {
+                "source": "Git Bash"
+            },
+            "MSYS2": {
+                "path": "C:/msys64/usr/bin/bash.exe",
+                "args": [
+                    "--login",
+                    "-i"
+                ],
+                "env": {
+                    "MSYSTEM": "CLANGARM64",
+                    "CHERE_INVOKING": "1"
+                }
+            }
+        },
+        "terminal.integrated.defaultProfile.windows": "MSYS2",
+        "terminal.integrated.env.windows": {
+            "MSYSTEM": "CLANGARM64",
+            "CHERE_INVOKING": "1"
+        },
+        "C_Cpp.default.systemIncludePath": [
+            "C:/msys64/clangarm64/bin",
+            "C:/msys64/clangarm64/include",
+            "C:/msys64/clangarm64/include/c++/v1",
+            "${default}"
+        ],
+        "C_Cpp.default.compilerPath": "C:/msys64/clangarm64/bin/clang.exe",
+        "C_Cpp.default.intelliSenseMode": "windows-clang-arm64",
+        "chat.disableAIFeatures": true,
+        "github.copilot.enable": {
+            "*": false
+        },
+        "workbench.secondarySideBar.defaultVisibility": "hidden",
+        "files.autoSave": "afterDelay",
+        "editor.formatOnSave": true
+    ```
+
+    </TabItem>
+    </Tabs>
 
     :::note[Troubleshooting Notes:]
 
@@ -299,64 +377,88 @@ Once you have your code project set up, Visual Studio Code will be the main prog
     ![Image showing opening a new terminal in VS Code window](./images/setup-windows/new-terminal-vscode.png)
     <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
-8. Run the following command to enable the integrated MINGW64 terminal in VS Code to update the `.bash_history` file:
-
-    ```bash
-    echo "PROMPT_COMMAND='history -a'" >> ~/.bashrc
-    ```
-
-    Then close and reopen VS Code.
-
     :::note[Using previous commands]
 
-    When you run a command in the terminal, you can press the *up arrow* key to scroll through your previous commands. These previous commands are stored in the `.bash_history` file.
-
-    By default, terminal commands run using the integrated MINGW64 terminal in VS Code are not added to the `.bash_history` file. The command above fixes this issue.
+    When you run a command in the terminal, you can press the *up arrow* key to scroll through your previous commands. These previous commands are stored in the `~/.bash_history` file.
 
     :::
 
-9. ### Install VS Code Extensions
+8. ### Install VS Code Extensions
 
-    The final step to complete the setup of VS Code is to install a few *Extensions* in VS Code:
+    The final step to complete the setup of VS Code is to install a few *Extensions* in VS Code.
+
+    Run the following command in your terminal:
+
+    ```bash
+    skm vscode extensions
+    ```
+
+    :::note
+
+    If you have issues, go to the page linked below, follow the steps to install the recommended extensions, and then come back here and continue to the next step. *You can use the "Back button" in your browser to return to this page.*
 
     [**Set up my VS Code Extensions**](/book/appendix/0-manual-installation/2-7-setup-vscode)
 
-    Go to the page linked above, follow the steps to install both the C# and C/C++ recommended extensions, and then come back here and continue to the next step. *You can use the "Back button" in your browser to return to this page.*
+    :::
 
 </Steps>
 
 ### 5. Install Language Specific Tools
 
-Some coding languages require specific tools/frameworks to be installed to be able to build and run your code files.  
-As you will be coding in C# and C++ in this book, let's look at the tools needed for these languages:
+Some coding languages require specific tools/frameworks to be installed to be able to build and run your code files.
 
-### C# Tools
+As you will be coding in C++ and Python in this book, let's look at the tools needed for these languages:
 
-For coding in C#, you will need to install the `.NET` SDK which will allow you to use the *dotnet* terminal command to create, build, and run your C# project code.
+    {/* NOTE: Commented out C# Tools as no longer needed.
 
-:::note[.NET Installation Video:]
-<div class="not-content">
-  <YouTube id="lmJjNbPwAlw" params="fs=1&modestbranding=1&rel=0"/>
-</div>
-:::
+    As you will be coding in C# and C++ in this book, let's look at the tools needed for these languages:
 
-<Steps>
+    ### C# Tools
 
-1. Download the latest version of the .NET SDK (currently .NET 9) for macOS from the official .NET website: [dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+    For coding in C#, you will need to install the `.NET` SDK which will allow you to use the *dotnet* terminal command to create, build, and run your C# project code.
 
-2. Run the downloaded installer and follow on-screen instructions.
+    :::note[.NET Installation Video:]
+    <div class="not-content">
+    <YouTube id="lmJjNbPwAlw" params="fs=1&modestbranding=1&rel=0"/>
+    </div>
+    :::
 
-</Steps>
+    <Steps>
+
+    1. Download the latest version of the .NET SDK (currently .NET 9) for macOS from the official .NET website: [dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+
+    2. Run the downloaded installer and follow on-screen instructions.
+
+    </Steps>
+
+    */}
 
 ### C/C++ Tools
 
 For coding in C++, you will need to have a C++ compiler installed to build your C++ code into a file you can use to run your program. Commonly used C++ compilers are `g++` and `clang++`, which can be installed with **GCC** (**G**NU **C**ompiler **C**ollection). You will also need to install **GDB** (**G**NU **D**e**b**ugger), which you can use when debugging C++ programs.
 
 :::note
-If you installed the Command Line Tools successfully in Step 2, then you will already have the necessary compilers installed and ready for coding in C++!
+If you have installed SplashKit successfully, then you will already have the necessary compilers installed and ready for coding in C++!
+
+If you have issues, run the following command:
+
+```bash
+skm windows install
+```
+
 :::
 
-Your Windows machine is now set up with MSYS2, Visual Studio Code, and SplashKit, ready for C# and C++ development. Happy coding!
+### Python Tools
+
+Similar to C++, if you have installed SplashKit successfully, then you will already have the necessary python3 package installed and ready for coding in Python!
+
+If you have issues, run the following command:
+
+```bash
+skm windows install
+```
+
+Your Windows machine is now set up with MSYS2, Visual Studio Code, and SplashKit, ready for C++ and Python development. Happy coding!
 
 ## Using MSYS2
 
