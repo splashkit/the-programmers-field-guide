@@ -270,8 +270,9 @@ const { id="", checkOnClick=false, checkingMode="strict"} = Astro.props;
 
             let reasons  = this.querySelectorAll('answer-reason,mistake-reason');
             for (let ar of reasons) {
+                ar.stateOpen = false;
                 ar.addEventListener("transitionend", (event) => {
-                    if (ar.style.height != "0px")
+                    if (ar.targetStateOpen)
                         ar.style.height = "auto";
                 })
             }
@@ -341,6 +342,7 @@ const { id="", checkOnClick=false, checkingMode="strict"} = Astro.props;
             let reasons  = this.querySelectorAll('answer-reason,mistake-reason');
             for (let ar of reasons) {
                 ar.targetHeight = "0px";
+                ar.targetStateOpen = false;
             }
 
             let groupCorrect = new Map();
@@ -376,22 +378,33 @@ const { id="", checkOnClick=false, checkingMode="strict"} = Astro.props;
                         if (
                             (childIsCorrect == TERN_POS && ar.tagName == "ANSWER-REASON") ||
                             (childIsCorrect == TERN_NEG && ar.tagName == "MISTAKE-REASON")
-                        )
+                        ) {
                             ar.targetHeight = ar.scrollHeight + "px";
+                            ar.targetStateOpen = true;
+                        }
                     }
                 }
             }
 
             // Handle animations - auto->current height needs one animation frame to avoid jumping
             for (let ar of reasons) {
-                if (ar.style.height == "auto" && ar.targetHeight == "0px")
-                    ar.style.height = ar.scrollHeight + "px";
+                if (ar.stateOpen != ar.targetStateOpen)
+                    ar.style.height = ar.clientHeight + "px";
             }
 
             window.requestAnimationFrame(function(){
                 for (let ar of reasons) {
-                    if (ar.style.height != ar.targetHeight && !(ar.style.height == "auto" && ar.targetHeight != "0px"))
-                    ar.style.height = ar.targetHeight;
+                    if (ar.stateOpen != ar.targetStateOpen) {
+                        ar.stateOpen = ar.targetStateOpen;
+
+                        if (ar.style.height == ar.targetHeight) {
+                            if (ar.targetStateOpen)
+                                ar.style.height = "auto";
+                        }
+                        else {
+                            ar.style.height = ar.targetHeight;
+                        }
+                    }
                 }
             });
             /////
