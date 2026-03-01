@@ -8,29 +8,30 @@ Our fly catch game currently has the spider chasing a single fly. Now that we ha
 
 ## Changing the data
 
-Open up your version of the fly catch code, and review the `game_data` struct. This struct contains the spider and the fly. To change the game to have multiple flies, you need to change the `fly` field from a single `fly_data` value to an array of values.
+Open up your version of the fly catch code, and review the `game_data` struct. This struct contains the spider and the fly. To change the game to have multiple flies, you need to change the `fly` field from a single `fly_data` value to an array of values. We can use a `dynamic_array`, so that we can easily add and remove flies.
 
-To create an array, you need to know how many elements it will contain. This is fixed for the duration of the program, but we may want to change this as we test different options. Creating a constant will ensure the code is easier to understand, and will allow us to change the value if needed.
+We also need to decide how many flies to create at the start of the game. How many is up to you, but make it a constant that can be adjusted easily.
 
 The result should look something like this:
 
 ```cpp
-const int MAX_FLIES = 5;
+const int INITIAL_FLY_COUNT = 5;
 
 struct game_data
 {
   spider_data spider;
-  fly_data    flies[MAX_FLIES];
+  dynamic_array<fly_data> flies;
 };
 ```
+_Make sure to also add the `splashkit-arrays.h` header!_
 
-This change will break the code, but there aren't too many places we need to update. We will need to update the way we initialise the game, update the flies, and draw the flies. The great this is that we already have the code to initialise, update, and draw a single fly, so these changes will only need to add the code to loop through the array and perform the action on each element.
+This change will break the code, but there aren't too many places we need to update. We will need to update the way we initialise the game, update the flies, and draw the flies. The great thing is that we already have the code to initialise, update, and draw a single fly, so these changes will only need to add the code to loop through the array and perform the action on each element.
 
 ## Initialising the game
 
 In `main` we currently initialise the game by assigning a value to the spider and fly. With the change to an array we no longer have a fly, we have multiple flies.
 
-Embed the code that initialises a fly within a loop, storing a new fly in each element of the array.
+Embed the code that initialises a fly within a loop, adding a new fly to the array each time.
 
 To start we have:
 
@@ -39,13 +40,13 @@ game.spider = new_spider();
 game.fly = new_fly();
 ```
 
-We still need to create new flies, but there are multiple. So we need another for loop that starts at 0, and loops while `i < MAX_FLIES`. The result is:
+We still need to create new flies, but there are multiple. So we need a `for` loop that starts at 0, and loops while `i < INITIAL_FLY_COUNT`. The result is:
 
 ```cpp
 game.spider = new_spider();
-for(int i = 0; i < MAX_FLIES; i++)
+for(int i = 0; i < INITIAL_FLY_COUNT; i++)
 {
-  game.flies[i] = new_fly();
+  add(game.flies, new_fly());
 }
 ```
 
@@ -53,9 +54,9 @@ Notice how this code nests the action we performed to initialise one fly within 
 
 ## Updating the flies
 
-We need to make similar changes in the `update_game` code. In `update_game`, we update the fly and then check if it was caught by the spider.
+We need to make similar changes in the `update_game` code. In `update_game`, we check if the fly was caught and if so re-initialize it, then afterwards update the fly.
 
-This same code and not be placed in the same for loop - looping `i` from 0 to `MAX_FLIES`. Within the loop, `game.fly` needs to become the fly in the array: `game.flies[i]`.
+This same code can just be moved into a `for` loop - looping `i` from 0 to `length(game.flies)`. Within the loop, `game.fly` needs to become the fly in the array: `game.flies[i]`.
 
 ## Drawing the flies
 
@@ -68,3 +69,10 @@ With these changes you should be able to compile and run the game. You should se
 Notice how nicely it works having functions and procedures that work with individual values - like `new_fly`, `draw_fly`, and `update_fly`. When you switch to an array, you just add a loop, and call the function/procedure. The function/procedure captures the action for a single value, and the loop repeats it once for each element in the array.
 
 :::
+
+## What next?
+
+The `dynamic_array` makes it easy to add and remove flies. You could try:
+ - Removing flies as the game continues to increase the difficulty
+ - Adding extra flies as bonuses whenever the player catches multiple quickly
+ - Adjusting the logic in `update_game` to actually _remove_ flies that have escaped, and _add_ new flies every so often (rather than rescheduling the "same" flies). This is conceptually clearer, and again makes our digital reality richer.
