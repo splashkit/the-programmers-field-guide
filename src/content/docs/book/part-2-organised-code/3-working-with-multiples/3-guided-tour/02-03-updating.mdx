@@ -1,0 +1,279 @@
+---
+title: Update
+sidebar:
+    label: " - Update"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from '@astrojs/starlight/components';
+import NoCopy from '/src/components/NoCopy.astro'
+import TemplateInjector from '/src/components/TemplateInjector.astro'
+import MultipleChoice from '/src/components/MultipleChoice.astro';
+import ITO from '/src/components/InlineTextOption.astro'
+import Aside from '/src/components/Aside.astro'
+import Carousel from '/src/components/Carousel.astro'
+import Option from '/src/components/Option.astro';
+
+We've now written procedures for most of our menu actions:
+- <input type="checkbox" checked onclick="return false;"/> Add Product
+- <input type="checkbox" checked onclick="return false;"/> List Products
+- <input type="checkbox" onclick="return false;"/> Update Product
+- <input type="checkbox" checked onclick="return false;"/> Sell Product
+- <input type="checkbox" checked onclick="return false;"/> Delete Product
+- <input type="checkbox" onclick="return false;"/> Print Status
+
+This seems like a good time to add a menu to our program, so let's go ahead and do that before finishing off the last features.
+
+## Menu
+
+This part will be very similar to what we did in the Statistics Calculator [Adding Data](/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/01-06-stats-add/) page.
+
+We'll create a loop, that allows the user to choose from a menu option, then uses a `switch` statement to decide which action to take.
+
+Our `main` should look very neat, since the instructions for each of our actions are separated out into procedures. The `case`s should look like this:
+
+```c++
+        case ADD_PRODUCT:
+            add_product(store);
+            break;
+        case DELETE_PRODUCT:
+            delete_product(store);
+            break;
+```
+
+Nice and tidy :) Notice the use of identifiers like `ADD_PRODUCT` as well? For this, try declaring an [enum](/book/part-2-organised-code/2-structuring-data/5-reference/03-02-enum/#example) that groups the menu options together, and using those identifiers (instead of numbers like `1` or `2`).
+
+Have a go now at putting this menu in, so that you can add, remove and sell products, along with listing all of them. Leave some spots for `Update Product` and `Print Status` as well.
+
+<Accordion>
+<AccordionItem header="Our implementation for reference">
+```c++
+enum menu_option
+{
+    ADD_PRODUCT = 1,
+    DELETE_PRODUCT = 2,
+    UPDATE_PRODUCT = 3,
+    SELL_PRODUCT = 4,
+    PRINT_STATUS = 5,
+    LIST_PRODUCTS = 6,
+    QUIT = 7
+};
+
+/**
+ * Print the main menu options
+ */
+void print_main_menu()
+{
+    write_line("Main Menu");
+    write_line("1. Add a new product");
+    write_line("2. Delete a product");
+    write_line("3. Update a product");
+    write_line("4. Sell a product");
+    write_line("5. Print status");
+    write_line("6. List products");
+    write_line("7. Quit");
+}
+
+int main()
+{
+    store_data store = {};
+    write_line("Product Database へようこそ!");
+
+    menu_option option;
+    do {
+        print_main_menu();
+        option = (menu_option)read_integer("Please choose an option: ", 1, 7);
+
+        switch (option)
+        {
+            case ADD_PRODUCT:
+                add_product(store);
+                break;
+            case DELETE_PRODUCT:
+                delete_product(store);
+                break;
+            case UPDATE_PRODUCT:
+                // To implement
+                break;
+            case SELL_PRODUCT:
+                sell_product(store);
+                break;
+            case PRINT_STATUS:
+                // To implement
+                break;
+            case LIST_PRODUCTS:
+                list_products(store);
+                break;
+            case QUIT:
+                break;
+        }
+    } while (option != QUIT);
+
+    write_line("ご利用いただきありがとうございます！");
+
+    return 0;
+}
+```
+</AccordionItem>
+</Accordion>
+
+## Finishing up
+Let's finish up those last functions! `Print Status` is fairly straightforward, so let's begin with that.
+<Steps>
+
+1. ### Print Status
+    Here's the specification we'll implement:
+    > **Print status**
+    >
+    > The user is shown a report that contains:
+    >  - Total sales
+    >  - Total profit
+    >  - Number of products
+    >  - Value of products in stock (the cost price multiplied by the amount of stock for each product)
+    >  - Number of products with less than 10 items in stock. (low stock level)
+
+    This should mainly consist of combining the concepts you've seen in the other functions together.
+
+    :::tip
+        Simple fields like `Total Sales` and `Total Profit` can be written to the terminal directly. The values of `Value of products in stock` and `Number of low stock items` can be computed by looping through the products and either:
+        - Summing across elements (like we did in [Coding Sum](/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/01-03-calculating-sum/)), or...
+        - Conditionally checking each element, like we did in in [Finding Elements](/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/02-02-finding/)
+    :::
+
+    <Accordion>
+    <AccordionItem header="Our implementation for reference">
+    ```c++
+    /**
+    * Prints the store's status, including total sales,
+    * profits, value of current stock, and number of low stock products.
+    *
+    * @param store the store_data to summarize
+    */
+    void print_status(const store_data &store)
+    {
+        // Calculate value of stock and number of low stock products
+        double stock_value = 0;
+        int low_stock = 0;
+
+        for (int i = 0; i < length(store.products); i++)
+        {
+            stock_value += store.products[i].cost_price * store.products[i].stock;
+
+            if (store.products[i].stock < 10)
+                low_stock++;
+        }
+
+        // Print report
+        write_line("== Store Report ==");
+        write_line("Total sales:     $"  + to_string(store.total_sales, 2));
+        write_line("Total profit:    $"  + to_string(store.total_profits, 2));
+        write_line("Products:        "   + to_string(length(store.products)));
+        write_line("Stock value:     $"  + to_string(stock_value, 2));
+        write_line("Low stock (<10): "   + to_string(low_stock));
+    }
+    ```
+    </AccordionItem>
+    </Accordion>
+
+2. ### Update Product
+    For `Update Product`, let's write it so the user can select a product, they are then shown the details of the product and a list of options to choose from. They should be able to update any field:
+
+    - Update name
+    - Update cost
+    - Update sale price
+    - Update stock amount
+    - Quit update
+
+    We can treat this whole thing like a sub-menu - this is why we did the main menu first :)
+
+    It should loop around similar to the menu in `main`, until the user chooses to quit and return to the main menu. Similar to the main menu, try to keep the code within each case fairly minimal, e.g.:
+    ```c++
+    switch (option)
+    {
+    case UPDATE_NAME:
+        store.products[index].name = read_string("Enter new name: ");
+        break;
+    ```
+
+    Once you get this working, you'll have the full ability to add, remove, and edit the store's products!
+
+    :::tip
+        There's a lot of boilerplate code to write here. Since this pattern is very similar to the main menu, one option is to copy that code as a starting point.
+
+        Be careful though! Make sure to update the variable names, types, loop condition, and the range for `read_integer` to match your new menu.
+    :::
+
+    <Accordion>
+    <AccordionItem header="Our implementation for reference">
+    ```c++
+    enum update_product_option
+    {
+        UPDATE_NAME = 1,
+        UPDATE_COST_PRICE = 2,
+        UPDATE_SALE_PRICE = 3,
+        UPDATE_STOCK = 4,
+        UPDATE_QUIT = 5
+    };
+
+    /**
+    * Print the update menu options
+    */
+    void print_update_menu()
+    {
+        write_line("Update Menu");
+        write_line("1. Update name");
+        write_line("2. Update cost price");
+        write_line("3. Update sale price");
+        write_line("4. Update number in stock");
+        write_line("5. Quit update");
+    }
+
+    /**
+    * Interactively update an existing product.
+    *
+    * @param store The store to modify
+    */
+    void update_product(store_data &store)
+    {
+        int index = find_product(store);
+        if (index == NO_CHOICE)
+            return;
+
+        update_product_option option;
+        do
+        {
+            write_line("Current details:");
+            print_product(store.products[index]);
+            write_line("");
+            print_update_menu();
+
+            option = (update_product_option)read_integer("Enter an option: ", 1, 5);
+
+            switch (option)
+            {
+            case UPDATE_NAME:
+                store.products[index].name = read_string("Enter new name: ");
+                write_line("Updated name.");
+                break;
+            case UPDATE_COST_PRICE:
+                store.products[index].cost_price = read_double("Enter new cost price: ");
+                write_line("Updated cost price.");
+                break;
+            case UPDATE_SALE_PRICE:
+                store.products[index].sale_price = read_double("Enter new sale price: ");
+                write_line("Updated sale price.");
+                break;
+            case UPDATE_STOCK:
+                store.products[index].stock = read_integer("Enter new amount in stock: ");
+                write_line("Updated amount of stock.");
+                break;
+            case UPDATE_QUIT:
+                break;
+            }
+        } while (option != UPDATE_QUIT);
+    }
+    ```
+    </AccordionItem>
+    </Accordion>
+</Steps>
+
+Well done! This was a significant program that brought together all of the concepts you've learned so far. You now have experience looping through arrays to search, modify, and display data in nested structures. These patterns will show up in the majority of the programs you write.

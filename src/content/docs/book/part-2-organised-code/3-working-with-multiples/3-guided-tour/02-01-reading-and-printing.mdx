@@ -1,0 +1,172 @@
+---
+title: Read and Print
+sidebar:
+    label: " - Read and Print"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from '@astrojs/starlight/components';
+import NoCopy from '/src/components/NoCopy.astro'
+import TemplateInjector from '/src/components/TemplateInjector.astro'
+import MultipleChoice from '/src/components/MultipleChoice.astro';
+import ITO from '/src/components/InlineTextOption.astro'
+import Aside from '/src/components/Aside.astro'
+import Carousel from '/src/components/Carousel.astro'
+import Option from '/src/components/Option.astro';
+
+
+Now that we have the data structures set up, we need to write in functions and procedures for adding and listing products - this should be starting to feel familiar :)
+
+Let's deal with the case of reading/printing a single `Product Data`, then move onto the `Store Data` afterwards.
+
+## Product Data
+
+<Steps>
+1.  ### Print Product Data
+    Have a go at writing a procedure to print out a `Product Data` - it should use `const` pass by reference to avoid copying the product. No need to spend too long on this, but see if you can format the output nicely.
+
+    :::tip
+        Try testing it out in `main` - you could use brace initialization inside the procedure call as a convenient way to test it, e.g.:
+        ```c++
+        print_product({"Medicine", 4.5, 200.0, 30});
+        ```
+    :::
+
+    This should be basically the same as what you did in [Explore Structs (Terminal)](/book/part-2-organised-code/2-structuring-data/3-guided-tour/0-2-explore-struct/) - refer back to there if you're unsure how to do this.
+
+    <Accordion>
+    <AccordionItem header="I'm not sure!">
+    There's absolutely nothing wrong with feeling a bit stuck here! But for this tour, we really want to ensure you are feeling comfortable with the prior concepts, and can apply them on your own.
+
+    Make sure to have a go at this yourself, and if you're still unsure, refer back to [Explore Structs (Terminal)](/book/part-2-organised-code/2-structuring-data/3-guided-tour/0-2-explore-struct/) mentioned above :)
+
+    In case it helps, here's what the _signature_ for the procedure you should write will look like:
+    ```c++
+    void print_product(const product_data &product);
+    ```
+    </AccordionItem>
+    </Accordion>
+
+2.  ### Read Product Data
+    Next up, we need to read in a `Product Data`. Again, nothing particularly new here - just write a function that returns a `Product Data`, and uses your utility functions (e.g `read_string`) to fill in each of its fields.
+
+    For the product's name, ensure that it isn't empty - ask the user to re-enter until they've typed something. If you're unsure about how to do this input validation, refer back to [Menu and input validation](/book/part-1-instructions/3-control-flow/3-guided-tour/1-3-menu/).
+
+    The general outline should look like:
+
+    ```plaintext wrap
+    Function: Read Product
+    1. Declare a Product Data
+    2. Read in the name - ensure it isn't empty, and repeat until valid.
+    3. Read in the rest of its fields via read_string/read_integer/read_double
+    4. Return the Product Data
+    ```
+
+    :::tip
+    Just as before, try testing it out in `main` as you go!
+    :::
+
+    <Accordion>
+    <AccordionItem header="I'm not sure!">
+    In case it helps, here's what the _signature_ for the procedure you should write will look like:
+    ```c++
+    product_data read_product();
+    ```
+
+    Otherwise, refer to the links above and try applying the same patterns here.
+    </AccordionItem>
+    </Accordion>
+</Steps>
+---
+
+## Store Data
+
+Now that we can handle individual `Product Data`, let's work on **adding** elements to our `Store Data`, and **listing** them. We'll write these as procedures that encapsulate what each of our menu options will do. By the end, we'll have procedures for:
+- `Add Product`
+- `List Products`
+- `Update Product`
+- `Sell Product`
+- `Delete Product`
+- `Print Status`
+
+This seems like a lot, but each of these should be fairly short, and share common functionality.
+
+:::tip
+    Declare a `Store Data` inside `main`, and set its `total_profits` and `total_sales` to 0. Now we can easily test as we go.
+:::
+
+
+<Steps>
+1.  ### Add Product
+    Let's start with `Add Product`. This procedure will take `Store Data` by reference, and handle all the logic for adding a product.
+
+    We will need to read in a product, and then add it to the stores `products` array. This should only be a few lines of code - have a go at it now.
+
+    :::caution[Naming]
+        Be careful with function names here! You are writing a procedure called `add_product`, but to put the item in the array, you will use the procedure `add`.
+    :::
+
+    :::tip
+        Also, as usual, test it out! You can use this code as a starting point:
+        ```c++
+        store_data store = {}; // {} default initializes all of its fields
+
+        // Add two products
+        add_product(store);
+        add_product(store);
+        ```
+    :::
+
+    <Accordion>
+    <AccordionItem header="Our implementation for reference">
+    ```c++
+    /**
+    * Read in a product from the user, and add it to the store.
+    *
+    * @param store The store_data to modify
+    */
+    void add_product(store_data &store)
+    {
+        product_data product = read_product();
+
+        add(store.products, product);
+
+        write_line("Product '" + product.name + "' added to store.");
+    }
+    ```
+    </AccordionItem>
+    </Accordion>
+2.  ### List Products
+    We can add products, now let's list them! For the `List Products` procedure, you will need to loop over each of the products inside the array, and call your `Print Product` procedure for each one. At the end, output a total number of products as well.
+
+    Number the products while printing them, starting from `1. ...`.
+
+    Check out the Statistics Calculator's [Populate and Print](/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/01-02-populating-printing/#printing-the-data) page for an example of this.
+
+    :::tip
+        Make sure to test it out in `main`! I'll assume you know to do this from now on :)
+    :::
+
+    <Accordion>
+    <AccordionItem header="Our implementation for reference">
+    ```c++
+    /**
+    * Lists the products added to the store.
+    *
+    * @param store The store_data to list from
+    */
+    void list_products(const store_data &store)
+    {
+        for(int i = 0; i < length(store.products); i ++)
+        {
+            write(to_string(i + 1) + ".");
+            print_product(store.products[i]);
+        }
+
+        write_line("There are a total of " + to_string(length(store.products)) + " products.");
+    }
+    ```
+    </AccordionItem>
+    </Accordion>
+</Steps>
+
+Next up, let's tackle selling and deleting products - we'll find there's something important in common!
