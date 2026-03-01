@@ -194,6 +194,11 @@ export default defineConfig({
     react(),
     sitemap(),
   ],
+  redirects: {
+    "/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/02-sort-visualise/": "/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/03-sort-visualise/",
+    "/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/03-array-hand-execution/": "/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/04-array-hand-execution/",
+    "/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/03-fly-catch/": "/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/04-fly-catch/",
+  },
   // Process images with sharp: https://docs.astro.build/en/guides/assets/#using-sharp
   // image: {
   //   service: squooshImageService(),
