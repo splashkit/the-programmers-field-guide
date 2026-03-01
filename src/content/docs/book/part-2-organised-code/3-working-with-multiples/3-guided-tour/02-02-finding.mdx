@@ -1,0 +1,254 @@
+---
+title: Finding Elements
+sidebar:
+    label: " - Finding Elements"
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from '@astrojs/starlight/components';
+import NoCopy from '/src/components/NoCopy.astro'
+import TemplateInjector from '/src/components/TemplateInjector.astro'
+import MultipleChoice from '/src/components/MultipleChoice.astro';
+import ITO from '/src/components/InlineTextOption.astro'
+import Aside from '/src/components/Aside.astro'
+import Carousel from '/src/components/Carousel.astro'
+import Option from '/src/components/Option.astro';
+
+Have a look at the highlighted menu actions below:
+- Add Product
+- List Products
+- **`Update Product`**
+- **`Sell Product`**
+- **`Delete Product`**
+- Print Status
+
+These three procedures have something important in common, which is that they operate on a _single_ element within our store. This means, the user will need to be able to "select" a particular product to update/sell/delete.
+
+We could just use `List Product` and have the user manually find the right index, but this will become cumbersome when we have a larger number of products. Instead, we will add the ability to _search_ through the store, and use this in all three menu actions!
+
+
+### Finding Elements
+
+Let's write a `Find Product` function, that we can re-use in our menu.
+
+1. The user should be able to enter some text
+2. We present a list of products whose names  _contain_ that text.
+3. Finally, the user chooses from that list, and we return the choice.
+
+Rather than returning the `Product Data` itself, we will return the _index_ - this way we can use that index for updating the `Product Data`, _and_ for deleting it from the store.
+
+We also have to consider the case where there are no results - since we are returning an index, we can just return `-1` as our "No choice" value. Let's make this a global constant as well.
+
+This function is a bit complicated, so let's build it step by step - as usual, test as you go!
+<Steps>
+1.  Start by writing a `Find Product` that asks the user for a string, then returns -1.
+2.  Now, let's present a list of options to the user that _contain_ that string. This logic will be similar to the logic in `list_products` - we'll loop over each product, and print it alongside its index + 1 (so the user sees 1-based numbers).
+
+    This time however, we will check whether each product's name contains the string, and print it _only_ if it does. You can use SplashKit's [`contains`](https://splashkit.io/api/utilities/#contains) for this check.
+
+    :::note[Doesn't this mean that the output will skip indexes?]
+    Yes! We are looping through each product, and choosing whether to print it or not. This means that we may end up with numbering such as:
+    ```
+    3. ...
+    4. ...
+    9. ...
+    ```
+    This isn't very user friendly, but will be fine for our purposes and keeps the code simple. If you're interested, there will be an optional section at the end about how we can improve this (I recommend checking it out!)
+    :::
+
+    <Accordion>
+    <AccordionItem header="I'm not sure!">
+    All good! Here's some clearer pseudocode you could try implementing:
+    ```
+    1. Read in a string from user, store in "search_text"
+    2. For each product in store.products:
+    3.     If the product's name field `contains` search_text:
+    4.         Print the product alongside its index + 1
+    5. Return -1 (for now)
+    ```
+    </AccordionItem>
+    </Accordion>
+3.  Now we just need to read a number from the user, asking them which product to select. You can just use `read_integer` for this. Return this value (minus 1 to go back to zero-indexing), and we're done!...
+4.  ...or we would be if we had handled input validation. There are a few things to check - have a go at all of these:
+    - Does the store have any products added in the first place?
+    - Did the search find any results?
+      :::tip
+        For this, you could having a `found_product` boolean, that you set to `true` once a product is printed. If it's still `false` after the loop, you know that no products were found.
+      :::
+    - Did the user enter one of the numbers printed?
+      :::tip
+        We can keep this simple too - just check again if the selected product's name contains the search term. If not, they must have mis-typed.
+      :::
+
+    <Accordion>
+    <AccordionItem header="Our implementation for reference">
+    ```c++
+    // Returned from find_product if no choice was available
+    const int NO_CHOICE = -1;
+
+    /**
+    * Utility function for searching the store and selecting an index.
+    *
+    * @param store The store_data to search
+    * @return      The index of the product selected, or NO_CHOICE in the case of no selection
+    */
+    int find_product(const store_data &store)
+    {
+        if (length(store.products) == 0)
+        {
+            write_line("No products added yet.");
+            return NO_CHOICE;
+        }
+
+        string search_text = read_string("Enter text to search for: ");
+        bool found_product = false;
+
+        for (int i = 0; i < length(store.products); i++)
+        {
+            if (contains(store.products[i].name, search_text))
+            {
+                write_line(to_string(i + 1) + ". " + store.products[i].name);
+                found_product = true;
+            }
+        }
+
+        if (!found_product)
+        {
+            write_line("No matching products.");
+            return NO_CHOICE;
+        }
+
+        int index = read_integer("Select a product: ", 1, length(store.products)) - 1;
+
+        if (!contains(store.products[index].name, search_text))
+        {
+            write_line("Invalid selection.");
+            return NO_CHOICE;
+        }
+
+        return index;
+    }
+    ```
+    </AccordionItem>
+    </Accordion>
+</Steps>
+
+You should now have a `Find Product` function that allows you to search by name and select a product! Let's use this now to write `Sell Product` and `Remove Product` (we'll get to `Update Product` next).
+
+<Steps>
+1.  ### Sell Product
+
+    Here's the specification for `Sell Product`:
+    > Sell product allow the user to select a product, and then enter the number of units sold. After this, the store’s sale total is updated by adding the sale price of the product multiplied by the number sold. The store’s total profit is updated by adding the total sale value minus the cost of the items sold.
+
+    Have a go at implementing this piece by piece. Make sure to validate the input as well - consider that `find_product` may return `-1` if there were no products to select.
+
+    <Accordion>
+    <AccordionItem header="Our implementation for reference">
+    ```c++
+    /**
+    * Allows the user to select a product and sell a number of units
+    *
+    * @param store The store_data to modify
+    */
+    void sell_product(store_data &store)
+    {
+        int index = find_product(store);
+        if (index == NO_CHOICE)
+            return;
+
+        // Prevent sale when there is no stock available
+        if (store.products[index].stock == 0)
+        {
+            write_line("No stock available for this product.");
+            return;
+        }
+
+        int units = read_integer("Enter number of units sold: ", 0, store.products[index].stock);
+
+        double sale_total = store.products[index].sale_price * units;
+        double cost_total = store.products[index].cost_price * units;
+        double profit_total = sale_total - cost_total;
+
+        store.products[index].stock -= units;
+        store.total_sales += sale_total;
+        store.total_profits += profit_total;
+
+        write_line("Sold " + to_string(units) + " units");
+        write_line("Revenue: $" + to_string(sale_total, 2) + ", Profit: $" + to_string(profit_total, 2));
+    }
+    ```
+    </AccordionItem>
+    </Accordion>
+2.  ### Delete Product
+    Compared to `Sell Product`, `Delete Product` will be nice and short. Just ask the user to select a product, then remove it from `products`. Make sure to handle the `-1` case, but otherwise hopefully this is straightforward :)
+
+    <Accordion>
+    <AccordionItem header="Our implementation for reference">
+    ```c++
+    /**
+    * Allows the user to select a product and deletes it from the store.
+    *
+    * @param store The store_data to modify
+    */
+    void delete_product(store_data &store)
+    {
+        int index = find_product(store);
+        if (index == NO_CHOICE)
+            return;
+
+        // Take a copy of the name before deleting it
+        // After deleting it would be too late :)
+        string name = store.products[index].name;
+
+        remove(store.products, index);
+
+        write_line("Deleted '" + name + "'");
+    }
+    ```
+    </AccordionItem>
+    </Accordion>
+</Steps>
+
+We're on the home stretch! Next, let's get our menu in place, and add updating products and printing the store's status.
+
+---
+<Aside type="thinking" title = "I want to improve the numbering!" unfold expand>
+## (Optional) Better numbering
+The "skipped indexes" approach we used in `Find Product` works, but isn't a very nice interface. A cleaner approach is to use another array to track the matches!
+
+### The Plan:
+
+We start by creating a temporary array called `matches`. When we find products that match the search term, we can _record_ the **indexes** of each one inside `matches`.
+
+Now we can present the user with nice numbers (`1, 2, 3...`) - we can map these numbers back to the original product's indexes by looking them up inside `matches`.
+
+Here's the pseudocode for how this could be implemented:
+```plaintext
+1. Create an array called `matches` (of integers)
+2. Loop through products. If it matches:
+   - Add the product's index to `matches`
+   - Print the product using `length(matches)` as the number
+3. Ask user to select a number
+4. The index of the chosen product is `matches[user_choice - 1]`
+```
+
+This is a really common pattern in programming, where we introduce a layer of _indirection_ - storing _indexes_ inside an array, and using those to look up the elements in another array!
+
+Here's a potential implementation:
+```c++
+dynamic_array<int> matches;
+
+for (int i = 0; i < length(store.products); i++)
+{
+    if (contains(store.products[i].name, search_text))
+    {
+        add(matches, i);
+        write_line(to_string(length(matches)) + ". " + store.products[i].name);
+    }
+}
+
+int choice = read_integer("Select a product: ", 1, length(matches));
+
+return matches[choice - 1];
+```
+</Aside>

@@ -21,9 +21,13 @@ interface Props {
     unfold?: bool; // similar to accordions
     expand?: bool; // requires `unfold` - expands to fill the width
                    // of the main content screen
+    expandWide?: bool; // Similar to expand, but also fills the
+                       // main content padding as well
 }
 
-let { type = 'note', title, unfold=false, expand=false} = Astro.props;
+let { type = 'note', title, unfold=false, expand=false, expandWide=false} = Astro.props;
+
+const expandResolved = expand || expandWide;
 
 if (Object.keys(asideVariants).includes("type")) {
     throw new AstroError(
@@ -42,7 +46,7 @@ if (!title) {
 ---
 {
 unfold && (
-    <aside aria-label={title} class={`starlight-aside ${variant.class}`} data-aside-unfold data-aside-expand={expand ? "" : undefined}>
+    <aside aria-label={title} class={`starlight-aside ${variant.class}`} data-aside-unfold data-aside-expand={expandResolved ? (expandWide ? "wide" : "") : undefined}>
         <details>
             <summary style="display:flex;">
                 <p class="starlight-aside__title" aria-hidden="true">
@@ -179,11 +183,14 @@ aside[data-aside-expand] {
 
 aside[data-aside-expand]:has(details[open]) {
   background:transparent !important;
-  margin-left: calc(-1*var(--sl-content-pad-x));
-  margin-right: calc(-1*var(--sl-content-pad-x));
   padding-left: 0!important;
   padding-right: 0!important;
   border-color: transparent;
+}
+
+aside[data-aside-expand="wide"]:has(details[open]) {
+  margin-left: calc(-1*var(--sl-content-pad-x));
+  margin-right: calc(-1*var(--sl-content-pad-x));
 }
 
 </style>

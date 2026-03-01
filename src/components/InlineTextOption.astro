@@ -53,6 +53,8 @@ const { isCorrect=false, joinNext=false, seamless=false, group="", optional=fals
     input:checked + label {
         background-color: #aad7a0;
         border: solid 1px #30762161;
+    }
+    input:checked + label:not(.seamless) {
         color: var(--sl-color-text-invert);
     }
 
