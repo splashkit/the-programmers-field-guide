@@ -62,64 +62,64 @@ We'll go a little more briskly this time - if you get stuck at any point you can
     {
         open_window("My First GUI Program", 640, 480);
 
-        clear_screen(color_white());
-        draw_text("Hello World! - using SplashKit shapes:", color_black(), 50, 50);
+        clear_screen(COLOR_WHITE);
+        draw_text("Hello World! - using SplashKit shapes:", COLOR_BLACK, 50, 50);
 
         // Draw the H
-        fill_rectangle(color_red(), 50, 100, 20, 100);
-        fill_rectangle(color_red(), 70, 140, 40, 20);
-        fill_rectangle(color_red(), 110, 100, 20, 100);
+        fill_rectangle(COLOR_RED, 50, 100, 20, 100);
+        fill_rectangle(COLOR_RED, 70, 140, 40, 20);
+        fill_rectangle(COLOR_RED, 110, 100, 20, 100);
 
         // Draw the E
-        fill_rectangle(color_orange(), 150, 100, 20, 100);
-        fill_rectangle(color_orange(), 170, 100, 40, 20);
-        fill_rectangle(color_orange(), 170, 140, 20, 20);
-        fill_rectangle(color_orange(), 170, 180, 40, 20);
+        fill_rectangle(COLOR_ORANGE, 150, 100, 20, 100);
+        fill_rectangle(COLOR_ORANGE, 170, 100, 40, 20);
+        fill_rectangle(COLOR_ORANGE, 170, 140, 20, 20);
+        fill_rectangle(COLOR_ORANGE, 170, 180, 40, 20);
 
         // Draw the L
-        fill_rectangle(color_gold(), 230, 100, 20, 100);
-        fill_rectangle(color_gold(), 250, 180, 40, 20);
+        fill_rectangle(COLOR_GOLD, 230, 100, 20, 100);
+        fill_rectangle(COLOR_GOLD, 250, 180, 40, 20);
 
         // Draw the L
-        fill_rectangle(color_green_yellow(), 310, 100, 20, 100);
-        fill_rectangle(color_green_yellow(), 330, 180, 40, 20);
+        fill_rectangle(COLOR_GREEN_YELLOW, 310, 100, 20, 100);
+        fill_rectangle(COLOR_GREEN_YELLOW, 330, 180, 40, 20);
 
         // Draw the O
-        fill_ellipse(color_lime_green(), 390, 100, 80, 100);
-        fill_ellipse(color_white(), 410, 120, 40, 60);
+        fill_ellipse(COLOR_LIME_GREEN, 390, 100, 80, 100);
+        fill_ellipse(COLOR_WHITE, 410, 120, 40, 60);
 
         // Draw the W
-        fill_triangle(color_green(), 50, 250, 90, 370, 120, 250);
-        fill_triangle(color_green(), 90, 250, 120, 370, 160, 250);
-        fill_triangle(color_white(), 70, 250, 90, 310, 110, 250);
-        fill_triangle(color_white(), 100, 250, 120, 310, 140, 250);
-        fill_rectangle(color_white(), 70, 350, 80, 30);
+        fill_triangle(COLOR_GREEN, 50, 250, 90, 370, 120, 250);
+        fill_triangle(COLOR_GREEN, 90, 250, 120, 370, 160, 250);
+        fill_triangle(COLOR_WHITE, 70, 250, 90, 310, 110, 250);
+        fill_triangle(COLOR_WHITE, 100, 250, 120, 310, 140, 250);
+        fill_rectangle(COLOR_WHITE, 70, 350, 80, 30);
 
         // Draw the O
-        fill_ellipse(color_blue(), 170, 250, 80, 100);
-        fill_ellipse(color_white(), 190, 270, 40, 60);
+        fill_ellipse(COLOR_BLUE, 170, 250, 80, 100);
+        fill_ellipse(COLOR_WHITE, 190, 270, 40, 60);
 
         // Draw the R
-        fill_triangle(color_blue_violet(), 270, 250, 270, 350, 340, 350);
-        fill_triangle(color_white(), 252, 250, 252, 350, 320, 350);
-        fill_ellipse(color_blue_violet(), 252, 250, 80, 60);
-        fill_ellipse(color_white(), 270, 270, 40, 20);
-        fill_rectangle(color_white(), 252, 250, 20, 100);
-        fill_rectangle(color_blue_violet(), 270, 250, 20, 100);
+        fill_triangle(COLOR_BLUE_VIOLET, 270, 250, 270, 350, 340, 350);
+        fill_triangle(COLOR_WHITE, 252, 250, 252, 350, 320, 350);
+        fill_ellipse(COLOR_BLUE_VIOLET, 252, 250, 80, 60);
+        fill_ellipse(COLOR_WHITE, 270, 270, 40, 20);
+        fill_rectangle(COLOR_WHITE, 252, 250, 20, 100);
+        fill_rectangle(COLOR_BLUE_VIOLET, 270, 250, 20, 100);
 
         // Draw the L
-        fill_rectangle(color_purple(), 360, 250, 20, 100);
-        fill_rectangle(color_purple(), 380, 330, 40, 20);
+        fill_rectangle(COLOR_PURPLE, 360, 250, 20, 100);
+        fill_rectangle(COLOR_PURPLE, 380, 330, 40, 20);
 
         // Draw the D
-        fill_ellipse(color_magenta(), 420, 250, 100, 100);
-        fill_ellipse(color_white(), 440, 270, 60, 60);
-        fill_rectangle(color_white(), 420, 250, 30, 100);
-        fill_rectangle(color_magenta(), 450, 250, 20, 101);
+        fill_ellipse(COLOR_MAGENTA, 420, 250, 100, 100);
+        fill_ellipse(COLOR_WHITE, 440, 270, 60, 60);
+        fill_rectangle(COLOR_WHITE, 420, 250, 30, 100);
+        fill_rectangle(COLOR_MAGENTA, 450, 250, 20, 101);
 
         // Draw the !
-        fill_rectangle(color_pink(), 550, 250, 20, 60);
-        fill_circle(color_pink(), 560, 340, 10);
+        fill_rectangle(COLOR_PINK, 550, 250, 20, 60);
+        fill_circle(COLOR_PINK, 560, 340, 10);
 
         refresh_screen();
         delay(5000);
@@ -168,13 +168,13 @@ int main()
 {
     open_window("My First GUI Program", 640, 480);
 
-    clear_screen(color_white());
-    draw_text("Hello World! - using SplashKit shapes:", color_black(), 50, 50);
+    clear_screen(COLOR_WHITE);
+    draw_text("Hello World! - using SplashKit shapes:", COLOR_BLACK, 50, 50);
 
     // Draw the H
-    fill_rectangle(color_red(), 50, 100, 20, 100);
-    fill_rectangle(color_red(), 70, 140, 40, 20);
-    fill_rectangle(color_red(), 110, 100, 20, 100);
+    fill_rectangle(COLOR_RED, 50, 100, 20, 100);
+    fill_rectangle(COLOR_RED, 70, 140, 40, 20);
+    fill_rectangle(COLOR_RED, 110, 100, 20, 100);
 ```
 
 Have a read through those lines, and have a guess at what they're doing. How is each line affecting what the program shows on the screen? Try writing it down :)
@@ -204,7 +204,7 @@ Have a read through those lines, and have a guess at what they're doing. How is 
         Similarly, when we write:
 
         ```c++
-        draw_text("Hello World! - using SplashKit shapes:", color_black(), 50, 50);
+        draw_text("Hello World! - using SplashKit shapes:", COLOR_BLACK, 50, 50);
         ```
         `draw_text` is the _procedure_ we're runnning, and the things inside the brackets `()` are the parameters. `draw_text` then goes and _does something_ (in this case, it draws text).
 
@@ -224,64 +224,64 @@ Have a go now at reading through the rest of the code. Hopefully you can see how
     {
         open_window("My First GUI Program", 640, 480);
 
-        clear_screen(color_white());
-        draw_text("Hello World! - using SplashKit shapes:", color_black(), 50, 50);
+        clear_screen(COLOR_WHITE);
+        draw_text("Hello World! - using SplashKit shapes:", COLOR_BLACK, 50, 50);
 
         // Draw the H
-        fill_rectangle(color_red(), 50, 100, 20, 100);
-        fill_rectangle(color_red(), 70, 140, 40, 20);
-        fill_rectangle(color_red(), 110, 100, 20, 100);
+        fill_rectangle(COLOR_RED, 50, 100, 20, 100);
+        fill_rectangle(COLOR_RED, 70, 140, 40, 20);
+        fill_rectangle(COLOR_RED, 110, 100, 20, 100);
 
         // Draw the E
-        fill_rectangle(color_orange(), 150, 100, 20, 100);
-        fill_rectangle(color_orange(), 170, 100, 40, 20);
-        fill_rectangle(color_orange(), 170, 140, 20, 20);
-        fill_rectangle(color_orange(), 170, 180, 40, 20);
+        fill_rectangle(COLOR_ORANGE, 150, 100, 20, 100);
+        fill_rectangle(COLOR_ORANGE, 170, 100, 40, 20);
+        fill_rectangle(COLOR_ORANGE, 170, 140, 20, 20);
+        fill_rectangle(COLOR_ORANGE, 170, 180, 40, 20);
 
         // Draw the L
-        fill_rectangle(color_gold(), 230, 100, 20, 100);
-        fill_rectangle(color_gold(), 250, 180, 40, 20);
+        fill_rectangle(COLOR_GOLD, 230, 100, 20, 100);
+        fill_rectangle(COLOR_GOLD, 250, 180, 40, 20);
 
         // Draw the L
-        fill_rectangle(color_green_yellow(), 310, 100, 20, 100);
-        fill_rectangle(color_green_yellow(), 330, 180, 40, 20);
+        fill_rectangle(COLOR_GREEN_YELLOW, 310, 100, 20, 100);
+        fill_rectangle(COLOR_GREEN_YELLOW, 330, 180, 40, 20);
 
         // Draw the O
-        fill_ellipse(color_lime_green(), 390, 100, 80, 100);
-        fill_ellipse(color_white(), 410, 120, 40, 60);
+        fill_ellipse(COLOR_LIME_GREEN, 390, 100, 80, 100);
+        fill_ellipse(COLOR_WHITE, 410, 120, 40, 60);
 
         // Draw the W
-        fill_triangle(color_green(), 50, 250, 90, 370, 120, 250);
-        fill_triangle(color_green(), 90, 250, 120, 370, 160, 250);
-        fill_triangle(color_white(), 70, 250, 90, 310, 110, 250);
-        fill_triangle(color_white(), 100, 250, 120, 310, 140, 250);
-        fill_rectangle(color_white(), 70, 350, 80, 30);
+        fill_triangle(COLOR_GREEN, 50, 250, 90, 370, 120, 250);
+        fill_triangle(COLOR_GREEN, 90, 250, 120, 370, 160, 250);
+        fill_triangle(COLOR_WHITE, 70, 250, 90, 310, 110, 250);
+        fill_triangle(COLOR_WHITE, 100, 250, 120, 310, 140, 250);
+        fill_rectangle(COLOR_WHITE, 70, 350, 80, 30);
 
         // Draw the O
-        fill_ellipse(color_blue(), 170, 250, 80, 100);
-        fill_ellipse(color_white(), 190, 270, 40, 60);
+        fill_ellipse(COLOR_BLUE, 170, 250, 80, 100);
+        fill_ellipse(COLOR_WHITE, 190, 270, 40, 60);
 
         // Draw the R
-        fill_triangle(color_blue_violet(), 270, 250, 270, 350, 340, 350);
-        fill_triangle(color_white(), 252, 250, 252, 350, 320, 350);
-        fill_ellipse(color_blue_violet(), 252, 250, 80, 60);
-        fill_ellipse(color_white(), 270, 270, 40, 20);
-        fill_rectangle(color_white(), 252, 250, 20, 100);
-        fill_rectangle(color_blue_violet(), 270, 250, 20, 100);
+        fill_triangle(COLOR_BLUE_VIOLET, 270, 250, 270, 350, 340, 350);
+        fill_triangle(COLOR_WHITE, 252, 250, 252, 350, 320, 350);
+        fill_ellipse(COLOR_BLUE_VIOLET, 252, 250, 80, 60);
+        fill_ellipse(COLOR_WHITE, 270, 270, 40, 20);
+        fill_rectangle(COLOR_WHITE, 252, 250, 20, 100);
+        fill_rectangle(COLOR_BLUE_VIOLET, 270, 250, 20, 100);
 
         // Draw the L
-        fill_rectangle(color_purple(), 360, 250, 20, 100);
-        fill_rectangle(color_purple(), 380, 330, 40, 20);
+        fill_rectangle(COLOR_PURPLE, 360, 250, 20, 100);
+        fill_rectangle(COLOR_PURPLE, 380, 330, 40, 20);
 
         // Draw the D
-        fill_ellipse(color_magenta(), 420, 250, 100, 100);
-        fill_ellipse(color_white(), 440, 270, 60, 60);
-        fill_rectangle(color_white(), 420, 250, 30, 100);
-        fill_rectangle(color_magenta(), 450, 250, 20, 101);
+        fill_ellipse(COLOR_MAGENTA, 420, 250, 100, 100);
+        fill_ellipse(COLOR_WHITE, 440, 270, 60, 60);
+        fill_rectangle(COLOR_WHITE, 420, 250, 30, 100);
+        fill_rectangle(COLOR_MAGENTA, 450, 250, 20, 101);
 
         // Draw the !
-        fill_rectangle(color_pink(), 550, 250, 20, 60);
-        fill_circle(color_pink(), 560, 340, 10);
+        fill_rectangle(COLOR_PINK, 550, 250, 20, 60);
+        fill_circle(COLOR_PINK, 560, 340, 10);
 
         refresh_screen();
         delay(5000);
@@ -297,8 +297,9 @@ Now, let's try changing it! See you in the [next section](/book/part-0-getting-s
 <details>
 <summary> -- Extra -- <br/> But wait, what *are* the numbers for?</summary>
 Good question! Let's look at one example:
+
 ```c++
-draw_text("Hello World! - using SplashKit shapes:", color_black(), 50, 50);
+draw_text("Hello World! - using SplashKit shapes:", COLOR_BLACK, 50, 50);
 ```
 You may have guessed this already, but the numbers, `50, 50` here represent the _position_ the text will be drawn at on the screen.
  - The first number is the `x` coordinate. It tells the computer how far to the right from the left edge of the window we want our text.
@@ -306,7 +307,7 @@ You may have guessed this already, but the numbers, `50, 50` here represent the 
 
 These numbers represent a number of _pixels_. Similarly, `fill_rectangle` also uses pixel coordinates:
 ```c++
-fill_rectangle(color_red(), 50, 100, 20, 100);
+fill_rectangle(COLOR_RED, 50, 100, 20, 100);
 ```
 The `50, 100` are again the x/y coordinates. The last two numbers are the _width_ and _height_, again in pixels.
 
