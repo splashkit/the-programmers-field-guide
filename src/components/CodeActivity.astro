@@ -88,6 +88,7 @@ const parameters = Object.entries({
 </div>
 
 <script>
+let analytics = null;
 
 function extractCode(expressiveCode) {
     // Extract code snippet + editable blocks from the hidden markdown code block
@@ -167,6 +168,8 @@ document.querySelectorAll("[data-code-activity]").forEach((el) => {
             resources = [{data: await (await fetch(resourceList)).arrayBuffer()}];
         }
 
+        let isReady = false;
+
         // Initialize the window with the code + editable code blocks (if there are any)
         window.addEventListener('message', function(event) {
             if (event.source !== SKO.contentWindow)
@@ -188,6 +191,11 @@ document.querySelectorAll("[data-code-activity]").forEach((el) => {
                             styles: ["highlight"],
                         });
                     }
+
+                    isReady = true;
+
+                    if (analytics)
+                        analytics.sendEvent("skoid", {id: event.data.sessionID});
                 }
                 if (event.data.event === 'ProjectLoaded') {
                     // fill "Open in full IDE" button with project ID
@@ -209,6 +217,9 @@ document.querySelectorAll("[data-code-activity]").forEach((el) => {
                             message: "This project has been loaded in the full IDE.\nPlease reload the page to use the embedded version again.",
                             block: true // ensure the user can't interact anymore
                         });
+
+                        if (analytics)
+                            analytics.sendEvent("expand", {a: '.'+projectName});
                     });
                     // ensure they left click (opening from context menu can't be detected...)
                     button.addEventListener("contextmenu", function(event){
@@ -217,6 +228,14 @@ document.querySelectorAll("[data-code-activity]").forEach((el) => {
                 }
             }
         });
+
+        if (analytics) {
+            // Only log this if the iFrame might be broken
+            setTimeout(
+                () => !isReady && analytics.sendEvent("sko", {a: '.'+projectName}),
+                2000
+            );
+        }
     }
 
     // find the Accordion's button...'
@@ -268,6 +287,129 @@ document.querySelectorAll("[data-code-activity]").forEach((el) => {
         }
     });
 });
+
+
+// Analytics class from SplashKit Online repository + slightly simplified
+// Reasonably privacy preserving - only connects events within the
+// page (as opposed to tracking across pages.)
+// No IP/browser/OS logging - random UUID session ID instead.
+// Logs page views, when/which videos are played, and when
+// SKO activities are begun
+// Everything wrapped in try/catch blocks so there's
+// no affect on the page if things don't work/get blocked
+
+function initAnalytics() {
+    const endpointBase = `https://${atob('c3BsYXNoa2l0LW9ubGluZS1hbmFseXRpY3Muc2ltcGxlZmVlZGJhY2s=')}.workers.dev/api`;
+    let forceLogging = false; // disables endpoint logging filtering, should be false in production.
+
+    class SimpleAnalytics {
+        constructor(activityID, _endpointBase = endpointBase, forceLog = forceLogging) {
+            try{
+                this.sessionID = crypto.randomUUID();
+                this.endpointBase = _endpointBase;
+                this.activityID = activityID;
+                this.forceLog = forceLog;
+            } catch (err) {
+                console.warn("Analytics failed:", err);
+            }
+        }
+
+        async post(endpoint_type, message) {
+            const url = `${this.endpointBase}/${endpoint_type}`;
+
+            if (this.forceLog)
+                message.forceLog = true;
+
+            try {
+                // 'keepalive: true' allows the request to survive page navigation/close
+                // we don't care about the response, so 'no-cors'
+                await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(message),
+                    keepalive: true,
+                    mode: 'no-cors'
+                });
+            } catch (err) {
+                console.warn("Analytics failed:", err);
+            }
+        }
+
+        initSession(event_data = {}) {
+            try {
+                this.post("initialize_sko_session", {
+                    session_id: this.sessionID,
+                    activity_id: this.activityID,
+                    event_data: event_data
+                });
+
+                window.addEventListener('pagehide', () => {
+                    this.endSession();
+                });
+            } catch (err) {
+                console.warn("Analytics failed:", err);
+            }
+        }
+
+        sendEvent(eventType, eventData = {}) {
+            try {
+                this.post("add_sko_event", {
+                    session_id: this.sessionID,
+                    event_type: eventType,
+                    event_data: eventData
+                });
+            } catch (err) {
+                console.warn("Analytics failed:", err);
+            }
+        }
+
+        endSession(eventData = {}) {
+            try {
+                this.post("end_sko_session", {
+                    session_id: this.sessionID,
+                    event_data: eventData
+                });
+            } catch (err) {
+                console.warn("Analytics failed:", err);
+            }
+        }
+    }
+
+    try {
+        analytics = new SimpleAnalytics(window.location.href);
+        analytics.initSession();
+
+        // Log when videos are watched
+        const youtubeIDExtract = /embed\/([^?]*)/;
+
+        let loggedVideos = new Set();
+        window.setInterval(() => {
+            if (document.activeElement.nodeName == "IFRAME" && document.activeElement.src.includes("youtube")) {
+                let videoID = document.activeElement.src.match(youtubeIDExtract);
+                if (!videoID) return;
+                videoID = videoID[1];
+
+                if (loggedVideos.has(videoID)) return;
+                loggedVideos.add(videoID);
+
+                analytics.sendEvent("view", {v: videoID});
+            }
+        }, 3000); // check for change every 3 seconds, minimal resource usage
+    } catch (err) {
+        console.warn("Analytics failed:", err);
+    }
+
+}
+
+// Only start analytics if deployed:
+
+const params = new URLSearchParams(window.location.search);
+const debugOverride = params.has('debugAnalytics');
+
+if (import.meta.env.PROD || debugOverride) {
+    initAnalytics();
+}
+
 </script>
 
 <style>
