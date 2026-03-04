@@ -71,10 +71,11 @@ if ! command -v skm &>/dev/null; then
     echo "Installing Splashkit..."
     bash <(curl -s $splashkit_url)
 
-    export PATH="~/.splashkit:$PATH"
 else
     echo "SplashKit already installed. Skipping..."
 fi
+
+export PATH="~/.splashkit:$PATH"
 
 # -----------------------------------------------------
 # 5. Update settings.json file if empty
