@@ -52,12 +52,10 @@ The good news is that C++ provides the capability to call `new` on a previous me
 
 The following code illustrates how we can achieve this.
 
-```cpp {3,23-25,27-32}
+```cpp {1,21-23,25-30}
 #include <cstdlib>
-#include <string>
 #include <new>
-
-using std::string;
+#include "splashkit.h"
 
 /**
 * A test struct that contains a string... we need to 
@@ -105,12 +103,10 @@ Freeing the memory allocation has similar issues when we mix C++ with the standa
 
 We can complete the above example by adding in the code to free the memory allocations.
 
-```cpp {38,39,41-46}
+```cpp {36,37,39-44}
 #include <cstdlib>
-#include <string>
 #include <new>
-
-using std::string;
+#include "splashkit.h"
 
 /**
 * A test struct that contains a string... we need to 
@@ -165,13 +161,10 @@ Make sure that you are calling the destructor for any freed memory allocation. T
 
 When you use this to work with arrays, you need to make sure to call the constructor and destructor for each element of the array - when allocating or freeing space. The following code demonstrates this with the test struct we have been working with.
 
-```cpp {20-28,30-37,45-52,54-60}
+```cpp {17-25,27-34,42-49,51-57}
 #include <cstdlib>
-#include <string>
 #include <new>
-
-using std::string;
-using std::to_string;
+#include "splashkit.h"
 
 struct my_test_struct
 {
@@ -233,12 +226,10 @@ int main()
 
 This also works with generics, with C++ ensuring that there are appropriate destructors and constructors for all primitive types. The following code shows an example of this where we use a generic function to allocate space on the heap, and a generic procedure to free that allocation. Notice that we can use this to allocate space for the struct, but also allocate space for an integer.
 
-```cpp {16-29,31-38,42,43,48,49}
+```cpp {14-27,29-36,40,41,46,47}
 #include <cstdlib>
-#include <string>
 #include <new>
-
-using std::string;
+#include "splashkit.h"
 
 /**
 * A test struct that contains a string... we need to 

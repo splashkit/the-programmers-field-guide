@@ -26,8 +26,6 @@ All that changes is where the declaration is -- for the variable or constant to 
 ```cpp
 #include "splashkit.h"
 
-using std::to_string;
-
 // Declare a global constant
 const int INCREMENT_AMOUNT = 10;
 

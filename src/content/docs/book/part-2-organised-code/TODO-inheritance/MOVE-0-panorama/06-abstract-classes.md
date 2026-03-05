@@ -33,8 +33,6 @@ In `main` we can code an array of shapes and have these refer to objects created
 ```cpp
 #include "splashkit.h"
 
-using std::to_string;
-
 /**
  * @brief A shape is an abstract class that represents a geometric shape.
  * 

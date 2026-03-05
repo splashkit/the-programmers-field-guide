@@ -87,7 +87,6 @@ Don't focus too much on exploring vector at this stage. The C++ library is relat
 #include <string>
 
 using std::vector;
-using std::to_string;
 
 int main()
 {

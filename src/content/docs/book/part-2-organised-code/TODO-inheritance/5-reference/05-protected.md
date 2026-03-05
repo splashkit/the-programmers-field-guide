@@ -27,8 +27,6 @@ The following code illustrates the use of the different scope modifiers.
 ```cpp
 #include "splashkit.h"
 
-using std::to_string;
-
 class parent_class
 {
     private: 

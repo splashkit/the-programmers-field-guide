@@ -70,8 +70,6 @@ If you have created these files already, you can copy and paste them into any ne
 // and a read_string which works in a similar way
 #include "utilities.h"
 
-using std::to_string;
-
 /**
  * A person is used to capture the data we want to track
  * about people in our program.

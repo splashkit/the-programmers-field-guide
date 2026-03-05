@@ -32,11 +32,9 @@ You can change the size of the space allocated to a pointer using [realloc](/boo
 
 The following example code uses `malloc` to create space for an integer, assigns it a value, and then free the allocation.
 
-```cpp {1,9}
+```cpp {1,7}
 #include <stdlib.h>
 #include "splashkit.h"
-
-using std::to_string;
 
 int main()
 {

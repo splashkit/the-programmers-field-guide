@@ -16,11 +16,9 @@ Notice how the examples so far have a call to `free` at the end. This returns th
 
 The following code uses free to return the allocated memory at the end of the program.
 
-```cpp {32,33}
+```cpp {30,31}
 #include <stdlib.h>
 #include "splashkit.h"
-
-using std::to_string;
 
 int main()
 {

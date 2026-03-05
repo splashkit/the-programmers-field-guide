@@ -18,11 +18,9 @@ Pointers are not arrays. The C language lets you treat a pointer like it is an a
 
 The following code allocates space for an array of doubles, initialises some and then prints all values.
 
-```cpp {8,11,21,22,26-29}
+```cpp {6,9,19,20,24-27}
 #include <stdlib.h>
 #include "splashkit.h"
-
-using std::to_string;
 
 int main()
 {
