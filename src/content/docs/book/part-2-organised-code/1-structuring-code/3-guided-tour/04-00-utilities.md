@@ -49,7 +49,7 @@ int read_integer(string prompt);
 #endif
 ```
 
-This header says that there are two functions available: `read_string` and `read_integer`. We have included the string header and added `using std::string;` as we want to make use of the string type (which is not available without this).
+This header says that there are two functions available: `read_string` and `read_integer`. We have included the string header and added `using std::string;` as we want to make use of the string type (which is not available directly without this - usually including `splashkit.h` [handles this for us](/book/part-2-organised-code/1-structuring-code/5-reference/01-program/#using-directives)).
 
 Including the documentation in the header is a great idea, as this can then be read by the editors like VS Code and help describe the function as you go to use it.
 
@@ -75,7 +75,7 @@ int read_integer(string prompt)
     write_line("Please enter a whole number.");
     line = read_string(prompt);
   }
-  return stoi(line);
+  return to_integer(line);
 }
 ```
 
@@ -86,8 +86,6 @@ Once you have this setup, you can now use these functions by including your head
 ```cpp
 #include "utilities.h"
 #include "splashkit.h"
-
-using std::to_string;
 
 int main()
 {

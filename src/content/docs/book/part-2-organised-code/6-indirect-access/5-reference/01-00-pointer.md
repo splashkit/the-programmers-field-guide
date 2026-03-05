@@ -88,8 +88,6 @@ The following code illustrates how to declare and use pointers. This includes po
 ```cpp
 #include "splashkit.h"
 
-using std::to_string;
-
 /**
  * Print the address in an int pointer, and the value it points to.
  */

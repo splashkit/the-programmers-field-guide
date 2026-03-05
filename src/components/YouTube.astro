@@ -1,0 +1,247 @@
+---
+import { YouTube } from 'astro-embed';
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+    id: string;
+    params?: string;
+}
+
+const {
+    id,
+    params,
+    ...attrs
+} = Astro.props as Props;
+
+const modes = {
+    iFrame: "iFrame",            // Default iFrame, slow to load
+    liteYTEmbed : "liteYTEmbed", // Quickly shows thumbnail, then loads iFrame on click and autoplays (so no view tracking)
+    customEmbed: "customEmbed"   // Quickly shows thumbnail, and loads iFrame, but hides until clicked (to avoid the distracting branding and flickering)
+                                 //  - the aim is to have the same fast loading and clean appearance as lite-yt-embed, but still track views
+};
+const defaultMode = modes.customEmbed;
+const mode = defaultMode;
+
+const href = `https://www.youtube.com/embed/${id}?playsinline=1&${params}`;
+---
+
+{mode == modes.iFrame && (
+    <iframe src={href} {...attrs} allowFullscreen allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"/>
+
+    <style>
+    iframe {
+        border: 0;
+        height: auto;
+        width: 100%;
+        aspect-ratio: 1.777;
+    }
+    </style>
+)}
+
+{mode == modes.liteYTEmbed && (
+    <YouTube id={id} params={params} {...attrs} />
+)}
+
+{mode == modes.customEmbed && (
+    <div style={`background-image: url("https://i.ytimg.com/vi/${id}/sddefault.jpg")`} data-videoid={id} class="fg-youtube" data-youtube-embed>
+        <a class="lty-playbtn" tabindex="0" role="button" style="cursor: wait;">
+            <span class="lyt-visually-hidden">Play</span>
+        </a>
+        <iframe class="youtube-click-target" src={href} {...attrs} allowFullscreen allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"/>
+    </div>
+
+    <script>
+        document.querySelectorAll("[data-youtube-embed]").forEach((el) => {
+            const iframe = el.querySelector("iframe");
+            const button = el.querySelector("a");
+
+            // once the iFrame is ready, put the fake button
+            // behind it so click events go to it.
+            iframe.addEventListener("load", (ev)=>{
+                button.style.zIndex = '0';
+                button.style.filter = 'none';
+                button.style.cursor = 'initial';
+            });
+        })
+
+        // detecting iFrame focus using focus event doesn't work,
+        // and blur won't work with multiple videos on one page
+        // so we poll instead. The rate is low, shouldn't
+        // be an issue...
+        window.setInterval(() => {
+            if (document.activeElement.classList.contains('youtube-click-target')) {
+                document.activeElement.classList.add("show-youtube-iframe");
+                document.activeElement.classList.remove("youtube-click-target");
+            }
+        },100);
+    </script>
+
+    <style>
+
+    /*
+       When we're waiting for the user to click the
+       iFrame and trigger video playback, expand it
+       to move all other clickable spaces outside the
+       main frame.
+    */
+    .youtube-click-target {
+        transform: scaleY(2);
+        opacity: 0.001;
+    }
+
+    iframe {
+        color-scheme: auto;
+        background:transparent;
+    }
+
+    .fg-youtube iframe.show-youtube-iframe {
+        animation: showYoutubeIFrame .6s linear forwards;
+    }
+    /*
+        Lots of strange behaviour between opacity and
+        filter(brightness), the values below
+        are work-arounds.
+    */
+    @keyframes showYoutubeIFrame {
+        0% {
+            opacity: 0;
+            filter: brightness(0.001);
+            transform: scaleY(2);
+        }
+
+        30% {
+            opacity: 0;
+            filter: brightness(0.001);
+            transform: scaleY(2);
+        }
+
+        30.0001% {
+            filter: brightness(0.001);
+            opacity: 0.001;
+            transform: scaleY(1);
+        }
+
+        99.99% {
+            opacity: 1;
+            filter: brightness(0.002);
+            transform: scaleY(1);
+        }
+
+        100% {
+            opacity: 1;
+            filter: brightness(1);
+            transform: scaleY(1);
+        }
+    }
+
+    /*
+    Following styles were copied from lite-yt-embed.css with the following license:
+
+        Copyright 2019 Paul Irish
+
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+
+    A couple of modifications with regards to lty-playbtn hovering,
+    and renamed lite-youtube -> .fg-youtube
+    */
+
+    .fg-youtube {
+        background-color: #000;
+        position: relative;
+        display: flex;
+        background-position: center center;
+        background-size: cover;
+        cursor: pointer;
+        max-width: 720px;
+        overflow: clip;
+    }
+
+    /* gradient */
+    .fg-youtube::before {
+        content: attr(data-title);
+        display: block;
+        position: absolute;
+        top: 0;
+        /* Pixel-perfect port of YT's gradient PNG, using https://github.com/bluesmoon/pngtocss plus optimizations */
+        background-image: linear-gradient(180deg, rgb(0 0 0 / 67%) 0%, rgb(0 0 0 / 54%) 14%, rgb(0 0 0 / 15%) 54%, rgb(0 0 0 / 5%) 72%, rgb(0 0 0 / 0%) 94%);
+        height: 99px;
+        width: 100%;
+        font-family: "YouTube Noto",Roboto,Arial,Helvetica,sans-serif;
+        color: hsl(0deg 0% 93.33%);
+        text-shadow: 0 0 2px rgba(0,0,0,.5);
+        font-size: 18px;
+        padding: 25px 20px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        box-sizing: border-box;
+    }
+
+    .fg-youtube:hover::before {
+        color: white;
+    }
+
+    /* responsive iframe with a 16:9 aspect ratio
+        thanks https://css-tricks.com/responsive-iframes/
+    */
+    .fg-youtube::after {
+        content: "";
+        display: block;
+        padding-bottom: calc(100% / (16 / 9));
+    }
+    .fg-youtube > iframe {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        border: 0;
+    }
+
+    /* play button */
+    .fg-youtube > .lty-playbtn {
+        display: block;
+        /* Make the button element cover the whole area for a large hover/click target… */
+        width: 100%;
+        height: 100%;
+        /* …but visually it's still the same size */
+        background: no-repeat center/68px 48px;
+        /* YT's actual play button svg */
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>');
+        position: absolute;
+        cursor: pointer;
+        z-index: 1;
+        filter: grayscale(100%);
+        transition: filter .1s cubic-bezier(0, 0, 0.2, 1);
+        border: 0;
+    }
+
+    /* Post-click styles */
+    .fg-youtube.lyt-activated {
+        cursor: unset;
+    }
+    .fg-youtube.lyt-activated::before,
+    .fg-youtube.lyt-activated > .lty-playbtn {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .lyt-visually-hidden {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+    }
+
+    </style>
+)}

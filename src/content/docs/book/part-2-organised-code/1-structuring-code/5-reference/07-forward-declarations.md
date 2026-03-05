@@ -52,8 +52,6 @@ In **program.cpp**:
 #include "splashkit.h"
 #include "logic.h"
 
-using std::to_string;
-
 int main() 
 {
   x = 9;
@@ -87,8 +85,6 @@ Which can then be coded into **logic.cpp**. The compiler will not care what the 
 
 ```cpp
 #include "splashkit.h"
-
-using std::to_string;
 
 // Declare (unnecessary) global variables
 int x;

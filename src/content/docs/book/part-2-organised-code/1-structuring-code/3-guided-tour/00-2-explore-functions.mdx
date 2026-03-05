@@ -97,7 +97,7 @@ Looking at other terminal input in our programs we also have places where we wan
       write("Cost of item in cents: ");
       line = read_line();
     }
-    int cost_of_item = stoi(line);
+    int cost_of_item = to_integer(line);
 
 ```
 
@@ -116,9 +116,6 @@ We can test this out by extending our program to read in an integer. Have a go a
 
 ```cpp
 #include "splashkit.h"
-
-using std::to_string;
-using std::stoi;
 
 // Add read string code here
 
@@ -162,7 +159,7 @@ int read_integer(string prompt)
     write_line("Please enter a whole number.");
     input = read_string(prompt);
   }
-  return stoi(input);
+  return to_integer(input);
 }
 ```
 
@@ -185,8 +182,6 @@ I used the following to test out this function:
 
 ```cpp
 #include "splashkit.h"
-
-using std::to_string;
 
 // Add read string code here
 

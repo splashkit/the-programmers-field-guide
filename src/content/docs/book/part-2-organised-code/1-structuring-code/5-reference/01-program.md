@@ -44,7 +44,16 @@ This is similar to the `using` statements you used in your C# code.
 
 One of the challenges in programming is uniquely naming things we create. To help manage this, programming languages have come up with a mechanism to create **namespaces**, which allow you to define the [scope](/book/part-1-instructions/3-control-flow/5-reference/02-1-scope) in which a name must be unique. The `using` directive gives you easier access to particular items within another namespace.
 
-In C/C++ the standard name space (which has the identifier `std`) contains some useful functions. You can access these anywhere using the full name of the function, which is defined by the namespace, two colons, then the function identifier. For example, the `to_string` function in the standard namespace can be accessed using `std::to_string`. This will always work, but means you have to type `std::` before `to_string` each time. The `using` statement lets you avoid this. By adding `using std::to_string;` at the top of the code, you can now just use `to_string` everywhere and the compiler will not complain, as you have told it you are "using" `std::to_string`.
+In C/C++ the standard namespace (which has the identifier `std`) contains some useful functions and types. You can access these anywhere using the full name of the function or type, which is defined by the namespace, two colons, then the function identifier. For example, the `max` function in the standard namespace can be accessed using `std::max`. This will always work, but means you have to type `std::` before `max` each time. The `using` statement lets you avoid this. By adding `using std::max;` at the top of the code, you can now just use `max` everywhere and the compiler will not complain, as you have told it you are "using" `std::max`.
+
+`std::string` is a type also from the standard namespace that we have been using a lot. `splashkit.h` has the line `using std::string;` inside of it already, which is why we have been able to just write `string` on its own.
+
+A more complex example is `to_string`. SplashKit defines its own `to_string` in the global namespace, but the standard library also defines one in the `std` namespace!
+
+- If you include `splashkit.h` and write `to_string(...)`, you will be using SplashKit's `to_string`, since it is in the global namespace.
+- However, if you _also_ add `using std::to_string`, we now have both SplashKit's `to_string`, _and_ `std`'s `to_string` in the same namespace, meaning the compiler won't know which one to use!
+
+This is why we have to be careful when bringing in identifiers to the global namespace, since it makes collisions like this more likely.
 
 ## Example
 
@@ -60,8 +69,8 @@ Also take note of `int main()`, which defines the [entry point](/book/part-1-ins
 // - a header include
 #include "splashkit.h"
 
-// - a using directive
-using std::to_string;
+// - a using directive - try commenting it out!
+using std::max; // std::max(double, double) returns the larger number
 
 // a global constant declaration
 const double PI = 3.1415;
@@ -73,7 +82,7 @@ double square(double val)
 }
 
 // a function declaration
-bool pount_in_circle(double pt_x, double pt_y, double c_x, double c_y, double c_radius)
+bool point_in_circle(double pt_x, double pt_y, double c_x, double c_y, double c_radius)
 {
     double distance = sqrt(square(pt_x - c_x) + square(pt_y - c_y));
     return distance <= c_radius;
@@ -87,9 +96,11 @@ double circle_area(double radius)
 // a function declaration - the main / entry point function
 int main()
 {
-    write_line("5 squared is " + to_string(square(5.0)));
+    write_line("5 squared is " + to_string(square(5.0), 2));
 
-    write_line("A point at 1, 3 is in a circle at 0, 0, with radius 4" + to_string(point_in_circle(1, 3, 0, 0, 4)) );
+    write_line("The larger of 5 and 9 is " + to_string(max(5, 9)));
+
+    write_line("A point at 1, 3 is in a circle at 0, 0, with radius 4: " + to_string(point_in_circle(1, 3, 0, 0, 4)) );
 
     return 0;
 }

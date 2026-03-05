@@ -53,8 +53,6 @@ The following example demonstrates declaring and using values from the different
 ```cpp
 #include "splashkit.h"
 
-using std::to_string;
-
 struct my_struct
 {
   int     field1;
