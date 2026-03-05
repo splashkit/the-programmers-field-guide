@@ -32,7 +32,7 @@ const double PLAYER_RADIUS = 10;
 
 void draw_player(const player_data &player)
 {
-    fill_circle(color_blue(), player.x, player.y, PLAYER_RADIUS);
+    fill_circle(COLOR_BLUE, player.x, player.y, PLAYER_RADIUS);
 }
 
 void update_player(player_data &player)
@@ -58,7 +58,7 @@ int main()
         process_events();
         update_player(player1);
 
-        clear_screen(color_white());
+        clear_screen(COLOR_WHITE);
         draw_player(player1);
         refresh_screen(60);
     }

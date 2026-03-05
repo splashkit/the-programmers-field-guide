@@ -35,12 +35,12 @@ int main()
     open_window("Hello World: Using Resources with SplashKit", 800, 600);
     play_sound_effect("Hello World");
 
-    clear_screen(color_white());
-    draw_text("Anyone remember the \"Hello World\" Saddle Club song?", color_black(), "main", 30, 40, 200);
+    clear_screen(COLOR_WHITE);
+    draw_text("Anyone remember the \"Hello World\" Saddle Club song?", COLOR_BLACK, "main", 30, 40, 200);
     refresh_screen();
     delay(2500);
 
-    clear_screen(color_white());
+    clear_screen(COLOR_WHITE);
 
     // H
     draw_bitmap("SmallEarth", 20, 100);
@@ -114,7 +114,7 @@ int main()
 
     // SplashKit ("Me")
     draw_bitmap("SplashKitBox", 450, 300);
-    draw_text("SplashKit!", color_black(), "main", 50, 450, 530);
+    draw_text("SplashKit!", COLOR_BLACK, "main", 50, 450, 530);
     refresh_screen(60);
     delay(2000);
 }

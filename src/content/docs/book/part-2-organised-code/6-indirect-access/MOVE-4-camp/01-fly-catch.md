@@ -76,7 +76,7 @@ struct game_data
 */
 void draw_spider(const spider_data &spider)
 {
-  fill_circle(color_black(), spider.x, spider.y, SPIDER_RADIUS);
+  fill_circle(COLOR_BLACK, spider.x, spider.y, SPIDER_RADIUS);
 }
 
 /**
@@ -93,7 +93,7 @@ void draw_fly(const fly_data &fly)
   }
 
   // Draw the fly
-  fill_circle(color_dark_green(), fly.x, fly.y, FLY_RADIUS);
+  fill_circle(COLOR_DARK_GREEN, fly.x, fly.y, FLY_RADIUS);
 }
 
 /**
@@ -104,7 +104,7 @@ void draw_fly(const fly_data &fly)
 void draw_game(const game_data &game)
 {
   // Draw the game
-  clear_screen(color_white());
+  clear_screen(COLOR_WHITE);
 
   // Draw the spider
   draw_spider(game.spider);

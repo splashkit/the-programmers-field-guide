@@ -21,14 +21,14 @@ const int FLY_RADIUS = 10;
 void draw_game(int spider_x, int spider_y, bool fly_appeared, int fly_x, int fly_y)
 {
   // Draw the game
-  clear_screen(color_white());
+  clear_screen(COLOR_WHITE);
   // Draw the spider
-  fill_circle(color_black(), spider_x, spider_y, SPIDER_RADIUS);
+  fill_circle(COLOR_BLACK, spider_x, spider_y, SPIDER_RADIUS);
 
   if (fly_appeared)
   {
     // Draw the fly
-    fill_circle(color_dark_green(), fly_x, fly_y, FLY_RADIUS);
+    fill_circle(COLOR_DARK_GREEN, fly_x, fly_y, FLY_RADIUS);
   }
 
   // Show it to  the user

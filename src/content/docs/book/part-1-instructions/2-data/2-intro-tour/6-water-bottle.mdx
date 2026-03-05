@@ -160,26 +160,26 @@ Follow along in the video to get started with the first few steps, then see if y
         double water_y = BOTTLE_BASE_Y - water_height;
 
         open_window("Your Water Bottle", WINDOW_WIDTH, WINDOW_HEIGHT);
-        clear_screen(color_white());
+        clear_screen(COLOR_WHITE);
 
         // Draw the water
         // Circle at the top of the water
-        fill_circle(color_blue(),  BOTTLE_CENTER_X, water_y, BOTTLE_RADIUS);
+        fill_circle(COLOR_BLUE,  BOTTLE_CENTER_X, water_y, BOTTLE_RADIUS);
 
         // Circle at the bottom of the bottle
-        fill_circle(color_blue(),  BOTTLE_CENTER_X, BOTTLE_BASE_Y, BOTTLE_RADIUS);
-        draw_circle(color_black(), BOTTLE_CENTER_X, BOTTLE_BASE_Y, BOTTLE_RADIUS);
+        fill_circle(COLOR_BLUE,  BOTTLE_CENTER_X, BOTTLE_BASE_Y, BOTTLE_RADIUS);
+        draw_circle(COLOR_BLACK, BOTTLE_CENTER_X, BOTTLE_BASE_Y, BOTTLE_RADIUS);
 
         // Draw the rest of the water
-        fill_rectangle(color_blue(), BOTTLE_LEFT_X, water_y, BOTTLE_DIAMETER, water_height);
-        draw_circle(color_black(), BOTTLE_CENTER_X, water_y, BOTTLE_RADIUS);
+        fill_rectangle(COLOR_BLUE, BOTTLE_LEFT_X, water_y, BOTTLE_DIAMETER, water_height);
+        draw_circle(COLOR_BLACK, BOTTLE_CENTER_X, water_y, BOTTLE_RADIUS);
 
         // Outline bottle
         // Draw the left wall of the bottle
-        draw_line(color_black(), BOTTLE_LEFT_X, BOTTLE_BASE_Y, BOTTLE_LEFT_X, BOTTLE_TOP_Y);
+        draw_line(COLOR_BLACK, BOTTLE_LEFT_X, BOTTLE_BASE_Y, BOTTLE_LEFT_X, BOTTLE_TOP_Y);
         // Draw the right wall of the bottle
-        draw_line(color_black(), BOTTLE_RIGHT_X, BOTTLE_BASE_Y, BOTTLE_RIGHT_X, BOTTLE_TOP_Y);
-        draw_circle(color_black(), BOTTLE_CENTER_X, BOTTLE_TOP_Y, BOTTLE_RADIUS);
+        draw_line(COLOR_BLACK, BOTTLE_RIGHT_X, BOTTLE_BASE_Y, BOTTLE_RIGHT_X, BOTTLE_TOP_Y);
+        draw_circle(COLOR_BLACK, BOTTLE_CENTER_X, BOTTLE_TOP_Y, BOTTLE_RADIUS);
 
         refresh_screen();
         delay(5000);

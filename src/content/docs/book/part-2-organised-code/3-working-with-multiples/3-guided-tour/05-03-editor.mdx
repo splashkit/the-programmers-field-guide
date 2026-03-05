@@ -258,11 +258,11 @@ color color_for_tile_kind(tile_kind kind)
   // Return colors for each of the tile kinds
   switch(kind)
   {
-    case WATER_TILE: return color_blue();
-    case GRASS_TILE: return color_lawn_green();
-    case SAND_TILE: return color_blanched_almond();
-    case DIRT_TILE: return color_rosy_brown();
-    default: return  color_white();
+    case WATER_TILE: return COLOR_BLUE;
+    case GRASS_TILE: return COLOR_LAWN_GREEN;
+    case SAND_TILE: return COLOR_BLANCHED_ALMOND;
+    case DIRT_TILE: return COLOR_ROSY_BROWN;
+    default: return  COLOR_WHITE;
   }
 }
 
@@ -302,20 +302,20 @@ void draw_map(const map_data &map)
  */
 void draw_explorer(const explorer_data &data)
 {
-  clear_screen(color_white());
+  clear_screen(COLOR_WHITE);
   draw_map(data.map);
   if(data.state == EDIT_STATE)
   {
-    fill_rectangle(color_white(), 0, 0, TILE_WIDTH + 10, TILE_HEIGHT + 18, option_to_screen());
+    fill_rectangle(COLOR_WHITE, 0, 0, TILE_WIDTH + 10, TILE_HEIGHT + 18, option_to_screen());
 
     fill_rectangle(color_for_tile_kind(data.editor_tile_kind), 5, 13, TILE_WIDTH, TILE_HEIGHT, option_to_screen());
 
-    draw_text("Editor", color_black(), 0, 0, option_to_screen());
-    draw_text("Kind: " + to_string(((int)data.editor_tile_kind) + 1), color_black(), 7, 18, option_to_screen());
+    draw_text("Editor", COLOR_BLACK, 0, 0, option_to_screen());
+    draw_text("Kind: " + to_string(((int)data.editor_tile_kind) + 1), COLOR_BLACK, 7, 18, option_to_screen());
   }
   else
   {
-    draw_text("Playing - Shift E to edit", color_black(), 0, 0, option_to_screen());
+    draw_text("Playing - Shift E to edit", COLOR_BLACK, 0, 0, option_to_screen());
   }
 
   refresh_screen();

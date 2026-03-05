@@ -70,11 +70,11 @@ Let's start by thinking about the constants and variables we'll need. The goal i
 
           open_window("House Drawing by Andrew", SCREEN_WIDTH, SCREEN_HEIGHT);
 
-          clear_screen(color_white());
-          fill_ellipse(color_bright_green(), 0, 400, SCREEN_WIDTH, 400);
+          clear_screen(COLOR_WHITE);
+          fill_ellipse(COLOR_BRIGHT_GREEN, 0, 400, SCREEN_WIDTH, 400);
 
-          fill_rectangle(color_gray(), wall_x, wall_y, house_size, house_size);
-          fill_triangle(color_red(), 250, 300, 400, 150, 550, 300);
+          fill_rectangle(COLOR_GRAY, wall_x, wall_y, house_size, house_size);
+          fill_triangle(COLOR_RED, 250, 300, 400, 150, 550, 300);
 
           refresh_screen();
 
@@ -144,11 +144,11 @@ Here is our final version of the code. Remember that it is ok if your version di
 
       open_window("House Drawing by Andrew", SCREEN_WIDTH, SCREEN_HEIGHT);
 
-      clear_screen(color_white());
-      fill_ellipse(color_bright_green(), 0, HILL_HEIGHT, SCREEN_WIDTH, HILL_HEIGHT);
+      clear_screen(COLOR_WHITE);
+      fill_ellipse(COLOR_BRIGHT_GREEN, 0, HILL_HEIGHT, SCREEN_WIDTH, HILL_HEIGHT);
 
-      fill_rectangle(color_gray(), wall_x, wall_y, house_size, house_size);
-      fill_triangle(color_red(), roof_left, wall_y, roof_middle, roof_top, roof_right, wall_y);
+      fill_rectangle(COLOR_GRAY, wall_x, wall_y, house_size, house_size);
+      fill_triangle(COLOR_RED, roof_left, wall_y, roof_middle, roof_top, roof_right, wall_y);
 
       refresh_screen();
 
