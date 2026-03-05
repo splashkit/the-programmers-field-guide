@@ -124,8 +124,8 @@ export default defineConfig({
           collapsed: true,
           items: [
             {
-              label: "Manual Installation",
-              collapsed: false,
+              label: "1. Manual Installation",
+              collapsed: true,
               autogenerate: {
                 directory:
                   "book/appendix/0-manual-installation",
@@ -133,7 +133,7 @@ export default defineConfig({
               },
             },
             {
-              label: "1. Syntax Diagrams",
+              label: "2. Syntax Diagrams",
               collapsed: true,
               autogenerate:
               {
@@ -142,7 +142,7 @@ export default defineConfig({
               },
             },
             {
-              label: "2. Computer Use",
+              label: "3. Computer Use",
               collapsed: true,
               items: [
                 {
@@ -187,6 +187,10 @@ export default defineConfig({
                 },
               ],
             },
+            {
+              label: "SplashKit Online IDE",
+              link: "book/appendix/online-ide"
+            }
           ],
         },
       ],
