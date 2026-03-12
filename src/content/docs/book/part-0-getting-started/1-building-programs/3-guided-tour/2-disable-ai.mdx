@@ -23,7 +23,7 @@ To disable AI for now, do the following in VS Code:
    3. Add the following setting between the `{ }` in the file, making sure to leave any existing settings in place.
 
       ```json
-      "chat.disableAIFeatures": true
+      "chat.disableAIFeatures": true,
       ```
 
       This setting will disable the AI chat and code suggestions.
@@ -35,6 +35,10 @@ To disable AI for now, do the following in VS Code:
       ```
 
       This setting isn't needed for the AI, but will tell VS Code which version of C/C++ we are intending of using.
+
+   5. Remove the comma from the end of the last line before the `}`.
+
+      This will ensure that you can still run the `skm vscode settings` command successfully if you want to add a few more useful settings such as auto-saving and code formatting when you manually save your code.
 
 </Steps>
 
