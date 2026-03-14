@@ -117,7 +117,7 @@ int main()
     fade_music_out(2000); // Fade out
     delay(2500);
 
-    fade_music_in("track2", 2); // Play it twice
+    fade_music_in("track2", 2000); // Fade in over 2000 ms (2 seconds)
     delay(2500);
 
     set_music_volume(0.5f); // 50 %
