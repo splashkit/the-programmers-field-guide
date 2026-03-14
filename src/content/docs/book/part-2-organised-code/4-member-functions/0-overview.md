@@ -1,5 +1,5 @@
 ---
-title: Member Functions Overview
+title: Overview
 ---
 
 So far we have worked with instructions and data as separate aspects within our programs. Instructions have been organised into functions and procedures, while data is structured mainly using structs.
