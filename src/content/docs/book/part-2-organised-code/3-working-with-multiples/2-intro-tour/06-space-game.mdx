@@ -1,0 +1,194 @@
+---
+title: Space Game
+---
+
+import YouTube from '/src/components/YouTube.astro';
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+
+<div class="not-content">
+  <YouTube id="k0RqfKiziI8" params="fs=1&modestbranding=1&rel=0"/>
+</div>
+
+Let's try putting together our new tools to make a visual program.
+
+Watch this video to:
+
+- See how arrays can be used in a simple graphical program.
+
+When you are done, have a go with these concepts yourself.
+
+<Accordion>
+  <AccordionItem header="Get the code">
+
+  ```c++
+  #include "splashkit.h"
+  #include "splashkit-arrays.h"
+
+  const int SCREEN_SIZE = 600;
+  const double RANDOM_CHANCE = 0.3;
+
+  struct player_data
+  {
+      int score;
+      sprite ship;
+  };
+
+  struct space_game_data
+  {
+      player_data player;
+      dynamic_array<sprite> coins;
+  };
+
+  void load_resources()
+  {
+      load_resource_bundle("planet_play", "planet_play.txt");
+  }
+
+  void load_player(player_data &player)
+  {
+      player.score = 0;
+      player.ship = create_sprite("aquarii-v");
+      sprite_set_x(player.ship, (SCREEN_SIZE - sprite_width(player.ship)) / 2);
+      sprite_set_y(player.ship, (SCREEN_SIZE - sprite_height(player.ship)) / 2);
+  }
+
+  void give_random_position(sprite &coin)
+  {
+      sprite_set_x(coin, rnd(SCREEN_SIZE - sprite_width(coin)));
+      sprite_set_y(coin, rnd(SCREEN_SIZE - sprite_height(coin)));
+  }
+
+  sprite new_coin()
+  {
+      sprite coin = create_sprite("gold_coin", "coin_animation");
+      sprite_start_animation(coin, "spin");
+      give_random_position(coin);
+      return coin;
+  }
+
+  void load_game(space_game_data &game)
+  {
+      load_player(game.player);
+  }
+
+  void end_game(space_game_data &game)
+  {
+      free_sprite(game.player.ship);
+
+      for(int i = 0; i < length(game.coins); i++)
+      {
+          free_sprite(game.coins[i]);
+      }
+  }
+
+  void handle_input(player_data &player)
+  {
+      process_events();
+
+      if(key_down(LEFT_KEY))
+      {
+          sprite_set_rotation(player.ship, sprite_rotation(player.ship) - 5);
+      }
+      if(key_down(RIGHT_KEY))
+      {
+          sprite_set_rotation(player.ship, sprite_rotation(player.ship) + 5);
+      }
+
+      if(key_down(UP_KEY))
+      {
+          sprite_set_dy(player.ship, sprite_dy(player.ship) - 0.5);
+      }
+
+      if(key_down(DOWN_KEY))
+      {
+          sprite_set_dy(player.ship, sprite_dy(player.ship) + 0.5);
+      }
+  }
+
+  void wrap_sprite_offscreen(sprite &sprt)
+  {
+      if (sprite_offscreen(sprt))
+      {
+          if (sprite_x(sprt) + sprite_width(sprt) < 0)
+          {
+              sprite_set_x(sprt, SCREEN_SIZE + sprite_width(sprt));
+          } 
+          else if (sprite_x(sprt) - sprite_width(sprt) > SCREEN_SIZE)
+          {
+              sprite_set_x(sprt, -sprite_width(sprt));
+          }
+
+          if (sprite_y(sprt) + sprite_height(sprt) < 0)
+          {
+              sprite_set_y(sprt, SCREEN_SIZE + sprite_height(sprt));
+          } 
+          else if (sprite_y(sprt) - sprite_height(sprt) > SCREEN_SIZE)
+          {
+              sprite_set_y(sprt, -sprite_height(sprt));
+          }
+      }
+  }
+
+  void update_game(space_game_data &game)
+  {
+      if ( rnd() < RANDOM_CHANCE )
+      {
+          add(game.coins, new_coin());
+      }
+
+      for(int i = 0; i < length(game.coins); i++)
+      {
+          update_sprite(game.coins[i]);
+      }
+
+      update_sprite(game.player.ship);
+
+      wrap_sprite_offscreen(game.player.ship);
+
+      for(int i = length(game.coins) - 1; i >= 0; i--)
+      {
+          if (sprite_collision(game.coins[i], game.player.ship))
+          {
+              game.player.score++;
+              remove(game.coins, i);
+          }
+      }
+  }
+
+  void draw_game(space_game_data &game)
+  {
+      clear_screen(COLOR_BLACK);
+      draw_text("Score " + to_string(game.player.score), COLOR_WHITE, 0, 0);
+      
+      for(int i = 0; i < length(game.coins); i++)
+      {
+          draw_sprite(game.coins[i]);
+      }
+      draw_sprite(game.player.ship);
+      refresh_screen(60);
+  }
+
+  int main()
+  {
+      space_game_data game;
+
+      open_window("Planet Play", SCREEN_SIZE, SCREEN_SIZE);
+
+      load_resources();
+      load_game(game);
+
+      while(!quit_requested())
+      {
+          handle_input(game.player);
+          update_game(game);
+          draw_game(game);
+      }
+  }
+  ```
+
+  </AccordionItem>
+</Accordion>
+
+:::tip
+If you want to run this code, download and unzip the [resources](/resources/Space_game_resources.zip), then add the folder "Resources" to the same folder as your code.
+:::
