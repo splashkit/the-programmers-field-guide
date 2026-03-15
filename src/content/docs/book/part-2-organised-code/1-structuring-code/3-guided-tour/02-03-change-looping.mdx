@@ -57,10 +57,12 @@ To conclude the change calculator we need to make this so that the user has the 
                 change_value = amount_paid - cost_of_item;
                 write_line("Change to give " + to_string(change_value));
 
-                for(int i = 0; i < NUM_COIN_TYPES; i++)
+                int i = 0;
+                while(i < NUM_COIN_TYPES)
                 {
                     get_coin(i, coin_value, coin_text);
                     change_value = calculate_and_output_change(change_value, coin_value, coin_text);
+                    i++;
                 }
 
                 write_line();
@@ -165,10 +167,12 @@ To conclude the change calculator we need to make this so that the user has the 
               {
                   write_line("Change to give " + to_string(change_value));
 
-                  for(int i = 0; i < NUM_COIN_TYPES; i++)
+                  int i = 0;
+                  while(i < NUM_COIN_TYPES)
                   {
                       get_coin(i, coin_value, coin_text);
                       change_value = calculate_and_output_change(change_value, coin_value, coin_text);
+                      i++;
                   }
               }
               else

@@ -375,13 +375,16 @@ Alright, back to writing the code!
     We can now use `get_coin` to receive information on any coin type. Back in `main`, try changing the `get_coin(0, ...` line to select a different coin. For instance, `get_coin(3, coin_value, coin_text)`, would give you the change in 20c coins. Test it out yourself to make sure you have everything working right.
     :::
 
-4. Now we can make our code  **repeat** to calculate the change, once for each coin. We can use a [for loop](/book/part-1-instructions/3-control-flow/5-reference/04-3-for-loop) to achieve this, as there are a set number of coins that we need to iterate through. This gives us the following pseudocode:
+5. Now we can make our code  **repeat** to calculate the change, once for each coin. We can use a [while loop](/book/part-1-instructions/3-control-flow/5-reference/04-1-while-loop) to achieve this, as there are a set number of coins that we need to iterate through. This gives us the following pseudocode:
 
     ```txt
-    for each kind of coin
+    set i to 0
+    while i is less than the number of coins
         ...
         Get the coin data and store in coin_value and coin_text
         Call calculate_and_output_change, and store the remaining change
+        ...
+        add one to i
     ```
 
     Note, that there is also a _constant_ number of coins to iterate through - this means we should create a `NUM_COIN_TYPES` constant, and use that in the loop.
@@ -391,7 +394,7 @@ Alright, back to writing the code!
     <Accordion>
       <AccordionItem header="Constants with coins loop">
 
-        ```c++ {5, 71-75}
+        ```c++ {5, 71-77}
         #include "splashkit.h"
 
         // add read string, read integer, and read integer range here
@@ -462,10 +465,12 @@ Alright, back to writing the code!
             change_value = amount_paid - cost_of_item;
             write_line("Change to give " + to_string(change_value));
 
-            for(int i = 0; i < NUM_COIN_TYPES; i++)
+            int i = 0;
+            while(i < NUM_COIN_TYPES)
             {
                 get_coin(i, coin_value, coin_text);
                 change_value = calculate_and_output_change(change_value, coin_value, coin_text);
+                i++;
             }
         }
         ```
