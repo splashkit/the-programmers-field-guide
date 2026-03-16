@@ -105,20 +105,23 @@ Create a `PLAYER_SPEED` constant with the value 3. Add this to the `player_x` va
     const int PLAYER_RADIUS = 50;
     const int PLAYER_SPEED = 3;
 
-    int player_x = 640;
-
-    open_window("Circle Moving", 1280, 720);
-
-    while( ! quit_requested() )
+    int main()
     {
-        clear_screen(COLOR_WHITE);
-        fill_circle(COLOR_TURQUOISE, player_x, 360, PLAYER_RADIUS);
-        refresh_screen(60);
+        int player_x = 640;
 
-        process_events();
+        open_window("Circle Moving", 1280, 720);
 
-        player_x += PLAYER_SPEED; // this is a short-hand way of writing player_x = player_x + PLAYER_SPEED;
-    }
+        while( ! quit_requested() )
+        {
+            clear_screen(COLOR_WHITE);
+            fill_circle(COLOR_TURQUOISE, player_x, 360, PLAYER_RADIUS);
+            refresh_screen(60);
+
+            process_events();
+
+            player_x += PLAYER_SPEED; // this is a short-hand way of writing player_x = player_x + PLAYER_SPEED;
+        }
+        }
     ```
     </AccordionItem>
 </Accordion>
