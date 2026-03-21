@@ -3,7 +3,7 @@ title: Intro to Generics
 ---
 import CodeActivity from '/src/components/CodeActivity.astro'
 
-Let's have a go at using generics in some simple examples.
+Let's have a go at using generics with some simple examples.
 
 ### Generic Procedure
 
@@ -120,7 +120,7 @@ int main()
 
 ### Generic Struct/Class
 
-We can also use generics with structs and classes - this is how `fixed_array<T>` and `dynamic_array<T>` work after all. For instance, we could have a `pair` struct, like so:
+We can also use generics with structs and classes - this is how `fixed_array<T, N>` and `dynamic_array<T>` work after all. For instance, we could have a `pair` struct, like so:
 ```c++
 template<typename A, typename B>
 struct pair
