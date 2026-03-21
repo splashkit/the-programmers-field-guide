@@ -1,5 +1,7 @@
 ---
-title: Generic Array
+title: Adding Generics
+sidebar:
+    label: " - Adding Generics"
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { Steps } from '@astrojs/starlight/components';
@@ -8,7 +10,11 @@ import TemplateInjector from '/src/components/TemplateInjector.astro'
 import MultipleChoice from '/src/components/MultipleChoice.astro';
 import ITO from '/src/components/InlineTextOption.astro'
 
-Now that we've tried out using generics, let's see how we can apply them to the `double_array` class we made in [Member Functions](/book/part-2-organised-code/4-member-functions/3-guided-tour/3-array).
+It's great that we have a `double_array` class, but what if we want a `book` or `int` array instead?
+
+In previous chapters, copy/pasting the class and adjusting it for each type is the best we could have done. We'd copy the class, rename it, and then change all the `double` to, for instance, `book`.
+
+Of course, we now have _generics_! Let's see how we can apply them to the `double_array` class, to make it support _any_ type at all.
 
 First, consider:
 - What parts of our `double_array` are fixed at _compile time_?
@@ -42,7 +48,7 @@ Here's the condensed code for the `double_array` we have currently. Try selectin
         public:
         double_array() { ... }
 
-        int count() { ... }
+        int length() { ... }
 
         void add(double value) { ... }
         void remove(int index) { ... }
@@ -115,7 +121,7 @@ Here's the condensed code for the `double_array` we have currently. Try selectin
 </MultipleChoice>
 </NoCopy>
 
-We'll continue working from the code you wrote in the [last chapter](/book/part-2-organised-code/4-member-functions/3-guided-tour/3-array), with the same test `main` as well. Feel free to make a copy of the file to continue working from.
+We'll continue working from the code you wrote on the last page, with the same test `main` as well. Feel free to make a copy of the file to continue working from.
 
 :::tip
 You can often approach writing templated classes by first writing them with a fixed concrete type instead. Once that's working, you can substitute the fixed type for a template type parameter - this is exactly what we're doing here.
@@ -186,7 +192,7 @@ You can often approach writing templated classes by first writing them with a fi
         public:
         bounded_array() { ... }
 
-        int count() { ... }
+        int length() { ... }
 
         void add(T value) { ... }
         void remove(int index) { ... }
@@ -239,7 +245,7 @@ You can often approach writing templated classes by first writing them with a fi
                 clear_screen(COLOR_WHITE);
 
                 // draw our rectangles
-                for(int i = 0; i < rects.count(); i ++)
+                for(int i = 0; i < rects.length(); i ++)
                 {
                     fill_rectangle(rects.get(i).col, rects.get(i).rect);
                 }
@@ -283,7 +289,7 @@ You can often approach writing templated classes by first writing them with a fi
         public:
         bounded_array() { ... }
 
-        int count() { ... }
+        int length() { ... }
         int capacity()
         {
             return MAX_CAPACITY;

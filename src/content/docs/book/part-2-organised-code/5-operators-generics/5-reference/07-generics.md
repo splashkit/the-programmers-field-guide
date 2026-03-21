@@ -2,7 +2,7 @@
 title: Generics
 ---
 
-In the [Array Class](/book/part-2-organised-code/4-member-functions/3-guided-tour/3-array/) tour, we had a go at writing a class to help us manage arrays. In our case, we wrote a `double_array` class, that stores...doubles! But only doubles. What if we want to store something else?
+In the [Array Class](/book/part-2-organised-code/5-operators-generics/3-guided-tour/02-02-array-class-methods/) tour, we had a go at writing a class to help us manage arrays. In our case, we wrote a `double_array` class, that stores...doubles! But only doubles. What if we want to store something else?
 
 Using the current tools we have, we would have to build this same code for each type. Giving us an `int_array`, a `string_array`, a `user_array`, a `currency_array`, and so on and so on. Each of these dynamic arrays would have *almost identical* code! The only difference would be the type of data that we store in the array.
 

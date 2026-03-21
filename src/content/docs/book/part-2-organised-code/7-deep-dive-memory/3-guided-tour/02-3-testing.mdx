@@ -22,7 +22,7 @@ This is often called the Acceptance Criteria.
 <Steps>
 1. ### Define the Acceptance Criteria
     Let's consider - how can we know if our array is working correctly? By now you already have a fair bit of experience writing test cases :), but here are some specific things to look for:
-    - **Basic Usage** - Does the `count` still increase when elements are added? Does `get` still return the correct value?
+    - **Basic Usage** - Does the `length` still increase when elements are added? Does `get` still return the correct value?
     - **Capacity** - Does the capacity increase when the limit is reached? Does it match our specification?
     - **Complex Type** - Does the array work with `string`, or a custom class with a constructor and destructor?
       :::tip
@@ -87,7 +87,7 @@ This is often called the Acceptance Criteria.
     :::tip[Exactly!]
         Yep! We know `add` doesn't crash with `int`, but that's all. We don't know:
         - if it added the element properly
-        - whether the `count` increased
+        - whether the `length` increased
         - whether it wouldn't crash if it were a `dynamic_array<string>`
         - etc...
     :::

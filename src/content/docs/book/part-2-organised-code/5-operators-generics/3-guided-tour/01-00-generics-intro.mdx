@@ -1,0 +1,200 @@
+---
+title: Intro to Generics
+---
+import CodeActivity from '/src/components/CodeActivity.astro'
+
+Let's have a go at using generics in some simple examples.
+
+### Generic Procedure
+
+We'll start by seeing how we can use generics with procedures. Take the `swap` procedure that we made back in [Structuring Code](/book/part-2-organised-code/1-structuring-code/3-guided-tour/00-3-explore-pass-by-reference/):
+```c++
+void swap(int &x, int &y)
+{
+    int temp = x;
+
+    x = y;
+
+    y = temp;
+}
+```
+
+This procedure currently only works on `int` values, but the _logic_ itself could be applied to any type. For instance, we could swap a `book` class in exactly the same way:
+
+<table>
+<tr>
+<td>
+```c++ "int"
+void swap(int &x, int &y)
+{
+    int temp = x;
+
+    x = y;
+
+    y = temp;
+}
+```
+</td>
+<td>
+```c++ "book"
+void swap(book &x, book &y)
+{
+    book temp = x;
+
+    x = y;
+
+    y = temp;
+}
+```
+</td>
+</tr>
+</table>
+
+See how the logic is exactly the same, and only the _types_ have changed? This is a great example of where we can use generics - what we want is the _type_ itself to be a parameter!
+
+In C++, generics are implemented using the more general concept of _templates_. We can start creating a template using the keyword `template`, and then put the _template parameters_ (similar to procedure parameters) inside angle braclets (`<>`). Let's see an example:
+```c++
+template<typename T>
+```
+
+This creates a template, with a single parameter - a type (`typename`) called `T`. `T` is the type that will be _substituted_ later when we use the template. Let's try changing `int` to `T` now in our `swap` procedure:
+
+```c++ "T"
+template<typename T>
+void swap(T &x, T &y)
+{
+    T temp = x;
+
+    x = y;
+
+    y = temp;
+}
+```
+
+Now we can call `swap` with any type at all! Let's see some examples:
+
+```c++
+int my_int_a = 5, my_int_b = 20;
+swap(my_int_a, my_int_b); // this is swap<int>
+
+double my_double_a = 0.5, my_double_b = 56;
+swap(my_double_a, my_double_b); // this is swap<double>
+
+string my_string_a = "Hello", my_string_b = "World";
+swap(my_string_a, my_string_b); // this is swap<string>
+```
+
+Notice how the compiler automatically works out what `T` should be, based on the type of argument we pass in? We can also tell the compiler which version of `swap` to use directly, by passing the type in as the template parameter:
+```c++
+// force using the double version
+swap<double>(my_double_a, my_double_b);
+```
+
+<CodeActivity projectName="Operators and Generics/Guide/Intro Procedure" singleStep handExecution handExecutionWidth="600">
+```c++ {17, 20}
+#include "splashkit.h"
+
+template<typename T>
+void swap(T &x, T &y)
+{
+    T temp = x;
+
+    x = y;
+
+    y = temp;
+}
+
+int main()
+{
+
+    int my_int_a = 5, my_int_b = 20;
+    swap(my_int_a, my_int_b); // this is swap<int>
+
+    double my_double_a = 0.5, my_double_b = 56;
+    swap(my_double_a, my_double_b); // this is swap<double>
+
+}
+
+```
+</CodeActivity>
+
+### Generic Struct/Class
+
+We can also use generics with structs and classes - this is how `fixed_array<T>` and `dynamic_array<T>` work after all. For instance, we could have a `pair` struct, like so:
+```c++
+template<typename A, typename B>
+struct pair
+{
+    A first;
+    B second;
+};
+```
+This struct simply contains two "things", and they can be any type. For instance, we could have a `pair` of `string` and `int`:
+```c++ "pair<string, int>"
+pair<string, int> my_pair;
+my_pair.first = "Hello!";
+my_pair.second = 22;
+```
+We could also have a `pair` of `double` and `bool`:
+```c++ "pair<double, bool>"
+pair<double, bool> my_other_pair;
+my_other_pair.first = 23.5;
+my_other_pair.second = false;
+```
+
+Notice that for classes, we _have_ to pass in the template parameters manually, between the angle brackets (`<>`).
+
+<CodeActivity projectName="Operators and Generics/Guide/Intro Struct" singleStep handExecution handExecutionWidth="600">
+```c++ {}
+#include "splashkit.h"
+
+template<typename A, typename B>
+struct pair
+{
+    A first;
+    B second;
+};
+
+int main()
+{
+
+    pair<string, int> my_pair;
+    my_pair.first = "Hello!";
+    my_pair.second = 22;
+
+    pair<double, bool> my_other_pair;
+    my_other_pair.first = 23.5;
+    my_other_pair.second = false;
+
+}
+
+```
+</CodeActivity>
+
+:::tip
+You may be familiar with languages like Python where types feel more flexible, and you frequently create tuples and other structures. Generics are one way to achieve similar flexibility in C++!
+:::
+
+## Non-type Template Parameters
+Have a look at how we declare the template parameters:
+```c++
+template<typename T>
+```
+
+You may have noticed that the template parameters themselves have a "type" of sorts - we've been using `typename` so far. Can the template parameters be anything other than a `typename`?
+
+In C++, the answer is yes! We won't delve into this too deeply, but one other type they can be is `int`. See below for an example of this:
+```c++ "int" "N"
+template<int N>
+struct coordinate
+{
+    double coord[N];
+};
+```
+Here, we are changing the size of the array inside the struct, based on the template parameter! This `coordinate` struct can store a coordinate of any length. We could have a `coordinate<2>` for 2D coordinates, and a `coordinate<3>` for 3D coordinates.
+
+This will also be useful for our array class - the `fixed_array<T, N>` in SplashKit also uses this.
+
+---
+
+If you're interested in more detail on generics, then head on to the [reference](/book/part-2-organised-code/5-operators-generics/5-reference/07-generics/). After that, let's start on our generic array class.
