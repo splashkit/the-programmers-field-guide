@@ -121,8 +121,8 @@ This document will highlight, with examples and reasons, our own style guide whi
 
 <Card>
 <Tabs>
-  <TabItem label="Rule">Names should be descriptive and not abbreviated.</TabItem>
-  <TabItem label="Explanation">Naming your identifiers is one of the most important things you can do to make your code readable. As the famous quote goes, "There are only two hard things in Computer Science: cache invalidation and naming things." We suggest you use descriptive names for your identifiers, and avoid abbreviations where possible. This means the names themselves will explain what the code does. Names for variables should be nouns - a variable is a thing, after all. Use singular noun for a singular variable, plural noun for multiples.</TabItem>
+  <TabItem label="Rule">Names must be descriptive and not abbreviated.</TabItem>
+  <TabItem label="Explanation">Naming your identifiers is one of the most important things you can do to make your code readable. As the famous quote goes, "There are only two hard things in Computer Science: cache invalidation and naming things." We suggest you use descriptive names for your identifiers, and avoid abbreviations where possible. This means the names themselves will explain what the code does. Use singular terms for a singular variable, and plural terms for multiples (arrays).</TabItem>
   <TabItem label="Example - singular">
     ```c
     // this is a good variable name for one integer
@@ -147,8 +147,8 @@ This document will highlight, with examples and reasons, our own style guide whi
 ## Naming Functions, Procedures, and Methods
 <Card>
 <Tabs>
-  <TabItem label="Rule">Names should be descriptive and not abbreviated.</TabItem>
-  <TabItem label="Explanation">In addition to the descriptive points above for variables, methods should be verbs - methods do things. So the method name should describe what the method does. And sometimes what the arguments and return are.</TabItem>
+  <TabItem label="Rule">Names must be descriptive and not abbreviated.</TabItem>
+  <TabItem label="Explanation">In addition to the descriptive points above for variables, methods should be verbs - methods do things. So the method name describes what the method does. And sometimes what the arguments and return are.</TabItem>
   <TabItem label="Example">
     ```c
     // this is a poor method name 
@@ -194,7 +194,7 @@ This document will highlight, with examples and reasons, our own style guide whi
 <Card>
 
 <Tabs>
-  <TabItem label="Rule">Any variable which could be made a constant, should be. Constants should be named according to the style guide of the language.</TabItem>
+  <TabItem label="Rule">Any variable which could be made a constant, must be. Constants must be named according to the style guide of the language.</TabItem>
   <TabItem label="Explanation">Variables can change, but if something is really constant, it should be a constant. Pi, for example, will never change. True constants are also often "globally" useful - global constants are safe and useful, global variables are dangerous and should be avoided. If it shouldn't change, then enforce that with a constant.  </TabItem>
   <TabItem label="C">
     ```c
@@ -225,7 +225,7 @@ This document will highlight, with examples and reasons, our own style guide whi
 
 <Card>
 <Tabs>
-  <TabItem label="Rule">You should only have one statement per line.</TabItem>
+  <TabItem label="Rule">You must only have one statement per line.</TabItem>
   <TabItem label="Explanation">Having multiple statements on a single line (separated by a `;`) is hard to read.</TabItem>
   <TabItem label="Example">
     ```c
@@ -258,6 +258,6 @@ This document will highlight, with examples and reasons, our own style guide whi
 
 ## Avoid these language features
 
-The following low-level control flow features should be avoided, as they can lead to bugs and make code difficult to read.
+The following low-level control flow features must be avoided, as they can lead to bugs and make code difficult to read.
 
 * `goto`: can make it difficult to track the flow of a program, and can lead to bugs. Never use it.
