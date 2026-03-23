@@ -3,6 +3,7 @@ title: Switch Statement
 ---
 
 import YouTube from '/src/components/YouTube.astro';
+import CodeActivity from '/src/components/CodeActivity.astro'
 
 <div class="not-content">
   <YouTube id="J7ioskAX9zQ" params="fs=1&modestbranding=1&rel=0"/>
@@ -16,3 +17,39 @@ Watch this video to:
 - See how the switch statement is similar to, and different from, the if statement.
 
 At the end of this video you should be able to use switch statements in your programs.
+
+<CodeActivity projectName="Control Flow/Intro/Switch" singleStep>
+:::tip
+  Let's see how the flow of execution _jumps_ based on the value we test against in the `switch` statement. Try running this code with different values!
+
+  **Extra:** Try deleting a `break;`, and watch how the code "falls through" to then next case statement!
+:::
+```c++ {12, 16, 19, 22}
+#include "splashkit.h"
+
+int main()
+{
+    write("Please enter a number between 0 and 2: ");
+    int choice = to_integer(read_line());
+
+    switch(choice)
+    {
+        case 0:
+           write_line("Zero!");
+           break;
+        case 1:
+           write_line("You chose one!");
+           write_line("Multiple lines :)");
+           break;
+        case 2:
+           write_line("You chose two!");
+           break;
+        default:
+           write_line("You chose something else! Why!?");
+           break;
+    }
+
+    write_line("This line is printed after the switch :)");
+}
+```
+</CodeActivity>

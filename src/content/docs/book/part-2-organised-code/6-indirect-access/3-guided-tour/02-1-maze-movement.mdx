@@ -9,7 +9,7 @@ import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 At this point, we have a set of rooms that are connected by different paths. This is a great way of working with pointers, as the player points to the room they are in, and the paths point to their destinations.
 
-The main limitation currently is that our `main` is filled with logic for handling how each room connects. Let's move our paths to inside `room_data`, and store them inside our [`bounded_array`](/book/part-2-organised-code/5-operators-generics/3-guided-tour/2-generic-array/) - this way, each room can have its own set of paths that lead to other locations in the maze.
+The main limitation currently is that our `main` is filled with logic for handling how each room connects. Let's move our paths to inside `room_data`, and store them inside our [`bounded_array`](/book/part-2-organised-code/5-operators-generics/3-guided-tour/02-00-generic-array/) - this way, each room can have its own set of paths that lead to other locations in the maze.
 
 ## Adding Paths
 

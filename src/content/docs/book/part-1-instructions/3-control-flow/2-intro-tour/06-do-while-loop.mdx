@@ -3,6 +3,7 @@ title: Do While Loop
 ---
 
 import YouTube from '/src/components/YouTube.astro';
+import CodeActivity from '/src/components/CodeActivity.astro'
 
 <div class="not-content">
   <YouTube id="wsvYCVVDtEE" params="fs=1&modestbranding=1&rel=0"/>
@@ -16,3 +17,32 @@ Watch this video to:
 - See how the do while loop affects the sequence of a program.
 
 At the end of this video you should be able to write simple do while loops within your programs.
+
+
+<CodeActivity projectName="Control Flow/Intro/Do While" singleStep>
+:::tip
+  Let's compare `while` and `do while` to see the order in which the test, and the loop body, run.
+:::
+```c++ {7, 19}
+#include "splashkit.h"
+
+int main()
+{
+    // The loop test here will always evaluate to `false`,
+    // so it will never enter the body.
+    while(false)
+    {
+        write_line("This will never run.");
+    }
+
+    // The loop test here will also always evaluate to `false`,
+    // but since the test happens _after_ the loop body, the message
+    // will still be printed once.
+    do
+    {
+        write_line("This will still run once :)");
+    }
+    while(false);
+}
+```
+</CodeActivity>

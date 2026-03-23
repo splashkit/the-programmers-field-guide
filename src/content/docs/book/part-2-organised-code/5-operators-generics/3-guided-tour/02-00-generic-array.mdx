@@ -1,0 +1,26 @@
+---
+title: Generic Array
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Steps } from '@astrojs/starlight/components';
+import NoCopy from '/src/components/NoCopy.astro'
+import TemplateInjector from '/src/components/TemplateInjector.astro'
+import MultipleChoice from '/src/components/MultipleChoice.astro';
+import ITO from '/src/components/InlineTextOption.astro'
+import Aside from '/src/components/Aside.astro'
+import Carousel from '/src/components/Carousel.astro'
+import Option from '/src/components/Option.astro';
+
+In the previous chapters we've been using the `fixed_array<T, N>` and `dynamic_array<T>` _data structures_, provided to us by SplashKit.
+
+While we have been using them, there are still many things we don't know about how they work _internally_. In this section we'll start to drill further into them, and develop our own versions :)
+
+<Aside type="thinking" title = "Why write one ourselves? Why not use the existing ones?" unfold expand>
+Fair question! Indeed, practically every programming language out there provides a comprehensive set of data structures for us to work with. We don't **need** to know how to write them ourselves!
+
+**However**, writing one ourselves will give us a much greater understanding of how they work, and more importantly, the _trade-offs_ and _design decisions_ that were made when developing them. There's a reason there are _lots_ of different data structures - each one has its own strengths and weaknesses. Writing one ourselves with give us an understanding of that, and will help us _use_ and _choose_ the existing data structures more skillfully.
+</Aside>
+
+In this section we'll build a _generic_ array class, that allows us to store a variable number of elements, of any homogenous (single) type - it will be re-usable in any project. This will give us a deep understanding of how languages implement their dynamic arrays (for instance `list` in Python, or `std::vector<T>` in C++).
+
+Let's get started!

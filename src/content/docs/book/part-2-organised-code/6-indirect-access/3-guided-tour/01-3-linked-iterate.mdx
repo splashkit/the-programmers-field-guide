@@ -32,7 +32,7 @@ Let's test this pattern out now by implementing a `find_previous_node` method in
 
 There's also the special case of the first node, which has no previous node. In this case, we can return `nullptr`, mirroring how the last node's `next` is `nullptr`.
 
-If we fail to find a previous node at all, we should throw an exception - you can use any of the methods [previously explained](/book/part-2-organised-code/4-member-functions/3-guided-tour/3-array/#add-the-add-method) for this :). This may happen if we are given a `node` that belongs to a different linked list.
+If we fail to find a previous node at all, we should throw an exception - you can use any of the methods [previously explained](/book/part-2-organised-code/5-operators-generics/3-guided-tour/02-02-array-class-methods/#add-the-add-method) for this :). This may happen if we are given a `node` that belongs to a different linked list.
 
 Have a go at implementing this method now - it should take a `node*`, and return the `node*` prior to it. Here's some test code:
 
