@@ -35,7 +35,7 @@ Many modern languages will allow you to provide default values to parameters. Th
 
 Introduced in the 2020 version of C++ (known as C++20), the [format](https://en.cppreference.com/w/cpp/utility/format/format) function lets you easily create strings in a way similar to string interpolation we saw in C#.
 
-The format function uses a format string (similar, but simpler than the version in `printf` and `scanf`) followed by the values to be inserted within the placeholders. Braces are used for the placeholders in the format string (`"{}"`) which may optionally include the index of the value to use, followed by a colon (`:`) and a [format specifier](https://en.cppreference.com/w/cpp/utility/format/basic_format_string).
+The format function uses a format string followed by the values to be inserted within the placeholders. Braces are used for the placeholders in the format string (`"{}"`) which may optionally include the index of the value to use, followed by a colon (`:`) and a [format specifier](https://en.cppreference.com/w/cpp/utility/format/basic_format_string).
 
 We can keep this basic for now, but this can be a useful function as you work on combining components into a string.
 
@@ -65,50 +65,8 @@ int main()
 }
 ```
 
-To compile this you will need to let the compiler know that you are wanting to use the C++20 standard. Use the following call on the command line. The `-std=c++20` sets the standard to be used.
+To compile this you will need to let the compiler know that you are wanting to use the C++20 standard. Use the following call on the command line. The `-std=c++26` sets the standard to be used, in this case to the C++26 version.
 
 ```sh
-clang++ format-test.cpp -std=c++20 -l splashkit -o test -Wall
-```
-
-## Vector
-
-In this project we will need a dynamic array. You can use the version you created, but if you want to use the C++ library then you need to use the [vector class](https://en.cppreference.com/w/cpp/container/vector).
-
-:::tip
-
-Don't focus too much on exploring vector at this stage. The C++ library is relatively cryptic in how it approaches things. For now, you only need to know a few basics. You can explore C++ and its library in more depth at a later time.
-
-:::
-
-```cpp
-#include "splashkit.h"
-#include <vector>
-#include <string>
-
-using std::vector;
-
-int main()
-{
-    // A vector is like an array - you can initialise it with values
-    // It uses generics in the same way as our dynamic array
-    vector<int> numbers = {1, 2, 3, 4, 5};
-
-    // You can use .size() to get the number of items in the vector
-    // and access these items using the [] operator (as with our dynamic array)
-    for(int i = 0; i < numbers.size(); i++)
-    {
-        write_line("Number: " + to_string(numbers[i]));
-    }
-
-    // To add elements to the vector, use .push_back()
-    numbers.push_back(6);
-
-    // To remove elements from the vector, use .erase()
-    // This is relatively cryptic - but go with it for now
-    // Our dynamic array is similar to more modern languages
-    numbers.erase(numbers.begin() + 2); // removes the third element
-
-    return 0;
-}
+clang++ format-test.cpp -std=c++26 -l splashkit -o test -Wall
 ```

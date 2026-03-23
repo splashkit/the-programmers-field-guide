@@ -2,11 +2,9 @@
 title: "Linked Lists"
 ---
 
-Pointers and dynamic memory allocation make it possible to store values in new and interesting ways. One way of structuring this data is to dynamically allocate each value, and link these together using pointers. An illustration of this is shown in [Figure x.y](#FigureLinkedList).
+Pointers and dynamic memory allocation make it possible to store values in new and interesting ways. One way of structuring this data is to dynamically allocate each value, and link these together using pointers. An illustration of this is shown below.
 
-<a id="FigureLinkedList"></a>
-
-![Figure x.y: Illustration of a linked list in memory](./images/linked-list.png "Illustration of a linked list in memory")
+![Illustration of a linked list in memory](./images/linked-list.png "Illustration of a linked list in memory")
 <div class="caption">Illustration of a linked list in memory</div><br/>
 
 :::note
@@ -16,9 +14,9 @@ Pointers and dynamic memory allocation make it possible to store values in new a
 - Each **Node**, has some data and a pointer to the **Next** element in the list.
 - The **Last** element in the list has **Nothing** as its next node.
 - To access a Node in the list you must loop through from the first node until you reach the node you are after.
-- You can insert and delete elements by changing the links in the list. 
-- If the grey node in [Figure x.y](#FigureLinkedList) is being *inserted* then the previous node must be adjusted to point to it, and it to point to the next element of the list.
-- If the grey node in [Figure x.y](#FigureLinkedList) is being *deleted* then the previous node changes its link to skip that node and point to the next node in the list.
+- You can insert and delete elements by changing the links in the list.
+- If the grey node in illustration above is being *inserted* then the previous node must be adjusted to point to it, and it to point to the next element of the list.
+- If the grey node in illustration above is being *deleted* then the previous node changes its link to skip that node and point to the next node in the list.
 
 :::
 

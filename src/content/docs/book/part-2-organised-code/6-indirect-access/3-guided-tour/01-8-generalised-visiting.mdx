@@ -9,6 +9,7 @@ import { Accordion, AccordionItem } from 'accessible-astro-components'
 import Carousel from '/src/components/Carousel.astro'
 
 Iterating over all the nodes in a linked list is quite a common operation. Right now we need to write a fair bit of boilerplate to handle this:
+
 ```c++
 node<T> *current = first;
 while (current != nullptr)
@@ -21,12 +22,13 @@ while (current != nullptr)
 }
 ```
 
-Wouldn't it be great if we could generalize this? For instance, it would be helpful if we could pass a _function_ in, and have that function get called for every `node`:
+What if we could pass in *what* to do for each element? For instance, it would be helpful if we could pass a _function_ in, and have that function get called and passed each `node` in the list. The following code shows some examples of how we could use this.
+
 ```c++ {2, 5, 8}
-    // iterate over every node, and call print_list_item with the data
+    // iterate over every node, and call print_list_item with the data from each node
     my_list.visit(print_list_item); // 10, 20, 30
 
-    // iterate over every node, and add 1
+    // iterate over every node, and add 1 to its data value
     my_list.visit(add_1);
 
     // print the list again
@@ -73,12 +75,23 @@ First off, we can see the type going into the function varies based on the type 
 ```c++
 void function_name(T& data);
 ```
-_If we want to handle the `const` variant, we would need to do the same thing we did with `get` in [Generic Array](/book/part-2-organised-code/5-operators-generics/3-guided-tour/02-04-array-overloads/#before-we-do-that)_
 
-So these are the sorts of functions we will accept in our `visit`. So the parameter for `func` inside `visit` will be:
+So these are the sorts of functions we will accept in our `visit`. So the declaration of the `func` parameter in `visit` will be:
 ```c++
 void (*func)(T&)
 ```
+
+:::tip
+Yes, you need all of those brackets. 
+
+- The `void` in the parameter's data type tells us the function pointer will refer to a procedure (something that returns `void`).
+- The `(*func)` part declares the parameter's name and indicates it is a function pointer.
+- Lastly the `(T&)` tells us that this can point to any function that takes a single parameter of type `T` (the generic type of the linked list).
+
+So the signature of the visit method will be: `void visit(void (*func)(T&))`. 
+:::
+
+Inside `visit` you can treat `func` as if it is a procedure that accepts a single `T` parameter. This means you can call it using something like `func(current->data);`
 
 Have a go now at writing the `visit` procedure. Try writing a `print_element` function, and pass that into `visit`.
 
@@ -108,6 +121,50 @@ class linked_list
     }
 };
 
+int main()
+{
+    linked_list<int> list;
+
+    ...
+}
+
+```
+
+  </AccordionItem>
+</Accordion>
+
+_If we want to handle the `const` variant, we would need to do the same thing we did with `get` in [Generic Array](/book/part-2-organised-code/5-operators-generics/3-guided-tour/02-04-array-overloads/#before-we-do-that) and create two versions of the method._
+
+## Calling visit
+
+To test this out we now need to call the `visit` method. To do this we need to be able to create a function pointer. This is actually super easy. If you place the name of a function or procedure without adding parenthesis, you get a pointer to that function/procedure.
+
+Add these to your code. You can then refer to the using `print_element` and `multiply_by_10`. These are procedures that accept an `int` parameter, so we can use them in our `linked_list<int>` as in this context `T` is `int`.
+
+```c++
+void print_element(int& data)
+{
+    write_line(data);
+}
+
+void multiply_by_10(int& data)
+{
+    data *= 10;
+}
+```
+
+Have a go at calling `visit` and passing in a pointer to these procedures.
+
+<Accordion>
+  <AccordionItem header="My code for if you get stuck">
+
+```cpp
+template <typename T>
+class linked_list
+{
+    ...
+};
+
 void print_element(int& data)
 {
     write_line(data);
@@ -135,3 +192,5 @@ int main()
 
   </AccordionItem>
 </Accordion>
+
+You now have a useful `visit` method that will allow the caller to pass in the procedure they want called. We will explore this further on the next page.

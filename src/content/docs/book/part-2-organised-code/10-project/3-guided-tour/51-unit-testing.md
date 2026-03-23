@@ -2,8 +2,6 @@
 title: Unit Testing
 ---
 
-![Illustration of unit testing](./images/unit-test.png)
-
 As you start to build larger programs, finding issues can become a bigger challenge, particularly when you work with others. One strategy we can use to tackle this is to create small tests alongside our program as it develops. These tests will check the functionality of individual part of the code, using a technique called **unit testing**.
 
 With unit testing you pick a single, small, piece of functionality to tests at a time and create code that allows you to run this test frequently as your continue to develop your program. This will help identify issues as they arise, which may otherwise go unnoticed.
@@ -14,6 +12,8 @@ We will have a look at unit testing and test driven development in the guided to
 
 - [catch_amalgamated.hpp](https://raw.githubusercontent.com/catchorg/Catch2/refs/heads/devel/extras/catch_amalgamated.hpp)
 - [catch_amalgamated.cpp](https://raw.githubusercontent.com/catchorg/Catch2/refs/heads/devel/extras/catch_amalgamated.cpp)
+
+![Illustration of unit testing](./images/unit-test.png)
 
 :::tip
 We are only touching on the ideas of unit testing, and testing in general. This is something you can explore further as you continue your studies. At this stage we want only to start using these tools, and encourage you to consider engaging with this more deeply in the future.

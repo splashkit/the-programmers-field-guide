@@ -39,35 +39,39 @@ Start with adding the first node - you'll need to `new` the node, assign the dat
 Here's some code you can place inside `main` to test your linked list. Have a read over it - you'll see how it first adds some nodes, then tests their values by accessing them in different ways.
 
 <CodeScroll>
+
 ```c++
-linked_list<int> list;
+int main()
+{
+    linked_list<int> list;
 
-// ---- Test first node ----
-node<int>* first_node = list.add_node(2);
+    // ---- Test first node ----
+    node<int>* first_node = list.add_node(2);
 
-write("This should be 2: ");
-write_line(list.first->data);
+    write("This should be 2: ");
+    write_line(list.first->data);
 
-write("This should also be 2: ");
-write_line(first_node->data);
+    write("This should also be 2: ");
+    write_line(first_node->data);
 
-write("This should also be 2: ");
-write_line(list.last->data);
+    write("This should also be 2: ");
+    write_line(list.last->data);
 
-// ---- Test adding more nodes ----
+    // ---- Test adding more nodes ----
 
-list.add_node(4);
-list.add_node(8);
-list.add_node(16);
+    list.add_node(4);
+    list.add_node(8);
+    list.add_node(16);
 
-write("This should be 4: ");
-write_line(list.first->next->data);
+    write("This should be 4: ");
+    write_line(list.first->next->data);
 
-write("This should be 8: ");
-write_line(list.first->next->next->data);
+    write("This should be 8: ");
+    write_line(list.first->next->next->data);
 
-write("This should be 16: ");
-write_line(list.last->data);
+    write("This should be 16: ");
+    write_line(list.last->data);
+}
 ```
 
 </CodeScroll>

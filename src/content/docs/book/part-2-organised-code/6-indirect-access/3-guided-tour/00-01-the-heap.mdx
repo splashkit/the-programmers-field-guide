@@ -1,0 +1,33 @@
+---
+title: Memory organisation & The Heap
+sidebar:
+    label: " - Memory Organisation"
+---
+
+When your program is executed, it is allocated memory to work with. To help ensure system security, this memory is divided into different areas based on the different kinds of values that need to be stored in memory. Previously, our programs' data was housed on the [stack](/book/part-2-organised-code/1-structuring-code/5-reference/05-the-stack) which is reserved for local variables and the data needed to keep track of function and procedure calls.
+
+The stack is an essential part of every program. The fact that it is managed by the compiler means that you do not need to think too much about memory allocation for these variables.
+
+However, there are limitations. The compiler needs to know how much space to allocate each variable, and once allocated this is fixed as other values will have been allocated around this. In addition, the space of the stack is very limited, as it is designed to only work with local variables. The heap is intended to be used when you want to work with larger amounts of data.
+
+The **heap** represents the bulk of memory that is accessible to your program, but only if you request space and manage it yourself. Any memory that you allocate to your program will come from the heap.
+
+To work with the heap you will need to learn how to allocate, access, and free space dynamically. These actions are the focus of this chapter.
+
+![The Heap is used to store all dynamically allocated values](./images/heap.png "The Heap is used to store all dynamically allocated values")
+<div class="caption">The Heap is used to store all dynamically allocated values</div><br/>
+
+:::note
+
+- Your program's memory is organised into the following areas:
+  1. Your program’s machine code is loaded into the code area.
+  2. [The stack](/book/part-2-organised-code/1-structuring-code/5-reference/05-the-stack) is used to manage the execution of the program’s functions and procedures.
+  3. [Global variables](/book/part-2-organised-code/1-structuring-code/5-reference/06-global-variables) are allocated their own space.
+  4. The new area for us is the **heap**. This is used to store all dynamically allocated values.
+- Values can be stored in the global variables, in local variables on the *stack*, and on the *heap* using dynamic memory allocation functions and procedures.
+- The space taken up by the global and local variables is fixed based on the size of the variables you have declared
+- Each function/procedure takes a fixed amount of space on the stack. The space allocated is enough to store each of the local variables, plus some additional space for overheads associated with managing the function/procedure calls.
+- The compiler take care of managing memory in the stack and for the global variables.
+- **You** are responsible for any memory allocation done on the heap
+
+:::

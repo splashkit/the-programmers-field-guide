@@ -3,7 +3,9 @@ title: "Using Malloc"
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 
-In this tour we will explore the use of `malloc` to create an array of double's in memory. We are focusing on the basics of using `malloc` and `free` here, and how these can be used to allocate space in memory. The program we create will be very simple, just creating an array of a variable size, populate it with double values, and then print these values out. In the [dynamic array tour](/book/part-2-organised-code/7-deep-dive-memory/3-guided-tour/02-0-dynamic-array) we will look at making this into a more usable utility, so focus on the mechanics here.
+In this tour we will explore the use of [malloc](/book/part-2-organised-code/7-deep-dive-memory/5-reference/03-0-allocating-memory) to create an array of double's in memory. `malloc` is a function in C's standard library (you need to `#include <cstdlib>`). Like [new](/book/part-2-organised-code/6-indirect-access/5-reference/02-01-new-delete), `malloc` will allocate space on the heap - with the name representing "memory allocation". This is paired with `free` that is used to free the allocation much like `delete`. Unlike `new` and `delete`, with `malloc` you work in bytes... allocating as much or as little space and using it however you want.
+
+We are focusing on the basics of using `malloc` and `free` here, and how these can be used to allocate space in memory. The program we create will be very simple, just creating an array of a variable size, populate it with double values, and then print these values out. In the [dynamic array tour](/book/part-2-organised-code/7-deep-dive-memory/3-guided-tour/02-0-dynamic-array) we will look at making this into a more usable utility, so focus on the mechanics here.
 
 ## Create your project
 
@@ -42,8 +44,6 @@ int main()
 ## Creating a pointer and size variable
 
 To make use of the heap we need a pointer. Start off by adding two variables at the top of main. We need a pointer to a double, and an integer called `size`. The pointer will refer to the data on the heap, while the size variable will retain the information on the number of elements we allocated in memory. You will also need to cast the returned data from an untyped pointer (`void *`) to a pointer to double data (`double *`).
-
-Also add in the code to check that this succeeded, and exit the program if you could not allocate the number of bytes requested.
 
 Code this up yourself - but you can check our solution if you get stuck.
 
@@ -92,6 +92,8 @@ If you are having trouble doing this yourself, make sure to go back and review [
 
 Now for the magic. Use the `read_integer` function to ask the user how many values they want to store. There is no set maximum here, so they can enter any number of elements. When you use `malloc`, you will need to pass in the size in bytes you want. The `sizeof` function can be used to get the size of the double type, which you multiply by the number of elements the user wants to get the number of bytes to be allocated.
 
+Also add in the code to check that this succeeded, and exit the program if you could not allocate the number of bytes requested. The `malloc` function returns `NULL` if it cannot allocate the space that you asked for.
+
 Have a go at this yourself, but if you need, you can check our solution below.
 
 <Accordion>
@@ -139,7 +141,7 @@ int main()
 
 ## Populate and print the data
 
-This step should not be any different to working with an array stored in a local variable or parameter. Use a for loop to iterate over the newly allocated memory - this is now on the heap, but the code to manipulate it does not really change. This is very basic processing, but it should help you see that there is really no difference in the steps or code you use when working with the heap. So the main thing with this is just knowing when to allocate the space, and when to free it.
+In C/C++ you can treat a pointer as an array. So you can access a value using `ptr[0]`, `ptr[9]`, or `ptr[i]` for example. This means that this step should not be any different to working with an array stored in a local variable or parameter. Use a for loop to iterate over the newly allocated memory - this is now on the heap, but the code to manipulate it does not really change. This is very basic processing, but it should help you see that there is really no difference in the steps or code you use when working with the heap. So the main thing with this is just knowing when to allocate the space, and when to free it.
 
 You really should be able to do this without hints, but the solution is here if needed.
 
@@ -256,3 +258,9 @@ int main()
 ## Reflect
 
 We now have a program that can allocate any number of elements in the data array, and we have seen that the code you use to access this is the same as it was when we were manipulating data on the stack.
+
+:::caution
+
+Here we are working with C memory allocation functions. These do not do anything to the memory that is allocated, so you have to be very careful if you are using this space with C++ type with member functions.
+
+:::

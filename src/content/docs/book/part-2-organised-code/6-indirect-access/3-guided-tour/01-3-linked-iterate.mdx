@@ -79,7 +79,7 @@ class linked_list
                 return current;
             }
 
-            // we can shorten this onto one line like so
+            // move to the next node
             current = current->next;
         }
 
@@ -93,7 +93,6 @@ class linked_list
 </Accordion>
 
 Just like the typical `for(int i = 0; i < size; i ++)`, we'll use this iteration pattern a fair bit from here on!
-
 
 :::tip[Isn't this inefficient?]
 This is a fair question! Right now we are implementing what's called a "singly linked list" - our nodes are only connected one way, to their "next" node. Within this structure, there isn't much we can do to find the previous node quicker.

@@ -11,23 +11,14 @@ We now have some basic code to work with cheese data. As a next step we can star
 
 In most cases the first part of any additional functionality will involve add in additional data elements. In this case we need to add the `cheese_shop_data` struct, which at the moment only needs to contain the dynamic array of cheeses.
 
-:::tip
-
-Use your own dynamic array if you can, otherwise use a `vector` to store the cheeses.
-
-:::
-
 <Accordion>
   <AccordionItem
     header="Code cheese data type and new cheese in header"
   >
 
 ```cpp {2,5,21-29}
-#include <string>
-#include <vector> // or your dynamic array header
-
-using std::string;
-using std::vector; // unless using your dynamic array
+#include "splashkit.h"
+#include "splashkit-arrays.h"
 
 /**
  * Data about a cheese within an order or in stock.
@@ -50,7 +41,7 @@ struct cheese_data
  */
 struct shop_data
 {
-    vector<cheese_data> cheeses; // or your dynamic array
+    dynamic_array<cheese_data> cheeses;
 };
 
 //...
@@ -64,7 +55,7 @@ struct shop_data
 With the shop existing in our data, we can add the code to read a cheese from the user and add it to the store's cheese list. We will need:
 
 - Model and unit test changes:
-  - An `add_cheese` procedure - adds the cheese to the end of our dynamic array / vector. Accepts parameters for the shop and the cheese to add.
+  - An `add_cheese` procedure - adds the cheese to the end of our dynamic array. Accepts parameters for the shop and the cheese to add.
   - Tests to check add cheese functions.
 - Shop CLI changes:
   - `read_cheese` function - writes prompts, reads values from the user, and returns cheese data with these details.
@@ -85,7 +76,7 @@ Approach this in the following order:
         cheese_data cheese = new_cheese("Cheddar", 1.5, 2000);
         add_cheese(shop, cheese);
 
-        REQUIRE(shop.cheeses.size() == 1);
+        REQUIRE(shop.cheeses.length() == 1);
         REQUIRE(shop.cheeses[0].name == "Cheddar");
         REQUIRE(shop.cheeses[0].weight == Approx(1.5));
         REQUIRE(shop.cheeses[0].price_per_kg == 2000);
@@ -94,7 +85,7 @@ Approach this in the following order:
         cheese = new_cheese("Gouda", 2.0, 1500);
         add_cheese(shop, cheese);
 
-        REQUIRE(shop.cheeses.size() == 2);
+        REQUIRE(shop.cheeses.length() == 2);
         REQUIRE(shop.cheeses[1].name == "Gouda");
         REQUIRE(shop.cheeses[1].weight == Approx(2.0));
         REQUIRE(shop.cheeses[1].price_per_kg == 1500);
@@ -237,7 +228,7 @@ main_menu_option read_main_menu_option()
  */
 void print_stock_list(const shop_data &shop)
 {
-    if (shop.cheeses.size() == 0)
+    if (shop.cheeses.length() == 0)
     {
         write_line("No cheese");
         return;
@@ -248,7 +239,7 @@ void print_stock_list(const shop_data &shop)
     write_line("Cheese stock list:");
     write_line("===================================");
 
-    for (int i = 0; i < cheeses.size(); i++)
+    for (int i = 0; i < cheeses.length(); i++)
     {
         print_cheese(shop.cheeses[i], true);
     }
@@ -296,7 +287,7 @@ To achieve this we can make the following changes:
 
 - Shop CLI changes:
   - Refactor `print_stock_list` to separate out the code to print the list of cheese, so we can use it in `select_cheese`. For select cheese, we will print a number next to each cheese, which we won't do for the stock list. The new `print_stock_list` will now output a header, call `print_cheese_list`, and the output its footer.
-  - `print_cheese_list` will accept the dynamic array (or vector) of cheeses and a boolean to indicate if this should include the index number (starting at 1) next to each cheese. It will loop through the cheeses. If it needs to output the index it can `write` the value of the current index. Then it will print the cheese details.
+  - `print_cheese_list` will accept the dynamic array of cheeses and a boolean to indicate if this should include the index number (starting at 1) next to each cheese. It will loop through the cheeses. If it needs to output the index it can `write` the value of the current index. Then it will print the cheese details.
   - Add a `select_cheese` function - this can output an option "0: Select None", and then call `print_cheese_list` passing in the shop's list of cheese, and true to show the index. It will then return the integer the user enters at a "Select option: " prompt, minus 1 (making this the index of the cheese or -1 for none).
   - `handle_edit_cheese`: will be passed the shop, and can call `select_cheese` to get the index of the cheese to edit. 
   - `edit_cheese`: will accept a cheese by reference and check with the user which aspects to be edited. This could be done via a menu, or by asking for each field. In either case, you need to update the values in the cheese based on the user's intention. This will update the data in referenced cheese, ensuring that the edits are applied correctly.
@@ -391,9 +382,9 @@ void edit_cheese(cheese_data &cheese)
  * @param cheeses the details to output
  * @param with_ids true if an index (1 based) should be included in the output
  */
-void print_cheese_list(const vector<cheese_data> &cheeses, bool with_ids)
+void print_cheese_list(const dynamic_array<cheese_data> &cheeses, bool with_ids)
 {
-    for (int i = 0; i < cheeses.size(); i++)
+    for (int i = 0; i < cheeses.length(); i++)
     {
         cheese_data cheese = cheeses[i];
         if (with_ids)
@@ -411,9 +402,9 @@ void print_cheese_list(const vector<cheese_data> &cheeses, bool with_ids)
  * @param cheeses the cheese to output
  * @return int the index of the chosen cheese or -1 if none
  */
-int select_cheese(vector<cheese_data> &cheeses)
+int select_cheese(const dynamic_array<cheese_data> &cheeses)
 {
-    if (cheeses.size() == 0)
+    if (cheeses.length() == 0)
     {
         write_line("No cheese in stock.");
         return -1;
@@ -423,7 +414,7 @@ int select_cheese(vector<cheese_data> &cheeses)
 
     print_cheese_list(cheeses, true);
 
-    return read_integer("Select cheese (0 - " + to_string(cheeses.size()) + "): ", 0, cheeses.size()) - 1;
+    return read_integer("Select cheese (0 - " + to_string(cheeses.length()) + "): ", 0, cheeses.length()) - 1;
 }
 
 /**
@@ -474,7 +465,7 @@ main_menu_option read_main_menu_option()
  */
 void print_stock_list(const shop_data &shop)
 {
-    if (shop.cheeses.size() == 0)
+    if (shop.cheeses.length() == 0)
     {
         write_line("No cheese");
         return;
@@ -534,7 +525,3 @@ Have a go at adding the ability to delete stock from the shop. This will need:
 - Changes to the CLI:
   - Extend enumeration, and add menu options
   - Add code to handle the user interacts (using select cheese)
-
-:::tip
-If you are using the `vector<cheese_data>`, you can remove an element at an index using: `shop.cheeses.erase(shop.cheeses.begin() + index);`. This is not the most intuitive library, but you can easily find this with a quick web search or prompt to a generative AI.
-:::

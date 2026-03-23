@@ -64,7 +64,7 @@ book find_most_sold_book(book accumulator, const book& data)
 }
 ```
 
-Just like `visit`, our functions all take a `data` with the same type as the `linked_list`'s elements. However, as we fold up our data, we may want to return an entirely different type! For instance, if we want to divide all of our elements, we may want to return a `double`, even if they were `int` elements. Similarly, if we're summing up `book` sales, `book` goes in, but `int` comes out.
+Just like `visit`, our functions all take `data` with the same type as the `linked_list`'s elements. However, as we fold up our data, we may want to return an entirely different type! For instance, if we want to divide all of our elements, we may want to return a `double`, even if they were `int` elements. Similarly, if we're summing up `book` sales, `book` goes in, but `int` comes out.
 
 What this means, is that the `fold` function, will also need to take a template parameter, that specifies what the _return_ type should be.
 
@@ -80,12 +80,13 @@ My recommendation is to first write out the method, for a linked list with a spe
   <AccordionItem header="My code for if you get stuck">
 
     The definition will look something like:
+
     ```c++
     template<typename R>
     R fold(R initial_value, R (*func)(R, const T&));
     ```
 
-    The method inside `linked_list<T>` takes another template parameter `R`. The `func` parameter is also adjusted to take an `R`, and we've made the `T` reference `const` now.
+    The method inside `linked_list<T>` takes another template parameter `R`. The `func` parameter is also adjusted to take a parameter of type `R`, and we've made the `T` reference `const` now.
 
     `fold` also takes an `initial_value` - we need this, since otherwise what do we provide to `func` when it first gets called?
 
@@ -129,6 +130,7 @@ int sum_elements(int acc, const int& data)
 {
     return acc + data;
 }
+
 bool check_all_positive(bool acc, const int& data)
 {
     return acc && (data > 0);
@@ -152,6 +154,7 @@ int main()
 ## Lambdas
 
 C++ offers us another tool to improve the expressiveness of our code. Currently, we have to write the function we want `fold` or `visit` to call in an entirely different place to where it's used; e.g.:
+
 ```c++ "multiply_by_10(int& data)" "multiply_by_10)"
 void multiply_by_10(int& data)
 {
@@ -185,13 +188,14 @@ int main()
 }
 ```
 
-A lambda starts with `[]`, and then just looks like a normal function definition that we can write _inline_ within our function parameters. In this case, the lambda is being converted into a function pointer, and that pointer is passed into `visit`. Already this is a bit more usable!
+A lambda starts with `[]`, and then just looks like the parameters and body of a normal function definition that we can write _inline_ within our function parameters. In this case, the lambda is being converted into a function pointer, and that pointer is passed into `visit`. Already this is a bit more usable!
 
 :::tip
 Don't confuse the `[]` with array indexing! It looks the same, but is completely unrelated syntactically.
 :::
 
 Here's an example where we use `fold`. Try writing one yourself too!
+
 ```c++
     // print the sum of all elements larger than 5
     int sum = list.fold(0, [](int sum, int& data) {
@@ -209,7 +213,8 @@ We won't need to use lambdas much currently, but it may be helpful to recognise 
 
 ## (Optional) Lambdas & Better Visit
 
-By default, the inside of the lambda is an entirely seperate function to the outside. For instance, in the following code, we couldn't access `multiply_by` inside the lambda:
+By default, the inside of the lambda is an entirely separate function to the outside. For instance, in the following code, we couldn't access `multiply_by` inside the lambda:
+
 ```c++
     int multiply_by = read_integer("How much should the elements be multiplied by?");
 
@@ -239,9 +244,10 @@ filename.cpp:...: error: cannot convert 'main()::<lambda(int&)>' to 'void (*)(in
 
 What it's telling us, is that it can't convert the lambda into a function pointer anymore! This is because the lambda is more than just a function now - it contains _state_, in this case a reference to `multiply_by`.
 
-We also don't what _type_ the lambda is - it does have a type, but there's no way to write it. So how do we pass it in `visit`?
+We also don't know what _type_ the lambda is - it does have a type, but there's no way to write it. So how do we pass it in `visit`?
 
 The signature of `fold` gives us a clue:
+
 ```c++
     template<typename R>
     R fold(R initial_value, R (*func)(R, T&))
@@ -250,12 +256,14 @@ The signature of `fold` gives us a clue:
 In order to safely give our caller's function _state_, we had to introduce a template parameter so we could accept _any type_ of data.
 
 For visit:
+
 ```c++
 void visit(void (*func)(T&))
 {
     ...
 }
 ```
+
 we'll need to introduce a template parameter for the type of `func`! This way, no matter what type the lambda is, we'll be able to pass it into `visit` and call it.
 
 ```c++
@@ -278,7 +286,7 @@ Once we do this, our `visit` function is now completely generalised! We can pass
     write_line(sum);
 ```
 
-Here, `sum` is capture by reference, so when it it's modified in the lambda, it becomes modified in outer scope as well.
+Here, `sum` is capture by reference, so when it's modified in the lambda, it becomes modified in outer scope as well.
 
 :::tip
 Note: It's still quite useful to have a `fold` function, since it allows us to express this more clearly:
@@ -319,4 +327,5 @@ class <anonymous> // the type has no name!
     }
 }
 ```
+
 :::

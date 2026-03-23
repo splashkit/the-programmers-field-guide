@@ -2,27 +2,16 @@
 title: "Overview"
 ---
 
-So far data has been limited by the constraints of the stack. With the stack, the compiler must know how much space to allocate to each variable ahead of time. You are limited to working with a fixed number of values, whether those values are stored in a number of variables or stored in an array. This constraint is not a problem for small programs, but most programs will require the flexibility to work with a variable number of data elements.
-
-This chapter introduces the tools needed to dynamically allocate additional memory for your program to use. With these tools *you* will be able to get space in memory for your program to use as you need it, and the tools you can use to give back this memory when you no longer need it.
-
-Using these tools you will be able to go beyond the limitations of the stack, with greater flexibility and the ability to access larger amounts of memory.
+In the previous chapter we introduced the [heap](/book/part-2-organised-code/6-indirect-access/5-reference/02-00-heap), and the C++ tools to allocate and free space. To wrap up this exploration of dynamic memory management, let's look now at the lower level C tools and how we can use these to allocate and free memory. We will then use these to allocate space for arrays of values in memory.
 
 ## Concepts related to memory management
 
-This chapter introduces these new ideas:
-
-- The [heap](/book/part-2-organised-code/6-indirect-access/5-reference/02-00-heap) is an area in memory that the operating system reserves for dynamic memory allocation.
-
 To access this you may need to revise:
 
-- Review how memory is allocated on the [stack](/book/part-2-organised-code/1-structuring-code/5-reference/05-the-stack).
-- [Pointers](/book/part-2-organised-code/6-indirect-access/5-reference/01-00-pointer) to allow you to indirectly access things values in memory.
 - [Arrays](/book/part-2-organised-code/3-working-with-multiples/5-reference/00-00-array) so that you can store and work with multiple values with ease.
+- [Pointers](/book/part-2-organised-code/6-indirect-access/5-reference/01-00-pointer) to allow you to indirectly access things values in memory.
 
 We will see the instructions needed to:
 
 - [Allocate memory](/book/part-2-organised-code/7-deep-dive-memory/5-reference/03-0-allocating-memory) for our program to use.
 - [Free memory](/book/part-2-organised-code/7-deep-dive-memory/5-reference/04-freeing-memory) to return memory you have been allocated when you have finished with it.
-
-We will also explore revisit the issues around the use of pointers, and explore the new problems that arise from being responsible for memory allocation.

@@ -18,6 +18,7 @@ Now we can start building this out using a test driven development approach. Thi
    - **cheese-shop-test.cpp**: the code for our tests.
    - **cheese-shop.cpp**: the code for the model of our program.
    - **cheese-shop-cli.cpp**: the command line interface (CLI) code.
+4. Copy in your utilities.cpp and utilities.h files, so you can reuse these.
   
 ## Decide what to build first
 
@@ -44,9 +45,8 @@ Start by adding the `cheese_data` type, and adding a function header for the `ne
 Here is a good starting point. Have a go at coding this up yourself.
 
 ```cpp
-#include <string>
-
-using std::string;
+#include <splashkit>
+#include <splashkit-arrays>
 
 //TODO: Declare cheese data struct here
 
@@ -63,9 +63,8 @@ Use the details from your data model when coding up the struct. Remember to add 
   >
 
 ```cpp {5-17,19-27}
-#include <string>
-
-using std::string;
+#include <splashkit>
+#include <splashkit-arrays>
 
 /**
  * Data about a cheese within an order or in stock.

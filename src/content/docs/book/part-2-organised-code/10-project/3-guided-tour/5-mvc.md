@@ -9,3 +9,11 @@ In this approach, the model captures the essence of the program which could then
 The user interface is then built around the model, and includes the code to show the user what is happening and the code to control the interactions with the user. This is often larger than the core model, and will involve the use of a range of frameworks and libraries to manage the user experience.
 
 These factors will become increasingly important as you start to build larger and more complex systems. At this stage it is good to be aware of this important idea, and to start to think about building the model separately from the code to manage the user interface and interactions.
+
+## Organising the cheese shop
+
+For our cheese shop, we can organise the code as follows:
+
+- **cheese-shop.h**: a header file for our shared functions and data types.
+- **cheese-shop.cpp**: the code for the model of our program.
+- **cheese-shop-cli.cpp**: the command line interface (CLI) code.

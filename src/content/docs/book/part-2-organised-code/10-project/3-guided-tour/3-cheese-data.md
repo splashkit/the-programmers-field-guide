@@ -4,7 +4,7 @@ sidebar:
     label: " - Entity Modelling"
 ---
 
-The first step we should do is to think up how we want to model the entities/data within our program. Remember that the way you organise these entities will greatly impact how your code works, so spending a little time to think about these now should help you see how the program will come together in the end.
+Let's start by modelling the entities involved in the cheese shop. To do this we need to think up how we want to model the entities/data within our program. Remember that the way you organise these entities will greatly impact how your code works, so spending a little time to think about these now should help you see how the program will come together in the end.
 
 :::tip
 
@@ -23,7 +23,7 @@ If we then think about the program a little more, we should see that we need a w
 
 3. Cheese Shop
 
-Within the shop we will need to track multiple cheese or order values. For this you can use your dynamic array () or you can use the [vector](/book/part-2-organised-code/10-project/move-0-panorama/5-cpp-utilities/#vector) class from the standard C++ library. Either way, this will help to take care of managing memory needed to work with these.
+Within the shop we will need to track multiple cheese or order values. For this you can use the dynamic array.
 
 Now let's capture our ideas before we move on to think about how we use these entities.
 
@@ -52,7 +52,7 @@ An order will have a customer (just their name for now) and a list of cheeses. T
 Our order entity will contain the following fields:
 
 - Customer name (a string)
-- Cheeses (a dynamic array or vector of type cheese data)
+- Cheeses (a dynamic array of type cheese data)
 
 This can be captured visually as shown below. We can show a line between the order and cheese data entities to indicate they are related. The line can include a diamond on the side of the order to indicate we think of the cheese as part of the order (or that the order is made up of cheese). We will explore this in more detail when we look at the object-oriented concepts in the next part, for now we want you to be able to read this diagram to help see how to think about the entities.
 
@@ -64,7 +64,7 @@ Like with the order, the cheese shop contains cheese, but it will also contain a
 
 Our cheese shop entity will contain the following fields:
 
-- Cheeses (a dynamic array or vector of cheese data)
-- Orders (a dynamic array or vector of order data)
+- Cheeses (a dynamic array of cheese data)
+- Orders (a dynamic array of order data)
 
 ![Visual version of the model with shop data added](./images/cheese-data-model-2.png)

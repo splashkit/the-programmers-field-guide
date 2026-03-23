@@ -1,15 +1,30 @@
 ---
 title: Overview
 ---
-import YouTube from '/src/components/YouTube.astro';
 
-<div class="not-content">
-  <YouTube id="RNl3B0qjshU" params="fs=1&modestbranding=1&rel=0"/>
-</div>
+In the previous chapter we started looking at how the main data structures we use are implemented by building a `bound_array`. With generics and operators, we have been able to create a reusable array and explore what is happening behind the scenes when we work with the array-style data types built into programming languages.
 
-So far we have seen how to work with data, structure logic using sequence and control flow statements, organise our code in functions and procedures, and structure data with structs and enums. Though this material we have seen how important it is to be able to break down our code into manageable chunks.
+While we were able to build an array with a fixed size, we haven't explored the tools needed to create an array with a dynamic size. So far all of our data has been limited by the constraints of the stack. With the stack, the compiler must know how much space to allocate to each variable ahead of time. You are limited to working with a fixed number of values, whether those values are stored in a number of variables or stored in an array. This constraint is not a problem for small programs, but most programs will require the flexibility to work with a variable number of data elements.
 
-One challenge we are facing in the fly catch game has been the ability to separate out the logic that handles user input and updates the game. This logic needs to update values in the game data. In other parts of the code we have been able to share values using parameters, but in this case we haven't been able to do this as the parameters receive a copy of the data and any changes we make to it would not affect the values in the calling code.
+This chapter introduces the tools needed to dynamically allocate additional memory for your program to use. With these tools *you* will be able to get space in memory for your program to use as you need it, and the tools you can use to give back this memory when you no longer need it.
 
-In this chapter we will see new mechanics that allow us to give access to values declared in our code. Using this feature we can start to set up relationships between entities, and use these ideas to pass parameters that allow the called code to update the value within the passed variable.
+Using these tools you will be able to go beyond the limitations of the stack, with greater flexibility and the ability to access larger amounts of memory.
 
+For this chapter we will focus on doing this for single values, and then we will explore how to do this with arrays of values in the next chapter.
+
+## Concepts related to memory management
+
+This chapter introduces these new ideas:
+
+- The [heap](/book/part-2-organised-code/6-indirect-access/5-reference/02-00-heap) is an area in memory that the operating system reserves for dynamic memory allocation.
+- [Pointers](/book/part-2-organised-code/6-indirect-access/5-reference/01-00-pointer) to allow you to indirectly access things values in memory.
+
+To access this you may need to revise:
+
+- Review how memory is allocated on the [stack](/book/part-2-organised-code/1-structuring-code/5-reference/05-the-stack).
+
+We will see the instructions needed to:
+
+- Allocate [new values](/book/part-2-organised-code/6-indirect-access/5-reference/02-01-new-delete) in memory, and then [delete](/book/part-2-organised-code/6-indirect-access/5-reference/02-01-new-delete) when we are finished with them.
+
+We will also explore the issues around the use of pointers, and the new problems that arise from being responsible for memory allocation.
