@@ -343,6 +343,18 @@ Create a `cheese_string` function that is passed a `cheese_data` value and a boo
 The first parameter to `format` is the format string, which can be used to customise the format of the variables injected within it. To format a floating point value (e.g. `double`) you can use something like this: `format("{:.2f}", my_double)`, this will format the output to have 2 decimal places in the output. You can use this to format the weight and price.
 :::
 
+:::caution
+The `format` function comes from the C++20 standard.
+To compile any code using `format` you will need to let the compiler know that you are wanting to use C++20.
+To do this, you can add the flag `-std=c++20` to your compilation command.
+For example:
+
+```sh
+clang++ format-test.cpp -std=c++20 -l splashkit -o test -Wall
+```
+
+:::
+
 Remember to start with the tests, and then add the code to make this functional. You will need to update the *cheese-shop.h* header with the new function, add tests to the *cheese-shop-test.cpp*, implement the logic in *cheese-shop.cpp*, and then change the way you print the cheese in the *cheese-shop-cli.cpp*.
 
 <Accordion>
