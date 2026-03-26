@@ -20,7 +20,7 @@ This will help to reduce duplication in the code, allowing you to create small r
 
 Doing this is going to make your code **SO** much easier to work with.
 
-An important aspect here is the way functions and procedures let you **isolate** different groups of code from each other. You have been able to use `WriteLine` this whole time without knowing how it works internally. So you can now do this with your own code -- once you have a part working, you no longer need to focus on *how* it works.
+An important aspect here is the way functions and procedures let you **isolate** different groups of code from each other. You have been able to use `write_line` this whole time without knowing how it works internally. So you can now do this with your own code -- once you have a part working, you no longer need to focus on *how* it works.
 
 Similarly, when you are working on the code in one function or procedure, you can focus on it entirely. What do you need to change in its logic to add or fix the aspect you are working on? While the whole program may be many thousands of lines long, you can just focus on the few lines within the one function or procedure, and make calls to the other parts you have already created without worrying about how they work internally.
 
