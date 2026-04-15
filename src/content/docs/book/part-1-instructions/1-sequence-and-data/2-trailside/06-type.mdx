@@ -66,9 +66,9 @@ Typically you will use `int` unless you have a specific reason not to.
 | <div style="width:120px">**Name**</div> | **Size** | **Range (lowest .. highest)** |
 |---------- |--------------------------|---------------------------------------------------------|
 | `byte`    | 1 bytes/8 bits           | 0 .. 255                                                |
-| `short`   | 2 bytes/16 bits          | -32,767 .. 32,767                                       |
+| `short`   | 2 bytes/16 bits          | -32,768 .. 32,767                                       |
 | `int`     | 4 bytes/32 bits          | -2,147,483,648 .. 2,147,483,647                         |
-| `long`    | 8 bytes/64 bits          | -9,223,372,036,854,775,807 .. 9,223,372,036,854,775,807 |
+| `long`    | 8 bytes/64 bits          | -9,223,372,036,854,775,808 .. 9,223,372,036,854,775,807 |
 | `uint`    | 4 bytes/32 bits          | 0 to 4,294,967,295                                      |
 | `ulong`   | 8 bytes/64 bits          | 0 to 18,446,744,073,709,551,615                         |
 
@@ -126,7 +126,7 @@ SplashKit also provides convenient helper methods for this:
 - [ConvertToInteger](https://splashkit.io/api/utilities/#convert-to-integer) - can be used to convert a string to an integer.
 - [ConvertToDouble](https://splashkit.io/api/utilities/#convert-to-double) - can be used to convert a string to a double.
 
-For simple conversions, mostly between different number formats, languages usually also provide an alternate option called **type casting**. With this you can ask the language to reinterpret data in a new format. This is achieved by placing the type within brackets (parenthesis) before the value to be converted. For example, `(int)73.5` will give you the integer 70.
+For simple conversions, mostly between different number formats, languages usually also provide an alternate option called **type casting**. With this you can ask the language to reinterpret data in a new format. This is achieved by placing the type within brackets (parenthesis) before the value to be converted. For example, `(int)73.5` will give you the integer 73.
 
 ## Example
 
