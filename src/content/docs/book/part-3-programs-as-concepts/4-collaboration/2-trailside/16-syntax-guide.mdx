@@ -171,13 +171,13 @@ import imgProperties from './images/sit771-properties.png';
 <div class="caption">This diagram shows the syntax for properties.</div><br/>
 
 ```cs
-public class Shape()
+public class Shape
 {
   private int _x;
   public int X
   {
-    get {return _x};
-    set { _x = value };
+    get { return _x; }
+    set { _x = value; }
   }
 }
 ```
@@ -187,12 +187,12 @@ The `get` and `set` keywords tell us that this property has access to getting an
 A common pattern is to omit the `set`, which says that this field is `readonly`:
 
 ```cs
-public class Shape()
+public class Shape
 {
   private int _x;
   public int X
   {
-    get {return _x};
+    get { return _x; }
   }
 }
 ```
@@ -200,7 +200,7 @@ public class Shape()
 We can also use **auto-implemented properties**, which are a helpful and quicker way to create a field and property. The following code will have a public `X` property, and a private field.
 
 ```cs
-public class Shape()
+public class Shape
 {
   public int X { get; set; }
 }
@@ -338,9 +338,9 @@ public class StorageTank
 
   public void Draw(Window w)
   {
-    double topY = y + height - height * PercentFull;
-    w.FillRectangle(LiquidColor, x, topY, x + width, y + height);
-    w.DrawRectangle(Color.Black, x, y, x + width, y + height);
+    double topY = _y + _height - _height * PercentFull;
+    w.FillRectangle(LiquidColor, _x, topY, _x + _width, _y + _height);
+    w.DrawRectangle(Color.Black, _x, _y, _x + _width, _y + _height);
   }
 }
 ```

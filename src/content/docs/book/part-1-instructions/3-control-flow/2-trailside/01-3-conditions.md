@@ -34,10 +34,10 @@ We can compare this to a truth table for the second option, which shows us that 
 | Space Key? | MouseX > 50? | Clicked? | MouseX > 50 and Clicked? (A) | Space Key or A? |
 | --- | --- | --- | --- | --- |
 | false | false | false | false | false |
-| true | false | false | true | true |
-| false | true | false | true | true |
-| true | true | false | true | true |
-| true | false | true | true | true |
+| true | false | false | false | true |
+| false | true | false | false | false |
+| true | true | false | false | true |
+| true | false | true | false | true |
 | false | true | true | true | true |
 | true | true | true | true | true |
 
