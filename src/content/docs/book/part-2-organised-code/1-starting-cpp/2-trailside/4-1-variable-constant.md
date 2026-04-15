@@ -68,10 +68,10 @@ int main()
 Key changes include:
 
 - Using different libraries:
-  - We can access the SplashKit library using `#import "splashkit.h`.
+  - We can access the SplashKit library using `#include "splashkit.h"`.
   - We need `using std::to_string;` and `using std::stod;` to gain access to these C++ functions from the standard (`std`) library.
     - The [to_string](https://en.cppreference.com/w/cpp/string/basic_string/to_string) function is used to convert numbers to text.
-    - In C/C++ you can use [stod](https://en.cppreference.com/w/cpp/string/basic_string/stof) to convert a string to a double. There is also [stoi](https://en.cppreference.com/w/cpp/string/basic_string/stol) to convert text to an integer.
+    - In C/C++ you can use [stod](https://en.cppreference.com/w/cpp/string/basic_string/stod) to convert a string to a double. There is also [stoi](https://en.cppreference.com/w/cpp/string/basic_string/stoi) to convert text to an integer.
 - Changing names of identifiers:
   - `WriteLine` is now `write_line`.
   - `Write` becomes `write`.
@@ -79,7 +79,7 @@ Key changes include:
 C/C++ also lacks the elegant **string interpolation** feature we had in C#. This means you cannot easily embed values within your strings. Instead, can use `to_string` to convert numbers into strings, and then use string concatenation (`+`) to combine different strings together.
 
 :::tip[How do we work this out?]
-Finding the appropriate things to call in the libraries of the language you use will take time. The great thing is that you have tools like search engines and AI that can help. A simple search on how to convert a string to an integer in C++ will lead you to the [stod](https://en.cppreference.com/w/cpp/string/basic_string/stof) code, though there are also other options.
+Finding the appropriate things to call in the libraries of the language you use will take time. The great thing is that you have tools like search engines and AI that can help. A simple search on how to convert a string to an integer in C++ will lead you to the [stod](https://en.cppreference.com/w/cpp/string/basic_string/stod) code, though there are also other options.
 :::
 
 Have a go at coding this up yourself, and run the program to see it working. The thought process to create this is the same as before, you just need to switch some details.
