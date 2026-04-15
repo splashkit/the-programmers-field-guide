@@ -66,7 +66,7 @@ Comparison<StockItem> compare;
 compare = (StockItem item1, StockItem item2) => item1.Name.CompareTo ( item2.Name );
 ~~~
 
-The lambda itself is the code `(StockItem item1, StockItem item2) -> item1.Name.CompareTo ( item2.Name );`. The names in the brackets are the parameters going into this method, with the code after the `=>` being the statement that this lambda will run. If you want to run multiple statements in the lambda, you can use the **compound statement** (`{...}`) to group these together.
+The lambda itself is the code `(StockItem item1, StockItem item2) => item1.Name.CompareTo ( item2.Name );`. The names in the brackets are the parameters going into this method, with the code after the `=>` being the statement that this lambda will run. If you want to run multiple statements in the lambda, you can use the **compound statement** (`{...}`) to group these together.
 
 In many cases the compiler can work out the types of the parameters for us, so you will often see lambda expressions where the parameter types are omitted. For example, the following code is identical to the above code as the C# compiler knows that the delegate needs to take in two `StockItem` parameters.
 

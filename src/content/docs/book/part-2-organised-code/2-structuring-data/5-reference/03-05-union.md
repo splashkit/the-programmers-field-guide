@@ -23,7 +23,7 @@ A union works best when it is accompanied by a **tag** value. This value then re
 - It is your responsibility to ensure you access the right kind of value when you use a union.
 - A **tag** value can be used to store a marker that indicates the type of data being stored in the union.
 - The **size** of a union is the size of its *largest* option. For example a union of a `char`
-(1 byte), a `int` (4 bytes), and a `double` (4 bytes) would require 4 bytes, the size of the largest kind of value it needs to store.
+(1 byte), a `int` (4 bytes), and a `double` (8 bytes) would require 8 bytes, the size of the largest kind of value it needs to store.
 
 :::
 
