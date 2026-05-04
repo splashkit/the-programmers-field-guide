@@ -29,5 +29,8 @@
   "devDependencies": {
     "accessible-astro-components": "^2.3.6",
     "wrangler": "^4.61.1"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "*"
   }
 }
