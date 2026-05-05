@@ -19,9 +19,6 @@ import starlightImageZoom from 'starlight-image-zoom'
 
 // https://astro.build/config
 export default defineConfig({
-  legacy: {
-    collectionsBackwardsCompat: true,
-  },
   markdown: {
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)
