@@ -190,6 +190,10 @@ export default defineConfig({
               ],
             },
             {
+              label: "Project Showcase",
+              link: "book/appendix/showcase"
+            },
+            {
               label: "SplashKit Online IDE",
               link: "book/appendix/online-ide"
             }
