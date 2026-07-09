@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import react from "@astrojs/react";
+import icon from 'astro-icon';
 import starlightLinksValidator from "starlight-links-validator";
 import sitemap from "@astrojs/sitemap";
 import starlightAutoSidebar from 'starlight-auto-sidebar'
@@ -33,6 +34,7 @@ export default defineConfig({
   },
   site: "https://programmers.guide",
   integrations: [
+    icon(),
     starlight({
       title: "Field Guide",
       head: [
@@ -56,9 +58,9 @@ export default defineConfig({
         // Relative path to your custom CSS file
         "./src/styles/custom.css",
       ],
-      social: {
-        github: "https://github.com/splashkit/the-programmers-field-guide",
-      },
+      social: [
+        { icon: 'github', label: 'GitHub', href: "https://github.com/splashkit/the-programmers-field-guide",}
+      ],
       editLink: {
         baseUrl:
           "https://github.com/splashkit/the-programmers-field-guide/edit/main/",
@@ -188,6 +190,10 @@ export default defineConfig({
               ],
             },
             {
+              label: "Project Showcase",
+              link: "book/appendix/showcase"
+            },
+            {
               label: "SplashKit Online IDE",
               link: "book/appendix/online-ide"
             }
@@ -198,11 +204,6 @@ export default defineConfig({
     react(),
     sitemap(),
   ],
-  redirects: {
-    "/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/02-sort-visualise/": "/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/03-sort-visualise/",
-    "/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/03-array-hand-execution/": "/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/04-array-hand-execution/",
-    "/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/03-fly-catch/": "/book/part-2-organised-code/3-working-with-multiples/3-guided-tour/04-fly-catch/",
-  },
   // Process images with sharp: https://docs.astro.build/en/guides/assets/#using-sharp
   // image: {
   //   service: squooshImageService(),

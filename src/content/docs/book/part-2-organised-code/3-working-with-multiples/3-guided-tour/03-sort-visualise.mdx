@@ -8,11 +8,11 @@ import { Icon, Steps } from '@astrojs/starlight/components';
 import Carousel from '/src/components/Carousel.astro'
 import Aside from '/src/components/Aside.astro'
 
-Once we start storing arrays of elements, a common operation we want to perform is sorting them! Array sorting has a wide range of applications across games and software, so in this tour we'll write a program that visualises this process graphically.
+Once we start storing arrays of elements, a common operation we want to perform is sorting them! Array sorting has a wide range of applications. In this tour we'll write a program that visualises this process graphically, so we can see how these work on the elements within the array.
 
-Our final program will look something like this:
+Our final program will look something like this (though we will focus on sorting more values):
 ![A row of vertical bars visualising the values of the numbers in an array - visually similar to a bar graph. Two of the bars are highlighted.](./images/array-visualiser.png)
-_You'll be able to customise the colours :)_
+_Customise the colours - maybe matching color toheight :)_
 
 ## Sorting arrays
 
@@ -26,7 +26,6 @@ And we want to sort them, for instance from smallest to largest:
 
 | 0 | 2 | 4 | 6 | 8 | 9 |
 |---|---|---|---|---|---|
-
 
 Generally the programming language we are using will have in-built functionality for this! However for the purpose of learning, we will have a go at implementing a simple sorting algorithm, and visualize how it works.
 
@@ -279,9 +278,8 @@ _We'll be making a more interesting visualisation than this..._
     <div>
     <div style="flex-grow:1"/>
     We can also make it look a little nicer by:
-    - adding a fill _and_ outline - try calling `fill_rectangle`, _then_ `draw_rectangle` for the outline.
-    - adjusting the colours - add some constants for the bar's fill and the outline.
-    - adding some gaps/margins between the bars - again, add a constant for the margin. You'll need to adjust the bar's `x` and width by it.
+    - fill each box using `fill_rectangle`.
+    - adjusting the colours.
 
     ---
     <div style="flex-grow:1"/>
@@ -299,17 +297,13 @@ _We'll be making a more interesting visualisation than this..._
       >
         ```text
         MAX_VALUE = 10
-
-        MARGIN = 10
-        OUTLINE_COLOR = ...
         FILL_COLOR = ...
 
-        Bar Distance = SCREEN_WIDTH / element count (size)
-        Bar Width = Bar Distance - MARGIN * 2
+        Bar Width = SCREEN_WIDTH / element count (size)
 
         For each element:
-            Bar Height = element value/MAX_VALUE * SCREEN_HEIGHT
-            x = element index * Bar Distance + MARGIN
+            Bar Height = element value / MAX_VALUE * SCREEN_HEIGHT
+            x = element index * Bar Width
             y = SCREEN_HEIGHT - Bar Height
 
             Fill Rectangle(FILL_COLOR, x, y, Bar Width, Bar Height)
@@ -340,7 +334,7 @@ _We'll be making a more interesting visualisation than this..._
     :::caution
     Just a side note on regarding this:
 
-    Ideally, sorting logic should not depend on rendering at all - we are mixing together two entirely different tasks. Normally this would be bad design! We are only doing this for the purpose of learning, try to avoid this sort of design in your own code :)
+    Ideally, sorting logic should not depend on rendering at all - we are mixing together two entirely different tasks. Normally this would be bad design! We are only doing this for the purpose of learning, try to avoid this sort of design in general :)
     :::
 
     ---
@@ -487,11 +481,11 @@ _We'll be making a more interesting visualisation than this..._
     </Accordion>
 </Steps>
 
-### Done!
+### Sort working!
     Nice work! By implementing this, you will have gained a deeper understanding of how to work with arrays, and hopefully the visualisation itself is interesting too. Feel free to move on now, or if you're interested making a few extra tweaks, try following the extensions below.
 
 
-## Optional: Extensions
+## Extensions
 
 There are two simple changes we can make to extend this further. By the end we'll have a more dynamic visualisation that works with larger amounts of data.
 
@@ -519,25 +513,34 @@ There are two simple changes we can make to extend this further. By the end we'l
     Now, just change the calls to `visualize_array(...)` to also pass in the index of the parameter being compared inside `bubble_sort_pass`, and enjoy watching the visualisation light up as it sorts.
 
 2. ### Larger array
-    Next, lets try increasing the size of our array. Try changing the `DATA_SIZE` to 100 :)
+    To explore sort algorithms in more detail, we need to see many more values.
+    Next, lets try increasing the size of our array. Try changing the `DATA_SIZE` to be your `screen_width()` :)
 
-    Now, instead of populating it manually, we'll use a `for` loop to fill it with random numbers. Have a go at writing the following procedure:
+    This will mean that each bar is now a single pixel wide - working with a screen that is 1024 or 1280 pixels wide will help you really see some differences as you explore other algorithms.
+
+    We can no longer populate this manually. Switch the code to use a `for` loop to fill it with random numbers. Have a go at writing the following procedure:
 
     |   |   |
     |---|---|
     | **Procedure** | *Fill Array Random* |
     | **Parameters** | `data`: The `fixed_array<int, DATA_SIZE>` to fill. |
-    |                | `min`: The minimum value. |
-    |                | `max`: The maximum value. |
-    | **Description** | Fills the array with random integers between `min` and `max`.|
+    | **Description** | Fills the array with random integers between `0` and `screen_height()`. |
 
-    You can use the SplashKit function `int rnd(int min, int max);` to help with this. Once you get this working, you should be able to try out visualising the bubble sort with hundreds of elements!
+    Use the SplashKit function `int rnd(int min, int max);` to help with this. Once you get this working, you should be able to try out visualising the bubble sort with a thousand+ elements!
 </Steps>
 
 Nice work on these last steps!
 
-If you found the graphical aspects of this tutorial interesting, feel free to continue experimenting with how you can improve the visualisation.
+## What next?
 
-There are also many other sorting algorithms that you could try implementing - personally I like [Merge Sorts](https://en.wikipedia.org/wiki/Merge_sort).
+There are also many other sorting algorithms that you could try implementing - personally I like [Merge Sorts](https://en.wikipedia.org/wiki/Merge_sort). Playing around with these will really get you thinking about different ways of achieving the same outcome.
+
+:::tip
+
+Remember that your drawing code will be by far the slowest part of the algorithm. When playing with this, to really see the impact of the different algorithms, you want to make sure you are drawing within each inner iteration. As you explore different algorithms, pay attention to where you are drawing.
+
+:::
+
+If you found the graphical aspects of this tutorial interesting, feel free to continue experimenting with how you can improve the visualisation.
 
 To finish up, [here's a fun visualisation of 15 different sorting algorithms :)](https://www.youtube.com/watch?v=kPRA0W1kECg).
