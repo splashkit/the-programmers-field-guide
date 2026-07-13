@@ -1,5 +1,5 @@
 ---
-title: Test Your Knowledge
+title: Test Your Capabilities
 ---
 
 For this chapter, focus on building the linked list. You can then 

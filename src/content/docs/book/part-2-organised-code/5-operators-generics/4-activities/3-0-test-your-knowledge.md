@@ -1,5 +1,5 @@
 ---
-title: Test your knowledge
+title: Test Your Capabilities
 draft: true
 ---
 

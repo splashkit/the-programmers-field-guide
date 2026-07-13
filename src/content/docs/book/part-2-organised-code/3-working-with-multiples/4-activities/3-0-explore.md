@@ -1,5 +1,5 @@
 ---
-title: Test Your Knowledge
+title: Test Your Capabilities
 ---
 
 With arrays, you now have the main tools needed to start building larger programs. Build one or more of the following programs to demonstrate how you can use arrays to manage data within your program.

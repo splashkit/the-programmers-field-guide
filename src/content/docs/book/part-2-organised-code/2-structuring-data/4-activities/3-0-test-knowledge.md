@@ -1,5 +1,5 @@
 ---
-title: Test Your Knowledge
+title: Test Your Capabilities
 ---
 
 At this point in your journey, you have the tools to build more interesting programs by organising your code and your data. To test out your understanding, build one or more of the following programs.
