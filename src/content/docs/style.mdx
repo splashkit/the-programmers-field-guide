@@ -260,6 +260,8 @@ That's okay -- the most important thing is to be consistent within your own proj
 
 ## Avoid these language features
 
-The following low-level control flow features must be avoided, as they can lead to bugs and make code difficult to read.
+The following low-level control flow features must be avoided, as they can lead to bugs and make code difficult to read. Do not use this when you are showcasing what you have learnt from this material (eg in HD tasks).
 
 * `goto`: can make it difficult to track the flow of a program, and can lead to bugs. Never use it.
+* `auto`: you can use this shortcut in the future. For now we want explicitly chosen types to indicate your awareness of these.
+* `vector`: use the provided `dynamic_array` instead. Our focus is on general programming capabilities, and the C++ standard library uses patterns that are not used commonly elsewhere.
