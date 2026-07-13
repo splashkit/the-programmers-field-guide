@@ -17,7 +17,7 @@ That's okay -- the most important thing is to be consistent within your own proj
 
 ## Naming Conventions
 
-<Card>
+<Card title="Constructs must be named using specific case styles.">
 <Tabs>
   <TabItem label="Rule">
   Use the following format for naming of code constructs:
@@ -35,7 +35,7 @@ That's okay -- the most important thing is to be consistent within your own proj
 
 ## Indentation
 
-<Card>
+<Card title="Code must be indented to visually show its structure.">
 <Tabs>
   <TabItem label="Rule">Between any new pair of braces (`{`, `}`), write your code 4 further spaces in from the left.</TabItem>
   <TabItem label="Explanation">Indentation is incredibly helpful for improving the readability of your code. It shows, at a glance, where different blocks of code are, and where different scopes begin and end. It is important to be consistent with indentation within a project (e.g., don't mix tabs and spaces, use a consistent indentation for each new block) to further improve readability. The Guide suggests 4 spaces, but the actual number may change from developer to developer - 2 is another common number. But each developer or development house should have a specific number and be consistent in the use of that number.</TabItem>
@@ -70,7 +70,7 @@ That's okay -- the most important thing is to be consistent within your own proj
 
 ## Braces (`{` and `}`)
 
-<Card>
+<Card title="Open braces must start blocks on a new line.">
 <Tabs>
   <TabItem label="Rule">Place braces on the line following the declaration.</TabItem>
   <TabItem label="Explanation">In C-style languages, braces `{` and `}` are used to open and close code blocks or scopes. Some style guides determine that braces should be on the same line as the definition of the block, while others suggest that braces should be on the next line. Benefits of the former are reduced line counts. We place braces on the next line as we think it makes it easier to pair associated braces at a glance.</TabItem>
@@ -94,7 +94,7 @@ That's okay -- the most important thing is to be consistent within your own proj
 
 ## Comments
 
-<Card>
+<Card title="Only provide meaningful comments">
 <Tabs>
   <TabItem label="Rule">Only comment code when necessary or when the code may be unclear to the reader.</TabItem>
   <TabItem label="Explanation"> Comments are a great way to explain what your code is doing, or why it is doing it. However, comments can also be a distraction, and can become outdated or redundant. Only comment code when necessary or where the code may be unclear to the reader. Don't over comment your code in unnecessary places, which can clutter the codebase, or become outdated or redundant. Whether or not a comment is necessary is subjective.</TabItem>
@@ -119,11 +119,29 @@ That's okay -- the most important thing is to be consistent within your own proj
 </Tabs>
 </Card>
 
-## Naming Identifiers
-
-<Card>
+<Card title="Documentation comments must be provided for shared utilities">
 <Tabs>
-  <TabItem label="Rule">Names must be descriptive and not abbreviated.</TabItem>
+  <TabItem label="Rule">Documentation comments are actively encouraged, and must be provided for shared utilities.</TabItem>
+  <TabItem label="Explanation"> Documentation comments help make your shared utilities easier to access and use by others. Keep the documentation concise and informative.</TabItem>
+  <TabItem label="Example">
+    ```c
+    /** 
+    * This function ...
+    * @params p1 refers to the ...
+    * @returns a value that ...
+    int do_something(int p1)
+    {
+    }
+    ```
+  </TabItem>
+</Tabs>
+</Card>
+
+## Naming Variables and Fields
+
+<Card title="Names must be accurate and descriptive">
+<Tabs>
+  <TabItem label="Rule">Names must be accurate, descriptive and not abbreviated.</TabItem>
   <TabItem label="Explanation">Naming your identifiers is one of the most important things you can do to make your code readable. As the famous quote goes, "There are only two hard things in Computer Science: cache invalidation and naming things." We suggest you use descriptive names for your identifiers, and avoid abbreviations where possible. This means the names themselves will explain what the code does. Use singular terms for a singular variable, and plural terms for multiples (arrays).</TabItem>
   <TabItem label="Example - singular">
     ```c
@@ -147,10 +165,11 @@ That's okay -- the most important thing is to be consistent within your own proj
 </Card>
 
 ## Naming Functions, Procedures, and Methods
-<Card>
+
+<Card title="">
 <Tabs>
-  <TabItem label="Rule">Names must be descriptive and not abbreviated.</TabItem>
-  <TabItem label="Explanation">In addition to the descriptive points above for variables, methods should be verbs - methods do things. So the method name describes what the method does. And sometimes what the arguments and return are.</TabItem>
+  <TabItem label="Rule">Names must be accurate, descriptive and not abbreviated.</TabItem>
+  <TabItem label="Explanation">In addition to the descriptive points above for variables, functions/procedures/methods should be verbs - these constructs *do things*. So the function/procedure/method name describes what the function/procedure/method does. And sometimes what the arguments and return are.</TabItem>
   <TabItem label="Example">
     ```c
     // this is a poor method name 
@@ -165,7 +184,7 @@ That's okay -- the most important thing is to be consistent within your own proj
       }
     ```
   </TabItem>
-  <TabItem label="Tips">Sometimes adding information to the method name can help, sometimes harm. But it can help distinguish between different forms of a method, or between a function and procedure. Deciding what to put in the name and what to put in the documentation can be a fine line.</TabItem>
+  <TabItem label="Tips">Sometimes adding information to the name can help, sometimes harm. But it can help distinguish between different forms of a method, or between a function and procedure. Deciding what to put in the name and what to put in the documentation can be a fine line.</TabItem>
 <TabItem label="Tip example">
   ```c
     // This is probably too much for a function - modern IDEs and tools should easily tell you the required arguments and return:
@@ -179,22 +198,18 @@ That's okay -- the most important thing is to be consistent within your own proj
 </Tabs>
 </Card>
 
-
 ## Global Variables
 
-<Card>
-
+<Card title="Global variables are never used">
 <Tabs>
   <TabItem label="Rule">Global variables must not be used.</TabItem>
   <TabItem label="Explanation">Global variables are variables which are declared outside of a function, struct, or class. Because of this, global variables are accessible and can be modified from anywhere in the program, at any time, by any other part of the program. This makes it difficult to track where the variable is being used, and can lead to bugs. If you are reaching for a global variable, it is often a sign that your code may need to be restructured.</TabItem>
 </Tabs>
 </Card>
 
-
 ## Constants
 
-<Card>
-
+<Card title="Prefer constants over variables, where this is possible">
 <Tabs>
   <TabItem label="Rule">Any variable which could be made a constant, must be. Constants must be named according to the style guide of the language.</TabItem>
   <TabItem label="Explanation">Variables can change, but if something is really constant, it should be a constant. Pi, for example, will never change. True constants are also often "globally" useful - global constants are safe and useful, global variables are dangerous and should be avoided. If it shouldn't change, then enforce that with a constant.  </TabItem>
@@ -225,7 +240,7 @@ That's okay -- the most important thing is to be consistent within your own proj
 
 ## Statements
 
-<Card>
+<Card title="Each line should have at most one statement">
 <Tabs>
   <TabItem label="Rule">You must only have one statement per line.</TabItem>
   <TabItem label="Explanation">Having multiple statements on a single line (separated by a `;`) is hard to read.</TabItem>
@@ -253,6 +268,32 @@ That's okay -- the most important thing is to be consistent within your own proj
 * `break`: can make it difficult to track the flow of a program, and can lead to bugs. There may be occasions where `break` statements are necessary, but they should be avoided where possible.
 * `continue`: can make it difficult to track the flow of a program, and can lead to bugs. There may be occasions where `continue` statements are necessary, but they should be avoided where possible.
 
+<Card title="Loops must have explicit conditions">
+<Tabs>
+  <TabItem label="Rule">Loops must have explicit conditions. Do not use while(true) or equivalent.</TabItem>
+  <TabItem label="Explanation">The condition in the loop should inform the reader of the condition under which the loop repeats/terminates.</TabItem>
+  <TabItem label="Example">
+    ```c
+      while(i < 5)
+      {
+        //...
+      }
+    ```
+    Don't do:
+    ```c
+      while(true)
+      {
+        //...
+        if (i >= 5)
+        {
+          break;
+        }
+      }
+    ```
+  </TabItem>
+</Tabs>
+</Card>
+
 ## Be aware of these common mistakes
 
 * `switch` statements without a `default` case.
@@ -265,3 +306,63 @@ The following low-level control flow features must be avoided, as they can lead 
 * `goto`: can make it difficult to track the flow of a program, and can lead to bugs. Never use it.
 * `auto`: you can use this shortcut in the future. For now we want explicitly chosen types to indicate your awareness of these.
 * `vector`: use the provided `dynamic_array` instead. Our focus is on general programming capabilities, and the C++ standard library uses patterns that are not used commonly elsewhere.
+
+<Card title="Use SplashKit constructs over the standard library">
+<Tabs>
+  <TabItem label="Rule">Use the language and library features covered in the guide.</TabItem>
+  <TabItem label="Explanation">
+  
+  We are using C/C++, not learning C/C++. We want your focus to be on transferrable programming skills.
+  
+  Many of the features in the C/C++ standard libraries are unique to these languages. The SplashKit library has been designed to provide a beginner-friendly set of tools that we want you using for now. Once you have mastered the basics of programming, you can choose which language(s) you explore more in-depth. The good thing is that you will have developed a good mental model that will help you in doing this.
+  </TabItem>
+  <TabItem label="Example - standard input and output">
+    ```c
+      write("Enter your name: ");
+      string line = read_line();
+      write_line("Hello " + name);
+    ```
+    Don't do:
+    ```c
+      printf("Enter your name: ");
+      char tmp[101];
+      scanf("%100[^\n]", tmp);
+      string line = tmp;
+      printf("Hello %s\n", line);
+    ```
+    Don't do:
+    ```c++
+      cout << "Enter your name: " << endl;
+      string line;
+      cin.clear(); 
+      cin.sync();
+      getline(cin, line);
+      cout << "Hello " << line << endl;
+    ```
+  </TabItem>
+  <TabItem label="Example - dynamic arrays">
+    ```c++
+    dynamic_array<int> numbers;
+    add(numbers, 5);
+    numbers.add(6);
+    int val = numbers[0];
+    for(int i = 0; i < numbers.length(); i++)
+    {
+      //...
+    }
+    ```
+
+    Don't do:
+    ```c++
+      vector<int> numbers;
+      numbers.push_back(5);
+      numbers.push_back(6);
+      int val = numbers.at(0);
+      for(int number: numbers)
+      {
+        //..
+      }
+    ```
+  </TabItem>
+</Tabs>
+</Card>
