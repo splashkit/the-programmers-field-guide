@@ -5,20 +5,17 @@ sidebar:
 ---
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 
-Now we can start building this out using a test driven development approach. This approach involves creating tests to help us build and validate our code as we go.
+Now let's start building this out with some simple code to check that our model works as we expect.
 
 ## Setting up the project
 
 1. Create a folder for your project.
-2. Download the testing framework code:
-   - [catch_amalgamated.hpp](https://raw.githubusercontent.com/catchorg/Catch2/refs/heads/devel/extras/catch_amalgamated.hpp)
-   - [catch_amalgamated.cpp](https://raw.githubusercontent.com/catchorg/Catch2/refs/heads/devel/extras/catch_amalgamated.cpp)
-3. Create the following files:
+2. Create the following files:
    - **cheese-shop.h**: a header file for our shared functions and data types.
    - **cheese-shop-test.cpp**: the code for our tests.
    - **cheese-shop.cpp**: the code for the model of our program.
    - **cheese-shop-cli.cpp**: the command line interface (CLI) code.
-4. Copy in your utilities.cpp and utilities.h files, so you can reuse these.
+3. Copy in your utilities.cpp and utilities.h files, so you can reuse these.
   
 ## Decide what to build first
 
@@ -45,12 +42,12 @@ Start by adding the `cheese_data` type, and adding a function header for the `ne
 Here is a good starting point. Have a go at coding this up yourself.
 
 ```cpp
-#include <splashkit>
-#include <splashkit-arrays>
+#include "splashkit.h"
+#include "splashkit-arrays.h"
 
 //TODO: Declare cheese data struct here
 
-//TODO: Declare new cheese header here
+//TODO: Declare new_cheese header here
 ```
 
 Use the details from your data model when coding up the struct. Remember to add documentation to your struct and function header. These will be useful for capturing what you are doing and will be used by Visual Studio Code to help describe your code as you go.
@@ -63,8 +60,8 @@ Use the details from your data model when coding up the struct. Remember to add 
   >
 
 ```cpp {5-17,19-27}
-#include <splashkit>
-#include <splashkit-arrays>
+#include "splashkit.h"
+#include "splashkit-arrays.h"
 
 /**
  * Data about a cheese within an order or in stock.
@@ -95,156 +92,15 @@ cheese_data new_cheese(string name = "", double weight = 0.0, int price_per_kg =
   </AccordionItem>
 </Accordion>
 
-### Test first
+### Implementing `new_cheese`
 
-Writing the test first will help us think through how this works, and that will further validate that what we have designed will be able to do what we need. Initially, the tests will fail, so when they do pass we know that we have built the necessary functionality (as long as our tests are exhaustive).
-
-Start with the following - this will check that when we call `new_cheese` and pass in no arguments, we get back an initialised `cheese_data` value with an empty name and 0s for the weight and price. Have a go at adding additional test cases that will check that you can pass in arguments, and that these are used to update values within the returned struct.
-
-```cpp
-#include "catch_amalgamated.hpp"
-#include "cheese-shop.h"
-
-using Catch::Approx;
-
-TEST_CASE("Cheese - Create new cheese with default values")
-{
-    cheese_data cheese;
-    cheese = new_cheese();
-
-    REQUIRE(cheese.name == "");
-    REQUIRE(cheese.weight == 0.0);
-    REQUIRE(cheese.price_per_kg == 0);
-}
-
-//TODO: Add a test to check that you can pass in different values and these
-//      are used to set the fields
-```
-
-:::tip
-Remember that floating point values, such as the weight, can end up with rounding errors that make them imprecise. When checking these values with this unit testing framework you can use the `Approx` class to check that the value is close enough to the expected value without it having to be exactly correct. For example `REQUIRE(cheese.weight == Approx(1.5));`.
-:::
-
-<Accordion>
-  <AccordionItem
-    header="Code for additional test cases"
-  >
-
-```cpp {16-26}
-#include "catch_amalgamated.hpp"
-#include "cheese-shop.h"
-
-using Catch::Approx;
-
-TEST_CASE("Cheese - Create new cheese with default values")
-{
-    cheese_data cheese;
-    cheese = new_cheese();
-
-    CHECK(cheese.name == "");
-    CHECK(cheese.weight == 0.0);
-    CHECK(cheese.price_per_kg == 0);
-}
-
-// Other cases to check passing in 1 or 2 arguments
-
-TEST_CASE("Cheese - Provide name, weight, and price values for new cheese")
-{
-    cheese_data cheese;
-    cheese = new_cheese("Cheddar", 1.5, 2000);
-
-    REQUIRE(cheese.name == "Cheddar");
-    REQUIRE(cheese.weight == Approx(1.5));
-    REQUIRE(cheese.price_per_kg == 2000);
-}
-
-```
-
-  </AccordionItem>
-</Accordion>
-
-We can try to compile this, using the following at the command line:
-
-```sh
-clang++ cheese-shop.cpp cheese-shop-test.cpp catch_amalgamated.cpp -l splashkit -o test -Wall
-```
-
-This should fail, as we have not yet coded the `new_cheese` function. The message you should get will be something like this:
-
-```txt
-Undefined symbols for architecture arm64:
-  "new_cheese(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, double, int)", referenced from:
-      CATCH2_INTERNAL_TEST_0() in cheese-shop-test-af1e39.o
-      CATCH2_INTERNAL_TEST_2() in cheese-shop-test-af1e39.o
-ld: symbol(s) not found for architecture arm64
-clang++: error: linker command failed with exit code 1 (use -v to see invocation)
-```
-
-### Passing the Tests
-
-Now we can start by implementing the code for the test. A true test driven style would aim to write as little code as possible, but enough to get the test to pass. This helps ensure that you have exhaustive test.
-
-Open your **cheese-shop.cpp** file and implement an initial version of `new_cheese`. Add in the parameters (but without defaults here - as the header takes care of these) but just have it return the default struct. Like this:
-
-```cpp
-#include "cheese-shop.h"
-
-cheese_data new_cheese(string name, double weight, int price_per_kg)
-{
-    cheese_data cheese;
-    return cheese;
-}
-```
-
-Now compile and run the program. You should see a report that looks like this:
-
-```txt
-Randomness seeded to: 3461913094
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-test is a Catch2 v3.8.1 host application.
-Run with -? for options
-
--------------------------------------------------------------------------------
-Cheese - Create new cheese with default values
--------------------------------------------------------------------------------
-cheese-shop-test.cpp:6
-...............................................................................
-
-cheese-shop-test.cpp:12: FAILED:
-  CHECK( cheese.weight == 0.0 )
-with expansion:
-  0.0 == 0.0
-
-cheese-shop-test.cpp:13: FAILED:
-  CHECK( cheese.price_per_kg == 0 )
-with expansion:
-  1830838720 (0x6d2061c0) == 0
-
--------------------------------------------------------------------------------
-Cheese - Provide name, weight, and price values for new cheese
--------------------------------------------------------------------------------
-cheese-shop-test.cpp:16
-...............................................................................
-
-cheese-shop-test.cpp:21: FAILED:
-  REQUIRE( cheese.name == "Cheddar" )
-with expansion:
-  "" == "Cheddar"
-
-===============================================================================
-test cases: 2 | 2 failed
-assertions: 4 | 1 passed | 3 failed
-```
-
-It shows that the tests have failed. The first test may pass, if you happen to have 0s in the right place on the stack initially, but that wasn't the case for me. So now we have the tests running, we can go ahead and make them pass.
-
-Add the code to initialise the `cheese` data within the `new_cheese` function using the parameters provided.
+Open your **cheese-shop.cpp** file and implement an initial version of `new_cheese`. Add in the parameters (but without defaults here - as the header takes care of these) and the code to initialise the `cheese` data within the `new_cheese` function using the parameters provided.
 
 <Accordion>
   <AccordionItem
     header="Code for new cheese"
   >
+
 ```cpp {6-8}
 #include "cheese-shop.h"
 
@@ -261,7 +117,7 @@ cheese_data new_cheese(string name, double weight, int price_per_kg)
   </AccordionItem>
 </Accordion>
 
-Once you have the tests passing, we can then turn to building a start at the command line interface version for the program. This will use the model, and provide the code that controls the actions on the model, and collects and displays information to the user.
+We can now turn to building a start at the command line interface version for the program. This will use the model, with code that controls the actions we want performed on the model using the Terminal to collect and display information to the user.
 
 ### Starting the command line interface
 
@@ -281,7 +137,8 @@ Here is some starter code. Start by building out the `main` function, and then a
 
 int main()
 {
-   //TODO create cheese here
+   //TODO: create cheese here
+   //TODO: print out the cheese
    return 0;
 }
 ```
@@ -319,7 +176,7 @@ int main()
   </AccordionItem>
 </Accordion>
 
-You can now compile this without the tests or the testing framework. Just pass in your model and cli code, as shown here:
+You can now compile and run this to test if it is working:
 
 ```sh
 clang++ cheese-shop.cpp cheese-shop-cli.cpp -l splashkit -o cheese-shop -Wall
@@ -335,9 +192,7 @@ Nothing special, but we have a start from which we can build.
 
 ### Refactoring print cheese
 
-At the moment we have some logic within `print_cheese` to determine how to represent a `cheese_data` value in text. This may be something that is useful elsewhere in the program and tests. Rather than having this logic in the CLI code, we can move this into the model.
-
-Create a `cheese_string` function that is passed a `cheese_data` value and a boolean indicating if full details are required. This should then use the C++ [format](https://en.cppreference.com/w/cpp/utility/format/format) function to convert the cheese value into a string. The string should contain the name of the cheese, its weight, and price (in dollars per kilogram).
+At the moment we have some logic within `print_cheese` to determine how to represent a `cheese_data` value in text. In expanding this, we could move this into its own function by creating a `cheese_string` function that is passed a `cheese_data` value and a boolean indicating if full details are required, and it does the formatting and returns a string. This can then use the C++ [format](https://en.cppreference.com/w/cpp/utility/format/format) function to convert the cheese value into a string. The string should contain the name of the cheese, its weight, and price (in dollars per kilogram).
 
 :::tip
 The first parameter to `format` is the format string, which can be used to customise the format of the variables injected within it. To format a floating point value (e.g. `double`) you can use something like this: `format("{:.2f}", my_double)`, this will format the output to have 2 decimal places in the output. You can use this to format the weight and price.
@@ -346,16 +201,18 @@ The first parameter to `format` is the format string, which can be used to custo
 :::caution
 The `format` function comes from the C++20 standard.
 To compile any code using `format` you will need to let the compiler know that you are wanting to use C++20.
-To do this, you can add the flag `-std=c++20` to your compilation command.
+To do this, you can add the flag `-std=c++20`, or a later version, to your compilation command.
 For example:
 
 ```sh
-clang++ format-test.cpp -std=c++20 -l splashkit -o test -Wall
+clang++ format-test.cpp -std=c++26 -l splashkit -o test -Wall
 ```
 
 :::
 
-Remember to start with the tests, and then add the code to make this functional. You will need to update the *cheese-shop.h* header with the new function, add tests to the *cheese-shop-test.cpp*, implement the logic in *cheese-shop.cpp*, and then change the way you print the cheese in the *cheese-shop-cli.cpp*.
+We now need to work out where this goes. Is it just related to the command line interface (CLI), or is it related to the model? We need it in the CLI, but I imagine that this may be useful if other ways of interacting with the model are introduced.
+
+To build this you will need to update the *cheese-shop.h* header with the new function, implement the logic in *cheese-shop.cpp*, and then change the way you print the cheese in the *cheese-shop-cli.cpp*.
 
 <Accordion>
   <AccordionItem
@@ -364,10 +221,9 @@ Remember to start with the tests, and then add the code to make this functional.
 
 For the **cheese-shop.h** we need to add in a new function header for the `cheese_string` function.
 
-```cpp {29-36}
-#include <string>
-
-using std::string;
+```cpp {28-35}
+#include "splashkit.h"
+#include "splashkit-arrays.h"
 
 /**
  * Data about a cheese within an order or in stock.
@@ -403,48 +259,7 @@ cheese_data new_cheese(string name = "", double weight = 0.0, int price_per_kg =
 string cheese_to_string(const cheese_data &cheese, bool full_details = false);
 ```
 
-For the **cheese-shop-test.cpp** I added the following:
-
-```cpp {6-36}
-#include "catch_amalgamated.hpp"
-#include "cheese-shop.h"
-
-//...
-
-TEST_CASE("Cheese - Convert cheese data to string")
-{
-    cheese_data cheese;
-    cheese = new_cheese("Cheddar", 1.5, 2000);
-
-    // Test full details
-    string result = cheese_to_string(cheese, true);
-    string expected = "Cheddar: 1.50 kg, $20.00";
-
-    REQUIRE(result == expected);
-
-    // Test without full details
-    result = cheese_to_string(cheese, false);
-    expected = "Cheddar";
-
-    REQUIRE(result == expected);
-
-    // Change the cheese details
-    cheese = new_cheese("Camembert");
-
-    result = cheese_to_string(cheese, false);
-    expected = "Camembert";
-
-    REQUIRE(result == expected);
-
-    // Shows defaults - and 0s
-    result = cheese_to_string(cheese, true);
-    expected = "Camembert: 0.00 kg, $0.00";
-
-    REQUIRE(result == expected);
-}
-```
-
-In the **cheese-shop.cpp** we implement the logic for this using the C++ format function.
+In the **cheese-shop.cpp** we can implement the logic for this using the C++ format function.
 
 ```cpp {15-28}
 #include "cheese-shop.h"
@@ -505,11 +320,17 @@ int main()
 
 ### Add in additional cheese functionality
 
-Now you can add unit tests and the code to make the following changes.
+Have a go at adding code to make the following changes.
 
 1. Add a `total_cost` function that accepts a `cheese_data` value and returns the cost (in cents) of that cheese. Test to ensure this works with different values, and include this in the output line.
 2. Extend the details in the cheese string to include the total cost, so that this outputs the total price of the cheese in addition to the name, weight, and price per kilogram.
 3. Create a `reduce_weight` function that accepts a reference to a `cheese_data` value, and is given a weight to reduce the cheese by. It should ignore negative values, and ensure that the final weight does not become negative. This will return the actual amount removed. For example, if you have 1.5 kg of cheese and attempt to reduce it by 1.7 kg then the resulting weight will be 0, and 1.5 will be returned. This will be used when orders are fulfilled in later iterations - you can add basic test code to the CLI to see this functioning.
 4. Create a `increase_weight` procedure that accepts a reference to a `cheese_data` value, and is given a weight to add to the cheese. This should ignore negative values, but otherwise add the passed in weight to the weight already present. This will be used when stock is re-supplied in later iterations - you can add basic test code to the CLI to see this functioning.
 
-For each of these, first develop the required unit tests and then add the code to the model and add something to the CLI version to see these working yourself.
+In each case, think about what you can put in the model and what needs to go into the CLI.
+
+:::tip
+
+Put as much as you can in the model - but it cannot include any code that interacts with the CLI (no `read_line`/`write_line` etc).
+
+:::

@@ -4,7 +4,7 @@ sidebar:
     label: " - Entity Modelling"
 ---
 
-Let's start by modelling the entities involved in the cheese shop. To do this we need to think up how we want to model the entities/data within our program. Remember that the way you organise these entities will greatly impact how your code works, so spending a little time to think about these now should help you see how the program will come together in the end.
+Let's start by modelling the entities involved in the cheese shop. To do this we need to think how we want to model the entities/data within our program. Remember that the way you organise these entities will greatly impact how your code works, so spending a little time to think about these now should help you see how the program will come together in the end.
 
 :::tip
 

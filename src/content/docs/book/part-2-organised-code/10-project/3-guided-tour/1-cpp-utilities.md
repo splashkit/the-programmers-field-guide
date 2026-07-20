@@ -33,7 +33,7 @@ Many modern languages will allow you to provide default values to parameters. Th
 
 ## Format
 
-Introduced in the 2020 version of C++ (known as C++20), the [format](https://en.cppreference.com/w/cpp/utility/format/format) function lets you easily create strings in a way similar to string interpolation we saw in C#.
+Introduced in the 2020 version of C++ (known as C++20), the [format](https://en.cppreference.com/w/cpp/utility/format/format) function lets you easily create strings in a way similar to string interpolation available in other languages.
 
 The format function uses a format string followed by the values to be inserted within the placeholders. Braces are used for the placeholders in the format string (`"{}"`) which may optionally include the index of the value to use, followed by a colon (`:`) and a [format specifier](https://en.cppreference.com/w/cpp/utility/format/basic_format_string).
 
