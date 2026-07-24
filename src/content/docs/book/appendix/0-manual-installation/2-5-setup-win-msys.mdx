@@ -4,10 +4,14 @@ sidebar:
   attrs:
     class: windows
   label: " - Windows (MSYS2)"
+tableOfContents:
+  minHeadingLevel: 2
+  maxHeadingLevel: 4
 ---
 
 import YouTube from '/src/components/YouTube.astro';
 import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+import { Accordion, AccordionItem } from 'accessible-astro-components'
 
 In this guide, we will walk through the steps to install the necessary Applications and Tools using **MSYS2** (**M**inimal **SYS**tem) on Windows. This will enable you to code in C++ and Python with SplashKit.
 
@@ -177,7 +181,7 @@ SplashKit is a beginner's all-purpose software toolkit that will allow you to cr
     skm windows install
     ```
 
-3. ### Install SplashKit Globally
+3. #### Install SplashKit Globally
 
     Finally, you will need to install the SplashKit Global Libraries. This will install the SplashKit libraries and library include files into the system's default global locations so that the compiler can find these files when building (compiling) programs created with SplashKit.
 
@@ -217,7 +221,7 @@ Once you have your code project set up, Visual Studio Code will be the main prog
     *You will need to close and reopen any currently open terminal windows after installing VS Code for the above commands to work.*
     :::
 
-2. ### Set up VS Code Terminal
+2. #### Set up VS Code Terminal
 
     Visual Studio Code has a built-in Terminal that you can use instead of needing to switch back and forth between VS Code and your **MINGW64** terminal window. You will need to update some settings to get this working with your **MINGW64** terminal.
 
@@ -230,160 +234,350 @@ Once you have your code project set up, Visual Studio Code will be the main prog
     :::note
     If this command was successful, you can now skip to the [Install VS Code Extensions](#install-vs-code-extensions) section.
 
-    If you get any errors, follow the steps below.
-    :::
+    If you encounter persistent issues with the command above, you can follow the alternative steps below to update the **settings.json** file manually:
 
-3. Open Visual Studio Code, then press `Ctrl` + `Shift` + `P` to open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
+    <Accordion>
+    <AccordionItem header="Click for alternative/manual steps">
+    <Steps>
 
-4. Start typing "Open user..." and then select **Open User Settings (JSON)** (shown in the orange box in the image below):
+    1. Open Visual Studio Code, then press `Ctrl` + `Shift` + `P` to open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
 
-    ![Image showing Command palette use to open User Setting (JSON) in VS Code window](./images/setup-windows/vscode-open-user-settings-json.png)
-    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
+    2. Start typing "Open user..." and then select **Open User Settings (JSON)** (shown in the orange box in the image below):
 
-    This will open the **settings.json** file that you can now edit.
+        ![Image showing Command palette use to open User Setting (JSON) in VS Code window](./images/setup-windows/vscode-open-user-settings-json.png)
+        <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
-5. Create a new line just before the last closing curly brace `}` at the end of the file, and then copy and paste the text below into that line:
+        This will open the **settings.json** file that you can now edit.
 
-    <Tabs syncKey="msys2-terminal-type">
-    <TabItem label="MINGW64 Terminal">
+    3. Create a new line after the first opening curly brace `{` at the start of the file, and then follow the steps below for your terminal type:
 
-    ```json
-        "terminal.integrated.profiles.windows": {
-            "PowerShell": {
-                "source": "PowerShell",
-                "icon": "terminal-powershell"
-            },
-            "Command Prompt": {
-                "path": [
-                    "${env:windir}/Sysnative/cmd.exe",
-                    "${env:windir}/System32/cmd.exe"
-                ],
-                "args": [ ],
-                "icon": "terminal-cmd"
-            },
-            "MSYS2": {
-                "path": "C:/msys64/usr/bin/bash.exe",
-                "args": [
-                    "--login",
-                    "-i"
-                ],
-                "env": {
-                    "MSYSTEM": "MINGW64",
-                    "CHERE_INVOKING": "1"
+        <Tabs syncKey="msys2-terminal-type">
+        <TabItem label="MINGW64 Terminal">
+
+        In the terminal run the following command to find out which version of `gcc` you have installed:
+
+        ```shell
+        gcc -dumpversion
+        ```
+
+        Click the tab with the corresponding version, and copy and paste the text into the empty line just after the first opening curly brace `{`:
+
+        <Tabs syncKey="gcc-version">
+        <TabItem label="16.1.0">
+
+        ```json
+            "terminal.integrated.profiles.windows": {
+                "PowerShell": {
+                    "source": "PowerShell",
+                    "icon": "terminal-powershell"
+                },
+                "Command Prompt": {
+                    "path": [
+                        "${env:windir}/Sysnative/cmd.exe",
+                        "${env:windir}/System32/cmd.exe"
+                    ],
+                    "args": [ ],
+                    "icon": "terminal-cmd"
+                },
+                "MSYS2": {
+                    "path": "C:/msys64/usr/bin/bash.exe",
+                    "args": [
+                        "--login",
+                        "-i"
+                    ],
+                    "env": {
+                        "MSYSTEM": "MINGW64",
+                        "CHERE_INVOKING": "1"
+                    }
                 }
-            }
-        },
-        "terminal.integrated.defaultProfile.windows": "MSYS2",
-        "terminal.integrated.env.windows": {
-            "MSYSTEM": "MINGW64",
-            "CHERE_INVOKING": "1"
-        },
-        "C_Cpp.default.systemIncludePath": [
-            "C:/msys64/mingw64/bin",
-            "C:/msys64/mingw64/include",
-            "C:/msys64/mingw64/include/c++/15.1.0",
-            "C:/msys64/mingw64/include/c++/15.1.0/x86_64-w64-mingw32",
-            "C:/msys64/mingw64/include/c++/15.1.0/backward",
-            "C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include",
-            "C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include-fixed",
-            "C:/msys64/mingw64/include/c++/15.2.0",
-            "C:/msys64/mingw64/include/c++/15.2.0/x86_64-w64-mingw32",
-            "C:/msys64/mingw64/include/c++/15.2.0/backward",
-            "C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include",
-            "C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include-fixed",
-            "${default}"
-        ],
-        "C_Cpp.default.compilerPath": "C:/msys64/mingw64/bin/gcc.exe",
-        "C_Cpp.default.intelliSenseMode": "gcc-x64",
-        "chat.disableAIFeatures": true,
-        "github.copilot.enable": {
-            "*": false
-        },
-        "workbench.secondarySideBar.defaultVisibility": "hidden",
-        "files.autoSave": "afterDelay",
-        "editor.formatOnSave": true
-    ```
-
-    </TabItem>
-
-    <TabItem label="CLANGARM64 Terminal">
-
-    ```json
-        "terminal.integrated.profiles.windows": {
-            "PowerShell": {
-                "source": "PowerShell",
-                "icon": "terminal-powershell"
             },
-            "Command Prompt": {
-                "path": [
-                    "${env:windir}/Sysnative/cmd.exe",
-                    "${env:windir}/System32/cmd.exe"
-                ],
-                "args": [],
-                "icon": "terminal-cmd"
+            "terminal.integrated.defaultProfile.windows": "MSYS2",
+            "terminal.integrated.env.windows": {
+                "MSYSTEM": "MINGW64",
+                "CHERE_INVOKING": "1"
             },
-            "Git Bash": {
-                "source": "Git Bash"
+            "C_Cpp.default.systemIncludePath": [
+                "C:/msys64/mingw64/bin",
+                "C:/msys64/mingw64/include",
+                "C:/msys64/mingw64/include/c++/16.1.0",
+                "C:/msys64/mingw64/include/c++/16.1.0/x86_64-w64-mingw32",
+                "C:/msys64/mingw64/include/c++/16.1.0/backward",
+                "C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/16.1.0/include",
+                "C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed",
+                "${default}"
+            ],
+            "C_Cpp.default.compilerPath": "C:/msys64/mingw64/bin/gcc.exe",
+            "C_Cpp.default.intelliSenseMode": "gcc-x64",
+            "chat.disableAIFeatures": true,
+            "github.copilot.enable": {
+                "*": false
             },
-            "MSYS2": {
-                "path": "C:/msys64/usr/bin/bash.exe",
-                "args": [
-                    "--login",
-                    "-i"
-                ],
-                "env": {
-                    "MSYSTEM": "CLANGARM64",
-                    "CHERE_INVOKING": "1"
+            "workbench.secondarySideBar.defaultVisibility": "hidden",
+            "files.autoSave": "afterDelay",
+            "editor.formatOnSave": true
+        ```
+
+        </TabItem>
+        <TabItem label="15.1.0">
+
+        ```json
+            "terminal.integrated.profiles.windows": {
+                "PowerShell": {
+                    "source": "PowerShell",
+                    "icon": "terminal-powershell"
+                },
+                "Command Prompt": {
+                    "path": [
+                        "${env:windir}/Sysnative/cmd.exe",
+                        "${env:windir}/System32/cmd.exe"
+                    ],
+                    "args": [ ],
+                    "icon": "terminal-cmd"
+                },
+                "MSYS2": {
+                    "path": "C:/msys64/usr/bin/bash.exe",
+                    "args": [
+                        "--login",
+                        "-i"
+                    ],
+                    "env": {
+                        "MSYSTEM": "MINGW64",
+                        "CHERE_INVOKING": "1"
+                    }
                 }
-            }
-        },
-        "terminal.integrated.defaultProfile.windows": "MSYS2",
-        "terminal.integrated.env.windows": {
-            "MSYSTEM": "CLANGARM64",
-            "CHERE_INVOKING": "1"
-        },
-        "C_Cpp.default.systemIncludePath": [
-            "C:/msys64/clangarm64/bin",
-            "C:/msys64/clangarm64/include",
-            "C:/msys64/clangarm64/include/c++/v1",
-            "${default}"
-        ],
-        "C_Cpp.default.compilerPath": "C:/msys64/clangarm64/bin/clang.exe",
-        "C_Cpp.default.intelliSenseMode": "windows-clang-arm64",
-        "chat.disableAIFeatures": true,
-        "github.copilot.enable": {
-            "*": false
-        },
-        "workbench.secondarySideBar.defaultVisibility": "hidden",
-        "files.autoSave": "afterDelay",
-        "editor.formatOnSave": true
-    ```
+            },
+            "terminal.integrated.defaultProfile.windows": "MSYS2",
+            "terminal.integrated.env.windows": {
+                "MSYSTEM": "MINGW64",
+                "CHERE_INVOKING": "1"
+            },
+            "C_Cpp.default.systemIncludePath": [
+                "C:/msys64/mingw64/bin",
+                "C:/msys64/mingw64/include",
+                "C:/msys64/mingw64/include/c++/15.1.0",
+                "C:/msys64/mingw64/include/c++/15.1.0/x86_64-w64-mingw32",
+                "C:/msys64/mingw64/include/c++/15.1.0/backward",
+                "C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include",
+                "C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include-fixed",
+                "C:/msys64/mingw64/include/c++/15.2.0",
+                "C:/msys64/mingw64/include/c++/15.2.0/x86_64-w64-mingw32",
+                "C:/msys64/mingw64/include/c++/15.2.0/backward",
+                "C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include",
+                "C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include-fixed",
+                "${default}"
+            ],
+            "C_Cpp.default.compilerPath": "C:/msys64/mingw64/bin/gcc.exe",
+            "C_Cpp.default.intelliSenseMode": "gcc-x64",
+            "chat.disableAIFeatures": true,
+            "github.copilot.enable": {
+                "*": false
+            },
+            "workbench.secondarySideBar.defaultVisibility": "hidden",
+            "files.autoSave": "afterDelay",
+            "editor.formatOnSave": true
+        ```
 
-    </TabItem>
-    </Tabs>
+        </TabItem>
+        <TabItem label="15.2.0">
 
-    :::note[Troubleshooting Notes:]
+        ```json
+            "terminal.integrated.profiles.windows": {
+                "PowerShell": {
+                    "source": "PowerShell",
+                    "icon": "terminal-powershell"
+                },
+                "Command Prompt": {
+                    "path": [
+                        "${env:windir}/Sysnative/cmd.exe",
+                        "${env:windir}/System32/cmd.exe"
+                    ],
+                    "args": [ ],
+                    "icon": "terminal-cmd"
+                },
+                "MSYS2": {
+                    "path": "C:/msys64/usr/bin/bash.exe",
+                    "args": [
+                        "--login",
+                        "-i"
+                    ],
+                    "env": {
+                        "MSYSTEM": "MINGW64",
+                        "CHERE_INVOKING": "1"
+                    }
+                }
+            },
+            "terminal.integrated.defaultProfile.windows": "MSYS2",
+            "terminal.integrated.env.windows": {
+                "MSYSTEM": "MINGW64",
+                "CHERE_INVOKING": "1"
+            },
+            "C_Cpp.default.systemIncludePath": [
+                "C:/msys64/mingw64/bin",
+                "C:/msys64/mingw64/include",
+                "C:/msys64/mingw64/include/c++/15.2.0",
+                "C:/msys64/mingw64/include/c++/15.2.0/x86_64-w64-mingw32",
+                "C:/msys64/mingw64/include/c++/15.2.0/backward",
+                "C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include",
+                "C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include-fixed",
+                "${default}"
+            ],
+            "C_Cpp.default.compilerPath": "C:/msys64/mingw64/bin/gcc.exe",
+            "C_Cpp.default.intelliSenseMode": "gcc-x64",
+            "chat.disableAIFeatures": true,
+            "github.copilot.enable": {
+                "*": false
+            },
+            "workbench.secondarySideBar.defaultVisibility": "hidden",
+            "files.autoSave": "afterDelay",
+            "editor.formatOnSave": true
+        ```
 
-    - If you already have some settings included in this file, you will need to add a comma `,` after the last line before the closing curly brace `}`, then press Enter and paste the code shown above.
-    - If you already see code that looks similar to the code above, you may need to copy only small parts to match the code above.
-    - The `"terminal.integrated.defaultProfile.windows": "MSYS2",` line of the code above will set your default profile, so that it will automatically use the MSYS2 (MINGW64) terminal. You can also read this [article](https://code.visualstudio.com/docs/terminal/profiles) to see other ways to set the default terminal.
+        </TabItem>
+        <TabItem label="x.y.z">
 
+        If you have a different version, copy the version number from the `gcc -dumpversion` command to replace the "x.y.z" code in the paths inside the "C_Cpp.default.systemIncludePath" setting after you have pasted the following code:
+
+        ```json
+            "terminal.integrated.profiles.windows": {
+                "PowerShell": {
+                    "source": "PowerShell",
+                    "icon": "terminal-powershell"
+                },
+                "Command Prompt": {
+                    "path": [
+                        "${env:windir}/Sysnative/cmd.exe",
+                        "${env:windir}/System32/cmd.exe"
+                    ],
+                    "args": [ ],
+                    "icon": "terminal-cmd"
+                },
+                "MSYS2": {
+                    "path": "C:/msys64/usr/bin/bash.exe",
+                    "args": [
+                        "--login",
+                        "-i"
+                    ],
+                    "env": {
+                        "MSYSTEM": "MINGW64",
+                        "CHERE_INVOKING": "1"
+                    }
+                }
+            },
+            "terminal.integrated.defaultProfile.windows": "MSYS2",
+            "terminal.integrated.env.windows": {
+                "MSYSTEM": "MINGW64",
+                "CHERE_INVOKING": "1"
+            },
+            "C_Cpp.default.systemIncludePath": [
+                "C:/msys64/mingw64/bin",
+                "C:/msys64/mingw64/include",
+                "C:/msys64/mingw64/include/c++/x.y.z",
+                "C:/msys64/mingw64/include/c++/x.y.z/x86_64-w64-mingw32",
+                "C:/msys64/mingw64/include/c++/x.y.z/backward",
+                "C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/x.y.z/include",
+                "C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/x.y.z/include-fixed",
+                "${default}"
+            ],
+            "C_Cpp.default.compilerPath": "C:/msys64/mingw64/bin/gcc.exe",
+            "C_Cpp.default.intelliSenseMode": "gcc-x64",
+            "chat.disableAIFeatures": true,
+            "github.copilot.enable": {
+                "*": false
+            },
+            "workbench.secondarySideBar.defaultVisibility": "hidden",
+            "files.autoSave": "afterDelay",
+            "editor.formatOnSave": true
+        ```
+
+        </TabItem>
+        </Tabs>
+
+        </TabItem>
+
+        <TabItem label="CLANGARM64 Terminal">
+
+        ```json
+            "terminal.integrated.profiles.windows": {
+                "PowerShell": {
+                    "source": "PowerShell",
+                    "icon": "terminal-powershell"
+                },
+                "Command Prompt": {
+                    "path": [
+                        "${env:windir}/Sysnative/cmd.exe",
+                        "${env:windir}/System32/cmd.exe"
+                    ],
+                    "args": [],
+                    "icon": "terminal-cmd"
+                },
+                "Git Bash": {
+                    "source": "Git Bash"
+                },
+                "MSYS2": {
+                    "path": "C:/msys64/usr/bin/bash.exe",
+                    "args": [
+                        "--login",
+                        "-i"
+                    ],
+                    "env": {
+                        "MSYSTEM": "CLANGARM64",
+                        "CHERE_INVOKING": "1"
+                    }
+                }
+            },
+            "terminal.integrated.defaultProfile.windows": "MSYS2",
+            "terminal.integrated.env.windows": {
+                "MSYSTEM": "CLANGARM64",
+                "CHERE_INVOKING": "1"
+            },
+            "C_Cpp.default.systemIncludePath": [
+                "C:/msys64/clangarm64/bin",
+                "C:/msys64/clangarm64/include",
+                "C:/msys64/clangarm64/include/c++/v1",
+                "${default}"
+            ],
+            "C_Cpp.default.compilerPath": "C:/msys64/clangarm64/bin/clang.exe",
+            "C_Cpp.default.intelliSenseMode": "windows-clang-arm64",
+            "chat.disableAIFeatures": true,
+            "github.copilot.enable": {
+                "*": false
+            },
+            "workbench.secondarySideBar.defaultVisibility": "hidden",
+            "files.autoSave": "afterDelay",
+            "editor.formatOnSave": true
+        ```
+
+        </TabItem>
+        </Tabs>
+
+        :::tip[Troubleshooting Notes:]
+
+        - If you already have some settings included in this file, you will need to add a comma `,` after the last line before the closing curly brace `}`, then press Enter and paste the code shown above.
+        - If you already see code that looks similar to the code above, you may need to copy only small parts to match the code above.
+        - The `"terminal.integrated.defaultProfile.windows": "MSYS2",` line of the code above will set your default profile, so that it will automatically use the MSYS2 (MINGW64) terminal. You can also read this [article](https://code.visualstudio.com/docs/terminal/profiles) to see other ways to set the default terminal.
+
+        :::
+
+    4. Save the file for these changes to take effect.
+
+    5. Now you can open a new Terminal in VS Code with: ***Terminal* > *New Terminal*** (as shown below):
+
+        ![Image showing opening a new terminal in VS Code window](./images/setup-windows/new-terminal-vscode.png)
+        <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
+
+        :::tip[Using previous commands]
+
+        When you run a command in the terminal, you can press the *up arrow* key to scroll through your previous commands. These previous commands are stored in the `~/.bash_history` file.
+
+        :::
+
+    </Steps>
+
+    </AccordionItem>
+    </Accordion>
     :::
 
-6. Save the file for these changes to take effect.
-
-7. Now you can open a new Terminal in VS Code with: ***Terminal* > *New Terminal*** (as shown below):
-
-    ![Image showing opening a new terminal in VS Code window](./images/setup-windows/new-terminal-vscode.png)
-    <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
-
-    :::note[Using previous commands]
-
-    When you run a command in the terminal, you can press the *up arrow* key to scroll through your previous commands. These previous commands are stored in the `~/.bash_history` file.
-
-    :::
-
-8. ### Install VS Code Extensions
+3. #### Install VS Code Extensions
 
     The final step to complete the setup of VS Code is to install a few *Extensions* in VS Code.
 
@@ -409,31 +603,31 @@ Some coding languages require specific tools/frameworks to be installed to be ab
 
 As you will be coding in C++ and Python in this book, let's look at the tools needed for these languages:
 
-    {/* NOTE: Commented out C# Tools as no longer needed.
+{/* NOTE: Commented out C# Tools as no longer needed.
 
-    As you will be coding in C# and C++ in this book, let's look at the tools needed for these languages:
+<!-- As you will be coding in C# and C++ in this book, let's look at the tools needed for these languages:
 
-    ### C# Tools
+### C# Tools
 
-    For coding in C#, you will need to install the `.NET` SDK which will allow you to use the *dotnet* terminal command to create, build, and run your C# project code.
+For coding in C#, you will need to install the `.NET` SDK which will allow you to use the *dotnet* terminal command to create, build, and run your C# project code.
 
-    :::note[.NET Installation Video:]
-    <div class="not-content">
-    <YouTube id="lmJjNbPwAlw" params="fs=1&modestbranding=1&rel=0"/>
-    </div>
-    :::
+:::note[.NET Installation Video:]
+<div class="not-content">
+<YouTube id="lmJjNbPwAlw" params="fs=1&modestbranding=1&rel=0"/>
+</div>
+:::
 
-    <Steps>
+<Steps>
 
-    1. Download the latest version of the .NET SDK (currently .NET 10) for Windows from the official .NET website: [dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+1. Download the latest version of the .NET SDK (currently .NET 10) for Windows from the official .NET website: [dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
 
-    2. Run the downloaded installer and follow on-screen instructions.
+2. Run the downloaded installer and follow on-screen instructions.
 
-    </Steps>
+</Steps> -->
 
-    */}
+*/}
 
-### C/C++ Tools
+#### C/C++ Tools
 
 For coding in C++, you will need to have a C++ compiler installed to build your C++ code into a file you can use to run your program. Commonly used C++ compilers are `g++` and `clang++`, which can be installed with **GCC** (**G**NU **C**ompiler **C**ollection). You will also need to install **GDB** (**G**NU **D**e**b**ugger), which you can use when debugging C++ programs.
 
@@ -448,7 +642,7 @@ skm windows install
 
 :::
 
-### Python Tools
+#### Python Tools
 
 Similar to C++, if you have installed SplashKit successfully, then you will already have the necessary python3 package installed and ready for coding in Python!
 
