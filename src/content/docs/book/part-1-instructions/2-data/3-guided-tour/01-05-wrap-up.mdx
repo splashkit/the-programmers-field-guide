@@ -64,6 +64,7 @@ Do this in steps! Just like in the previous steps, do a small part, compile and 
 
         time_to_destination = remaining_distance / speed * MINUTES_PER_HOUR;
 
+        write_line();
         write_line("You will take another " + to_string(time_to_destination) + " minutes before you arrive");
 
         total_distance = distance + remaining_distance;
