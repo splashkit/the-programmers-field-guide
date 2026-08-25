@@ -295,6 +295,13 @@ img {
   font-weight: 800;
 }
 
+td, th {
+  /* Wraps long words naturally at spaces, breaks words only if they overflow the box */
+  overflow-wrap: break-word; 
+  /* Legacy support */
+  word-wrap: break-word;
+}
+
 /* --- END:   Figure, Table and Listing captions ------*/
 
 /* --- START: Review changes: Delete style contents once done reviewing ------*/
