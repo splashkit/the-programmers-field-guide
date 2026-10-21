@@ -11,7 +11,7 @@ In this program we will use a struct to represent a student's result in a unit a
 
 ## Unit result struct
 
-As we have seen [the previous task](/book/part-2-organised-code/2-structuring-data/3-guided-tour/0-2-explore-struct), we need to first consider what entities we want to work with.
+As we have seen [the previous task](/book/part-2-organised-code/2-structuring-data/3-guided-tour/0-1-explore-enums), we need to first consider what entities we want to work with.
 
 In our case, want to be able to see a student's results in a unit. This tells me that I likely want the unit's name, code, and somewhere to store the numerical score the student achieved in the unit.
 
@@ -77,7 +77,7 @@ Now we can build a `read_unit_result` function. This function will contain the c
 |   |   |
 |---|---|
 | **Function** | *Read Result* |
-| **Description** | Prompts the user for input for the unit code (string), unit name (string), and score (double). Use these values to initialise and return `unit_result` struct. |
+| **Description** | Prompts the user for input for the unit code (string), unit name (string), and score (integer). Use these values to initialise and return `unit_result` struct. |
 | **Return** | A `unit_result` struct with initialised fields for unit name, unit code and score. |
 
 Have a go at creating this function, and call it from within `main`. Store the data returned from `read_user_result` in a local variable so that we can use it later.
@@ -115,7 +115,7 @@ Now we have the data in the struct a procedure to write this to the terminal may
 
 |   |   |
 |---|---|
-| **Procedure** | *Write User Result* |
+| **Procedure** | *Write Unit Result* |
 | **Description** | Outputs the details of the user result in the format "unit code, unit name, score". Where the score is larger than or equal to 80 the message "congratulations" is added to the end. |
 
 <Accordion>
