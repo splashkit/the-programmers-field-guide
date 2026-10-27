@@ -16,7 +16,7 @@ In this guide, we will walk through the steps to install the necessary applicati
 
 Now, let's get started!
 
-## 1. Install MSYS2/MINGW64
+## 1. Install MSYS2
 
 <Steps>
 
@@ -32,38 +32,38 @@ Now, let's get started!
 
 </Steps>
 
-## 2. Open a MINGW64 (or CLANGARM64) Terminal
+## 2. Open a UCRT64 (or CLANGARM64) Terminal
 
 <Steps>
 
 3. MSYS2 comes with a number of terminal environments.
-   We want to use a specific one. To do this, open the Windows start menu, and search for "MINGW64" (or "CLANGARM64" if using a Windows ARM computer).
+   We want to use a specific one. To do this, open the Windows start menu, and search for "UCRT64" (or "CLANGARM64" if using a Windows ARM computer).
 
-    ![Image showing opening MSYS2 MINGW64 Terminal](./images/setup-windows/open-mingw64-terminal.png)
+    ![Image showing opening MSYS2 UCRT64 Terminal](./images/setup-windows/open-ucrt64-terminal.png)
     <div class="caption">Image not subject to The Programmer's Field Guide <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a></div>
 
-    :::note[Look for the blue icon]
+    :::note[Look for the gold icon]
     Not sure if you have the right one?
 
-    - The MINGW64 Terminal has a blue icon.
+    - The UCRT64 Terminal has a gold icon.
     - The CLANGARM64 Terminal has a green icon.
 
     :::
 
-4. Open the **MSYS2 MINGW64** (or **MSYS2 CLANGARM64**) Terminal using **"Run as Administrator"**.
+4. Open the **MSYS2 UCRT64** (or **MSYS2 CLANGARM64**) Terminal using **"Run as Administrator"**.
 
 </Steps>
 
-The following video shows how to install and open MSYS2 and the MINGW64 terminal.
+The following video shows how to install and open MSYS2 and the UCRT64 terminal.
 <div class="not-content">
-  <YouTube id="Hayjgo1Kqg0" params="fs=1&modestbranding=1&rel=0"/>
+  <YouTube id="BZKR0n95yEc" params="fs=1&modestbranding=1&rel=0"/>
 </div>
 
 ## 3. Run Automated Setup
 
 <Steps>
 
-5.  In the MINGW64 Terminal, run the following command:
+5.  In the UCRT64 Terminal, run the following command:
 
     ```bash
     curl -s "https://programmers.guide/resources/MSYS2_InstallScript.sh" | bash /dev/stdin
@@ -73,8 +73,8 @@ The following video shows how to install and open MSYS2 and the MINGW64 terminal
     This script may take a while to run (approx. 5-10 mins).
     :::
 
-6. Once the automated script has finished running, close the MINGW64 Terminal.
-7. Open a new MINGW64 Terminal.
+6. Once the automated script has finished running, close the UCRT64 Terminal.
+7. Open a new UCRT64 Terminal.
 8. Run the command `skm` to check SplashKit is installed correctly.
 
 </Steps>
