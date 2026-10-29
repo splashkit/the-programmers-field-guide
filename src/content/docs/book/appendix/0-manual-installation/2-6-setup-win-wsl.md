@@ -125,7 +125,7 @@ This script will install the following applications and tools:
 - gdb
 
 :::caution[Uninstall SplashKit in MSYS2 if it has been installed]
-Before running the automated script below, make sure to **uninstall SplashKit in the MSYS2/MINGW64 terminal** if you have installed it there.
+Before running the automated script below, make sure to **uninstall SplashKit in the MSYS2/UCRT64 terminal** if you have installed it there.
 
 You can uninstall SplashKit using the command: `skm uninstall`.
 
